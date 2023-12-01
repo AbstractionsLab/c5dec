@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 1
+level: 27
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: T-uFBOq-PTh2_sgWLq6R_qO_Pm15HI7KleCFZtbJ0po=
+risk: 1
+text: |
+  The C5-DEC software SHALL provide a feature for linking requirements and test cases to specific lines or definitions (e.g., function, class) in source code by using annotations that encode the corresponding requirement or test case ID.
+type: F
+urgency: 1
+vm: T

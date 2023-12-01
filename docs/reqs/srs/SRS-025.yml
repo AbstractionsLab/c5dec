@@ -1,0 +1,39 @@
+acceptance: "- The System implements a mechanism that assists in generating additional\
+  \ evaluation evidence\n as required by the EUCC.\n- The System provides guides that\
+  \ assist in tailoring existing evaluation evidence to be \nconformant with EUCC\
+  \ requirements.\n"
+active: true
+author: Heinrich
+date: 03.10.2023
+dependence: []
+derived: false
+difficulty: '3'
+header: |
+  Support Mechanism for EUCC Additional Evaluation Evidence
+importance: '3'
+level: 13.0
+links:
+- MRS-044: 2lpi84S-DbG-OkdOMMQ39vgc2UhtM6PvjNhjY0Xsu3Y=
+normative: true
+outlay: '4'
+rationale: "Implementing a support mechanism that assists in generating additional\
+  \ evaluation evidence and \nguides for tailoring existing evidence to conform with\
+  \ EUCC requirements ensures that the system adheres to \nrelevant regulatory standards\
+  \ and efficiently navigates the EUCC evaluation process. This not only \nfosters\
+  \ compliance and mitigates regulatory risks but also enhances the robustness and\
+  \ credibility of \nthe system by aligning it with established European cybersecurity\
+  \ standards and practices.\n"
+ref: ''
+reviewed: ax5RJVN-TyHfMetOJWqI6EWKy7OT8bqsxeew3-dBb8w=
+risk: '1'
+status: Open
+text: |
+  As a Security Evaluator, I want the system to implement a support mechanism that assists in
+  generating additional evaluation evidence and provides guides for tailoring existing evaluation
+  evidence, so that I can ensure that all produced evidence is conformant with EUCC requirements and navigate
+  the EUCC evaluation process effectively and efficiently.
+
+  1. TBA
+type: F
+urgency: '1'
+version: '1.0'

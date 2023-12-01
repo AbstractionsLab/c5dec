@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 30
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: WD1oJQp095vxiYGs3qr31riG3NJviA8QU4IdXlf8gEk=
+risk: 1
+text: |
+  The C5-DEC software SHALL include a feature in its Common Criteria Toolbox (CC) that can store SFRs/SARs in the same open file format used for storing all other artifacts.
+type: F
+urgency: 3
+vm: T

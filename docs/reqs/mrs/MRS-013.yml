@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 4
+level: 13
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: KW9GtoSvCrzhhobUetWPDLGpTJKdu7yryo2YDPa5fIs=
+risk: 1
+text: |
+  The C5-DEC software SHOULD allow the user to add/attach labels or tags to its artifacts, e.g., TC, REQ, DIA, etc.
+type: F
+urgency: 3
+vm: T

@@ -1,0 +1,18 @@
+active: true
+comments: |
+  The correctness of the data for valid CC elements is already covered (and has been tested) in TST-001. The reported defect fails to inform the user about data not existing in the CC.
+defect_category: '2'
+defect_description: |
+  The CLI application crashes if an invalid <ID> for a CC element is provided. This defect has been reported as bug #18 in the CAD GitLab repository.
+derived: false
+header: ''
+level: '1.10'
+links:
+- TST-011: unry1JPOl_QPjlhZw5eJ1fVUZn5DVk1FSJvFU1JyF60=
+normative: true
+ref: ''
+reviewed: MSbeLxmECTPYCgYljbaLNoNEUTuCAQp74kHEmH6Egs4=
+test_date: 28-11-2023
+tester: IVS
+text: |
+  Test execution results for the TST in the parent link.

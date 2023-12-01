@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 20
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: 7KgePQQEBsHtuLdo71R5FCmI2oBcRq-34IGxyzNlOwk=
+risk: 1
+text: |
+  The C5-DEC software SHALL provide user authentication.
+type: F
+urgency: 4
+vm: R

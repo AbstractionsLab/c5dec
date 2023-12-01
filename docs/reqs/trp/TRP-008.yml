@@ -1,0 +1,16 @@
+active: true
+comments: ''
+defect_category: '0'
+defect_description: ''
+derived: false
+header: ''
+level: 1.7
+links:
+- TST-008: MfgzCXcFUlzqq_HD4QjssVyjIBn_p4zXqZUwvmiBCC8=
+normative: true
+ref: ''
+reviewed: OAJ1RG68RaHbWdG19CznIObdJlidD7eATHRh3cRoVhs=
+test_date: 28-11-2023
+tester: IVS
+text: |
+  Test execution results for the TST in the parent link.

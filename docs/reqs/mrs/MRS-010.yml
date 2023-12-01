@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 10
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: oCDf1cbQMWEWb5dqlyP4vS8bycjAyA8qxRX68GFdkfE=
+risk: 1
+text: |2
+   The C5-DEC software SHALL provide requirements traceability.
+type: F
+urgency: 5
+vm: T

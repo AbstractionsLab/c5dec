@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 4
+level: 54
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: hsrYhAEKcsZhJR4D-hnYN_MzhNbY5gOOmC_jtvdhhAY=
+risk: 1
+text: |
+  The CPSSA report of the C5-DEC knowledge base SHALL include a system/product-oriented (Cyber)Security Risk Management method and a Security Risk Assessment (SRA) Model.
+type: C
+urgency: 3
+vm: R

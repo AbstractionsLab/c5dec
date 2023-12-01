@@ -1,0 +1,16 @@
+active: true
+comments: Not implemented for the Alpha release.
+defect_category: n/a
+defect_description: ''
+derived: false
+header: ''
+level: 1.14
+links:
+- TST-015: 9x6W8UG8B3MGTq3JM9SzIyjqx1ViiSRVwr_xTN0uMIQ=
+normative: true
+ref: ''
+reviewed: feroovRaOs2wxpxvL0k9Op7plfgp2QKdghQIr7-TGMU=
+test_date: 27-11-2023
+tester: IVS
+text: |
+  Test execution results for the TST in the parent link.

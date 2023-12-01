@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 9
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: FUiAzbF19iQTFzjMVos3U3h0xr5o0kZtO4EztCjPzoU=
+risk: 1
+text: |
+  The C5-DEC software SHALL provide a requirements management functionality that can create requirement hierarchies.
+type: F
+urgency: 5
+vm: T

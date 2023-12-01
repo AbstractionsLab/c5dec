@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 29
+links: []
+normative: true
+rationale: Ease of use and efficiency
+ref: ''
+reviewed: r6jJG4rEs2-64LSsU96EBJuy5Re3Evzh0HlxBipWmNY=
+risk: 1
+text: |
+  The C5-DEC software SHOULD allow the user to search and filter artifacts using labels or tags.
+type: F
+urgency: 3
+vm: T

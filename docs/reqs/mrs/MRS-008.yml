@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 8
+links: []
+normative: true
+rationale: Maturity, features, widely available tool support and documentation
+ref: ''
+reviewed: A9fs9zyX5jr508skvLtm-yLv4E7rQICBM_JLJlsOXYs=
+risk: 1
+text: |
+  The C5-DEC software SHOULD use the git version control software.
+type: F
+urgency: 5
+vm: R

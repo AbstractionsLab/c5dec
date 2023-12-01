@@ -1,0 +1,19 @@
+settings:
+  digits: 3
+  parent: AFML
+  prefix: ACOM
+  itemformat: markdown
+  sep: '-'
+attributes:
+  defaults:
+    Id: ''
+    Name: ''
+    Dependencies: ''
+    Objectives: ''
+    AppNotes: ''
+  publish:
+    Dependencies: ''
+    Objectives: ''
+    AppNotes: ''
+  reviewed:
+    - Dependencies

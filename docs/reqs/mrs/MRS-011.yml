@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 11
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: 2I3hEbfIpxOmYTQhxmXrgySp8koMf5t14Tlc8jjtLPQ=
+risk: 1
+text: |
+  The C5-DEC software SHALL provide a V&V feature for creating test cases/procedures and generating test reports.
+type: F
+urgency: 3
+vm: T

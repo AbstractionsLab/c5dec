@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 4
+links: []
+normative: true
+rationale: To ensure traceability
+ref: ''
+reviewed: RJJoMNLoIJ89tmxX6JYe4AFYWP718Uhvgmxk9-d6qvE=
+risk: 1
+text: |
+  The C5-DEC software SHALL identify all its stored artifacts using a unique identifier.
+type: F
+urgency: 5
+vm: T

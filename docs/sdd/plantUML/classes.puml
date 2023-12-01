@@ -1,0 +1,280 @@
+@startuml classes
+set namespaceSeparator none
+<style>
+title {
+  FontSize 35
+}
+map {
+  BackgroundColor azure
+  FontSize 25
+  FontStyle bold
+}
+class<<BaseClass>> {
+  BaseClass {
+    BackgroundColor lightblue
+  }
+}
+class<<BaseBuilder>> {
+  BaseBuilder {
+    BackgroundColor business
+  }
+rectangle {
+  FontSize 25
+}
+}
+</style>
+skinparam linetype ortho
+skinparam dpi 300
+skinparam nodesep 40
+skinparam ranksep 10
+
+title "Class Diagram"
+
+together {
+  rectangle "c5dec.core" {
+    rectangle "isms" {
+      class ActivityReport {
+        activity_report : dict
+        author : str
+        authors
+        beginning_date : int
+        folders : dict
+        path : str
+        get_activity_report()
+        get_authors()
+        get_date_and_event(folder, file)
+        get_days_in_month(month, year)
+        get_user(filename)
+        save_to_csv(csv_file)
+        scandir()
+        set_date(months, days, hours)
+      }
+      class WordTagProcessor {
+        csv_path
+        default_link : str
+        doc
+        doc_path
+        ignore_missing_tag_mapping : bool
+        keep_style : bool
+        output_name : str
+        params_are_set : bool
+        paras
+        regex_text : str
+        tag_dictionary : NoneType
+        tag_regex
+        convert_tags_to_hyperlinks(keep_style)
+        create_hyperlink_element(p, link)
+        create_hyperlink_run(hyperlink_element, link_text, para, run)
+        create_run_element()
+        create_text_element(text)
+        delete_para(p)
+        extend_para(p, text, tag, link, skip_tag)
+        process_paras_for_tags()
+        read_csv_into_dict(filepath)
+        rebuild_para(p, text1, tag, text2, link)
+        rebuild_paras_for_tags()
+        set_params(doc_path, csv_path, regex_text, ignore_missing_tag)
+      }
+      class DocListAssistant {
+        doc_scan_path : str
+        doclist : list
+        doclist_path : str
+        folders : dict
+        unlisted_docs : list
+        used_filename_column_name : str
+        get_unlisted_docs()
+        save_to_csv(csv_file)
+        scandir()
+      }
+      ActivityReport -[hidden]- WordTagProcessor
+    }
+
+    rectangle "pm" {
+      class TimeReportAssistant {
+        apply_filters : bool
+        consolidated_tsh_df : NoneType
+        df : NoneType
+        filter_field : str
+        filter_field_value : str
+        from_date : NoneType
+        input_file_path : str
+        to_date : NoneType
+        tsh_folder_path : str
+        add_missing_columns(df)
+        clean_consolidated_dataframe()
+        consolidate_timesheets()
+        convert_openproject_time_report_to_IAL_format()
+        extract_time_interval(df, start_col_name, end_col_name, duration_col_name)
+        get_staff_acronyms_dictionary()
+        get_timerep_fields()
+        make_date_field(row)
+        read_csv_to_df(csv_path) -> pd.DataFrame
+        read_tshparams_config_into_dict()
+        replace_key_with_value_in_df_column(dataframe, df_col_name, key_list, value_list)
+        save_consolidated_tsh_df_to_excel() -> None
+        save_processed_timerep_df_to_excel() -> None
+        set_timerep_parameters(source_folder, apply_filters, from_date, to_date, filter_field, filter_field_value)
+        set_tsh_folder_path(path)
+      }
+    }
+
+    rectangle "cct" {
+      note right of cct {
+        "See 'Class Diagram: c5dec.core.cct"
+      }
+    }
+
+    pm -[hidden]down- cct
+    cct -[hidden]right- isms
+  }
+
+  rectangle "c5dec.frontend" {
+
+    rectangle "tui" as TUI {
+      rectangle "foundation" {
+        rectangle "menu" {
+          class BaseView {
+            builder : NoneType
+            controller
+            data_model
+            menu_title : str
+            root_menu
+            assemble()
+            back()
+            clear_text_fields(field_list)
+            get_data_model()
+            get_menu_title()
+            get_value_from_json(key, default_value)
+            quit()
+            setController(controller)
+            set_data_model(model)
+            set_menu_title(title)
+          }
+          class Menu {
+            functions : dict
+            name
+            root_menu : NoneType
+            submenus : dict
+            add_function(name, classtype, data_model)
+            add_menu(name)
+            get_all_submenus()
+            get_functions()
+            get_nested_submenu(list)
+            get_path()
+            get_ref_to_app()
+            get_submenu(name)
+            get_submenus()
+          }
+          class MenuView {
+            builder
+            functions
+            listbox_functions : ListBox
+            listbox_submenus : ListBox
+            model
+            submenus
+            insert(widget, options)
+            launch_function()
+            launch_scene(widget_name, scene_list)
+            launch_submenu()
+            set_options()
+          }
+          class PopUpMenu {
+            builder : NoneType
+            palette : dict
+            assemble()
+          }
+        }
+        rectangle "builder" {
+          class Builder {
+            title
+            widgets : list
+            addButton(text, on_click, position, gap, gap_height, name)
+            addChoose(name, options, on_change, position, gap, gap_height)
+            addCopyButton(text_field, position)
+            addDivider(draw_line, height, position)
+            addDropdownList(label, name, options, on_change, position, gap, gap_height)
+            addLayout(list, fill_frame)
+            addListBox(name, height, options, parser, on_change, on_select, position)
+            addPath(label, name, position)
+            addResult(label, name, copyButton)
+            addStatusBar(span)
+            addTable(height, titles, options, columns, position, name)
+            addText(label, name, on_change, position, validator, gap, gap_height, disabled)
+            addTickBox(label, name, on_change, position)
+            addWidget(widget, position, span)
+            add_date_picker(name, label, on_change)
+            add_label(label, position, gap, gap_height, disabled)
+            add_textbox(label, name, height, on_change, position, gap, gap_height, readonly, disabled)
+            build()
+            copyToClipboard(text)
+            disable(widget)
+            enable(widget)
+            update(frame)
+            zipOfList(options)
+          }
+        }
+      }
+      rectangle "application" {
+        class Application {
+          data_models : dict
+          menu_view : NoneType
+          demo(screen, scene, menu)
+          get_data_model(name)
+          get_value_from_json(key, default_value)
+          run()
+          setLanguage(lang)
+          set_data_model(name, model)
+        }
+      }
+    }
+
+    rectangle "cli" {
+
+    }
+  }
+}
+
+
+rectangle "c5dec.common" {
+  class C5decError {
+  }
+  class C5decInfo {
+  }
+  class C5decWarning {
+  }
+  class Capture {
+    catch : bool
+  }
+  together {
+    class HelpFormatter {
+    }
+    class WarningFormatter {
+      default_format
+      verbose_format
+      format(record)
+    }
+  }
+  C5decInfo -up|> C5decWarning
+  C5decWarning -up|> C5decError
+
+}
+
+rectangle "c5dec.psi" {
+  rectangle "security" {
+    class InputValidation {
+      validate_input_with_regex(input, regex)
+      validate_integer_input(input)
+    }
+  }
+}
+
+c5dec.psi -[hidden]up- c5dec.common
+
+
+
+Application --|> Menu
+MenuView --|> BaseView
+Builder --* MenuView : builder
+MenuView --* Application : menu_view
+
+@enduml

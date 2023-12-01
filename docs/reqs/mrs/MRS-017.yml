@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 17
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: -wwBD43VU-UTqTo7c1WR_PxHkDpTNV4SxWfXWT74fc8=
+risk: 1
+text: |
+  The C5-DEC software SHALL provide import and export functions that can import and export all its artifacts from and to using at least one open file format, e.g., CSV, JSON, Markdown, etc.
+type: F
+urgency: 3
+vm: T

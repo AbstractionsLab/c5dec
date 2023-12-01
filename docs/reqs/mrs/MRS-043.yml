@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 3
+level: 43
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: nUykKj5kzIjP2NUIFlvWFsfNR5Dk1bMI6Dchi_iIpRE=
+risk: 1
+text: |
+  The CC toolbox SHOULD provide means of automation for the generation of ORs and ETRs used during and as a result of CC CEM-based security evaluation.
+type: F
+urgency: 1
+vm: T

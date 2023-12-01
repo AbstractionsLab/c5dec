@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 59
+links: []
+normative: true
+rationale: See Mission Analysis.
+ref: ''
+reviewed: 3JmBbHebtuOyzq6j7ZRAT5MdhtkGYWHGnSvX2ngJ4M0=
+risk: 1
+text: |
+  The C5-DEC software SHALL enforce user management, access control, authentication, and authorization.
+type: S
+urgency: 4
+vm: R

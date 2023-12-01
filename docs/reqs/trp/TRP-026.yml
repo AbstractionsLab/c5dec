@@ -1,0 +1,16 @@
+active: true
+comments: ''
+defect_category: '[0-4]'
+defect_description: ''
+derived: false
+header: ''
+level: 1.25
+links:
+- TST-026: sRJYL8ruh8ih5cZEcz9CjU9VaqXNS-u8emf9MXK7EC4=
+normative: true
+ref: ''
+reviewed: Zhg6hmfo_Yj3RSvrPamD84pa-xLu1wm4KjxZVNypu28=
+test_date: 27-11-2023
+tester: AAT
+text: |
+  Test execution results for the TST in the parent link.

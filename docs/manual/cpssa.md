@@ -1,0 +1,7 @@
+# Cyber-Physical System Security Assessment (CPSSA)
+
+The CPSSA module largely delegates its functions to already existing open source software solutions such as [threagile](https://threagile.io/) for DevSecOps oriented threat modelling and security risk assessment (SRA), [ADTool](https://satoss.uni.lu/members/piotr/adtool/) for attack tree modelling and analysis, [Threat Dragon](https://owasp.org/www-project-threat-dragon/) for threat modelling and [Capella Darc Viewpoint](https://github.com/eclipse/capella-cybersecurity/wiki) for more advanced and detailed threat modelling using Capella, following the [ARCADIA method](https://en.wikipedia.org/wiki/Arcadia_(engineering)).
+
+For more information, we refer the reader to our CPSSA report, published as part of the knowledge base elements of C5-DEC. In our CPSSA report, in addition to providing a literature review, we describe our threat modelling and security risk assessment method adapted to the Common Criteria, while building on best practices and well-established methods such as the hybrid method developed by the software engineering institute (SEI) of Carnegie Mellon University (CMU).
+
+CPSSA features currently planned for future development and releases of the C5-DEC CAD component include export of assets for direct use by threagile and the [TRICK Service](https://www.trickservice.com/) web application for risk management.

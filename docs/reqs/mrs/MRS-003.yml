@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 3
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: qmKbETTl3eXCNHKFr0-F5HFssRoUdagVVVDvfnLVgK0=
+risk: 1
+text: |
+  The C5-DEC software SHALL store system artifact specifications (e.g., requirements, test cases, design diagram), created using its own suite of tools, in an open file format.
+type: F
+urgency: 5
+vm: T

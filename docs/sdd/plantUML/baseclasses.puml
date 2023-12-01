@@ -1,0 +1,370 @@
+@startuml classes
+set namespaceSeparator none
+
+<style>
+title {
+  FontSize 50
+}
+</style>
+skinparam linetype ortho
+skinparam dpi 300
+skinparam nodesep 50
+skinparam ranksep 50
+
+left to right direction
+
+title "c5dec.core.cct"
+
+note right of BaseClass {
+  "If not explicitly indicated otherwise all Classes presented here inherit from BaseClass"
+}
+
+class "BaseClass" as BaseClass {
+  attrib
+  children : list
+  container : list
+  parent : NoneType
+  text : str
+  clone()
+  collector(target, mode)
+  contains(element)
+  get_ancestors()
+  get_child_by_id(child_id)
+  get_children()
+  get_descendants(visited)
+  get_formatted_text(level)
+  get_item_tree(pretty_print)
+  get_parent()
+  get_siblings()
+  has_valid_id()
+  has_valid_name()
+  is_empty()
+  is_valid()
+}
+rectangle "Assurance" {
+  class "AClass" as AClass {
+    ac_application_notes : NoneType
+    ac_introduction : NoneType
+    ac_overview : NoneType
+    family : list
+    ma_application_note : NoneType
+    ma_introduction : NoneType
+    ma_objectives : NoneType
+    is_valid()
+  }
+  class "AFamily" as AFamily {
+    af_application_notes : NoneType
+    af_levelling_criteria : NoneType
+    af_objectives : NoneType
+    af_overview : NoneType
+    
+    is_valid()
+  }
+  class "AComponent" as AComponent {
+    aco_application_notes : NoneType
+    aco_objectives : NoneType
+    dependencies : list
+    elements : list
+    hierarchical : list
+    input
+    msa_application_notes : NoneType
+    msa_input : NoneType
+    msa_objectives : NoneType
+    get_dependency_pool(d_pool, visited)
+    get_formatted_text(level)
+    get_hierarchical_tree(h_tree, visited)
+    is_valid()
+  }
+  class "AElement" as AElement {
+    VALID_TYPES : list
+    list : list
+    operation : list
+    requirement : str
+    type : NoneType
+    get_formatted_text(level)
+    is_valid()
+  }
+  class "WorkUnit" as WorkUnit {
+    dc_element : list[DCElement]
+    get_formatted_text(level)
+    is_valid()
+  }
+  class "DCElement" as DCElement {
+  }
+
+}
+
+rectangle "Functional" {
+  class "FClass" as FClass {
+    family
+    fc_informative_notes : NoneType
+    fc_introduction : NoneType
+    is_valid()
+  }
+  class "FFamily" as FFamily {
+    
+    ff_application_notes : NoneType
+    ff_behaviour : NoneType
+    ff_evaluator_notes : NoneType
+    ff_user_notes : NoneType
+    is_valid()
+  }
+  class "FComponent" as FComponent {
+    audit : NoneType
+    dependencies : list
+    element
+    fco_evaluator_notes : NoneType
+    fco_levelling : NoneType
+    fco_rationale : NoneType
+    fco_user_notes : NoneType
+    hierarchical : list
+    management : NoneType
+    get_dependency_pool(d_pool, visited)
+    get_formatted_text(level)
+    get_hierarchical_tree(h_tree, visited)
+    is_valid()
+  }
+  class "FCoAudit" as FCoAudit {
+    VALID_LEVEL : list
+    isequal : NoneType
+    level : str
+    text : str
+    get_formatted_text(level)
+    is_valid()
+  }
+  class "FCoManagement" as FCoManagement {
+    isequal : NoneType
+    text : str
+    get_formatted_text(level)
+    is_valid()
+  }
+  class "FElement" as FElement {
+    list : NoneType
+    operation : list
+    requirement : str
+    get_formatted_text(level)
+    is_valid()
+  }
+  class "Operation" as Operation {
+    VALID_TYPES : list
+    exclusive : str
+    item : list
+    note : NoneType
+    type : NoneType
+    get_formatted_text(level)
+    is_valid()
+  }
+  class "FEItem" as FEItem {
+    list : list
+    operation : list
+    get_formatted_text(level)
+    is_valid()
+  }
+  class "FEList" as FEList {
+    item : list
+    get_formatted_text(level)
+    is_valid()
+  }
+}
+
+rectangle "Common" {
+  class "ParaSequence" as ParaSequence {
+    acronym : list
+    attrib
+    biblioentry : list
+    container : list
+    example : list
+    figure : list
+    glossentry : list
+    original_tag : NoneType
+    para : list
+    parent : NoneType
+    subclause : list
+    table : list
+    text : str
+    build(node, parent_obj)
+    get_formatted_text(level)
+  }
+  class "Clause" as Clause {
+    VALID_CATEGORY : list
+    VALID_TYPES : list
+    attrib
+    category : str
+    original_tagname_
+    parent : NoneType
+    patch : NoneType
+    title : NoneType
+    type : str
+    get_formatted_text(level)
+  }
+  class "SubClause" as SubClause {
+    attrib
+    parent : NoneType
+    patch : NoneType
+    title : NoneType
+    get_formatted_text(level)
+  }
+  class "Para" as Para {
+    VALID_TYPES : tuple
+    attrib
+    container : list
+    level : str
+    parent : NoneType
+    patch : NoneType
+    text : str
+    title : NoneType
+    type : str
+    build(node, parent_obj)
+    get_formatted_text(level)
+  }
+  class "List" as List {
+    VALID_TYPE : list
+    container : list
+    item : list
+    parent : NoneType
+    text : str
+    type : str
+    build(node, parent_obj)
+    get_formatted_text(level)
+  }
+  class "Item" as Item {
+    container : list
+    parent : NoneType
+    text : str
+    build(node, parent_obj)
+    get_formatted_text(level)
+  }
+  class "Table" as Table {
+    container : list
+    original_tag
+    parent : NoneType
+    tgroup : list
+    title : NoneType
+    build(node, parent_obj)
+    get_formatted_text(level)
+  }
+  class "TGroup" as TGroup {
+    cols : int
+    original_tag
+    parent : NoneType
+    tbody : NoneType, list
+    tfoot : list, NoneType
+    thead : list, NoneType
+    build(node, parent_obj)
+    get_formatted_text()
+  }
+  class "TEntry" as TEntry {
+    align : str
+    columnspan : int
+    container : list
+    original_tag
+    parent : NoneType
+    rowspan : int
+    style : NoneType
+    width : int
+    build(node, parent_obj)
+    get_formatted_text()
+  }
+  class "TRow" as TRow {
+    entry : list
+    original_tag
+    parent : NoneType
+    build(node, parent_obj)
+    get_formatted_text(columns)
+  }
+  class "Example" as Example {
+    exampledef : NoneType
+    exampleterm : NoneType
+    original_tag
+    parent : NoneType
+    build(node, parent_obj)
+  }
+  class "Text" as Text {
+    text : NoneType
+    empty_text()
+    get_formatted_text(level)
+    is_valid()
+    set_text(value)
+  }
+
+  Clause -down-|> ParaSequence
+  SubClause -up-|> ParaSequence
+}
+
+
+Assurance -left- BaseClass
+Functional -right- BaseClass
+Common -up- BaseClass
+
+
+
+class "Bold" as Bold {
+  text : str
+  get_formatted_text(level)
+}
+
+class "CCDocument" as CCDocument {
+  a_class : list
+  cap : list
+  clause : list
+  eal : list
+  f_class : list
+  lang : str
+  revision : NoneType
+  version : NoneType
+  is_valid()
+}
+
+
+class "Italic" as Italic {
+  text : str
+  get_formatted_text(level)
+}
+
+
+class "Math" as Math {
+  text : NoneType
+  get_formatted_text(level)
+}
+
+class "Package" as Package {
+  acronym : NoneType
+  assurance_s : NoneType
+  children : list
+  s
+  objectives : NoneType
+  type : str
+  get_descendants(visited)
+  get_formatted_text(level)
+  is_valid()
+  link_s()
+}
+class "URL" as URL {
+  attrib
+  parent : NoneType
+  text : str
+  title : NoneType
+  build(node, parent_obj)
+  get_formatted_text(level)
+}
+
+class "XRef" as XRef {
+  VALID_SHOW : list
+  container : list
+  fakeid : NoneType
+  parent : NoneType
+  show : str
+  tail : NoneType
+  text : str
+  build(node, parent_obj)
+  get_formatted_text(level)
+}
+
+
+
+
+
+
+
+
+@enduml

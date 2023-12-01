@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 2
+level: 16
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: y_ZJ7OiLxEiLugCJuVCMBOPVS0vR9W-3R_epVfYkIT4=
+risk: 1
+text: |
+  The C5-DEC software SHALL provide an ISMS feature for verifying the presence of the content of a folder in a document list tracking the said content.
+type: F
+urgency: 2
+vm: T

@@ -1,0 +1,21 @@
+active: true
+comments: |
+  The defect reported here is associated with issue #19 in the GitLab CAD repository.
+defect_category: '3'
+defect_description:
+- |
+  The CLI crashes when running the checklist command with 'tst' as evaluation checklist prefix (issue \#19)
+- |
+  The CLI crashes when running `$ poetry run c5dec checklist <prefix> --edit <item-id>` due to vim not being installed. When adding the `--editor code` option, it runs as expected
+derived: false
+header: ''
+level: '1.20'
+links:
+- TST-021: C8V-hTNyJPJOYvwmNeEdmXgPkJAohBXTSoKP1DlDoVo=
+normative: true
+ref: ''
+reviewed: pqyfoQuAa8tHulssCuX1Py8q_XsmjjwKK4O-27-aVpE=
+test_date: 27-11-2023
+tester: IVS
+text: |
+  Test execution results for the TST in the parent link.

@@ -1,0 +1,150 @@
+@startuml packages
+set namespaceSeparator none
+<style>
+title {
+  FontSize 50
+}
+</style>
+skinparam linetype ortho
+skinparam dpi 300
+skinparam nodesep 50
+skinparam ranksep 50
+
+
+title "Packages"
+
+package "c5dec" as c5dec {
+}
+package "c5dec.common" as c5dec.common {
+}
+package "c5dec.settings" as c5dec.settings {
+}
+
+package "c5dec.core" as c5dec.core {
+}
+package "c5dec.core.cct" as c5dec.core.cct {
+}
+package "c5dec.core.cpssa" as c5dec.core.cpssa {
+}
+package "c5dec.core.cryptography" as c5dec.core.cryptography {
+}
+package "c5dec.core.cysecanalysis" as c5dec.core.cysecanalysis {
+}
+package "c5dec.core.isms" as c5dec.core.isms {
+}
+package "c5dec.core.pm" as c5dec.core.pm {
+}
+package "c5dec.core.settings" as c5dec.core.settings {
+}
+package "c5dec.core.ssdlc" as c5dec.core.ssdlc {
+}
+package "c5dec.core.transformer" as c5dec.core.transformer {
+}
+
+package "c5dec.frontend" as c5dec.frontend {
+}
+package "c5dec.frontend.cli" as c5dec.frontend.cli {
+}
+package "c5dec.frontend.cli.commands" as c5dec.frontend.cli.commands {
+}
+package "c5dec.frontend.cli.main" as c5dec.frontend.cli.main {
+}
+package "c5dec.frontend.cli.utils" as c5dec.frontend.cli.utils {
+}
+
+package "c5dec.frontend.tui" as c5dec.frontend.tui {
+}
+package "c5dec.frontend.tui.application" as c5dec.frontend.tui.application {
+}
+package "c5dec.frontend.tui.foundation" as c5dec.frontend.tui.foundation {
+}
+package "c5dec.frontend.tui.foundation.builder" as c5dec.frontend.tui.foundation.builder {
+}
+package "c5dec.frontend.tui.foundation.menu" as c5dec.frontend.tui.foundation.menu {
+}
+package "c5dec.frontend.tui.miniapps" as c5dec.frontend.tui.miniapps {
+}
+package "c5dec.frontend.tui.miniapps.cctapp" as c5dec.frontend.tui.miniapps.cctapp {
+}
+package "c5dec.frontend.tui.miniapps.cpssaapp" as c5dec.frontend.tui.miniapps.cpssaapp {
+}
+package "c5dec.frontend.tui.miniapps.cryptographyapp" as c5dec.frontend.tui.miniapps.cryptographyapp {
+}
+package "c5dec.frontend.tui.miniapps.cysecanalysisapp" as c5dec.frontend.tui.miniapps.cysecanalysisapp {
+}
+package "c5dec.frontend.tui.miniapps.ismsapp" as c5dec.frontend.tui.miniapps.ismsapp {
+}
+package "c5dec.frontend.tui.miniapps.pmapps" as c5dec.frontend.tui.miniapps.pmapp {
+}
+package "c5dec.frontend.tui.miniapps.settingsapp" as c5dec.frontend.tui.miniapps.settingsapp {
+}
+package "c5dec.frontend.tui.miniapps.ssdlcapp" as c5dec.frontend.tui.miniapps.ssdlcapp {
+}
+package "c5dec.frontend.tui.miniapps.transformerapp" as c5dec.frontend.tui.miniapps.transformerapp {
+}
+package "c5dec.frontend.tui.main" as c5dec.frontend.tui.main {
+}
+
+package "c5dec.psi" as c5dec.psi {
+}
+package "c5dec.psi.graph" as c5dec.psi.graph {
+}
+package "c5dec.psi.search" as c5dec.psi.search {
+}
+package "c5dec.psi.security" as c5dec.psi.security {
+}
+
+c5dec *-down- c5dec.common
+c5dec *-down- c5dec.settings
+c5dec *-down- c5dec.core
+c5dec *-down- c5dec.frontend
+c5dec *-down- c5dec.psi
+
+c5dec.core *-- c5dec.core.cct
+c5dec.core *-- c5dec.core.cpssa
+c5dec.core *-- c5dec.core.cryptography
+c5dec.core *-- c5dec.core.cysecanalysis
+c5dec.core *-- c5dec.core.isms
+c5dec.core *-- c5dec.core.pm
+c5dec.core *-- c5dec.core.ssdlc
+c5dec.core *-- c5dec.core.transformer
+c5dec.core *-- c5dec.core.settings
+
+c5dec.frontend *-- c5dec.frontend.cli
+c5dec.frontend *-- c5dec.frontend.tui
+
+c5dec.frontend.cli *-- c5dec.frontend.cli.commands
+c5dec.frontend.cli *-- c5dec.frontend.cli.main
+c5dec.frontend.cli *-- c5dec.frontend.cli.utils
+
+c5dec.frontend.tui *-- c5dec.frontend.tui.application
+c5dec.frontend.tui *-- c5dec.frontend.tui.main
+c5dec.frontend.tui *-- c5dec.frontend.tui.foundation
+c5dec.frontend.tui *-- c5dec.frontend.tui.miniapps
+
+c5dec.frontend.tui.foundation *-- c5dec.frontend.tui.foundation.builder
+c5dec.frontend.tui.foundation *-- c5dec.frontend.tui.foundation.menu
+
+c5dec.frontend.tui.miniapps *-- c5dec.frontend.tui.miniapps.cctapp
+c5dec.frontend.tui.miniapps *-- c5dec.frontend.tui.miniapps.cpssaapp
+c5dec.frontend.tui.miniapps *-- c5dec.frontend.tui.miniapps.cryptographyapp
+c5dec.frontend.tui.miniapps *-- c5dec.frontend.tui.miniapps.cysecanalysisapp
+c5dec.frontend.tui.miniapps *-- c5dec.frontend.tui.miniapps.ismsapp
+c5dec.frontend.tui.miniapps *-- c5dec.frontend.tui.miniapps.pmapp
+c5dec.frontend.tui.miniapps *-- c5dec.frontend.tui.miniapps.settingsapp
+c5dec.frontend.tui.miniapps *-- c5dec.frontend.tui.miniapps.ssdlcapp
+c5dec.frontend.tui.miniapps *-- c5dec.frontend.tui.miniapps.transformerapp
+
+c5dec.psi *-down- c5dec.psi.graph
+c5dec.psi *-down- c5dec.psi.search
+c5dec.psi *-down- c5dec.psi.security
+
+
+
+c5dec.core.cct --> c5dec.common
+c5dec.core.cct --> c5dec.settings
+
+
+
+
+@enduml

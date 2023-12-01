@@ -1,0 +1,27 @@
+active: true
+authors: Heinrich
+derived: false
+expected_outcome: None
+header: |
+  Test navigating the Knowledge Base
+level: 1.4
+links:
+- SRS-014: RoD7_A5sGPfmsFgccJUmQYPQ3_v6_PZQ9Gc9l_4bW4o=
+normative: true
+platform: WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04
+precondition: ''
+ref: ''
+reference:
+- path: c5dec/assets/database/KnowledgeBase/0_MapofContent.md
+  type: file
+reviewed: Uxgykcbo5o-gM44ggsdH_d23v70CD2vBRV9LN2jv-hs=
+roles: ''
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Setup
+  - None
+  ## Test steps
+  1. follow steps in SRS
+  2. repeat for multiple Knowledge Articles
+verification_method: Review

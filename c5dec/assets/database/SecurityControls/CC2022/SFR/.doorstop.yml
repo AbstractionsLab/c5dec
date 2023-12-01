@@ -1,0 +1,10 @@
+settings:
+  digits: 3
+  parent: CC
+  prefix: CCC
+  itemformat: markdown
+  sep: '-'
+attributes:
+  defaults:
+    Acronym: ''
+    Name: ''

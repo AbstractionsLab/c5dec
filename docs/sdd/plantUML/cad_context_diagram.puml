@@ -1,0 +1,41 @@
+@startuml
+skinparam componentStyle rectangle
+skinparam linetype ortho
+
+[\n\n\nC5-DEC CAD\n front-end\n (CLI,TUI,GUI)\n\n\n] as cad
+
+[Developer] --> cad
+[Analyst] --> cad
+[Tester] --> cad
+[Project\nManager] --> cad
+
+
+[Open data store] -left-> [git]
+[Transformer] -down-> [Open data store]
+cad -up-> [Transformer]
+cad -up-> [Open data store]
+cad -right-> [REM]
+cad -right-> [V&V]
+cad -right-> [CC Toolbox]
+cad -right-> [Cryptography]
+cad -right-> [PM]
+cad -right-> [ISMS]
+cad -down-> [System artifact\nmanagement]
+
+[System artifact\nmanagement] -right-> [Open data store]
+[System artifact\nmanagement] -right-> [Cyber-physical\nsystem security\nanalysis]
+[System artifact\nmanagement] -right-> [REM]
+[System artifact\nmanagement] -r-> [V&V]
+[System artifact\nmanagement] -r-> [ISMS]
+[System artifact\nmanagement] -r-> [PM]
+[System artifact\nmanagement] -r-> [Cryptography]
+[System artifact\nmanagement] -r-> [CC Toolbox]
+[System artifact\nmanagement] --> [Cloud-based SW\ndev platforms\n(GitHub, GitLab)]
+
+[Threat\nmodelling and\nanalysis] --> [Open data store]
+[Cyber-physical\nsystem security\nanalysis] --> [Threat\nmodelling and\nanalysis]
+[Cyber-physical\nsystem security\nanalysis] --> [Risk management\nand assessment]
+[Risk management\nand assessment] --> [Open data store]
+
+
+@enduml

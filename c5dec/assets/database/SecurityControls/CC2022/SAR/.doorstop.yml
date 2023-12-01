@@ -1,0 +1,15 @@
+settings:
+  digits: 3
+  parent: CC
+  prefix: ACC
+  itemformat: markdown
+  sep: '-'
+attributes:
+  defaults:
+    Acronym: ''
+    applicationNotes: ''
+    Name: ''
+  publish:
+    applicationNotes: ''
+  reviewed:
+    - applicationNotes

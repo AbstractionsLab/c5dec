@@ -1,0 +1,36 @@
+{
+    "ALab-TSH-columns": [
+        "ACR",
+        "Date",
+        "MM",
+        "YYYY",
+        "Day",
+        "Type",
+        "Domain/Project name",
+        "Cust/WP",
+        "Task",
+        "Location",
+        "Start",
+        "End",
+        "Hours",
+        "Days",
+        "Description"
+    ],
+    "Alternative-TSH-columns": [
+        "ACR",
+        "Date",
+        "MM",
+        "YYYY",
+        "Day",
+        "Type",
+        "Domain/Project name",
+        "Cust/WP",
+        "Task",
+        "Location",
+        "Start",
+        "End",
+        "Hours",
+        "Days",
+        "Description"
+    ]
+}

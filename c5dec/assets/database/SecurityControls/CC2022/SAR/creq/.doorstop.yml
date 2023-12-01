@@ -1,0 +1,11 @@
+settings:
+  digits: 3
+  parent: ACOM
+  prefix: CREQ
+  itemformat: markdown
+  sep: '-'
+attributes:
+  defaults:
+    Id: ''
+  reviewed:
+    - Id

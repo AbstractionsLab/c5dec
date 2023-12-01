@@ -1,0 +1,40 @@
+active: true
+authors: Heinrich
+derived: false
+expected_outcome: None
+header: |
+  Inspect CC Database-DTD mapping
+level: 1.9
+links:
+- SRS-022: hsyVqqzuUw4TiipPek_omXOypBZnP6hcqHAC5sILBXg=
+normative: true
+platform: WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04
+precondition: ''
+ref: ''
+references:
+- keyword: TST-010
+  path: c5dec/core/cct.py
+  type: file
+- path: c5dec/assets/database/SecurityControls/cc3R5.xml
+  type: file
+reviewed: 4nZhUfu_ttBzXJPXKNFRn0RnkoHbaW2ExAsWI9xa5KQ=
+roles: ''
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Setup
+  1. None
+  ## Test steps
+  1. Inspect source code 'cct.py' and verify that each '!ELEMENT' in the CC DTD is correctly implemented,
+  i.e, verify that:
+
+    - each '!ELEMENT' is implemented as a class object,
+    - '#REQUIRED' attributes are implemented as object attributes and populated
+    with the object's _build_attributes() method.
+    - child elements of each '!ELEMENT' are implemented as object attributes and populated with the object's
+    _build_children() method.
+    - each object's is_valid() method validates that the required attributes (labelled as
+    '#REQUIRED' in the DTD) are (correctly) populated.
+    - semantic relationships between CC concepts are preserved in the implementation, i.e., hierarchical and
+    dependency relationships between CC concepts are appropriately implemented, e.g., as parent-child relations.
+verification_method: Inspection

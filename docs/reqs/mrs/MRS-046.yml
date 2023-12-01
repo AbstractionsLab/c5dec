@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 4
+level: 46
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: POkTStmeTpBjT_UVg6G9uMKvdSV7NPC2NKdtGYOQubk=
+risk: 1
+text: |
+  The C5-DEC software MAY provide a feature for cryptographically signing individual files and verifying digital signatures using GPG to verify the authenticity of a file, with an additional option to sign using a digital signature algorithm either from NIST PQC 2022 selected algorithms or the ENISA post-quantum cryptography integration study October 2022.
+type: F
+urgency: 3
+vm: T
