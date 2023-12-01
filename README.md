@@ -51,7 +51,7 @@ Check the [CAD user manual](./docs/manual/overview.md) to learn more about the s
 
 ## Getting Started
 
-C5-DEC CAD can be currently deployed using any of the following methods:
+C5-DEC CAD can be deployed using any of the following methods:
 
 - Installation via [pipx](https://pypa.github.io/pipx/) using the official [distribution file]() (recommended for end-users)
 - Installation in a containerized environment (recommended for developers)
@@ -70,21 +70,22 @@ C5-DEC CAD can be currently deployed using any of the following methods:
 
 Strictly speaking, a Doorstop installation is not required; nevertheless, we strongly recommend installing Doorstop such that it can be used in combination with C5-DEC CAD. This is mainly due to the fact that the SSDLC module in the current implementation of C5-DEC CAD does not provide a full coverage of the Doorstop API, which is why users may find it easier to carry out certain complementary operations using Doorstop.
 
-To install Doorstop, we recommend the following method using [pipx](https://pypa.github.io/pipx/) as it is rather straightforward. Once `pipx` is installed, simply run the following command:
+To install Doorstop, we recommend the following method using [pipx](https://pypa.github.io/pipx/) as it is rather straightforward. On a GNU/Linux distribution or MacOS, open a terminal (e.g., bash, Zsh) and execute the following commands:
+
+1. Install pipx if not already installed
+```sh
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+```
+
+2. Once `pipx` is installed, run the following command:
 ```sh
 $ pipx install doorstop==3.0b10
 ```
 
 #### Installation
 
-On a GNU/Linux distribution or MacOS, open a terminal (e.g., bash, Zsh) and execute the following commands: 
-
-```sh
-python3 -m pip install --user pipx
-python3 -m pipx ensurepath
-```
-
-Run the following command, assuming that the Wheel distribution file (.whl) is placed in the current directory:
+Run the following command, assuming that the Wheel distribution file (.whl) is placed in the current directory and pipx is installed (see instructions above):
 
 ```sh
 pipx install ./c5dec-0.1-py3-none-any.whl
@@ -110,7 +111,7 @@ The easiest and recommended way to get a local copy of the development environme
 
 #### Requirements
 
-The following instructions explain how to build C5-DEC CAD from the source code. The following pieces of software are necessary for setting up the C5-DEC CAD containerized environment.
+The following pieces of software are necessary for setting up the C5-DEC CAD containerized environment.
 
 * A local installation of [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 * [Visual Studio Code](https://code.visualstudio.com/) (VS Code)
