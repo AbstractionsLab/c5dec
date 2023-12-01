@@ -1,0 +1,40 @@
+acceptance: |
+  - Failed work units are visibly flagged.
+  - Items linked to the flagged work units are also flagged.
+  - Progress cannot continue until flagged items are addressed.
+active: true
+author: Heinrich
+date: 03.10.2023
+dependence:
+- SRS-037
+- SRS-036
+derived: false
+difficulty: '2'
+header: |
+  Flagging and Addressing Failed Work Units with Cascading Flags
+importance: '3'
+level: 18.4
+links:
+- MRS-032: zdmk414Ku_uKO9MC4dv6gH6-9PZsz3atEQm7cnls8UE=
+- MRS-043: nUykKj5kzIjP2NUIFlvWFsfNR5Dk1bMI6Dchi_iIpRE=
+normative: true
+outlay: '3'
+rationale: "Explicitly flagging failed work units and inhibiting progression until\
+  \ they are addressed ensures that \nissues are rectified promptly. Cascading these\
+  \ flags to linked items ensures a rigorous and thorough \nevaluation and validation\
+  \ process, maintaining the integrity and reliability of the evaluation and \ndevelopment\
+  \ process and ensuring that dependent elements are not overlooked.\n"
+ref: ''
+reviewed: OtP7TQoiHq7EnHyk6Ebg8NI4QD6udHv5xMbWVXWPeQg=
+risk: '1'
+status: Open
+text: |
+  As a User,
+  I want failed work units to be visibly flagged and to inhibit progression until resolved. Additionally,
+  I want all items linked to a flagged work unit to also be flagged,
+  so that all issues and potential dependent problems are duly addressed, ensuring a reliable, thorough,
+  and systematic evaluation and development process.
+  1. TBD.
+type: F
+urgency: '2'
+version: '1.0'

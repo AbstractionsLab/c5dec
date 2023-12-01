@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 4
+level: 37
+links: []
+normative: true
+rationale: See Mission Analysis; risk related to change in XML DTD
+ref: ''
+reviewed: sTsOMoKcRA4kWLCFswtK4SFJw0s7GRkTbYYZq6AueM4=
+risk: 3
+text: |
+  The CC toolbox SHOULD adopt a storage format that maintains a mapping to the available CC XML-file and that can be validated against the corresponding DTD file, either directly via  a 1-to-1 mapping between CCT DB of CC and the official CC XML or through a reference file providing the mapping.
+type: F
+urgency: 1
+vm: T

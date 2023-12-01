@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 12
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: BwaXe3Qt7OlsaE5P1N4hdxc_uB-pvzm-6f2A1McoMww=
+risk: 1
+text: |
+  The C5-DEC software MAY integrate an open-source testing framework/solution.
+type: F
+urgency: 5
+vm: R

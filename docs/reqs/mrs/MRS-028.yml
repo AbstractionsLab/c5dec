@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 28
+links: []
+normative: true
+rationale: Ease of use and efficiency
+ref: ''
+reviewed: 0wMvZpsI0k0abBN1wlwFJsYu7ztiq1DPVOWZXeE1SRs=
+risk: 1
+text: |
+  The C5-DEC software SHOULD allow the user to search and filter requirements using full-text search and all requirement attributes.
+type: F
+urgency: 1
+vm: T

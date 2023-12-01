@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 3
+level: 47
+links: []
+normative: true
+rationale: See Mission Analysis.
+ref: ''
+reviewed: fDMrtcZnvFmlCouSnQ7tDq7F-incJpyhp2GVnI_9EPI=
+risk: 4
+text: |
+  The C5-DEC software MAY provide a feature for public-key encryption using a PQC algorithm, selected either from the NIST PQC 2022 selected algorithms or the ENISA post-quantum cryptography integration study October 2022.
+type: F
+urgency: 2
+vm: T

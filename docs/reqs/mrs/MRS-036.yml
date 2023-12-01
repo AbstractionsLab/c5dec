@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: 3
+header: ''
+importance: 3
+level: 36
+links: []
+normative: true
+rationale: See Mission Analysis; risk related to availability
+ref: ''
+reviewed: CxmX-BEQNEemhvaifcx9we-Nm6qRgHv4EsJ1WvKMGvg=
+risk: 3
+text: |
+  The CC toolbox SHOULD store all Security Functional Classes, Security Assurance Classes, Evaluation Activities, and Packages, in a structured human and machine-readable format in the C5-DEC document-based data store.
+type: F
+urgency: 2
+vm: T

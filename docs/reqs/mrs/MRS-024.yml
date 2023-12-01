@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 3
+level: 24
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: m7SmHeOcR9Xgt8mrqGEigPBbBGNeS8OC3tRs79yPZiY=
+risk: 1
+text: |
+  The C5-DEC software SHOULD provide a feature for performing cryptographic secret sharing, based on Shamir's secret sharing algorithm.
+type: F
+urgency: 2
+vm: T

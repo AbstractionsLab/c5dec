@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 26
+links: []
+normative: true
+rationale: Project constraints and assumptions, system overview
+ref: ''
+reviewed: MNUc-QOcNCzeJQeWJsOobDXF3bMfZjIiCctpy88MrOs=
+risk: 1
+text: |
+  The C5-DEC software SHALL implement the modules specified in the project constraints and assumptions and the system overview, with the baseline features specified in the project constraints description.
+type: F
+urgency: 3
+vm: R

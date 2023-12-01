@@ -1,0 +1,49 @@
+acceptance: |
+  - Developer can specify or select a set of Security Components
+  - Selection is automatically validated in terms of the components' hierarchical and dependency relationships.
+  - Respective Security Requirements are correctly exported according to the defined settings.
+active: true
+author: Heinrich
+date: 13.09.2023
+dependence:
+- SRS-001
+- SRS-002
+derived: false
+difficulty: ''
+header: |
+  Export Security Components
+importance: '3'
+level: 18.2
+links:
+- MRS-053: hH1BOxsxqL7gqcXVVQlq03aDkjjLO_6EB3F9g4I0Sy4=
+- MRS-055: 170X_04gCc9dZmaqVWbxq6N4LfKUhgGniwmIs33xeVY=
+normative: true
+outlay: ''
+rationale: ''
+ref: ''
+reviewed: 10hBEc1QLr_k1ONLRp9ETlmFYe0s6JvNjvk2xWXeOAs=
+risk: ''
+status: In Progress
+text: |
+  As a Developer, I want to be able to (select Security Components and) export (their respective)
+  Security Requirements into a file so that I can e.g. import them into my project's REM system.
+
+  Assuming that I am logged in as an authorized user:
+
+  1. I access the database containing the CC Security Components
+  2. Then I am able to specify or select a (set of) Security Component/s of type 'functional' and/or 'assurance'.
+  3. When I specify or select a (set of) Security Component/s I expect the system to automatically assess the validatiy of
+  the selection in terms of consideration of hierarchical and dependency relationships and to display the result
+  4. Then I am able to export the selected Security Components' Security Requirements.
+  5. When I select the export option I expect the system to warn me in case of an invalid selection
+  6. Then I am able to ignore the warning or adjust my selection.
+  7. When I proceed I am able to (at least) define the
+    - filepath,
+    - filename,
+    - and format (csv, xlsx).
+    Additional customizability to ease export to project's REM system format is desirable.
+  8. Then all Security Requirements of the selected Security Components are
+  exported to the defined filepath with the filename and in the defined format.
+type: F
+urgency: '3'
+version: '0.1'

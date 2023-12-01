@@ -1,0 +1,31 @@
+active: true
+authors: Heinrich
+derived: false
+expected_outcome: |
+  - No errors encountered while browsing the database.
+  - Randomly sampled selection data corresponds to description in the respective Common Criteria PDF.
+header: |
+  Test accessing and browsing the CC Database
+level: 1.0
+links:
+- SRS-001: dCx_-csCEJzWtIkSBNzFqVdxq3TCZ3CF-bAxGPqVDss=
+normative: true
+platform: WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04
+precondition: c5dec installed
+ref: ''
+reference:
+- path: c5dec/assets/database/KnowledgeBase/0_MapofContent.md
+  type: file
+reviewed: fTtVrZP5ou5-ojL9NEHb4SXkX31-RI3HlPQMmUXmtc8=
+roles: None
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Setup
+  1. boot C5-DEC CAD
+  2. navigate to '3 - CCT: Common Criteria toolbox' > 'Browse Common Criteria'
+  ##  Test Steps
+  1. follow steps in SRS
+  2. on a random basis check (for at least 3 elements) that the displayed data corresponds to the
+  associated Common Criteria element in the official PDFs of version 3.1 R5: [CC Part 2](https://www.commoncriteriaportal.org/files/ccfiles/CCPART2V3.1R5.pdf) or [CC Part 3](https://www.commoncriteriaportal.org/files/ccfiles/CCPART3V3.1R5.pdf).
+verification_method: Test

@@ -1,0 +1,17 @@
+settings:
+  digits: 3
+  parent: ACC
+  prefix: AFML
+  itemformat: markdown
+  sep: '-'
+attributes:
+  defaults:
+    Acronym: ''
+    Name: ''
+    Objectives: ''
+    CompLvl: ''
+    appNotes: ''
+  publish:
+    Objectives: ''
+    CompLvl: ''
+    appNotes: ''

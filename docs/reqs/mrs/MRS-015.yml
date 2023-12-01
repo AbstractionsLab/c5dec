@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 4
+level: 15
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: y8bQcfWtEzf6Am2_XsdbS47wzfxMVTm5MNUPHUl0nME=
+risk: 1
+text: |
+  The C5-DEC software SHALL provide a PM feature for consolidating and merging individual time reports/sheets into a single time report.
+type: F
+urgency: 4
+vm: T

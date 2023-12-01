@@ -1,0 +1,17 @@
+active: true
+comments: A link to the table of contents in each page would be useful.
+defect_category: '2'
+defect_description: |
+  Some pages are missing, e.g., 'Terms and Definition Register'. For others, the links are missing, e.g., [Security Functional Requirements] and [Security Assurance Requirements]
+derived: false
+header: ''
+level: 1.6
+links:
+- TST-007: jPWoJvjiMPNiwlqlC5V-gFhtBnuekHvGZD2M1y991PA=
+normative: true
+ref: ''
+reviewed: hg0ZsQf9WY4KGZNIoqFubwkXLDzb7Qc5EH2e0Sg5Qeo=
+test_date: 28-11-2023
+tester: IVS
+text: |
+  Test execution results for the TST in the parent link.

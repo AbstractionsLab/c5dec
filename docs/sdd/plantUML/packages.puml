@@ -1,0 +1,268 @@
+@startuml packages
+set namespaceSeparator none
+hide stereotype
+skinparam title {
+  FontSize 80
+}
+skinparam map {
+  FontSize 35
+  BackgroundColor azure
+}
+skinparam package {
+  FontSize 35
+  BackgroundColor<<CORE>> LightBlue
+  BackgroundColor<<FRONTEND>> PaleGreen
+  BackgroundColor<<PSI>> DarkGrey
+  BackgroundColor<<COMMON>> BUSINESS
+}
+skinparam arrow<<comp>> {
+  Color Red
+}
+skinparam linetype ortho
+skinparam dpi 300
+skinparam nodesep 50
+skinparam ranksep 30
+left to right direction
+
+title "Packages"
+
+package "c5dec" <<COMMON>> as c5dec {
+}
+package "c5dec.common" <<COMMON>> as c5dec.common {
+}
+package "c5dec.settings" <<COMMON>> as c5dec.settings {
+}
+
+'---- CORE ----
+package "c5dec.core" <<CORE>> as c5dec.core {
+}
+package "c5dec.core.cct" <<CORE>> as c5dec.core.cct {
+}
+package "c5dec.core.cpssa" <<CORE>> as c5dec.core.cpssa {
+}
+package "c5dec.core.cryptography" <<CORE>> as c5dec.core.cryptography {
+}
+package "c5dec.core.cysecanalysis" <<CORE>> as c5dec.core.cysecanalysis {
+}
+package "c5dec.core.isms" <<CORE>> as c5dec.core.isms {
+}
+package "c5dec.core.pm" <<CORE>> as c5dec.core.pm {
+}
+package "c5dec.core.settings" <<CORE>> as c5dec.core.settings {
+}
+package "c5dec.core.ssdlc" <<CORE>> as c5dec.core.ssdlc {
+}
+package "c5dec.core.transformer" <<CORE>> as c5dec.core.transformer {
+}
+
+'---- FRONTEND ----
+package "c5dec.frontend" <<FRONTEND>> as c5dec.frontend {
+}
+'---- CLI ----
+package "c5dec.frontend.cli" <<FRONTEND>> as c5dec.frontend.cli {
+}
+package "c5dec.frontend.cli.commands" <<FRONTEND>> as c5dec.frontend.cli.commands {
+}
+package "c5dec.frontend.cli.main" <<FRONTEND>> as c5dec.frontend.cli.main {
+}
+package "c5dec.frontend.cli.utils" <<FRONTEND>> as c5dec.frontend.cli.utils {
+}
+
+'---- TUI ----
+package "c5dec.frontend.tui" <<FRONTEND>> as c5dec.frontend.tui {
+}
+package "c5dec.frontend.tui.application" <<FRONTEND>> as c5dec.frontend.tui.application {
+}
+package "c5dec.frontend.tui.foundation" <<FRONTEND>> as c5dec.frontend.tui.foundation {
+}
+package "c5dec.frontend.tui.foundation.builder" <<FRONTEND>> as c5dec.frontend.tui.foundation.builder {
+}
+package "c5dec.frontend.tui.foundation.menu" <<FRONTEND>> as c5dec.frontend.tui.foundation.menu {
+}
+package "c5dec.frontend.tui.miniapps" <<FRONTEND>> as c5dec.frontend.tui.miniapps {
+}
+package "c5dec.frontend.tui.miniapps.cctapp" <<FRONTEND>> as c5dec.frontend.tui.miniapps.cctapp {
+}
+package "c5dec.frontend.tui.miniapps.cpssaapp" <<FRONTEND>> as c5dec.frontend.tui.miniapps.cpssaapp {
+}
+package "c5dec.frontend.tui.miniapps.cryptographyapp" <<FRONTEND>> as c5dec.frontend.tui.miniapps.cryptographyapp {
+}
+package "c5dec.frontend.tui.miniapps.cysecanalysisapp" <<FRONTEND>> as c5dec.frontend.tui.miniapps.cysecanalysisapp {
+}
+package "c5dec.frontend.tui.miniapps.ismsapp" <<FRONTEND>> as c5dec.frontend.tui.miniapps.ismsapp {
+}
+package "c5dec.frontend.tui.miniapps.pmapps" <<FRONTEND>> as c5dec.frontend.tui.miniapps.pmapp {
+}
+package "c5dec.frontend.tui.miniapps.settingsapp" <<FRONTEND>> as c5dec.frontend.tui.miniapps.settingsapp {
+}
+package "c5dec.frontend.tui.miniapps.ssdlcapp" <<FRONTEND>> as c5dec.frontend.tui.miniapps.ssdlcapp {
+}
+package "c5dec.frontend.tui.miniapps.transformerapp" <<FRONTEND>> as c5dec.frontend.tui.miniapps.transformerapp {
+}
+package "c5dec.frontend.tui.main" <<FRONTEND>> as c5dec.frontend.tui.main {
+}
+
+'---- PSI ----
+package "c5dec.psi" <<PSI>> as c5dec.psi {
+}
+package "c5dec.psi.graph" <<PSI>> as c5dec.psi.graph {
+}
+package "c5dec.psi.search" <<PSI>> as c5dec.psi.search {
+}
+package "c5dec.psi.security" <<PSI>> as c5dec.psi.security {
+}
+
+'---- COMPOSITIONS ----
+'---- 1st LAYER ----
+c5dec *-down- c5dec.common <<comp>>
+c5dec *-down- c5dec.settings <<comp>>
+c5dec *-down- c5dec.core <<comp>>
+c5dec *-down- c5dec.frontend <<comp>>
+c5dec *-down- c5dec.psi <<comp>>
+'---- 2nd Layer - CORE ----
+c5dec.core *-- c5dec.core.cct <<comp>>
+c5dec.core *-- c5dec.core.cpssa <<comp>>
+c5dec.core *-- c5dec.core.cryptography <<comp>>
+c5dec.core *-- c5dec.core.cysecanalysis <<comp>>
+c5dec.core *-- c5dec.core.isms <<comp>>
+c5dec.core *-- c5dec.core.pm <<comp>>
+c5dec.core *-- c5dec.core.ssdlc <<comp>>
+c5dec.core *-- c5dec.core.transformer <<comp>>
+c5dec.core *-- c5dec.core.settings <<comp>>
+
+'---- 2nd Layer - FRONTEND ----
+c5dec.frontend *-- c5dec.frontend.cli <<comp>>
+c5dec.frontend *-- c5dec.frontend.tui <<comp>>
+
+'---- 2nd Layer - PSI ----
+c5dec.psi *-down- c5dec.psi.graph <<comp>>
+c5dec.psi *-down- c5dec.psi.search <<comp>>
+c5dec.psi *-down- c5dec.psi.security <<comp>>
+
+'---- 3rd Layer - FRONTEND/CLI ----
+c5dec.frontend.cli *-- c5dec.frontend.cli.commands <<comp>>
+c5dec.frontend.cli *-- c5dec.frontend.cli.main <<comp>>
+c5dec.frontend.cli *-- c5dec.frontend.cli.utils <<comp>>
+'---- 3rd Layer - FRONTEND/TUI ----
+c5dec.frontend.tui *-- c5dec.frontend.tui.application <<comp>>
+c5dec.frontend.tui *-- c5dec.frontend.tui.main <<comp>>
+c5dec.frontend.tui *-- c5dec.frontend.tui.foundation <<comp>>
+c5dec.frontend.tui *-- c5dec.frontend.tui.miniapps <<comp>>
+'---- 3rd Layer - FRONTEND/FOUNDATION ----
+c5dec.frontend.tui.foundation *-- c5dec.frontend.tui.foundation.builder <<comp>>
+c5dec.frontend.tui.foundation *-- c5dec.frontend.tui.foundation.menu <<comp>>
+'---- 3rd Layer - FRONTEND/MINIAPPS ----
+c5dec.frontend.tui.miniapps *-- c5dec.frontend.tui.miniapps.cctapp <<comp>>
+c5dec.frontend.tui.miniapps *-- c5dec.frontend.tui.miniapps.cpssaapp <<comp>>
+c5dec.frontend.tui.miniapps *-- c5dec.frontend.tui.miniapps.cryptographyapp <<comp>>
+c5dec.frontend.tui.miniapps *-- c5dec.frontend.tui.miniapps.cysecanalysisapp <<comp>>
+c5dec.frontend.tui.miniapps *-- c5dec.frontend.tui.miniapps.ismsapp <<comp>>
+c5dec.frontend.tui.miniapps *-- c5dec.frontend.tui.miniapps.pmapp <<comp>>
+c5dec.frontend.tui.miniapps *-- c5dec.frontend.tui.miniapps.settingsapp <<comp>>
+c5dec.frontend.tui.miniapps *-- c5dec.frontend.tui.miniapps.ssdlcapp <<comp>>
+c5dec.frontend.tui.miniapps *-- c5dec.frontend.tui.miniapps.transformerapp <<comp>>
+
+'---- DEPENDENCIES - CORE----
+c5dec.core.cct --> c5dec.common
+c5dec.core.cct --> c5dec.settings
+
+c5dec.core.isms --> c5dec.settings
+
+c5dec.core.pm --> c5dec.common
+c5dec.core.pm --> c5dec.settings
+
+c5dec.core.ssdlc --> c5dec.common
+c5dec.core.ssdlc --> c5dec.settings
+
+c5dec.core.transformer --> c5dec.common
+c5dec.core.transformer --> c5dec.settings
+
+'---- DEPENDENCIES - CLI ----
+c5dec.frontend.cli.main --> c5dec.common
+c5dec.frontend.cli.main --> c5dec.settings
+c5dec.frontend.cli.main --> c5dec.frontend.cli.commands
+c5dec.frontend.cli.main --> c5dec.frontend.cli.utils
+
+c5dec.frontend.cli.utils --> c5dec.common
+c5dec.frontend.cli.utils --> c5dec.settings
+
+c5dec.frontend.cli.commands --> c5dec.common
+c5dec.frontend.cli.commands --> c5dec.settings
+c5dec.frontend.cli.commands --> c5dec.core.ssdlc
+c5dec.frontend.cli.commands --> c5dec.core.pm
+c5dec.frontend.cli.commands --> c5dec.core.cct
+c5dec.frontend.cli.commands --> c5dec.frontend.tui.main
+
+'---- DEPENDENCIES - TUI/MAIN ----
+c5dec.frontend.tui.main --> c5dec.frontend.tui.application
+c5dec.frontend.tui.main --> c5dec.frontend.tui.miniapps.ssdlcapp
+c5dec.frontend.tui.main --> c5dec.frontend.tui.miniapps.transformerapp
+c5dec.frontend.tui.main --> c5dec.frontend.tui.miniapps.cryptographyapp
+c5dec.frontend.tui.main --> c5dec.frontend.tui.miniapps.ismsapp
+c5dec.frontend.tui.main --> c5dec.frontend.tui.miniapps.pmapp
+c5dec.frontend.tui.main --> c5dec.frontend.tui.miniapps.cctapp
+c5dec.frontend.tui.main --> c5dec.common
+c5dec.frontend.tui.main --> c5dec.settings
+'---- DEPENDENCIES - TUI/APPLICATION ----
+c5dec.frontend.tui.application --> c5dec.frontend.tui
+c5dec.frontend.tui.application --> c5dec.frontend.tui.foundation.menu
+c5dec.frontend.tui.application --> c5dec.settings
+'---- DEPENDENCIES - TUI/MENU ----
+c5dec.frontend.tui.foundation.menu --> c5dec.settings
+c5dec.frontend.tui.foundation.menu --> c5dec.common
+c5dec.frontend.tui.foundation.menu --> c5dec.frontend.tui.foundation.builder
+c5dec.frontend.tui.foundation.menu --> c5dec.frontend.tui.application
+'---- DEPENDENCIES - TUI/CCTAPP ----
+c5dec.frontend.tui.miniapps.cctapp --> c5dec.frontend.tui.foundation.menu
+c5dec.frontend.tui.miniapps.cctapp --> c5dec.frontend.tui.foundation.builder
+c5dec.frontend.tui.miniapps.cctapp --> c5dec.frontend.tui.application
+c5dec.frontend.tui.miniapps.cctapp --> c5dec.settings
+c5dec.frontend.tui.miniapps.cctapp --> c5dec.common
+c5dec.frontend.tui.miniapps.cctapp --> c5dec.core.cct
+'---- DEPENDENCIES - TUI/CRYPTOGRAPHYAPP ----
+c5dec.frontend.tui.miniapps.cryptographyapp --> c5dec.frontend.tui.foundation.menu
+c5dec.frontend.tui.miniapps.cryptographyapp --> c5dec.frontend.tui.foundation.builder
+c5dec.frontend.tui.miniapps.cryptographyapp --> c5dec.core.cryptography
+c5dec.frontend.tui.miniapps.cryptographyapp --> c5dec.settings
+c5dec.frontend.tui.miniapps.cryptographyapp --> c5dec.common
+'---- DEPENDENCIES - TUI/ISMSAPP ----
+c5dec.frontend.tui.miniapps.ismsapp --> c5dec.frontend.tui.foundation.menu
+c5dec.frontend.tui.miniapps.ismsapp --> c5dec.core.isms
+c5dec.frontend.tui.miniapps.ismsapp --> c5dec.frontend.tui.foundation.builder
+'---- DEPENDENCIES - TUI/PMAPP ----
+c5dec.frontend.tui.miniapps.pmapp --> c5dec.frontend.tui.foundation.menu 
+c5dec.frontend.tui.miniapps.pmapp --> c5dec.frontend.tui.foundation.builder
+c5dec.frontend.tui.miniapps.pmapp --> c5dec.core.pm
+'---- DEPENDENCIES - TUI/SSDLCAPP ----
+c5dec.frontend.tui.miniapps.ssdlcapp --> c5dec.frontend.tui.foundation.menu
+c5dec.frontend.tui.miniapps.ssdlcapp --> c5dec.frontend.tui.foundation.builder
+c5dec.frontend.tui.miniapps.ssdlcapp --> c5dec.frontend.tui.foundation.menu
+c5dec.frontend.tui.miniapps.ssdlcapp --> c5dec.frontend.tui.application
+c5dec.frontend.tui.miniapps.ssdlcapp --> c5dec.core.ssdlc
+c5dec.frontend.tui.miniapps.ssdlcapp --> c5dec.settings
+c5dec.frontend.tui.miniapps.ssdlcapp --> c5dec.common
+'---- DEPENDENCIES - TUI/TRANSFORMERAPP ----
+c5dec.frontend.tui.miniapps.transformerapp --> c5dec.frontend.tui.foundation.menu
+c5dec.frontend.tui.miniapps.transformerapp --> c5dec.frontend.tui.foundation.builder
+c5dec.frontend.tui.miniapps.transformerapp --> c5dec.frontend.tui.application
+c5dec.frontend.tui.miniapps.transformerapp --> c5dec.core.transformer
+c5dec.frontend.tui.miniapps.transformerapp --> c5dec.core.ssdlc
+c5dec.frontend.tui.miniapps.transformerapp --> c5dec.settings
+c5dec.frontend.tui.miniapps.transformerapp --> c5dec.common
+
+
+!procedure $create_icon($node, $text, $font_size, $icon_color, $bkg_color, $scale)
+  {{\nscale $scale\nleft to right direction\nskinparam BackgroundColor $bkg_color\nskinparam $node {\nBackgroundColor $icon_color\nFontSize $font_size\n}\n$node "$text"\n}}
+!endprocedure
+
+map Legend {
+$create_icon(package, Pkg, 15, lightblue, azure, "0.5") => \nCore Module\n
+$create_icon(package, Pkg, 15, palegreen, azure, "0.5") => \nFrontend Module\n
+$create_icon(Package, Pkg, 15, darkgrey, azure, "0.5") => \nPsi Module\n
+$create_icon(package, Pkg, 15, business, azure, "0.5") => \nCommon Module\n
+\n{{\nscale 0.6\nleft to right direction\nskinparam BackgroundColor azure\nskinparam ArrowColor red\nlabel " " as A\nlabel " " as B\nA --* B\n}} => \nComposition\n
+\n{{\nscale 0.6\nleft to right direction\nskinparam BackgroundColor azure\nskinparam ArrowColor black\nlabel " " as A\nlabel " " as B\nA --> B\n}} => \nDependency\n
+
+}
+
+@enduml

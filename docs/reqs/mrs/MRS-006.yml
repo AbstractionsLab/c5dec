@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 6
+links: []
+normative: true
+rationale: To facilitate interlinking
+ref: ''
+reviewed: riewDe9AHm85JP-0_S3EU7uisxmsXwqtYADX7mjeysI=
+risk: 1
+text: |
+  The C5-DEC software SHALL provide a feature for linking system artifacts with one another based on the artifacts’ respective IDs.
+type: F
+urgency: 5
+vm: T

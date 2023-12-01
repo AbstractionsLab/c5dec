@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 3
+level: 38
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: smY3JefrNiff-qIXQNAbGN5SM-7Ld1IQvC2baR25d18=
+risk: 3
+text: |
+  The CC toolbox SHOULD be able to automatically transform content from and to the CC defined XML format, relative to the C5-DEC custom data storage format.
+type: F
+urgency: 1
+vm: T

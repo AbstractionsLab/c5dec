@@ -1,0 +1,32 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 58
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+references:
+- path: docs/sdd/image/cad_context_diagram.png
+  type: file
+- path: docs/sdd/image/functional_tree.png
+  type: file
+- path: docs/sdd/image/subsystems.png
+  type: file
+- path: docs/sdd/image/system_architecture.png
+  type: file
+- path: docs/sdd/image/packages.png
+  type: file
+- path: docs/sdd/image/classes.png
+  type: file
+- path: docs/sdd/image/cct_class_diagram.png
+  type: file
+reviewed: nGVr3RqkuJpMNIrTPi_yWdJiYQlAxouR-yjhKWe2S5w=
+risk: 1
+text: |
+  The C5-DEC software SHOULD follow a modular design.
+type: A
+urgency: 4
+vm: R

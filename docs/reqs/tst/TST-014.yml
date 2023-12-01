@@ -1,0 +1,23 @@
+active: true
+authors: Heinrich
+derived: false
+expected_outcome: None
+header: |
+  Test EUCC support
+level: 1.13
+links:
+- SRS-025: IUXCzx1E8awGA1BXH2yJfbXd0_5R4HVmwYBHxNi-2ZE=
+normative: true
+platform: WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04
+precondition: ''
+ref: ''
+reviewed: R4pblsuJrebNuzzogARRHCwmkC4tY0_oYTYjGyhzXzs=
+roles: ''
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Setup
+  1. None
+  ## Test steps
+  1. follow steps in SRS.
+verification_method: Test

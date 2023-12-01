@@ -1,0 +1,18 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 57
+links: []
+normative: true
+rationale: |
+  To build on existing well-established solutions and cut unneeded effort
+ref: ''
+reviewed: ki_Un6O63lAkQgd1ZOOfELgp1cz4Mf7YMIW4nIzJIpw=
+risk: 1
+text: |
+  The C5-DEC software SHALL make use of a web-based software development platform (e.g., GitLab, GitHub) to enforce user management, access control, authentication, and authorization.
+type: A
+urgency: 5
+vm: R

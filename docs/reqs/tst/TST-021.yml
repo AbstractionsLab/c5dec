@@ -1,0 +1,33 @@
+active: true
+authors: Heinrich
+derived: false
+expected_outcome: None
+header: |
+  Test aggregation of SARs and Work Units
+level: '1.20'
+links:
+- SRS-032: u3Hy6ebLC2IcGYPMxQFeP1tjI5G3F4EF7BMSYa0e-Lw=
+normative: true
+platform: WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04
+precondition: Evaluation checklist created and stored.
+ref: ''
+reviewed: Um0xGdTbxh88cjlaF67Ts9U6WJx6dwU2ZdeyaMw_N2c=
+roles: ''
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Setup
+  1.a Using the TUI navigate to '3 - CCT: Common Criteria toolbox' > 'Evaluation Checklist'
+  and load an Evaluation Checklist.
+
+  1.b Using the CLI run the following command to list all Evaluation items.
+
+      `$ poetry run c5dec checklist <prefix> -l`
+
+      To select an Item run:
+      `$ poetry run c5dec checklist <prefix> --edit <item-id> [--editor code]`
+
+  ## Test steps
+  1. Follow steps in SRS.
+  2. Repeat for multiple SARs.
+verification_method: Test

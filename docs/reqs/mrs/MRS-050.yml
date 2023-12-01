@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 50
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: frRX8lkpR1hccb0geqXLBeAeGylbAsJomR86cb8sKX4=
+risk: 1
+text: |
+  The C5-DEC knowledge base SHALL include a Software Project Management Model (SPMM).
+type: C
+urgency: 5
+vm: R

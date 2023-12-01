@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 5
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: pl-8uczD38cOUejaR9GsMV-LE2hTMJwJAkXAm2ge1Pc=
+risk: 1
+text: |
+  The C5-DEC software SHALL integrate an open-source solution for requirements engineering and requirements management.
+type: F
+urgency: 5
+vm: T
