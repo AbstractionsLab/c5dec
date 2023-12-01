@@ -121,7 +121,7 @@ The following pieces of software are necessary for setting up the C5-DEC CAD con
 
 1. Clone this repository
 ```sh
-git clone http://gitlab.abstractionslab.com/cyfort/c5-dec/cad.git
+git clone https://github.com/AbstractionsLab/c5dec.git
 ```
 2. Verify that your Docker Desktop instance is running (if not, start it).
 3. In VS Code, open the folder "cad", located at the root of the cloned project. This can be done directly in VS code or from the terminal, if the CLI of VS Code is installed:
@@ -173,7 +173,7 @@ _**Disclaimer:**_ For the moment, we recommend using the TUI for functionality r
 
 ## Roadmap
 
-This information is available in the project [Wiki](https://gitlab.abstractionslab.com/cyfort/c5-dec/cad/-/wikis/Roadmap) of this repository.
+This information is available in the project wiki of this repository.
 
 ## License
 
