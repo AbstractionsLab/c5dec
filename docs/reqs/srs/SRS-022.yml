@@ -1,0 +1,36 @@
+acceptance: |
+  - The System is able to store the CC data model in a specific format.
+  - The stored format maintains a mapping to the available CC XML-file.
+  - The System can validate the stored data against the corresponding DTD file.
+  - The System preserves semantic relationships between CC concepts during storage and retrieval.
+active: true
+author: Heinrich
+date: 03.10.2023
+dependence: []
+derived: false
+difficulty: '3'
+header: |
+  Data Storage and Format Mapping
+importance: '4'
+level: 10.0
+links:
+- MRS-032: zdmk414Ku_uKO9MC4dv6gH6-9PZsz3atEQm7cnls8UE=
+- MRS-037: sTsOMoKcRA4kWLCFswtK4SFJw0s7GRkTbYYZq6AueM4=
+normative: true
+outlay: '3'
+rationale: "Ensuring that the CC data model is stored and mapped accurately in a format\n\
+  that can be validated against the DTD file and maintains semantic relationships\n\
+  is critical for the integrity, reliability, and usability of the CC data. Accurate\n\
+  data storage and mapping are essential for ensuring that CC data retrieval, \nmodification,\
+  \ and usage within the system are correct and reliable.\n"
+ref: ''
+reviewed: E4mZDn_suHd6QyPkqGGF24D9F1CPM3M1NA_dsT32Uu8=
+risk: '3'
+status: In Progress
+text: |
+  As a System, ensure that the CC data model is stored in a format that maintains
+  a mapping to the available CC XML-file and can be validated against the
+  corresponding DTD file while preserving semantic relationships between CC concepts.
+type: F
+urgency: '1'
+version: '1.0'

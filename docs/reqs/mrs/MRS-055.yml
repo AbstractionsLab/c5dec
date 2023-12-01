@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 4
+level: 55
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: 170X_04gCc9dZmaqVWbxq6N4LfKUhgGniwmIs33xeVY=
+risk: 1
+text: |
+  The CCM SHALL define CC-related activities complementing the C5-DEC SSDLC.
+type: C
+urgency: 3
+vm: R

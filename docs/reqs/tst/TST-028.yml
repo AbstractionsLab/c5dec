@@ -1,0 +1,23 @@
+active: true
+authors: Heinrich
+derived: false
+expected_outcome: None
+header: |
+  Test automated generation of Evaluation Technical Report
+level: 1.27
+links:
+- SRS-039: BREaK5CnJUWPw5DKec9dTponU6yZ1SIR1FnUSjh_-Os=
+normative: true
+platform: WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04
+precondition: Run TST-024 prior to have access to an Evaluation Checklist.
+ref: ''
+reviewed: iwfgoeB6ibKq_W3YZt1UPbGhft-jONguqEQQjws0PMU=
+roles: ''
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Setup
+  1. None
+  ## Test steps
+  1. follow steps in SRS.
+verification_method: Test

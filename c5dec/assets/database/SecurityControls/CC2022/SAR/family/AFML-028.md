@@ -1,0 +1,19 @@
+---
+Acronym: ADV_COMP
+CompLvl: This family contains only one component.
+Name: Composite design compliance
+Objectives: |
+  The aim of this family is to determine whether the requirements on the dependent component, imposed by the related base component, are fulfilled in the composite product.
+active: true
+appNotes: |
+  The requirements on the dependent component, imposed by the related base component, can be formulated in the relevant base component-related user guidance, ETR for composite evaluation (in form of observations and recommendations) and report of the base component evaluation authority (e.g. in form of constraints and recommendations). The developer of the dependent component shall regard each of these sources, if available, and implement the dependent component in such a way that the applicable requirements are fulfilled. The composite product evaluator shall verify that all stipulations for the dependent component that are imposed by the base component and provided in its evaluation related documentation are fulfilled by the composite product, i.e. have been taken into account by the dependent component developer. The composite product evaluation sponsor shall ensure that the following is made available for the composite product evaluator: — the base component-related user guidance, — the base component-related ETR for composite evaluation prepared by the base component evaluator, — the report of the base component evaluation authority, — a rationale for secure composite product implementation including evidence prepared by the dependent component developer. The TSF of the composite product are represented at various levels of abstraction in the families of the development class ADV. From experience, the appropriate levels of design representation for examining, whether the requirements of the base component are fulfilled by the composite product, are the TOE design (ADV_TDS), security architecture (ADV_ARC) and the implementation (ADV_IMP). In case that, these design representation levels are not available (e.g. due to the assurance package chosen is EAL1), the current family is not applicable (see the next paragraph for the reason). Due to the definition of the composite product the interface between its base component and dependent component is the internal one, hence, a functional specification (ADV_FSP) as representation level is not appropriate for analysing the design compliance. November 2022 CC:2022 Page 97 of 211 Security architecture ADV_ARC as assurance family is dedicated to ensure that integrative security services like domain separation, self-protection and non-bypassability properly work. It is impossible and not the sense of the composite evaluation to have an insight into the architectural internals of the related base component (it is a matter of the base component evaluation). In the context of the ADV_ARC, the composite product evaluator shall: i. determine whether the dependent component uses services of the related base document within its own composite product ST to provide domain separation, self-protection, non-bypassability and protected start-up; if no, there are no further composite activities for ADV_ARC; if yes, then ii. the evaluator shall determine, whether the dependent component uses these services of the base component in an appropriate/secure way (please refer to the base component user guidance). As consistency of the composite product security policy has already been considered in the context of the ST in the assurance family ASE_COMP, there is no necessity to consider non-contradictoriness of the security policy model (ADV_SPM) of the composite product and the security policy model of its related base component.
+derived: false
+level: 1.28
+links:
+- ACC-004: mOqg7LdyAc27RjJaidUMtlTnrW35Rvci4zjd34LpczE=
+normative: true
+ref: ''
+reviewed: k_tsHXseE8gNcSI5zwn57GmOp6w-4lxrhtiyzriBZE0=
+---
+
+# ADV_COMP Composite design compliance

@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 22
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: hSk0SGAEwVODOm7xT0ieExT9I9rUUTApnqRPxrO4S2Q=
+risk: 1
+text: |
+  The C5-DEC software SHALL provide access control that can provide at least two types of asset access restriction: admin and standard user.
+type: F
+urgency: 4
+vm: R

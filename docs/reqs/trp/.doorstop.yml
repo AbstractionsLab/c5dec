@@ -1,0 +1,29 @@
+settings:
+  digits: 3
+  itemformat: yaml
+  parent: TST
+  prefix: TRP
+  sep: '-'
+
+attributes:
+  defaults:
+    test_date: '27-11-2023'
+    tester: 'IVS'
+    defect_category: '[0-4]'
+    defect_description: ''
+    comments: ''
+    text: 'Test execution results for the TST in the parent link.'
+  
+  publish:
+    - test_date
+    - tester
+    - defect_category
+    - defect_description
+    - comments
+  
+  # attributes to be considered for the item's fingerprint,
+  # the fingerprint is used to detect unreviewed changes to an item
+  reviewed:
+    - test_date
+    - defect_category
+    - defect_description

@@ -1,0 +1,17 @@
+active: true
+comments: |
+  The test steps are vague and do not provide enough details to perform this test.
+defect_category: ignored
+defect_description: ''
+derived: false
+header: ''
+level: 1.11
+links:
+- TST-012: QGWzx2_LnLIsseahSb57cK8MmvHpocPArOFUVtxJXn4=
+normative: true
+ref: ''
+reviewed: ep0jVep0aR59trtXU9cFdpwLVWq1T_UJXc7pL5qbxIw=
+test_date: 28-11-2023
+tester: IVS
+text: |
+  Test execution results for the TST in the parent link.

@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 4
+level: 39
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: 8xhYVAyPmji-K5yhEpzeIKcrkqUI9ePplGaL5n2E-jo=
+risk: 1
+text: |
+  The CC toolbox SHALL maintain a Common Criteria Knowledge Base consisting of explanatory definitions and user guidance for CC Terms and Definitions, Concepts, and Core Constructs.
+type: F
+urgency: 3
+vm: T

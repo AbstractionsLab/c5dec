@@ -1,0 +1,23 @@
+active: true
+authors: Heinrich
+derived: false
+expected_outcome: None
+header: |
+  Test API provision for threat import
+level: 1.21
+links:
+- SRS-033: Oc5SHAwIDg460JzE2MYq02h2EGCvzwUU8Qgl4ctcTZ4=
+normative: true
+platform: WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04
+precondition: ''
+ref: ''
+reviewed: g9VPiY95CUkFSJVNe708x4QjC4YGsVpxICiqt_qdNYE=
+roles: ''
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Setup
+  1. None
+  ## Test steps
+  1. follow steps in SRS.
+verification_method: Test

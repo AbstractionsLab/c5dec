@@ -1,0 +1,33 @@
+active: true
+authors: Heinrich
+derived: false
+expected_outcome: |
+  File containing respective Security Requirements correctly\ \ exported according to specified settings
+header: |
+  Test exporting Security Components
+level: 1.2
+links:
+- SRS-003: GxAi28c9B25ZAeY4Ur1ZxEEr32jK5Z_87LvRU0TnKqs=
+normative: true
+platform: WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04
+precondition: |
+  - a working doorstop repository
+ref: ''
+reference:
+- path: c5dec/assets/database/KnowledgeBase/0_MapofContent.md
+  type: file
+reviewed: qS5QsBpyDPKBgKFdFpPdR2JSGkRLzkib9a3hSVXWka8=
+roles: ''
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Setup
+  1. In the TUI, go to '3 - CCT: Common Criteria toolbox'
+  2. Select 'Browse Common Criteria' or 'Create Evaluation Checklist'
+
+  ## Test Steps
+  1. follow steps in SRS
+  2. repeat multiple times and change selection and export settings.
+  3. on a random basis check that the exported Security Requirements match respective Security Requirements
+  in Common Criteria PDF (version 3R5).
+verification_method: Test

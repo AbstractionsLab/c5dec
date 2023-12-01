@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 3
+level: 44
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: 2lpi84S-DbG-OkdOMMQ39vgc2UhtM6PvjNhjY0Xsu3Y=
+risk: 1
+text: |
+  Based on the C5-DEC CPSSA report of the C5-DEC knowledge base, the CC toolbox SHOULD provide a support mechanism for generating additional evaluation evidence required by the EUCC and provide guides for tailoring existing evaluation evidence to be conformant with EUCC requirements.
+type: F
+urgency: 1
+vm: T

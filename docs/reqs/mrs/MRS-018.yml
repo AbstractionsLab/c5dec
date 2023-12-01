@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 18
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: CeriBwUqqS6vjk0DTERrlYeYtKrJrUXzw_5micUWlbc=
+risk: 1
+text: |
+  The C5-DEC software SHALL provide a collaboration feature or an option for integrating with an existing platform that allows the users of the C5-DEC software to access and share artifacts managed by the C5-DEC software.
+type: F
+urgency: 4
+vm: R

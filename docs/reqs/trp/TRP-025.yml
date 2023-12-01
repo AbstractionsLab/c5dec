@@ -1,0 +1,18 @@
+active: true
+comments: |
+  This defects correspond to issues #20 and #22 in the GitLab CAD repository.
+defect_category: '4'
+defect_description: |
+  - The TUI crashes when an evaluation evidence is edited and revisited (issue #20). - The CLI crashes with the option `-s` if the input evaluation checklist does not exist (issue #22).
+derived: false
+header: ''
+level: 1.24
+links:
+- TST-025: stttvaumDsXZkO5Bex0yXi9T-Gsc1wojpXv9EvIMFG8=
+normative: true
+ref: ''
+reviewed: 9HXVaoEwdoysHKrshUfRc3DPIrgSTnnvpRyMAFjxWVA=
+test_date: 29-11-2023
+tester: IVS
+text: |
+  Test execution results for the TST in the parent link.

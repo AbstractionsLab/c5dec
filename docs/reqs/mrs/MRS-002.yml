@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 2
+links: []
+normative: true
+rationale: To facilitate interlinking of assets
+ref: ''
+reviewed: k0lhAJJx5CGZKFFoQ642ubuGR9RHkrRszmg3JMxUFM8=
+risk: 1
+text: |
+  The C5-DEC software SHALL store textual requirements, test case definitions and design diagrams alongside source code in the same repository.
+type: F
+urgency: 5
+vm: T

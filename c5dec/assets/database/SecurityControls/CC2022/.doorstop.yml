@@ -1,0 +1,6 @@
+settings:
+  digits: 3
+  itemformat: markdown
+  prefix: CC
+  parent: SC
+  sep: '-'

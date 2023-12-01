@@ -1,0 +1,29 @@
+settings:
+  digits: 3
+  prefix: MRS
+  sep: '-'
+attributes:
+  defaults:
+    type: 'F'
+    vm: 'T'
+    rationale: "See mission analysis"
+    importance: "3"
+    urgency: "3"
+    risk: "1"
+    difficulty: "1"
+  reviewed:
+  - type
+  - vm
+  - rationale
+  - importance
+  - urgency
+  - risk
+  - difficulty
+  publish:
+    - type
+    - vm
+    - rationale
+    - importance
+    - urgency
+    - risk
+    - difficulty

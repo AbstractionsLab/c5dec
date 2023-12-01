@@ -1,0 +1,23 @@
+active: true
+authors: Heinrich
+derived: false
+expected_outcome: None
+header: |
+  Test CC templates
+level: 1.31
+links:
+- SRS-043: 27TZF9KlOlUfF-UzrvAF_D2QMlfz5XpwHq4nGXaKaY0=
+normative: true
+platform: WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04
+precondition: ''
+ref: ''
+reviewed: QkJKuS_FhfW3nMv5uqRpeBOSkYf3jjAbQUFX01_5S7w=
+roles: ''
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Setup
+  1. None
+  ## Test steps
+  1. follow steps in SRS.
+verification_method: Test

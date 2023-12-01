@@ -1,0 +1,11 @@
+settings:
+  digits: 3
+  parent: COM
+  prefix: REQ
+  itemformat: markdown
+  sep: '-'
+attributes:
+  defaults:
+    Id: ''
+  reviewed:
+    - Id

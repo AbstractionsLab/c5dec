@@ -1,0 +1,35 @@
+active: true
+authors: Heinrich
+derived: false
+expected_outcome: |
+  - Successfully created Evaluation Checklist for the 'valid set'- 'Invalid set' successfully detected to be invalid.- Successfully created Evaluation Checklist for the 'augmented set' - Evaluation Evidence Documentation Index created for valid sets and stored under './evaluations/<prefix>'
+header: |
+  Test automated creation of Evaluation Checklist
+level: 1.23
+links:
+- SRS-035: gv3htUnEjsI8BY8MF04gnxOu1FKsPteuyHlWbFpig-k=
+normative: true
+platform: WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04
+precondition: ''
+ref: ''
+reviewed: Q1wEe2aG_NKR1Ku45M8nB3ydnbrsnWgZsmogbviJObs=
+roles: ''
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Setup
+  1. when using the TUI navigate to '3 - CCT: Common Criteria Toolbox' > 'Create Evaluation Checklist'
+  2. when using the CLI run the following command
+
+      `foo@bar$ poetry run c5dec checklist -c <prefix> --id <Component/Package Ids>`
+
+  Valid set: ACO_COR.1, ACO_DEV.1, ACO_REL.1, ALC_CMC.1, ALC_CMS.1
+
+  Invalid Set: ACO_COR.1, ACO_DEV.1, ALC_CMC.1, ALC_CMS.1
+
+  Augmented Set: EAL 1, ACO_DEV.1, ACO_REL.1
+
+  ## Test steps
+  1. follow steps in SRS for the selections above.
+  2. OPTIONAL: follow steps in SRS for a randomly selected set of components.
+verification_method: Test

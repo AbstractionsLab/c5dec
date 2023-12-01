@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 4
+level: 33
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: zIjnOXAvRLpMgdxhtSgdj0H9dIeRqqxRcPClVM-kzAU=
+risk: 1
+text: |
+  The C5-DEC software SHOULD either provide a threat modelling and analysis tool as part of the CPSSA module, based on the TM method described in the C5-DEC SSDLC and the C5-DEC CPSSA reports/guides or alternatively use data formats that do not prevent the use of already existing open-source solutions mentioned in the CPSSA report.
+type: F
+urgency: 3
+vm: R

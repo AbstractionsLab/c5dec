@@ -1,0 +1,23 @@
+active: true
+authors: Heinrich
+derived: false
+expected_outcome: None
+header: |
+  Test transforming imported threats to CC-conformant format
+level: 1.22
+links:
+- SRS-034: I8riA7dHoEfrDS8LaY733xlz46tXo9GEIVtzV1I5Mfc=
+normative: true
+platform: WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04
+precondition: ''
+ref: ''
+reviewed: sAcxS28wCGRU38fzOTe5dh4Jp3Q9lBCdHMtZGduppCI=
+roles: ''
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Setup
+  1. None
+  ## Test steps
+  1. follow steps in SRS.
+verification_method: Test

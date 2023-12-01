@@ -1,0 +1,516 @@
+@startuml cct
+set namespaceSeparator none
+
+<style>
+title {
+  FontSize 35
+}
+map {
+  BackgroundColor azure
+  FontSize 25
+  FontStyle bold
+}
+class<<BaseClass>> {
+  BaseClass {
+    BackgroundColor lightblue
+  }
+}
+class<<BaseBuilder>> {
+  BaseBuilder {
+    BackgroundColor business
+  }
+rectangle {
+  FontSize 25
+}
+}
+</style>
+skinparam WrapWidth 200
+skinparam linetype ortho
+skinparam dpi 300
+skinparam nodesep 5
+skinparam ranksep 30
+
+left to right direction
+
+
+title "Class Diagram: c5dec.core.cct"
+
+rectangle "Base Classes" as Base {
+  class "BaseClass" as BaseClass {
+    attrib
+    children : list
+    container : list
+    parent : NoneType
+    text : str
+    clone()
+    collector(target, mode)
+    contains(element)
+    get_ancestors()
+    get_child_by_id(child_id)
+    get_children()
+    get_descendants(visited)
+    get_formatted_text(level)
+    get_item_tree(pretty_print)
+    get_parent()
+    get_siblings()
+    has_valid_id()
+    has_valid_name()
+    is_empty()
+    is_valid()
+  }
+  class "BaseBuilder" as BaseBuilder {
+    instance
+    build(node, parent_obj)
+  }
+
+  BaseClass -[hidden]down- BaseBuilder
+}
+
+rectangle "Support Classes" as Support {
+  class "Index" as Index {
+    clear()
+    get(key)
+    keys()
+    update(key, value)
+    yield_obj(obj_type)
+  }
+  class "UniqueIDManager" as UniqueIDManager {
+    next(prefix)
+    reset()
+  }
+  class "CLIChecklistHandler" as CLIChecklistHandler {
+    create(version, item_ids, prefix, info, silence)
+    edit(prefix, _id)
+    list(prefix)
+    publish(prefix, path, template)
+    status(prefix)
+    update(prefix)
+    validate(prefix)
+  }
+  Index -[hidden]down- CLIChecklistHandler
+}
+
+
+rectangle "Common Criteria" {
+  together {
+    class "CCDocument" as CCDocument <<BaseClass>> {
+      clause : list
+      a_class : list
+      f_class : list
+      cap : list
+      eal : list
+      lang : str
+      revision : NoneType
+      version : NoneType
+      is_valid()
+    }
+    class "CCDocumentBuilder" as CCDocumentBuilder <<BaseBuilder>> {
+      build(node, parent_obj)
+    }
+  }
+  together {
+    class "Package" as Package <<BaseClass>> {
+      acronym : NoneType
+      assurance_components : NoneType
+      objectives : NoneType
+      type : str
+      link_components()
+      get_descendants(visited)
+      get_formatted_text(level)
+      is_valid()
+    }
+    class "PackageBuilder" as PackageBuilder <<BaseBuilder>> {
+    }
+  }
+
+  CCDocument -[hidden]down- Package
+
+  rectangle "Assurance Components" {
+    together {
+      class "AClass" as AClass <<BaseClass>> {
+        ac_application_notes : ParaSequence
+        ac_introduction : ParaSequence
+        ac_overview : ParaSequence
+        family : list[FFamily]
+        ma_application_note : ParaSequence
+        ma_introduction : ParaSequence
+        ma_objectives : ParaSequence
+        is_valid()
+      }
+      class "AClassBuilder" as AClassBuilder <<BaseBuilder>> 
+    }
+    together {
+      class "AFamily" as AFamily <<BaseClass>> {
+        af_application_notes : ParaSequence
+        af_levelling_criteria : ParaSequence
+        af_objectives : ParaSequence
+        af_overview : ParaSequence
+        component: list[FComponent]
+        is_valid()
+      }
+      class "AFamilyBuilder" as AFamilyBuilder <<BaseBuilder>> 
+    }
+    together {
+      class "AComponent" as AComponent <<BaseClass>> {
+        aco_application_notes : ParaSequence
+        aco_objectives : ParaSequence
+        dependencies : list[str]
+        elements : list[FElement]
+        hierarchical : list[str]
+        input
+        msa_application_notes : ParaSequence
+        msa_input : ParaSequence
+        msa_objectives : ParaSequence
+        get_dependency_pool(d_pool, visited)
+        get_formatted_text(level)
+        get_hierarchical_tree(h_tree, visited)
+        is_valid()
+      }
+      class "AComponentBuilder" as AComponentBuilder <<BaseBuilder>> 
+    }
+    together {
+      class "AElement" as AElement <<BaseClass>> {
+        VALID_TYPES : list
+        list : list[List]
+        operation : list[Operation]
+        requirement : str
+        type : NoneType
+        get_formatted_text(level)
+        is_valid()
+      }
+      class "AElementBuilder" as AElementBuilder <<BaseBuilder>> {
+        build(node, parent_obj)
+      }
+    }
+    together {
+      class "WorkUnit" as WorkUnit <<BaseClass>> {
+        dc_element : list[DCElement]
+        get_formatted_text(level)
+        is_valid()
+      }
+      class "WorkUnitBuilder" as WorkUnitBuilder <<BaseBuilder>> 
+      class "DCElement" as DCElement {
+        _id : str
+      }
+    }
+
+    AClass -[hidden]- AFamily
+    AFamily -[hidden]- AComponent
+    AComponent -[hidden]- AElement
+    AElement -[hidden]- WorkUnit
+  }
+
+  rectangle "Functional Components" {
+    together {
+      class "FClass" as FClass <<BaseClass>> {
+        family : list[FFamily]
+        fc_informative_notes : ParaSequence
+        fc_introduction : ParaSequence
+        is_valid()
+      }
+      class "FClassBuilder" as FClassBuilder <<BaseBuilder>> 
+    }
+    together {
+      class "FFamily" as FFamily <<BaseClass>> {
+        
+        ff_application_notes : ParaSequence
+        ff_behaviour : ParaSequence
+        ff_evaluator_notes : ParaSequence
+        ff_user_notes : ParaSequence
+        is_valid()
+      }
+      class "FFamilyBuilder" as FFamilyBuilder <<BaseBuilder>> 
+    }
+    together {
+      class "FComponent" as FComponent <<BaseClass>> {
+        audit : FCoAudit
+        dependencies : list[str]
+        element : list[FElement]
+        fco_evaluator_notes : ParaSequence
+        fco_levelling : ParaSequence
+        fco_rationale : ParaSequence
+        fco_user_notes : ParaSequence
+        hierarchical : list[str]
+        management : FCoManagement
+        get_dependency_pool(d_pool, visited)
+        get_formatted_text(level)
+        get_hierarchical_tree(h_tree, visited)
+        is_valid()
+      }
+      class "FComponentBuilder" as FComponentBuilder <<BaseBuilder>> 
+    }
+    together {
+      class "FCoAudit" as FCoAudit <<BaseClass>> {
+        VALID_LEVEL : list
+        isequal : NoneType
+        level : str
+        text : str
+        get_formatted_text(level)
+        is_valid()
+      }
+      class "FCoAuditBuilder" as FCoAuditBuilder <<BaseBuilder>> {
+        build(node, parent_obj)
+      }
+    }  
+    together {
+      class "FCoManagement" as FCoManagement <<BaseClass>> {
+        isequal : NoneType
+        text : str
+        get_formatted_text(level)
+        is_valid()
+      }
+      class "FCoManagementBuilder" as FCoManagementBuilder <<BaseBuilder>> {
+        build(node, parent_obj)
+      }
+    }  
+    together {
+      class "FElement" as FElement <<BaseClass>> {
+        list : list[FEList]
+        operation : list[Operation]
+        requirement : str
+        get_formatted_text(level)
+        is_valid()
+      }
+      class "FElementBuilder" as FElementBuilder <<BaseBuilder>> {
+        build(node, parent_obj)
+      }
+    }
+    together {
+      class "Operation" as Operation <<BaseClass>> {
+        VALID_TYPES : list
+        exclusive : str
+        item : list[FEItem]
+        note : ParaSequence
+        type : NoneType
+        get_formatted_text(level)
+        is_valid()
+      }
+      class "OperationBuilder" as OperationBuilder <<BaseBuilder>> {
+        build(node, parent_obj)
+      }
+    }
+    together {
+      class "FEItem" as FEItem <<BaseClass>> {
+        list : list[FEList]
+        operation : list[Operation]
+        get_formatted_text(level)
+        is_valid()
+      }
+      class "FEItemBuilder" as FEItemBuilder <<BaseBuilder>> {
+        build(node, parent_obj)
+      }
+    }
+    together {
+      class "FEList" as FEList <<BaseClass>> {
+        item : list[FEItem]
+        get_formatted_text(level)
+        is_valid()
+      }
+      class "FEListBuilder" as FEListBuilder <<BaseBuilder>> {
+        build(node, parent_obj)
+      }
+    }
+      FClass -[hidden]- FFamily
+      FFamily -[hidden]- FComponent
+      FComponent -[hidden]- FElement
+      FElement -[hidden]- Operation
+      Operation -[hidden]right- FEItem
+      Operation -[hidden]left- FEList
+
+      FCoAudit -[hidden]- FCoManagement
+      FEList -[hidden]- FEItem
+  }
+
+
+  rectangle "Common Components" {
+  class "ParaSequence" as ParaSequence <<BaseClass>> {
+    acronym : list
+    attrib
+    biblioentry : list
+    container : list
+    example : list[Example]
+    figure : list
+    glossentry : list
+    original_tag : NoneType
+    para : list[Para]
+    parent : NoneType
+    subclause : list[SubClause]
+    table : list[Table]
+    text : str
+    build(node, parent_obj)
+    get_formatted_text(level)
+  }
+  class "Clause" as Clause <<ParaSequence>> {
+    VALID_CATEGORY : list
+    VALID_TYPES : list
+    attrib
+    category : str
+    original_tagname_
+    parent : NoneType
+    patch : NoneType
+    title : NoneType
+    type : str
+    get_formatted_text(level)
+  }
+  class "SubClause" as SubClause <<ParaSequence>> {
+    attrib
+    parent : NoneType
+    patch : NoneType
+    title : NoneType
+    get_formatted_text(level)
+  }
+  class "Para" as Para <<BaseClass>> {
+    VALID_TYPES : tuple
+    attrib
+    container : list
+    level : str
+    parent : NoneType
+    patch : NoneType
+    text : str
+    title : NoneType
+    type : str
+    build(node, parent_obj)
+    get_formatted_text(level)
+  }
+  class "List" as List <<BaseClass>> {
+    VALID_TYPE : list
+    container : list
+    item : list[Item]
+    parent : NoneType
+    text : str
+    type : str
+    build(node, parent_obj)
+    get_formatted_text(level)
+  }
+  class "Item" as Item <<BaseClass>> {
+    container : list
+    parent : NoneType
+    text : str
+    build(node, parent_obj)
+    get_formatted_text(level)
+  }
+  together {
+    class "Table" as Table <<BaseClass>> {
+      container : list
+      original_tag
+      parent : NoneType
+      tgroup : list[TGroup]
+      title : NoneType
+      build(node, parent_obj)
+      get_formatted_text(level)
+    }
+    class "TGroup" as TGroup <<BaseClass>> {
+      cols : int
+      original_tag
+      parent : NoneType
+      tbody : list[TRow]
+      tfoot : list[TRow]
+      thead : list[TRow]
+      build(node, parent_obj)
+      get_formatted_text()
+    }
+    class "TRow" as TRow <<BaseClass>> {
+      entry : list[TEntry]
+      original_tag
+      parent : NoneType
+      build(node, parent_obj)
+      get_formatted_text(columns)
+    }
+    class "TEntry" as TEntry <<BaseClass>> {
+      align : str
+      columnspan : int
+      container : list
+      original_tag
+      parent : NoneType
+      rowspan : int
+      style : NoneType
+      width : int
+      build(node, parent_obj)
+      get_formatted_text()
+    }
+  }
+  class "Example" as Example <<BaseClass>> {
+    exampledef : Para()
+    exampleterm : Para()
+    original_tag
+    parent : NoneType
+    build(node, parent_obj)
+  }
+  together {
+    class "Text" as Text <<BaseClass>> {
+      text : NoneType
+      empty_text()
+      get_formatted_text(level)
+      is_valid()
+      set_text(value)
+    }
+    class "Bold" as Bold <<Text>> {
+    text : str
+    get_formatted_text(level)
+    }
+    class "Italic" as Italic <<Text>> {
+      text : str
+      get_formatted_text(level)
+    }
+    class "Math" as Math <<Text>> {
+      text : NoneType
+      get_formatted_text(level)
+    }
+  }
+
+  together {
+    class "URL" as URL <<BaseClass>> {
+      attrib
+      parent : NoneType
+      text : str
+      title : NoneType
+      build(node, parent_obj)
+      get_formatted_text(level)
+    }
+
+    class "XRef" as XRef <<BaseClass>> {
+      VALID_SHOW : list
+      container : list
+      fakeid : NoneType
+      parent : NoneType
+      show : str
+      tail : NoneType
+      text : str
+      build(node, parent_obj)
+      get_formatted_text(level)
+    }
+  }
+
+  Clause -down-|> ParaSequence
+  SubClause -up-|> ParaSequence
+
+  ParaSequence -[hidden]left- Para
+  Para -[hidden]down- URL
+  Clause -[hidden]left- Example
+  SubClause -[hidden]down- List
+  List -[hidden]left- Item
+  Italic -[hidden]down- Table
+  Table -[hidden]down- TGroup
+  TGroup -[hidden]down-TRow
+
+  Text <|-down- Bold
+  Text <|-- Italic
+  Text <|-- Math
+  }
+}
+
+
+
+!procedure $create_icon($node, $text, $font_size, $icon_color, $bkg_color, $scale)
+  {{\nscale $scale\nleft to right direction\nskinparam BackgroundColor $bkg_color\nskinparam $node {\nBackgroundColor $icon_color\nFontSize $font_size\n}\n$node "$text"\n}}
+!endprocedure
+
+map Legend {
+'{{\nscale 0.5\nleft to right direction\nskinparam BackgroundColor azure\nskinparam ClassBackgroundColor lightblue\nskinparam ClassFontSize 10\nclass "BaseClass"\n}} => \nBaseClass\n
+$create_icon(class, BaseClass, 15, lightblue, azure, "0.4") => \nBaseClass Class\n
+$create_icon(class, BaseBuilder, 15, business, azure, "0.4") => \nBaseBuilder Class\n
+}
+
+BaseBuilder -[hidden]- UniqueIDManager
+CLIChecklistHandler -[hidden]- Legend
+@enduml

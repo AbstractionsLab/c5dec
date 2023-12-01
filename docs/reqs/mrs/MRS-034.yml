@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 34
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: ivuQLUIWuzo4Q53bHnCid1Bw-Cz-XqCXVqkfMnymdUM=
+risk: 1
+text: |
+  The C5-DEC software SHOULD provide a feature for extracting user specified design assets (specified in design artifacts such as diagrams or a plain text Markup language) and exporting these to an open file format.
+type: F
+urgency: 2
+vm: T

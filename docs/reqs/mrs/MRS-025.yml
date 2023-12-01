@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 3
+level: 25
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: 3FyBs3ZMpHV1GoqSOhTBOCPDvw2FHr1ThhiJdYpsjKg=
+risk: 1
+text: |
+  The C5-DEC software SHOULD provide a feature for computing a hash function, using SHA256, over a given a file to verify the integrity of this file by comparing the resulting hash digest value with a reference value.
+type: F
+urgency: 3
+vm: T

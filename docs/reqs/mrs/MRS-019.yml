@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 19
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: okk24mUpS6pRMDB7gJmZIReuzdEKIjur6JKwBD2oKMg=
+risk: 1
+text: |
+  The C5-DEC software SHALL provide user management, including user creation, editing and deletion.
+type: F
+urgency: 4
+vm: R

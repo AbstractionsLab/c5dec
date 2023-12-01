@@ -1,0 +1,22 @@
+settings:
+  digits: 3
+  parent: FML
+  prefix: COM
+  itemformat: markdown
+  sep: '-'
+attributes:
+  defaults:
+    Id: ''
+    Name: ''
+    Management: ''
+    Audit: ''
+    Hierarchy: ''
+    Dependencies: ''
+  publish:
+    Management: ''
+    Audit: ''
+    Hierarchy: ''
+    Dependencies: ''
+  reviewed:
+    - Hierarchy
+    - Dependencies

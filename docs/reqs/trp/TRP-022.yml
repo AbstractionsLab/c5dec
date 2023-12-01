@@ -1,0 +1,17 @@
+active: true
+comments: |
+  The associated requirement (SRS-033) has not been implemented for the Alpha release.
+defect_category: n/a
+defect_description: ''
+derived: false
+header: ''
+level: 1.21
+links:
+- TST-022: 8xDMM-Pq-FbwT21oYtWzGuXV7z7anwKWypxGdXbHII0=
+normative: true
+ref: ''
+reviewed: CjTBzeLz6CNG3jnxB1GHvWNHbTrD10xMWizxWAl1Cbo=
+test_date: 28-11-2023
+tester: IVS
+text: |
+  Test execution results for the TST in the parent link.

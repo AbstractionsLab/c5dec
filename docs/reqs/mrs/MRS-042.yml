@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 3
+level: 42
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: lCGZ1IFVqu017jWx0T9oYyu3E7uDBsQX-0oxL799P34=
+risk: 1
+text: |
+  The CC toolbox DB of threats, risks and countermeasures MAY include content from the BSI Grundschutz, ISO 27005, NIST SPs and the CC.
+type: F
+urgency: 2
+vm: T

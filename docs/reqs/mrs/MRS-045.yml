@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 3
+level: 45
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: 3RdX0NaWSV_etkp5zqcIa1t8qGt1ySNf3wRjl0zvE-k=
+risk: 1
+text: |
+  The CC toolbox SHOULD store the generic Security Objectives defined by Article 51 of the CSA.
+type: F
+urgency: 1
+vm: T

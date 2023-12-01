@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 3
+level: 60
+links: []
+normative: true
+rationale: See Mission Analysis.
+ref: ''
+reviewed: IdD6XtSj4UcK6mkvXPp9Lp8-wLLCHZMMirkxX3wvWo8=
+risk: 1
+text: |
+  The C5-DEC software SHOULD store assets selected for security risk assessment in a format that can be imported by the TRICK Service risk management web application.
+type: I
+urgency: 2
+vm: T

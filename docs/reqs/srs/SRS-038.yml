@@ -1,0 +1,36 @@
+acceptance: |
+  - The system gathers and compiles information related to failed work units.
+  - An OR is generated, summarizing issues encountered during the evaluation.
+active: true
+author: Heinrich
+date: 03.10.2023
+dependence:
+- SRS-037
+- SRS-036
+- SRS-035
+derived: false
+difficulty: '3'
+header: |
+  Automated OR Generation
+importance: '3'
+level: 18.12
+links:
+- MRS-032: zdmk414Ku_uKO9MC4dv6gH6-9PZsz3atEQm7cnls8UE=
+- MRS-043: nUykKj5kzIjP2NUIFlvWFsfNR5Dk1bMI6Dchi_iIpRE=
+normative: true
+outlay: '3'
+rationale: "Automated generation of Observation Reports (ORs) ensures that any discrepancies,\
+  \ issues, or failures during \nthe evaluation are systematically documented and\
+  \ communicated, which is vital for transparency and subsequent \nremediation activities.\n"
+ref: ''
+reviewed: _8PE-TXgIauxGJmA7eCXapVPjLTZ6txBI2G_fMFvwD4=
+risk: '1'
+status: Open
+text: |
+  As a User,
+  I want the system to generate Observation Reports (ORs),
+  so that issues encountered during the evaluation are summarized and communicated effectively.
+  1. TBD.
+type: F
+urgency: '2'
+version: '1.0'

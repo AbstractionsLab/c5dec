@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 4
+level: 32
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: zdmk414Ku_uKO9MC4dv6gH6-9PZsz3atEQm7cnls8UE=
+risk: 1
+text: |
+  The C5-DEC software SHALL provide a Common Criteria Toolbox (CCT) implementation satisfying the requirements stated in the C5-DEC CCM.
+type: F
+urgency: 3
+vm: T

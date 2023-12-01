@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 52
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: -hghp22TjZA6Vz3B_a6jgqJBGT5Xim4qxE8JHyfNfxA=
+risk: 1
+text: |
+  The CPSSA component of the C5-DEC knowledge base SHALL include a Common Criteria model (CCM) describing how the C5-DEC software approaches tool support for CC.
+type: C
+urgency: 4
+vm: R

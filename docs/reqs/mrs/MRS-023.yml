@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 23
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: LJ9kG5ml5AY-pRJqP6WixXqZ29YsfYtBQaW80oLKvws=
+risk: 1
+text: |
+  The C5-DEC software SHALL provide web-based sharing of assets.
+type: F
+urgency: 4
+vm: R

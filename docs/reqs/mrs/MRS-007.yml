@@ -1,0 +1,17 @@
+active: true
+derived: false
+difficulty: N/A
+header: ''
+importance: 5
+level: 7
+links: []
+normative: true
+rationale: See Mission Analysis
+ref: ''
+reviewed: yJiWlS4OV3FbzUjsfEbEzvoWMkZuJ-mn7PxmC9aWt54=
+risk: 1
+text: |
+  The C5-DEC software SHALL use a distributed version control system for the storage of its artifacts to track changes in its files/artifacts.
+type: F
+urgency: 5
+vm: R
