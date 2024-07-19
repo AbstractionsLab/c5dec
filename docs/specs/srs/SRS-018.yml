@@ -1,0 +1,43 @@
+acceptance: 'see [above](#SRS-018)'
+active: true
+author: Heinrich
+date: 03.10.2023
+dependence: []
+derived: false
+difficulty: '3'
+header: |
+  Continuous Updates and Assurance of Current Information
+importance: '4'
+level: 6.0
+links:
+- MRS-032: zdmk414Ku_uKO9MC4dv6gH6-9PZsz3atEQm7cnls8UE=
+- MRS-039: 8xhYVAyPmji-K5yhEpzeIKcrkqUI9ePplGaL5n2E-jo=
+normative: true
+outlay: '2'
+rationale: 'Ensuring that the Knowledge Base reflects the most recent information of the Common Criteria guarantees users access to the most relevant and applicable insights.'
+ref: ''
+reviewed: 7FrZtoLbeonRB-Ed0f3tt4NkBDUJutB17lPjh_750sI=
+risk: '1'
+status: In Progress
+text: |
+  ## System requirement specification
+
+  As a General User, I want assurance that the information in the Knowledge Base is up-to-date
+  and relevant to specific CC versions, so that I can trust and effectively utilize the provided
+  insights.
+  Assuming I am viewing an article or topic in the Knowledge Base:
+  1. I can see a timestamp or revision history indicating the last update or revision date.
+  2. The content reflects the most current information of the Common Criteria.
+  3. The articles or topics are reviewed and updated with each new release of the Common Criteria.
+  4. The relevant CC version(s) are clearly indicated on the articles or within general sections
+  of the Knowledge Base.
+
+  ## Acceptance criteria
+
+  - The Knowledge Base articles are reviewed and updated with each new issuance of the Common Criteria.
+  - A revision history or last-updated timestamp is visible to users to ensure transparency regarding the currency of the information.
+  - Each article or general section of the Knowledge Base clearly states the version(s) of the Common Criteria it is relevant to.
+
+type: F
+urgency: '3'
+version: '0.2'

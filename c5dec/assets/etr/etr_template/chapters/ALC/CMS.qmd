@@ -1,0 +1,17 @@
+## Configuration management scope: Problem Tracking CM Coverage (ALC_CMS.4) {#sec-cms}
+
+The CM scope specifies the TOE items that need to be controlled by the CM system. Evaluation of this aspect provides assurance that the individual components of the TOE are included in the CM system.
+
+### Evaluation action (ALC_CMS.4.1E)
+
+The objective of this sub-activity is to determine whether the configuration list includes the TOE, the parts that comprise the TOE, the TOE implementation representation, security flaws, and the evaluation evidence. These configuration items are controlled in accordance with CM capabilities.
+
+### Content and evidence requirements
+
+General requirements for the evaluation of this aspect are:
+
+a. the ST;
+b. the configuration list.
+
+
+{{< include ALC/CMS-analysis.qmd >}}

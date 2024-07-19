@@ -36,6 +36,18 @@ This would print out a help menu similar to the one shown below.
 
 ## GUI: Graphical User Interface
 
+To run the GUI, simply use the `-g` flag as follows.
+
+```sh
+$ c5dec -g
+```
+
+This would then start a local web server and you can access the web application's interface by pointing your browser of choice to the following localhost URL: `127.0.0.1:5432`.
+
+![C5-DEC CAD GU1](./_figures/c5dec-cad-gui-cct-browser.png)
+
+## 3rd-party GUIs
+
 While there may be many GUI candidates, we recommend the following options:
 
 ### Visual Studio Code

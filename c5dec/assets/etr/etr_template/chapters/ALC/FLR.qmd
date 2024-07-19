@@ -1,0 +1,18 @@
+## Flaw remediation: systematic flaw remediation (ALC_FLR.3) {#sec-flr}
+
+Flaw remediation requires that discovered security flaws be tracked and corrected by the developer. Although future compliance with flaw remediation procedures cannot be determined at the time of the TOE evaluation, it is possible to evaluate the policies and procedures that a developer has in place to track and correct flaws, and to distribute the flaw information and corrections.
+
+### Evaluation action (ALC_FLR.3.1E)
+
+The objective of this sub-activity is to determine whether the developer has established flaw remediation procedures that describe the tracking of security flaws, the identification of corrective actions, and the distribution of corrective action information to TOE users. Additionally, this sub-activity determines whether the developer's procedures provide for the corrections of security flaws, for the receipt of flaw reports from TOE users, for assurance that the corrections introduce no new security flaws, for the establishment of a point of contact for each TOE user, and for the timely issue of corrective actions to TOE users.
+
+In order for the developer to be able to act appropriately upon security flaw reports from TOE users, TOE users need to understand how to submit security flaw reports to the developer, and developers need to know how to receive these reports. Flaw remediation guidance addressed to the TOE user ensures that TOE users are aware of how to communicate with the developer; flaw remediation procedures describe the developer's role is such communication.
+
+### Content and evidence requirements
+
+The evaluation evidence for this sub-activity is:
+
+a. the flaw remediation procedures documentation;
+b. flaw remediation guidance documentation
+
+{{< include ./ALC/FLR-analysis.qmd >}}

@@ -1,0 +1,29 @@
+active: true
+authors: 'IVS'
+derived: false
+expected_outcome: "Upon selection of an item, the subsequent dropdown list is updated automatically as described in the test steps."
+header: 'Browse the CC database in the GUI'
+level: 38
+links: []
+normative: true
+platform: Any of MacOS, Windows, GNU/Linux
+precondition: 'The GUI has been launched from the terminal'
+ref: ''
+release: beta
+reviewed: null
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Test steps
+  1. In the home page of the GUI, select "SAR" in the dropdown list "Requirement type". 
+      - Expected outcome: the "Class" dropdown list gets populated with the CC assurance classes (ASE,ALC,ADV,AGD,ATE,AVA,ACO,APE,ACE)
+  
+  2. Select "ALC" in the dropdown list of "Class"
+      - Expected outcome: all the families mentioned in the content text area are shown in the "Familiy" dropdown list
+  
+  3. Select "Family: ALC_LCD"
+      - Expected outcome: The "Component" dropdown list gets populated with "ALC_LCD.1" and "ALC_LCD.2"
+  
+  4. Select "Component: ALC_LCD.2"
+      - Expected outcome: The "Element" dropdown list gets populated with elements corresponding to the component "ALC_LCD.2"
+verification_method: 'Test'

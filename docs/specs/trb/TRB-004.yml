@@ -1,0 +1,17 @@
+active: true
+comments: |
+  Adding a legend in the GUI to inform about the version of CC in use is recommended.
+defect_category: '0'
+defect_description: null
+derived: false
+header: ''
+level: 4
+links:
+- TST-038: LSixyjb6izT7FjMDOpokax5YdQoXnWU3q9umvDx4EAw=
+normative: true
+ref: ''
+reviewed: UEZTp8b3MLKm1oWngV-VRD9eZNCY39CS1P2WfL6CF3M=
+test_date: 15-07-2024
+tester: IVS
+text: |
+  Test execution results for the test case (TST) referred in the parent link.

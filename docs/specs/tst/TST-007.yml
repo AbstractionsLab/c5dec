@@ -1,0 +1,28 @@
+active: true
+authors: Heinrich
+derived: false
+expected_outcome: None
+header: |
+  Test interconnection of Knowledge Base
+level: 7
+links:
+- SRS-016: 8XfEjPWLBs3Z3FXaJ6T3v4h2cv3kPgqb2LvQw4xRKHE=
+normative: true
+platform: WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04
+precondition: null
+ref: ''
+references:
+  - path: c5dec/assets/database/KnowledgeBase/0_MapofContent.md
+    type: file
+reviewed: ETtOs7bLPlHk5UJxj4gwqFmkl29e5TpiXTiF97YI40E=
+roles: null
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Setup
+  1. None
+  ## Test steps
+  1. follow steps in SRS
+  2. repeat for multiple Knowledge Articles
+verification_method: Review
+release: alpha

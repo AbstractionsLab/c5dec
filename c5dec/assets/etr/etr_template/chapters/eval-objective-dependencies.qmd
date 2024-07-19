@@ -1,0 +1,12 @@
+# Evaluation objective {#sec-objectives}
+
+As specified in the service concept, the objective of this evaluation is to gain confidence in the maturity, robustness, and security of the development process of the TOE.
+
+To this end, this evaluation is focused on the assessment of the development life-cycle adopted by the developer and on verifying that the development process ensures methodological coherence with respect to the developer’s own standards and policies.
+
+Life-cycle support assurance is addressed by the ALC class in the CC methodology, from which the following Assurance Components have been selected and analyzed in this report:
+
+- ALC_LCD.1: Developer defined life-Cycle Model
+- ALC_TAT.1: Well-defined Development Tools
+
+The examinations conducted in this report are grouped into work units according to the CEM. Each work unit consists of evaluator Action Elements (E) to be applied to the evidence presented by the developer.

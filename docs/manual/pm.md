@@ -10,7 +10,7 @@ It suffices to point the tool to the absolute path where the to-be-formatted Ope
 
 ![C5-DEC CAD OpenProject time report reformatting](./_figures/c5dec-openproject-time-report-converter.png)
 
-Also, note that the algorithm can generate starte and end timestamps and store them in the output file. To make use of this feature, the user would have to enter the start time (enclosed in curly braces) in the Comment field of the time logging pop-up window of OpenProject, e.g., for an input "\{14:00\}" and a logged duration of 1 hour, the converter will populate the start time field with "14:00" and the end time filed with "15:00".
+Also, note that the algorithm can generate start and end timestamps and store them in the output file. To make use of this feature, the user would have to enter the start time (enclosed in curly braces) in the Comment field of the time logging pop-up window of OpenProject, e.g., for an input "\{14:00\}" and a logged duration of 1 hour, the converter will populate the start time field with "14:00" and the end time filed with "15:00".
 
 ### Auxiliary configuration files
 
@@ -31,12 +31,12 @@ First, navigate to the “PM: project management” module, depicted in the figu
 
 Next, select the “Time report assistant” menu item once you have entered the PM menu, as shown below.
 
-![C5-DEC CAD time report consolidationa assistant](./_figures/c5dec-time-rep-consolidation.png)
+![C5-DEC CAD time report consolidation assistant](./_figures/c5dec-time-rep-consolidation.png)
 
 Finally, once you have entered the “Time report assistant” mini app interface, shown above, provide the following input parameters and press the “< Consolidate time reports >” button to trigger the consolidation algorithm.
 
 - **Path to folder containing time reports**: simply copy-paste the file system path to the folder in which you have added copies of all the time reports/sheets that you wish to consolidate. Note that if you use the “Copy as path” option on Windows, accessed by pressing shift + right click on a folder or file, the surrounding quotes (i.e., “”) must be removed.
-- **Apply filters?** If you select this menu item, the consolidation algorithm will consider the filtering options specified below, e.g., date range, field and filed value to apply filtering for. If this choice is not selected, all filtering options are disabled, and the algorithm consolidates all the input timesheet files in their entirety into a single file.
+- **Apply filters?** If you select this menu item, the consolidation algorithm will consider the filtering options specified below, e.g., date range, field and filed value to apply filtering for. If this choice is not selected, all filtering options are disabled, and the algorithm consolidates all the input time sheet files in their entirety into a single file.
 - **From date**: specifies the start date indicating the beginning of the date interval that is to be extracted by the consolidation (in the current version only the month value is considered).
 - **To date**: specifies the date indicating the end of the date interval that is to be extracted by the consolidation (in the current version only the month value is considered).
 - **Field to filter + field value to filter**: specified the column/field that is to be filtered for, e.g., if “Domain/Project name” is selected, the consolidated time report will only contain entries that have a “Domain/Project name” value specified in the “Field value to filter” option.

@@ -1,0 +1,45 @@
+acceptance: 'see [above](#SRS-014)'
+active: true
+author: Heinrich
+date: 03.10.2023
+dependence: []
+derived: false
+difficulty: '2'
+header: |
+  Access and Navigation Through Knowledge Base
+importance: '4'
+level: 2.0
+links:
+- MRS-032: zdmk414Ku_uKO9MC4dv6gH6-9PZsz3atEQm7cnls8UE=
+- MRS-039: 8xhYVAyPmji-K5yhEpzeIKcrkqUI9ePplGaL5n2E-jo=
+normative: true
+outlay: '3'
+rationale: 'Facilitating smooth access and navigation through the KB ensures that users can explore and understand the Common Criteria with ease, promoting effective usage of the provided information.'
+ref: ''
+reviewed: g-VGkH9mQsQKL7EyU6IQe9PWNga-Aqfhbeu5U-vTu6I=
+risk: '1'
+status: In Progress
+text: |
+  ## System requirement specification
+  
+  As a General User, I want to access and navigate through the Knowledge Base so
+  that I can effortlessly locate and explore information relevant to my needs.
+  Assuming I am on the Knowledge Base landing page:
+
+  1. I access the Knowledge Base interface.
+  2. Then I should see different sections/categories of the Knowledge Base.
+  3. When I select a section, a list of relevant articles or topics is displayed.
+  4. I can select an article or topic to view more details.
+  5. I can navigate back to the previous article or to other sections at any point.
+  6. At any time, I can exit the Knowledge Base.
+
+  ## Acceptance criteria
+
+  - General User can access the Knowledge Base.
+  - General User can view various sections or categories in the KB. 
+  - General User can view articles or topics under a selected section. 
+  - General User can navigate through articles and sections and exit at any time.
+
+type: F
+urgency: '3'
+version: '0.2'

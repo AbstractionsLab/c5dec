@@ -1,0 +1,48 @@
+acceptance: ''
+active: true
+author: Heinrich
+date: 03.10.2023
+dependence:
+- SRS-034
+derived: false
+difficulty: N/A
+header: |
+  Automated Evaluation Checklist Creation
+importance: '3'
+level: 18.9
+links:
+- MRS-032: zdmk414Ku_uKO9MC4dv6gH6-9PZsz3atEQm7cnls8UE=
+- MRS-043: nUykKj5kzIjP2NUIFlvWFsfNR5Dk1bMI6Dchi_iIpRE=
+normative: true
+outlay: '3'
+rationale: 'Enabling automated creation of Evaluation Checklists ensures that the evaluators can efficiently initialize the evaluation process by quickly defining the scope and requirements of the evaluation, thereby ensuring compliance and readiness from the project inception.'
+ref: ''
+reviewed: 1xXCYAuk02zO_xIrnasxyECX3q3uAJKDE99YZ5r1IMY=
+risk: '1'
+status: In Progress.
+text: |
+  ## System requirement specification
+
+  As a Developer or Evaluator,
+  I want to select a set of Security Assurance Components or Assurance Package and have the system automatically
+  generate an Evaluation Checklist, so that I can efficiently assess the evaluation readiness of or evaluate
+  a Target of Evaluation.
+
+  1. When I select a set of Security Assurance Components or a pre-defined Assurance Package (e.g. EAL 2)
+  to assess the readiness of or to evaluate a Target of Evaluation.
+  2. Then I expect the system to automatically validate the selected set of components in terms of the consideration
+  of hierarchical and dependency relationships.
+  3. When a valid set is selected I want the system to create an Evaluation Checklist based on the selected set.
+  4. Then I want to have the option to start the evaluation using the created Evaluation Checklist.
+
+  ## Acceptance criteria
+
+  - User can select and de-select security assurance components or assurance packages (augmentations also allowed)
+  - Based on the (valid) selection, a checklist is generated that contains Evaluation Items that correspond to the respective Work Units.
+  - Each Evaluation Item contains all relevant information for the Work Unit, i.e., Evaluator Action Element, Content or Developer Element, and the Work Unit task.
+  - Furthermore, the User must be able to assign each Evaluation Item an Evaluator, an Evaluation Date, the Evaluation Evidence, and the Evaluation Verdict.
+  - An index of required evaluation evidence documentation is created.
+
+type: F
+urgency: '1'
+version: '1.0'

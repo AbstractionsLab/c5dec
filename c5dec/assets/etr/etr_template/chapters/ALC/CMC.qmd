@@ -1,0 +1,21 @@
+## Configuration management capabilities: Production Support, Acceptance Procedures and Automation (ALC_CMC.4) {#sec-cmc}
+
+Configuration management (CM) refers to procedures set in place for controlling and tracking changes that are made to the individual components of a TOE throughout its entire lifetime. CM aims at ensuring consistent behavior of a system or product and includes techniques such as version control, automation of environment setup, and CI/CD deployment processes.
+
+Configuration management tools are software solutions that enhance system stability and agility by automating the management and tracking of IT infrastructure. These tools help provision, configure, and deploy software and hardware resources across diverse environments.
+
+### Evaluation action (ALC_CMC.4.1E)
+
+The objectives of this sub-activity are to determine whether the developer has clearly identified the TOE and its associated configuration items, and whether the ability to modify these items is properly controlled by automated tools, thus making the CM system less susceptible to human error or negligence.
+
+### Content and evidence requirements
+
+In general, the input required for the evaluation of this category consists of
+
+a. the ST;
+b. the TOE suitable for testing;
+c. the configuration management documentation.
+
+The specific evidence required from the developer per work unit is described in the corresponding section.
+
+{{< include ./ALC/CMC-analysis.qmd >}}

@@ -1,0 +1,16 @@
+active: true
+comments: A message informing of the output path is needed.
+defect_category: '0'
+defect_description: null
+derived: false
+header: ''
+level: 24
+links:
+- TST-058: TilcYgrgoCbAL8FtPS48y63z2Ne6-SpBH83Dm9S0MrA=
+normative: true
+ref: ''
+reviewed: MSdRqYUItp3bagnzDg7Nv0BvmtcIxdOD71KvT8wRxzs=
+test_date: 16-07-2024
+tester: IVS
+text: |
+  Test execution results for the test case (TST) referred in the parent link.

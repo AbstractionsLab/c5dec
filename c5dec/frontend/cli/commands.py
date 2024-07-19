@@ -8,12 +8,15 @@ import subprocess
 from typing import Set
 
 import c5dec.frontend.tui.main as tui
+import c5dec.frontend.gui.app as gui
 from c5dec import common
 import c5dec.settings as c5settings
 import c5dec.core.ssdlc as ssdlc
 import c5dec.core.pm as pm
 from datetime import datetime
 import c5dec.core.cct as cct
+import c5dec.psi.search as c5search
+import c5dec.core.transformer as transformer
 
 log = common.logger(__name__)
 
@@ -66,10 +69,13 @@ def run(args, cwd, error, catch=True):  # pylint: disable=W0613
     :param catch: catch and log :class:`~c5dec.common.c5decError`
 
     """
-    tui.main(args, cwd)
+    if args.gui:
+        gui.main(args, cwd)
+    else:
+        tui.main(args, cwd)
     return True
 
-def run_exportoptime(args, cwd, _, catch=True):
+def run_timerep(args, cwd, _, catch=True):
     timerep_assistant = pm.TimeReportAssistant()
     timerep_assistant.input_file_path = args.path
     timerep_assistant.convert_openproject_time_report_to_IAL_format()
@@ -92,21 +98,23 @@ def run_consolidate(args, cwd, _, catch=True):
 # @deprecated
 def run_retrieveattr(args, cwd, _, catch=True):
     ssdlc.get_respository_attributes(args.prefix)
-    timerep_assistant.consolidate_timesheets()
 
 def run_view(args, cwd, _, catch=True):
+    c5settings.SELECTED_CC_VERSION = args.version
     if args.verbose:
         cct.get_item(args.id, args.version)
     else:
         cct.get_item(args.id, args.version, silence=True)
 
 def run_validate(args, cwd, _, catch=True):
+    c5settings.SELECTED_CC_VERSION = args.version
     if args.verbose:
         cct.validate(args.id, args.version, mode=args.mode)
     else:
         cct.validate(args.id, args.version, mode=args.mode, silence=True)
 
 def run_checklist(args, cwd, _, catch=True):
+    c5settings.SELECTED_CC_VERSION = args.version
     if args.create:
         if args.info:
             info_dict = {k: v for k, v in (item.split('=') for item in args.info)}
@@ -130,3 +138,26 @@ def run_checklist(args, cwd, _, catch=True):
     if args.publish:
         path = os.path.abspath(os.path.join(cwd, args.publish))
         cct.CLIChecklistHandler().publish(args.prefix, path)
+
+def run_search(args, cwd, _, catch=True, **kwargs):
+    c5search.retrieve_by_xpath(c5settings.CC_VERSION_TO_PATH.get("2022R1"), c5settings.CC2022DTD_FILE_PATH)
+
+def run_export(args, cwd, _, catch=True, **kwargs):
+    c5settings.SELECTED_CC_VERSION = args.version
+    print(c5settings.SELECTED_CC_VERSION)
+    try:
+        cct.ChecklistBuilder(checklist_name=args.name, cc_version=args.version).export_eval_checklist(class_id_vector=args.classes, component_id_vector=args.components)
+    except Exception as e:
+        print(e)
+
+def run_etr(args, cwd, _, catch=True, **kwargs):
+    if args.name is None:
+        cct.ETR().generate_etr(family_list=args.families, tables_list=args.tables)
+    else:
+        cct.ETR(checklist_name=args.name).generate_etr(family_list=args.families, tables_list=args.tables)
+
+def run_publish(args, cwd, _, catch=True, **kwargs):
+    if args.format is None:
+        transformer.publish(format=".html")
+    else:    
+        transformer.publish(format=args.format)

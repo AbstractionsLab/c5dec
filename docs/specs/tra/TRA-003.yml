@@ -1,0 +1,18 @@
+active: true
+comments: |
+  (i) Only export to markdown files implemented in the Alpha phase. (ii) When giving a filepath that does not exist, the export does not create it. While this is ok, it would be better to display a message informing about the specific problem.
+defect_category: '1'
+defect_description: |
+  When files are exported, the links become unusable; for instance, when opened in VSCode, they open a browser pointing to a "page not found".
+derived: false
+header: ''
+level: 3.0
+links:
+- TST-003: 78a_XNTZ07g1S3PL2cvNh0E8yL8GgScG2B-K5PYcoXU=
+normative: true
+ref: ''
+reviewed: rhkr3tly59DAedHswAX1XtIF6JXRitfntcIJGq5c22g=
+test_date: 29-11-2023
+tester: IVS
+text: |
+  Test execution results for the TST in the parent link.

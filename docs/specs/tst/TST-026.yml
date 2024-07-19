@@ -1,0 +1,32 @@
+active: true
+authors: Heinrich
+derived: false
+expected_outcome: None
+header: |
+  Test Work Unit-Artifact linking
+level: 26
+links:
+- SRS-037: 2RZWZluL1Q4u_B6n0QGYX0Z3oQu1hTOmkEa9xs3w0_M=
+normative: true
+platform: WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04
+precondition: Run TST-024 prior to have access to an Evaluation Checklist.
+reviewed: TW5nCndXj6Lyx2hfDcSftiDQN8xgrn4OOsmO7gjCJXs=
+roles: null
+success_criteria: 'SRS acceptance criteria fulfilled and expected outcome observed.'
+text: |
+  ## Setup
+  1. when using the TUI navigate to '3 - CCT: Common Criteria Toolbox' > 'Evaluation Checklist'
+  2. when using the CLI run the following commands
+
+      `$ poetry run c5dec checklist <prefix> -s` # returns current status
+
+      `$ poetry run c5dec checklist <prefix> -l` # returns list of Evaluation items.
+
+      `$ poetry run c5dec checklist <prefix> --edit <item ID>` # edit Evaluation Item
+
+      `$ poetry run c5dec view <item ID>`
+
+  ## Test steps
+  1. follow steps in SRS.
+verification_method: Test
+release: alpha

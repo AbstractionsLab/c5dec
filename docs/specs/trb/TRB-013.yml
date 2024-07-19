@@ -1,0 +1,20 @@
+active: true
+comments: This defect is associated to issue 46
+defect_category: '1'
+defect_description: The file is correctly generated but the format of its name differs from the expected name format.
+derived: false
+header: ''
+level: 13
+links:
+- TST-047: -7QJ1BazEJUPQW8Z_ih5gzosyD8h04Yfn7iuVV4H7CY=
+normative: true
+ref: ''
+references:
+- path: docs/specs/trb/assets/trb-013-ev.png
+  type: file
+reviewed: CHwl1tokDWcTPtBJliC0a8hQiERsH6X7B8yhSbtiFYM=
+test_date: 15-07-2024
+tester: IVS
+text: |
+  Test execution results for the test case (TST) referred in the parent link.
+  Evidence in the path:

@@ -16,7 +16,7 @@
 
 ## Overview
 
-C5-DEC, short for "Common Criteria for Cybersecurity, Cryptography, Clouds – Design, Evaluation and Certification", is a subproject of the CyFORT project, in turn short for "Cloud Cybersecurity Fortress of Open Resources and Tools for Resilience".
+C5-DEC, short for "Common Criteria for Cybersecurity, Cryptography, Clouds – Design, Evaluation and Certification", is a sub-project of the CyFORT project, in turn short for "Cloud Cybersecurity Fortress of Open Resources and Tools for Resilience".
 
 C5-DEC consists of two key elements: a software component and a knowledge base including guides and a wiki of key CC concepts. These elements complement each other to form a coherent set of tools aimed at supporting activities related to CC certification, secure software development life cycle and security assessment of cyber-physical systems.
 
@@ -24,7 +24,7 @@ One of the goals of C5-DEC is carrying out impartial assessments of the security
 
 The CC and CEM are complex resources resulting from the efforts of several countries since 1980, and present an extensive catalogue of security requirements and a challenging methodology. The certification processes, involving vendors/developers and evaluation laboratories, are often costly and lengthy. 
 
-The Common Criteria Toolbox (CCT) of C5-DEC is aimed at making these procedures more accessible and efficient, assisting analysts and designers in the design and evaluation of system/product-oriented information security with a comprehensive CC database and a CC browser for navigating and filtering specific parts of the DB in a targeted manner. The CCT also assist evaluators in the creation of evaluation checklists and ffor tracking the evaluation progress.
+The Common Criteria Toolbox (CCT) of C5-DEC is aimed at making these procedures more accessible and efficient, assisting analysts and designers in the design and evaluation of system/product-oriented information security with a comprehensive CC database and a CC browser for navigating and filtering specific parts of the DB in a targeted manner. The CCT also assist evaluators in the creation of evaluation checklists and for tracking the evaluation progress.
 
 The SSDLC module of C5-DEC CAD aims at assisting with the development of secure software; this module supports the creation, storage and interconnection of requirements, architecture models, technical specifications, source code, test specifications, test execution reports and potentially other artifacts, within the same repository and using the same set of tools to allow for complete traceability.
 

@@ -1,0 +1,2682 @@
+<!DOCTYPE html>
+<html>
+<head><title>Doorstop</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="assets/doorstop/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/doorstop/general.css" />
+  <link type="text/css" rel="stylesheet" href="assets/doorstop/sidebar.css" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" ></script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
+  </script>
+</head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-2 hidden-sm hidden-xs">
+          <nav id="TOC" class="nav nav-stacked fixed sidebar">
+              <h3>Table of Contents</h3>
+<ul>
+<li><a href="#SRS-001">1.0 Access and Browse Database for CC Security Components</a></li>
+<li><a href="#SRS-014">2.0 Access and Navigation Through Knowledge Base</a></li>
+<li><a href="#SRS-015">3.0 Comprehensive and User-Friendly Explanations</a></li>
+<li><a href="#SRS-016">4.0 Interconnected Framework and Seamless Navigation</a></li>
+<li><a href="#SRS-017">5.0 Availability of Pragmatic Guidance and Best Practices</a></li>
+<li><a href="#SRS-018">6.0 Continuous Updates and Assurance of Current Information</a></li>
+<li><a href="#SRS-019">7.0 Integration of Multimedia Elements in Knowledge Articles</a></li>
+<li><a href="#SRS-020">8.0 Integrating Links to FAQ Section</a></li>
+<li><a href="#SRS-021">9.0 Provision of General Link to a CC-Specific Forum</a></li>
+<li><a href="#SRS-022">10 Data Storage and Format Mapping</a></li>
+<li><a href="#SRS-023">11 Bidirectional Transformation and Consistency</a></li>
+<li><a href="#SRS-024">12 Threats, Risks, and Countermeasures Database</a></li>
+<li><a href="#SRS-025">13 Support Mechanism for EUCC Additional Evaluation Evidence</a></li>
+<li><a href="#SRS-026">14 Storing Generic Security Objectives of CSA Article 51</a></li>
+<li><a href="#SRS-027">15 Unified Storage Mechanism for CC Artifacts and Security Elements</a></li>
+<li><a href="#SRS-028">16 Automated Rationale and Traceability Matrix Generation</a></li>
+<li><a href="#SRS-029">17 Verification of Rationales and Traceability Matrices</a></li>
+<li><a href="#SRS-030">18 Detailed Consistency and Completeness Checks</a><ul>
+<li><a href="#SRS-002">18.1 Query the Database of Security Components.</a></li>
+<li><a href="#SRS-003">18.2 Export Security Components</a></li>
+<li><a href="#SRS-004">18.3 Tailor Security Requirements.</a></li>
+<li><a href="#SRS-040">18.4 Flagging and Addressing Failed Work Units with Cascading Flags</a></li>
+<li><a href="#SRS-031">18.5 Automated Validation of Relationships, Attributes, and Dependencies</a></li>
+<li><a href="#SRS-032">18.6 Seamless Aggregation and Presentation of SARs and Work Units</a></li>
+<li><a href="#SRS-033">18.7 API Provision for Threat Importation</a></li>
+<li><a href="#SRS-034">18.8 Transformation of Imported Threats to CC-conformant Format</a></li>
+<li><a href="#SRS-035">18.9 Automated Evaluation Checklist Creation</a></li>
+<li><a href="#SRS-036">18.10 Evaluation Progress Tracking</a></li>
+<li><a href="#SRS-037">18.11 Work Unit Artifact Linking</a></li>
+<li><a href="#SRS-038">18.12 Automated OR Generation</a></li>
+<li><a href="#SRS-039">18.13 Automated ETR Generation</a></li>
+<li><a href="#SRS-041">18.14 Logging evaluated Work Units</a></li>
+<li><a href="#SRS-042">18.15 Extend Data Model Across Entire CC Ecosystem</a></li>
+<li><a href="#SRS-043">18.16 Provide CC Document Templates</a></li>
+<li><a href="#SRS-044">18.17 Validate Hierarchies and Dependencies in Security Components</a></li>
+<li><a href="#SRS-045">18.18 Generate Impact Analysis Reports for Certification Maintenance.</a></li>
+</ul>
+</li>
+</ul>
+          </nav>
+      </div>
+      <div class="col-lg-8" id="main">
+        <h1 id="SRS-001">1.0 Access and Browse Database for CC Security Components <small>SRS-001</small></h1>
+<h2>System requirement specification</h2>
+<p>As a General User, I want to access and browse the database so that I can identify Common Criteria
+Security Components relevant to my project.</p>
+<p>Assuming I am logged in as an authorized user:</p>
+<ol>
+<li>I access the database containing the CC Security Components</li>
+<li>Then I should be able to see the Security Class Types <em>Assurance</em> and <em>Functional</em>.</li>
+<li>When I select a Security Class Type the list of all respective Security Classes is displayed.</li>
+<li>Then I should be able return to the Security Class Type selection (see Step 5) or to select a
+Security Class (see Step 6).</li>
+<li>When I return to the Security Class Type selection, I resume to Step 2.</li>
+<li>When I select a Security Class, I should be able to see the content of the Security Class,
+and the list of Security Families pertaining to that Security Class.</li>
+<li>Then I should be able to return to the list of Security Classes (see Step 8) or select a
+Security Family (see Step 9).</li>
+<li>When I return to the list of Security Classes, I resume to Step 4.</li>
+<li>Repeat Steps 5 to 7 traversing the hierarchical structure until a Security Requirement is
+reached.</li>
+<li>At any time I am able to exit the database.</li>
+</ol>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>General User can access the database.</li>
+<li>General User can view and traverse the Common Criteria Security Components in their hierarchical structure</li>
+<li>General User can view content of each Security Component element.</li>
+<li>General User can access detailed information about each Security Component Element such as hierarchies, dependencies, and parent-child relations.</li>
+<li>General User can exit the database at any time.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-030">MRS-030</a>, <a href="MRS.html#MRS-036">MRS-036</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-001">TST-001 Test accessing and browsing the CC Database</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>acceptance</td>
+<td>see <a href="#SRS-001">above</a></td>
+</tr>
+<tr>
+<td>date</td>
+<td>13.09.2023</td>
+</tr>
+<tr>
+<td>status</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>5</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>5</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>2</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Security Components are of core relevance in the CC process. Efficient browsing of these will significantly ease the process of identifying Security Components appropriate for the project.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>0.1</td>
+</tr>
+</tbody>
+</table>
+<h1 id="SRS-014">2.0 Access and Navigation Through Knowledge Base <small>SRS-014</small></h1>
+<h2>System requirement specification</h2>
+<p>As a General User, I want to access and navigate through the Knowledge Base so
+that I can effortlessly locate and explore information relevant to my needs.
+Assuming I am on the Knowledge Base landing page:</p>
+<ol>
+<li>I access the Knowledge Base interface.</li>
+<li>Then I should see different sections/categories of the Knowledge Base.</li>
+<li>When I select a section, a list of relevant articles or topics is displayed.</li>
+<li>I can select an article or topic to view more details.</li>
+<li>I can navigate back to the previous article or to other sections at any point.</li>
+<li>At any time, I can exit the Knowledge Base.</li>
+</ol>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>General User can access the Knowledge Base.</li>
+<li>General User can view various sections or categories in the KB.</li>
+<li>General User can view articles or topics under a selected section.</li>
+<li>General User can navigate through articles and sections and exit at any time.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a>, <a href="MRS.html#MRS-039">MRS-039</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-005">TST-005 Test navigating the Knowledge Base</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>acceptance</td>
+<td>see <a href="#SRS-014">above</a></td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>status</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>3</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Facilitating smooth access and navigation through the KB ensures that users can explore and understand the Common Criteria with ease, promoting effective usage of the provided information.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>0.2</td>
+</tr>
+</tbody>
+</table>
+<h1 id="SRS-015">3.0 Comprehensive and User-Friendly Explanations <small>SRS-015</small></h1>
+<h2>System requirement specification</h2>
+<p>As a General User, I want to read comprehensive and user-friendly explanations of
+technical terms and concepts so that I can understand the Common Criteria without
+specialized prior knowledge.
+Assuming I am viewing an Article in the Knowledge Base
+1. When I encounter a technical term or acronym, it should be clearly defined or
+explained in layman’s terms.
+2. Optionally, a link to a detailed explanation or dedicated page for the term/acronym
+is available.
+3. I can navigate to this detailed explanation Article, if available, and return to the
+original content.</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Technical terms and acronyms within articles are clearly defined or explained.</li>
+<li>Detailed explanation pages or dedicated pages are optionally available and accessible.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a>, <a href="MRS.html#MRS-039">MRS-039</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>acceptance</td>
+<td>see <a href="#SRS-015">above</a></td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>status</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>2</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Providing user-friendly explanations will demystify the complex language of the \nCommon Criteria, making it accessible and understandable to a wider audience.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>0.2</td>
+</tr>
+</tbody>
+</table>
+<h1 id="SRS-016">4.0 Interconnected Framework and Seamless Navigation <small>SRS-016</small></h1>
+<h2>System requirement specification</h2>
+<p>As a General User, I want to traverse through interconnected Articles effortlessly via
+cross-references and hyperlinks, in markdown or exported HTML format, so that I can
+explore related concepts without difficulty.</p>
+<p>Assuming I am viewing a Knowledge Article in the Knowledge Base:</p>
+<ol>
+<li>I see hyperlinks or cross-references that guide me to related topics or articles,
+ regardless of viewing format (markdown/HTML).</li>
+<li>Clicking a hyperlink navigates me to the related topic or article with no broken links
+ encountered.</li>
+<li>If a linked article is not available, the hyperlink directs me to a standard placeholder
+ article that communicates the upcoming availability of the desired content.</li>
+<li>I can easily navigate back to the initial article or to other interconnected topics,
+ with a clear and user-friendly navigation path.</li>
+</ol>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>General User can navigate seamlessly between interconnected topics via cross-references
+ and hyperlinks, both in markdown and exported HTML format.</li>
+<li>No broken links are present, ensuring a consistent user experience and unhindered navigation.</li>
+<li>Links leading to not-yet-available content direct users to a standard placeholder article,
+ ensuring a consistent and clear message regarding upcoming content.</li>
+<li>User can return to the initial KA or navigate to related articles easily, with clear paths
+ to navigate back or explore further.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a>, <a href="MRS.html#MRS-039">MRS-039</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-006">TST-006 Test comprehensiveness of Knowledge Base</a>, <a href="TST.html#TST-007">TST-007 Test interconnection of Knowledge Base</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>acceptance</td>
+<td>see <a href="#SRS-016">above</a></td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>status</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>3</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>A seamless and interconnected navigation system, which includes guidance to upcoming content via a standard placeholder, ensures a clear, consistent, and enriching user experience throughout the KB in both markdown and HTML formats.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>0.3</td>
+</tr>
+</tbody>
+</table>
+<h1 id="SRS-017">5.0 Availability of Pragmatic Guidance and Best Practices <small>SRS-017</small></h1>
+<h2>System requirement specification</h2>
+<p>As a General User,
+I want to access pragmatic guidance and best practices in the Knowledge Base
+so that I can effectively implement the Common Criteria's requisites in a practical manner.
+Assuming I am viewing an article or topic in the Knowledge Base</p>
+<ol>
+<li>The content includes actionable guidance and best practices related to the topic.</li>
+<li>The guidance is presented in a user-friendly manner, offering tangible steps or advice.</li>
+<li>I can navigate to related topics for additional information and guidance.</li>
+</ol>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Articles contain actionable guidance and best practices for implementing the Common Criteria.</li>
+<li>The guidance provided is pragmatic, offering step-by-step instructions or tangible advice for application.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a>, <a href="MRS.html#MRS-039">MRS-039</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-008">TST-008 Test currency of Knowledge Base</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>acceptance</td>
+<td>see <a href="#SRS-017">above</a></td>
+</tr>
+<tr>
+<td>date</td>
+<td>13.09.2023</td>
+</tr>
+<tr>
+<td>status</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>3</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Facilitating users with pragmatic guidance and best practices assists them in effectively implementing the Common Criteria, bridging the gap between theory and practical application, and enhancing organizational security practices.'</td>
+</tr>
+<tr>
+<td>version</td>
+<td>0.2</td>
+</tr>
+</tbody>
+</table>
+<h1 id="SRS-018">6.0 Continuous Updates and Assurance of Current Information <small>SRS-018</small></h1>
+<h2>System requirement specification</h2>
+<p>As a General User, I want assurance that the information in the Knowledge Base is up-to-date
+and relevant to specific CC versions, so that I can trust and effectively utilize the provided
+insights.
+Assuming I am viewing an article or topic in the Knowledge Base:
+1. I can see a timestamp or revision history indicating the last update or revision date.
+2. The content reflects the most current information of the Common Criteria.
+3. The articles or topics are reviewed and updated with each new release of the Common Criteria.
+4. The relevant CC version(s) are clearly indicated on the articles or within general sections
+of the Knowledge Base.</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>The Knowledge Base articles are reviewed and updated with each new issuance of the Common Criteria.</li>
+<li>A revision history or last-updated timestamp is visible to users to ensure transparency regarding the currency of the information.</li>
+<li>Each article or general section of the Knowledge Base clearly states the version(s) of the Common Criteria it is relevant to.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a>, <a href="MRS.html#MRS-039">MRS-039</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>acceptance</td>
+<td>see <a href="#SRS-018">above</a></td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>status</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>2</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Ensuring that the Knowledge Base reflects the most recent information of the Common Criteria guarantees users access to the most relevant and applicable insights.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>0.2</td>
+</tr>
+</tbody>
+</table>
+<h1 id="SRS-019">7.0 Integration of Multimedia Elements in Knowledge Articles <small>SRS-019</small></h1>
+<h2>System requirement specification</h2>
+<p>As a Content Developer, I want to integrate multimedia elements in Knowledge Articles,
+ so that I can enhance the learning and user experience.
+1. When creating or editing a Knowledge Article, I should have the ability to embed multimedia
+ elements such as images, videos, and interactive diagrams.
+2. Then, these multimedia elements should be accessible and interactable (if applicable) when
+viewing through markdown editors and in the exported HTML format.
+3. I should also be able to provide alternative descriptions for multimedia elements to ensure
+accessibility.</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Multimedia elements such as images, videos, and interactive diagrams are embeddable in the Knowledge Articles.</li>
+<li>Users can access and interact (if applicable) with the multimedia elements when viewing through markdown editors and in the exported HTML format.</li>
+<li>Alternative descriptions for multimedia elements are present and accurately describe the \ncontent or function of the media.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-009">TST-009 Test cosmetic features of Knowledge Base</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>acceptance</td>
+<td>see <a href="#SRS-019">above</a></td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>dependence</td>
+<td>['SRS-014']</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Not Started</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>2</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>1</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>3</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Embedding multimedia elements enhances learning experiences by catering to various learning styles and enriching textual content, thus increasing user engagement and understanding.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>0.1</td>
+</tr>
+</tbody>
+</table>
+<h1 id="SRS-020">8.0 Integrating Links to FAQ Section <small>SRS-020</small></h1>
+<h2>System requirement specification</h2>
+<p>As a General User, I want to have direct access to a relevant FAQ section from Knowledge Articles,
+ so that I can swiftly find concise answers to related questions.
+1. While reading a Knowledge Article, I should encounter links that direct me to an FAQ section.
+2. These links should be contextually relevant and provide additional, succinct information
+pertaining to the content being read.
+3. Links should direct users to a placeholder page if the FAQ section is not yet developed or
+available.</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Users can access an internal or external FAQ section via links embedded within the Knowledge Articles.</li>
+<li>Links to the FAQ section are relevant, accurate and guide users toward information pertinent\n to the Knowledge Article's context.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a>, <a href="MRS.html#MRS-040">MRS-040</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-009">TST-009 Test cosmetic features of Knowledge Base</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>acceptance</td>
+<td>see <a href="#SRS-020">above</a></td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>dependence</td>
+<td>['SRS-014']</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Not Started</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>2</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>2</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>2</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Providing direct links to an FAQ section allows users to quickly access concise, straightforward answers to potential queries, enhancing user efficiency and satisfaction in interacting with the platform.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>0.1</td>
+</tr>
+</tbody>
+</table>
+<h1 id="SRS-021">9.0 Provision of General Link to a CC-Specific Forum <small>SRS-021</small></h1>
+<h2>System requirement specification</h2>
+<p>As a General User, I want a straightforward way to access a CC-specific forum from the Knowledge Base,
+so that I can explore, contribute to, and learn from discussions and interactions within a community
+of CC practitioners and experts.
+1. When I am on the main page or any part of the Knowledge Base, I should easily identify and access
+   a link that navigates to a CC-specific forum.
+2. The link directs me to a forum where I can view and participate in discussions related to the
+   Common Criteria.</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>A prominently visible link to a CC-specific forum is available on the main page or navigation bar of the Knowledge Base.</li>
+<li>Users can effortlessly navigate to the forum to participate in or view discussions related to CC topics.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a>, <a href="MRS.html#MRS-040">MRS-040</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-009">TST-009 Test cosmetic features of Knowledge Base</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>acceptance</td>
+<td>see <a href="#SRS-021">above</a></td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>dependence</td>
+<td>['SRS-014']</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Not Started</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>2</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>2</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>1</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>A CC-specific forum enhances user engagement and community interaction by providing a platform for discussions, knowledge-sharing, and collaborative problem-solving related to Common Criteria, without overcomplicating the navigation within the Knowledge Base.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>0.1</td>
+</tr>
+</tbody>
+</table>
+<h1 id="SRS-022">10 Data Storage and Format Mapping <small>SRS-022</small></h1>
+<h2>System requirement specification</h2>
+<p>As a System, ensure that the CC data model is stored in a format that maintains
+a mapping to the available CC XML-file and can be validated against the
+corresponding DTD file while preserving semantic relationships between CC concepts.</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>The System is able to store the CC data model in a specific format.</li>
+<li>The stored format maintains a mapping to the available CC XML-file.</li>
+<li>The System can validate the stored data against the corresponding DTD file.</li>
+<li>The System preserves semantic relationships between CC concepts during storage and retrieval.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a>, <a href="MRS.html#MRS-037">MRS-037</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-010">TST-010 Inspect CC Database-DTD mapping</a>, <a href="TST.html#TST-011">TST-011 Test correctness of CC Database</a>, <a href="TST.html#TST-012">TST-012 Test validity and conistency of bidirectional transformation</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>acceptance</td>
+<td>see <a href="#SRS-022">above</a></td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>status</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>1</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>3</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>3</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Ensuring that the CC data model is stored and mapped accurately in a format that can be validated against the DTD file and maintains semantic relationships is critical for the integrity, reliability, and usability of the CC data. Accurate data storage and mapping are essential for ensuring that CC data retrieval, modification, and usage within the system are correct and reliable.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="SRS-023">11 Bidirectional Transformation and Consistency <small>SRS-023</small></h1>
+<h2>System requirement specification</h2>
+<p>As a Data Administrator/General User, I want the system to ensure the automatic transformation of content from and to the CC defined
+XML format, so that I can trust that the data remains consistent and coherent across all stored data and
+representations, ensuring that data retrievals, modifications, and other interactions with the
+data are reliable and accurate.</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>The system can successfully transform content from CC defined XML format to an internal representation.</li>
+<li>The system can transform content from the internal representation back to the CC defined XML format.</li>
+<li>Consistency and coherence of the stored data and representations are maintained during transformations.</li>
+<li>Data transformations adhere to the defined mappings and respect the structural and semantic integrity of the original CC XML format.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a>, <a href="MRS.html#MRS-038">MRS-038</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-012">TST-012 Test validity and conistency of bidirectional transformation</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>acceptance</td>
+<td>see <a href="#SRS-023">above</a></td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>status</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>1</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>3</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>4</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>The ability to perform bidirectional transformations between the internal data representation and the CC defined XML format is crucial to facilitate data exchanges and modifications while maintaining data integrity and consistency. Ensuring that the transformation processes are naccurate and coherent safeguards the quality and reliability of the stored Common Criteria data, supporting its effective usage and application.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="SRS-024">12 Threats, Risks, and Countermeasures Database <small>SRS-024</small></h1>
+<h2>System requirement specification</h2>
+<p>As a General User,I want the system to provide a database that encompasses generic threats,
+risks, and countermeasures, so that I can leverage a comprehensive and integrated source of
+security-related data that assimilates content from BSI Grundschutz, ISO 27005, NIST SPs, and
+the CC, ensuring diverse and standards-compliant support for dealing with security
+considerations in varied contexts.
+1. TBD</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>The System provides a database that includes generic threats, risks, and countermeasures.</li>
+<li>The database can integrate content from BSI Grundschutz, ISO 27005, NIST SPs, and the CC.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-041">MRS-041</a>, <a href="MRS.html#MRS-042">MRS-042</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-013">TST-013 Test threats, risks, and countermeasures database</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>acceptance</td>
+<td>see <a href="#SRS-024">above</a></td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>2</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>4</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Maintaining a database that encompasses and integrates diverse and generic threats, risks, and countermeasures from different standardized sources (like BSI Grundschutz, ISO 27005, NIST SPs, and the CC) ensures that the system can provide a comprehensive and standards-compliant set of data for users or other system components dealing with security-related aspects. This centralized and integrated approach facilitates streamlined, consistent, and efficient handling and mitigation of security-related concerns.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="SRS-025">13 Support Mechanism for EUCC Additional Evaluation Evidence <small>SRS-025</small></h1>
+<h2>System requirement specification</h2>
+<p>As a Security Evaluator, I want the system to implement a support mechanism that assists in
+generating additional evaluation evidence and provides guides for tailoring existing evaluation
+evidence, so that I can ensure that all produced evidence is conformant with EUCC requirements and navigate
+the EUCC evaluation process effectively and efficiently.</p>
+<ol>
+<li>TBA</li>
+</ol>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>The System implements a mechanism that assists in generating additional evaluation evidence as required by the EUCC.</li>
+<li>The System provides guides that assist in tailoring existing evaluation evidence to be conformant with EUCC requirements.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-044">MRS-044</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-014">TST-014 Test EUCC support</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>acceptance</td>
+<td>see <a href="#SRS-025">above</a></td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>1</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>4</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Implementing a support mechanism that assists in generating additional evaluation evidence and guides for tailoring existing evidence to conform with EUCC requirements ensures that the system adheres to relevant regulatory standards and efficiently navigates the EUCC evaluation process. This not only fosters compliance and mitigates regulatory risks but also enhances the robustness and credibility of the system by aligning it with established European cybersecurity standards and practices.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="SRS-026">14 Storing Generic Security Objectives of CSA Article 51 <small>SRS-026</small></h1>
+<h2>System requirement specification</h2>
+<p>As a Security Analyst,
+I want the system to store and provide accessibility to the generic Security Objectives defined by Article 51 of the CSA,
+So that I can efficiently retrieve, analyze, and utilize these objectives for compliance, evaluation, and management
+processes in a manner that is interoperable with both human and automated (machine) activities and assessments.
+1. TBD.</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>The System stores generic Security Objectives as defined by Article 51 of the CSA.</li>
+<li>The stored Security Objectives are in a structured format.</li>
+<li>The stored Security Objectives are accessible and readable by both humans and machines.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-045">MRS-045</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-015">TST-015 Test availabilty of CSA Article 51 defined Security Objectives</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>acceptance</td>
+<td>see <a href="#SRS-026">above</a></td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>1</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>3</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Ensuring the storage and accessibility of generic Security Objectives as defined by Article 51 of the CSA in a structured, human, and machine-readable format enables efficient retrieval, analysis, and utilization of the objectives for various purposes such as compliance checks, threat modeling, or security analysis. This supports maintaining alignment with regulatory requirements and fosters a standardized approach towards handling and considering CSA-defined security objectives in cybersecurity evaluation and management processes.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="SRS-027">15 Unified Storage Mechanism for CC Artifacts and Security Elements <small>SRS-027</small></h1>
+<h2>System requirement specification</h2>
+<p>As a User, I want the CC toolbox within the C5-DEC software to enable consistent and structured
+storage of various CC artifacts and security elements, ensuring ease of data management and
+integrity.</p>
+<ol>
+<li>When I choose to store SFRs/SARs, Security Functional Classes, Security Assurance Classes,
+Evaluation Activities, and Packages in the CC toolbox,</li>
+<li>I want the storage process to utilize the same open file format used for all artifacts
+ensuring uniformity,</li>
+<li>And store all elements in a structured, human and machine-readable format within the C5-DEC
+document-based data store, enabling efficient data retrieval and management.</li>
+<li>Thus, I can consistently and efficiently manage, access, and utilize the stored data in varied
+formats without loss of integrity and structure.</li>
+</ol>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>User can store SFRs/SARs and all relevant CC artifacts and security elements in the CC toolbox.</li>
+<li>All stored artifacts utilize the same open file format ensuring consistent data management.</li>
+<li>Data for all elements (including Security Functional Classes, Security Assurance Classes, etc.) is stored in a structured, human and machine-readable format.</li>
+<li>User can retrieve and manage the stored data efficiently without loss of integrity and structure.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-030">MRS-030</a>, <a href="MRS.html#MRS-036">MRS-036</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-016">TST-016 Test uniformity of storage mechanisms in CCT module</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>acceptance</td>
+<td>see <a href="#SRS-027">above</a></td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>status</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>2</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>3</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>4</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Implementing a unified and structured storage mechanism ensures that data related to SFRs/SARs and other CC elements is consistently stored and managed within the C5-DEC document-based data store, facilitating efficient data retrieval, management, and overall system reliability.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="SRS-028">16 Automated Rationale and Traceability Matrix Generation <small>SRS-028</small></h1>
+<h2>System requirement specification</h2>
+<p>As a Developer,
+I want the system to automatically generate rationales as required by the CC, that captures and
+justifies each parent-child relation,
+so that documentation adheres to CC requirements and maintains a structured and justified linkage
+throughout the development and evaluation processes.
+1. TBD</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>For each created parent-child relationship a rationale is defined.</li>
+<li>A traceability matrix between all parent-child elements of a given level is automatically generated.</li>
+<li>A list of justifications, justifying each parent-child link, is automatically compiled.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-017">TST-017 Test automated rationale and traceability matrix generation</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>acceptance</td>
+<td>see <a href="#SRS-028">above</a></td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>3</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>To comply with the Common Criteria, ensuring that every parent-child link within the CC data model is justified and traceable is crucial. Automated generation of a traceability matrix and rationale compilation facilitates consistent documentation and adherence to these requirements.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="SRS-029">17 Verification of Rationales and Traceability Matrices <small>SRS-029</small></h1>
+<h2>System requirement specification</h2>
+<p>As an Evaluator,
+I want the system to validate that the generated rationales and traceability matrices
+comprehensively cover all parent-child elements and are in strict adherence with CC requirements,
+so that I can confidently validate and certify the coherence and completeness of the security
+documentation.
+1. TBD.</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>The system verifies that every parent-child relationship has an associated rationale.</li>
+<li>A traceability matrix is provided that covers all parent-child elements of a given level.</li>
+<li>An exhaustive list of justifications is available, ensuring full coverage of all parent-child links.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-018">TST-018 Test verificaiton of rationales and traceability matrices</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>acceptance</td>
+<td>see <a href="#SRS-029">above</a></td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Not Started</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>3</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>For an Evaluator, ensuring that the provided rationales and traceability matrices comprehensively cover all elements and adhere to CC standards is paramount for validating the coherence and comprehensiveness of the security documentation.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="SRS-030">18 Detailed Consistency and Completeness Checks <small>SRS-030</small></h1>
+<h2>System requirement specification</h2>
+<p>As an Administrator,
+I want the system to perform detailed automated consistency and completeness checks on CC data,
+specifically validating relationships, attributes, and dependencies,
+so that the integrity, quality, and reliability of the stored data are ensured and maintained in adherence with predefined standards.
+1. TBD.</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Automated consistency checks validate relationships, attributes, and dependencies within the CC data.</li>
+<li>Automated completeness checks ensure all necessary data points are present and properly configured in the CC data.</li>
+<li>All data adheres to predefined standards, maintaining its integrity and quality.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-019">TST-019 Test automated consistency and completeness checks</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>acceptance</td>
+<td>see <a href="#SRS-030">above</a></td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.01.2023</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>3</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Employing automated checks that validate relationships, attributes, and dependencies and ensure completeness in CC data not only safeguards the data integrity and quality but also bolsters reliability and adherence to predefined standards.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SRS-002">18.1 Query the Database of Security Components. <small>SRS-002</small></h2>
+<h2>System requirement specification</h2>
+<p>As a General User, I want to search and filter the database for Security Component Elements using full-text search and/or attributes.</p>
+<p>Assuming I am logged in as an authorized user:</p>
+<ol>
+<li>I access the database containing the CC Security Components.</li>
+<li>Then I am able to define a query and search the database.</li>
+<li>When I query the database I am provided with best matching results in descending order, from best to worst.</li>
+<li>When I select a match, the respective Security Component Element is shown.</li>
+<li>Then I can traverse the Security Component structure as defined in SRS-001 or define a new query.</li>
+<li>When I define a new query, I resume to Step 3.</li>
+<li>At all times I am able to exit the database.</li>
+</ol>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>General User can access the database.</li>
+<li>General User can define full-text and/or attributes queries to search the database.</li>
+<li>General User is successfully presented with search matches in descending order, from best to worst.</li>
+<li>General User can select a match to view the respective Security Component Element.</li>
+<li>General User can traverse the Security Component structure.</li>
+<li>General User can define a new query.</li>
+<li>General User can exit the database at any time.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-028">MRS-028</a>, <a href="MRS.html#MRS-030">MRS-030</a>, <a href="MRS.html#MRS-036">MRS-036</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-002">TST-002 Test query the CC Database</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>acceptance</td>
+<td>see <a href="#SRS-002">above</a></td>
+</tr>
+<tr>
+<td>date</td>
+<td>13.09.2023</td>
+</tr>
+<tr>
+<td>dependence</td>
+<td>['SRS-001']</td>
+</tr>
+<tr>
+<td>status</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>2</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>In addition to the browsing option, the General User should be able to query the database for keywords, further enhancing the identification process.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>0.1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SRS-003">18.2 Export Security Components <small>SRS-003</small></h2>
+<h2>System requirement specification</h2>
+<p>As a Developer, I want to be able to (select Security Components and) export (their respective)
+Security Requirements into a file so that I can e.g. import them into my project's REM system.</p>
+<p>Assuming that I am logged in as an authorized user:</p>
+<ol>
+<li>I access the database containing the CC Security Components</li>
+<li>Then I am able to specify or select a (set of) Security Component/s of type 'functional' and/or 'assurance'.</li>
+<li>When I specify or select a (set of) Security Component/s I expect the system to automatically assess the validatiy of
+the selection in terms of consideration of hierarchical and dependency relationships and to display the result</li>
+<li>Then I am able to export the selected Security Components' Security Requirements.</li>
+<li>When I select the export option I expect the system to warn me in case of an invalid selection</li>
+<li>Then I am able to ignore the warning or adjust my selection.</li>
+<li>When I proceed I am able to (at least) define the
+  - filepath,
+  - filename,
+  - and format (csv, xlsx).
+  Additional customizability to ease export to project's REM system format is desirable.</li>
+<li>Then all Security Requirements of the selected Security Components are
+exported to the defined filepath with the filename and in the defined format.</li>
+</ol>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Developer can specify or select a set of Security Components</li>
+<li>Selection is automatically validated in terms of the components' hierarchical and dependency relationships.</li>
+<li>Respective Security Requirements are correctly exported according to the defined settings.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-053">MRS-053</a>, <a href="MRS.html#MRS-055">MRS-055</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-003">TST-003 Test exporting Security Components</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>acceptance</td>
+<td>see <a href="#SRS-003">above</a></td>
+</tr>
+<tr>
+<td>date</td>
+<td>13.09.2023</td>
+</tr>
+<tr>
+<td>dependence</td>
+<td>['SRS-001', 'SRS-002']</td>
+</tr>
+<tr>
+<td>status</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>version</td>
+<td>0.1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SRS-004">18.3 Tailor Security Requirements. <small>SRS-004</small></h2>
+<h2>System requirement specification</h2>
+<p>As a Developer,
+I want to tailor Security Requirements to my project's needs,
+So that the tailoring process and the resultant Security Requirements comply with the Common Criteria.
+Assuming I am logged in as an authorized user:</p>
+<h3>Option 1: Export tailoring</h3>
+<ol>
+<li>I access the database containing the CC Security Components\n</li>
+<li>Then I am able to specify or select a (set of) Security Component/s of type 'functional' and/or 'assurance'.\n</li>
+<li>When I specify or select a (set of) Security Component/s I expect the system to automatically assess the validatiy of
+the selection in terms of consideration of hierarchical and dependency relationships and to display the result\n</li>
+<li>Then I am able to export the selected Security Components' Security Requirements.\n</li>
+<li>When I proceed to export I will be able to iterate through all Security Requirements and tailor each\n
+to my project's needs. \n</li>
+<li>Then the system tracks the changes made to the original Security Requirements and includes the Common Criteria \
+required information in the exported file. \n</li>
+</ol>
+<h3>Option 2: Parse tailored Requirements</h3>
+<ol>
+<li>I access the database containing the CC Security Components</li>
+<li>Then I am able to provide a (set of) tailored Security Requirement/s in (TBD) format</li>
+<li>When I provide a (set of) tailored Security Requirements the system is able to automatically validate made changes
+and generate the Common Criteria required information for the tailored Security Requirement.</li>
+<li>Then I am able to export the provided (set of) tailored Security Requirement(s) with the additional information.</li>
+</ol>
+<h2>Acceptance criteria</h2>
+<ol>
+<li>The system successfully parses and validates Security Requirements against the DTD.</li>
+<li>The system allows manipulations of the requirement according to defined operations.</li>
+<li>The system provides options to select and edit operations as needed.</li>
+<li>The tailored requirement provides a detailed list of conducted operations and modifications.</li>
+</ol>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a>, <a href="MRS.html#MRS-053">MRS-053</a>, <a href="MRS.html#MRS-055">MRS-055</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-004">TST-004 Test tailoring Security Requirements</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>acceptance</td>
+<td>see <a href="#SRS-004">above</a></td>
+</tr>
+<tr>
+<td>date</td>
+<td>13.09.2023</td>
+</tr>
+<tr>
+<td>dependence</td>
+<td>['SRS-003']</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Ensuring that the Security Requirements can be tailored in compliance with the Common Criteria is crucial for aligning the project needs with standardized security benchmarks. Facilitating a structured and traceable method of managing requirement modifications while maintaining an archival system of original requirements ensures auditability and adherence to the Common Criteria, particularly for PP/ST.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>0.1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SRS-040">18.4 Flagging and Addressing Failed Work Units with Cascading Flags <small>SRS-040</small></h2>
+<h2>System requirement specification</h2>
+<p>As a User,
+I want failed work units to be visibly flagged and to inhibit progression until resolved. Additionally,
+I want all items linked to a flagged work unit to also be flagged,
+so that all issues and potential dependent problems are duly addressed, ensuring a reliable, thorough,
+and systematic evaluation and development process.
+1. TBD.</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Failed work units are visibly flagged.</li>
+<li>Items linked to the flagged work units are also flagged.</li>
+<li>Progress cannot continue until flagged items are addressed.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a>, <a href="MRS.html#MRS-043">MRS-043</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-029">TST-029 Test flagging failed Work Units and affected artifacts</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>dependence</td>
+<td>['SRS-037', 'SRS-036']</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>2</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>3</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Explicitly flagging failed work units and inhibiting progression until they are addressed ensures that nissues are rectified promptly. Cascading these flags to linked items ensures a rigorous and thorough evaluation and validation process, maintaining the integrity and reliability of the evaluation and development process and ensuring that dependent elements are not overlooked.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SRS-031">18.5 Automated Validation of Relationships, Attributes, and Dependencies <small>SRS-031</small></h2>
+<h2>System requirement specification</h2>
+<p>As a Developer,
+I want the system to automatically validate relationships, attributes, and dependencies between data points,
+and ensure the completeness of all necessary data entries within the CC data,
+so that development is guided by accurate, reliable, and complete data, thereby reducing the potential for
+errors and rework.
+1. TBD</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>The system identifies and alerts to any inconsistencies or incomplete data entries within the CC\n data.</li>
+<li>Relationships, attributes, and dependencies between data points are automatically validated by the system.</li>
+<li>A report log can be generated to provide insights into the validation checks and any issues identified.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-020">TST-020 Test automated validation</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>acceptance</td>
+<td>see <a href="#SRS-031">above</a></td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>3</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Ensuring the validity of relationships, attributes, and dependencies and the completeness of CC data entries ensures a robust and reliable data structure, which in turn streamlines development activities by reducing the potential for errors and unnecessary rework, thus ensuring compliance and efficiency in adhering to CC.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SRS-032">18.6 Seamless Aggregation and Presentation of SARs and Work Units <small>SRS-032</small></h2>
+<h2>System requirement specification</h2>
+<p>As an Evaluator, I want the system to seamlessly aggregate and present SARs and associated work units,
+aligning them with specific security assurance components,
+so that the process of evaluating the readiness and compliance of a Target of Evaluation (TOE) is
+simplified and streamlined.</p>
+<ol>
+<li>When I select an SAR to assess the readiness or compliance of a TOE, I want to see the SAR description and
+the associated Work Unit description.</li>
+</ol>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>SARs and work units are accurately and seamlessly aggregated by the system.</li>
+<li>The system displays SARs and work units in an organized manner, aligned with the respective security assurance components.</li>
+<li>Evaluators can easily navigate and interpret the aggregated data to assess the readiness and compliance of the TOE.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-021">TST-021 Test aggregation of SARs and Work Units</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>dependence</td>
+<td>['MRS-030']</td>
+</tr>
+<tr>
+<td>status</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>3</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>The efficient evaluation of the TOE readiness and compliance with relevant standards is vital for ensuring the security and reliability of the developed system. By automatically aggregating and presenting SARs and work units in alignment with respective security assurance components, evaluators can swiftly and accurately assess adherence to security assurance requirements, ensuring robust evaluation processes and confidence in the TOE.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SRS-033">18.7 API Provision for Threat Importation <small>SRS-033</small></h2>
+<h2>System requirement specification</h2>
+<p>As a Security Analyst,
+I want the system to provide APIs for seamless importation of threats from external repositories
+like MITRE ATT&amp;CK and CVE,
+so that I can efficiently integrate and utilize external threat data within C5-DEC.
+1. TBD.</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>APIs enable seamless importation of threats from MITRE ATT&amp;CK and CVE.</li>
+<li>Imported threats are accurately represented within C5-DEC.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a>, <a href="MRS.html#MRS-041">MRS-041</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-022">TST-022 Test API provision for threat import</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>2</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>3</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Integrating external threat data from reputable sources like MITRE ATT&amp;CK and CVE enriches the C5-DEC database, providing a comprehensive threat landscape for better-informed security analysis and decision-making.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SRS-034">18.8 Transformation of Imported Threats to CC-conformant Format <small>SRS-034</small></h2>
+<h2>System requirement specification</h2>
+<p>As a Developer,
+I want the system to provide transformation templates, guidelines, and custom mapping options for converting imported threats into a CC-conformant format,
+so that all threats, native or imported, ensure compliance with CC standards and integration within the C5-DEC encoded CC data model.
+1. TBD.</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>The system provides templates, guidelines, and custom mapping options for transforming imported threats.</li>
+<li>Transformed threats comply with CC standards and integrate with the C5-DEC CC data model.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a>, <a href="MRS.html#MRS-041">MRS-041</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-023">TST-023 Test transforming imported threats to CC-conformant format</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>2</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Ensuring that all threats, whether internally defined or imported from external sources, adhere to CC standards and can be seamlessly integrated within the C5-DEC data model promotes consistency, traceability, and compliance throughout the security evaluation and assurance processes.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SRS-035">18.9 Automated Evaluation Checklist Creation <small>SRS-035</small></h2>
+<h2>System requirement specification</h2>
+<p>As a Developer or Evaluator,
+I want to select a set of Security Assurance Components or Assurance Package and have the system automatically
+generate an Evaluation Checklist, so that I can efficiently assess the evaluation readiness of or evaluate
+a Target of Evaluation.</p>
+<ol>
+<li>When I select a set of Security Assurance Components or a pre-defined Assurance Package (e.g. EAL 2)
+to assess the readiness of or to evaluate a Target of Evaluation.</li>
+<li>Then I expect the system to automatically validate the selected set of components in terms of the consideration
+of hierarchical and dependency relationships.</li>
+<li>When a valid set is selected I want the system to create an Evaluation Checklist based on the selected set.</li>
+<li>Then I want to have the option to start the evaluation using the created Evaluation Checklist.</li>
+</ol>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>User can select and de-select security assurance components or assurance packages (augmentations also allowed)</li>
+<li>Based on the (valid) selection, a checklist is generated that contains Evaluation Items that correspond to the respective Work Units.</li>
+<li>Each Evaluation Item contains all relevant information for the Work Unit, i.e., Evaluator Action Element, Content or Developer Element, and the Work Unit task.</li>
+<li>Furthermore, the User must be able to assign each Evaluation Item an Evaluator, an Evaluation Date, the Evaluation Evidence, and the Evaluation Verdict.</li>
+<li>An index of required evaluation evidence documentation is created.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a>, <a href="MRS.html#MRS-043">MRS-043</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-024">TST-024 Test automated creation of Evaluation Checklist</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>dependence</td>
+<td>['SRS-034']</td>
+</tr>
+<tr>
+<td>status</td>
+<td>In Progress.</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>1</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>3</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Enabling automated creation of Evaluation Checklists ensures that the evaluators can efficiently initialize the evaluation process by quickly defining the scope and requirements of the evaluation, thereby ensuring compliance and readiness from the project inception.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SRS-036">18.10 Evaluation Progress Tracking <small>SRS-036</small></h2>
+<h2>System requirement specification</h2>
+<p>As a User,
+I want the system to track and display the evaluation progress of the Evaluation, as well as the
+evaluation status of individual Evaluation Items,
+so that the ongoing status of the Evaluation is clear and easily accessible.</p>
+<ol>
+<li>When I load an Evaluation Checklist I expect to see the overall evaluation progress, as well as
+the evaluation status (pass, fail, inconclusive) of each Evaluation Item.</li>
+<li>When I select and edit an Evaluation Item I expect the Item's status as well as the overall
+evaluation progress to account for the changes in real time.</li>
+</ol>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>The overall evaluation progress is accurately and visually represented in the system, e.g., as a percentage of <code>passed</code> evaluation items.</li>
+<li>The status of each Evaluation Item is accurately and visually represented, e.g., as [X],[O], or [ ] for failed, passed, or inconclusive, respectively.</li>
+<li>Both the overall evaluation progress and the Item's status are updated in real time, i.e., evaluation progess and status are immediately updated when changes are made.</li>
+<li>At all times the evaluation progress as well as any Evaluation Item's status can be extracted.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a>, <a href="MRS.html#MRS-043">MRS-043</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-025">TST-025 Test evaluation progress tracking</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>dependence</td>
+<td>[{'SRS-035': None}]</td>
+</tr>
+<tr>
+<td>status</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>1</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>3</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Tracking the evaluation progress centrally and transparently supports project management by allowing all stakeholders to have a clear, real-time insight into the ongoing evaluation status, thereby enabling timely decision-making and issue mitigation.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SRS-037">18.11 Work Unit Artifact Linking <small>SRS-037</small></h2>
+<h2>System requirement specification</h2>
+<p>As a User,
+I want to link work units within an Evaluation Checklist to applicable artifacts,
+so that there is clear traceability between work units and related project artifacts.</p>
+<ol>
+<li>When I treat an Evaluation Item and hence the associated Work Unit and want to link relevant artifacts to the Evaluation Item/Work Unit.</li>
+<li>Then I want to be able to differentiate between linking internal (items stored in the same open file format and managed by C5-DEC) and external artifacts.</li>
+<li>When I want to link internal artifacts I can do so by providing the artifact's item UID.</li>
+<li>Then I expect the system to acknowledge linking the artifact to the Evaluation Item or inform me (visually) if the UID is invalid.</li>
+<li>When I want to link internal artifacts I want to be able to define queries to search for the artifact. (OPTIONAL)
+6 Then I expect the system to provide potentially matching items with a preview of the item's content. (OPTIONAL)
+7 When I select a match I want the system to link the Evaluation Item to the selected item. (OPTIONAL)</li>
+<li>When I want to link external artifacts I can do so by providing the path to the external resource.</li>
+<li>When I select an Evaluation Item's link</li>
+<li>Then I want to be able to modify, remove, or open/preview the linked Item.</li>
+</ol>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Users can create, modify, and remove links between work units and applicable artifacts.</li>
+<li>Links are visibly represented and can be navigated within the system.</li>
+<li>Links are differentiated between internal and external links.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a>, <a href="MRS.html#MRS-043">MRS-043</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-026">TST-026 Test Work Unit-Artifact linking</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>dependence</td>
+<td>['SRS-035']</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>3</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Ensuring traceability between work units and related artifacts reinforces the transparency and verifiability of the evaluation process, thereby strengthening the credibility and compliance of the evaluation outcome.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SRS-038">18.12 Automated OR Generation <small>SRS-038</small></h2>
+<h2>System requirement specification</h2>
+<p>As a User,
+I want the system to generate Observation Reports (ORs),
+so that issues encountered during the evaluation are summarized and communicated effectively.
+1. TBD.</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>The system gathers and compiles information related to failed work units.</li>
+<li>An OR is generated, summarizing issues encountered during the evaluation.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a>, <a href="MRS.html#MRS-043">MRS-043</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-027">TST-027 Test automated generation of Observation Reports</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>dependence</td>
+<td>['SRS-037', 'SRS-036', 'SRS-035']</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>2</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>3</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Automated generation of Observation Reports (ORs) ensures that any discrepancies, issues, or failures during the evaluation are systematically documented and communicated, which is vital for transparency and subsequent remediation activities.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SRS-039">18.13 Automated ETR Generation <small>SRS-039</small></h2>
+<h2>System requirement specification</h2>
+<p>As a User,
+I want the system to generate the Evaluation Technical Report (ETR) upon completion of the evaluation,
+so that all verdicts and evaluation results are summarized and the overall verdict is derived according to
+predefined rules.</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>All verdicts and evaluation results are summarized in the ETR.</li>
+<li>The overall verdict in the ETR is derived based on individual verdicts and predefined rules.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a>, <a href="MRS.html#MRS-043">MRS-043</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-028">TST-028 Test automated generation of Evaluation Technical Report</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>dependence</td>
+<td>['SRS-035', 'SRS-036', 'SRS-037', 'SRS-038']</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>2</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>3</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Streamlining the creation of the Evaluation Technical Report (ETR) by automating the compilation and derivation of overall verdicts ensures a swift, consistent, and objective consolidation of evaluation outcomes, which is crucial for substantiating evaluation claims and finalizing the evaluation process.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SRS-041">18.14 Logging evaluated Work Units <small>SRS-041</small></h2>
+<h2>System requirement specification</h2>
+<p>As a User,
+I want evaluated work units to be logged and stored,
+so that a clear record of successful evaluations is maintained for future reference and auditing.</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Evaluated work units are logged and stored as Doorstop items.</li>
+<li>Users can review the log of passed work units.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a>, <a href="MRS.html#MRS-043">MRS-043</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-030">TST-030 Test auditability of Evaluation Items</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>dependence</td>
+<td>['SRS-036']</td>
+</tr>
+<tr>
+<td>status</td>
+<td>In Progess</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>2</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>3</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Systematically logging and archiving evaluated work units provides a clear record, which can be vital for future reviews, audits, and project insights, thereby supporting transparency and historical tracking of project evolution.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SRS-042">18.15 Extend Data Model Across Entire CC Ecosystem <small>SRS-042</small></h2>
+<h2>System requirement specification</h2>
+<p>As a User,
+I want the data model to accurately encompass and interrelate all entities and documents within the CC ecosystem,
+so that I can efficiently navigate, manage, and derive insights from comprehensive, interconnected CC data,
+ensuring that the manipulation, association, and interpretation of all CC-relevant entities are coherent and traceable.
+1. TBD</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>The data model encompasses all entities and documents within the CC ecosystem.</li>
+<li>Each entity in the CC ecosystem can be represented, related, and manipulated within the system.</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-031">TST-031 Test extended data model</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>1</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>3</td>
+</tr>
+<tr>
+<td>type</td>
+<td>N</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Extending the data model across the entire CC ecosystem ensures consistent and comprehensive management and manipulation of all CC entities and documents. It enables thorough adherence to CC standards and ensures all CC-relevant data can be accurately represented, related, and manipulated within the system.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SRS-043">18.16 Provide CC Document Templates <small>SRS-043</small></h2>
+<h2>System requirement specification</h2>
+<p>As a User,
+I want access to predefined templates for each type of CC document,
+so that I can efficiently create standardized, CC-compliant documents and optionally export them
+to supported formats.
+1. TBD.</p>
+<h2>Acceptance criteria</h2>
+<ul>
+<li>Templates for each type of CC document are available and adhere to CC standards.</li>
+<li>Users can select, utilize, and export templates to supported formats (e.g., .docx, .tex, .xml).</li>
+</ul>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-032">TST-032 Test CC templates</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>dependence</td>
+<td>['SRS-042']</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>2</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Providing predefined templates for each type of CC document simplifies and standardizes the document creation process. It ensures that users can efficiently create documents adhering to CC content and formatting standards without requiring detailed manual input, thus enhancing consistency and reducing the potential for error across CC documentation.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SRS-044">18.17 Validate Hierarchies and Dependencies in Security Components <small>SRS-044</small></h2>
+<h2>System requirement specification</h2>
+<p>As a User,
+I want the system to validate the hierarchies and dependencies among the selected
+security components,
+so that I can ensure that my set of components is coherent and conforms
+to the CC.</p>
+<ol>
+<li>When I select or provide a set of Security Components</li>
+<li>Then I expect the system's validation mechanism to check whether the provided component set
+meets the hierarchical and dependency requirements of each selected Security Component.</li>
+<li>When I provide an invalid set</li>
+<li>Then I expect the system to classify the set as 'invalid' and optionally to provide potential
+valid sets based on the provided selection.</li>
+<li>When I provide a valid set</li>
+<li>Then I expect the system to classify the set as 'valid'</li>
+</ol>
+<h2>Acceptance criteria</h2>
+<ol>
+<li>The system enables the selection or provision of security components for a project.</li>
+<li>Upon selection, the system automatically validates the hierarchical and dependency relationships
+ among the chosen components, in accordance with CC guidelines.</li>
+<li>The system provides clear feedback about the validation status, highlighting any inconsistencies
+ or deviations from the CC guidelines.</li>
+<li>Adjustments made to the components are accurately reflected and can be re-validated by the system.</li>
+</ol>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a>, <a href="MRS.html#MRS-053">MRS-053</a>, <a href="MRS.html#MRS-055">MRS-055</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-033">TST-033 Test validation of hierarchies and dependencies of Security Component sets</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>status</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outlay</td>
+<td>3</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>To ensure that the specified and selected security components are coherent and abide by the CC guidelines, all hierarchical and dependency relations among them must be validated.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SRS-045">18.18 Generate Impact Analysis Reports for Certification Maintenance. <small>SRS-045</small></h2>
+<h2>System requirement specification</h2>
+<p>As a Developer,
+I want the system to automatically infer the impact of changes in both code and documentation,
+So that these insights are summarized in comprehensive Impact Analysis Reports (IARs), ensuring effective
+management of compliance and certification aspects throughout project alterations.
+1. TBD</p>
+<h2>Acceptance criteria</h2>
+<ol>
+<li>The system must identify and track changes in both code and documentation.</li>
+<li>The system must automatically infer the impacts of these changes.</li>
+<li>An Impact Analysis Report (IAR) is generated, summarizing the inferred impacts.</li>
+<li>The IAR must be comprehensible and encapsulate all necessary impact details.</li>
+<li>The IAR should be structured to support certification maintenance and incremental certification processes.</li>
+</ol>
+<p><em>Parent links:</em> <a href="MRS.html#MRS-032">MRS-032</a>, <a href="MRS.html#MRS-053">MRS-053</a>, <a href="MRS.html#MRS-055">MRS-055</a></p>
+<p><em>Child links:</em> <a href="TST.html#TST-034">TST-034 Test generation of Impact Analysis Report</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>Heinrich</td>
+</tr>
+<tr>
+<td>date</td>
+<td>03.10.2023</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>2</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>2</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>2</td>
+</tr>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>To maintain existing certifications and facilitate incremental certification processes in the face of changes, the system needs to automatically deduce and report the impacts stemming from alterations in code and documentation. Impact Analysis Reports (IARs) crystallize these impacts in a structured format, offering a clear overview of potential repercussions and are a required evaluation evidence for certification maintanence.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="assets/doorstop/jquery.min.js"></script>
+<script src="assets/doorstop/bootstrap.min.js"></script>
+<script>
+    $(function() {
+        $("table").addClass("table");
+        $("nav ul").addClass("nav nav-stacked");
+        $("nav").affix();
+        $('body').scrollspy({
+          target: '.sidebar'
+        });
+        $("#main a").attr("target", "parent");
+
+  $(window).on('hashchange', function() {
+    $(window).scrollTop($(location.hash.toLowerCase()).offset().top);});
+  });
+</script>
+</body>
+</html>
+

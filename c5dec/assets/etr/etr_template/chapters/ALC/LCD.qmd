@@ -1,0 +1,16 @@
+## Life-cycle definition: Developer defined life-cycle model (ALC_LCD.1) {#sec-lcd}
+
+A life-cycle definition establishes the engineering practices used by a developer to produce the TOE. Conformance to a defined life-cycle model for the development and maintenance of the TOE is a security practice aimed at preventing the introduction of vulnerabilities in the implementation derived from a lack of or poor control over such processes.
+
+### Evaluation action (ALC_LCD.1.1E)
+
+The objective of this sub-activity is to determine whether the developer has used a documented model of the TOE life-cycle.
+
+### Content and evidence requirements
+
+General requirements for the evaluation of this aspect are:
+
+a. the ST;
+b. the life-cycle definition documentation.
+
+{{< include ./ALC/LCD-analysis.qmd >}}

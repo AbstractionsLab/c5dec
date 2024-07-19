@@ -1,0 +1,43 @@
+acceptance: 'see [above](#SRS-015)'
+active: true
+author: Heinrich
+date: 03.10.2023
+dependence: []
+derived: false
+difficulty: '2'
+header: |
+  Comprehensive and User-Friendly Explanations
+importance: '4'
+level: 3.0
+links:
+- MRS-032: zdmk414Ku_uKO9MC4dv6gH6-9PZsz3atEQm7cnls8UE=
+- MRS-039: 8xhYVAyPmji-K5yhEpzeIKcrkqUI9ePplGaL5n2E-jo=
+normative: true
+outlay: '2'
+rationale: 'Providing user-friendly explanations will demystify the complex language of the \nCommon Criteria, making it accessible and understandable to a wider audience.'
+ref: ''
+reviewed: JZZnz4X5bXm3uE5559XAx-Foz8B1cRbwXFtXpnnMQ5Y=
+risk: '1'
+status: In Progress
+text: |
+  ## System requirement specification
+  
+  As a General User, I want to read comprehensive and user-friendly explanations of
+  technical terms and concepts so that I can understand the Common Criteria without
+  specialized prior knowledge.
+  Assuming I am viewing an Article in the Knowledge Base
+  1. When I encounter a technical term or acronym, it should be clearly defined or
+  explained in layman’s terms.
+  2. Optionally, a link to a detailed explanation or dedicated page for the term/acronym
+  is available.
+  3. I can navigate to this detailed explanation Article, if available, and return to the
+  original content.
+
+  ## Acceptance criteria
+  
+  - Technical terms and acronyms within articles are clearly defined or explained. 
+  - Detailed explanation pages or dedicated pages are optionally available and accessible.
+
+type: F
+urgency: '3'
+version: '0.2'

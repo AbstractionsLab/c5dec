@@ -1,0 +1,115 @@
+# Analysis {#sec-analysis}
+
+Here we demonstrate some of the benefits and capabilities of using the C5-DEC DocEngine to publish via Quarto.
+
+## Math
+
+ADBox main target will be anomaly-detection in time-series.  We recall that a univariate time-series is a sequence of real values 
+$$
+\overrightarrow{x}=(x_1,..,x_n )\in{R}^n
+$$ 
+Similarly, a multivariate time-series sequence of real vectors  
+$$
+\overrightarrow{X} = (\overrightarrow{x}_1,..,\overrightarrow{x}_n ) \in \mathbb{R}^{n \times k}
+$$ 
+where $n$ is the maximum length of timestamps, and $k$ is the number of features in the input.
+
+
+## Diagrams
+
+### Demo diagram
+
+```{mermaid}
+sequenceDiagram
+  participant Alice
+  participant Bob
+  Alice->>John: Hello John, how are you?
+  loop Healthcheck
+    John->>John: Fight against hypochondria
+  end
+  Note right of John: Rational thoughts <br/>prevail!
+  John-->>Alice: Great!
+  John->>Bob: How about you?
+  Bob-->>John: Jolly good!
+```
+
+### AI-generated diagram
+
+```{mermaid}
+sequenceDiagram
+  participant U as User
+  participant S as System
+  U->>S: Request
+  activate S
+  S-->>U: Response
+  deactivate S
+```
+
+## Code snippets
+
+### Some code in R
+
+```r
+library(tidyverse)
+library(palmerpenguins)
+penguins |>                                      # <1>
+  mutate(                                        # <2>
+    bill_ratio = bill_depth_mm / bill_length_mm, # <2>
+    bill_area  = bill_depth_mm * bill_length_mm  # <2>
+  )                                              # <2>
+```
+1. Take `penguins`, and then,
+2. add new columns for the bill ratio and bill area.
+
+### Some code in Python
+
+```python
+ def get_all_submenus(self):
+        """Get all submenus (also nested) of a menu as objects.
+        
+        :return: List of all submenus (and its submenus) in a menu
+        :rtype: list
+        """
+        all_submenus = list(self.submenus.values())
+        index = 0
+        while index < len(all_submenus):
+            cur_menu = all_submenus[index]
+            cur_submenus = list(cur_menu.submenus.values())
+            all_submenus.extend(cur_submenus)
+            index += 1
+        return all_submenus
+```
+
+<!-- Before activating the subsection below, install juptyer, numpy and matplotlib in a virtual env; set QUARTO_PYTHON accordingly and activate venv.  -->
+<!-- ## Smart documents running code -->
+
+<!-- ---
+title: "matplotlib demo"
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+For a demonstration of a line plot on a polar axis, see @fig-polar.
+
+```{python}
+#| label: fig-polar
+#| fig-cap: "A line plot on a polar axis"
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(
+  subplot_kw = {'projection': 'polar'} 
+)
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+``` -->
+
+
+{{< include _test-import.qmd >}}

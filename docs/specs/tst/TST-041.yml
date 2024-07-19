@@ -1,0 +1,23 @@
+active: true
+authors: IVS
+derived: false
+expected_outcome: 'All the descendants (families, components, elements) of a selected item are displayed'
+header: 'Expand the text including information of all the descendents of the selected item'
+level: 41
+links: []
+normative: true
+platform: Any of MacOS, Windows, GNU/Linux
+precondition: ''
+ref: ''
+release: beta
+reviewed: null
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Test steps
+  1. Select requirement type "SFR", class "FMT" and family "FMT_REV" in the dropdown lists.
+  2. Click the toggle button to verify that the content corresponds to the description of the FAU Security audit family.
+  3. Click on the button "Expand selection"
+  4. Verify that the displayed content has been updated including information related to the family's components and 
+     elements, i.e., FMT_REV.1, FMT_REV.1.1 and FMT_REV.1.2.
+verification_method: 'Test'

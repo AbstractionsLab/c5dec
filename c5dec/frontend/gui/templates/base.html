@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>C5-DEC CAD - Web application</title>
+  <meta name="description"
+    content="C5-DEC CAD. A web application providing a graphical user interface to the C5-DEC CAD software.">
+  <meta name="keywords" content="C5-DEC,CyFORT,Common Criteria,Toolbox,Evaluation Laboratory">
+  <meta name="author" content="Abstractions Lab">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ><link rel="stylesheet" href="css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <style>
+    body {
+      padding-top: 50px;
+      padding-bottom: 20px;
+    }
+  </style>
+  <style>
+    /* Basic CSS to style markdown content */
+    .markdown-body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .line {
+      display: block;
+      margin: 25px
+    }
+
+    .line h2 {
+      font-size: 15px;
+      text-align: center;
+      border-bottom: 1px solid red;
+      position: relative;
+    }
+
+    .line h2 span {
+      background-color: white;
+      position: relative;
+      top: 10px;
+      padding: 0 10px;
+    }
+  </style>
+  <!-- <link rel="stylesheet" href="css/bootstrap-theme.min.css"> -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}">
+  <!-- <link rel="stylesheet" href="css/main.css"> -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+  <!-- <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script> -->
+  <script src="{{ url_for('static', filename='js/vendor/modernizr-2.6.2-respond-1.1.0.min.js') }}"></script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>');</script>
+
+  <script type="text/javascript">
+    SCRIPT_ROOT = {{ request.script_root | tojson | safe }};
+  </script>
+
+  <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+  <!-- Include Marked.js from a CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <script>
+    $(function () {
+      $(".alert").alert();
+
+      $('.btn').popover();
+      $('tr').tooltip();
+      $('a').popover();
+
+    });
+  </script>
+
+  {% block headscript %}{% endblock %}
+</head>
+
+<body>
+  <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">C5-DEC CAD</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        {% if not session['username'] %}
+        <form class="navbar-form navbar-right" role="form" action="login" method="post">
+          <div class="form-group">
+            <input type="text" placeholder="Username" name="username" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="password" placeholder="Password" name="password" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-success" data-toggle="popover" title="Sign in"
+            data-content="Account management currently not supported and planned for a future release." data-placement="bottom" data-trigger="hover">Sign
+            in</button>
+          <a class="btn btn-success" data-toggle="popover" title="Register"
+            data-content="Account management currently not supported and planned for a future release." data-placement="bottom" data-trigger="hover"
+            href="mailto:info@abstractionslab.lu?subject=Account creation request" role="button">Register</a>
+        </form>
+        {% else %}
+        <form class="navbar-form navbar-right" role="form" action="logout" method="post">
+          <div class="form-group">
+            <span class="text-muted">Logged in as: {{ session['username'] }}</span>
+          </div>
+          <button type="submit" class="btn btn-success">Log out</button>
+        </form>
+        {% endif %}
+      </div><!--/.navbar-collapse -->
+    </div>
+  </div>
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      {% for message in messages %}
+      {% if error %}
+      <div class="bs-example">
+        <div class="alert alert-danger fade in text-center" role="alert">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span
+              class="sr-only">Close</span></button>
+          <strong>Warning: </strong>{{ message }}
+        </div>
+      </div>
+      {% else %}
+      <div class="bs-example">
+        <div class="alert alert-success fade in text-center" role="alert">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span
+              class="sr-only">Close</span></button>
+          <strong>Success: </strong>{{ message }}
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+      <!-- <div class="page-header"> -->
+      <h2>C5-DEC CAD GUI<small> a Common Criteria browser and CC evaluation laboratory
+          tools<a class="btn btn-info" data-toggle="popover" title="Feedback"
+            data-content="Provide feedback, report bugs and ask for new features using info@abstractionslab.lu"
+            data-placement="bottom" data-trigger="hover" href="mailto:info@abstractionslab.lu?subject=Feedback"
+            style="float: right; position: relative">
+            <span class="glyphicon glyphicon-question-sign"></span>-<span
+              class="glyphicon glyphicon-info-sign"></span></a></small></h2>
+      <div style="padding-top: 1cm">
+        {% set tabs = ["Common Criteria Browser", "Common Criteria Laboratory", "Documentation", "About"] %}
+        {% set tabIDs = ["ccbrowser", "cclab", "documentation", "about"] %}
+        {% set tabRefs = ["ccbrowser", "cclab", "documentation", "about"] %}
+        {% set length = tabs|length %}
+        <ul id="navigationTabs" class="nav nav-tabs nav-justified" role="tablist">
+          {% for i in range(length) %}
+          {% if page == tabIDs[i] %}
+          <li class="active"><a href="{{ tabRefs[i] }}">{{ tabs[i] }}</a></li>
+          {% else %}
+          <li><a href="{{ tabRefs[i] }}">{{ tabs[i] }}</a></li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+      <div style="padding-top: 2em">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h2>CC Browser</h2>
+        <p>Browse through and explore the entire Common Criteria SAR and SFR database, and easily extract content
+          (included CC versions: 3R5 and 2022R1)</p>
+        <p><a class="btn btn-default" href="ccbrowser" role="button">C5-DEC CAD - CC Browser &raquo;</a></p>
+      </div>
+      <div class="col-md-4">
+        <h2>CC Evaluation Lab</h2>
+        <p>Select CC classes/components or the entire set of CEM work units to create evaluation checklists (editable
+          using C5-DEC CAD TUI) and export to spreadsheet (xlsx)</p>
+        <p><a class="btn btn-default" href="cclab" role="button">C5-DEC CAD - CC Lab &raquo;</a></p>
+      </div>
+      <div class="col-md-4">
+        <h2>SSDLC and CPSSA</h2>
+        <p>Further C5-DEC methods and tools: secure software development life cycle and cyber-physical system security
+          assessment</p>
+        <p><a class="btn btn-default" href="https://github.com/AbstractionsLab/c5dec" role="button">C5-DEC on GitHub
+            &raquo;</a></p>
+      </div>
+    </div>
+
+    <hr>
+
+    <footer>
+      <p>
+      <address>&copy; Copyright 2022-2024, C5-DEC CAD, Abstractions Lab <a
+          href="mailto:info@abstractionslab.lu">Questions/Feedback?</a>
+      </address>
+      </p>
+    </footer>
+  </div> <!-- /container -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+
+  <!-- <script src="js/vendor/bootstrap.min.js"></script> -->
+  <script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}"></script>
+
+  <!-- <script src="js/plugins.js"></script> -->
+  <script src="{{ url_for('static', filename='js/plugins.js') }}"></script>
+  <!-- <script src="js/main.js"></script> -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+
+</html>

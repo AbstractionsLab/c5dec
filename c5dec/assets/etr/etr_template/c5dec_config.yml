@@ -1,0 +1,30 @@
+cover:
+  company: "itrust Abstractions Lab"
+  project: "CyFORT"
+  type: "Report (REP)"
+  reference: "3C0A0"
+  version: "1.0"
+  state: "Final"
+  owner: "Alan Turing"
+  authors: "John von Neumann, Ada Lovelace"
+  application-date: "03/07/2024"
+  classification: "Confidential"
+  bottom-text: "This document can be found in the ALab repository."
+
+meta:
+  fullname: "C5DEC-DocEngineReportTemplate"
+  activity: "Report template"
+  title: "C5-DEC CAD DocEngine"
+  type: "REP"
+  changelog:
+    [
+      ["1.0", "04/07/2024", "Alan", "First release"],
+      ["0.1", "03/07/2024", "Ada", "First draft"]
+    ]
+  approval:
+    [
+      ["Alan", "CTO", "Content agreement", ""],
+      ["Charles", "RD Scientist", "Content agreement", ""],
+      ["Evariste", "RD Specialist", "Content agreement", ""]
+    ]
+

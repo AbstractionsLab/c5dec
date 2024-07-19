@@ -1,0 +1,41 @@
+active: true
+comments: |
+  This defect has been reported in issue 47
+defect_category: '3'
+defect_description: The CLI crashes ungracefully (step 1).
+derived: false
+header: ''
+level: 17
+links:
+- TST-051: KMRMO_YVYkyVa4ah7eZYUAmWUJyeQrN6uPPUxu4iqY4=
+normative: true
+ref: ''
+reviewed: IqoefzfJhZEHHCOBNtAuyLT7e6blJoOLDEo0UGdoQDE=
+test_date: 15-07-2024
+tester: IVS
+text: |
+  The test execution results for the test case (TST) referred in the parent link are as follows:
+
+  1. When given an invalid version the CLI crashes ungracefully.
+  2. OK
+  3. When the input argument must be an assurance class, the error suggests that it must be an assurance component:
+    `ERROR: Input components must be of type AComponent.`
+
+  In steps 4 and 5 (invalid assurance component/class), the error message is shown as part of
+  the error trace, which makes the output confusing:
+
+  ```sh
+    Traceback (most recent call last):
+    File "<string>", line 1, in <module>
+    File "/home/alab/c5dec/c5dec/frontend/cli/main.py", line 88, in run
+      success = function(args, os.getcwd(), parser.error)
+    File "/home/alab/c5dec/c5dec/frontend/cli/commands.py", line 143, in run_export
+      cct.ChecklistBuilder(checklist_name=args.name, cc_version=args.version).export_eval_checklist(class_id_vector=args.classes, component_id_vector=args.components)
+    File "/home/alab/c5dec/c5dec/core/cct.py", line 3752, in export_eval_checklist
+      component_id_vector = self.build_component_id_vector_for_classes(class_id_vector)
+    File "/home/alab/c5dec/c5dec/core/cct.py", line 3730, in build_component_id_vector_for_classes
+      cc_class = cc_index.get(cc_class_id)
+    File "/home/alab/c5dec/c5dec/core/cct.py", line 122, in get
+      raise KeyError(error_msg)
+    KeyError: 'Invalid Id ACO_RER!'
+  ```

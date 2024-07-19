@@ -1,0 +1,2237 @@
+<!DOCTYPE html>
+<html>
+<head><title>Doorstop</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="assets/doorstop/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/doorstop/general.css" />
+  <link type="text/css" rel="stylesheet" href="assets/doorstop/sidebar.css" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" ></script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
+  </script>
+</head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-2 hidden-sm hidden-xs">
+          <nav id="TOC" class="nav nav-stacked fixed sidebar">
+              <h3>Table of Contents</h3>
+<ul>
+<li><a href="#ACOM-001">1.0 APE_INT.1 PP introduction</a><ul>
+<li><a href="#ACOM-002">1.1 APE_CCL.1 Conformance claims</a></li>
+<li><a href="#ACOM-003">1.2 APE_SPD.1 Security problem definition</a></li>
+<li><a href="#ACOM-004">1.3 APE_OBJ.1 Security objectives for the operational environment</a></li>
+<li><a href="#ACOM-005">1.4 APE_OBJ.2 Security objectives</a></li>
+<li><a href="#ACOM-006">1.5 APE_ECD.1 Extended components definition</a></li>
+<li><a href="#ACOM-007">1.6 APE_REQ.1 Direct rationale PP-Module security requirements</a></li>
+<li><a href="#ACOM-008">1.7 APE_REQ.2 Derived security requirements</a></li>
+<li><a href="#ACOM-009">1.8 ACE_INT.1 PP-Module introduction</a></li>
+<li><a href="#ACOM-010">1.9 ACE_CCL.1 PP-Module conformance claims</a></li>
+<li><a href="#ACOM-011">1.10 ACE_SPD.1 PP-Module security problem definition</a></li>
+<li><a href="#ACOM-012">1.11 ACE_OBJ.1 PP-Module security objectives for the operational environment</a></li>
+<li><a href="#ACOM-013">1.12 ACE_OBJ.2 PP-Module security objectives</a></li>
+<li><a href="#ACOM-014">1.13 ACE_ECD.1 PP-Module extended components definition</a></li>
+<li><a href="#ACOM-015">1.14 ACE_REQ.1 PP-Module stated security requirements</a></li>
+<li><a href="#ACOM-016">1.15 ACE_REQ.2 PP-Module derived security requirements</a></li>
+<li><a href="#ACOM-017">1.16 ACE_MCO.1 PP-Module consistency</a></li>
+<li><a href="#ACOM-018">1.17 ACE_CCO.1 PP-Configuration consistency</a></li>
+<li><a href="#ACOM-019">1.18 ASE_INT.1 ST introduction</a></li>
+<li><a href="#ACOM-020">1.19 ASE_CCL.1 Conformance claims</a></li>
+<li><a href="#ACOM-021">1.20 ASE_SPD.1 Security problem definition</a></li>
+<li><a href="#ACOM-022">1.21 ASE_OBJ.1 Security objectives for the operational environment</a></li>
+<li><a href="#ACOM-023">1.22 ASE_OBJ.2 Security objectives</a></li>
+<li><a href="#ACOM-024">1.23 ASE_ECD.1 Extended components definition</a></li>
+<li><a href="#ACOM-025">1.24 ASE_REQ.1 Direct rationale security requirements</a></li>
+<li><a href="#ACOM-026">1.25 ASE_REQ.2 Derived security requirements</a></li>
+<li><a href="#ACOM-027">1.26 ASE_TSS.1 TOE summary specification</a></li>
+<li><a href="#ACOM-028">1.27 ASE_TSS.2 TOE summary specification with architectural design summary</a></li>
+<li><a href="#ACOM-029">1.28 ASE_COMP.1 Consistency of Security Target (ST)</a></li>
+<li><a href="#ACOM-030">1.29 ADV_ARC.1 Security architecture description</a></li>
+<li><a href="#ACOM-031">1.30 ADV_FSP.1 Basic functional specification</a></li>
+<li><a href="#ACOM-032">1.31 ADV_FSP.2 Security-enforcing functional specification</a></li>
+<li><a href="#ACOM-033">1.32 ADV_FSP.3 Functional specification with complete summary</a></li>
+<li><a href="#ACOM-034">1.33 ADV_FSP.4 Complete functional specification</a></li>
+<li><a href="#ACOM-035">1.34 ADV_FSP.5 Complete semi-formal functional specification with additional error information</a></li>
+<li><a href="#ACOM-036">1.35 ADV_FSP.6 Complete semi-formal functional specification with additional formal specification</a></li>
+<li><a href="#ACOM-037">1.36 ADV_IMP.1 Implementation representation of the TSF</a></li>
+<li><a href="#ACOM-038">1.37 ADV_IMP.2 Complete mapping of the implementation representation of the TSF</a></li>
+<li><a href="#ACOM-039">1.38 ADV_INT.1 Well-structured subset of TSF internals</a></li>
+<li><a href="#ACOM-040">1.39 ADV_INT.2 Well-structured internals</a></li>
+<li><a href="#ACOM-041">1.40 ADV_INT.3 Minimally complex internals</a></li>
+<li><a href="#ACOM-042">1.41 ADV_SPM.1 Formal TOE security policy model</a></li>
+<li><a href="#ACOM-043">1.42 ADV_TDS.1 Basic design</a></li>
+<li><a href="#ACOM-044">1.43 ADV_TDS.2 Architectural design</a></li>
+<li><a href="#ACOM-045">1.44 ADV_TDS.3 Basic modular design</a></li>
+<li><a href="#ACOM-046">1.45 ADV_TDS.4 Semiformal modular design</a></li>
+<li><a href="#ACOM-047">1.46 ADV_TDS.5 Complete semiformal modular design</a></li>
+<li><a href="#ACOM-048">1.47 ADV_TDS.6 Complete semiformal modular design with formal high-level design presentation</a></li>
+<li><a href="#ACOM-049">1.48 ADV_COMP.1 Design compliance with the base component-related user guidance, ETR for composite evaluation and report of the base component evaluation authority</a></li>
+<li><a href="#ACOM-050">1.49 AGD_OPE.1 Operational user guidance</a></li>
+<li><a href="#ACOM-051">1.50 AGD_PRE.1 Preparative procedures</a></li>
+<li><a href="#ACOM-052">1.51 ALC_CMC.1 Labelling of the TOE</a></li>
+<li><a href="#ACOM-053">1.52 ALC_CMC.2 Use of the CM system</a></li>
+<li><a href="#ACOM-054">1.53 ALC_CMC.3 Authorization controls</a></li>
+<li><a href="#ACOM-055">1.54 ALC_CMC.4 Production support, acceptance procedures and automation</a></li>
+<li><a href="#ACOM-056">1.55 ALC_CMC.5 Advanced support</a></li>
+<li><a href="#ACOM-057">1.56 ALC_CMS.1 TOE CM coverage</a></li>
+<li><a href="#ACOM-058">1.57 ALC_CMS.2 Parts of the TOE CM coverage</a></li>
+<li><a href="#ACOM-059">1.58 ALC_CMS.3 Implementation representation CM coverage</a></li>
+<li><a href="#ACOM-060">1.59 ALC_CMS.4 Problem tracking CM coverage</a></li>
+<li><a href="#ACOM-061">1.60 ALC_CMS.5 Development tools CM coverage</a></li>
+<li><a href="#ACOM-062">1.61 ALC_DEL.1 Delivery procedures</a></li>
+<li><a href="#ACOM-063">1.62 ALC_DVS.1 Identification of security controls</a></li>
+<li><a href="#ACOM-064">1.63 ALC_DVS.2 Sufficiency of security controls</a></li>
+<li><a href="#ACOM-065">1.64 ALC_FLR.1 Basic flaw remediation</a></li>
+<li><a href="#ACOM-066">1.65 ALC_FLR.2 Flaw reporting procedures</a></li>
+<li><a href="#ACOM-067">1.66 ALC_FLR.3 Systematic flaw remediation</a></li>
+<li><a href="#ACOM-068">1.67 ALC_LCD.1 Developer defined life-cycle processes</a></li>
+<li><a href="#ACOM-069">1.68 ALC_LCD.2 Measurable life-cycle model</a></li>
+<li><a href="#ACOM-070">1.69 ALC_TDA.1 Uniquely identifying implementation representation</a></li>
+<li><a href="#ACOM-071">1.70 ALC_TDA.2 Matching CMS scope of implementation representation</a></li>
+<li><a href="#ACOM-072">1.71 ALC_TDA.3 Regenerate TOE with well-defined development tools</a></li>
+<li><a href="#ACOM-073">1.72 ALC_TAT.1 Well-defined development tools</a></li>
+<li><a href="#ACOM-074">1.73 ALC_TAT.2 Compliance with implementation standards</a></li>
+<li><a href="#ACOM-075">1.74 ALC_TAT.3 Compliance with implementation standards - all parts</a></li>
+<li><a href="#ACOM-076">1.75 ALC_COMP.1 Integration of the dependent component into the related base component and Consistency check for delivery and acceptance procedures</a></li>
+<li><a href="#ACOM-077">1.76 ATE_COV.1 Evidence of coverage</a></li>
+<li><a href="#ACOM-078">1.77 ATE_COV.2 Analysis of coverage</a></li>
+<li><a href="#ACOM-079">1.78 ATE_COV.3 Rigorous analysis of coverage</a></li>
+<li><a href="#ACOM-080">1.79 ATE_DPT.1 Testing: basic design</a></li>
+<li><a href="#ACOM-081">1.80 ATE_DPT.2 Testing: security enforcing modules</a></li>
+<li><a href="#ACOM-082">1.81 ATE_DPT.3 Testing: modular design</a></li>
+<li><a href="#ACOM-083">1.82 ATE_DPT.4 Testing: implementation representation</a></li>
+<li><a href="#ACOM-084">1.83 ATE_FUN.1 Functional testing</a></li>
+<li><a href="#ACOM-085">1.84 ATE_FUN.2 Ordered functional testing</a></li>
+<li><a href="#ACOM-086">1.85 ATE_IND.1 Independent testing - conformance</a></li>
+<li><a href="#ACOM-087">1.86 ATE_IND.2 Independent testing - sample</a></li>
+<li><a href="#ACOM-088">1.87 ATE_IND.3 Independent testing - complete</a></li>
+<li><a href="#ACOM-089">1.88 ATE_COMP.1 Composite product functional testing</a></li>
+<li><a href="#ACOM-090">1.89 AVA_VAN.1 Vulnerability survey</a></li>
+<li><a href="#ACOM-091">1.90 AVA_VAN.2 Vulnerability analysis</a></li>
+<li><a href="#ACOM-092">1.91 AVA_VAN.3 Focused vulnerability analysis</a></li>
+<li><a href="#ACOM-093">1.92 AVA_VAN.4 Methodical vulnerability analysis</a></li>
+<li><a href="#ACOM-094">1.93 AVA_VAN.5 Advanced methodical vulnerability analysis</a></li>
+<li><a href="#ACOM-095">1.94 AVA_COMP.1 Composite product vulnerability assessment</a></li>
+<li><a href="#ACOM-096">1.95 ACO_COR.1 Composition rationale</a></li>
+<li><a href="#ACOM-097">1.96 ACO_DEV.1 Functional Description</a></li>
+<li><a href="#ACOM-098">1.97 ACO_DEV.2 Basic evidence of design</a></li>
+<li><a href="#ACOM-099">1.98 ACO_DEV.3 Detailed evidence of design</a></li>
+<li><a href="#ACOM-100">1.99 ACO_REL.1 Basic reliance information</a></li>
+<li><a href="#ACOM-101">1.100 ACO_REL.2 Reliance information</a></li>
+<li><a href="#ACOM-102">1.101 ACO_CTT.1 Interface testing</a></li>
+<li><a href="#ACOM-103">1.102 ACO_CTT.2 Rigorous interface testing</a></li>
+<li><a href="#ACOM-104">1.103 ACO_VUL.1 Composition vulnerability review</a></li>
+<li><a href="#ACOM-105">1.104 ACO_VUL.2 Composition vulnerability analysis</a></li>
+<li><a href="#ACOM-106">1.105 ACO_VUL.3 Enhanced-Basic Composition vulnerability analysis</a></li>
+</ul>
+</li>
+</ul>
+          </nav>
+      </div>
+      <div class="col-lg-8" id="main">
+        <h1 id="ACOM-001">1.0 APE_INT.1 PP introduction <small>ACOM-001</small></h1>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-001">AFML-001 APE_INT PP introduction</a></p>
+<p><em>Child links:</em> <a href="CREQ.html#CREQ-001">CREQ-001 APE_INT.1.1C</a>, <a href="DREQ.html#DREQ-001">DREQ-001 APE_INT.1.1D</a>, <a href="EREQ.html#EREQ-001">EREQ-001 APE_INT.1.1E</a>, <a href="CREQ.html#CREQ-002">CREQ-002 APE_INT.1.2C</a>, <a href="CREQ.html#CREQ-003">CREQ-003 APE_INT.1.3C</a>, <a href="CREQ.html#CREQ-004">CREQ-004 APE_INT.1.4C</a>, <a href="CREQ.html#CREQ-005">CREQ-005 APE_INT.1.5C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>No dependencies.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-002">1.1 APE_CCL.1 Conformance claims <small>ACOM-002</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-002">AFML-002 APE_CCL Conformance claims</a></p>
+<p><em>Child links:</em> <a href="DREQ.html#DREQ-002">DREQ-002 APE_CCL.1.1D</a>, <a href="EREQ.html#EREQ-002">EREQ-002 APE_CCL.1.1E</a>, <a href="DREQ.html#DREQ-003">DREQ-003 APE_CCL.1.2D</a>, <a href="DREQ.html#DREQ-004">DREQ-004 APE_CCL.1.3D</a>, <a href="CREQ.html#CREQ-006">CREQ-006 APE_CCL.1.1C</a>, <a href="CREQ.html#CREQ-007">CREQ-007 APE_CCL.1.2C</a>, <a href="CREQ.html#CREQ-008">CREQ-008 APE_CCL.1.3C</a>, <a href="CREQ.html#CREQ-009">CREQ-009 APE_CCL.1.4C</a>, <a href="CREQ.html#CREQ-010">CREQ-010 APE_CCL.1.5C</a>, <a href="CREQ.html#CREQ-011">CREQ-011 APE_CCL.1.6C</a>, <a href="CREQ.html#CREQ-012">CREQ-012 APE_CCL.1.7C</a>, <a href="CREQ.html#CREQ-013">CREQ-013 APE_CCL.1.8C</a>, <a href="CREQ.html#CREQ-014">CREQ-014 APE_CCL.1.9C</a>, <a href="CREQ.html#CREQ-015">CREQ-015 APE_CCL.1.10C</a>, <a href="CREQ.html#CREQ-016">CREQ-016 APE_CCL.1.11C</a>, <a href="CREQ.html#CREQ-017">CREQ-017 APE_CCL.1.12C</a>, <a href="CREQ.html#CREQ-018">CREQ-018 APE_CCL.1.13C</a>, <a href="CREQ.html#CREQ-019">CREQ-019 APE_CCL.1.14C</a>, <a href="CREQ.html#CREQ-020">CREQ-020 APE_CCL.1.15C</a>, <a href="CREQ.html#CREQ-021">CREQ-021 APE_CCL.1.16C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>APE_INT.1 PP introduction, APE_ECD.1 Extended components definition, APE_REQ.1 Direct rationale PP-Module security requirements</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-003">1.2 APE_SPD.1 Security problem definition <small>ACOM-003</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-003">AFML-003 APE_SPD Security problem definition</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-003">EREQ-003 APE_SPD.1.1E</a>, <a href="DREQ.html#DREQ-005">DREQ-005 APE_SPD.1.1D</a>, <a href="CREQ.html#CREQ-022">CREQ-022 APE_SPD.1.1C</a>, <a href="CREQ.html#CREQ-023">CREQ-023 APE_SPD.1.2C</a>, <a href="CREQ.html#CREQ-024">CREQ-024 APE_SPD.1.3C</a>, <a href="CREQ.html#CREQ-025">CREQ-025 APE_SPD.1.4C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>No dependencies.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-004">1.3 APE_OBJ.1 Security objectives for the operational environment <small>ACOM-004</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-052">AFML-052 APE_OBJ Security objectives</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-004">EREQ-004 APE_OBJ.1.1E</a>, <a href="DREQ.html#DREQ-006">DREQ-006 APE_OBJ.1.1D</a>, <a href="DREQ.html#DREQ-007">DREQ-007 APE_OBJ.1.2D</a>, <a href="CREQ.html#CREQ-026">CREQ-026 APE_OBJ.1.1C</a>, <a href="CREQ.html#CREQ-027">CREQ-027 APE_OBJ.1.2C</a>, <a href="CREQ.html#CREQ-028">CREQ-028 APE_OBJ.1.3C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>No dependencies</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-005">1.4 APE_OBJ.2 Security objectives <small>ACOM-005</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-052">AFML-052 APE_OBJ Security objectives</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-005">EREQ-005 APE_OBJ.2.1E</a>, <a href="DREQ.html#DREQ-008">DREQ-008 APE_OBJ.2.1D</a>, <a href="DREQ.html#DREQ-009">DREQ-009 APE_OBJ.2.2D</a>, <a href="CREQ.html#CREQ-029">CREQ-029 APE_OBJ.2.1C</a>, <a href="CREQ.html#CREQ-030">CREQ-030 APE_OBJ.2.2C</a>, <a href="CREQ.html#CREQ-031">CREQ-031 APE_OBJ.2.3C</a>, <a href="CREQ.html#CREQ-032">CREQ-032 APE_OBJ.2.4C</a>, <a href="CREQ.html#CREQ-033">CREQ-033 APE_OBJ.2.5C</a>, <a href="CREQ.html#CREQ-034">CREQ-034 APE_OBJ.2.6C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>APE_SPD.1 Security problem definition</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-006">1.5 APE_ECD.1 Extended components definition <small>ACOM-006</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-004">AFML-004 APE_ECD Extended components definition</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-006">EREQ-006 APE_ECD.1.1E</a>, <a href="EREQ.html#EREQ-007">EREQ-007 APE_ECD.1.2E</a>, <a href="DREQ.html#DREQ-010">DREQ-010 APE_ECD.1.1D</a>, <a href="DREQ.html#DREQ-011">DREQ-011 APE_ECD.1.2D</a>, <a href="CREQ.html#CREQ-035">CREQ-035 APE_ECD.1.1C</a>, <a href="CREQ.html#CREQ-036">CREQ-036 APE_ECD.1.2C</a>, <a href="CREQ.html#CREQ-037">CREQ-037 APE_ECD.1.3C</a>, <a href="CREQ.html#CREQ-038">CREQ-038 APE_ECD.1.4C</a>, <a href="CREQ.html#CREQ-039">CREQ-039 APE_ECD.1.5C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>No dependencies.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-007">1.6 APE_REQ.1 Direct rationale PP-Module security requirements <small>ACOM-007</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-005">AFML-005 APE_REQ Security requirements</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-008">EREQ-008 APE_REQ.1.1E</a>, <a href="DREQ.html#DREQ-012">DREQ-012 APE_REQ.1.1D</a>, <a href="DREQ.html#DREQ-013">DREQ-013 APE_REQ.1.2D</a>, <a href="CREQ.html#CREQ-040">CREQ-040 APE_REQ.1.1C</a>, <a href="CREQ.html#CREQ-041">CREQ-041 APE_REQ.1.2C</a>, <a href="CREQ.html#CREQ-042">CREQ-042 APE_REQ.1.3C</a>, <a href="CREQ.html#CREQ-043">CREQ-043 APE_REQ.1.4C</a>, <a href="CREQ.html#CREQ-044">CREQ-044 APE_REQ.1.5C</a>, <a href="CREQ.html#CREQ-045">CREQ-045 APE_REQ.1.6C</a>, <a href="CREQ.html#CREQ-046">CREQ-046 APE_REQ.1.7C</a>, <a href="CREQ.html#CREQ-047">CREQ-047 APE_REQ.1.8C</a>, <a href="CREQ.html#CREQ-048">CREQ-048 APE_REQ.1.9C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>APE_ECD.1 Extended components definition, APE_OBJ.1 Security objectives for the operational environment</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-008">1.7 APE_REQ.2 Derived security requirements <small>ACOM-008</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-005">AFML-005 APE_REQ Security requirements</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-009">EREQ-009 APE_REQ.2.1E</a>, <a href="DREQ.html#DREQ-014">DREQ-014 APE_REQ.2.1D</a>, <a href="DREQ.html#DREQ-015">DREQ-015 APE_REQ.2.2D</a>, <a href="CREQ.html#CREQ-049">CREQ-049 APE_REQ.2.1C</a>, <a href="CREQ.html#CREQ-050">CREQ-050 APE_REQ.2.2C</a>, <a href="CREQ.html#CREQ-051">CREQ-051 APE_REQ.2.3C</a>, <a href="CREQ.html#CREQ-052">CREQ-052 APE_REQ.2.4C</a>, <a href="CREQ.html#CREQ-053">CREQ-053 APE_REQ.2.5C</a>, <a href="CREQ.html#CREQ-054">CREQ-054 APE_REQ.2.6C</a>, <a href="CREQ.html#CREQ-055">CREQ-055 APE_REQ.2.7C</a>, <a href="CREQ.html#CREQ-056">CREQ-056 APE_REQ.2.8C</a>, <a href="CREQ.html#CREQ-057">CREQ-057 APE_REQ.2.9C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>APE_OBJ.2 Security objectives, APE_ECD.1 Extended components definition</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-009">1.8 ACE_INT.1 PP-Module introduction <small>ACOM-009</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-006">AFML-006 ACE_INT PP-Module introduction</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-010">EREQ-010 ACE_INT.1.1E</a>, <a href="DREQ.html#DREQ-016">DREQ-016 ACE_INT.1.1D</a>, <a href="CREQ.html#CREQ-058">CREQ-058 ACE_INT.1.1C</a>, <a href="CREQ.html#CREQ-059">CREQ-059 ACE_INT.1.2C</a>, <a href="CREQ.html#CREQ-060">CREQ-060 ACE_INT.1.3C</a>, <a href="CREQ.html#CREQ-061">CREQ-061 ACE_INT.1.4C</a>, <a href="CREQ.html#CREQ-062">CREQ-062 ACE_INT.1.5C</a>, <a href="CREQ.html#CREQ-063">CREQ-063 ACE_INT.1.6C</a>, <a href="CREQ.html#CREQ-064">CREQ-064 ACE_INT.1.7C</a>, <a href="CREQ.html#CREQ-065">CREQ-065 ACE_INT.1.8C</a>, <a href="CREQ.html#CREQ-066">CREQ-066 ACE_INT.1.9C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>No dependencies.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-010">1.9 ACE_CCL.1 PP-Module conformance claims <small>ACOM-010</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-007">AFML-007 ACE_CCL PP-Module conformance claims</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-011">EREQ-011 ACE_CCL.1.1E</a>, <a href="DREQ.html#DREQ-017">DREQ-017 ACE_CCL.1.1D</a>, <a href="DREQ.html#DREQ-018">DREQ-018 ACE_CCL.1.2D</a>, <a href="CREQ.html#CREQ-067">CREQ-067 ACE_CCL.1.1C</a>, <a href="CREQ.html#CREQ-068">CREQ-068 ACE_CCL.1.2C</a>, <a href="CREQ.html#CREQ-069">CREQ-069 ACE_CCL.1.3C</a>, <a href="CREQ.html#CREQ-070">CREQ-070 ACE_CCL.1.4C</a>, <a href="CREQ.html#CREQ-071">CREQ-071 ACE_CCL.1.5C</a>, <a href="CREQ.html#CREQ-072">CREQ-072 ACE_CCL.1.6C</a>, <a href="CREQ.html#CREQ-073">CREQ-073 ACE_CCL.1.7C</a>, <a href="CREQ.html#CREQ-074">CREQ-074 ACE_CCL.1.8C</a>, <a href="CREQ.html#CREQ-075">CREQ-075 ACE_CCL.1.9C</a>, <a href="CREQ.html#CREQ-076">CREQ-076 ACE_CCL.1.10C</a>, <a href="CREQ.html#CREQ-077">CREQ-077 ACE_CCL.1.11C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ACE_INT.1 PP-Module introduction, ACE_ECD.1 PP-Module extended components definition, ACE_REQ.1 PP-Module stated security requirements or ACE_REQ.2 PP-Module derived security requirements</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-011">1.10 ACE_SPD.1 PP-Module security problem definition <small>ACOM-011</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-008">AFML-008 ACE_SPD PP-Module security problem definition</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-012">EREQ-012 ACE_SPD.1.1E</a>, <a href="DREQ.html#DREQ-019">DREQ-019 ACE_SPD.1.1D</a>, <a href="CREQ.html#CREQ-078">CREQ-078 ACE_SPD.1.1C</a>, <a href="CREQ.html#CREQ-079">CREQ-079 ACE_SPD.1.2C</a>, <a href="CREQ.html#CREQ-080">CREQ-080 ACE_SPD.1.3C</a>, <a href="CREQ.html#CREQ-081">CREQ-081 ACE_SPD.1.4C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>No dependencies.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-012">1.11 ACE_OBJ.1 PP-Module security objectives for the operational environment <small>ACOM-012</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-009">AFML-009 ACE_OBJ PP-Module security objectives</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-013">EREQ-013 ACE_OBJ.1.1E</a>, <a href="DREQ.html#DREQ-020">DREQ-020 ACE_OBJ.1.1D</a>, <a href="DREQ.html#DREQ-021">DREQ-021 ACE_OBJ.1.2D</a>, <a href="CREQ.html#CREQ-082">CREQ-082 ACE_OBJ.1.1C</a>, <a href="CREQ.html#CREQ-083">CREQ-083 ACE_OBJ.1.2C</a>, <a href="CREQ.html#CREQ-084">CREQ-084 ACE_OBJ.1.3C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>No dependencies.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-013">1.12 ACE_OBJ.2 PP-Module security objectives <small>ACOM-013</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-009">AFML-009 ACE_OBJ PP-Module security objectives</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-014">EREQ-014 ACE_OBJ.2.1E</a>, <a href="DREQ.html#DREQ-022">DREQ-022 ACE_OBJ.2.1D</a>, <a href="DREQ.html#DREQ-023">DREQ-023 ACE_OBJ.2.2D</a>, <a href="CREQ.html#CREQ-085">CREQ-085 ACE_OBJ.2.1C</a>, <a href="CREQ.html#CREQ-086">CREQ-086 ACE_OBJ.2.2C</a>, <a href="CREQ.html#CREQ-087">CREQ-087 ACE_OBJ.2.3C</a>, <a href="CREQ.html#CREQ-088">CREQ-088 ACE_OBJ.2.4C</a>, <a href="CREQ.html#CREQ-089">CREQ-089 ACE_OBJ.2.5C</a>, <a href="CREQ.html#CREQ-090">CREQ-090 ACE_OBJ.2.6C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ACE_SPD.1 PP-Module security problem definition.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-014">1.13 ACE_ECD.1 PP-Module extended components definition <small>ACOM-014</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-010">AFML-010 ACE_ECD PP-Module extended components definition</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-015">EREQ-015 ACE_ECD.1.1E</a>, <a href="EREQ.html#EREQ-016">EREQ-016 ACE_ECD.1.2E</a>, <a href="DREQ.html#DREQ-024">DREQ-024 ACE_ECD.1.1D</a>, <a href="DREQ.html#DREQ-025">DREQ-025 ACE_ECD.1.2D</a>, <a href="CREQ.html#CREQ-091">CREQ-091 ACE_ECD.1.1C</a>, <a href="CREQ.html#CREQ-092">CREQ-092 ACE_ECD.1.2C</a>, <a href="CREQ.html#CREQ-093">CREQ-093 ACE_ECD.1.3C</a>, <a href="CREQ.html#CREQ-094">CREQ-094 ACE_ECD.1.4C</a>, <a href="CREQ.html#CREQ-095">CREQ-095 ACE_ECD.1.5C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>No dependencies.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-015">1.14 ACE_REQ.1 PP-Module stated security requirements <small>ACOM-015</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-011">AFML-011 ACE_REQ PP-Module security requirements</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-017">EREQ-017 ACE_REQ.1.1E</a>, <a href="DREQ.html#DREQ-026">DREQ-026 ACE_REQ.1.1D</a>, <a href="DREQ.html#DREQ-027">DREQ-027 ACE_REQ.1.2D</a>, <a href="CREQ.html#CREQ-096">CREQ-096 ACE_REQ.1.1C</a>, <a href="CREQ.html#CREQ-097">CREQ-097 ACE_REQ.1.2C</a>, <a href="CREQ.html#CREQ-098">CREQ-098 ACE_REQ.1.3C</a>, <a href="CREQ.html#CREQ-099">CREQ-099 ACE_REQ.1.4C</a>, <a href="CREQ.html#CREQ-100">CREQ-100 ACE_REQ.1.5C</a>, <a href="CREQ.html#CREQ-101">CREQ-101 ACE_REQ.1.6C</a>, <a href="CREQ.html#CREQ-102">CREQ-102 ACE_REQ.1.7C</a>, <a href="CREQ.html#CREQ-103">CREQ-103 ACE_REQ.1.8C</a>, <a href="CREQ.html#CREQ-104">CREQ-104 ACE_REQ.1.9C</a>, <a href="CREQ.html#CREQ-105">CREQ-105 ACE_REQ.1.10C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>APE_ECD.1 Extended components definition, ACE_SPD.1 PP-Module security problem definition</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-016">1.15 ACE_REQ.2 PP-Module derived security requirements <small>ACOM-016</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-011">AFML-011 ACE_REQ PP-Module security requirements</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-018">EREQ-018 ACE_REQ.2.1E</a>, <a href="DREQ.html#DREQ-028">DREQ-028 ACE_REQ.2.1D</a>, <a href="DREQ.html#DREQ-029">DREQ-029 ACE_REQ.2.2D</a>, <a href="CREQ.html#CREQ-106">CREQ-106 ACE_REQ.2.1C</a>, <a href="CREQ.html#CREQ-107">CREQ-107 ACE_REQ.2.2C</a>, <a href="CREQ.html#CREQ-108">CREQ-108 ACE_REQ.2.3C</a>, <a href="CREQ.html#CREQ-109">CREQ-109 ACE_REQ.2.4C</a>, <a href="CREQ.html#CREQ-110">CREQ-110 ACE_REQ.2.5C</a>, <a href="CREQ.html#CREQ-111">CREQ-111 ACE_REQ.2.6C</a>, <a href="CREQ.html#CREQ-112">CREQ-112 ACE_REQ.2.7C</a>, <a href="CREQ.html#CREQ-113">CREQ-113 ACE_REQ.2.8C</a>, <a href="CREQ.html#CREQ-114">CREQ-114 ACE_REQ.2.9C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ACE_ECD.1 PP-Module extended components definition, ACE_OBJ.2 PP-Module security objectives</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-017">1.16 ACE_MCO.1 PP-Module consistency <small>ACOM-017</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-012">AFML-012 ACE_MCO PP-Module consistency</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-019">EREQ-019 ACE_MCO.1.1E</a>, <a href="DREQ.html#DREQ-030">DREQ-030 ACE_MCO.1.1D</a>, <a href="DREQ.html#DREQ-031">DREQ-031 ACE_MCO.1.2D</a>, <a href="CREQ.html#CREQ-115">CREQ-115 ACE_MCO.1.1C</a>, <a href="CREQ.html#CREQ-116">CREQ-116 ACE_MCO.1.2C</a>, <a href="CREQ.html#CREQ-117">CREQ-117 ACE_MCO.1.3C</a>, <a href="CREQ.html#CREQ-118">CREQ-118 ACE_MCO.1.4C</a>, <a href="CREQ.html#CREQ-119">CREQ-119 ACE_MCO.1.5C</a>, <a href="CREQ.html#CREQ-120">CREQ-120 ACE_MCO.1.6C</a>, <a href="CREQ.html#CREQ-121">CREQ-121 ACE_MCO.1.7C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ACE_INT.1 PP-Module introduction, ACE_SPD.1 PP-Module Security problem definition, ACE_OBJ.1 Direct Rationale PP-Module Security objectives for the environment or ACE_OBJ.2 PP-Module Security objectives, ACE_REQ.1 Direct Rationale PP-Module security requirements or ACE_REQ.2 PP-Module derived security requirements</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-018">1.17 ACE_CCO.1 PP-Configuration consistency <small>ACOM-018</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-013">AFML-013 ACE_CCO PP-Configuration consistency</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-020">EREQ-020 ACE_CCO.1.1E</a>, <a href="EREQ.html#EREQ-021">EREQ-021 ACE_CCO.1.2E</a>, <a href="DREQ.html#DREQ-032">DREQ-032 ACE_CCO.1.1D</a>, <a href="DREQ.html#DREQ-033">DREQ-033 ACE_CCO.1.2D</a>, <a href="DREQ.html#DREQ-034">DREQ-034 ACE_CCO.1.3D</a>, <a href="DREQ.html#DREQ-035">DREQ-035 ACE_CCO.1.4D</a>, <a href="DREQ.html#DREQ-036">DREQ-036 ACE_CCO.1.5D</a>, <a href="DREQ.html#DREQ-037">DREQ-037 ACE_CCO.1.6D</a>, <a href="DREQ.html#DREQ-038">DREQ-038 ACE_CCO.1.7D</a>, <a href="DREQ.html#DREQ-039">DREQ-039 ACE_CCO.1.8D</a>, <a href="CREQ.html#CREQ-122">CREQ-122 ACE_CCO.1.1C</a>, <a href="CREQ.html#CREQ-123">CREQ-123 ACE_CCO.1.2C</a>, <a href="CREQ.html#CREQ-124">CREQ-124 ACE_CCO.1.3C</a>, <a href="CREQ.html#CREQ-125">CREQ-125 ACE_CCO.1.4C</a>, <a href="CREQ.html#CREQ-126">CREQ-126 ACE_CCO.1.5C</a>, <a href="CREQ.html#CREQ-127">CREQ-127 ACE_CCO.1.6C</a>, <a href="CREQ.html#CREQ-128">CREQ-128 ACE_CCO.1.7C</a>, <a href="CREQ.html#CREQ-129">CREQ-129 ACE_CCO.1.8C</a>, <a href="CREQ.html#CREQ-130">CREQ-130 ACE_CCO.1.9C</a>, <a href="CREQ.html#CREQ-131">CREQ-131 ACE_CCO.1.10C</a>, <a href="CREQ.html#CREQ-132">CREQ-132 ACE_CCO.1.11C</a>, <a href="CREQ.html#CREQ-133">CREQ-133 ACE_CCO.1.12C</a>, <a href="CREQ.html#CREQ-134">CREQ-134 ACE_CCO.1.13C</a>, <a href="CREQ.html#CREQ-135">CREQ-135 ACE_CCO.1.14C</a>, <a href="CREQ.html#CREQ-136">CREQ-136 ACE_CCO.1.15C</a>, <a href="CREQ.html#CREQ-137">CREQ-137 ACE_CCO.1.16C</a>, <a href="CREQ.html#CREQ-138">CREQ-138 ACE_CCO.1.17C</a>, <a href="CREQ.html#CREQ-139">CREQ-139 ACE_CCO.1.18C</a>, <a href="CREQ.html#CREQ-140">CREQ-140 ACE_CCO.1.19C</a>, <a href="CREQ.html#CREQ-141">CREQ-141 ACE_CCO.1.20C</a>, <a href="CREQ.html#CREQ-142">CREQ-142 ACE_CCO.1.21C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ACE_INT.1 PP-Module introduction, ACE_CCL.1 PP-Module conformance claims, ACE_SPD.1 PP-Module security problem definition, ACE_OBJ.1 Direct Rationale PP-Module security objectives for the environment or ACE_OBJ.2 PP-Module security objectives, ACE_ECD.1 PP-Module extended component definition, ACE_REQ.1 Direct Rational PP-Module security requirements or ACE_REQ.2 PP-Module derived security requirements, ACE_MCO.1 PP-Module consistency, APE_* (all APE components)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-019">1.18 ASE_INT.1 ST introduction <small>ACOM-019</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-014">AFML-014 ASE_INT ST introduction</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-022">EREQ-022 ASE_INT.1.1E</a>, <a href="EREQ.html#EREQ-023">EREQ-023 ASE_INT.1.2E</a>, <a href="DREQ.html#DREQ-040">DREQ-040 ASE_INT.1.1D</a>, <a href="CREQ.html#CREQ-143">CREQ-143 ASE_INT.1.1C</a>, <a href="CREQ.html#CREQ-144">CREQ-144 ASE_INT.1.2C</a>, <a href="CREQ.html#CREQ-145">CREQ-145 ASE_INT.1.3C</a>, <a href="CREQ.html#CREQ-146">CREQ-146 ASE_INT.1.4C</a>, <a href="CREQ.html#CREQ-147">CREQ-147 ASE_INT.1.5C</a>, <a href="CREQ.html#CREQ-148">CREQ-148 ASE_INT.1.6C</a>, <a href="CREQ.html#CREQ-149">CREQ-149 ASE_INT.1.7C</a>, <a href="CREQ.html#CREQ-150">CREQ-150 ASE_INT.1.8C</a>, <a href="CREQ.html#CREQ-151">CREQ-151 ASE_INT.1.9C</a></p>
+<h2 id="ACOM-020">1.19 ASE_CCL.1 Conformance claims <small>ACOM-020</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-015">AFML-015 ASE_CCL Conformance claims</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-024">EREQ-024 ASE_CCL.1.1E</a>, <a href="DREQ.html#DREQ-041">DREQ-041 ASE_CCL.1.1D</a>, <a href="DREQ.html#DREQ-042">DREQ-042 ASE_CCL.1.2D</a>, <a href="CREQ.html#CREQ-152">CREQ-152 ASE_CCL.1.1C</a>, <a href="CREQ.html#CREQ-153">CREQ-153 ASE_CCL.1.2C</a>, <a href="CREQ.html#CREQ-154">CREQ-154 ASE_CCL.1.3C</a>, <a href="CREQ.html#CREQ-155">CREQ-155 ASE_CCL.1.4C</a>, <a href="CREQ.html#CREQ-156">CREQ-156 ASE_CCL.1.5C</a>, <a href="CREQ.html#CREQ-157">CREQ-157 ASE_CCL.1.6C</a>, <a href="CREQ.html#CREQ-158">CREQ-158 ASE_CCL.1.7C</a>, <a href="CREQ.html#CREQ-159">CREQ-159 ASE_CCL.1.8C</a>, <a href="CREQ.html#CREQ-160">CREQ-160 ASE_CCL.1.9C</a>, <a href="CREQ.html#CREQ-161">CREQ-161 ASE_CCL.1.10C</a>, <a href="CREQ.html#CREQ-162">CREQ-162 ASE_CCL.1.11C</a>, <a href="CREQ.html#CREQ-163">CREQ-163 ASE_CCL.1.12C</a>, <a href="CREQ.html#CREQ-164">CREQ-164 ASE_CCL.1.13C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ASE_INT.1 ST introduction, ASE_ECD.1 Extended components definition, ASE_REQ.1 Direct rationale stated security requirements</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-021">1.20 ASE_SPD.1 Security problem definition <small>ACOM-021</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-016">AFML-016 ASE_SPD Security problem definition</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-025">EREQ-025 ASE_SPD.1.1E</a>, <a href="DREQ.html#DREQ-043">DREQ-043 ASE_SPD.1.1D</a>, <a href="CREQ.html#CREQ-165">CREQ-165 ASE_SPD.1.1C</a>, <a href="CREQ.html#CREQ-166">CREQ-166 ASE_SPD.1.2C</a>, <a href="CREQ.html#CREQ-167">CREQ-167 ASE_SPD.1.3C</a>, <a href="CREQ.html#CREQ-168">CREQ-168 ASE_SPD.1.4C</a></p>
+<h2 id="ACOM-022">1.21 ASE_OBJ.1 Security objectives for the operational environment <small>ACOM-022</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-017">AFML-017 ASE_OBJ Security objectives</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-026">EREQ-026 ASE_OBJ.1.1E</a>, <a href="DREQ.html#DREQ-044">DREQ-044 ASE_OBJ.1.1D</a>, <a href="DREQ.html#DREQ-045">DREQ-045 ASE_OBJ.1.2D</a>, <a href="CREQ.html#CREQ-169">CREQ-169 ASE_OBJ.1.1C</a>, <a href="CREQ.html#CREQ-170">CREQ-170 ASE_OBJ.1.2C</a>, <a href="CREQ.html#CREQ-171">CREQ-171 ASE_OBJ.1.3C</a></p>
+<h2 id="ACOM-023">1.22 ASE_OBJ.2 Security objectives <small>ACOM-023</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-017">AFML-017 ASE_OBJ Security objectives</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-027">EREQ-027 ASE_OBJ.2.1E</a>, <a href="DREQ.html#DREQ-046">DREQ-046 ASE_OBJ.2.1D</a>, <a href="DREQ.html#DREQ-047">DREQ-047 ASE_OBJ.2.2D</a>, <a href="CREQ.html#CREQ-172">CREQ-172 ASE_OBJ.2.1C</a>, <a href="CREQ.html#CREQ-173">CREQ-173 ASE_OBJ.2.2C</a>, <a href="CREQ.html#CREQ-174">CREQ-174 ASE_OBJ.2.3C</a>, <a href="CREQ.html#CREQ-175">CREQ-175 ASE_OBJ.2.4C</a>, <a href="CREQ.html#CREQ-176">CREQ-176 ASE_OBJ.2.5C</a>, <a href="CREQ.html#CREQ-177">CREQ-177 ASE_OBJ.2.6C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ASE_SPD.1 Security problem definition</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-024">1.23 ASE_ECD.1 Extended components definition <small>ACOM-024</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-018">AFML-018 ASE_ECD Extended components definition</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-028">EREQ-028 ASE_ECD.1.1E</a>, <a href="EREQ.html#EREQ-029">EREQ-029 ASE_ECD.1.2E</a>, <a href="DREQ.html#DREQ-048">DREQ-048 ASE_ECD.1.1D</a>, <a href="DREQ.html#DREQ-049">DREQ-049 ASE_ECD.1.2D</a>, <a href="CREQ.html#CREQ-178">CREQ-178 ASE_ECD.1.1C</a>, <a href="CREQ.html#CREQ-179">CREQ-179 ASE_ECD.1.2C</a>, <a href="CREQ.html#CREQ-180">CREQ-180 ASE_ECD.1.3C</a>, <a href="CREQ.html#CREQ-181">CREQ-181 ASE_ECD.1.4C</a>, <a href="CREQ.html#CREQ-182">CREQ-182 ASE_ECD.1.5C</a></p>
+<h2 id="ACOM-025">1.24 ASE_REQ.1 Direct rationale security requirements <small>ACOM-025</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-019">AFML-019 ASE_REQ Security requirements</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-030">EREQ-030 ASE_REQ.1.1E</a>, <a href="DREQ.html#DREQ-050">DREQ-050 ASE_REQ.1.1D</a>, <a href="DREQ.html#DREQ-051">DREQ-051 ASE_REQ.1.2D</a>, <a href="CREQ.html#CREQ-183">CREQ-183 ASE_REQ.1.1C</a>, <a href="CREQ.html#CREQ-184">CREQ-184 ASE_REQ.1.2C</a>, <a href="CREQ.html#CREQ-185">CREQ-185 ASE_REQ.1.3C</a>, <a href="CREQ.html#CREQ-186">CREQ-186 ASE_REQ.1.4C</a>, <a href="CREQ.html#CREQ-187">CREQ-187 ASE_REQ.1.5C</a>, <a href="CREQ.html#CREQ-188">CREQ-188 ASE_REQ.1.6C</a>, <a href="CREQ.html#CREQ-189">CREQ-189 ASE_REQ.1.7C</a>, <a href="CREQ.html#CREQ-190">CREQ-190 ASE_REQ.1.8C</a>, <a href="CREQ.html#CREQ-191">CREQ-191 ASE_REQ.1.9C</a>, <a href="CREQ.html#CREQ-192">CREQ-192 ASE_REQ.1.10C</a>, <a href="CREQ.html#CREQ-193">CREQ-193 ASE_REQ.1.11C</a>, <a href="CREQ.html#CREQ-194">CREQ-194 ASE_REQ.1.12C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ASE_ECD.1 Extended components definition</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-026">1.25 ASE_REQ.2 Derived security requirements <small>ACOM-026</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-019">AFML-019 ASE_REQ Security requirements</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-031">EREQ-031 ASE_REQ.2.1E</a>, <a href="DREQ.html#DREQ-052">DREQ-052 ASE_REQ.2.1D</a>, <a href="DREQ.html#DREQ-053">DREQ-053 ASE_REQ.2.2D</a>, <a href="CREQ.html#CREQ-195">CREQ-195 ASE_REQ.2.1C</a>, <a href="CREQ.html#CREQ-196">CREQ-196 ASE_REQ.2.2C</a>, <a href="CREQ.html#CREQ-197">CREQ-197 ASE_REQ.2.3C</a>, <a href="CREQ.html#CREQ-198">CREQ-198 ASE_REQ.2.4C</a>, <a href="CREQ.html#CREQ-199">CREQ-199 ASE_REQ.2.5C</a>, <a href="CREQ.html#CREQ-200">CREQ-200 ASE_REQ.2.6C</a>, <a href="CREQ.html#CREQ-201">CREQ-201 ASE_REQ.2.7C</a>, <a href="CREQ.html#CREQ-202">CREQ-202 ASE_REQ.2.8C</a>, <a href="CREQ.html#CREQ-203">CREQ-203 ASE_REQ.2.9C</a>, <a href="CREQ.html#CREQ-204">CREQ-204 ASE_REQ.2.10C</a>, <a href="CREQ.html#CREQ-205">CREQ-205 ASE_REQ.2.11C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ASE_OBJ.2 Security objectives, ASE_ECD.1 Extended components definition</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-027">1.26 ASE_TSS.1 TOE summary specification <small>ACOM-027</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-020">AFML-020 ASE_TSS TOE summary specification</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-032">EREQ-032 ASE_TSS.1.1E</a>, <a href="EREQ.html#EREQ-033">EREQ-033 ASE_TSS.1.2E</a>, <a href="DREQ.html#DREQ-054">DREQ-054 ASE_TSS.1.1D</a>, <a href="CREQ.html#CREQ-206">CREQ-206 ASE_TSS.1.1C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ASE_INT.1 ST introduction, ASE_REQ.1 Direct rationale stated security requirements, ADV_FSP.1 Basic functional specification</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-028">1.27 ASE_TSS.2 TOE summary specification with architectural design summary <small>ACOM-028</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-020">AFML-020 ASE_TSS TOE summary specification</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-034">EREQ-034 ASE_TSS.2.1E</a>, <a href="EREQ.html#EREQ-035">EREQ-035 ASE_TSS.2.2E</a>, <a href="DREQ.html#DREQ-055">DREQ-055 ASE_TSS.2.1D</a>, <a href="CREQ.html#CREQ-207">CREQ-207 ASE_TSS.2.1C</a>, <a href="CREQ.html#CREQ-208">CREQ-208 ASE_TSS.2.2C</a>, <a href="CREQ.html#CREQ-209">CREQ-209 ASE_TSS.2.3C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ASE_INT.1 ST introduction, ASE_REQ.1 Direct rationale stated security requirements, ADV_ARC.1 Security architecture description</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-029">1.28 ASE_COMP.1 Consistency of Security Target (ST) <small>ACOM-029</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-021">AFML-021 ASE_COMP Consistency of composite product Security Target</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-036">EREQ-036 ASE_COMP.1.1E</a>, <a href="DREQ.html#DREQ-056">DREQ-056 ASE_COMP.1.1D</a>, <a href="CREQ.html#CREQ-210">CREQ-210 ASE_COMP.1.1C</a>, <a href="CREQ.html#CREQ-211">CREQ-211 ASE_COMP.1.2C</a></p>
+<h2 id="ACOM-030">1.29 ADV_ARC.1 Security architecture description <small>ACOM-030</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-022">AFML-022 ADV_ARC Security Architecture</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-037">EREQ-037 ADV_ARC.1.1E</a>, <a href="DREQ.html#DREQ-057">DREQ-057 ADV_ARC.1.1D</a>, <a href="DREQ.html#DREQ-058">DREQ-058 ADV_ARC.1.2D</a>, <a href="DREQ.html#DREQ-059">DREQ-059 ADV_ARC.1.3D</a>, <a href="CREQ.html#CREQ-212">CREQ-212 ADV_ARC.1.1C</a>, <a href="CREQ.html#CREQ-213">CREQ-213 ADV_ARC.1.2C</a>, <a href="CREQ.html#CREQ-214">CREQ-214 ADV_ARC.1.3C</a>, <a href="CREQ.html#CREQ-215">CREQ-215 ADV_ARC.1.4C</a>, <a href="CREQ.html#CREQ-216">CREQ-216 ADV_ARC.1.5C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_FSP.1 Basic functional specification, ADV_TDS.1 Basic design</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-031">1.30 ADV_FSP.1 Basic functional specification <small>ACOM-031</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-023">AFML-023 ADV_FSP Functional specification</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-038">EREQ-038 ADV_FSP.1.1E</a>, <a href="EREQ.html#EREQ-039">EREQ-039 ADV_FSP.1.2E</a>, <a href="DREQ.html#DREQ-060">DREQ-060 ADV_FSP.1.1D</a>, <a href="DREQ.html#DREQ-061">DREQ-061 ADV_FSP.1.2D</a>, <a href="CREQ.html#CREQ-217">CREQ-217 ADV_FSP.1.1C</a>, <a href="CREQ.html#CREQ-218">CREQ-218 ADV_FSP.1.2C</a>, <a href="CREQ.html#CREQ-219">CREQ-219 ADV_FSP.1.3C</a>, <a href="CREQ.html#CREQ-220">CREQ-220 ADV_FSP.1.4C</a></p>
+<h2 id="ACOM-032">1.31 ADV_FSP.2 Security-enforcing functional specification <small>ACOM-032</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-023">AFML-023 ADV_FSP Functional specification</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-040">EREQ-040 ADV_FSP.2.1E</a>, <a href="EREQ.html#EREQ-041">EREQ-041 ADV_FSP.2.2E</a>, <a href="DREQ.html#DREQ-062">DREQ-062 ADV_FSP.2.1D</a>, <a href="DREQ.html#DREQ-063">DREQ-063 ADV_FSP.2.2D</a>, <a href="CREQ.html#CREQ-221">CREQ-221 ADV_FSP.2.1C</a>, <a href="CREQ.html#CREQ-222">CREQ-222 ADV_FSP.2.2C</a>, <a href="CREQ.html#CREQ-223">CREQ-223 ADV_FSP.2.3C</a>, <a href="CREQ.html#CREQ-224">CREQ-224 ADV_FSP.2.4C</a>, <a href="CREQ.html#CREQ-225">CREQ-225 ADV_FSP.2.5C</a>, <a href="CREQ.html#CREQ-226">CREQ-226 ADV_FSP.2.6C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_TDS.1 Basic design</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-033">1.32 ADV_FSP.3 Functional specification with complete summary <small>ACOM-033</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-023">AFML-023 ADV_FSP Functional specification</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-042">EREQ-042 ADV_FSP.3.1E</a>, <a href="EREQ.html#EREQ-043">EREQ-043 ADV_FSP.3.2E</a>, <a href="DREQ.html#DREQ-064">DREQ-064 ADV_FSP.3.1D</a>, <a href="DREQ.html#DREQ-065">DREQ-065 ADV_FSP.3.2D</a>, <a href="CREQ.html#CREQ-227">CREQ-227 ADV_FSP.3.1C</a>, <a href="CREQ.html#CREQ-228">CREQ-228 ADV_FSP.3.2C</a>, <a href="CREQ.html#CREQ-229">CREQ-229 ADV_FSP.3.3C</a>, <a href="CREQ.html#CREQ-230">CREQ-230 ADV_FSP.3.4C</a>, <a href="CREQ.html#CREQ-231">CREQ-231 ADV_FSP.3.5C</a>, <a href="CREQ.html#CREQ-232">CREQ-232 ADV_FSP.3.6C</a>, <a href="CREQ.html#CREQ-233">CREQ-233 ADV_FSP.3.7C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_TDS.1 Basic design</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-034">1.33 ADV_FSP.4 Complete functional specification <small>ACOM-034</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-023">AFML-023 ADV_FSP Functional specification</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-044">EREQ-044 ADV_FSP.4.1E</a>, <a href="EREQ.html#EREQ-045">EREQ-045 ADV_FSP.4.2E</a>, <a href="DREQ.html#DREQ-066">DREQ-066 ADV_FSP.4.1D</a>, <a href="DREQ.html#DREQ-067">DREQ-067 ADV_FSP.4.2D</a>, <a href="CREQ.html#CREQ-234">CREQ-234 ADV_FSP.4.1C</a>, <a href="CREQ.html#CREQ-235">CREQ-235 ADV_FSP.4.2C</a>, <a href="CREQ.html#CREQ-236">CREQ-236 ADV_FSP.4.3C</a>, <a href="CREQ.html#CREQ-237">CREQ-237 ADV_FSP.4.4C</a>, <a href="CREQ.html#CREQ-238">CREQ-238 ADV_FSP.4.5C</a>, <a href="CREQ.html#CREQ-239">CREQ-239 ADV_FSP.4.6C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_TDS.1 Basic design</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-035">1.34 ADV_FSP.5 Complete semi-formal functional specification with additional error information <small>ACOM-035</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-023">AFML-023 ADV_FSP Functional specification</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-046">EREQ-046 ADV_FSP.5.1E</a>, <a href="EREQ.html#EREQ-047">EREQ-047 ADV_FSP.5.2E</a>, <a href="DREQ.html#DREQ-068">DREQ-068 ADV_FSP.5.1D</a>, <a href="DREQ.html#DREQ-069">DREQ-069 ADV_FSP.5.2D</a>, <a href="CREQ.html#CREQ-240">CREQ-240 ADV_FSP.5.1C</a>, <a href="CREQ.html#CREQ-241">CREQ-241 ADV_FSP.5.2C</a>, <a href="CREQ.html#CREQ-242">CREQ-242 ADV_FSP.5.3C</a>, <a href="CREQ.html#CREQ-243">CREQ-243 ADV_FSP.5.4C</a>, <a href="CREQ.html#CREQ-244">CREQ-244 ADV_FSP.5.5C</a>, <a href="CREQ.html#CREQ-245">CREQ-245 ADV_FSP.5.6C</a>, <a href="CREQ.html#CREQ-246">CREQ-246 ADV_FSP.5.7C</a>, <a href="CREQ.html#CREQ-247">CREQ-247 ADV_FSP.5.8C</a>, <a href="CREQ.html#CREQ-248">CREQ-248 ADV_FSP.5.9C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_TDS.1 Basic design, ADV_IMP.1 Implementation representation of the TSF</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-036">1.35 ADV_FSP.6 Complete semi-formal functional specification with additional formal specification <small>ACOM-036</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-023">AFML-023 ADV_FSP Functional specification</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-048">EREQ-048 ADV_FSP.6.1E</a>, <a href="EREQ.html#EREQ-049">EREQ-049 ADV_FSP.6.2E</a>, <a href="DREQ.html#DREQ-070">DREQ-070 ADV_FSP.6.1D</a>, <a href="DREQ.html#DREQ-071">DREQ-071 ADV_FSP.6.2D</a>, <a href="DREQ.html#DREQ-072">DREQ-072 ADV_FSP.6.3D</a>, <a href="CREQ.html#CREQ-249">CREQ-249 ADV_FSP.6.1C</a>, <a href="CREQ.html#CREQ-250">CREQ-250 ADV_FSP.6.2C</a>, <a href="CREQ.html#CREQ-251">CREQ-251 ADV_FSP.6.3C</a>, <a href="CREQ.html#CREQ-252">CREQ-252 ADV_FSP.6.4C</a>, <a href="CREQ.html#CREQ-253">CREQ-253 ADV_FSP.6.5C</a>, <a href="CREQ.html#CREQ-254">CREQ-254 ADV_FSP.6.6C</a>, <a href="CREQ.html#CREQ-255">CREQ-255 ADV_FSP.6.7C</a>, <a href="CREQ.html#CREQ-256">CREQ-256 ADV_FSP.6.8C</a>, <a href="CREQ.html#CREQ-257">CREQ-257 ADV_FSP.6.9C</a>, <a href="CREQ.html#CREQ-258">CREQ-258 ADV_FSP.6.10C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_TDS.1 Basic design, ADV_IMP.1 Implementation representation of the TSF</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-037">1.36 ADV_IMP.1 Implementation representation of the TSF <small>ACOM-037</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-024">AFML-024 ADV_IMP Implementation representation</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-050">EREQ-050 ADV_IMP.1.1E</a>, <a href="DREQ.html#DREQ-073">DREQ-073 ADV_IMP.1.1D</a>, <a href="DREQ.html#DREQ-074">DREQ-074 ADV_IMP.1.2D</a>, <a href="CREQ.html#CREQ-259">CREQ-259 ADV_IMP.1.1C</a>, <a href="CREQ.html#CREQ-260">CREQ-260 ADV_IMP.1.2C</a>, <a href="CREQ.html#CREQ-261">CREQ-261 ADV_IMP.1.3C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_TDS.3 Basic modular design, ALC_TAT.1 Well-defined development tools</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-038">1.37 ADV_IMP.2 Complete mapping of the implementation representation of the TSF <small>ACOM-038</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-024">AFML-024 ADV_IMP Implementation representation</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-051">EREQ-051 ADV_IMP.2.1E</a>, <a href="DREQ.html#DREQ-075">DREQ-075 ADV_IMP.2.1D</a>, <a href="DREQ.html#DREQ-076">DREQ-076 ADV_IMP.2.2D</a>, <a href="CREQ.html#CREQ-262">CREQ-262 ADV_IMP.2.1C</a>, <a href="CREQ.html#CREQ-263">CREQ-263 ADV_IMP.2.2C</a>, <a href="CREQ.html#CREQ-264">CREQ-264 ADV_IMP.2.3C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_TDS.3 Basic modular design, ALC_TAT.1 Well-defined development tools, ALC_CMC.5 Advanced support</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-039">1.38 ADV_INT.1 Well-structured subset of TSF internals <small>ACOM-039</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-025">AFML-025</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-052">EREQ-052 ADV_INT.1.1E</a>, <a href="EREQ.html#EREQ-053">EREQ-053 ADV_INT.1.2E</a>, <a href="DREQ.html#DREQ-077">DREQ-077 ADV_INT.1.1D</a>, <a href="DREQ.html#DREQ-078">DREQ-078 ADV_INT.1.2D</a>, <a href="CREQ.html#CREQ-265">CREQ-265 ADV_INT.1.1C</a>, <a href="CREQ.html#CREQ-266">CREQ-266 ADV_INT.1.2C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_IMP.1 Implementation representation of the TSF, ADV_TDS.3 Basic modular design, ALC_TAT.1 Well-defined development tools</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>The objective of this component is to provide a means for requiring specific portions of the TSF to be well-structured. The intent is that the entire TSF has been designed and implemented using sound engineering principles, but the analysis is performed upon only a specific subset.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AppNotes</td>
+<td>This component requires the PP or ST author to fill in an assignment with the subset of the TSF. This subset may be identified in terms of the internals of the TSF at any layer of abstraction. For example: a) the structural elements of the TSF as identified in the TOE design (e.g. "The developer shall design and implement the audit subsystem such that it has well-structured internals."); b) the implementation (e.g. “The developer shall design and implement the encrypt.c and decrypt.c files such that it has well-structured internals.” or “The developer shall design and implement the 6227 IC chip such that it has well-structured internals.”). It is likely this would not be readily accomplished by referencing the claimed SFRs (e.g. “The developer shall design and implement the portion of the TSF that provide anonymity as defined in FPR_ANO.2 such that it has well-structured internals.”) because this does not indicate where to focus the analysis. This component has limited value and would be suitable in cases where potentially-malicious users/subjects have limited or strictly controlled access to the TSFIs or where there is another means of protection (e.g. domain separation) that ensures the chosen subset of the TSF cannot be adversely affected by the rest of the TSF (e.g. the cryptographic functionality, which is isolated from the rest of the TSF, is well-structured).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-040">1.39 ADV_INT.2 Well-structured internals <small>ACOM-040</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-025">AFML-025</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-054">EREQ-054 ADV_INT.2.1E</a>, <a href="EREQ.html#EREQ-055">EREQ-055 ADV_INT.2.2E</a>, <a href="DREQ.html#DREQ-079">DREQ-079 ADV_INT.2.1D</a>, <a href="DREQ.html#DREQ-080">DREQ-080 ADV_INT.2.2D</a>, <a href="CREQ.html#CREQ-267">CREQ-267 ADV_INT.2.1C</a>, <a href="CREQ.html#CREQ-268">CREQ-268 ADV_INT.2.2C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_IMP.1 Implementation representation of the TSF, ADV_TDS.3 Basic modular design, ALC_TAT.1 Well-defined development tools</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>The objective of this component is to provide a means for requiring the TSF to be well-structured. The intent is that the entire TSF has been designed and implemented using sound engineering principles.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AppNotes</td>
+<td>Judgements on the adequacy of the structure are expected to be derived from the specific technologies used in the TOE. This component calls for identifying the standards for measuring the characteristic of being well-structured.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-041">1.40 ADV_INT.3 Minimally complex internals <small>ACOM-041</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-025">AFML-025</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-056">EREQ-056 ADV_INT.3.1E</a>, <a href="EREQ.html#EREQ-057">EREQ-057 ADV_INT.3.2E</a>, <a href="DREQ.html#DREQ-081">DREQ-081 ADV_INT.3.1D</a>, <a href="DREQ.html#DREQ-082">DREQ-082 ADV_INT.3.2D</a>, <a href="CREQ.html#CREQ-269">CREQ-269 ADV_INT.3.1C</a>, <a href="CREQ.html#CREQ-270">CREQ-270 ADV_INT.3.2C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_IMP.1 Implementation representation of the TSF, ADV_TDS.3 Basic modular design, ALC_TAT.1 Well-defined development tools</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>The objective of this component is to provide a means for requiring the TSF to be well-structured and of minimal complexity. The intent is that the entire TSF has been designed and implemented using sound engineering principles.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AppNotes</td>
+<td>Judgements on the adequacy of the structure and complexity are expected to be derived from the specific technologies used in the TOE. This component calls for identifying the standards for measuring the structure and complexity.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-042">1.41 ADV_SPM.1 Formal TOE security policy model <small>ACOM-042</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-026">AFML-026 ADV_SPM Security policy modelling</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-058">EREQ-058 ADV_SPM.1.1E</a>, <a href="DREQ.html#DREQ-083">DREQ-083 ADV_SPM.1.1D</a>, <a href="DREQ.html#DREQ-084">DREQ-084 ADV_SPM.1.2D</a>, <a href="DREQ.html#DREQ-085">DREQ-085 ADV_SPM.1.3D</a>, <a href="DREQ.html#DREQ-086">DREQ-086 ADV_SPM.1.4D</a>, <a href="DREQ.html#DREQ-087">DREQ-087 ADV_SPM.1.5D</a>, <a href="DREQ.html#DREQ-088">DREQ-088 ADV_SPM.1.6D</a>, <a href="CREQ.html#CREQ-271">CREQ-271 ADV_SPM.1.1C</a>, <a href="CREQ.html#CREQ-272">CREQ-272 ADV_SPM.1.2C</a>, <a href="CREQ.html#CREQ-273">CREQ-273 ADV_SPM.1.3C</a>, <a href="CREQ.html#CREQ-274">CREQ-274 ADV_SPM.1.4C</a>, <a href="CREQ.html#CREQ-275">CREQ-275 ADV_SPM.1.5C</a>, <a href="CREQ.html#CREQ-276">CREQ-276 ADV_SPM.1.6C</a>, <a href="CREQ.html#CREQ-277">CREQ-277 ADV_SPM.1.7C</a>, <a href="CREQ.html#CREQ-278">CREQ-278 ADV_SPM.1.8C</a>, <a href="CREQ.html#CREQ-279">CREQ-279 ADV_SPM.1.9C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ASE_OBJ.2 Security Objectives, ASE_REQ.2 Derived security requirements, ADV_FSP.4 Complete functional specification</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-043">1.42 ADV_TDS.1 Basic design <small>ACOM-043</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-027">AFML-027 ADV_TDS TOE design</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-059">EREQ-059 ADV_TDS.1.1E</a>, <a href="EREQ.html#EREQ-060">EREQ-060 ADV_TDS.1.2E</a>, <a href="DREQ.html#DREQ-089">DREQ-089 ADV_TDS.1.1D</a>, <a href="DREQ.html#DREQ-090">DREQ-090 ADV_TDS.1.2D</a>, <a href="CREQ.html#CREQ-280">CREQ-280 ADV_TDS.1.1C</a>, <a href="CREQ.html#CREQ-281">CREQ-281 ADV_TDS.1.2C</a>, <a href="CREQ.html#CREQ-282">CREQ-282 ADV_TDS.1.3C</a>, <a href="CREQ.html#CREQ-283">CREQ-283 ADV_TDS.1.4C</a>, <a href="CREQ.html#CREQ-284">CREQ-284 ADV_TDS.1.5C</a>, <a href="CREQ.html#CREQ-285">CREQ-285 ADV_TDS.1.6C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_FSP.2 Security-enforcing functional specification.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-044">1.43 ADV_TDS.2 Architectural design <small>ACOM-044</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-027">AFML-027 ADV_TDS TOE design</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-061">EREQ-061 ADV_TDS.2.1E</a>, <a href="EREQ.html#EREQ-062">EREQ-062 ADV_TDS.2.2E</a>, <a href="DREQ.html#DREQ-091">DREQ-091 ADV_TDS.2.1D</a>, <a href="DREQ.html#DREQ-092">DREQ-092 ADV_TDS.2.2D</a>, <a href="CREQ.html#CREQ-286">CREQ-286 ADV_TDS.2.1C</a>, <a href="CREQ.html#CREQ-287">CREQ-287 ADV_TDS.2.2C</a>, <a href="CREQ.html#CREQ-288">CREQ-288 ADV_TDS.2.3C</a>, <a href="CREQ.html#CREQ-289">CREQ-289 ADV_TDS.2.4C</a>, <a href="CREQ.html#CREQ-290">CREQ-290 ADV_TDS.2.5C</a>, <a href="CREQ.html#CREQ-291">CREQ-291 ADV_TDS.2.6C</a>, <a href="CREQ.html#CREQ-292">CREQ-292 ADV_TDS.2.7C</a>, <a href="CREQ.html#CREQ-293">CREQ-293 ADV_TDS.2.8C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_FSP.3 Functional specification with complete summary.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-045">1.44 ADV_TDS.3 Basic modular design <small>ACOM-045</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-027">AFML-027 ADV_TDS TOE design</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-063">EREQ-063 ADV_TDS.3.1E</a>, <a href="EREQ.html#EREQ-064">EREQ-064 ADV_TDS.3.2E</a>, <a href="DREQ.html#DREQ-093">DREQ-093 ADV_TDS.3.1D</a>, <a href="DREQ.html#DREQ-094">DREQ-094 ADV_TDS.3.2D</a>, <a href="CREQ.html#CREQ-294">CREQ-294 ADV_TDS.3.1C</a>, <a href="CREQ.html#CREQ-295">CREQ-295 ADV_TDS.3.2C</a>, <a href="CREQ.html#CREQ-296">CREQ-296 ADV_TDS.3.3C</a>, <a href="CREQ.html#CREQ-297">CREQ-297 ADV_TDS.3.4C</a>, <a href="CREQ.html#CREQ-298">CREQ-298 ADV_TDS.3.5C</a>, <a href="CREQ.html#CREQ-299">CREQ-299 ADV_TDS.3.6C</a>, <a href="CREQ.html#CREQ-300">CREQ-300 ADV_TDS.3.7C</a>, <a href="CREQ.html#CREQ-301">CREQ-301 ADV_TDS.3.8C</a>, <a href="CREQ.html#CREQ-302">CREQ-302 ADV_TDS.3.9C</a>, <a href="CREQ.html#CREQ-303">CREQ-303 ADV_TDS.3.10C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_FSP.4 Complete functional specification.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-046">1.45 ADV_TDS.4 Semiformal modular design <small>ACOM-046</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-027">AFML-027 ADV_TDS TOE design</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-065">EREQ-065 ADV_TDS.4.1E</a>, <a href="EREQ.html#EREQ-066">EREQ-066 ADV_TDS.4.2E</a>, <a href="DREQ.html#DREQ-095">DREQ-095 ADV_TDS.4.1D</a>, <a href="DREQ.html#DREQ-096">DREQ-096 ADV_TDS.4.2D</a>, <a href="CREQ.html#CREQ-304">CREQ-304 ADV_TDS.4.1C</a>, <a href="CREQ.html#CREQ-305">CREQ-305 ADV_TDS.4.2C</a>, <a href="CREQ.html#CREQ-306">CREQ-306 ADV_TDS.4.3C</a>, <a href="CREQ.html#CREQ-307">CREQ-307 ADV_TDS.4.4C</a>, <a href="CREQ.html#CREQ-308">CREQ-308 ADV_TDS.4.5C</a>, <a href="CREQ.html#CREQ-309">CREQ-309 ADV_TDS.4.6C</a>, <a href="CREQ.html#CREQ-310">CREQ-310 ADV_TDS.4.7C</a>, <a href="CREQ.html#CREQ-311">CREQ-311 ADV_TDS.4.8C</a>, <a href="CREQ.html#CREQ-312">CREQ-312 ADV_TDS.4.9C</a>, <a href="CREQ.html#CREQ-313">CREQ-313 ADV_TDS.4.10C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_FSP.5 Complete semi-formal functional specification with additional error information</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-047">1.46 ADV_TDS.5 Complete semiformal modular design <small>ACOM-047</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-027">AFML-027 ADV_TDS TOE design</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-067">EREQ-067 ADV_TDS.5.1E</a>, <a href="EREQ.html#EREQ-068">EREQ-068 ADV_TDS.5.2E</a>, <a href="DREQ.html#DREQ-097">DREQ-097 ADV_TDS.5.1D</a>, <a href="DREQ.html#DREQ-098">DREQ-098 ADV_TDS.5.2D</a>, <a href="CREQ.html#CREQ-314">CREQ-314 ADV_TDS.5.1C</a>, <a href="CREQ.html#CREQ-315">CREQ-315 ADV_TDS.5.2C</a>, <a href="CREQ.html#CREQ-316">CREQ-316 ADV_TDS.5.3C</a>, <a href="CREQ.html#CREQ-317">CREQ-317 ADV_TDS.5.4C</a>, <a href="CREQ.html#CREQ-318">CREQ-318 ADV_TDS.5.5C</a>, <a href="CREQ.html#CREQ-319">CREQ-319 ADV_TDS.5.6C</a>, <a href="CREQ.html#CREQ-320">CREQ-320 ADV_TDS.5.7C</a>, <a href="CREQ.html#CREQ-321">CREQ-321 ADV_TDS.5.8C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_FSP.5 Complete semi-formal functional specification with additional error information.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-048">1.47 ADV_TDS.6 Complete semiformal modular design with formal high-level design presentation <small>ACOM-048</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-027">AFML-027 ADV_TDS TOE design</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-069">EREQ-069 ADV_TDS.6.1E</a>, <a href="EREQ.html#EREQ-070">EREQ-070 ADV_TDS.6.2E</a>, <a href="DREQ.html#DREQ-099">DREQ-099 ADV_TDS.6.1D</a>, <a href="DREQ.html#DREQ-100">DREQ-100 ADV_TDS.6.2D</a>, <a href="DREQ.html#DREQ-101">DREQ-101 ADV_TDS.6.3D</a>, <a href="DREQ.html#DREQ-102">DREQ-102 ADV_TDS.6.4D</a>, <a href="CREQ.html#CREQ-322">CREQ-322 ADV_TDS.6.1C</a>, <a href="CREQ.html#CREQ-323">CREQ-323 ADV_TDS.6.2C</a>, <a href="CREQ.html#CREQ-324">CREQ-324 ADV_TDS.6.3C</a>, <a href="CREQ.html#CREQ-325">CREQ-325 ADV_TDS.6.4C</a>, <a href="CREQ.html#CREQ-326">CREQ-326 ADV_TDS.6.5C</a>, <a href="CREQ.html#CREQ-327">CREQ-327 ADV_TDS.6.6C</a>, <a href="CREQ.html#CREQ-328">CREQ-328 ADV_TDS.6.7C</a>, <a href="CREQ.html#CREQ-329">CREQ-329 ADV_TDS.6.8C</a>, <a href="CREQ.html#CREQ-330">CREQ-330 ADV_TDS.6.9C</a>, <a href="CREQ.html#CREQ-331">CREQ-331 ADV_TDS.6.10C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_FSP.6 Complete semi-formal functional specification with additional formal specification</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-049">1.48 ADV_COMP.1 Design compliance with the base component-related user guidance, ETR for composite evaluation and report of the base component evaluation authority <small>ACOM-049</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-028">AFML-028 ADV_COMP Composite design compliance</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-071">EREQ-071 ADV_COMP.1.1E</a>, <a href="DREQ.html#DREQ-103">DREQ-103 ADV_COMP.1.1D</a>, <a href="CREQ.html#CREQ-332">CREQ-332 ADV_COMP.1.1C</a></p>
+<h2 id="ACOM-050">1.49 AGD_OPE.1 Operational user guidance <small>ACOM-050</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-029">AFML-029</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-072">EREQ-072 AGD_OPE.1.1E</a>, <a href="DREQ.html#DREQ-104">DREQ-104 AGD_OPE.1.1D</a>, <a href="CREQ.html#CREQ-333">CREQ-333 AGD_OPE.1.1C</a>, <a href="CREQ.html#CREQ-334">CREQ-334 AGD_OPE.1.2C</a>, <a href="CREQ.html#CREQ-335">CREQ-335 AGD_OPE.1.3C</a>, <a href="CREQ.html#CREQ-336">CREQ-336 AGD_OPE.1.4C</a>, <a href="CREQ.html#CREQ-337">CREQ-337 AGD_OPE.1.5C</a>, <a href="CREQ.html#CREQ-338">CREQ-338 AGD_OPE.1.6C</a>, <a href="CREQ.html#CREQ-339">CREQ-339 AGD_OPE.1.7C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_FSP.1 Basic functional specification.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-051">1.50 AGD_PRE.1 Preparative procedures <small>ACOM-051</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-030">AFML-030 AGD_PRE Preparative procedures</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-073">EREQ-073 AGD_PRE.1.1E</a>, <a href="EREQ.html#EREQ-074">EREQ-074 AGD_PRE.1.2E</a>, <a href="DREQ.html#DREQ-105">DREQ-105 AGD_PRE.1.1D</a>, <a href="CREQ.html#CREQ-340">CREQ-340 AGD_PRE.1.1C</a>, <a href="CREQ.html#CREQ-341">CREQ-341 AGD_PRE.1.2C</a></p>
+<h2 id="ACOM-052">1.51 ALC_CMC.1 Labelling of the TOE <small>ACOM-052</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-031">AFML-031 ALC_CMC CM capabilities</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-075">EREQ-075 ALC_CMC.1.1E</a>, <a href="DREQ.html#DREQ-106">DREQ-106 ALC_CMC.1.1D</a>, <a href="CREQ.html#CREQ-342">CREQ-342 ALC_CMC.1.1C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ALC_CMS.1 TOE CM coverage</td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>A unique reference is required to ensure that there is no ambiguity in terms of which instance of the TOE is being evaluated. Labelling the TOE with its reference ensures that users of the TOE can be aware of which instance of the TOE they are using.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-053">1.52 ALC_CMC.2 Use of the CM system <small>ACOM-053</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-031">AFML-031 ALC_CMC CM capabilities</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-076">EREQ-076 ALC_CMC.2.1E</a>, <a href="DREQ.html#DREQ-107">DREQ-107 ALC_CMC.2.1D</a>, <a href="DREQ.html#DREQ-108">DREQ-108 ALC_CMC.2.2D</a>, <a href="DREQ.html#DREQ-109">DREQ-109 ALC_CMC.2.3D</a>, <a href="CREQ.html#CREQ-343">CREQ-343 ALC_CMC.2.1C</a>, <a href="CREQ.html#CREQ-344">CREQ-344 ALC_CMC.2.2C</a>, <a href="CREQ.html#CREQ-345">CREQ-345 ALC_CMC.2.3C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ALC_CMS.1 TOE CM coverage</td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>A unique reference is required to ensure that there is no ambiguity in terms of which instance of the TOE is being evaluated. Labelling the TOE with its reference ensures that users of the TOE can be aware of which instance of the TOE they are using. Unique identification of the configuration items leads to a clearer understanding of the composition of the TOE, which in turn helps to determine those items which are subject to the evaluation requirements for the TOE. The use of a CM system increases assurance that the configuration items are maintained in a controlled manner.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-054">1.53 ALC_CMC.3 Authorization controls <small>ACOM-054</small></h2>
+<p>A life-cycle model encompasses the procedures, tools and techniques used to develop and maintain the TOE. Aspects of the process that may be covered by such a model include design methods, review procedures, project management controls, change control procedures, test methods and acceptance procedures. An effective life-cycle model will address these aspects of the development and maintenance process within an overall management structure that assigns responsibilities and monitors progress. There are different types of acceptance situations that are dealt with at different locations in the criteria: — acceptance of parts delivered by subcontractors (“integration”) should be treated in this family, — Development Life-cycle definition (ALC_LCD), — acceptance subsequent to internal transportations in Developer environment security (ALC_DVS), — acceptance of parts into the CM system in CM capabilities (ALC_CMC), and — acceptance of the delivered TOE by the consumer in Delivery (ALC_DEL). The first three types may overlap. Although life-cycle definition deals with the maintenance of the TOE and hence with aspects becoming relevant after the completion of the evaluation, its evaluation adds assurance through an analysis of the life-cycle information for the TOE provided at the time of the evaluation. A life-cycle model provides for the necessary control over the development and maintenance of the TOE, if the model enables sufficient minimisation of the danger that the TOE will not meet its security requirement. A measurable life-cycle model is a model using some quantitative valuation (arithmetic parameters and/or metrics) of the managed product in order to measure development properties of the product. Typical metrics are source code complexity metrics, defect density (errors per size of code) or mean time to failure. For the security evaluation all those metrics are of relevance, which are used to increase quality by decreasing the probability of faults and thereby in turn increasing assurance in the security of the TOE. One should take into account that there exist standardised life-cycle models on the one hand (like the waterfall model) and standardised metrics on the other hand (like error density), which may be combined. The CC does not require the life-cycle to follow exactly one standard defining both aspects.</p>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-031">AFML-031 ALC_CMC CM capabilities</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-077">EREQ-077 ALC_CMC.3.1E</a>, <a href="DREQ.html#DREQ-110">DREQ-110 ALC_CMC.3.1D</a>, <a href="DREQ.html#DREQ-111">DREQ-111 ALC_CMC.3.2D</a>, <a href="DREQ.html#DREQ-112">DREQ-112 ALC_CMC.3.3D</a>, <a href="CREQ.html#CREQ-346">CREQ-346 ALC_CMC.3.1C</a>, <a href="CREQ.html#CREQ-347">CREQ-347 ALC_CMC.3.2C</a>, <a href="CREQ.html#CREQ-348">CREQ-348 ALC_CMC.3.3C</a>, <a href="CREQ.html#CREQ-349">CREQ-349 ALC_CMC.3.4C</a>, <a href="CREQ.html#CREQ-350">CREQ-350 ALC_CMC.3.5C</a>, <a href="CREQ.html#CREQ-351">CREQ-351 ALC_CMC.3.6C</a>, <a href="CREQ.html#CREQ-352">CREQ-352 ALC_CMC.3.7C</a>, <a href="CREQ.html#CREQ-353">CREQ-353 ALC_CMC.3.8C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ALC_CMS.1 TOE CM coverage, ALC_DVS.1 Identification of security measures, ALC_LCD.1 Developer defined life-cycle processes</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>A unique reference is required to ensure that there is no ambiguity in terms of which instance of the TOE is being evaluated. Labelling the TOE with its reference ensures that users of the TOE can be aware of which instance of the TOE they are using. Unique identification of the configuration items leads to a clearer understanding of the composition of the TOE, which in turn helps to determine those items which are subject to the evaluation requirements for the TOE. The use of a CM system increases assurance that the configuration items are maintained in a controlled manner. Providing controls to ensure that unauthorised modifications are not made to the TOE (“CM access control”) and ensuring proper functionality and use of the CM system, helps to maintain the integrity of the TOE.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-055">1.54 ALC_CMC.4 Production support, acceptance procedures and automation <small>ACOM-055</small></h2>
+<p>A life-cycle model encompasses the procedures, tools and techniques used to develop and maintain the TOE. Aspects of the process that may be covered by such a model include design methods, review procedures, project management controls, change control procedures, test methods and acceptance procedures. An effective life-cycle model will address these aspects of the development and maintenance process within an overall management structure that assigns responsibilities and monitors progress. There are different types of acceptance situations that are dealt with at different locations in the criteria: — acceptance of parts delivered by subcontractors (“integration”) should be treated in this family, — Development Life-cycle definition (ALC_LCD), — acceptance subsequent to internal transportations in Developer environment security (ALC_DVS), — acceptance of parts into the CM system in CM capabilities (ALC_CMC), and — acceptance of the delivered TOE by the consumer in Delivery (ALC_DEL). The first three types may overlap. Although life-cycle definition deals with the maintenance of the TOE and hence with aspects becoming relevant after the completion of the evaluation, its evaluation adds assurance through an analysis of the life-cycle information for the TOE provided at the time of the evaluation. A life-cycle model provides for the necessary control over the development and maintenance of the TOE, if the model enables sufficient minimisation of the danger that the TOE will not meet its security requirement. A measurable life-cycle model is a model using some quantitative valuation (arithmetic parameters and/or metrics) of the managed product in order to measure development properties of the product. Typical metrics are source code complexity metrics, defect density (errors per size of code) or mean time to failure. For the security evaluation all those metrics are of relevance, which are used to increase quality by decreasing the probability of faults and thereby in turn increasing assurance in the security of the TOE. One should take into account that there exist standardised life-cycle models on the one hand (like the waterfall model) and standardised metrics on the other hand (like error density), which may be combined. The CC does not require the life-cycle to follow exactly one standard defining both aspects.</p>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-031">AFML-031 ALC_CMC CM capabilities</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-078">EREQ-078 ALC_CMC.4.1E</a>, <a href="DREQ.html#DREQ-113">DREQ-113 ALC_CMC.4.1D</a>, <a href="DREQ.html#DREQ-114">DREQ-114 ALC_CMC.4.2D</a>, <a href="DREQ.html#DREQ-115">DREQ-115 ALC_CMC.4.3D</a>, <a href="CREQ.html#CREQ-354">CREQ-354 ALC_CMC.4.1C</a>, <a href="CREQ.html#CREQ-355">CREQ-355 ALC_CMC.4.2C</a>, <a href="CREQ.html#CREQ-356">CREQ-356 ALC_CMC.4.3C</a>, <a href="CREQ.html#CREQ-357">CREQ-357 ALC_CMC.4.4C</a>, <a href="CREQ.html#CREQ-358">CREQ-358 ALC_CMC.4.5C</a>, <a href="CREQ.html#CREQ-359">CREQ-359 ALC_CMC.4.6C</a>, <a href="CREQ.html#CREQ-360">CREQ-360 ALC_CMC.4.7C</a>, <a href="CREQ.html#CREQ-361">CREQ-361 ALC_CMC.4.8C</a>, <a href="CREQ.html#CREQ-362">CREQ-362 ALC_CMC.4.9C</a>, <a href="CREQ.html#CREQ-363">CREQ-363 ALC_CMC.4.10C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ALC_CMS.1 TOE CM coverage, ALC_DVS.1 Identification of security measures, ALC_LCD.1 Developer defined life-cycle processes</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>A unique reference is required to ensure that there is no ambiguity in terms of which instance of the TOE is being evaluated. Labelling the TOE with its reference ensures that users of the TOE can be aware of which instance of the TOE they are using. Unique identification of the configuration items leads to a clearer understanding of the composition of the TOE, which in turn helps to determine those items which are subject to the evaluation requirements for the TOE. The use of a CM system increases assurance that the configuration items are maintained in a controlled manner. Providing access controls to help ensure that unauthorised modifications are not made to the TOE (“CM access control”) and ensuring proper functionality and use of the CM system, helps to maintain the integrity of the TOE. The purpose of the acceptance procedures is to ensure that the parts of the TOE are of adequate quality and to confirm that any creation or modification of configuration items is authorized. Acceptance procedures are an essential element in integration processes and in the life-cycle management of the TOE. In a CM system where the quantity and organization of configuration items is complex, it is difficult to control changes without the support of automated tools. In particular, these automated tools need to be able to support the numerous changes that occur during development and ensure that those changes are authorized. It is an objective of this component to ensure that the configuration items are controlled through automated means. In the case where the overall CM system includes more than one CM application then automated tools can also support integration between the CM applications and of the TOE. Production support procedures help to ensure that the generation of the TOE from a managed set of configuration items is correctly performed in an authorized manner, particularly in the case when different developers are involved and integration processes have to be carried out.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-056">1.55 ALC_CMC.5 Advanced support <small>ACOM-056</small></h2>
+<p>A life-cycle model encompasses the procedures, tools and techniques used to develop and maintain the TOE. Aspects of the process that may be covered by such a model include design methods, review procedures, project management controls, change control procedures, test methods and acceptance procedures. An effective life-cycle model will address these aspects of the development and maintenance process within an overall management structure that assigns responsibilities and monitors progress. There are different types of acceptance situations that are dealt with at different locations in the criteria: — acceptance of parts delivered by subcontractors (“integration”) should be treated in this family, — Development Life-cycle definition (ALC_LCD), — acceptance subsequent to internal transportations in Developer environment security (ALC_DVS), — acceptance of parts into the CM system in CM capabilities (ALC_CMC), and — acceptance of the delivered TOE by the consumer in Delivery (ALC_DEL). The first three types may overlap. Although life-cycle definition deals with the maintenance of the TOE and hence with aspects becoming relevant after the completion of the evaluation, its evaluation adds assurance through an analysis of the life-cycle information for the TOE provided at the time of the evaluation. A life-cycle model provides for the necessary control over the development and maintenance of the TOE, if the model enables sufficient minimisation of the danger that the TOE will not meet its security requirement. A measurable life-cycle model is a model using some quantitative valuation (arithmetic parameters and/or metrics) of the managed product in order to measure development properties of the product. Typical metrics are source code complexity metrics, defect density (errors per size of code) or mean time to failure. For the security evaluation all those metrics are of relevance, which are used to increase quality by decreasing the probability of faults and thereby in turn increasing assurance in the security of the TOE. One should take into account that there exist standardised life-cycle models on the one hand (like the waterfall model) and standardised metrics on the other hand (like error density), which may be combined. The CC does not require the life-cycle to follow exactly one standard defining both aspects.</p>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-031">AFML-031 ALC_CMC CM capabilities</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-079">EREQ-079 ALC_CMC.5.1E</a>, <a href="EREQ.html#EREQ-080">EREQ-080 ALC_CMC.5.2E</a>, <a href="DREQ.html#DREQ-116">DREQ-116 ALC_CMC.5.1D</a>, <a href="DREQ.html#DREQ-117">DREQ-117 ALC_CMC.5.2D</a>, <a href="DREQ.html#DREQ-118">DREQ-118 ALC_CMC.5.3D</a>, <a href="CREQ.html#CREQ-364">CREQ-364 ALC_CMC.5.1C</a>, <a href="CREQ.html#CREQ-365">CREQ-365 ALC_CMC.5.2C</a>, <a href="CREQ.html#CREQ-366">CREQ-366 ALC_CMC.5.3C</a>, <a href="CREQ.html#CREQ-367">CREQ-367 ALC_CMC.5.4C</a>, <a href="CREQ.html#CREQ-368">CREQ-368 ALC_CMC.5.5C</a>, <a href="CREQ.html#CREQ-369">CREQ-369 ALC_CMC.5.6C</a>, <a href="CREQ.html#CREQ-370">CREQ-370 ALC_CMC.5.7C</a>, <a href="CREQ.html#CREQ-371">CREQ-371 ALC_CMC.5.8C</a>, <a href="CREQ.html#CREQ-372">CREQ-372 ALC_CMC.5.9C</a>, <a href="CREQ.html#CREQ-373">CREQ-373 ALC_CMC.5.10C</a>, <a href="CREQ.html#CREQ-374">CREQ-374 ALC_CMC.5.11C</a>, <a href="CREQ.html#CREQ-375">CREQ-375 ALC_CMC.5.12C</a>, <a href="CREQ.html#CREQ-376">CREQ-376 ALC_CMC.5.13C</a>, <a href="CREQ.html#CREQ-377">CREQ-377 ALC_CMC.5.14C</a>, <a href="CREQ.html#CREQ-378">CREQ-378 ALC_CMC.5.15C</a>, <a href="CREQ.html#CREQ-379">CREQ-379 ALC_CMC.5.16C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ALC_CMS.1 TOE CM coverage ALC_DVS.2 Sufficiency of security measures ALC_LCD.1 Developer defined life-cycle processes</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>A unique reference is required to ensure that there is no ambiguity in terms of which instance of the TOE is being evaluated. Labelling the TOE with its reference ensures that users of the TOE can be aware of which instance of the TOE they are using. Unique identification of the configuration items leads to a clearer understanding of the composition of the TOE, which in turn helps to determine those items which are subject to the evaluation requirements for the TOE. The use of a CM system increases assurance that the configuration items are maintained in a controlled manner. Providing controls to ensure that unauthorised modifications are not made to the TOE (“CM access control”) and ensuring proper functionality and use of the CM system, helps to maintain the integrity of the TOE. The purpose of the acceptance procedures is to ensure that the parts of the TOE meet defined criteria in regard to the integrity of the TOE. Criteria for acceptance procedures may include code review, checking for vulnerabilities, authenticity checking, and functional testing to confirm that any creation or modification of configuration items is authorized. Acceptance procedures are an essential element in integration processes and in the life-cycle management of the TOE. In development environments where the configuration items are complex, it is difficult to control changes without the support of automated tools. In particular, these automated tools need to be able to support the numerous changes that occur during development and ensure that those changes are authorized. It is an objective of this component to ensure that the configuration items are controlled through automated means. If the TOE is developed by multiple developers, i.e. integration has to take place, the use of automatic tools is adequate. Production support procedures help to ensure that the generation of the TOE from a managed set of configuration items is correctly performed in an authorized manner, particularly in the case when different developers are involved and integration processes have to be carried out. Requiring that the CM system be able to identify the version of the implementation representation from which the TOE is generated helps to ensure that the integrity of this material is preserved by the appropriate technical, physical and procedural safeguards. Providing an automated means of ascertaining changes between versions of the TOE and identifying which configuration items are affected by modifications to other configuration items assists in determining the impact of the changes between successive versions of the TOE. This in turn can provide valuable information in determining whether changes to the TOE result in all configuration items being consistent with one another.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-057">1.56 ALC_CMS.1 TOE CM coverage <small>ACOM-057</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-032">AFML-032</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-081">EREQ-081 ALC_CMS.1.1E</a>, <a href="DREQ.html#DREQ-119">DREQ-119 ALC_CMS.1.1D</a>, <a href="CREQ.html#CREQ-380">CREQ-380 ALC_CMS.1.1C</a>, <a href="CREQ.html#CREQ-381">CREQ-381 ALC_CMS.1.2C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>A CM system can control changes only to those items that have been placed under CM (i.e. the configuration items identified in the configuration list). Placing the TOE itself and the evaluation evidence required by the other SARs in the ST under CM provides assurance that they have been modified in a controlled manner with proper authorisations.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AppNotes</td>
+<td>ALC_CMS.1.1C introduces the requirement that the TOE itself and the evaluation evidence required by the other SARs in the ST be included in the configuration list and hence be subject to the CM requirements of CM capabilities (ALC_CMC).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-058">1.57 ALC_CMS.2 Parts of the TOE CM coverage <small>ACOM-058</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-032">AFML-032</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-082">EREQ-082 ALC_CMS.2.1E</a>, <a href="DREQ.html#DREQ-120">DREQ-120 ALC_CMS.2.1D</a>, <a href="CREQ.html#CREQ-382">CREQ-382 ALC_CMS.2.1C</a>, <a href="CREQ.html#CREQ-383">CREQ-383 ALC_CMS.2.2C</a>, <a href="CREQ.html#CREQ-384">CREQ-384 ALC_CMS.2.3C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>A CM system can control changes only to those items that have been placed under CM (i.e. the configuration items identified in the configuration list). Placing the TOE itself, the parts that comprise the TOE, and the evaluation evidence required by the other SARs under CM provides assurance that they have been modified in a controlled manner with proper authorisations.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AppNotes</td>
+<td>ALC_CMS.2.1C introduces the requirement that the parts that comprise the TOE (all parts that are delivered to the consumer, for example hardware parts or executable files) be included in the configuration list and hence be subject to the CM requirements of CM capabilities (ALC_CMC). ALC_CMS.2.3C introduces the requirement that the configuration list indicate the developer of each TSF relevant configuration item.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-059">1.58 ALC_CMS.3 Implementation representation CM coverage <small>ACOM-059</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-032">AFML-032</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-083">EREQ-083 ALC_CMS.3.1E</a>, <a href="DREQ.html#DREQ-121">DREQ-121 ALC_CMS.3.1D</a>, <a href="CREQ.html#CREQ-385">CREQ-385 ALC_CMS.3.1C</a>, <a href="CREQ.html#CREQ-386">CREQ-386 ALC_CMS.3.2C</a>, <a href="CREQ.html#CREQ-387">CREQ-387 ALC_CMS.3.3C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>A CM system can control changes only to those items that have been placed under CM (i.e. the configuration items identified in the configuration list). Placing the TOE itself, the parts that comprise the TOE, the TOE implementation representation and the evaluation evidence required by the other SARs under CM provides assurance that they have been modified in a controlled manner with proper authorisations.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AppNotes</td>
+<td>ALC_CMS.3.1C introduces the requirement that the TOE implementation representation be included in the list of configuration items and hence be subject to the CM requirements of CM capabilities (ALC_CMC).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-060">1.59 ALC_CMS.4 Problem tracking CM coverage <small>ACOM-060</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-032">AFML-032</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-084">EREQ-084 ALC_CMS.4.1E</a>, <a href="DREQ.html#DREQ-122">DREQ-122 ALC_CMS.4.1D</a>, <a href="CREQ.html#CREQ-389">CREQ-389 ALC_CMS.4.2C</a>, <a href="CREQ.html#CREQ-390">CREQ-390 ALC_CMS.4.3C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>A CM system can control changes only to those items that have been placed under CM (i.e. the configuration items identified in the configuration list). Placing the TOE itself, the parts that comprise the TOE, the TOE implementation representation and the evaluation evidence required by the other SARs under CM provides assurance that they have been modified in a controlled manner with proper authorisations. Placing security flaw reports under CM ensures that the integrity of the reports is maintained and that access to them is managed, further, it may support developers in tracking security flaws to their resolution.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AppNotes</td>
+<td>ALC_CMS.4.1C introduces the requirement that reports of identified security flaws be included in the configuration list and hence be subject to the CM requirements of CM capabilities (ALC_CMC). This requires that information regarding previously identified security flaw reports and their resolution be maintained.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-061">1.60 ALC_CMS.5 Development tools CM coverage <small>ACOM-061</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-032">AFML-032</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-085">EREQ-085 ALC_CMS.5.1E</a>, <a href="DREQ.html#DREQ-123">DREQ-123 ALC_CMS.5.1D</a>, <a href="CREQ.html#CREQ-391">CREQ-391 ALC_CMS.5.1C</a>, <a href="CREQ.html#CREQ-392">CREQ-392 ALC_CMS.5.2C</a>, <a href="CREQ.html#CREQ-393">CREQ-393 ALC_CMS.5.3C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>A CM system can control changes only to those items that have been placed under CM (i.e. the configuration items identified in the configuration list). Placing the TOE itself, the parts that comprise the TOE, the TOE implementation representation and the evaluation evidence required by the other SARs under CM provides assurance that they have been modified in a controlled manner with proper authorisations. Placing security flaw reports under CM ensures that the integrity of the reports is maintained and that access to them is managed, further, it may support developers in tracking security flaws to their resolution. Development tools play an important role in ensuring the production of a quality version of the TOE. Therefore, it is important to control modifications to these tools.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AppNotes</td>
+<td>ALC_CMS.5.1C introduces the requirement that development tools and other related information be included in the list of configuration items and hence be subject to the CM requirements of CM capabilities (ALC_CMC). Examples of development tools are programming languages and compilers. Information pertaining to TOE generation items (such as compiler options, generation options, and build options) is an example of information relating to development tools.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-062">1.61 ALC_DEL.1 Delivery procedures <small>ACOM-062</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-033">AFML-033 ALC_DEL Delivery</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-086">EREQ-086 ALC_DEL.1.1E</a>, <a href="DREQ.html#DREQ-124">DREQ-124 ALC_DEL.1.1D</a>, <a href="DREQ.html#DREQ-125">DREQ-125 ALC_DEL.1.2D</a>, <a href="CREQ.html#CREQ-394">CREQ-394 ALC_DEL.1.1C</a></p>
+<h2 id="ACOM-063">1.62 ALC_DVS.1 Identification of security controls <small>ACOM-063</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-034">AFML-034 ALC_DVS Developer environment security</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-087">EREQ-087 ALC_DVS.1.1E</a>, <a href="EREQ.html#EREQ-088">EREQ-088 ALC_DVS.1.2E</a>, <a href="DREQ.html#DREQ-126">DREQ-126 ALC_DVS.1.1D</a>, <a href="CREQ.html#CREQ-395">CREQ-395 ALC_DVS.1.1C</a></p>
+<h2 id="ACOM-064">1.63 ALC_DVS.2 Sufficiency of security controls <small>ACOM-064</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-034">AFML-034 ALC_DVS Developer environment security</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-089">EREQ-089 ALC_DVS.2.1E</a>, <a href="EREQ.html#EREQ-090">EREQ-090 ALC_DVS.2.2E</a>, <a href="DREQ.html#DREQ-127">DREQ-127 ALC_DVS.2.1D</a>, <a href="CREQ.html#CREQ-396">CREQ-396 ALC_DVS.2.1C</a>, <a href="CREQ.html#CREQ-397">CREQ-397 ALC_DVS.2.2C</a></p>
+<h2 id="ACOM-065">1.64 ALC_FLR.1 Basic flaw remediation <small>ACOM-065</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-035">AFML-035 ALC_FLR Flaw remediation</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-091">EREQ-091 ALC_FLR.1.1E</a>, <a href="DREQ.html#DREQ-128">DREQ-128 ALC_FLR.1.1D</a>, <a href="CREQ.html#CREQ-398">CREQ-398 ALC_FLR.1.1C</a>, <a href="CREQ.html#CREQ-399">CREQ-399 ALC_FLR.1.2C</a>, <a href="CREQ.html#CREQ-400">CREQ-400 ALC_FLR.1.3C</a>, <a href="CREQ.html#CREQ-401">CREQ-401 ALC_FLR.1.4C</a></p>
+<h2 id="ACOM-066">1.65 ALC_FLR.2 Flaw reporting procedures <small>ACOM-066</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-035">AFML-035 ALC_FLR Flaw remediation</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-092">EREQ-092 ALC_FLR.2.1E</a>, <a href="DREQ.html#DREQ-129">DREQ-129 ALC_FLR.2.1D</a>, <a href="DREQ.html#DREQ-130">DREQ-130 ALC_FLR.2.2D</a>, <a href="DREQ.html#DREQ-131">DREQ-131 ALC_FLR.2.3D</a>, <a href="CREQ.html#CREQ-402">CREQ-402 ALC_FLR.2.1C</a>, <a href="CREQ.html#CREQ-403">CREQ-403 ALC_FLR.2.2C</a>, <a href="CREQ.html#CREQ-404">CREQ-404 ALC_FLR.2.3C</a>, <a href="CREQ.html#CREQ-405">CREQ-405 ALC_FLR.2.4C</a>, <a href="CREQ.html#CREQ-406">CREQ-406 ALC_FLR.2.5C</a>, <a href="CREQ.html#CREQ-407">CREQ-407 ALC_FLR.2.6C</a>, <a href="CREQ.html#CREQ-408">CREQ-408 ALC_FLR.2.7C</a>, <a href="CREQ.html#CREQ-409">CREQ-409 ALC_FLR.2.8C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>In order for the developer to be able to act appropriately upon security flaw reports from TOE users, and to know to whom to send corrective fixes, TOE users need to understand how to submit security flaw reports to the developer. Flaw remediation guidance from the developer to the TOE user ensures that TOE users are aware of this important information.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-067">1.66 ALC_FLR.3 Systematic flaw remediation <small>ACOM-067</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-035">AFML-035 ALC_FLR Flaw remediation</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-093">EREQ-093 ALC_FLR.3.1E</a>, <a href="DREQ.html#DREQ-132">DREQ-132 ALC_FLR.3.1D</a>, <a href="DREQ.html#DREQ-133">DREQ-133 ALC_FLR.3.2D</a>, <a href="DREQ.html#DREQ-134">DREQ-134 ALC_FLR.3.3D</a>, <a href="CREQ.html#CREQ-410">CREQ-410 ALC_FLR.3.1C</a>, <a href="CREQ.html#CREQ-411">CREQ-411 ALC_FLR.3.2C</a>, <a href="CREQ.html#CREQ-412">CREQ-412 ALC_FLR.3.3C</a>, <a href="CREQ.html#CREQ-413">CREQ-413 ALC_FLR.3.4C</a>, <a href="CREQ.html#CREQ-414">CREQ-414 ALC_FLR.3.5C</a>, <a href="CREQ.html#CREQ-415">CREQ-415 ALC_FLR.3.6C</a>, <a href="CREQ.html#CREQ-416">CREQ-416 ALC_FLR.3.7C</a>, <a href="CREQ.html#CREQ-417">CREQ-417 ALC_FLR.3.8C</a>, <a href="CREQ.html#CREQ-418">CREQ-418 ALC_FLR.3.9C</a>, <a href="CREQ.html#CREQ-419">CREQ-419 ALC_FLR.3.10C</a>, <a href="CREQ.html#CREQ-420">CREQ-420 ALC_FLR.3.11C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>In order for the developer to be able to act appropriately upon security flaw reports from TOE users, and to know to whom to send corrective fixes, TOE users need to understand how to submit security flaw reports to the developer, and how to register themselves with the developer so that they may receive these corrective fixes. Flaw remediation guidance from the developer to the TOE user ensures that TOE users are aware of this important information.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-068">1.67 ALC_LCD.1 Developer defined life-cycle processes <small>ACOM-068</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-036">AFML-036 ALC_LCD Development Life-cycle definition</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-094">EREQ-094 ALC_LCD.1.1E</a>, <a href="DREQ.html#DREQ-135">DREQ-135 ALC_LCD.1.1D</a>, <a href="DREQ.html#DREQ-136">DREQ-136 ALC_LCD.1.2D</a>, <a href="CREQ.html#CREQ-421">CREQ-421 ALC_LCD.1.1C</a>, <a href="CREQ.html#CREQ-422">CREQ-422 ALC_LCD.1.2C</a></p>
+<h2 id="ACOM-069">1.68 ALC_LCD.2 Measurable life-cycle model <small>ACOM-069</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-036">AFML-036 ALC_LCD Development Life-cycle definition</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-095">EREQ-095 ALC_LCD.2.1E</a>, <a href="EREQ.html#EREQ-096">EREQ-096 ALC_LCD.2.2E</a>, <a href="DREQ.html#DREQ-137">DREQ-137 ALC_LCD.2.1D</a>, <a href="DREQ.html#DREQ-138">DREQ-138 ALC_LCD.2.2D</a>, <a href="DREQ.html#DREQ-139">DREQ-139 ALC_LCD.2.3D</a>, <a href="DREQ.html#DREQ-140">DREQ-140 ALC_LCD.2.4D</a>, <a href="CREQ.html#CREQ-423">CREQ-423 ALC_LCD.2.1C</a>, <a href="CREQ.html#CREQ-424">CREQ-424 ALC_LCD.2.2C</a>, <a href="CREQ.html#CREQ-425">CREQ-425 ALC_LCD.2.3C</a></p>
+<h2 id="ACOM-070">1.69 ALC_TDA.1 Uniquely identifying implementation representation <small>ACOM-070</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-037">AFML-037 ALC_TDA TOE Development Artefacts</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-097">EREQ-097 ALC_TDA.1.1E</a>, <a href="EREQ.html#EREQ-098">EREQ-098 ALC_TDA.1.2E</a>, <a href="EREQ.html#EREQ-099">EREQ-099 ALC_TDA.1.3E</a>, <a href="EREQ.html#EREQ-100">EREQ-100 ALC_TDA.1.4E</a>, <a href="EREQ.html#EREQ-101">EREQ-101 ALC_TDA.1.5E</a>, <a href="EREQ.html#EREQ-102">EREQ-102 ALC_TDA.1.6E</a>, <a href="DREQ.html#DREQ-141">DREQ-141 ALC_TDA.1.1D</a>, <a href="DREQ.html#DREQ-142">DREQ-142 ALC_TDA.1.2D</a>, <a href="DREQ.html#DREQ-143">DREQ-143 ALC_TDA.1.3D</a>, <a href="DREQ.html#DREQ-144">DREQ-144 ALC_TDA.1.4D</a>, <a href="DREQ.html#DREQ-145">DREQ-145 ALC_TDA.1.5D</a>, <a href="DREQ.html#DREQ-146">DREQ-146 ALC_TDA.1.6D</a>, <a href="CREQ.html#CREQ-426">CREQ-426 ALC_TDA.1.1C</a>, <a href="CREQ.html#CREQ-427">CREQ-427 ALC_TDA.1.2C</a>, <a href="CREQ.html#CREQ-428">CREQ-428 ALC_TDA.1.3C</a>, <a href="CREQ.html#CREQ-429">CREQ-429 ALC_TDA.1.4C</a></p>
+<h2 id="ACOM-071">1.70 ALC_TDA.2 Matching CMS scope of implementation representation <small>ACOM-071</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-037">AFML-037 ALC_TDA TOE Development Artefacts</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-103">EREQ-103 ALC_TDA.2.1E</a>, <a href="EREQ.html#EREQ-104">EREQ-104 ALC_TDA.2.2E</a>, <a href="EREQ.html#EREQ-105">EREQ-105 ALC_TDA.2.3E</a>, <a href="EREQ.html#EREQ-106">EREQ-106 ALC_TDA.2.4E</a>, <a href="EREQ.html#EREQ-107">EREQ-107 ALC_TDA.2.5E</a>, <a href="EREQ.html#EREQ-108">EREQ-108 ALC_TDA.2.6E</a>, <a href="EREQ.html#EREQ-109">EREQ-109 ALC_TDA.2.7E</a>, <a href="DREQ.html#DREQ-147">DREQ-147 ALC_TDA.2.1D</a>, <a href="DREQ.html#DREQ-148">DREQ-148 ALC_TDA.2.2D</a>, <a href="DREQ.html#DREQ-149">DREQ-149 ALC_TDA.2.3D</a>, <a href="DREQ.html#DREQ-150">DREQ-150 ALC_TDA.2.4D</a>, <a href="DREQ.html#DREQ-151">DREQ-151 ALC_TDA.2.5D</a>, <a href="DREQ.html#DREQ-152">DREQ-152 ALC_TDA.2.6D</a>, <a href="DREQ.html#DREQ-153">DREQ-153 ALC_TDA.2.7D</a>, <a href="CREQ.html#CREQ-430">CREQ-430 ALC_TDA.2.1C</a>, <a href="CREQ.html#CREQ-431">CREQ-431 ALC_TDA.2.2C</a>, <a href="CREQ.html#CREQ-432">CREQ-432 ALC_TDA.2.3C</a>, <a href="CREQ.html#CREQ-433">CREQ-433 ALC_TDA.2.4C</a>, <a href="CREQ.html#CREQ-434">CREQ-434 ALC_TDA.2.5C</a></p>
+<h2 id="ACOM-072">1.71 ALC_TDA.3 Regenerate TOE with well-defined development tools <small>ACOM-072</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-037">AFML-037 ALC_TDA TOE Development Artefacts</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-110">EREQ-110 ALC_TDA.3.1E</a>, <a href="EREQ.html#EREQ-111">EREQ-111 ALC_TDA.3.2E</a>, <a href="EREQ.html#EREQ-112">EREQ-112 ALC_TDA.3.3E</a>, <a href="EREQ.html#EREQ-113">EREQ-113 ALC_TDA.3.4E</a>, <a href="EREQ.html#EREQ-114">EREQ-114 ALC_TDA.3.5E</a>, <a href="EREQ.html#EREQ-115">EREQ-115 ALC_TDA.3.6E</a>, <a href="EREQ.html#EREQ-116">EREQ-116 ALC_TDA.3.7E</a>, <a href="EREQ.html#EREQ-117">EREQ-117 ALC_TDA.3.8E</a>, <a href="DREQ.html#DREQ-154">DREQ-154 ALC_TDA.3.1D</a>, <a href="DREQ.html#DREQ-155">DREQ-155 ALC_TDA.3.2D</a>, <a href="DREQ.html#DREQ-156">DREQ-156 Page 132 of 211 CC:2022 November 2022 ALC_TDA.3.3D</a>, <a href="DREQ.html#DREQ-157">DREQ-157 ALC_TDA.3.4D</a>, <a href="DREQ.html#DREQ-158">DREQ-158 ALC_TDA.3.5D</a>, <a href="DREQ.html#DREQ-159">DREQ-159 ALC_TDA.3.6D</a>, <a href="DREQ.html#DREQ-160">DREQ-160 ALC_TDA.3.7D</a>, <a href="DREQ.html#DREQ-161">DREQ-161</a>, <a href="DREQ.html#DREQ-162">DREQ-162 ALC_TDA.3.9D</a>, <a href="CREQ.html#CREQ-435">CREQ-435 ALC_TDA.3.1C</a>, <a href="CREQ.html#CREQ-436">CREQ-436 ALC_TDA.3.2C</a>, <a href="CREQ.html#CREQ-437">CREQ-437 ALC_TDA.3.3C</a>, <a href="CREQ.html#CREQ-438">CREQ-438 ALC_TDA.3.4C</a>, <a href="CREQ.html#CREQ-439">CREQ-439 ALC_TDA.3.5C</a>, <a href="CREQ.html#CREQ-440">CREQ-440 ALC_TDA.3.6C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ALC_CMS.3 Implementation representation CM coverage, ALC_TAT.1 Well-defined development tools and, ADV_IMP.1 Implementation representation of the TSF</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-073">1.72 ALC_TAT.1 Well-defined development tools <small>ACOM-073</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-038">AFML-038 ALC_TAT Tools and techniques</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-118">EREQ-118 ALC_TAT.1.1E</a>, <a href="DREQ.html#DREQ-163">DREQ-163 ALC_TAT.1.1D</a>, <a href="DREQ.html#DREQ-164">DREQ-164 ALC_TAT.1.2D</a>, <a href="CREQ.html#CREQ-441">CREQ-441 ALC_TAT.1.1C</a>, <a href="CREQ.html#CREQ-442">CREQ-442 ALC_TAT.1.2C</a>, <a href="CREQ.html#CREQ-443">CREQ-443 ALC_TAT.1.3C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_IMP.1 Implementation representation of the TSF.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-074">1.73 ALC_TAT.2 Compliance with implementation standards <small>ACOM-074</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-038">AFML-038 ALC_TAT Tools and techniques</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-119">EREQ-119 ALC_TAT.2.1E</a>, <a href="EREQ.html#EREQ-120">EREQ-120 ALC_TAT.2.2E</a>, <a href="DREQ.html#DREQ-165">DREQ-165 ALC_TAT.2.1D</a>, <a href="DREQ.html#DREQ-166">DREQ-166 ALC_TAT.2.2D</a>, <a href="DREQ.html#DREQ-167">DREQ-167 ALC_TAT.2.3D</a>, <a href="CREQ.html#CREQ-444">CREQ-444 ALC_TAT.2.1C</a>, <a href="CREQ.html#CREQ-445">CREQ-445 ALC_TAT.2.2C</a>, <a href="CREQ.html#CREQ-446">CREQ-446 ALC_TAT.2.3C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_IMP.1 Implementation representation of the TSF.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-075">1.74 ALC_TAT.3 Compliance with implementation standards - all parts <small>ACOM-075</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-038">AFML-038 ALC_TAT Tools and techniques</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-121">EREQ-121 ALC_TAT.3.1E</a>, <a href="EREQ.html#EREQ-122">EREQ-122 ALC_TAT.3.2E</a>, <a href="DREQ.html#DREQ-168">DREQ-168 ALC_TAT.3.1D</a>, <a href="DREQ.html#DREQ-169">DREQ-169 ALC_TAT.3.2D</a>, <a href="DREQ.html#DREQ-170">DREQ-170 ALC_TAT.3.3D</a>, <a href="CREQ.html#CREQ-447">CREQ-447 ALC_TAT.3.1C</a>, <a href="CREQ.html#CREQ-448">CREQ-448 ALC_TAT.3.2C</a>, <a href="CREQ.html#CREQ-449">CREQ-449 ALC_TAT.3.3C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_IMP.1 Implementation representation of the TSF</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-076">1.75 ALC_COMP.1 Integration of the dependent component into the related base component and Consistency check for delivery and acceptance procedures <small>ACOM-076</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-039">AFML-039 ALC_COMP Integration of composition parts and consistency check of delivery procedures</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-123">EREQ-123 ALC_COMP.1.1E</a>, <a href="EREQ.html#EREQ-124">EREQ-124 ALC_COMP.1.2E</a>, <a href="DREQ.html#DREQ-171">DREQ-171 ALC_COMP.1.1D</a>, <a href="CREQ.html#CREQ-450">CREQ-450 ALC_COMP.1.1C</a>, <a href="CREQ.html#CREQ-451">CREQ-451 ALC_COMP.1.2C</a></p>
+<h2 id="ACOM-077">1.76 ATE_COV.1 Evidence of coverage <small>ACOM-077</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-040">AFML-040</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-125">EREQ-125 ATE_COV.1.1E</a>, <a href="DREQ.html#DREQ-172">DREQ-172 ATE_COV.1.1D</a>, <a href="CREQ.html#CREQ-452">CREQ-452 ATE_COV.1.1C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_FSP.2 Security-enforcing functional specification, ATE_FUN.1 Functional testing</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>The objective of this component is to establish that some of the TSFIs have been tested.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AppNotes</td>
+<td>In this component the developer shows how tests in the test documentation correspond to TSFIs in the functional specification. This can be achieved by a statement of correspondence, perhaps using a table.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-078">1.77 ATE_COV.2 Analysis of coverage <small>ACOM-078</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-040">AFML-040</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-126">EREQ-126 ATE_COV.2.1E</a>, <a href="DREQ.html#DREQ-173">DREQ-173 ATE_COV.2.1D</a>, <a href="CREQ.html#CREQ-453">CREQ-453 ATE_COV.2.1C</a>, <a href="CREQ.html#CREQ-454">CREQ-454 ATE_COV.2.2C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_FSP.2 Security-enforcing functional specification, ATE_FUN.1 Functional testing</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>The objective of this component is to confirm that all of the TSFIs have been tested.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AppNotes</td>
+<td>In this component the developer confirms that tests in the test documentation correspond to all of the TSFIs in the functional specification. This can be achieved by a statement of correspondence, perhaps using a table, but the developer also provides an analysis of the test coverage.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-079">1.78 ATE_COV.3 Rigorous analysis of coverage <small>ACOM-079</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-040">AFML-040</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-127">EREQ-127 ATE_COV.3.1E</a>, <a href="DREQ.html#DREQ-174">DREQ-174 ATE_COV.3.1D</a>, <a href="CREQ.html#CREQ-455">CREQ-455 ATE_COV.3.1C</a>, <a href="CREQ.html#CREQ-456">CREQ-456 ATE_COV.3.2C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_FSP.2 Security-enforcing functional specification, ATE_FUN.1 Functional testing</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>In this component, the objective is to confirm that the developer performed exhaustive tests of all interfaces in the functional specification. The objective of this component is to confirm that all parameters of all of the TSFIs have been tested.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AppNotes</td>
+<td>In this component the developer is required to show how tests in the test documentation correspond to all of the TSFIs in the functional specification. This can be achieved by a statement of correspondence, perhaps using a table, but in addition the developer is required to demonstrate that the tests exercise all of the parameters of all TSFIs. This additional requirement includes bounds testing (i.e. verifying that errors are generated when stated limits are exceeded) and negative testing (e.g. when access is given to User A, verifying not only that User A now has access, but also that User B did not suddenly gain access). This kind of testing is not, strictly speaking, exhaustive because not every possible value of the parameters is expected to be checked.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-080">1.79 ATE_DPT.1 Testing: basic design <small>ACOM-080</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-041">AFML-041 ATE_DPT Depth</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-128">EREQ-128 ATE_DPT.1.1E</a>, <a href="DREQ.html#DREQ-175">DREQ-175 ATE_DPT.1.1D</a>, <a href="CREQ.html#CREQ-457">CREQ-457 ATE_DPT.1.1C</a>, <a href="CREQ.html#CREQ-458">CREQ-458 ATE_DPT.1.2C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_ARC.1 Security architecture description, ADV_TDS.2 Architectural design, ATE_FUN.1 Functional testing</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>The subsystem descriptions of the TSF provide a high-level description of the internal workings of the TSF. Testing at the level of the TOE subsystems provides assurance that the TSF subsystems behave and interact as described in the TOE design and the security architecture description.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-081">1.80 ATE_DPT.2 Testing: security enforcing modules <small>ACOM-081</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-041">AFML-041 ATE_DPT Depth</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-129">EREQ-129 ATE_DPT.2.1E</a>, <a href="DREQ.html#DREQ-176">DREQ-176 ATE_DPT.2.1D</a>, <a href="CREQ.html#CREQ-388">CREQ-388 ATE_DPT.2.1C</a>, <a href="CREQ.html#CREQ-459">CREQ-459 ATE_DPT.2.1C</a>, <a href="CREQ.html#CREQ-460">CREQ-460 ATE_DPT.2.2C</a>, <a href="CREQ.html#CREQ-461">CREQ-461 ATE_DPT.2.3C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_ARC.1 Security architecture description, ADV_TDS.3 Basic modular design, ATE_FUN.1 Functional testing</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>The subsystem and module descriptions of the TSF provide a high-level description of the internal workings, and a description of the interfaces of the SFR-enforcing modules, of the TSF. Testing at this level of TOE description provides assurance that the TSF subsystems and SFR-enforcing modules behave and interact as described in the TOE design and the security architecture description.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-082">1.81 ATE_DPT.3 Testing: modular design <small>ACOM-082</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-041">AFML-041 ATE_DPT Depth</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-130">EREQ-130 ATE_DPT.3.1E</a>, <a href="DREQ.html#DREQ-177">DREQ-177 ATE_DPT.3.1D</a>, <a href="CREQ.html#CREQ-462">CREQ-462 ATE_DPT.3.1C</a>, <a href="CREQ.html#CREQ-463">CREQ-463 ATE_DPT.3.2C</a>, <a href="CREQ.html#CREQ-464">CREQ-464 ATE_DPT.3.3C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_ARC.1 Security architecture description, ADV_TDS.4 Semiformal modular design, ATE_FUN.1 Functional testing</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>The subsystem and module descriptions of the TSF provide a high-level description of the internal workings, and a description of the interfaces of the modules, of the TSF. Testing at this level of TOE description provides assurance that the TSF subsystems and modules behave and interact as described in the TOE design and the security architecture description.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-083">1.82 ATE_DPT.4 Testing: implementation representation <small>ACOM-083</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-041">AFML-041 ATE_DPT Depth</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-131">EREQ-131 ATE_DPT.4.1E</a>, <a href="DREQ.html#DREQ-178">DREQ-178 ATE_DPT.4.1D</a>, <a href="CREQ.html#CREQ-465">CREQ-465 ATE_DPT.4.1C</a>, <a href="CREQ.html#CREQ-466">CREQ-466 ATE_DPT.4.2C</a>, <a href="CREQ.html#CREQ-467">CREQ-467 ATE_DPT.4.3C</a>, <a href="CREQ.html#CREQ-468">CREQ-468 ATE_DPT.4.4C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_ARC.1 Security architecture description, ADV_TDS.4 Semiformal modular design, ADV_IMP.1 Implementation representation of the TSF, ATE_FUN.1 Functional testing</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>The subsystem and module descriptions of the TSF provide a high-level description of the internal workings, and a description of the interfaces of the modules, of the TSF. Testing at this level of TOE description provides assurance that the TSF subsystems and modules behave and interact as described in the TOE design and the security architecture description, and in accordance with the implementation representation.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-084">1.83 ATE_FUN.1 Functional testing <small>ACOM-084</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-042">AFML-042 ATE_FUN Functional tests</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-132">EREQ-132 ATE_FUN.1.1E</a>, <a href="DREQ.html#DREQ-179">DREQ-179 ATE_FUN.1.1D</a>, <a href="DREQ.html#DREQ-180">DREQ-180 ATE_FUN.1.2D</a>, <a href="CREQ.html#CREQ-469">CREQ-469 ATE_FUN.1.1C</a>, <a href="CREQ.html#CREQ-470">CREQ-470 ATE_FUN.1.2C</a>, <a href="CREQ.html#CREQ-471">CREQ-471 ATE_FUN.1.3C</a>, <a href="CREQ.html#CREQ-472">CREQ-472 ATE_FUN.1.4C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ATE_COV.1 Evidence of coverage</td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>The objective is for the developer to demonstrate that the tests in the test documentation are performed and documented correctly.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-085">1.84 ATE_FUN.2 Ordered functional testing <small>ACOM-085</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-042">AFML-042 ATE_FUN Functional tests</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-133">EREQ-133 ATE_FUN.2.1E</a>, <a href="DREQ.html#DREQ-181">DREQ-181 ATE_FUN.2.1D</a>, <a href="DREQ.html#DREQ-182">DREQ-182 ATE_FUN.2.2D</a>, <a href="CREQ.html#CREQ-473">CREQ-473 ATE_FUN.2.1C</a>, <a href="CREQ.html#CREQ-474">CREQ-474 ATE_FUN.2.2C</a>, <a href="CREQ.html#CREQ-475">CREQ-475 ATE_FUN.2.3C</a>, <a href="CREQ.html#CREQ-476">CREQ-476 ATE_FUN.2.4C</a>, <a href="CREQ.html#CREQ-477">CREQ-477 ATE_FUN.2.5C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ATE_COV.1 Evidence of coverage.</td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>The objectives are for the developer to demonstrate that the tests in the test documentation are performed and documented correctly, and to ensure that testing is structured such as to avoid circular arguments about the correctness of the interfaces being tested.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AppNotes</td>
+<td>Although the test procedures may state pre-requisite initial test conditions in terms of ordering of tests, they may not provide a rationale for the ordering. An analysis of test ordering is an important factor in determining the adequacy of testing, as there is a possibility of faults being concealed by the ordering of tests.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-086">1.85 ATE_IND.1 Independent testing - conformance <small>ACOM-086</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-043">AFML-043 ATE_IND Independent testing</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-134">EREQ-134 ATE_IND.1.1E</a>, <a href="EREQ.html#EREQ-135">EREQ-135 ATE_IND.1.2E</a>, <a href="DREQ.html#DREQ-183">DREQ-183 ATE_IND.1.1D</a>, <a href="CREQ.html#CREQ-478">CREQ-478 ATE_IND.1.1C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_FSP.1 Basic functional specification, AGD_OPE.1 Operational user guidance, AGD_PRE.1 Preparative procedures</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>In this component, the objective is to demonstrate that the TOE operates in accordance with its design representations and guidance documents.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AppNotes</td>
+<td>This component does not address the use of developer test results. It is applicable where such results are not available, and also in cases where the developer´s testing is accepted without validation. The evaluator is required to devise and conduct tests with the objective of confirming that the TOE operates in accordance with its design representations, including but not limited to the functional specification. The approach is to gain confidence in correct operation through representative testing, rather than to conduct every possible test. The extent of testing to be planned for this purpose is a methodology issue, and needs to be considered in the context of a particular TOE and the balance of other evaluation activities.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-087">1.86 ATE_IND.2 Independent testing - sample <small>ACOM-087</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-043">AFML-043 ATE_IND Independent testing</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-136">EREQ-136 ATE_IND.2.1E</a>, <a href="EREQ.html#EREQ-137">EREQ-137 ATE_IND.2.2E</a>, <a href="EREQ.html#EREQ-138">EREQ-138 ATE_IND.2.3E</a>, <a href="DREQ.html#DREQ-184">DREQ-184 ATE_IND.2.1D</a>, <a href="CREQ.html#CREQ-479">CREQ-479 ATE_IND.2.1C</a>, <a href="CREQ.html#CREQ-480">CREQ-480 ATE_IND.2.2C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_FSP.2 Security-enforcing functional specification, AGD_OPE.1 Operational user guidance, AGD_PRE.1 Preparative procedures, ATE_COV.1 Evidence of coverage, ATE_FUN.1 Functional testing</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>In this component, the objective is to demonstrate that the TOE operates in accordance with its design representations and guidance documents. Evaluator testing confirms that the developer performed some tests of some interfaces in the functional specification.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AppNotes</td>
+<td>The intent is that the developer should provide the evaluator with materials necessary for the efficient reproduction of developer tests. This may include such things as machine-readable test documentation, test programs, etc. This component contains a requirement that the evaluator has available test results from the developer to supplement the programme of testing. The evaluator will repeat a sample of the developer´s tests to gain confidence in the results obtained. Having established such confidence the evaluator will build upon the developer´s testing by conducting additional tests that exercise the TOE in a different manner. By using a platform of validated developer test results the evaluator is able to gain confidence that the TOE operates correctly in a wider range of conditions than would be possible purely using the developer´s own efforts, given a fixed level of resource. Having gained confidence that the developer has tested the TOE, the evaluator will also have more freedom, where appropriate, to concentrate testing in areas where examination of documentation or specialist knowledge has raised particular concerns.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-088">1.87 ATE_IND.3 Independent testing - complete <small>ACOM-088</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-043">AFML-043 ATE_IND Independent testing</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-139">EREQ-139 ATE_IND.3.1E</a>, <a href="EREQ.html#EREQ-140">EREQ-140 ATE_IND.3.2E</a>, <a href="EREQ.html#EREQ-141">EREQ-141 ATE_IND.3.3E</a>, <a href="DREQ.html#DREQ-186">DREQ-186 ATE_IND.3.1D</a>, <a href="CREQ.html#CREQ-481">CREQ-481 ATE_IND.3.1C</a>, <a href="CREQ.html#CREQ-482">CREQ-482 ATE_IND.3.2C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_FSP.4 Complete functional specification, AGD_OPE.1 Operational user guidance, AGD_PRE.1 Preparative procedures, ATE_COV.1 Evidence of coverage, ATE_FUN.1 Functional testing</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>In this component, the objective is to demonstrate that the TOE operates in accordance with its design representations and guidance documents. Evaluator testing includes repeating all of the developer tests.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AppNotes</td>
+<td>The intent is that the developer should provide the evaluator with materials necessary for the efficient reproduction of developer tests. This may include, e.g. machine-readable test documentation, test programs. In this component the evaluator must repeat all of the developer´s tests as part of the programme of testing. As in the previous component the evaluator will also conduct tests that aim to exercise the TSF in a different manner from that achieved by the developer. In cases where developer testing has been exhaustive, there may remain little scope for this.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-089">1.88 ATE_COMP.1 Composite product functional testing <small>ACOM-089</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-044">AFML-044 ATE_COMP Composite functional testing</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-142">EREQ-142 ATE_COMP.1.1E</a>, <a href="DREQ.html#DREQ-187">DREQ-187 ATE_COMP.1.1D</a>, <a href="DREQ.html#DREQ-188">DREQ-188 ATE_COMP.1.2D</a>, <a href="CREQ.html#CREQ-483">CREQ-483 ATE_COMP.1.1C</a>, <a href="CREQ.html#CREQ-484">CREQ-484 ATE_COMP.1.2C</a></p>
+<h2 id="ACOM-090">1.89 AVA_VAN.1 Vulnerability survey <small>ACOM-090</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-045">AFML-045 AVA_VAN Vulnerability analysis</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-143">EREQ-143 AVA_VAN.1.1E</a>, <a href="EREQ.html#EREQ-144">EREQ-144 AVA_VAN.1.2E</a>, <a href="EREQ.html#EREQ-145">EREQ-145 AVA_VAN.1.3E</a>, <a href="DREQ.html#DREQ-189">DREQ-189 AVA_VAN.1.1D</a>, <a href="CREQ.html#CREQ-485">CREQ-485 AVA_VAN.1.1C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_FSP.1 Basic functional specification, AGD_OPE.1 Operational user guidance, AGD_PRE.1 Preparative procedures</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>A vulnerability survey of information available in the public domain is performed by the evaluator to ascertain potential vulnerabilities that may be easily found by an attacker. The evaluator performs penetration testing, to confirm that the potential vulnerabilities cannot be exploited in the operational environment for the TOE. Penetration testing is performed by the evaluator assuming an attack potential of Basic.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-091">1.90 AVA_VAN.2 Vulnerability analysis <small>ACOM-091</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-045">AFML-045 AVA_VAN Vulnerability analysis</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-146">EREQ-146 AVA_VAN.2.1E</a>, <a href="EREQ.html#EREQ-147">EREQ-147 AVA_VAN.2.2E</a>, <a href="EREQ.html#EREQ-148">EREQ-148 AVA_VAN.2.3E</a>, <a href="EREQ.html#EREQ-149">EREQ-149 AVA_VAN.2.4E</a>, <a href="DREQ.html#DREQ-190">DREQ-190 AVA_VAN.2.1D</a>, <a href="DREQ.html#DREQ-191">DREQ-191 AVA_VAN.2.2D</a>, <a href="CREQ.html#CREQ-486">CREQ-486 AVA_VAN.2.1C</a>, <a href="CREQ.html#CREQ-487">CREQ-487 AVA_VAN.2.2C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_ARC.1 Security architecture description, ADV_FSP.2 Security-enforcing functional specification, ADV_TDS.1 Basic design, AGD_OPE.1 Operational user guidance, AGD_PRE.1 Preparative procedures</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>A vulnerability analysis is performed by the evaluator to ascertain the presence of potential vulnerabilities. The evaluator performs penetration testing, to confirm that the potential vulnerabilities cannot be exploited in the operational environment for the TOE. Penetration testing is performed by the evaluator assuming an attack potential of Basic.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-092">1.91 AVA_VAN.3 Focused vulnerability analysis <small>ACOM-092</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-045">AFML-045 AVA_VAN Vulnerability analysis</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-150">EREQ-150 AVA_VAN.3.1E</a>, <a href="EREQ.html#EREQ-151">EREQ-151 AVA_VAN.3.2E</a>, <a href="EREQ.html#EREQ-152">EREQ-152 AVA_VAN.3.3E</a>, <a href="EREQ.html#EREQ-153">EREQ-153 AVA_VAN.3.4E</a>, <a href="DREQ.html#DREQ-192">DREQ-192 AVA_VAN.3.1D</a>, <a href="DREQ.html#DREQ-193">DREQ-193 AVA_VAN.3.2D</a>, <a href="CREQ.html#CREQ-488">CREQ-488 AVA_VAN.3.1C</a>, <a href="CREQ.html#CREQ-489">CREQ-489 AVA_VAN.3.2C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_ARC.1 Security architecture description, ADV_FSP.4 Complete functional specification, ADV_TDS.3 Basic modular design, ADV_IMP.1 Implementation representation of the TSF, AGD_OPE.1 Operational user guidance, AGD_PRE.1 Preparative procedures, ATE_DPT.1 Testing: basic design</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>A vulnerability analysis is performed by the evaluator to ascertain the presence of potential vulnerabilities. The evaluator performs penetration testing, to confirm that the potential vulnerabilities cannot be exploited in the operational environment for the TOE. Penetration testing is performed by the evaluator assuming an attack potential of Enhanced-Basic.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-093">1.92 AVA_VAN.4 Methodical vulnerability analysis <small>ACOM-093</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-045">AFML-045 AVA_VAN Vulnerability analysis</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-154">EREQ-154 AVA_VAN.4.1E</a>, <a href="EREQ.html#EREQ-155">EREQ-155 AVA_VAN.4.2E</a>, <a href="EREQ.html#EREQ-156">EREQ-156 AVA_VAN.4.3E</a>, <a href="EREQ.html#EREQ-157">EREQ-157 AVA_VAN.4.4E</a>, <a href="DREQ.html#DREQ-194">DREQ-194 AVA_VAN.4.1D</a>, <a href="DREQ.html#DREQ-195">DREQ-195 AVA_VAN.4.2D</a>, <a href="CREQ.html#CREQ-490">CREQ-490 AVA_VAN.4.1C</a>, <a href="CREQ.html#CREQ-491">CREQ-491 AVA_VAN.4.2C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_ARC.1 Security architecture description, ADV_FSP.4 Complete functional specification, ADV_TDS.3 Basic modular design, ADV_IMP.1 Implementation representation of the TSF, AGD_OPE.1 Operational user guidance, AGD_PRE.1 Preparative procedures, ATE_DPT.1 Testing: basic design</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>A methodical vulnerability analysis is performed by the evaluator to ascertain the presence of potential vulnerabilities. The evaluator performs penetration testing, to confirm that the potential vulnerabilities cannot be exploited in the operational environment for the TOE. Penetration testing is performed by the evaluator assuming an attack potential of Moderate.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-094">1.93 AVA_VAN.5 Advanced methodical vulnerability analysis <small>ACOM-094</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-045">AFML-045 AVA_VAN Vulnerability analysis</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-158">EREQ-158 AVA_VAN.5.1E</a>, <a href="EREQ.html#EREQ-159">EREQ-159 AVA_VAN.5.2E</a>, <a href="EREQ.html#EREQ-160">EREQ-160 AVA_VAN.5.3E</a>, <a href="EREQ.html#EREQ-161">EREQ-161 AVA_VAN.5.4E</a>, <a href="DREQ.html#DREQ-196">DREQ-196 AVA_VAN.5.1D</a>, <a href="DREQ.html#DREQ-197">DREQ-197 AVA_VAN.5.2D</a>, <a href="CREQ.html#CREQ-492">CREQ-492 AVA_VAN.5.1C</a>, <a href="CREQ.html#CREQ-493">CREQ-493 AVA_VAN.5.2C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ADV_ARC.1 Security architecture description, ADV_FSP.4 Complete functional specification, ADV_TDS.3 Basic modular design, ADV_IMP.1 Implementation representation of the TSF, AGD_OPE.1 Operational user guidance, AGD_PRE.1 Preparative procedures, ATE_DPT.1 Testing: basic design</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>A methodical vulnerability analysis is performed by the evaluator to ascertain the presence of potential vulnerabilities. The evaluator performs penetration testing, to confirm that the potential vulnerabilities cannot be exploited in the operational environment for the TOE. Penetration testing is performed by the evaluator assuming an attack potential of High.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-095">1.94 AVA_COMP.1 Composite product vulnerability assessment <small>ACOM-095</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-046">AFML-046 AVA_COMP Composite vulnerability assessment</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-162">EREQ-162 AVA_COMP.1.1E</a>, <a href="DREQ.html#DREQ-198">DREQ-198 AVA_COMP.1.1D</a>, <a href="CREQ.html#CREQ-494">CREQ-494 AVA_COMP.1.1C</a></p>
+<h2 id="ACOM-096">1.95 ACO_COR.1 Composition rationale <small>ACOM-096</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-047">AFML-047 ACO_COR Composition rationale</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-163">EREQ-163 ACO_COR.1.1E</a>, <a href="DREQ.html#DREQ-199">DREQ-199 ACO_COR.1.1D</a>, <a href="CREQ.html#CREQ-495">CREQ-495 ACO_COR.1.1C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ACO_DEV.1 Functional Description, ALC_CMC.1 Labelling of the TOE, ACO_REL.1 Basic reliance information</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-097">1.96 ACO_DEV.1 Functional Description <small>ACOM-097</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-048">AFML-048 ACO_DEV Development evidence</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-164">EREQ-164 ACO_DEV.1.1E</a>, <a href="EREQ.html#EREQ-165">EREQ-165 ACO_DEV.1.2E</a>, <a href="DREQ.html#DREQ-200">DREQ-200 ACO_DEV.1.1D</a>, <a href="CREQ.html#CREQ-496">CREQ-496 ACO_DEV.1.1C</a>, <a href="CREQ.html#CREQ-497">CREQ-497 ACO_DEV.1.2C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ACO_REL.1 Basic reliance information</td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>A description of the interfaces in the base component, on which the dependent component relies, is required. This is examined to determine whether or not it is consistent with the description of interfaces on which the dependent component relies, as provided in the reliance information.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-098">1.97 ACO_DEV.2 Basic evidence of design <small>ACOM-098</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-048">AFML-048 ACO_DEV Development evidence</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-166">EREQ-166 ACO_DEV.2.1E</a>, <a href="EREQ.html#EREQ-167">EREQ-167 ACO_DEV.2.2E</a>, <a href="DREQ.html#DREQ-201">DREQ-201 ACO_DEV.2.1D</a>, <a href="CREQ.html#CREQ-498">CREQ-498 ACO_DEV.2.1C</a>, <a href="CREQ.html#CREQ-499">CREQ-499 ACO_DEV.2.2C</a>, <a href="CREQ.html#CREQ-500">CREQ-500 ACO_DEV.2.3C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ACO_REL.1 Basic reliance information</td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>A description of the interfaces in the base component, on which the dependent component relies, is required. This is examined to determine whether or not it is consistent with the description of interfaces on which the dependent component relies, as provided in the reliance information. In addition, the security behaviour of the base component that supports the dependent component TSF is described.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-099">1.98 ACO_DEV.3 Detailed evidence of design <small>ACOM-099</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-048">AFML-048 ACO_DEV Development evidence</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-168">EREQ-168 ACO_DEV.3.1E</a>, <a href="EREQ.html#EREQ-169">EREQ-169 ACO_DEV.3.2E</a>, <a href="DREQ.html#DREQ-202">DREQ-202 ACO_DEV.3.1D</a>, <a href="CREQ.html#CREQ-501">CREQ-501 ACO_DEV.3.1C</a>, <a href="CREQ.html#CREQ-502">CREQ-502 ACO_DEV.3.2C</a>, <a href="CREQ.html#CREQ-503">CREQ-503 ACO_DEV.3.3C</a>, <a href="CREQ.html#CREQ-504">CREQ-504 ACO_DEV.3.4C</a>, <a href="CREQ.html#CREQ-505">CREQ-505 ACO_DEV.3.5C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ACO_REL.2 Reliance information.</td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>A description of the interfaces in the base component, on which the dependent component relies, is required. This is examined to determine whether or not it is consistent with the description of interfaces on which the dependent component relies, as provided in the reliance information. The interface description of the architecture of the base component is provided to enable the evaluator to determine whether or not that interface formed part of the TSF of the base component.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-100">1.99 ACO_REL.1 Basic reliance information <small>ACOM-100</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-049">AFML-049 ACO_REL Reliance of dependent component</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-170">EREQ-170 ACO_REL.1.1E</a>, <a href="DREQ.html#DREQ-203">DREQ-203 ACO_REL.1.1D</a>, <a href="CREQ.html#CREQ-506">CREQ-506 ACO_REL.1.1C</a>, <a href="CREQ.html#CREQ-507">CREQ-507 ACO_REL.1.2C</a>, <a href="CREQ.html#CREQ-508">CREQ-508 ACO_REL.1.3C</a></p>
+<h2 id="ACOM-101">1.100 ACO_REL.2 Reliance information <small>ACOM-101</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-049">AFML-049 ACO_REL Reliance of dependent component</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-171">EREQ-171 ACO_REL.2.1E</a>, <a href="DREQ.html#DREQ-204">DREQ-204 ACO_REL.2.1DACO_REL.2.1D</a>, <a href="CREQ.html#CREQ-509">CREQ-509 ACO_REL.2.1C</a>, <a href="CREQ.html#CREQ-510">CREQ-510 ACO_REL.2.2C</a>, <a href="CREQ.html#CREQ-511">CREQ-511 ACO_REL.2.3C</a>, <a href="CREQ.html#CREQ-512">CREQ-512 ACO_REL.2.4C</a></p>
+<h2 id="ACOM-102">1.101 ACO_CTT.1 Interface testing <small>ACOM-102</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-050">AFML-050 ACO_CTT Composed TOE testing</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-172">EREQ-172 ACO_CTT.1.1E</a>, <a href="EREQ.html#EREQ-173">EREQ-173 ACO_CTT.1.2E</a>, <a href="EREQ.html#EREQ-174">EREQ-174 ACO_CTT.1.3E</a>, <a href="DREQ.html#DREQ-205">DREQ-205 ACO_CTT.1.1D</a>, <a href="DREQ.html#DREQ-206">DREQ-206 ACO_CTT.1.2D</a>, <a href="DREQ.html#DREQ-207">DREQ-207 ACO_CTT.1.3D</a>, <a href="DREQ.html#DREQ-208">DREQ-208 ACO_CTT.1.4D</a>, <a href="CREQ.html#CREQ-513">CREQ-513 ACO_CTT.1.1C</a>, <a href="CREQ.html#CREQ-514">CREQ-514 ACO_CTT.1.2C</a>, <a href="CREQ.html#CREQ-515">CREQ-515 ACO_CTT.1.3C</a>, <a href="CREQ.html#CREQ-516">CREQ-516 ACO_CTT.1.4C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ACO_REL.1 Basic reliance information, ACO_DEV.1 Functional Description</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>The objective of this component is to ensure that each interface of the base component, on which the dependent component relies, is tested.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-103">1.102 ACO_CTT.2 Rigorous interface testing <small>ACOM-103</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-050">AFML-050 ACO_CTT Composed TOE testing</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-175">EREQ-175 ACO_CTT.2.1E</a>, <a href="EREQ.html#EREQ-176">EREQ-176 ACO_CTT.2.2E</a>, <a href="EREQ.html#EREQ-177">EREQ-177 ACO_CTT.2.3E</a>, <a href="DREQ.html#DREQ-209">DREQ-209 ACO_CTT.2.1D</a>, <a href="DREQ.html#DREQ-210">DREQ-210 ACO_CTT.2.2D</a>, <a href="DREQ.html#DREQ-211">DREQ-211 ACO_CTT.2.3D</a>, <a href="DREQ.html#DREQ-212">DREQ-212 ACO_CTT.2.4D</a>, <a href="CREQ.html#CREQ-517">CREQ-517 ACO_CTT.2.1C</a>, <a href="CREQ.html#CREQ-518">CREQ-518 ACO_CTT.2.2C</a>, <a href="CREQ.html#CREQ-519">CREQ-519 ACO_CTT.2.3C</a>, <a href="CREQ.html#CREQ-520">CREQ-520 ACO_CTT.2.4C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ACO_REL.2 Reliance information, ACO_DEV.2 Basic evidence of design</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Objectives</td>
+<td>The objective of this component is to ensure that each interface of the base component, on which the dependent component relies, is tested.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-104">1.103 ACO_VUL.1 Composition vulnerability review <small>ACOM-104</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-051">AFML-051 ACO_VUL Composition vulnerability analysis</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-178">EREQ-178 ACO_VUL.1.1E</a>, <a href="EREQ.html#EREQ-179">EREQ-179 ACO_VUL.1.2E</a>, <a href="EREQ.html#EREQ-180">EREQ-180 ACO_VUL.1.3E</a>, <a href="EREQ.html#EREQ-181">EREQ-181 ACO_VUL.1.4E</a>, <a href="DREQ.html#DREQ-213">DREQ-213 ACO_VUL.1.1D</a>, <a href="CREQ.html#CREQ-521">CREQ-521 ACO_VUL.1.1C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ACO_DEV.1 Functional Description</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-105">1.104 ACO_VUL.2 Composition vulnerability analysis <small>ACOM-105</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-051">AFML-051 ACO_VUL Composition vulnerability analysis</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-182">EREQ-182 ACO_VUL.2.1E</a>, <a href="EREQ.html#EREQ-183">EREQ-183 ACO_VUL.2.2E</a>, <a href="EREQ.html#EREQ-184">EREQ-184 ACO_VUL.2.3E</a>, <a href="EREQ.html#EREQ-185">EREQ-185 ACO_VUL.2.4E</a>, <a href="EREQ.html#EREQ-186">EREQ-186 ACO_VUL.2.5E</a>, <a href="DREQ.html#DREQ-214">DREQ-214 ACO_VUL.2.1D</a>, <a href="CREQ.html#CREQ-522">CREQ-522 ACO_VUL.2.1C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ACO_DEV.2 Basic evidence of design.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ACOM-106">1.105 ACO_VUL.3 Enhanced-Basic Composition vulnerability analysis <small>ACOM-106</small></h2>
+<p><em>Parent links:</em> <a href="AFML.html#AFML-051">AFML-051 ACO_VUL Composition vulnerability analysis</a></p>
+<p><em>Child links:</em> <a href="EREQ.html#EREQ-187">EREQ-187 ACO_VUL.3.1E</a>, <a href="EREQ.html#EREQ-188">EREQ-188 ACO_VUL.3.2E</a>, <a href="EREQ.html#EREQ-189">EREQ-189 ACO_VUL.3.3E</a>, <a href="EREQ.html#EREQ-190">EREQ-190 ACO_VUL.3.4E</a>, <a href="EREQ.html#EREQ-191">EREQ-191 ACO_VUL.3.5E</a>, <a href="DREQ.html#DREQ-215">DREQ-215 ACO_VUL.3.1D</a>, <a href="CREQ.html#CREQ-523">CREQ-523 ACO_VUL.3.1C</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dependencies</td>
+<td>ACO_DEV.3 Detailed evidence of design.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="assets/doorstop/jquery.min.js"></script>
+<script src="assets/doorstop/bootstrap.min.js"></script>
+<script>
+    $(function() {
+        $("table").addClass("table");
+        $("nav ul").addClass("nav nav-stacked");
+        $("nav").affix();
+        $('body').scrollspy({
+          target: '.sidebar'
+        });
+        $("#main a").attr("target", "parent");
+
+  $(window).on('hashchange', function() {
+    $(window).scrollTop($(location.hash.toLowerCase()).offset().top);});
+  });
+</script>
+</body>
+</html>
+

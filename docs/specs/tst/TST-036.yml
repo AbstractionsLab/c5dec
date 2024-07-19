@@ -1,0 +1,20 @@
+active: true
+authors: 'IVS'
+derived: false
+header: 'Run the GUI from the CLI with option `-g`'
+level: 36
+links: []
+normative: true
+platform: Any of MacOS, Windows, GNU/Linux
+precondition: 'Run this test immediatly after TST-035'
+ref: ''
+release: beta
+reviewed: null
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Test steps
+  1. In the CLI, press `ctrl+c` to quit the command run in TST-035.
+  2. Run `c5dec -g`
+expected_outcome: The GUI of the CCT module opens in the default browser
+verification_method: Test

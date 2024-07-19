@@ -1,0 +1,31 @@
+settings:
+  digits: 3
+  itemformat: yaml
+  parent: SRS
+  prefix: TST
+  sep: '-'
+
+attributes:
+  defaults:
+    release: beta
+    #platform: 'WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04'
+    platform: Any of MacOS, Windows, GNU/Linux
+    authors: 'IVS'
+    precondition: ''
+    verification_method: ''
+    success_criteria: 'SRS acceptance criteria fulfilled and expected outcome observed.'
+    text: |
+      ## Test steps
+      1. follow steps in SRS.
+    expected_outcome: ''
+  publish:
+  - platform
+  - precondition
+  - expected_outcome
+  - verification_method
+  - release
+  reviewed:
+  - authors
+  - precondition
+  - expected_outcome
+  - verification_method

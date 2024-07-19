@@ -1,0 +1,22 @@
+active: true
+comments: null
+defect_category: '0'
+defect_description: null
+derived: false
+header: ''
+level: 18
+links:
+- TST-052: rAzf2RDBJnSfky5-AP___EKJanymYI6m8-7j2jCEQr8=
+normative: true
+ref: ''
+references:
+- path: docs/specs/trb/assets/trb-018i-ev.png
+  type: file
+- path: docs/specs/trb/assets/trb-018ii-ev.png
+  type: file
+reviewed: reo1PO0DweeFZaapvP8k7Qi2fmACLACNjpD_V3LC5RI=
+test_date: 16-07-2024
+tester: IVS
+text: |
+  The test execution results for all the steps in the test case (TST) referred in the parent link were successful.
+  Evidence in the files:

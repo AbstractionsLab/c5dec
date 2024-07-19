@@ -22,6 +22,7 @@ def _trace(self, message, *args, **kws):
 
 logging.addLevelName(logging.DEBUG - 1, "TRACE")  # add new logging level
 logging.Logger.trace = _trace  # type: ignore
+# logging.basicConfig(filename='error.log', encoding='utf-8', level=logging.DEBUG)
 
 logger = logging.getLogger
 log = logger(__name__)

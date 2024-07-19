@@ -1,0 +1,39 @@
+acceptance: 'see [above](#SRS-028)'
+active: true
+author: Heinrich
+date: 03.10.2023
+dependence: []
+derived: false
+difficulty: '3'
+header: |
+  Automated Rationale and Traceability Matrix Generation
+importance: '4'
+level: 16.0
+links:
+- MRS-032: zdmk414Ku_uKO9MC4dv6gH6-9PZsz3atEQm7cnls8UE=
+normative: true
+outlay: '3'
+rationale: 'To comply with the Common Criteria, ensuring that every parent-child link within the CC data model is justified and traceable is crucial. Automated generation of a traceability matrix and rationale compilation facilitates consistent documentation and adherence to these requirements.'
+ref: ''
+reviewed: ipJeEqeqcQ3JMU_2sfntNfwlNhUuJPsXxw6WxdgO4js=
+risk: '1'
+status: Open
+text: |
+  ## System requirement specification
+
+  As a Developer,
+  I want the system to automatically generate rationales as required by the CC, that captures and
+  justifies each parent-child relation,
+  so that documentation adheres to CC requirements and maintains a structured and justified linkage
+  throughout the development and evaluation processes.
+  1. TBD
+
+  ## Acceptance criteria
+
+  - For each created parent-child relationship a rationale is defined.
+  - A traceability matrix between all parent-child elements of a given level is automatically generated.
+  - A list of justifications, justifying each parent-child link, is automatically compiled.
+
+type: F
+urgency: '3'
+version: '1.0'

@@ -1,0 +1,27 @@
+active: true
+authors: IVS
+derived: false
+expected_outcome: 'All the commands display an error message informing the user about the cause of the error'
+header: 'Export command: messages for invalid input'
+level: 51
+links: []
+normative: true
+platform: Any of MacOS, Windows, GNU/Linux
+precondition: ''
+ref: ''
+release: beta
+reviewed: null
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Test steps
+  Run the following commands and validate that the output is a message informing of the corresponding erroneous situation:
+
+  1. `c5dec export chcklst2022R1 other`: the selected version is invalid
+  2. `c5dec export tst1 3R5 -p ACO_REL`: the input argument must be an assurance component
+  3. `c5dec export tst1 3R5 -c ACO_REL.2`: the input argument must be an assurance class
+  4. `c5dec export tst1 3R5 -p ACO_REL.7`: invalid assurance component
+  5. `c5dec export tst1 3R5 -c ACO_RER`: invalid assurance class
+
+  _Note_: the messages displayed do not have to be an exact match, but to inform about the described situation.
+verification_method: 'Test'

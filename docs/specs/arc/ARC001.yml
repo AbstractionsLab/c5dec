@@ -1,0 +1,15 @@
+active: true
+derived: false
+header: 'C5-DEC CAD context diagram'
+level: 1.0
+links:
+- MRS-058: null
+normative: true
+ref: ''
+reviewed: null
+text: |
+  ## Diagram
+
+  The C5-DEC CAD software has been designed in a modular manner, with the diagram below depicting the current design.
+
+  ![CAD context diagram](assets/cad_context_diagram.png "C5-DEC CAD context diagram")

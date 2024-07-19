@@ -1,0 +1,16 @@
+active: true
+comments: null
+defect_category: '0'
+defect_description: 
+derived: false
+header: ''
+level: 1
+links:
+- TST-035: 8TmWvfAF7d-erFNl5kJAm8E6r5ldGt0X_8XUpXiXw9Y=
+normative: true
+ref: ''
+reviewed: MhKqYDK3kGogxQxIrOc0_6xGN6c6oR2n4voqxwaFpFc=
+test_date: 14-07-2024
+tester: IVS
+text: |
+  Test execution results for the test case (TST) referred in the parent link.

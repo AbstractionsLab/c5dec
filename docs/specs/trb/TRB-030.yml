@@ -1,0 +1,19 @@
+active: true
+comments: ''
+defect_category: '0'
+defect_description: ''
+derived: false
+header: ''
+level: 9.1
+links: 
+- TST-043
+normative: true
+ref: ''
+reviewed: null
+test_date: 18-07-2024
+tester: IVS
+text: |
+  Re-execution of test case TST-043 after a code update addressing the
+  issues reported in the first testing campaign of the beta release.
+  This test execution covers the section *Updates 18-07-2024* in the test
+  case description.

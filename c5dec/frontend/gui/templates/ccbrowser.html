@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+{% block headscript %}
+<script type="text/javascript">
+
+    // AJAX event handler for retrieving CC classes for CC part choice (SFR vs. SAR)
+    $(function () {
+        $('#ccReqTypeSelect').bind('click', function () {
+            $.getJSON(SCRIPT_ROOT + '/async_cc_req_type', {
+                // part: $('select[id="ccReqTypeSelect"]').text(),
+                part: $(this).children("option:selected").text(),
+            }, function (data) {
+                $("#ccClassSelect").empty();
+                for (i in data.result) {
+                    $("#ccClassSelect").append($("<option />").val(data.result[i]).text(data.result[i]));
+                }
+                $("#currentSelection").text($('#ccReqTypeSelect').val());
+                $("#ccPreviewTextArea").val(data.previewText);
+                $("#collapsiblePreview").html("");
+            });
+            return false;
+        });
+    });
+
+    // AJAX event handler for retrieving CC families and class text for CC class choice
+    $(function () {
+        $('#ccClassSelect').bind('click', function () {
+            $.getJSON(SCRIPT_ROOT + '/async_cc_class', {
+                class: $(this).children("option:selected").text(),
+            }, function (data) {
+                $("#ccFamilySelect").empty();
+                for (i in data.childrenFamilies) {
+                    $("#ccFamilySelect").append($("<option />").val(data.childrenFamilies[i]).text(data.childrenFamilies[i]));
+                }
+                $("#ccPreviewTextArea").val(data.previewText);
+                $("#collapsiblePreview").html(marked.parse(data.previewText));
+
+                $("#currentSelection").text($('#ccClassSelect').val());
+            });
+            return false;
+        });
+    });
+
+    // AJAX event handler for retrieving CC components and family text for CC family choice
+    $(function () {
+        $('#ccFamilySelect').bind('click', function () {
+            $.getJSON(SCRIPT_ROOT + '/async_cc_family', {
+                family: $(this).children("option:selected").text(),
+            }, function (data) {
+                $("#ccComponentSelect").empty();
+                for (i in data.childrenFamilies) {
+                    $("#ccComponentSelect").append($("<option />").val(data.childrenFamilies[i]).text(data.childrenFamilies[i]));
+                }
+                $("#ccPreviewTextArea").val(data.previewText);
+                $("#collapsiblePreview").html(marked.parse(data.previewText));
+
+                $("#currentSelection").text($('#ccFamilySelect').val());
+            });
+            return false;
+        });
+    });
+
+    // AJAX event handler for retrieving CC elements and component text for CC component choice
+    $(function () {
+        $('#ccComponentSelect').bind('click', function () {
+            $.getJSON(SCRIPT_ROOT + '/async_cc_component', {
+                component: $(this).children("option:selected").text(),
+            }, function (data) {
+                $("#ccElementSelect").empty();
+                for (i in data.childrenFamilies) {
+                    $("#ccElementSelect").append($("<option />").val(data.childrenFamilies[i]).text(data.childrenFamilies[i]));
+                }
+                $("#ccPreviewTextArea").val(data.previewText);
+                $("#collapsiblePreview").html(marked.parse(data.previewText));
+
+                $("#currentSelection").text($('#ccComponentSelect').val());
+            });
+            return false;
+        });
+    });
+
+    // AJAX event handler for retrieving CC element text for CC element choice
+    $(function () {
+        $('#ccElementSelect').bind('click', function () {
+            $.getJSON(SCRIPT_ROOT + '/async_cc_element', {
+                element: $(this).children("option:selected").text(),
+            }, function (data) {
+                $("#ccPreviewTextArea").val(data.previewText);
+                $("#collapsiblePreview").html(marked.parse(data.previewText));
+
+                $("#currentSelection").text($('#ccElementSelect').val());
+            });
+            return false;
+        });
+    });
+
+    // AJAX event handler for extracting child elements of currently selected item
+    $(function () {
+        $('#ccExportButton').bind('click', function () {
+            $.getJSON(SCRIPT_ROOT + '/async_export', {
+                choice: $("#currentSelection").text(),
+            }, function (data) {
+                $("#ccPreviewTextArea").val(data.exportText);
+                $("#collapsiblePreview").html(marked.parse(data.exportText));
+
+                $("#ccPreviewTextArea").select();
+            });
+            return false;
+        });
+    });
+
+</script>
+{% endblock %}
+{% block content %}
+<script type="text/javascript">
+
+    $(function () {
+        $("#copyToClipboardBtn").on('click', function () {
+            $("#ccPreviewTextArea").select();
+            document.execCommand('copy');
+        });
+    });
+
+</script>
+<p>The Common Criteria (CC) Browser module of C5-DEC CAD &copy; provides an easy-to-use solution for exploring the CC
+    database (DB) of security functional requirements (SFR) and security assurance requirements (SAR). </p>
+    <span class="line">
+        <h2><span>Currently selected CC version: {{ cc_version }}</span></h2>
+    </span>
+<p>Upon selection of an item, all subsequent dropdown lists are updated automatically and the selected item's content 
+    is automatically retrieved from the CC DB and displayed in the text area below in Markdown format, which can then 
+    be copied to clipboard and pasted to any destination.</p>
+<h4 class="text-center" style="padding: 1em;">Filter and select by part/class/family/component/element and press the <a
+        href="#copyToClipboardBtn">Copy</a> or <a href="#ccExportButton">Expand</a> buttons.</h4>
+<p></p>
+Requirement type:
+<select name="ccReqTypeSelect" id="ccReqTypeSelect">
+    {% for e in req_type %}
+    <option value="{{ e }}">{{ e }}</option>
+    {% endfor %}
+</select>
+Class:
+<select name="ccClassSelect" id="ccClassSelect">
+    <option value="Select SFR/SAR">Select SFR/SAR</option>
+</select>
+Family:
+<select name="ccFamilySelect" id="ccFamilySelect">
+    <option value="Select CC class">Select CC class</option>
+</select>
+Component:
+<select name="ccComponentSelect" id="ccComponentSelect">
+    <option value="Select CC Family">Select CC family</option>
+</select>
+Element:
+<select name="ccElementSelect" id="ccElementSelect">
+    <option value="Select CC element">Select CC element</option>
+</select>
+<p></p>
+<p>
+<div>
+    <textarea id="ccPreviewTextArea" rows="20" style="min-width: 100%; max-width: 100%; height: 100%"
+        readonly></textarea>
+</div>
+<p></p>
+<button id="copyToClipboardBtn" class="btn btn-primary" data-toggle="popover" title="Copy the content to clipboard."
+    data-content="This will save the presented Markdown content to your OS clipboard; use Ctrl/Cmd+V to paste it."
+    data-trigger="hover" data-placement="top">Copy</button>
+
+<button type="submit" id="ccExportButton" class="btn btn-primary" style="float: right;" data-toggle="popover"
+    title="Get the full content of your selection."
+    data-content="This will populate the text area above with the full content (all descendents) of the currently selected item (in Markdown)."
+    data-trigger="hover" data-placement="top">Expand selection</button>
+
+<span class="line">
+    <h2><span>Currently selected CC item</span></h2>
+</span>
+<p style="text-align: center;" id="currentSelection">No CC item currently selected.</p>
+</p>
+<h4 class="text-center">Press the <a href="#collapseBtn">Toggle preview</a> button to view a nicely formatted version of
+    selected content.</h4>
+<p>
+    <button class="btn btn-success" id="collapseBtn" type="button" data-toggle="collapse"
+        data-target="#collapsePreviewContainer" aria-expanded="false" aria-controls="collapsePreviewContainer">
+        Toggle preview
+    </button>
+</p>
+<div class="collapse" id="collapsePreviewContainer">
+    <div class="card card-body" id="collapsiblePreview">
+        Select a part/class/family/component/element and a formatted preview will be presented here.
+    </div>
+</div>
+<img src="{{ url_for('static', filename='img/ajax-loader.gif') }}" style="display: none;" id="loading_image">
+</p>
+
+{% endblock %}

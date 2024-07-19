@@ -1,0 +1,17 @@
+active: true
+comments: null
+defect_category: '0'
+defect_description: null
+derived: false
+header: ''
+level: 9
+links:
+- TST-043: p5EVfsMs6jeA3wKr89qxe4zRnVJnvKWyo4iv1ezGbbA=
+normative: true
+ref: ''
+reviewed: xHMsI90svC9QdgS5rM47RgMzIJPMhxbB-jG2v_djCjM=
+test_date: 15-07-2024
+tester: IVS
+text: |
+  Test execution results for the test case (TST) referred in the parent link.
+  The folders and files were successfully generated.

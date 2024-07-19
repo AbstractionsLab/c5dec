@@ -1,0 +1,51 @@
+# Basis of the evaluation and documentation used {#sec-method}
+
+The evaluation methodology adopted here is based on the method developed by ALab along with its dedicated in-house developed software tool support for assessing the security of IT systems. This method is in turn based on the Common Criteria, with the ISO version published in five parts as the ISO/IEC 15408 series of standards as well as ISO/IEC 18045 being the ISO publication of CEM, together providing a rigorous and unified approach to designing, implementing, and evaluating the security of IT systems.
+
+The evaluation basis for the current TOE is version 3.1 (Revision 5) of the Common Criteria (see [@ccpart1;@ccpart2;@ccpart3]) and the Common Evaluation Methodology (see [@cem]). The subject of the current report is the evaluation of the Life-Cycle Support of the TOE as required by the Assurance Class ALC.
+
+This Assurance Class comprises seven Assurance Families: (ALC_CMC) CM Capabilities, (ALC_CMS) CM Scope, (ALC_DEL) Delivery, (ALC_DVS) Development Security, (ALC_FLR) Flaw Remediation , (ALC_LCD) Life-Cycle Definition and (ALC_TAT) Tools and Techniques, whereby each of them defines several Assurance Components, respectively, as a function of the selected evaluation assurance level.
+
+For the purpose of this evaluation, we have chosen EALX as the evaluation assurance level. For more details on the methodology, evaluation objectives and requirements, we refer the reader to the service concept.
+
+The current focus of the evaluation, i.e., the target of evaluation (TOE), is {{< var cc.toe >}}, with the evaluation aspects reported here pertaining to the life cycle support activities and procedures adopted and applied by the TOE developer to minimize security risk to the sponsor's assets.
+
+Life-cycle support is an aspect of establishing discipline and control in the processes of refinement of the TOE during its development and maintenance. Confidence in the correspondence between the TOE security requirements and the TOE is greater if security analysis and the production of the evidence are done on a regular basis as an integral part of the development and maintenance activities.
+
+## Methodology and standards
+
+The evaluation is guided by the Common Methodology for Information Technology Security Evaluation (CEM), which is a companion document to the Common Criteria for Information Technology Security Evaluation (CC). The CEM defines the minimum actions to be performed by an evaluator in order to conduct a CC evaluation using the criteria and evaluation evidence defined in the CC standard.
+
+As part of our adjustments and strategy for dealing with missing evidence, here we have adopted an evaluation methodology that follows an incremental approach to security evaluation assurance levels.
+
+More precisely, specific families per assurance class have been selected according to the objectives defined in @sec-objectives. For each family, security assurance components/requirements of a specific EAL are evaluated; the process starts with components at the lower EAL, then, components of the next immediate level are added until the product fails to comply with the security requirements or until the maximum EAL is achieved.
+
+## Evaluation evidence
+
+Note that according to the selected Common Criteria assurance components and the CEM, the contribution input parts that must be covered by the documentation are as follows:
+
+- ST (Security Target)
+- configuration management documentation in the form of process descriptions
+- configuration list
+- delivery documentation
+- development security documentation
+- life-cycle definition documentation
+- development tool documentation
+- subset of development tool representation
+- implementation standards description
+- tools documentation
+- the flaw remediation procedures documentation
+- flaw remediation guidance documentation
+
+There are no further references to former evaluations of the TOE or to any observation reports.
+
+The following pieces of evidence have been provided by the developer:
+
+- Developer-DocName (X-page PDF report)
+	- the issuing body: the developer
+	- the title: Some tilte
+	- the unique reference: non-existent (filename: report.pdf)
+- Developer-DocName (X-page PDF report)
+	- the issuing body: the developer
+	- the title: Some tilte
+	- the unique reference: (filename: report.pdf)

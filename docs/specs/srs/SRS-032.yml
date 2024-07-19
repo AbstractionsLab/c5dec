@@ -1,0 +1,40 @@
+acceptance: ''
+active: true
+author: Heinrich
+date: 03.10.2023
+dependence:
+- MRS-030
+derived: false
+difficulty: '3'
+header: |
+  Seamless Aggregation and Presentation of SARs and Work Units
+importance: '4'
+level: 18.6
+links:
+- MRS-032: zdmk414Ku_uKO9MC4dv6gH6-9PZsz3atEQm7cnls8UE=
+normative: true
+outlay: '3'
+rationale: 'The efficient evaluation of the TOE readiness and compliance with relevant standards is vital for ensuring the security and reliability of the developed system. By automatically aggregating and presenting SARs and work units in alignment with respective security assurance components, evaluators can swiftly and accurately assess adherence to security assurance requirements, ensuring robust evaluation processes and confidence in the TOE.'
+ref: ''
+reviewed: FxzRwUg-gRw8y5ZtLB13WB6NDZ7GFnLQHJOhJrB54AI=
+risk: '1'
+status: In Progress
+text: |
+  ## System requirement specification
+
+  As an Evaluator, I want the system to seamlessly aggregate and present SARs and associated work units,
+  aligning them with specific security assurance components,
+  so that the process of evaluating the readiness and compliance of a Target of Evaluation (TOE) is
+  simplified and streamlined.
+
+  1. When I select an SAR to assess the readiness or compliance of a TOE, I want to see the SAR description and
+  the associated Work Unit description.
+
+  ## Acceptance criteria
+
+  - SARs and work units are accurately and seamlessly aggregated by the system.
+  - The system displays SARs and work units in an organized manner, aligned with the respective security assurance components.
+  - Evaluators can easily navigate and interpret the aggregated data to assess the readiness and compliance of the TOE.
+
+urgency: '3'
+version: '1.0'

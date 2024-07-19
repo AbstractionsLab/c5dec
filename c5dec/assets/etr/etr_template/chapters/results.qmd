@@ -1,0 +1,50 @@
+# Evaluation results {#sec-evalResults}
+Based on the analysis presented in @sec-detailedEv, the evaluation results are summarized next.
+
+## Overall assessment and verdict
+
+:::{.callout-note title="Life cycle verdict"}
+[Inconclusive]{style="color:orange;"}
+:::
+
+The overall verdict is {{< var verdict.pass >}} if and only if all the constituent verdicts are also {{< var verdict.pass >}}. If the verdict for one evaluator action element is {{< var verdict.fail >}}, then the verdicts for the corresponding assurance component, assurance class, and overall verdict are also {{< var verdict.fail >}}.
+
+All verdicts are initially {{< var verdict.inclsv >}} and remain so until either a {{< var verdict.pass >}} or {{< var verdict.fail >}} verdict is assigned.
+
+If all work units are met, because all assurance requirements to be examined in this report have a positive evaluation result ({{< var verdict.pass >}}), the entire evaluation aspect, i.e., here the Life Cycle Assurance Class (ALC), is assigned a {{< var verdict.pass >}} verdict. Similarly, a work unit is passed all its associated audit actions pass.
+
+A work unit is assigned a {{< var verdict.fail >}} verdict if at least one of its audit actions results in a {{< var verdict.fail >}} verdict. Similarly, an assurance component and evaluation action are assigned a {{< var verdict.fail >}} verdict if one of their work units is assigned a {{< var verdict.fail >}} verdict.
+
+An overall {{< var verdict.fail >}} verdict for a class such as life cycle (ALC) means that the TOE does not fulfil at least a requirement of the Assurance Components of one of the following families: ALC_CMC, ALC_CMS, ALC_DEL, ALC_DVS, ALC_LCD, and ALC_TAT. Assurance requirements pertaining to the flaw remediation family (ALC_FLR) are evaluated separately.
+
+### Result overview
+
+| Evaluation aspect   | Result                   |
+|:--------------------|:-------------------------|
+| ALC_CMC.4-1         | Pass                     |
+
+Overall, only $M$ out of $N$ evaluation work units are assigned a {{< var verdict.pass >}} verdict, with the evaluation of all other work units yielding an {{< var verdict.inclsv >}} result due to either missing or insufficiently detailed evidence.
+
+In terms of the audit actions derived from the above-mentioned work units, $p$ out of $q$ are assigned a {{< var verdict.pass >}} verdict, with all the remaining audition actions yielding an {{< var verdict.inclsv >}} result due to either missing or insufficiently detailed evidence.
+
+## Indications for potential vulnerabilities
+
+Here we report potential vulnerabilities suspected during the ALC assessment.
+
+## Missing information
+
+In the case of the verdict ‘inconclusive’, the evaluator is expected to put some issues into the sections ‘Missing Information’ or ‘Questions to and Conditions on the Developer’ of his / her single evaluation report, cf. AIS14.
+
+Regarding further information that either the developer or the sponsor can provide, please see the corresponding audit actions in @sec-detailedEv.
+
+## Questions to / conditions on the developer
+
+In the case of the verdict ‘inconclusive’, the evaluator is expected to put some issues into the sections ‘Missing Information’ or ‘Questions to and Conditions on the Developer’ of his / her single evaluation report, cf. AIS14.
+
+## Necessary changes / improvements
+
+In the case of the verdict ‘fail’, the evaluator is expected to put some issues into the section ‘Necessary Changes / Improvements’ of his / her single evaluation report, cf. AIS14.
+
+## Effects on other documents
+
+There are no effects on other documents.

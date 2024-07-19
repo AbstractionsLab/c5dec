@@ -1,0 +1,2480 @@
+<!DOCTYPE html>
+<html>
+<head><title>Doorstop</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="assets/doorstop/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/doorstop/general.css" />
+  <link type="text/css" rel="stylesheet" href="assets/doorstop/sidebar.css" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" ></script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
+  </script>
+</head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-2 hidden-sm hidden-xs">
+          <nav id="TOC" class="nav nav-stacked fixed sidebar">
+              <h3>Table of Contents</h3>
+<ul>
+<li><a href="#TST-001">1 Test accessing and browsing the CC Database</a></li>
+<li><a href="#TST-002">2 Test query the CC Database</a></li>
+<li><a href="#TST-003">3 Test exporting Security Components</a></li>
+<li><a href="#TST-004">4 Test tailoring Security Requirements</a></li>
+<li><a href="#TST-005">5 Test navigating the Knowledge Base</a></li>
+<li><a href="#TST-006">6 Test comprehensiveness of Knowledge Base</a></li>
+<li><a href="#TST-007">7 Test interconnection of Knowledge Base</a></li>
+<li><a href="#TST-008">8 Test currency of Knowledge Base</a></li>
+<li><a href="#TST-009">9 Test cosmetic features of Knowledge Base</a></li>
+<li><a href="#TST-010">10 Inspect CC Database-DTD mapping</a></li>
+<li><a href="#TST-011">11 Test correctness of CC Database</a></li>
+<li><a href="#TST-012">12 Test validity and conistency of bidirectional transformation</a></li>
+<li><a href="#TST-013">13 Test threats, risks, and countermeasures database</a></li>
+<li><a href="#TST-014">14 Test EUCC support</a></li>
+<li><a href="#TST-015">15 Test availabilty of CSA Article 51 defined Security Objectives</a></li>
+<li><a href="#TST-016">16 Test uniformity of storage mechanisms in CCT module</a></li>
+<li><a href="#TST-017">17 Test automated rationale and traceability matrix generation</a></li>
+<li><a href="#TST-018">18 Test verificaiton of rationales and traceability matrices</a></li>
+<li><a href="#TST-019">19 Test automated consistency and completeness checks</a></li>
+<li><a href="#TST-020">20 Test automated validation</a></li>
+<li><a href="#TST-021">21 Test aggregation of SARs and Work Units</a></li>
+<li><a href="#TST-022">22 Test API provision for threat import</a></li>
+<li><a href="#TST-023">23 Test transforming imported threats to CC-conformant format</a></li>
+<li><a href="#TST-024">24 Test automated creation of Evaluation Checklist</a></li>
+<li><a href="#TST-025">25 Test evaluation progress tracking</a></li>
+<li><a href="#TST-026">26 Test Work Unit-Artifact linking</a></li>
+<li><a href="#TST-027">27 Test automated generation of Observation Reports</a></li>
+<li><a href="#TST-028">28 Test automated generation of Evaluation Technical Report</a></li>
+<li><a href="#TST-029">29 Test flagging failed Work Units and affected artifacts</a></li>
+<li><a href="#TST-030">30 Test auditability of Evaluation Items</a></li>
+<li><a href="#TST-031">31 Test extended data model</a></li>
+<li><a href="#TST-032">32 Test CC templates</a></li>
+<li><a href="#TST-033">33 Test validation of hierarchies and dependencies of Security Component sets</a></li>
+<li><a href="#TST-034">34 Test generation of Impact Analysis Report</a></li>
+<li><a href="#TST-035">35 Run the GUI from the CLI with option <code>--gui</code></a></li>
+<li><a href="#TST-036">36 Run the GUI from the CLI with option <code>-g</code></a></li>
+<li><a href="#TST-037">37 The user manual contains guides for the functionality added in the Beta release</a></li>
+<li><a href="#TST-038">38 Browse the CC database in the GUI</a></li>
+<li><a href="#TST-039">39 The CC browser displays the content of the selected items</a></li>
+<li><a href="#TST-040">40 Copy content in markdown from the CC browser text area</a></li>
+<li><a href="#TST-041">41 Expand the text including information of all the descendents of the selected item</a></li>
+<li><a href="#TST-042">42 Create spreadsheet evaluation checklist of an assurance class of CCv3.1R5 from the GUI</a></li>
+<li><a href="#TST-043">43 Create spreadsheet evaluation checklist of all classes of CCv3.1R5 from the GUI</a></li>
+<li><a href="#TST-044">44 Create spreadsheet evaluation checklist of an assurance class of CCv2022R1 from the GUI</a></li>
+<li><a href="#TST-045">45 Create spreadsheet evaluation checklist of all classes of CC2022R1 from the GUI</a></li>
+<li><a href="#TST-046">46 Navigate using the links in the GUI</a></li>
+<li><a href="#TST-047">47 Export to spreadsheet an evaluation checklists with all the assurance classes of CCv3.1R5 from the CLI</a></li>
+<li><a href="#TST-048">48 Export to spreadsheet an evaluation checklists with all the assurance classes of CC2022R1 from the CLI</a></li>
+<li><a href="#TST-049">49 Export to spreadsheet an evaluation checklists with some assurance classes of CCv3.1R5 from the CLI</a></li>
+<li><a href="#TST-050">50 Export to spreadsheet an evaluation checklists with some assurance classes of CC2022R1 from the CLI</a></li>
+<li><a href="#TST-051">51 Export command: messages for invalid input</a></li>
+<li><a href="#TST-052">52 Export to spreadsheet an evaluation checklists with some assurance components of CCv3.1R5 from the CLI</a></li>
+<li><a href="#TST-053">53 Export to spreadsheet an evaluation checklists with some assurance components of CCv2022R1 from the CLI</a></li>
+<li><a href="#TST-054">54 Generate default parts of an ETR document</a></li>
+<li><a href="#TST-055">55 Generate specific parts of an ETR document</a></li>
+<li><a href="#TST-056">56 Generate an ETR report template using the C5-DEC DocEngine</a></li>
+<li><a href="#TST-057">57 Generate parts of an ETR report with an exported evaluation checklist</a></li>
+<li><a href="#TST-058">58 Publish the project assets in HTML and Markdown</a></li>
+</ul>
+          </nav>
+      </div>
+      <div class="col-lg-8" id="main">
+        <h1 id="TST-001">1 Test accessing and browsing the CC Database <small>TST-001</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>boot C5-DEC CAD</li>
+<li>navigate to '3 - CCT: Common Criteria toolbox' &gt; 'Browse Common Criteria'</li>
+</ol>
+<h2>Test Steps</h2>
+<ol>
+<li>follow steps in SRS</li>
+<li>on a random basis check (for at least 3 elements) that the displayed data corresponds to the
+associated Common Criteria element in the official PDFs of version 3.1 R5: <a href="https://www.commoncriteriaportal.org/files/ccfiles/CCPART2V3.1R5.pdf">CC Part 2</a> or <a href="https://www.commoncriteriaportal.org/files/ccfiles/CCPART3V3.1R5.pdf">CC Part 3</a>.</li>
+</ol>
+<blockquote>
+<p><code>c5dec/assets/database/KnowledgeBase/0_MapofContent.md</code></p>
+</blockquote>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-001">SRS-001 Access and Browse Database for CC Security Components</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-001">TRA-001</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>c5dec installed</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>(i) No errors encountered while browsing the database. (ii) Randomly sampled selection data corresponds to description in the respective Common Criteria PDF.</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-002">2 Test query the CC Database <small>TST-002</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>boot C5-DEC CAD</li>
+<li>navigate to '3 - CCT: Common Criteria toolbox' &gt; 'Common Criteria Browser'</li>
+</ol>
+<h2>Test Steps:</h2>
+<ol>
+<li>follow the steps in SRS</li>
+<li>repeat steps multiple times for different queries (at least 5) and match displayed content
+with respective Common Criteria PDF (version 3R5).</li>
+</ol>
+<blockquote>
+<p><code>c5dec/assets/database/KnowledgeBase/0_MapofContent.md</code></p>
+</blockquote>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-002">SRS-002 Query the Database of Security Components.</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-002">TRA-002</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>C5Dec installed</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-003">3 Test exporting Security Components <small>TST-003</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>In the TUI, go to '3 - CCT: Common Criteria toolbox'</li>
+<li>Select 'Browse Common Criteria' or 'Create Evaluation Checklist'</li>
+</ol>
+<h2>Test Steps</h2>
+<ol>
+<li>follow steps in SRS</li>
+<li>repeat multiple times and change selection and export settings.</li>
+<li>on a random basis check that the exported Security Requirements match respective Security Requirements
+in Common Criteria PDF (version 3R5).</li>
+</ol>
+<blockquote>
+<p><code>c5dec/assets/database/KnowledgeBase/0_MapofContent.md</code></p>
+</blockquote>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-003">SRS-003 Export Security Components</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-003">TRA-003</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>a working doorstop repository</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>File containing respective Security Requirements correctly exported according to specified settings.</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-004">4 Test tailoring Security Requirements <small>TST-004</small></h1>
+<p>TBD</p>
+<blockquote>
+<p><code>c5dec/assets/database/KnowledgeBase/0_MapofContent.md</code></p>
+</blockquote>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-004">SRS-004 Tailor Security Requirements.</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-004">TRA-004</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-005">5 Test navigating the Knowledge Base <small>TST-005</small></h1>
+<h2>Setup</h2>
+<ul>
+<li>None</li>
+</ul>
+<h2>Test steps</h2>
+<ol>
+<li>follow steps in SRS</li>
+<li>repeat for multiple Knowledge Articles</li>
+</ol>
+<blockquote>
+<p><code>c5dec/assets/database/KnowledgeBase/0_MapofContent.md</code></p>
+</blockquote>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-014">SRS-014 Access and Navigation Through Knowledge Base</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-005">TRA-005</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-006">6 Test comprehensiveness of Knowledge Base <small>TST-006</small></h1>
+<h2>Setup</h2>
+<ul>
+<li>None</li>
+</ul>
+<h2>Test steps</h2>
+<ol>
+<li>follow steps in SRS</li>
+<li>repeat for multiple Knowledge Articles</li>
+</ol>
+<blockquote>
+<p><code>c5dec/assets/database/KnowledgeBase/0_MapofContent.md</code></p>
+</blockquote>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-016">SRS-016 Interconnected Framework and Seamless Navigation</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-006">TRA-006</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-007">7 Test interconnection of Knowledge Base <small>TST-007</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>None</li>
+</ol>
+<h2>Test steps</h2>
+<ol>
+<li>follow steps in SRS</li>
+<li>repeat for multiple Knowledge Articles</li>
+</ol>
+<blockquote>
+<p><code>c5dec/assets/database/KnowledgeBase/0_MapofContent.md</code></p>
+</blockquote>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-016">SRS-016 Interconnected Framework and Seamless Navigation</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-007">TRA-007</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-008">8 Test currency of Knowledge Base <small>TST-008</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>None</li>
+</ol>
+<h2>Test steps</h2>
+<ol>
+<li>follow steps in SRS</li>
+<li>repeat for multiple Knowledge Articles</li>
+</ol>
+<blockquote>
+<p><code>c5dec/assets/database/KnowledgeBase/0_MapofContent.md</code></p>
+</blockquote>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-017">SRS-017 Availability of Pragmatic Guidance and Best Practices</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-008">TRA-008</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-009">9 Test cosmetic features of Knowledge Base <small>TST-009</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>None</li>
+</ol>
+<h2>Test steps</h2>
+<ol>
+<li>follow steps in SRS'</li>
+<li>repeat for multiple Knowledge Articles</li>
+</ol>
+<blockquote>
+<p><code>c5dec/assets/database/KnowledgeBase/0_MapofContent.md</code></p>
+</blockquote>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-019">SRS-019 Integration of Multimedia Elements in Knowledge Articles</a>, <a href="SRS.html#SRS-020">SRS-020 Integrating Links to FAQ Section</a>, <a href="SRS.html#SRS-021">SRS-021 Provision of General Link to a CC-Specific Forum</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-009">TRA-009</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-010">10 Inspect CC Database-DTD mapping <small>TST-010</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>None</li>
+</ol>
+<h2>Test steps</h2>
+<ol>
+<li>Inspect source code 'cct.py' and verify that each '!ELEMENT' in the CC DTD is correctly implemented,
+i.e, verify that:</li>
+</ol>
+<ul>
+<li>each '!ELEMENT' is implemented as a class object,</li>
+<li>'#REQUIRED' attributes are implemented as object attributes and populated
+  with the object's _build_attributes() method.</li>
+<li>child elements of each '!ELEMENT' are implemented as object attributes and populated with the object's
+  _build_children() method.</li>
+<li>each object's is_valid() method validates that the required attributes (labelled as
+  '#REQUIRED' in the DTD) are (correctly) populated.</li>
+<li>semantic relationships between CC concepts are preserved in the implementation, i.e., hierarchical and
+  dependency relationships between CC concepts are appropriately implemented, e.g., as parent-child relations.</li>
+</ul>
+<blockquote>
+<p><code>c5dec/core/cct.py</code> (line 630)
+<code>c5dec/assets/database/SecurityControls/cc3R5.xml</code></p>
+</blockquote>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-022">SRS-022 Data Storage and Format Mapping</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-010">TRA-010</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Inspection</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-011">11 Test correctness of CC Database <small>TST-011</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>
+<p>Use the CLI to export CC objects using</p>
+<p><code>$ poetry run c5dec view &lt;ID&gt; #to print to console</code></p>
+<p><code>$ poetry run c5dec view &lt;ID&gt; &gt; &lt;filepath&gt;/&lt;filename&gt;.md # to export to markdown</code></p>
+</li>
+<li>
+<p>Use the TUI to view CC objects</p>
+<ul>
+<li>navigate to '3 - CCT: Common Criteria Toolbox' &gt; 'Common Criteria Browser'</li>
+</ul>
+</li>
+</ol>
+<h2>Test steps</h2>
+<ol>
+<li>Export or view mulitple CC objects either via CLI or TUI and check that content and relationships
+correspond to the Common Criteria PDF.</li>
+</ol>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-022">SRS-022 Data Storage and Format Mapping</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-011">TRA-011</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>Exported or viewed data correctly reflects content and relationships as defined in the CC PDF.</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-012">12 Test validity and conistency of bidirectional transformation <small>TST-012</small></h1>
+<h2>Setup:</h2>
+<ol>
+<li>None</li>
+</ol>
+<h2>Test steps:</h2>
+<ol>
+<li>Export CC Document stored in the internal data representation to XML (cc_export1.xml)</li>
+<li>Validate the exported XML against the CC DTD.</li>
+<li>Load the exported and validated XML into the internal data representation.</li>
+<li>Again export the loaded CC Document to XML (cc_export2.xml) and validate against the CC DTD.</li>
+<li>Repeat if desired.</li>
+<li>Verify that all <em>exported</em> XMLs are identical.</li>
+</ol>
+<p>Note: Exported XML files will differ from the official CC XML since irrelevant information (e.g., patchinfos
+legalnotice, pagebreaks, biblioentries, glossentries, etc.) are ignored.</p>
+<blockquote>
+<p><code>c5dec/assets/database/SecurityControls/cc3R5.dtd</code>
+<code>c5dec/assets/database/SecurityControls/cc3R5.xml</code></p>
+</blockquote>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-022">SRS-022 Data Storage and Format Mapping</a>, <a href="SRS.html#SRS-023">SRS-023 Bidirectional Transformation and Consistency</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-012">TRA-012</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>Validate any/all CC XML independently against the DTD file (./c5dec/assets/database/SecurityControls/cc3<revision>.xml)</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>All exported CC XML files are valid and identical.</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-013">13 Test threats, risks, and countermeasures database <small>TST-013</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>None</li>
+</ol>
+<h2>Test steps</h2>
+<ol>
+<li>follow steps in SRS.</li>
+</ol>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-024">SRS-024 Threats, Risks, and Countermeasures Database</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-013">TRA-013</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-014">14 Test EUCC support <small>TST-014</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>None</li>
+</ol>
+<h2>Test steps</h2>
+<ol>
+<li>follow steps in SRS.</li>
+</ol>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-025">SRS-025 Support Mechanism for EUCC Additional Evaluation Evidence</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-014">TRA-014</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-015">15 Test availabilty of CSA Article 51 defined Security Objectives <small>TST-015</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>None</li>
+</ol>
+<h2>Test steps</h2>
+<ol>
+<li>follow steps in SRS.</li>
+</ol>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-026">SRS-026 Storing Generic Security Objectives of CSA Article 51</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-015">TRA-015</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-016">16 Test uniformity of storage mechanisms in CCT module <small>TST-016</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>None</li>
+</ol>
+<h2>Test steps</h2>
+<ol>
+<li>follow steps in SRS</li>
+<li>repeat for multiple items.</li>
+</ol>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-027">SRS-027 Unified Storage Mechanism for CC Artifacts and Security Elements</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-016">TRA-016</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>All internally stored CC artefacts are stored in C5-DEC document-based data storage format and can be managed centrally.</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-017">17 Test automated rationale and traceability matrix generation <small>TST-017</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>None</li>
+</ol>
+<h2>Test steps</h2>
+<ol>
+<li>follow steps in SRS.</li>
+</ol>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-028">SRS-028 Automated Rationale and Traceability Matrix Generation</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-017">TRA-017</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-018">18 Test verificaiton of rationales and traceability matrices <small>TST-018</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>None</li>
+</ol>
+<h2>Test steps</h2>
+<ol>
+<li>follow steps in SRS</li>
+</ol>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-029">SRS-029 Verification of Rationales and Traceability Matrices</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-018">TRA-018</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-019">19 Test automated consistency and completeness checks <small>TST-019</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>None</li>
+</ol>
+<h2>Test steps</h2>
+<ol>
+<li>follow steps in SRS</li>
+</ol>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-030">SRS-030 Detailed Consistency and Completeness Checks</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-019">TRA-019</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-020">20 Test automated validation <small>TST-020</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>None</li>
+</ol>
+<h2>Test steps</h2>
+<ol>
+<li>follow steps in SRS.</li>
+</ol>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-031">SRS-031 Automated Validation of Relationships, Attributes, and Dependencies</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-020">TRA-020</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-021">21 Test aggregation of SARs and Work Units <small>TST-021</small></h1>
+<h2>Setup</h2>
+<p>1.a Using the TUI navigate to '3 - CCT: Common Criteria toolbox' &gt; 'Evaluation Checklist'
+and load an Evaluation Checklist.</p>
+<p>1.b Using the CLI run the following command to list all Evaluation items.</p>
+<pre><code>`$ poetry run c5dec checklist &lt;prefix&gt; -l`
+
+To select an Item run:
+`$ poetry run c5dec checklist &lt;prefix&gt; --edit &lt;item-id&gt; [--editor code]`
+</code></pre>
+<h2>Test steps</h2>
+<ol>
+<li>Follow steps in SRS.</li>
+<li>Repeat for multiple SARs.</li>
+</ol>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-032">SRS-032 Seamless Aggregation and Presentation of SARs and Work Units</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-021">TRA-021</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>Evaluation checklist created and stored.</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-022">22 Test API provision for threat import <small>TST-022</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>None</li>
+</ol>
+<h2>Test steps</h2>
+<ol>
+<li>follow steps in SRS.</li>
+</ol>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-033">SRS-033 API Provision for Threat Importation</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-022">TRA-022</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-023">23 Test transforming imported threats to CC-conformant format <small>TST-023</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>None</li>
+</ol>
+<h2>Test steps</h2>
+<ol>
+<li>follow steps in SRS.</li>
+</ol>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-034">SRS-034 Transformation of Imported Threats to CC-conformant Format</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-023">TRA-023</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-024">24 Test automated creation of Evaluation Checklist <small>TST-024</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>when using the TUI navigate to '3 - CCT: Common Criteria Toolbox' &gt; 'Create Evaluation Checklist'</li>
+<li>
+<p>when using the CLI run the following command</p>
+<p><code>foo@bar$ poetry run c5dec checklist -c &lt;prefix&gt; --id &lt;Component/Package Ids&gt;</code></p>
+</li>
+</ol>
+<p>Valid set: ACO_COR.1, ACO_DEV.1, ACO_REL.1, ALC_CMC.1, ALC_CMS.1</p>
+<p>Invalid Set: ACO_COR.1, ACO_DEV.1, ALC_CMC.1, ALC_CMS.1</p>
+<p>Augmented Set: EAL 1, ACO_DEV.1, ACO_REL.1</p>
+<h2>Test steps</h2>
+<ol>
+<li>follow steps in SRS for the selections above.</li>
+<li>OPTIONAL: follow steps in SRS for a randomly selected set of components.</li>
+</ol>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-035">SRS-035 Automated Evaluation Checklist Creation</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-024">TRA-024</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>(i) Successfully created Evaluation Checklist for the valid set (ii) Invalid set successfully detected to be invalid. (iii) Successfully created Evaluation Checklist for the augmented set (iv) Evaluation Evidence Documentation Index created for valid sets and stored under <code>./evaluations/&lt;prefix&gt;</code></td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-025">25 Test evaluation progress tracking <small>TST-025</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>when using the TUI navigate to '3 - CCT: Common Criteria Toolbox' &gt; 'Evaluation Checklist'</li>
+<li>
+<p>when using the CLI run the following commands</p>
+<p><code>$ poetry run c5dec checklist &lt;prefix&gt; -s</code> # returns current status</p>
+<p><code>$ poetry run c5dec checklist &lt;prefix&gt; -l</code> # returns list of Evaluation items.</p>
+<p><code>$ poetry run c5dec checklist &lt;prefix&gt; --edit &lt;item ID&gt;</code> # edit Evaluation Item</p>
+</li>
+</ol>
+<h2>Test steps</h2>
+<ol>
+<li>follow steps in SRS.</li>
+<li>repeat for multiple Evaluation Items.</li>
+</ol>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-036">SRS-036 Evaluation Progress Tracking</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-025">TRA-025</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>Run TST-024 prior to have access to an Evaluation Checklist.</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-026">26 Test Work Unit-Artifact linking <small>TST-026</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>when using the TUI navigate to '3 - CCT: Common Criteria Toolbox' &gt; 'Evaluation Checklist'</li>
+<li>
+<p>when using the CLI run the following commands</p>
+<p><code>$ poetry run c5dec checklist &lt;prefix&gt; -s</code> # returns current status</p>
+<p><code>$ poetry run c5dec checklist &lt;prefix&gt; -l</code> # returns list of Evaluation items.</p>
+<p><code>$ poetry run c5dec checklist &lt;prefix&gt; --edit &lt;item ID&gt;</code> # edit Evaluation Item</p>
+<p><code>$ poetry run c5dec view &lt;item ID&gt;</code></p>
+</li>
+</ol>
+<h2>Test steps</h2>
+<ol>
+<li>follow steps in SRS.</li>
+</ol>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-037">SRS-037 Work Unit Artifact Linking</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-026">TRA-026</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>Run TST-024 prior to have access to an Evaluation Checklist.</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-027">27 Test automated generation of Observation Reports <small>TST-027</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>None</li>
+</ol>
+<h2>Test steps</h2>
+<ol>
+<li>follow steps in SRS.</li>
+</ol>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-038">SRS-038 Automated OR Generation</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-027">TRA-027</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>Run TST-024 prior to have access to an Evaluation Checklist.</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-028">28 Test automated generation of Evaluation Technical Report <small>TST-028</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>None</li>
+</ol>
+<h2>Test steps</h2>
+<ol>
+<li>follow steps in SRS.</li>
+</ol>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-039">SRS-039 Automated ETR Generation</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-028">TRA-028</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>Run TST-024 prior to have access to an Evaluation Checklist.</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-029">29 Test flagging failed Work Units and affected artifacts <small>TST-029</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>None</li>
+</ol>
+<h2>Test steps</h2>
+<ol>
+<li>follow steps in SRS.</li>
+</ol>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-040">SRS-040 Flagging and Addressing Failed Work Units with Cascading Flags</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-029">TRA-029</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>Run TST-024 prior to have access to an Evaluation Checklist.</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-030">30 Test auditability of Evaluation Items <small>TST-030</small></h1>
+<h2>Setup</h2>
+<ul>
+<li>
+<p>when using the TUI navigate to '3 - CCT: Common Criteria Toolbox' &gt; 'Evaluation Checklist'</p>
+<ol>
+<li>Load Evaluation Checklist</li>
+<li>randomly select Evaluation Items and edit these to set a verdict.</li>
+</ol>
+</li>
+<li>
+<p>when using the CLI</p>
+<ol>
+<li>
+<p>run the following command for several Evaluation Items and edit their verdicts</p>
+<p><code>$ poetry run c5dec checklist &lt;prefix&gt; --edit &lt;item ID&gt; [--editor code]</code></p>
+</li>
+<li>
+<p>manually update the Evaluation Checklist with
+    <code>$ poetry run c5dec checklist &lt;prefix&gt; --update</code></p>
+</li>
+</ol>
+</li>
+</ul>
+<h2>Test steps</h2>
+<ol>
+<li>Verify that index.json  <code>./evaluations/&lt;prefix&gt;/index.json</code> correctly reflects the changes, i.e.,
+hash value and verdict matches the 'reviewed' and 'verdict' value of the corresponding item.</li>
+<li>Verify that changes are correctly reflected in corresponding Doorstop items.</li>
+<li>Logging inherently covered by git, e.g., by using
+  <code>$ git log --follow -p -- ./path/to/file.ext</code></li>
+</ol>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-041">SRS-041 Logging evaluated Work Units</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-030">TRA-030</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>Run TST-024 prior to have access to an Evaluation Checklist.</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-031">31 Test extended data model <small>TST-031</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>None</li>
+</ol>
+<h2>Test steps</h2>
+<ol>
+<li>follow steps in SRS.</li>
+</ol>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-042">SRS-042 Extend Data Model Across Entire CC Ecosystem</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-031">TRA-031</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-032">32 Test CC templates <small>TST-032</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>None</li>
+</ol>
+<h2>Test steps</h2>
+<ol>
+<li>follow steps in SRS.</li>
+</ol>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-043">SRS-043 Provide CC Document Templates</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-032">TRA-032</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-033">33 Test validation of hierarchies and dependencies of Security Component sets <small>TST-033</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>In the TUI navigate to '3 - CCT: Common Criteria Toolbox' &gt; 'Create Evaluation Checklist'</li>
+</ol>
+<h2>Test steps</h2>
+<ol>
+<li>Select items from the following component sets and validate that the expectations in the SRS are met:<ul>
+<li>valid: ACO_COR.1 ACO_DEV.1 ACO_REL.1 ALC_CMS.1 ALC_CMC.1</li>
+<li>valid (EAL2): ADV_ARC.1 ADV_FSP.2 ADV_TDS.1 AGD_OPE.1 AGD_PRE.1 ALC_CMC.2 ALC_DEL.1 ASE_INT.1 ASE_CCL.1 ASE_SPD.1 ASE_OBJ.2 ASE_ECD.1 ASE_REQ.2 ASE_TSS.1 ATE_COV.1 ATE_FUN.1 ATE_IND.2 AVA_VAN.2</li>
+<li>invalid: ADV_ARC.1 ADV_FSP.2 ADV_TDS.1 AGD_OPE.1 AVA_VAN.2
+  corrected: ADV_ARC.1 ADV_FSP.2 ADV_TDS.1 AGD_OPE.1 AGD_PRE.1 AVA_VAN.2</li>
+<li>invalid: ACO_COR.1 ACO_DEV.1 ACO_REL.1
+  corrected: see first set</li>
+</ul>
+</li>
+</ol>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-044">SRS-044 Validate Hierarchies and Dependencies in Security Components</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-033">TRA-033</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>- Valid selections are detected as valid selections.\n - invalid selection are detected to be invalid and the potentially valid set matches the\ respective corrected set</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-034">34 Test generation of Impact Analysis Report <small>TST-034</small></h1>
+<h2>Setup</h2>
+<ol>
+<li>None</li>
+</ol>
+<h2>Test steps</h2>
+<ol>
+<li>follow steps in SRS.</li>
+</ol>
+<p><em>Parent links:</em> <a href="SRS.html#SRS-045">SRS-045 Generate Impact Analysis Reports for Certification Maintenance.</a></p>
+<p><em>Child links:</em> <a href="TRA.html#TRA-034">TRA-034</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>None</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>alpha</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-035">35 Run the GUI from the CLI with option <code>--gui</code> <small>TST-035</small></h1>
+<h2>Test steps</h2>
+<ol>
+<li>In the CLI run <code>c5dec --gui</code></li>
+</ol>
+<p><em>Child links:</em> <a href="TRB.html#TRB-001">TRB-001</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>Any of MacOS, Windows, GNU/Linux</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>c5dec has been successfully installed</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>The GUI of the CCT module opens in the default browser</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>beta</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-036">36 Run the GUI from the CLI with option <code>-g</code> <small>TST-036</small></h1>
+<h2>Test steps</h2>
+<ol>
+<li>In the CLI, press <code>ctrl+c</code> to quit the command run in TST-035.</li>
+<li>Run <code>c5dec -g</code></li>
+</ol>
+<p><em>Child links:</em> <a href="TRB.html#TRB-002">TRB-002</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>Any of MacOS, Windows, GNU/Linux</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>Run this test immediatly after TST-035</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>The GUI of the CCT module opens in the default browser</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>beta</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-037">37 The user manual contains guides for the functionality added in the Beta release <small>TST-037</small></h1>
+<h2>Test steps</h2>
+<ol>
+<li>Open the user manual</li>
+<li>Verify that the information in the "Quick start" section corresponds to the Beta release.</li>
+<li>Validate the information corresponding to the Beta release in the "CCT" section.</li>
+<li>Validate the information corresponding to the Beta release in the "SSDLC" section.</li>
+<li>Validate the information corresponding to the Beta release in the "Transformer" section.</li>
+</ol>
+<p><em>Child links:</em> <a href="TRB.html#TRB-003">TRB-003</a>, <a href="TRB.html#TRB-031">TRB-031</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>Any of MacOS, Windows, GNU/Linux</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>The information in the user manual is correct and reflects the updates made for the Beta release.</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>release</td>
+<td>beta</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-038">38 Browse the CC database in the GUI <small>TST-038</small></h1>
+<h2>Test steps</h2>
+<ol>
+<li>
+<p>In the home page of the GUI, select "SAR" in the dropdown list "Requirement type".</p>
+<ul>
+<li>Expected outcome: the "Class" dropdown list gets populated with the CC assurance classes (ASE,ALC,ADV,AGD,ATE,AVA,ACO,APE,ACE)</li>
+</ul>
+</li>
+<li>
+<p>Select "ALC" in the dropdown list of "Class"</p>
+<ul>
+<li>Expected outcome: all the families mentioned in the content text area are shown in the "Familiy" dropdown list</li>
+</ul>
+</li>
+<li>
+<p>Select "Family: ALC_LCD"</p>
+<ul>
+<li>Expected outcome: The "Component" dropdown list gets populated with "ALC_LCD.1" and "ALC_LCD.2"</li>
+</ul>
+</li>
+<li>
+<p>Select "Component: ALC_LCD.2"</p>
+<ul>
+<li>Expected outcome: The "Element" dropdown list gets populated with elements corresponding to the component "ALC_LCD.2"</li>
+</ul>
+</li>
+</ol>
+<p><em>Child links:</em> <a href="TRB.html#TRB-004">TRB-004</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>Any of MacOS, Windows, GNU/Linux</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>The GUI has been launched from the terminal</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>Upon selection of an item, the subsequent dropdown list is updated automatically as described in the test steps.</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>beta</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-039">39 The CC browser displays the content of the selected items <small>TST-039</small></h1>
+<h2>Test steps</h2>
+<ol>
+<li>In the home page of the GUI, click on the "Toggle preview" button.</li>
+<li>Select items from diverse classes, families, components and elements.</li>
+</ol>
+<p><em>Child links:</em> <a href="TRB.html#TRB-005">TRB-005</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>Any of MacOS, Windows, GNU/Linux</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>The GUI has been launched from the terminal</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>(i)The content displayed in the text area provides information about the selected items. (ii) The content in the toggle area corresponds to the text displayed in the text area.</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>beta</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-040">40 Copy content in markdown from the CC browser text area <small>TST-040</small></h1>
+<h2>Test steps</h2>
+<ol>
+<li>Select any class, family, component and/or element from the dropdown lists.</li>
+<li>Click on the "Copy" button below the text area.</li>
+<li>Open a text editor.</li>
+<li>Paste the content (e.g., with <code>ctrl+v</code>)</li>
+</ol>
+<p><em>Child links:</em> <a href="TRB.html#TRB-006">TRB-006</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>Any of MacOS, Windows, GNU/Linux</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>The GUI has been launched from the terminal</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>The copied text is pasted into the text editor.</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>beta</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-041">41 Expand the text including information of all the descendents of the selected item <small>TST-041</small></h1>
+<h2>Test steps</h2>
+<ol>
+<li>Select requirement type "SFR", class "FMT" and family "FMT_REV" in the dropdown lists.</li>
+<li>Click the toggle button to verify that the content corresponds to the description of the FAU Security audit family.</li>
+<li>Click on the button "Expand selection"</li>
+<li>Verify that the displayed content has been updated including information related to the family's components and
+   elements, i.e., FMT_REV.1, FMT_REV.1.1 and FMT_REV.1.2.</li>
+</ol>
+<p><em>Child links:</em> <a href="TRB.html#TRB-007">TRB-007</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>Any of MacOS, Windows, GNU/Linux</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>All the descendants (families, components, elements) of a selected item are displayed</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>beta</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-042">42 Create spreadsheet evaluation checklist of an assurance class of CCv3.1R5 from the GUI <small>TST-042</small></h1>
+<h2>Test steps</h2>
+<ol>
+<li>Go to the "Common Criteria Laboratory" tab.</li>
+<li>Select CC version: "3R5", Assurance class: "ALC" (selection of different classes is possible).</li>
+<li>Click on the "Create checklist" button.</li>
+</ol>
+<h3>Update 18-07-2024</h3>
+<p>The expected outcome is updated as follows:</p>
+<p>(ii) A file with name format <code>chklist-&lt;aaaammdd&gt;-&lt;hhmmss&gt;.xlsx</code> is created at
+<code>$C5DEC_ROOT/c5dec/export</code>; this file captures all the work units from the ALC class.</p>
+<p>(iii) A success message appears in the GUI informing of the assurance class and CC version exported,
+  as well as the export output folder.</p>
+<p><em>Child links:</em> <a href="TRB.html#TRB-008">TRB-008</a>, <a href="TRB.html#TRB-029">TRB-029</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>Any of MacOS, Windows, GNU/Linux</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>The GUI has been launched from the terminal</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>(i) A folder containing markdown files corresponding to the checklist items of ALC is created at <code>$C5DEC_ROOT/evaluation</code>. (ii) A file with name format <code>chklist-&lt;aaaammdd&gt;-&lt;hhmmss&gt;-export-&lt;aaaammdd&gt;-&lt;hhmmss&gt;.xlsx</code> is created at <code>$C5DEC_ROOT/c5dec</code>; this file captures all the work units from the ALC class. (iii) A success message appears in the GUI.</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test, Review</td>
+</tr>
+<tr>
+<td>release</td>
+<td>beta</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-043">43 Create spreadsheet evaluation checklist of all classes of CCv3.1R5 from the GUI <small>TST-043</small></h1>
+<h2>Test steps</h2>
+<ol>
+<li>Go to the "Common Criteria Laboratory" tab.</li>
+<li>Select CC version: "3R5", Assurance class: "ALL-CLASSES".</li>
+<li>Click on the "Create checklist" button.</li>
+</ol>
+<h3>Update 18-07-2024</h3>
+<p>The expected outcome is updated as follows:</p>
+<p>(ii) A file with name format <code>chklist-&lt;aaaammdd&gt;-&lt;hhmmss&gt;.xlsx</code> is created at
+<code>$C5DEC_ROOT/c5dec/export</code>; this file captures all the work units in CCv3.1R5.</p>
+<p>(iii) A success message appears in the GUI informing of the assurance class and CC version exported,
+as well as the export output folder.</p>
+<p><em>Child links:</em> <a href="TRB.html#TRB-009">TRB-009</a>, <a href="TRB.html#TRB-030">TRB-030</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>Any of MacOS, Windows, GNU/Linux</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>The GUI has been launched from the terminal</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>(i) A folder containing markdown files corresponding to the checklist items of all the classes in CCv3.1R5 is created at <code>$C5DEC_ROOT/evaluation</code>. (ii) A file with name format <code>chklist-&lt;aaaammdd&gt;-&lt;hhmmss&gt;-export-&lt;aaaammdd&gt;-&lt;hhmmss&gt;.xlsx</code> is created at <code>$C5DEC_ROOT/c5dec</code>; this file captures all the work units in CCv3.1R5. (iii) A success message appears in the GUI.</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test, Review</td>
+</tr>
+<tr>
+<td>release</td>
+<td>beta</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-044">44 Create spreadsheet evaluation checklist of an assurance class of CCv2022R1 from the GUI <small>TST-044</small></h1>
+<h2>Test steps</h2>
+<ol>
+<li>Go to the "Common Criteria Laboratory" tab.</li>
+<li>Select CC version: "2022R1", Assurance class: "ALC" (test for different classes if desired).</li>
+<li>Click on the "Create checklist" button.</li>
+</ol>
+<p><em>Child links:</em> <a href="TRB.html#TRB-010">TRB-010</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>Any of MacOS, Windows, GNU/Linux</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>The GUI has been launched from the terminal</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>(i) A folder containing markdown files corresponding to the checklist items of ALC is created at <code>$C5DEC_ROOT/evaluation</code>. (ii) A file with name format <code>chklist-&lt;aaaammdd&gt;-&lt;hhmmss&gt;-export-&lt;aaaammdd&gt;-&lt;hhmmss&gt;.xlsx</code> is created at <code>$C5DEC_ROOT/c5dec</code>; this file captures all the work units from the ALC class. (iii) A success message appears in the GUI.</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test, Review</td>
+</tr>
+<tr>
+<td>release</td>
+<td>beta</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-045">45 Create spreadsheet evaluation checklist of all classes of CC2022R1 from the GUI <small>TST-045</small></h1>
+<h2>Test steps</h2>
+<ol>
+<li>Go to the "Common Criteria Laboratory" tab.</li>
+<li>Select CC version: "2022R1", Assurance class: "ALL-CLASSES".</li>
+<li>Click on the "Create checklist" button.</li>
+</ol>
+<p><em>Child links:</em> <a href="TRB.html#TRB-011">TRB-011</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>Any of MacOS, Windows, GNU/Linux</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>The GUI has been launched from the terminal</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>(i) A folder containing markdown files corresponding to the checklist items of all the classes in CCv2022R1 is created at <code>$C5DEC_ROOT/evaluation</code>. (ii) A file with name format <code>chklist-&lt;aaaammdd&gt;-&lt;hhmmss&gt;-export-&lt;aaaammdd&gt;-&lt;hhmmss&gt;.xlsx</code> is created at <code>$C5DEC_ROOT/c5dec</code>; this file captures all the work units in CCv2022R1. (iii) A success message appears in the GUI.</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test, Review</td>
+</tr>
+<tr>
+<td>release</td>
+<td>beta</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-046">46 Navigate using the links in the GUI <small>TST-046</small></h1>
+<h2>Test steps</h2>
+<ol>
+<li>Click on the three buttons in the footer (CC Browser, CC Lab and C5DEC on GitHub).</li>
+<li>Go to the "Common Criteria Tab"</li>
+<li>Click on all the links in the CC Browser.</li>
+<li>Go to the "Common Critera Laboratory" tab.</li>
+<li>Click on all the links in the CC Lab.</li>
+<li>Go to the "Documentation" tab.</li>
+<li>Click on all the links in the tab.</li>
+<li>Go to the "About" tab.</li>
+<li>Click on all the links in tab.</li>
+</ol>
+<p><em>Child links:</em> <a href="TRB.html#TRB-012">TRB-012</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>Any of MacOS, Windows, GNU/Linux</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>All the links are valid and link to the expected websites or pages as per the description (text of the link).</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>beta</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-047">47 Export to spreadsheet an evaluation checklists with all the assurance classes of CCv3.1R5 from the CLI <small>TST-047</small></h1>
+<h2>Test steps</h2>
+<ol>
+<li>
+<p>Run <code>c5dec export -h</code></p>
+<ul>
+<li>Expected outcome: usage information for the export command is displayed</li>
+</ul>
+</li>
+<li>
+<p>Run <code>c5dec export trp-047-ev 3R5</code></p>
+<ul>
+<li>Expected outcome: a spreadsheet containing all the work units in CCv3.1R5 is created at
+ <code>$C5DEC_ROOT/c5dec/trp-047-ev-&lt;yyyymmdd&gt;-&lt;hhmmss&gt;</code></li>
+</ul>
+</li>
+</ol>
+<p><em>Child links:</em> <a href="TRB.html#TRB-013">TRB-013</a>, <a href="TRB.html#TRB-028">TRB-028</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>Any of MacOS, Windows, GNU/Linux</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>c5dec has been succesfully installed</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>All the expected outcomes described in the test steps are observed.</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>beta</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-048">48 Export to spreadsheet an evaluation checklists with all the assurance classes of CC2022R1 from the CLI <small>TST-048</small></h1>
+<h2>Test steps</h2>
+<ol>
+<li>Run <code>c5dec export checklist 2022R1</code></li>
+</ol>
+<p><em>Child links:</em> <a href="TRB.html#TRB-014">TRB-014</a>, <a href="TRB.html#TRB-027">TRB-027</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>Any of MacOS, Windows, GNU/Linux</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>c5dec has been succesfully installed</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>A spreadsheet containing all the work units in CCv2022R1 is created at <code>$C5DEC_ROOT/c5dec/checklist-&lt;yyyymmdd&gt;-&lt;hhmmss&gt;</code></td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>beta</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-049">49 Export to spreadsheet an evaluation checklists with some assurance classes of CCv3.1R5 from the CLI <small>TST-049</small></h1>
+<h2>Test steps</h2>
+<ol>
+<li>Run <code>c5dec export chcklst3R5 3R5 -c ACE AVA</code></li>
+</ol>
+<p><em>Child links:</em> <a href="TRB.html#TRB-015">TRB-015</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>Any of MacOS, Windows, GNU/Linux</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>The evaluation checklist for classes ACE and AVA of CCv3.1R5 is created in a spreadsheet at '$C5DEC_ROOT/c5dec'</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>beta</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-050">50 Export to spreadsheet an evaluation checklists with some assurance classes of CC2022R1 from the CLI <small>TST-050</small></h1>
+<h2>Test steps</h2>
+<ol>
+<li>Run <code>c5dec export chcklst2022R1 2022R1 -c ACE AVA</code></li>
+</ol>
+<p><em>Child links:</em> <a href="TRB.html#TRB-016">TRB-016</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>Any of MacOS, Windows, GNU/Linux</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>The evaluation checklist for classes ACE and AVA of CC2022R1 is created in a spreadsheet at '$C5DEC_ROOT/c5dec'</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>beta</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-051">51 Export command: messages for invalid input <small>TST-051</small></h1>
+<h2>Test steps</h2>
+<p>Run the following commands and validate that the output is a message informing of the corresponding erroneous situation:</p>
+<ol>
+<li><code>c5dec export chcklst2022R1 other</code>: the selected version is invalid</li>
+<li><code>c5dec export tst1 3R5 -p ACO_REL</code>: the input argument must be an assurance component</li>
+<li><code>c5dec export tst1 3R5 -c ACO_REL.2</code>: the input argument must be an assurance class</li>
+<li><code>c5dec export tst1 3R5 -p ACO_REL.7</code>: invalid assurance component</li>
+<li><code>c5dec export tst1 3R5 -c ACO_RER</code>: invalid assurance class</li>
+</ol>
+<p><em>Note</em>: the messages displayed do not have to be an exact match, but to inform about the described situation.</p>
+<p><em>Child links:</em> <a href="TRB.html#TRB-017">TRB-017</a>, <a href="TRB.html#TRB-026">TRB-026</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>Any of MacOS, Windows, GNU/Linux</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>All the commands display an error message informing the user about the cause of the error</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>beta</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-052">52 Export to spreadsheet an evaluation checklists with some assurance components of CCv3.1R5 from the CLI <small>TST-052</small></h1>
+<h2>Test steps</h2>
+<p>Run the following commands and validate the corresponding described output:</p>
+<ol>
+<li><code>c5dec export chckComp3R5 3R5 -p ACO_REL.1</code>: the evaluation checklist for component ACO_REL.1 of CCv3.1R5
+    is created in a spreadsheet at <code>$C5DEC_ROOT/c5dec</code></li>
+<li><code>c5dec export chckComp3R5 3R5 -p ALC_COMP.1</code>: ALC_COMP.1 does not exist in CCv3.1R5, thus an error message is shown.</li>
+</ol>
+<p><em>Child links:</em> <a href="TRB.html#TRB-018">TRB-018</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>Any of MacOS, Windows, GNU/Linux</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>The expected outcomes described in the steps are observed</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>beta</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-053">53 Export to spreadsheet an evaluation checklists with some assurance components of CCv2022R1 from the CLI <small>TST-053</small></h1>
+<h2>Test steps</h2>
+<ol>
+<li>Run <code>c5dec export chckComp2022 2022R1 -p ACO_REL.1 ALC_COMP.1</code></li>
+</ol>
+<p><em>Child links:</em> <a href="TRB.html#TRB-019">TRB-019</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>Any of MacOS, Windows, GNU/Linux</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>An evaluation checklists for components ACO_REL.1 and ALC_COMP.1 of CCv2022R1 is created in a spreadsheet at <code>$C5DEC_ROOT/c5dec</code></td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>beta</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-054">54 Generate default parts of an ETR document <small>TST-054</small></h1>
+<h2>Test steps</h2>
+<ol>
+<li>
+<p>Run <code>c5dec etr -h</code></p>
+<ul>
+<li>Expected output: a help information about the 'etr' command is displayed</li>
+</ul>
+</li>
+<li>
+<p>Run <code>c5dec etr</code></p>
+<ul>
+<li>Expected output: the files <code>Acronyms-table.md</code>, <code>CMC-analysis.qmd</code>, <code>DocStruct-table.md</code> and
+<code>Glossary-table.md</code> are created at <code>$C5DEC_ROOT/c5dec/assets/etr/output</code></li>
+</ul>
+</li>
+</ol>
+<p><em>Child links:</em> <a href="TRB.html#TRB-020">TRB-020</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>Any of MacOS, Windows, GNU/Linux</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>c5dec has been successfully installed</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>The expected outcomes described in the steps are observed</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>beta</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-055">55 Generate specific parts of an ETR document <small>TST-055</small></h1>
+<h2>Test steps</h2>
+<ol>
+<li>Run <code>c5dec etr -f &lt;assurance_class&gt;</code> with random families of the ALC class.</li>
+<li>Run <code>c5dec etr -t Acronyms</code></li>
+</ol>
+<p><em>Child links:</em> <a href="TRB.html#TRB-021">TRB-021</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>Any of MacOS, Windows, GNU/Linux</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>(i)A file named <code>&lt;family&gt;-analysis.qmd</code> is created per each selected family, with the content corresponding to the evaluation checklist of the assurance family. (ii) The file <code>Acronyms-table.md</code> is created too. All the files are stored in the folder <code>$C5DEC_ROOT/c5dec/assets/etr/output</code>.</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>beta</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-056">56 Generate an ETR report template using the C5-DEC DocEngine <small>TST-056</small></h1>
+<h2>Test steps</h2>
+<ol>
+<li>Open the folder <code>$c5DEC_ROOT/c5dec/assets/etr/</code> in VS Code</li>
+<li>In a VS Code terminal run: <code>quarto render etr_template/chapters/intro.qmd</code></li>
+</ol>
+<p><em>Child links:</em> <a href="TRB.html#TRB-022">TRB-022</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>Any of MacOS, Windows, GNU/Linux</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>The VS Code extension for <a href="https://quarto.org/">Quarto</a> must be installed</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>The following output is created at the folder <code>$c5DEC_ROOT/c5dec/assets/etr/etr_template/_output</code>: (i) <code>Single-Evaluation-Technical-Report.pdf</code> (ii) <code>Single-Evaluation-Technical-Report.docx</code> (iii) html files corresponding to the report in HTML format</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>beta</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-057">57 Generate parts of an ETR report with an exported evaluation checklist <small>TST-057</small></h1>
+<h2>Test steps</h2>
+<ol>
+<li>Run <code>poetry run c5dec export etrInput 3R5 -c ALC ADV</code></li>
+<li>Copy the output spreadsheet from <code>$C5DEC_ROOT/c5dec</code> to <code>$C5DEC_ROOT/c5dec/assets/etr/</code></li>
+<li>Rename the file as <code>etrInput-tst-057.xlsx</code> (for simplicity)</li>
+<li>Open the file <code>$C5DEC_ROOT/c5dec/assets/c5dec_params.yml</code></li>
+<li>Modify the file as follows and then save it:</li>
+</ol>
+<pre><code>  etr:
+    eval-wu-id: &quot;WU-ID&quot;
+    #eval-file-name: &quot;etr-eval-checklist&quot;
+    #eval-wu-sheet: &quot;WU&quot;
+    #eval-awi-sheet: &quot;AWI&quot;
+    eval-file-name: &quot;etrInput-tst-057&quot;
+</code></pre>
+<ol start="6">
+<li>Run <code>poetry run c5dec etr -f LCD</code></li>
+</ol>
+<p><em>Child links:</em> <a href="TRB.html#TRB-023">TRB-023</a>, <a href="TRB.html#TRB-025">TRB-025</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>Any of MacOS, Windows, GNU/Linux</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>Generated Markdown files with data from ALC_LCD are stored at <code>$C5DEC_ROOT/c5dec/assets/etr/output</code></td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>beta</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TST-058">58 Publish the project assets in HTML and Markdown <small>TST-058</small></h1>
+<h2>Test steps</h2>
+<ol>
+<li>Run <code>c5dec publish -h</code>: the help text is displayed</li>
+<li>Run <code>c5dec publish</code>: html files are generated at <code>$C5DEC_ROOT/c5dec/docs/publish</code></li>
+<li>Delete the folder created in 3.</li>
+<li>Run: <code>c5dec publish -f .html</code>: html files are generated at <code>$C5DEC_ROOT/c5dec/docs/publish</code></li>
+<li>Run: <code>c5dec publish -f .md</code>: markdown files are generated at <code>$C5DEC_ROOT/c5dec/docs/publish</code></li>
+</ol>
+<p><em>Child links:</em> <a href="TRB.html#TRB-024">TRB-024</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>Any of MacOS, Windows, GNU/Linux</td>
+</tr>
+<tr>
+<td>precondition</td>
+<td>Assets have been created with Doorstop</td>
+</tr>
+<tr>
+<td>expected_outcome</td>
+<td>The outcomes described in the test steps are observed</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>release</td>
+<td>beta</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="assets/doorstop/jquery.min.js"></script>
+<script src="assets/doorstop/bootstrap.min.js"></script>
+<script>
+    $(function() {
+        $("table").addClass("table");
+        $("nav ul").addClass("nav nav-stacked");
+        $("nav").affix();
+        $('body').scrollspy({
+          target: '.sidebar'
+        });
+        $("#main a").attr("target", "parent");
+
+  $(window).on('hashchange', function() {
+    $(window).scrollTop($(location.hash.toLowerCase()).offset().top);});
+  });
+</script>
+</body>
+</html>
+

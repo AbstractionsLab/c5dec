@@ -1,0 +1,23 @@
+active: true
+authors: IVS
+derived: false
+expected_outcome: The expected outcomes described in the steps are observed
+header: 'Export to spreadsheet an evaluation checklists with some assurance components of CCv3.1R5 from the CLI'
+level: 52
+links: []
+normative: true
+platform: Any of MacOS, Windows, GNU/Linux
+precondition: ''
+ref: ''
+release: beta
+reviewed: null
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Test steps
+  Run the following commands and validate the corresponding described output:
+
+  1. `c5dec export chckComp3R5 3R5 -p ACO_REL.1`: the evaluation checklist for component ACO_REL.1 of CCv3.1R5 
+      is created in a spreadsheet at `$C5DEC_ROOT/c5dec`
+  2. `c5dec export chckComp3R5 3R5 -p ALC_COMP.1`: ALC_COMP.1 does not exist in CCv3.1R5, thus an error message is shown.
+verification_method: 'Test'

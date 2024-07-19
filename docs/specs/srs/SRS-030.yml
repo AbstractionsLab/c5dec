@@ -1,0 +1,38 @@
+acceptance: 'see [above](#SRS-030)'
+active: true
+author: Heinrich
+date: 03.01.2023
+dependence: []
+derived: false
+difficulty: '3'
+header: |
+  Detailed Consistency and Completeness Checks
+importance: '4'
+level: 18.0
+links:
+- MRS-032: zdmk414Ku_uKO9MC4dv6gH6-9PZsz3atEQm7cnls8UE=
+normative: true
+outlay: '3'
+rationale: 'Employing automated checks that validate relationships, attributes, and dependencies and ensure completeness in CC data not only safeguards the data integrity and quality but also bolsters reliability and adherence to predefined standards.'
+ref: ''
+reviewed: Ho-ZTFWerGCHXF2y8XpmF7rlJYi_q8VgQGIPp185Lio=
+risk: '1'
+status: Open
+text: |
+  ## System requirement specification
+
+  As an Administrator,
+  I want the system to perform detailed automated consistency and completeness checks on CC data,
+  specifically validating relationships, attributes, and dependencies,
+  so that the integrity, quality, and reliability of the stored data are ensured and maintained in adherence with predefined standards.
+  1. TBD.
+
+  ## Acceptance criteria
+
+  - Automated consistency checks validate relationships, attributes, and dependencies within the CC data.
+  - Automated completeness checks ensure all necessary data points are present and properly configured in the CC data.
+  - All data adheres to predefined standards, maintaining its integrity and quality.
+
+type: F
+urgency: '3'
+version: '1.0'

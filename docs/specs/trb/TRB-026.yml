@@ -1,0 +1,18 @@
+active: true
+comments: The defects reported in TRB-017 have been fixed
+defect_category: '0'
+defect_description: ''
+derived: false
+header: ''
+level: 17.1
+links:
+- TST-051
+normative: true
+ref: ''
+reviewed: null
+test_date: 18/07/2024
+tester: 'IVS'
+text: |
+  Re-execution of test case TST-051 after a code update addressing the
+  issues reported in the first testing campaign of the beta release.
+

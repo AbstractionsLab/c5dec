@@ -1,0 +1,38 @@
+## Development security (ALC_DVS) {#sec-dvs}
+
+Development security is concerned with physical, procedural, personnel, and other security measures that may be used in the development environment to protect the TOE and its parts. It includes the physical security of the development location and any procedures used to select development staff.
+
+Development security procedures are intended to protect the TOE and its associated design information from interference or disclosure, given that interference in the development process may allow the deliberate introduction of vulnerabilities while disclosure of certain information may allow vulnerabilities to be more easily exploited.
+
+The objective of this sub-activity is to determine whether the developer's security controls on the development environment are adequate to provide the confidentiality and integrity of the TOE design and implementation that is necessary to ensure that secure operation of the TOE is not compromised.
+
+### Evaluation action (ALC_DVS.1.1E and ALC_DVS.1.2E)
+
+We examine the development security documentation to determine that it details all security measures used in the development environment that are necessary to protect the confidentiality and integrity of the TOE design and implementation. We also examine the development security documentation and associated evidence to determine that the security measures are being applied.
+
+Please note that the assurance family ALC_DVS also covers all delivery interfaces used during the development and manufacturing life cycle phases of the TOE by different suppliers of TOE parts. The delivery interface(s) used after the TOE has been manufactured are in the scope of the assurance family ALC_DEL.
+
+### Content and evidence requirements
+
+The evaluation evidence for this sub-activity is:
+
+a. the ST;
+b. the development security documentation
+
+The development security documentation shall describe all the physical, procedural, personnel, and other security measures that are necessary to protect the confidentiality and integrity of the TOE design and implementation in its development environment.
+
+We now provide an overview of the type of generically applicable developer documentation that would be required for addressing development security. However, note that the goal is not to define a rigid framework, but rather to provide pointers to the TOE sponsor and developer; clearly, the specific artifacts of such documentation are strongly dependent on the developer's organization.
+
+- **Organization description**: contextualizes the development organization in the broader context of the overall company/organization, in particular outlining geographic and organizational structure.
+- **Technical development environment**: describes technical environment for TOE development. This includes the identification and characterization of all relevant technical systems, networks, and the relevant communication protocols.
+- **Security policies**: identify the security policies (regarding integrity, confidentiality, availability) relevant for the TOE or parts of the TOE during the development process. These include the policies governing:
+    1. what material must be protected from unauthorized modification in order to preserve the integrity of the TOE, and which members of the development staff are allowed to modify such material?
+    2. what information relating to the TOE development needs to be kept confidential, and which members of the development staff are allowed to access such material?
+    3. what are the relevant availability aspects for information and systems?
+- **Personnel security**: describes which measures and procedures are in place to ensure the trustworthiness of the development personnel. This includes the descriptions of screening
+procedures to be followed, obligations to be engaged and clearances required. This should describe the relevant procedures for all phases of the employment (covering also the revocation of access rights when people leave the organization).
+- **Access control**: This should describe which measures and procedures are in place to control physical and logical access to all locations, buildings, rooms, and systems relevant for the development of the TOE. This includes the access control measures as well as the related management procedures. The description should include a detailed discussion about network segregation and network access control measures. It should also describe the procedures relevant for visitor access to a development site. The information should cover the access to information in all form including paper (thus also discussing the disposal of sensitive information in paper form).
+- **Transfer of protected material**: should describe the measures which are in place in case protected material is transferred within and out of the development environment and between different development sites. This encompasses transfer of protected material in any form including email.
+- **Security management**: should describe roles and responsibilities in ensuring the continued application of security measures, and the detection of security breaches.
+
+{{< include ./ALC/DVS-analysis.qmd >}}

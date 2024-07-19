@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html>
+<head><title>Doorstop</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="assets/doorstop/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/doorstop/general.css" />
+  <link type="text/css" rel="stylesheet" href="assets/doorstop/sidebar.css" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" ></script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
+  </script>
+</head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-2 hidden-sm hidden-xs">
+          <nav id="TOC" class="nav nav-stacked fixed sidebar">
+              <h3>Table of Contents</h3>
+<ul>
+<li><a href="#TRA-001">1.0 TRA-001</a></li>
+<li><a href="#TRA-002">2.0 TRA-002</a></li>
+<li><a href="#TRA-003">3.0 TRA-003</a></li>
+<li><a href="#TRA-004">4.0 TRA-004</a></li>
+<li><a href="#TRA-005">5.0 TRA-005</a></li>
+<li><a href="#TRA-006">6.0 TRA-006</a></li>
+<li><a href="#TRA-007">7.0 TRA-007</a></li>
+<li><a href="#TRA-008">8.0 TRA-008</a></li>
+<li><a href="#TRA-009">9.0 TRA-009</a></li>
+<li><a href="#TRA-010">10 TRA-010</a></li>
+<li><a href="#TRA-011">11 TRA-011</a></li>
+<li><a href="#TRA-012">12 TRA-012</a></li>
+<li><a href="#TRA-013">13 TRA-013</a></li>
+<li><a href="#TRA-014">14 TRA-014</a></li>
+<li><a href="#TRA-015">15 TRA-015</a></li>
+<li><a href="#TRA-016">16 TRA-016</a></li>
+<li><a href="#TRA-017">17 TRA-017</a></li>
+<li><a href="#TRA-018">18 TRA-018</a></li>
+<li><a href="#TRA-019">19 TRA-019</a></li>
+<li><a href="#TRA-020">20 TRA-020</a></li>
+<li><a href="#TRA-021">21 TRA-021</a></li>
+<li><a href="#TRA-022">22 TRA-022</a></li>
+<li><a href="#TRA-023">23 TRA-023</a></li>
+<li><a href="#TRA-024">24 TRA-024</a></li>
+<li><a href="#TRA-025">25 TRA-025</a></li>
+<li><a href="#TRA-026">26 TRA-026</a></li>
+<li><a href="#TRA-027">27 TRA-027</a></li>
+<li><a href="#TRA-028">28 TRA-028</a></li>
+<li><a href="#TRA-029">29 TRA-029</a></li>
+<li><a href="#TRA-030">30 TRA-030</a></li>
+<li><a href="#TRA-031">31 TRA-031</a></li>
+<li><a href="#TRA-032">32 TRA-032</a></li>
+<li><a href="#TRA-033">33 TRA-033</a></li>
+<li><a href="#TRA-034">34 TRA-034</a></li>
+</ul>
+          </nav>
+      </div>
+      <div class="col-lg-8" id="main">
+        <h1 id="TRA-001">1.0 TRA-001</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-001">TST-001 Test accessing and browsing the CC Database</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>27-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>1</td>
+</tr>
+<tr>
+<td>defect_description</td>
+<td>(i) The links in the item preview are empty. E.g., see the preview of family FDP_ACC or of FAU_SAA. (ii) In the item preview of components (e.g. FDP_RIP.2, FDP_ACC.2), the text shown as value for the field "Hierarchical to" is tokenized by characters. Instead, these should be words.</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>The acceptance criteria in the parent SRS is satisfied. The data is mostly aligned to the description in the corresponding CC document (e.g. of an exception: for ACE, the info in MS-Introduction does not appear in the PDF). The reported defects affect readability.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-002">2.0 TRA-002</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><img alt="Test execution evidence" src="assets/tra-002-ev.png" title="TC execution evidence" /></p>
+<blockquote>
+<p><code>docs/specs/tra/assets/tra-002-ev.png</code></p>
+</blockquote>
+<p><em>Parent links:</em> <a href="TST.html#TST-002">TST-002 Test query the CC Database</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>27-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>1</td>
+</tr>
+<tr>
+<td>defect_description</td>
+<td>When an element from an upper category in the hierarchy is selected, the children should be cleared to avoid confusion regarding to which element the item preview corresponds. An example of elements from different clases and families mixed in one screen is provided as a reference in the displayed pathfile.</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>The acceptance criteria is satisfied. Yet, the defect described could render the browser view confusing.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-003">3.0 TRA-003</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-003">TST-003 Test exporting Security Components</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>29-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>1</td>
+</tr>
+<tr>
+<td>defect_description</td>
+<td>When files are exported, the links become unusable; for instance, when opened in VSCode, they open a browser pointing to a "page not found".</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>comments</td>
+<td>(i) Only export to markdown files implemented in the Alpha phase. (ii) When giving a filepath that does not exist, the export does not create it. While this is ok, it would be better to display a message informing about the specific problem.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-004">4.0 TRA-004</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-004">TST-004 Test tailoring Security Requirements</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>27-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>Not applicable to the Alpha release.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-005">5.0 TRA-005</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-005">TST-005 Test navigating the Knowledge Base</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>29-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-006">6.0 TRA-006</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-006">TST-006 Test comprehensiveness of Knowledge Base</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>28-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-007">7.0 TRA-007</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-007">TST-007 Test interconnection of Knowledge Base</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>28-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>2</td>
+</tr>
+<tr>
+<td>defect_description</td>
+<td>Some pages are missing, e.g., "Terms and Definition Register". For others, the links are missing, e.g., [Security Functional Requirements] and [Security Assurance Requirements]</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>comments</td>
+<td>A link to the table of contents in each page would be useful.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-008">8.0 TRA-008</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-008">TST-008 Test currency of Knowledge Base</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>28-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-009">9.0 TRA-009</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-009">TST-009 Test cosmetic features of Knowledge Base</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>29-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>Not applicable for the Alpha release.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-010">10 TRA-010</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-010">TST-010 Inspect CC Database-DTD mapping</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>28-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>defect_description</td>
+<td>Some of the verifications specified in the test steps are not observed in the code of <code>cct.py</code>. For instance, the attributes "part" and "patch" of the element "xref" in the DTD are not present in the XRef class.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>comments</td>
+<td>The discrepancies found do not necessarily imply an incorrect mapping, yet, to determine the correctness of the mapping by this method, a deeper inspection to track the parsing of the XML file to classes and its relation with the DTD would require more time and perhaps splitting the test case. Given that the mapping can be tested with other functional tests, TST-010 will be considered not applicable for now.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-011">11 TRA-011</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-011">TST-011 Test correctness of CC Database</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>28-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>2</td>
+</tr>
+<tr>
+<td>defect_description</td>
+<td>The CLI application crashes if an invalid <ID> for a CC element is provided. This defect has been reported as bug #18 in the CAD GitLab repository.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>comments</td>
+<td>The correctness of the data for valid CC elements is already covered (and has been tested) in TST-001. The reported defect fails to inform the user about data not existing in the CC.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-012">12 TRA-012</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-012">TST-012 Test validity and conistency of bidirectional transformation</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>28-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>ignored</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>The test steps are vague and do not provide enough details to perform this test.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-013">13 TRA-013</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-013">TST-013 Test threats, risks, and countermeasures database</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>27-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>0</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>Although the parent SRS requires an integrated source of security-related data with content from BSI Grundschutz, ISO 27005, NIST SPs, and the CC, the SRS is not mandatory. Therefore, having data only from CC is acceptable.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-014">14 TRA-014</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-014">TST-014 Test EUCC support</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>27-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>Not applicable to the Alpha release.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-015">15 TRA-015</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-015">TST-015 Test availabilty of CSA Article 51 defined Security Objectives</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>27-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>Not implemented for the Alpha release.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-016">16 TRA-016</h1>
+<p>TC passed.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-016">TST-016 Test uniformity of storage mechanisms in CCT module</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>30-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>Arash</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>0</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>The acceptance criteria are satisfied.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-017">17 TRA-017</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-017">TST-017 Test automated rationale and traceability matrix generation</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>29-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>Not implemented for the Alpha release.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-018">18 TRA-018</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-018">TST-018 Test verificaiton of rationales and traceability matrices</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>29-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>Not implemented for the Alpha release.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-019">19 TRA-019</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-019">TST-019 Test automated consistency and completeness checks</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>27-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>Not implemented for the Alpha release.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-020">20 TRA-020</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-020">TST-020 Test automated validation</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>27-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>Not implemented for the Alpha release.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-021">21 TRA-021</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-021">TST-021 Test aggregation of SARs and Work Units</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>27-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>3</td>
+</tr>
+<tr>
+<td>defect_description</td>
+<td>The CLI crashes when running the checklist command with "tst" as evaluation checklist prefix (issue #19)"; The CLI crashes when running <code>$ poetry run c5dec checklist &lt;prefix&gt; --edit &lt;item-id&gt;</code> due to vim not being installed. When adding the <code>--editor code</code> option, it runs as expected</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>comments</td>
+<td>The defect reported here is associated with issue #19 in the GitLab CAD repository.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-022">22 TRA-022</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-022">TST-022 Test API provision for threat import</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>28-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>The associated requirement (SRS-033) has not been implemented for the Alpha release.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-023">23 TRA-023</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-023">TST-023 Test transforming imported threats to CC-conformant format</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>28-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>The corresponding SRS (SRS-034) has not been implemented for the Alpha release.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-024">24 TRA-024</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-024">TST-024 Test automated creation of Evaluation Checklist</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>27-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>2</td>
+</tr>
+<tr>
+<td>defect_description</td>
+<td>The CLI crahses if an invalid component id is given. E.g.: <code>$ poetry run c5dec checklist -c evChck-tst-024 --id aco</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>comments</td>
+<td>The TUI works as expected. The reported defect affects the CLI.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-025">25 TRA-025</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-025">TST-025 Test evaluation progress tracking</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>29-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>4</td>
+</tr>
+<tr>
+<td>defect_description</td>
+<td>(i) The TUI crashes when an evaluation evidence is edited and revisited (issue #20). (ii) The CLI crashes with the option <code>-s</code> if the input evaluation checklist does not exist (issue #22).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>comments</td>
+<td>This defects correspond to issues #20 and #22 in the GitLab CAD repository.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-026">26 TRA-026</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-026">TST-026 Test Work Unit-Artifact linking</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>27-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>AAT</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>[0-4]</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-027">27 TRA-027</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-027">TST-027 Test automated generation of Observation Reports</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>29-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>Not implemented for the Aplha version.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-028">28 TRA-028</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-028">TST-028 Test automated generation of Evaluation Technical Report</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>27-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>Not implemented for the Alpha version.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-029">29 TRA-029</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-029">TST-029 Test flagging failed Work Units and affected artifacts</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>29-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>Not addressed in the Alpha phase.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-030">30 TRA-030</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-030">TST-030 Test auditability of Evaluation Items</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>29-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-031">31 TRA-031</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-031">TST-031 Test extended data model</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>27-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>0</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>Interpreted as c5dec capturing the CC concepts and showing them in a correct and coherent manner.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-032">32 TRA-032</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-032">TST-032 Test CC templates</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>27-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>Not implemented for the aplha release.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-033">33 TRA-033</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-033">TST-033 Test validation of hierarchies and dependencies of Security Component sets</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>29-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRA-034">34 TRA-034</h1>
+<p>Test execution results for the TST in the parent link.</p>
+<p><em>Parent links:</em> <a href="TST.html#TST-034">TST-034 Test generation of Impact Analysis Report</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test_date</td>
+<td>27-11-2023</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect_category</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>Not implemented for the Alpha release.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="assets/doorstop/jquery.min.js"></script>
+<script src="assets/doorstop/bootstrap.min.js"></script>
+<script>
+    $(function() {
+        $("table").addClass("table");
+        $("nav ul").addClass("nav nav-stacked");
+        $("nav").affix();
+        $('body').scrollspy({
+          target: '.sidebar'
+        });
+        $("#main a").attr("target", "parent");
+
+  $(window).on('hashchange', function() {
+    $(window).scrollTop($(location.hash.toLowerCase()).offset().top);});
+  });
+</script>
+</body>
+</html>
+

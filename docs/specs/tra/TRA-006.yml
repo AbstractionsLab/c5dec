@@ -1,0 +1,16 @@
+active: true
+comments: null
+defect_category: '0'
+defect_description: null
+derived: false
+header: ''
+level: 6.0
+links:
+- TST-006: EsYGxcQgqqqK_mO6VWUtKbKB2mdClYLvfoW8eDWDW-c=
+normative: true
+ref: ''
+reviewed: Vnl2UGOcUW4SFVWko1rOF1Hk3x8tWBqhQ39NpYWTdnQ=
+test_date: 28-11-2023
+tester: IVS
+text: |
+  Test execution results for the TST in the parent link.

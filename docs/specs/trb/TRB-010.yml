@@ -1,0 +1,24 @@
+active: true
+comments: null
+defect_category: '0'
+defect_description: null
+derived: false
+header: ''
+level: 10
+links:
+- TST-044: yZz7xWSwii2Zqby_ELxc01UUnEBMp4gnnqvMAqjtP0o=
+normative: true
+ref: ''
+references:
+- path: docs/specs/trb/assets/trb-008i-ev.png
+  type: file
+- path: docs/specs/trb/assets/trb-008ii-ev.png
+  type: file
+- path: docs/specs/trb/assets/trb-008iii-ev.png
+  type: file
+reviewed: dErECU929Pql_HD-uhmm1q2eLXk6H5pYVjh7iKm1rrs=
+test_date: 15-07-2024
+tester: IVS
+text: |
+  Test execution results for the test case (TST) referred in the parent link.
+  The evidence for this test is shown also in:

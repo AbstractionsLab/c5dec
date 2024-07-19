@@ -45,6 +45,7 @@ from c5dec.frontend.tui.miniapps.miniappbase import (
     MiniAppPlaceholderView
 )
 import c5dec.common as common
+import c5dec.settings as c5settings
 
 
 def add_function_to_tui(app, app_name, function_name, view, model):
@@ -137,6 +138,7 @@ def add_settings_module(app, name):
         "Add SFR", RepositoryManagementView, RepositoryManagementModel())
 
 def main(args=None, cwd=None):
+    c5settings.EXECUTION_MODE = "TUI"
     app = Application()
 
     CCT_app_name = "1 - CCT: Common Criteria toolbox"

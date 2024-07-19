@@ -1,0 +1,23 @@
+active: true
+authors: IVS
+derived: false
+expected_outcome: 'The outcomes described in the test steps are observed'
+header: 'Publish the project assets in HTML and Markdown'
+level: 58
+links: []
+normative: true
+platform: Any of MacOS, Windows, GNU/Linux
+precondition: 'Assets have been created with Doorstop'
+ref: ''
+release: beta
+reviewed: null
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Test steps
+  1. Run `c5dec publish -h`: the help text is displayed
+  2. Run `c5dec publish`: html files are generated at `$C5DEC_ROOT/c5dec/docs/publish`
+  3. Delete the folder created in 3.
+  4. Run: `c5dec publish -f .html`: html files are generated at `$C5DEC_ROOT/c5dec/docs/publish`
+  5. Run: `c5dec publish -f .md`: markdown files are generated at `$C5DEC_ROOT/c5dec/docs/publish`
+verification_method: 'Test'

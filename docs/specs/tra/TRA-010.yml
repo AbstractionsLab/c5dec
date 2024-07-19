@@ -1,0 +1,18 @@
+active: true
+comments: |
+  The discrepancies found do not necessarily imply an incorrect mapping, yet, to determine the correctness of the mapping by this method, a deeper inspection to track the parsing of the XML file to classes and its relation with the DTD would require more time and perhaps splitting the test case. Given that the mapping can be tested with other functional tests, TST-010 will be considered not applicable for now.
+defect_category: n/a
+defect_description: |
+  Some of the verifications specified in the test steps are not observed in the code of `cct.py`. For instance, the attributes "part" and "patch" of the element "xref" in the DTD are not present in the XRef class.
+derived: false
+header: ''
+level: 10.0
+links:
+- TST-010: 0nvIHsSyteA0DjvUFxpQBiG_5xpUauVaEPVqoAnr4iI=
+normative: true
+ref: ''
+reviewed: uzu5XazzfZqwLaldJLO4uQEDcoIiEmUl3fB--_WuKpU=
+test_date: 28-11-2023
+tester: IVS
+text: |
+  Test execution results for the TST in the parent link.

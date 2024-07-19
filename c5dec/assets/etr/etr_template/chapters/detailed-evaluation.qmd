@@ -1,0 +1,23 @@
+# Evaluation per life cycle assurance aspect {#sec-detailedEv}
+
+In this chapter, we provide a detailed description of the evaluation action elements that have been carried out, as part of each assurance family within the life cycle (ALC) class of CC assurance requirements @ccpart3. These action elements give rise to evaluation work units indicated by the Y in the family part of the identifier, e.g., ALC_LCD.X-Y, with the X denoting the component itself. 
+
+These work units are in turn broken down into concrete audit actions (identified and tracked using a global increasing index) containing information on the following: audit action description, evaluation scope, evidence required from the developer or sponsor, the provided developer evidence/input, analysis and an assessment outcome in the form of a Pass/Fail/Inconclusive verdict.
+
+Note that we have selected N evaluation work units as a result of aiming for EALX as evaluation assurance level.
+
+From these N evaluation work units, we have derived and specified M audit actions, with each of which yielding a verdict, which together dictate the verdict of their parent work units.
+
+{{< include ALC/CMC.qmd >}}
+
+{{< include ALC/CMS.qmd >}}
+
+{{< include ALC/DEL.qmd >}}
+
+{{< include ALC/DVS.qmd >}}
+
+{{< include ALC/FLR.qmd >}}
+
+{{< include ALC/LCD.qmd >}}
+
+{{< include ALC/TAT.qmd >}}

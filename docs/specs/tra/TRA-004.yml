@@ -1,0 +1,16 @@
+active: true
+comments: Not applicable to the Alpha release.
+defect_category: n/a
+defect_description: null
+derived: false
+header: ''
+level: 4.0
+links:
+- TST-004: c4fLGnu5letM4faF3AW9eBuE-ZyGGn9YzqcvOEhPLAI=
+normative: true
+ref: ''
+reviewed: LTtafzsv4Uun12pttHwy6Goee_ikhKZjAXZBL7tpccE=
+test_date: 27-11-2023
+tester: IVS
+text: |
+  Test execution results for the TST in the parent link.

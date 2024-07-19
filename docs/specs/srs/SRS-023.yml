@@ -1,0 +1,39 @@
+acceptance: 'see [above](#SRS-023)'
+active: true
+author: Heinrich
+date: 03.10.2023
+dependence: []
+derived: false
+difficulty: '3'
+header: |
+  Bidirectional Transformation and Consistency
+importance: '3'
+level: 11.0
+links:
+- MRS-032: zdmk414Ku_uKO9MC4dv6gH6-9PZsz3atEQm7cnls8UE=
+- MRS-038: smY3JefrNiff-qIXQNAbGN5SM-7Ld1IQvC2baR25d18=
+normative: true
+outlay: '4'
+rationale: 'The ability to perform bidirectional transformations between the internal data representation and the CC defined XML format is crucial to facilitate data exchanges and modifications while maintaining data integrity and consistency. Ensuring that the transformation processes are naccurate and coherent safeguards the quality and reliability of the stored Common Criteria data, supporting its effective usage and application.'
+ref: ''
+reviewed: 5nULUIO_HkkC13kNukabc_bejC_EqlELzUVNwyKcpRQ=
+risk: '3'
+status: In Progress
+text: |
+  ## System requirement specification
+
+  As a Data Administrator/General User, I want the system to ensure the automatic transformation of content from and to the CC defined
+  XML format, so that I can trust that the data remains consistent and coherent across all stored data and
+  representations, ensuring that data retrievals, modifications, and other interactions with the
+  data are reliable and accurate.
+
+  ## Acceptance criteria
+
+  - The system can successfully transform content from CC defined XML format to an internal representation.
+  - The system can transform content from the internal representation back to the CC defined XML format.
+  - Consistency and coherence of the stored data and representations are maintained during transformations.
+  - Data transformations adhere to the defined mappings and respect the structural and semantic integrity of the original CC XML format.
+
+type: F
+urgency: '1'
+version: '1.0'

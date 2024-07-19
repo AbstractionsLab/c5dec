@@ -1,0 +1,19 @@
+active: true
+comments: null
+defect_category: '0'
+defect_description: null
+derived: false
+header: ''
+level: 20
+links:
+- TST-054: Q4I4IWuph3G_3B991ifFSsZNmrQ6QFKDR7Wazn1KtMg=
+normative: true
+ref: ''
+references:
+- path: docs/specs/trb/assets/trb-020-ev.png
+  type: file
+reviewed: OQxtGZIDdAAS_EwoXFWqydYl1Sg3X2ZzknAxChFNJZs=
+test_date: 16-07-2024
+tester: IVS
+text: |
+  Test execution results for the test case (TST) referred in the parent link.

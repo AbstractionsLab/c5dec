@@ -1,0 +1,16 @@
+## Delivery: Delivery Procedures (ALC_DEL.1) {#sec-del}
+
+Delivery is the product life-cycle phase concerned with the transmission of the finished TOE from the production environment into the hands of the consumer. This may include packaging and storage at the development site and the secure transfer of the finished TOE from the development environment into the responsibility of the user.
+
+### Evaluation action (ALC_DEL.1.1E)
+
+The objective of this sub-activity is to determine whether the delivery documentation describes all procedures used to maintain security of the TOE when distributing the TOE to the user.
+
+### Content and evidence requirements
+
+Ihe input required for the evaluation of this category consists of
+
+a. the ST;
+b. the delivery documentation.
+
+{{< include ./ALC/DEL-analysis.qmd >}}

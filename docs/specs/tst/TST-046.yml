@@ -1,0 +1,27 @@
+active: true
+authors: IVS
+derived: false
+expected_outcome: 'All the links are valid and link to the expected websites or pages as per the description (text of the link).'
+header: 'Navigate using the links in the GUI'
+level: 46
+links: []
+normative: true
+platform: Any of MacOS, Windows, GNU/Linux
+precondition: ''
+ref: ''
+release: beta
+reviewed: null
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Test steps
+  1. Click on the three buttons in the footer (CC Browser, CC Lab and C5DEC on GitHub).
+  2. Go to the "Common Criteria Tab"
+  3. Click on all the links in the CC Browser.
+  4. Go to the "Common Critera Laboratory" tab.
+  5. Click on all the links in the CC Lab.
+  6. Go to the "Documentation" tab.
+  7. Click on all the links in the tab.
+  8. Go to the "About" tab.
+  9. Click on all the links in tab.
+verification_method: 'Test'

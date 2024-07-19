@@ -1,0 +1,16 @@
+active: true
+comments: null
+defect_category: '0'
+defect_description: null
+derived: false
+header: ''
+level: 5.0
+links:
+- TST-005: Rczoq3j7wwUfvBRAN4X6iQmSZgggLXVvd9ww_fe5x5c=
+normative: true
+ref: ''
+reviewed: P___O7g_X_GYQfh0OE_RXstilr6hjs9zuYWJMu4phnY=
+test_date: 29-11-2023
+tester: IVS
+text: |
+  Test execution results for the TST in the parent link.

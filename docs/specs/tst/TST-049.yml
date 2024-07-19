@@ -1,0 +1,19 @@
+active: true
+authors: IVS
+derived: false
+expected_outcome: The evaluation checklist for classes ACE and AVA of CCv3.1R5 is created in a spreadsheet at '$C5DEC_ROOT/c5dec'
+header: 'Export to spreadsheet an evaluation checklists with some assurance classes of CCv3.1R5 from the CLI'
+level: 49
+links: []
+normative: true
+platform: Any of MacOS, Windows, GNU/Linux
+precondition: ''
+ref: ''
+release: beta
+reviewed: null
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Test steps
+  1. Run `c5dec export chcklst3R5 3R5 -c ACE AVA`
+verification_method: 'Test'

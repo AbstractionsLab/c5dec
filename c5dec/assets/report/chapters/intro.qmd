@@ -1,0 +1,73 @@
+# Introduction {#sec-intro}
+
+This is a C5-DEC report template that is used by the C5-DEC CAD to generate Common Criteria Evaluation Technical Reports (ETR).
+The C5-DEC report generation solution relies on specification languages and a series of technologies, with the main ones being 
+Markdown, YAML, LaTeX, Pandoc, Quarto, spreadsheets (ods/xlsx, alternatively plain CSV), and Python; See @sec-intro on {{< var chapter.chp1 >}}.
+
+The evaluation basis for the current TOE is version 3.1 (Revision 5) of the Common Criteria (see [@ccpart1;@ccpart2;@ccpart3]) and the Common Evaluation Methodology (see [@cem]).
+
+## Objective
+
+The objective of this document is to provide a report on 
+
+## Scope
+
+The scope of this report is limited to 
+
+## Enforcement and reading instructions
+
+This document becomes effective once approved by the owner and published on the ALab repository available to all employees of itrust Abstractions Lab. It will remain in effect until revoked or revised by the owner. Only the official documentation available in the Abstractions Lab repository is to be relied upon as the currently applicable version.
+
+The owner’s signature is an official recognition of the mandatory character of this document. It is to be respected by all employees of itrust Abstractions Lab.
+
+The use of the simple present tense or the terms ‘**must**’, ‘**mandatory**’, ‘**required**’, or ‘**shall**’ in a statement means that the statement is considered a formal requirement.
+
+The use of words such as ‘**should**’ or the adjective ‘**recommended**’ means that there may be legitimate reasons to disregard the statement, but that the implications of such an exception are to be assessed.
+The use of terms such as ‘**may**’ or the adjective ‘**optional**’ means that the implementation of the statement is at the discretion of the implementer.
+
+## Audience
+
+This document is intended for the staff members of ALab contributing to this project.
+
+## Document structure
+
+@tbl-doc-struct shows how this document is structured.
+
+ Section   | Title    | Description |
+|:---------|:---------|:---------------|
+| @sec-intro       | {{< var chapter.chp1 >}} | Provides a short introduction outlining the purpose, objectives, and context of this document.  |
+| @sec-analysis | {{< var chapter.chp2 >}} | Describes... |
+| @sec-summary | {{< var chapter.chp3 >}} | Briefly describes... |
+| @sec-biblio | {{< var chapter.chp4 >}} | Provides bibliographic references. |
+
+: Document structure {#tbl-doc-struct}
+
+{{< include glossary-acr.qmd >}}
+
+See @knuth84 for additional discussion of literate programming. 
+
+This is a C5-DEC report template that is used by the C5-DEC CAD to generate Common Criteria Evaluation Technical Reports (ETR).
+The C5-DEC report generation solution relies on specification languages and a series of technologies, with the main ones being 
+Markdown, YAML, LaTeX, Pandoc, Quarto, spreadsheets (ods/xlsx, alternatively plain CSV), and Python.
+
+Here is a footnote reference,[^1] and another.[^longnote]
+
+[^1]: Here is the footnote.
+
+[^longnote]: Here's one with multiple blocks.
+
+    Subsequent paragraphs are indented to show that they
+belong to the previous footnote.
+
+        { some.code }
+
+    The whole paragraph can be indented, or just the first
+    line.  In this way, multi-paragraph footnotes work like
+    multi-paragraph list items.
+
+This paragraph won't be part of the note, because it
+isn't indented.
+
+# Test section in the same file
+
+Some text

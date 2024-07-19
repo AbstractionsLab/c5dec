@@ -1,0 +1,22 @@
+active: true
+authors: Heinrich
+derived: false
+expected_outcome: None
+header: |
+  Test flagging failed Work Units and affected artifacts
+level: 29
+links:
+- SRS-040: 9BsBkRnTunnS_hIHhvE6jVuldokGJAZuMrWjFWZOfHY=
+normative: true
+platform: WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04
+precondition: Run TST-024 prior to have access to an Evaluation Checklist.
+reviewed: AeAOuHMC9m4yjva_MF80r38Q84WDujVJPHzTnGZiwek=
+roles: null
+success_criteria: 'SRS acceptance criteria fulfilled and expected outcome observed.'
+text: |
+  ## Setup
+  1. None
+  ## Test steps
+  1. follow steps in SRS.
+verification_method: Test
+release: alpha

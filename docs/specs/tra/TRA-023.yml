@@ -1,0 +1,17 @@
+active: true
+comments: |
+  The corresponding SRS (SRS-034) has not been implemented for the Alpha release.
+defect_category: n/a
+defect_description: null
+derived: false
+header: ''
+level: 23.0
+links:
+- TST-023: FLCP8acTmQA4lOSRsmbNh_sWcQoO9puhTJ8AP4x_Ms4=
+normative: true
+ref: ''
+reviewed: m7YTNo0nfJ-48kyr2cbMhU6cYBTyZWMjAFal9hTj-Sg=
+test_date: 28-11-2023
+tester: IVS
+text: |
+  Test execution results for the TST in the parent link.

@@ -1,0 +1,20 @@
+active: true
+comments: null
+defect_category: '0'
+defect_description: null
+derived: false
+header: ''
+level: 16
+links:
+- TST-050: N160ihsBRtYDiF_oNfuVrZKUxtgmUe1eHB272D2HRZc=
+normative: true
+ref: ''
+references:
+- path: docs/specs/trb/assets/trb-016-ev.png
+  type: file
+reviewed: RXLGfnASF23lZqbgVWEFy1U1aNu6mNe8caGsuejZ-xU=
+test_date: 16-07-2024
+tester: IVS
+text: |
+  Test execution results for the test case (TST) referred in the parent link.
+  The evidence output file is:

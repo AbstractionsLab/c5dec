@@ -1,0 +1,10 @@
+etr:
+  eval-wu-id: "WU-ID"
+  eval-file-name: "etr-eval-checklist"
+  # eval-file-name: "<your-checklist-filename>"
+  eval-wu-sheet: "WU"
+  eval-awi-sheet: "AWI"
+
+cc:
+  # release: "2022R1"
+  release: "3R5"

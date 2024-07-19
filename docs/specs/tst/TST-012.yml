@@ -1,0 +1,36 @@
+active: true
+authors: Heinrich
+derived: false
+expected_outcome: 'All exported CC XML files are valid and identical.'
+header: |
+  Test validity and conistency of bidirectional transformation
+level: 12
+links:
+- SRS-022: hsyVqqzuUw4TiipPek_omXOypBZnP6hcqHAC5sILBXg=
+- SRS-023: po_uqA52zR1C6Iw7xGtURFZiEyEv6diJTDBJz-EFWaY=
+normative: true
+platform: WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04
+precondition: 'Validate any/all CC XML independently against the DTD file (./c5dec/assets/database/SecurityControls/cc3<revision>.xml)'
+references:
+  - path: c5dec/assets/database/SecurityControls/cc3R5.dtd
+    type: file
+  - path: c5dec/assets/database/SecurityControls/cc3R5.xml
+    type: file
+reviewed: DpTWevcvTWRQEovj5pNLsbs13oI0yaej4HtsRegRsaA=
+roles: null
+success_criteria: 'SRS acceptance criteria fulfilled and expected outcome observed.'
+text: |
+  ## Setup:
+  1. None
+  ## Test steps:
+  1. Export CC Document stored in the internal data representation to XML (cc_export1.xml)
+  2. Validate the exported XML against the CC DTD.
+  3. Load the exported and validated XML into the internal data representation.
+  4. Again export the loaded CC Document to XML (cc_export2.xml) and validate against the CC DTD.
+  5. Repeat if desired.
+  6. Verify that all _exported_ XMLs are identical.
+
+  Note: Exported XML files will differ from the official CC XML since irrelevant information (e.g., patchinfos
+  legalnotice, pagebreaks, biblioentries, glossentries, etc.) are ignored.
+verification_method: Test
+release: alpha

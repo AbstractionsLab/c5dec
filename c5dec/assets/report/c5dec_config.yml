@@ -1,0 +1,29 @@
+cover:
+  company: "itrust Abstractions Lab"
+  project: "CyFORT"
+  type: "Report (REP)"
+  reference: "3C0A0"
+  version: "1.0"
+  state: "Final"
+  owner: "Shafi"
+  authors: "Dijkstra"
+  application-date: "03/07/2024"
+  classification: "Confidential"
+  bottom-text: "This document can be found in the ALab repository."
+
+meta:
+  fullname: "C5DEC-DocEngineReportTemplate"
+  activity: "Report template"
+  title: "C5-DEC CAD DocEngine"
+  type: "REP"
+  changelog:
+    [
+      ["1.0", "04/07/2024", "Ada", "First release"],
+      ["0.1", "03/07/2024", "Alan", "First draft"]
+    ]
+  approval:
+    [
+      ["Grace", "CTO", "Content agreement", "A"],
+      ["Knuth", "RD Scientist", "Content agreement", "I"],
+      ["Babbage", "RD Specialist", "Content agreement", "I"]
+    ]

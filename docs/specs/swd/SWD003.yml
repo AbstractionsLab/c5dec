@@ -1,0 +1,17 @@
+active: true
+derived: false
+header: |
+  C5-DEC CAD packages
+level: 3.0
+links:
+- ARC003: null
+- ARC004: null
+normative: true
+ref: ''
+reviewed: null
+text: |
+  ## Diagram
+
+  The diagram below shows the packages of C5-DEC CAD.
+
+  ![CAD context diagram](assets/packages.png "C5-DEC CAD packages")

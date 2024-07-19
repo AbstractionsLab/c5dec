@@ -1,0 +1,20 @@
+active: true
+comments: null
+defect_category: '0'
+defect_description: null
+derived: false
+header: ''
+level: 19
+links:
+- TST-053: 1z4eafC93MJSKaCzxpQJn7shO0vBUSx1IqjZVaBXJrs=
+normative: true
+ref: ''
+references:
+- path: docs/specs/trb/assets/trb-019-ev.png
+  type: file
+reviewed: wVNIKLo6LDGhnz_aO98g4Qo4-0Stvnt5LzBvlyMvOKQ=
+test_date: 16-07-2024
+tester: IVS
+text: |
+  Test execution results for the test case (TST) referred in the parent link.
+  Evidence in the file:

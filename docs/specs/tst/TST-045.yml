@@ -1,0 +1,23 @@
+active: true
+authors: IVS
+derived: false
+expected_outcome: '(i) A folder containing markdown files corresponding to the checklist items of all the classes in CCv2022R1 is created at `$C5DEC_ROOT/evaluation`. 
+(ii) A file with name format `chklist-<aaaammdd>-<hhmmss>-export-<aaaammdd>-<hhmmss>.xlsx` is created at `$C5DEC_ROOT/c5dec`; this file captures all the work units in CCv2022R1.
+(iii) A success message appears in the GUI.'
+header: 'Create spreadsheet evaluation checklist of all classes of CC2022R1 from the GUI'
+level: 45
+links: []
+normative: true
+platform: Any of MacOS, Windows, GNU/Linux
+precondition: The GUI has been launched from the terminal
+ref: ''
+release: beta
+reviewed: null
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Test steps
+  1. Go to the "Common Criteria Laboratory" tab.
+  2. Select CC version: "2022R1", Assurance class: "ALL-CLASSES".
+  3. Click on the "Create checklist" button.
+verification_method: 'Test, Review'

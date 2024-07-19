@@ -1,0 +1,33 @@
+active: true
+authors: IVS
+derived: false
+expected_outcome: '(i) A folder containing markdown files corresponding to the checklist items of ALC is created at `$C5DEC_ROOT/evaluation`.
+(ii) A file with name format `chklist-<aaaammdd>-<hhmmss>-export-<aaaammdd>-<hhmmss>.xlsx` is created at `$C5DEC_ROOT/c5dec`;
+ this file captures all the work units from the ALC class.
+(iii) A success message appears in the GUI.'
+header: 'Create spreadsheet evaluation checklist of an assurance class of CCv3.1R5 from the GUI'
+level: 42
+links: []
+normative: true
+platform: Any of MacOS, Windows, GNU/Linux
+precondition: The GUI has been launched from the terminal
+ref: ''
+release: beta
+reviewed: null
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Test steps
+  1. Go to the "Common Criteria Laboratory" tab.
+  2. Select CC version: "3R5", Assurance class: "ALC" (selection of different classes is possible).
+  3. Click on the "Create checklist" button.
+
+  ### Update 18-07-2024
+  The expected outcome is updated as follows:
+
+  (ii) A file with name format `chklist-<aaaammdd>-<hhmmss>.xlsx` is created at 
+  `$C5DEC_ROOT/c5dec/export`; this file captures all the work units from the ALC class.
+  
+  (iii) A success message appears in the GUI informing of the assurance class and CC version exported,
+    as well as the export output folder.
+verification_method: 'Test, Review'

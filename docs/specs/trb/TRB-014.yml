@@ -1,0 +1,17 @@
+active: true
+comments: |
+  This defect is associated to issue 46
+defect_category: '1'
+defect_description: The file is correctly generated but the format of its name differs from the expected name format.
+derived: false
+header: ''
+level: 14
+links:
+- TST-048: 5Y65gw5lP2EPfImz6t_z9gQt97bBs4xVWR-zDfYs8-0=
+normative: true
+ref: ''
+reviewed: y5H3402RtqlGalFNCGcsWux5vWlegtJw8T8EExXMX4c=
+test_date: 15-07-2024
+tester: IVS
+text: |
+  Test execution results for the test case (TST) referred in the parent link.

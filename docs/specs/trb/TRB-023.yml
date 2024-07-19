@@ -1,0 +1,24 @@
+active: true
+comments: |
+  Changing the default tab name in `etrInput-tst-057.xsls` tu "WU" (with `eval-wu-sheet: "WU"` uncommented in `c5dec_params.yml`) did not have a different effect.
+defect_category: '3'
+defect_description: The `etr` command used on a checklist previously generated with the `export` command does not generate an output
+derived: false
+header: ''
+level: 23
+links:
+- TST-057: tDH6UwUKnaQLCY7j582iAt0KdlVt7LPVBcXVwFuFF_c=
+normative: true
+ref: ''
+reviewed: Hh9tgN9Z-dmIhoYMCw4WTH6NO8q_kOzEsK05-Gz0YRU=
+test_date: 16-07-2024
+tester: IVS
+text: |
+  Test execution results for the test case (TST) referred in the parent link.
+  At step 6, the following output message is obtained:
+
+  ```sh
+    $ poetry run c5dec etr -f LCD
+    assets/etr/output
+    'dict' object has no attribute 'loc'
+  ```

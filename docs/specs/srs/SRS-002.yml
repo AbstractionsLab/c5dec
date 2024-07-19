@@ -1,0 +1,51 @@
+acceptance: 'see [above](#SRS-002)'
+active: true
+author: Heinrich
+date: 13.09.2023
+dependence:
+- SRS-001
+derived: false
+difficulty: '1'
+header: |
+  Query the Database of Security Components.
+importance: '3'
+level: 18.1
+links:
+- MRS-028: 0wMvZpsI0k0abBN1wlwFJsYu7ztiq1DPVOWZXeE1SRs=
+- MRS-030: WD1oJQp095vxiYGs3qr31riG3NJviA8QU4IdXlf8gEk=
+- MRS-036: CxmX-BEQNEemhvaifcx9we-Nm6qRgHv4EsJ1WvKMGvg=
+normative: true
+outlay: '2'
+rationale: 'In addition to the browsing option, the General User should be able to query the database for keywords, further enhancing the identification process.'
+ref: ''
+reviewed: 4eLOu-GinDrl6xM0qRM192G2j-JOZZItoJmnwkkdIbo=
+risk: '1'
+status: In Progress
+text: |
+  ## System requirement specification 
+  
+  As a General User, I want to search and filter the database for Security Component Elements using full-text search and/or attributes.
+
+  Assuming I am logged in as an authorized user:
+
+  1. I access the database containing the CC Security Components.
+  2. Then I am able to define a query and search the database.
+  3. When I query the database I am provided with best matching results in descending order, from best to worst.
+  4. When I select a match, the respective Security Component Element is shown.
+  5. Then I can traverse the Security Component structure as defined in SRS-001 or define a new query.
+  6. When I define a new query, I resume to Step 3.
+  7. At all times I am able to exit the database.
+
+  ## Acceptance criteria
+
+  - General User can access the database.
+  - General User can define full-text and/or attributes queries to search the database.
+  - General User is successfully presented with search matches in descending order, from best to worst. 
+  - General User can select a match to view the respective Security Component Element.
+  - General User can traverse the Security Component structure. 
+  - General User can define a new query. 
+  - General User can exit the database at any time.
+
+type: F
+urgency: '3'
+version: '0.1'

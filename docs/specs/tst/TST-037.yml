@@ -1,0 +1,23 @@
+active: true
+authors: 'IVS'
+derived: false
+expected_outcome: The information in the user manual is correct and reflects the updates made for the Beta release.
+header: 'The user manual contains guides for the functionality added in the Beta release'
+level: 37
+links: []
+normative: true
+platform: Any of MacOS, Windows, GNU/Linux
+precondition: ''
+ref: ''
+release: beta
+reviewed: null
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Test steps
+  1. Open the user manual
+  2. Verify that the information in the "Quick start" section corresponds to the Beta release.
+  3. Validate the information corresponding to the Beta release in the "CCT" section.
+  4. Validate the information corresponding to the Beta release in the "SSDLC" section.
+  5. Validate the information corresponding to the Beta release in the "Transformer" section.
+verification_method: 'Review'

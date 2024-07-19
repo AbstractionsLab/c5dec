@@ -1,0 +1,26 @@
+active: true
+comments: |
+  Suggestion: add some text in the GUI to inform the path where the exported file is created
+defect_category: '0'
+defect_description: null
+derived: false
+header: ''
+level: 8
+links:
+- TST-042: c353V_vp3_GtVbyA6qbl9xxFPEovFtCBd7e4I9iGBc4=
+normative: true
+ref: ''
+references:
+- path: docs/specs/trb/assets/trb-008i-ev.png
+  type: file
+- path: docs/specs/trb/assets/trb-008ii-ev.png
+  type: file
+- path: docs/specs/trb/assets/trb-008iii-ev.png
+  type: file
+reviewed: IyyPvqpZwRMSjF47PdiIGjdF9qkfX79gRtUTdXDTGbE=
+test_date: 15-07-2024
+tester: IVS
+text: |
+  Test execution results for the test case (TST) referred in the parent link.
+  The files and evaluation list are created in markdown and .xsls formats.
+  Evidence pictures are provided in the files:

@@ -1,0 +1,42 @@
+active: true
+derived: false
+header: |
+  C5-DEC CAD subsystems architecture
+level: 3.0
+links:
+- MRS-001: null
+- MRS-002: null
+- MRS-003: null
+- MRS-004: null
+- MRS-005: null
+- MRS-006: null
+- MRS-009: null
+- MRS-010: null
+- MRS-011: null
+- MRS-017: null
+- MRS-026: null
+- MRS-027: null
+- MRS-028: null
+- MRS-031: null
+- MRS-033: null
+- MRS-034: null
+- MRS-035: null
+- MRS-048: null
+- MRS-049: null
+- MRS-050: null
+- MRS-051: null
+- MRS-052: null
+- MRS-053: null
+- MRS-054: null
+- MRS-055: null
+- MRS-056: null
+- MRS-058: null
+normative: true
+ref: ''
+reviewed: null
+text: |
+  ## Diagram
+
+  The diagram below depicts a view of the C5-DEC CAD subsystems.
+
+  ![CAD context diagram](assets/subsystems.png "C5-DEC CAD subsystems view")

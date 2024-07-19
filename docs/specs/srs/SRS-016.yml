@@ -1,0 +1,52 @@
+acceptance: 'see [above](#SRS-016)'  
+active: true
+author: Heinrich
+date: 03.10.2023
+dependence: []
+derived: false
+difficulty: '2'
+header: |
+  Interconnected Framework and Seamless Navigation
+importance: '4'
+level: 4.0
+links:
+- MRS-032: zdmk414Ku_uKO9MC4dv6gH6-9PZsz3atEQm7cnls8UE=
+- MRS-039: 8xhYVAyPmji-K5yhEpzeIKcrkqUI9ePplGaL5n2E-jo=
+normative: true
+outlay: '3'
+rationale: 'A seamless and interconnected navigation system, which includes guidance to upcoming content via a standard placeholder, ensures a clear, consistent, and enriching user experience throughout the KB in both markdown and HTML formats.'
+ref: ''
+reviewed: lriWlZXVN8RUO_EREjTIZmeR-NiwFiZzP959K7ZWTuY=
+risk: '1'
+status: In Progress
+text: |
+  ## System requirement specification
+
+  As a General User, I want to traverse through interconnected Articles effortlessly via
+  cross-references and hyperlinks, in markdown or exported HTML format, so that I can
+  explore related concepts without difficulty.
+
+  Assuming I am viewing a Knowledge Article in the Knowledge Base:
+
+  1. I see hyperlinks or cross-references that guide me to related topics or articles,
+   regardless of viewing format (markdown/HTML).
+  2. Clicking a hyperlink navigates me to the related topic or article with no broken links
+   encountered.
+  3. If a linked article is not available, the hyperlink directs me to a standard placeholder
+   article that communicates the upcoming availability of the desired content.
+  4. I can easily navigate back to the initial article or to other interconnected topics,
+   with a clear and user-friendly navigation path.
+
+  ## Acceptance criteria
+
+  - General User can navigate seamlessly between interconnected topics via cross-references
+   and hyperlinks, both in markdown and exported HTML format.
+  - No broken links are present, ensuring a consistent user experience and unhindered navigation.
+  - Links leading to not-yet-available content direct users to a standard placeholder article,
+   ensuring a consistent and clear message regarding upcoming content.
+  - User can return to the initial KA or navigate to related articles easily, with clear paths
+   to navigate back or explore further.
+
+type: F
+urgency: '3'
+version: '0.3'

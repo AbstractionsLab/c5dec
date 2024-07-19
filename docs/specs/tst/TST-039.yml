@@ -1,0 +1,21 @@
+active: true
+authors: 'IVS'
+derived: false
+expected_outcome: '(i)The content displayed in the text area provides information about the selected items. 
+(ii) The content in the toggle area corresponds to the text displayed in the text area.'
+header: 'The CC browser displays the content of the selected items'
+level: 39
+links: []
+normative: true
+platform: Any of MacOS, Windows, GNU/Linux
+precondition: 'The GUI has been launched from the terminal'
+ref: ''
+release: beta
+reviewed: null
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Test steps
+  1. In the home page of the GUI, click on the "Toggle preview" button.
+  2. Select items from diverse classes, families, components and elements.  
+verification_method: 'Test'

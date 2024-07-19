@@ -1,0 +1,38 @@
+acceptance: 'see [above](#SRS-026)'
+active: true
+author: Heinrich
+date: 03.10.2023
+dependence: []
+derived: false
+difficulty: '3'
+header: |
+  Storing Generic Security Objectives of CSA Article 51
+importance: '3'
+level: 14.0
+links:
+- MRS-045: 3RdX0NaWSV_etkp5zqcIa1t8qGt1ySNf3wRjl0zvE-k=
+normative: true
+outlay: '3'
+rationale: 'Ensuring the storage and accessibility of generic Security Objectives as defined by Article 51 of the CSA in a structured, human, and machine-readable format enables efficient retrieval, analysis, and utilization of the objectives for various purposes such as compliance checks, threat modeling, or security analysis. This supports maintaining alignment with regulatory requirements and fosters a standardized approach towards handling and considering CSA-defined security objectives in cybersecurity evaluation and management processes.'
+ref: ''
+reviewed: 1E1pcBWASnq1oCksjbgtkF89VoB0RYVdk1riKgAjSVM=
+risk: '1'
+status: Open
+text: |
+  ## System requirement specification
+
+  As a Security Analyst,
+  I want the system to store and provide accessibility to the generic Security Objectives defined by Article 51 of the CSA,
+  So that I can efficiently retrieve, analyze, and utilize these objectives for compliance, evaluation, and management
+  processes in a manner that is interoperable with both human and automated (machine) activities and assessments.
+  1. TBD.
+
+  ## Acceptance criteria
+
+  - The System stores generic Security Objectives as defined by Article 51 of the CSA.
+  - The stored Security Objectives are in a structured format.
+  - The stored Security Objectives are accessible and readable by both humans and machines.
+
+type: F
+urgency: '1'
+version: '1.0'

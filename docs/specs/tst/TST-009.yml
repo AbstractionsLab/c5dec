@@ -1,0 +1,30 @@
+active: true
+authors: Heinrich
+derived: false
+expected_outcome: None
+header: |
+  Test cosmetic features of Knowledge Base
+level: 9
+links:
+- SRS-019: hjpgGBRUFMCBiLs1Yx-ejz9_I8XGJ7PNvMwMfuHROMw=
+- SRS-020: hg2fieiPR901RGxPs3GQ1RCfmpdylHiXbTDRZLsk38g=
+- SRS-021: 1W4cAnCfpoYv2NPH6Xr9PZ3Vb7aci2T2U9kYBmYFg00=
+normative: true
+platform: WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04
+precondition: null
+ref: ''
+references:
+  - path: c5dec/assets/database/KnowledgeBase/0_MapofContent.md
+    type: file
+reviewed: U3MDJM1tHSR9t-xE1np2VbH9qO9I7dtxOKh8khio6Tk=
+roles: null
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Setup
+  1. None
+  ## Test steps
+  1. follow steps in SRS'
+  2. repeat for multiple Knowledge Articles
+verification_method: null
+release: alpha

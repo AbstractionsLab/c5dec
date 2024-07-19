@@ -1,0 +1,3 @@
+#!/bin/bash
+echo Building C5-DEC CAD image...
+docker build -t c5dec .

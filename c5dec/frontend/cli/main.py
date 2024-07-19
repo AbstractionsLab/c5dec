@@ -51,17 +51,30 @@ def run(args=None):
         "-t",
         "--tui",
         action="store_true",
+        default=True,
         help="run the textual user interface",
+    )
+
+    parser.add_argument(
+        "-g",
+        "--gui",
+        action="store_true",
+        default=False,
+        help="run the graphical (web-based) user interface",
     )
     
     # Build sub-parsers
     subs = parser.add_subparsers(help="", dest="command", metavar="<command>")
-    _transformrep(subs)
+    _timerep(subs)
     _consolidate(subs)
     _retrieveattr(subs)
     _view(subs)
     _validate(subs)
     _checklist(subs)
+    _search(subs)
+    _export(subs)
+    _etr(subs)
+    _publish(subs)
 
     # Parse arguments
     args = parser.parse_args(args=args)
@@ -86,16 +99,16 @@ def run(args=None):
         sys.exit(1)
 
 @common.feature_flag("ON")
-def _transformrep(subs):
-    info = "Invoke the OpenProject time report conversion command"
+def _timerep(subs):
+    info = "Convert the OpenProject xlsx time report export to the C5-DEC time report template"
     sub = subs.add_parser(
-        "transformrep", description=info.capitalize() + ".", help=info
+        "timerep", description=info.capitalize() + ".", help=info
     )
     sub.add_argument("path", help="path to OpenProject time report")
 
 @common.feature_flag("ON")
 def _consolidate(subs):
-    info = "Invoke the time report consolidation command"
+    info = "Consolidate all C5-DEC time reports stored in a folder into a single time report"
     sub = subs.add_parser(
         "consolidate", description=info.capitalize() + ".", help=info
     )
@@ -120,15 +133,17 @@ def add_common_args(sub):
     sub.add_argument("--version",
                      help=f"Specify the Common Criteria (CC) version: {versions_supported}")
 
+@common.feature_flag("ON")
 def _view(subs):
-    info = "Retrieve CC item with id or name."
+    info = "Retrieve Common Criteria (CC) item (class/family/component/element) by ID or name"
     sub = subs.add_parser(
         "view", description=info.capitalize() + ".", help=info)
     sub.add_argument("id", help="CC item ID. Case insensitive.")
     add_common_args(sub)
 
+@common.feature_flag("ON")
 def _validate(subs):
-    info = "CC validation interface."
+    info = "Run the CC component choice validation routine"
     sub = subs.add_parser(
         "validate", description=info.capitalize() + ".", help=info)
     sub.add_argument("id", help="List of CC component IDs.", nargs="+")
@@ -136,8 +151,9 @@ def _validate(subs):
                      help="Validate Component List for dependencies.")
     add_common_args(sub)
 
+@common.feature_flag("ON")
 def _checklist(subs):
-    info = "Evaluation Checklist"
+    info = "Create a C5-DEC evaluation checklist in YAML+Markdown files, editable via the TUI"
     sub = subs.add_parser(
         "checklist", description=f"{info.capitalize()}. NOTE: the <prefix> must appear before the options: c5dec checklist prefix [options]" + ".", help=info)
     sub.add_argument("prefix", help="The identifier/name of the checklist, used as a prefix to name its components.")
@@ -160,3 +176,43 @@ def _checklist(subs):
                     required='-c' in sys.argv or '--create' in sys.argv, nargs="+")
     sub.add_argument("--info", help="General Information of Evaluation Project.", nargs="+")
     sub.add_argument("--editor", help="Set editor. Defaults to 'vim'.")
+    add_common_args(sub)
+
+@common.feature_flag("ON")
+def _search(subs):
+    info = "Invoke the search by XPath routine"
+    sub = subs.add_parser(
+        "search", description=info.capitalize() + ".", help=info
+    )
+    sub.add_argument("path", help="path to XML file")
+
+@common.feature_flag("ON")
+def _export(subs):
+    info = "Export an evaluation checklist of work units (WU) as a spreadsheet; no selection -> all WUs exported."
+    usg_note = "Usage note: c5dec export name version [-h] [-p COMPONENT [COMPONENT ...]] [-c CLASS [CLASS ...]]"
+    sub = subs.add_parser(
+        "export", description=info + " " + usg_note + ".", help=info
+    )
+    sub.add_argument("name", help="Unique prefix for the evaluation checklist")
+    sub.add_argument("version", help="Desired Common Criteria release version (options: 3R5 or 2022R1)")
+    sub.add_argument("-p", "--components", help="The list of desired CC component IDs (e.g., ACO_REL.2 ALC_CMC.1). This argument overrides class choices (default: empty)", nargs="+")
+    sub.add_argument("-c", "--classes", help="The list of desired CC class IDs (e.g., ATE ALC); used only if no CC components provided (default: empty)", nargs="+") 
+
+@common.feature_flag("ON")
+def _etr(subs):
+    info = "Process a C5-DEC evaluation checklist spreadsheet of WUs and atomic work items to generate ETR parts that can be input to C5DEC DocEngine"
+    sub = subs.add_parser(
+        "etr", description=info + ".", help=info
+    )
+    eval_checklist_folder = os.path.join(os.getcwd(), settings.ASSETS_FOLDER_NAME, settings.ETR_FOLDER_NAME)
+    sub.add_argument("-n", "--name", help="File name of evaluation checklist to load from the {} folder; it can also be set in c5dec_params.yml (default: etr-eval-checklist)".format(eval_checklist_folder))
+    sub.add_argument("-f", "--families", help="The list of desired CC family IDs, (default: CMC)", nargs="+") 
+    sub.add_argument("-t", "--tables", help="The list of tables to convert to standard Markdown (default (all options): DocStruct Acronyms Glossary)", nargs="+")
+
+@common.feature_flag("ON")
+def _publish(subs):
+    info = "Publish documentation and technical specifications"
+    sub = subs.add_parser(
+        "publish", description=info + ".", help=info
+    )
+    sub.add_argument("-f", "--format", help="The publication format: .md .html (default: .html)") 

@@ -1,0 +1,35 @@
+active: true
+authors: IVS
+derived: false
+expected_outcome: Generated Markdown files with data from ALC_LCD are stored 
+  at `$C5DEC_ROOT/c5dec/assets/etr/output`
+header: 'Generate parts of an ETR report with an exported evaluation checklist'
+level: 57
+links: []
+normative: true
+platform: Any of MacOS, Windows, GNU/Linux
+precondition: ''
+ref: ''
+release: beta
+reviewed: null
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Test steps
+  1. Run `poetry run c5dec export etrInput 3R5 -c ALC ADV`
+  2. Copy the output spreadsheet from `$C5DEC_ROOT/c5dec` to `$C5DEC_ROOT/c5dec/assets/etr/`
+  3. Rename the file as `etrInput-tst-057.xlsx` (for simplicity)
+  4. Open the file `$C5DEC_ROOT/c5dec/assets/c5dec_params.yml`
+  5. Modify the file as follows and then save it:
+      
+  ```
+    etr:
+      eval-wu-id: "WU-ID"
+      #eval-file-name: "etr-eval-checklist"
+      #eval-wu-sheet: "WU"
+      #eval-awi-sheet: "AWI"
+      eval-file-name: "etrInput-tst-057"
+  ```
+
+  6. Run `poetry run c5dec etr -f LCD`
+verification_method: 'Test'

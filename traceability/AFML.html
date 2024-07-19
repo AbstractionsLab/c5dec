@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html>
+<head><title>Doorstop</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="assets/doorstop/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/doorstop/general.css" />
+  <link type="text/css" rel="stylesheet" href="assets/doorstop/sidebar.css" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" ></script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
+  </script>
+</head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-2 hidden-sm hidden-xs">
+          <nav id="TOC" class="nav nav-stacked fixed sidebar">
+              <h3>Table of Contents</h3>
+<ul>
+<li><a href="#AFML-001">1 APE_INT PP introduction</a></li>
+<li><a href="#AFML-025">1.0 AFML-025</a></li>
+<li><a href="#AFML-029">1.0 AFML-029</a></li>
+<li><a href="#AFML-032">1.0 AFML-032</a></li>
+<li><a href="#AFML-040">1.0 AFML-040</a><ul>
+<li><a href="#AFML-002">1.1 APE_CCL Conformance claims</a></li>
+<li><a href="#AFML-003">1.2 APE_SPD Security problem definition</a></li>
+<li><a href="#AFML-052">1.3 APE_OBJ Security objectives</a></li>
+<li><a href="#AFML-004">1.4 APE_ECD Extended components definition</a></li>
+<li><a href="#AFML-005">1.5 APE_REQ Security requirements</a></li>
+<li><a href="#AFML-006">1.6 ACE_INT PP-Module introduction</a></li>
+<li><a href="#AFML-007">1.7 ACE_CCL PP-Module conformance claims</a></li>
+<li><a href="#AFML-008">1.8 ACE_SPD PP-Module security problem definition</a></li>
+<li><a href="#AFML-009">1.9 ACE_OBJ PP-Module security objectives</a></li>
+<li><a href="#AFML-010">1.10 ACE_ECD PP-Module extended components definition</a></li>
+<li><a href="#AFML-011">1.11 ACE_REQ PP-Module security requirements</a></li>
+<li><a href="#AFML-012">1.12 ACE_MCO PP-Module consistency</a></li>
+<li><a href="#AFML-013">1.13 ACE_CCO PP-Configuration consistency</a></li>
+<li><a href="#AFML-014">1.14 ASE_INT ST introduction</a></li>
+<li><a href="#AFML-015">1.15 ASE_CCL Conformance claims</a></li>
+<li><a href="#AFML-016">1.16 ASE_SPD Security problem definition</a></li>
+<li><a href="#AFML-017">1.17 ASE_OBJ Security objectives</a></li>
+<li><a href="#AFML-018">1.18 ASE_ECD Extended components definition</a></li>
+<li><a href="#AFML-019">1.19 ASE_REQ Security requirements</a></li>
+<li><a href="#AFML-020">1.20 ASE_TSS TOE summary specification</a></li>
+<li><a href="#AFML-021">1.21 ASE_COMP Consistency of composite product Security Target</a></li>
+<li><a href="#AFML-022">1.22 ADV_ARC Security Architecture</a></li>
+<li><a href="#AFML-023">1.23 ADV_FSP Functional specification</a></li>
+<li><a href="#AFML-024">1.24 ADV_IMP Implementation representation</a></li>
+<li><a href="#AFML-026">1.26 ADV_SPM Security policy modelling</a></li>
+<li><a href="#AFML-027">1.27 ADV_TDS TOE design</a></li>
+<li><a href="#AFML-028">1.28 ADV_COMP Composite design compliance</a></li>
+<li><a href="#AFML-030">1.30 AGD_PRE Preparative procedures</a></li>
+<li><a href="#AFML-031">1.31 ALC_CMC CM capabilities</a></li>
+<li><a href="#AFML-033">1.33 ALC_DEL Delivery</a></li>
+<li><a href="#AFML-034">1.34 ALC_DVS Developer environment security</a></li>
+<li><a href="#AFML-035">1.35 ALC_FLR Flaw remediation</a></li>
+<li><a href="#AFML-036">1.36 ALC_LCD Development Life-cycle definition</a></li>
+<li><a href="#AFML-037">1.37 ALC_TDA TOE Development Artefacts</a></li>
+<li><a href="#AFML-038">1.38 ALC_TAT Tools and techniques</a></li>
+<li><a href="#AFML-039">1.39 ALC_COMP Integration of composition parts and consistency check of delivery procedures</a></li>
+<li><a href="#AFML-041">1.41 ATE_DPT Depth</a></li>
+<li><a href="#AFML-042">1.42 ATE_FUN Functional tests</a></li>
+<li><a href="#AFML-043">1.43 ATE_IND Independent testing</a></li>
+<li><a href="#AFML-044">1.44 ATE_COMP Composite functional testing</a></li>
+<li><a href="#AFML-045">1.45 AVA_VAN Vulnerability analysis</a></li>
+<li><a href="#AFML-046">1.46 AVA_COMP Composite vulnerability assessment</a></li>
+<li><a href="#AFML-047">1.47 ACO_COR Composition rationale</a></li>
+<li><a href="#AFML-048">1.48 ACO_DEV Development evidence</a></li>
+<li><a href="#AFML-049">1.49 ACO_REL Reliance of dependent component</a></li>
+<li><a href="#AFML-050">1.50 ACO_CTT Composed TOE testing</a></li>
+<li><a href="#AFML-051">1.51 ACO_VUL Composition vulnerability analysis</a></li>
+</ul>
+</li>
+</ul>
+          </nav>
+      </div>
+      <div class="col-lg-8" id="main">
+        <h1 id="AFML-001">1 APE_INT PP introduction <small>AFML-001</small></h1>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-001">ACC-001 APE Protection Profile (PP) evaluation</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-001">ACOM-001 APE_INT.1 PP introduction</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The objective of this family is to describe the TOE in a narrative way. Evaluation of the PP introduction is required to demonstrate that the PP is correctly identified, and that the PP reference and TOE overview are consistent with each other.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="AFML-025">1.0 AFML-025</h1>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-039">ACOM-039 ADV_INT.1 Well-structured subset of TSF internals</a>, <a href="ACOM.html#ACOM-040">ACOM-040 ADV_INT.2 Well-structured internals</a>, <a href="ACOM.html#ACOM-041">ACOM-041 ADV_INT.3 Minimally complex internals</a></p>
+<h1 id="AFML-029">1.0 AFML-029</h1>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-050">ACOM-050 AGD_OPE.1 Operational user guidance</a></p>
+<h1 id="AFML-032">1.0 AFML-032</h1>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-057">ACOM-057 ALC_CMS.1 TOE CM coverage</a>, <a href="ACOM.html#ACOM-058">ACOM-058 ALC_CMS.2 Parts of the TOE CM coverage</a>, <a href="ACOM.html#ACOM-059">ACOM-059 ALC_CMS.3 Implementation representation CM coverage</a>, <a href="ACOM.html#ACOM-060">ACOM-060 ALC_CMS.4 Problem tracking CM coverage</a>, <a href="ACOM.html#ACOM-061">ACOM-061 ALC_CMS.5 Development tools CM coverage</a></p>
+<h1 id="AFML-040">1.0 AFML-040</h1>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-077">ACOM-077 ATE_COV.1 Evidence of coverage</a>, <a href="ACOM.html#ACOM-078">ACOM-078 ATE_COV.2 Analysis of coverage</a>, <a href="ACOM.html#ACOM-079">ACOM-079 ATE_COV.3 Rigorous analysis of coverage</a></p>
+<h2 id="AFML-002">1.1 APE_CCL Conformance claims <small>AFML-002</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-001">ACC-001 APE Protection Profile (PP) evaluation</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-002">ACOM-002 APE_CCL.1 Conformance claims</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The objective of this family is to determine the validity of the conformance claim. In addition, this family specifies how STs and other PPs are to claim conformance with the PP.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-003">1.2 APE_SPD Security problem definition <small>AFML-003</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-001">ACC-001 APE Protection Profile (PP) evaluation</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-003">ACOM-003 APE_SPD.1 Security problem definition</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>This part of the PP defines the security problem to be addressed by the TOE and the operational environment of the TOE. Evaluation of the security problem definition is required to demonstrate that the security problem intended to be addressed by the TOE and its operational environment, is clearly defined.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-052">1.3 APE_OBJ Security objectives <small>AFML-052</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-001">ACC-001 APE Protection Profile (PP) evaluation</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-004">ACOM-004 APE_OBJ.1 Security objectives for the operational environment</a>, <a href="ACOM.html#ACOM-005">ACOM-005 APE_OBJ.2 Security objectives</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The security objectives are a concise statement of the intended response to the security problem defined through the Security problem definition (APE_SPD) family. Evaluation of the security objectives is required to demonstrate that the security objectives adequately and completely address the security problem definition and that the division of this problem between the TOE and its operational environment is clearly defined.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>The components in this family are levelled on whether they prescribe only security objectives for the operational environment, or also security objectives for the TOE.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-004">1.4 APE_ECD Extended components definition <small>AFML-004</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-001">ACC-001 APE Protection Profile (PP) evaluation</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-006">ACOM-006 APE_ECD.1 Extended components definition</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>Extended security requirements are requirements that are not based on components from CC Part 2 or this document, but which are based on extended components: components defined by the PP author. Evaluation of the definition of extended components is necessary to determine that they are clear and unambiguous, and that they are necessary, i.e. they may not be clearly expressed using existing CC Part 2 or this document components.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-005">1.5 APE_REQ Security requirements <small>AFML-005</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-001">ACC-001 APE Protection Profile (PP) evaluation</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-007">ACOM-007 APE_REQ.1 Direct rationale PP-Module security requirements</a>, <a href="ACOM.html#ACOM-008">ACOM-008 APE_REQ.2 Derived security requirements</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The SFRs form a clear, unambiguous and well-defined description of the expected security behaviour of the TOE. The SARs form a clear, unambiguous and well-defined description of the expected activities that will be undertaken to gain assurance in the TOE. Evaluation of the security requirements is required to ensure that they are clear, unambiguous and well-defined.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>The components in this family are levelled on whether the SFRs are derived from SPD, or whether the SFRs are derived from security objectives for the TOE.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-006">1.6 ACE_INT PP-Module introduction <small>AFML-006</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-002">ACC-002 ACE Protection Profile Configuration evaluation</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-009">ACOM-009 ACE_INT.1 PP-Module introduction</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The objective of this family is to describe the TOE in a narrative way. The evaluation of the PP-Module introduction is required to demonstrate that the PP-Module is correctly identified, and that the PP-Module reference and TOE overview are consistent with each other.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-007">1.7 ACE_CCL PP-Module conformance claims <small>AFML-007</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-002">ACC-002 ACE Protection Profile Configuration evaluation</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-010">ACOM-010 ACE_CCL.1 PP-Module conformance claims</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The objective of this family is to determine the validity of the conformance claim and conformance statement. A PP-Module cannot claim conformance to any PP, PP-Configuration, or another PP-Module.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-008">1.8 ACE_SPD PP-Module security problem definition <small>AFML-008</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-002">ACC-002 ACE Protection Profile Configuration evaluation</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-011">ACOM-011 ACE_SPD.1 PP-Module security problem definition</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>This part of the PP-Module defines the security problem to be addressed by the TOE and the operational environment of the TOE. Evaluation of the security problem definition is required to demonstrate that the security problem intended to be addressed by the TOE and its operational environment, is clearly defined.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-009">1.9 ACE_OBJ PP-Module security objectives <small>AFML-009</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-002">ACC-002 ACE Protection Profile Configuration evaluation</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-012">ACOM-012 ACE_OBJ.1 PP-Module security objectives for the operational environment</a>, <a href="ACOM.html#ACOM-013">ACOM-013 ACE_OBJ.2 PP-Module security objectives</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The security objectives are a concise statement of the intended response to the security problem defined through the Security problem definition (APE_SPD) family. Evaluation of the security objectives is required to demonstrate that the security objectives adequately and completely address the security problem definition and that the division of this problem between the TOE and its operational environment is clearly defined.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>The components in this family are levelled on whether they prescribe only security objectives for the operational environment (see ACE_OBJ.1), or also security objectives for the TOE (see ACE_OBJ.2).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-010">1.10 ACE_ECD PP-Module extended components definition <small>AFML-010</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-002">ACC-002 ACE Protection Profile Configuration evaluation</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-014">ACOM-014 ACE_ECD.1 PP-Module extended components definition</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>Extended SFRs are requirements that are not based on components from CC Part 2 or this document, but which are based on extended components: components defined by the PP-Module author. Evaluation of the definition of extended functional components is necessary to determine that they are clear and unambiguous, and that they are necessary, i.e. they may not be clearly expressed using existing CC Part 2 or this document components.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-011">1.11 ACE_REQ PP-Module security requirements <small>AFML-011</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-002">ACC-002 ACE Protection Profile Configuration evaluation</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-015">ACOM-015 ACE_REQ.1 PP-Module stated security requirements</a>, <a href="ACOM.html#ACOM-016">ACOM-016 ACE_REQ.2 PP-Module derived security requirements</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The SFRs form a clear, unambiguous and well-defined description of the expected security behaviour of the TOE. The SARs form a clear, unambiguous and well-defined description of the expected activities that will be undertaken to gain assurance in the TOE. Evaluation of the security requirements is required to ensure that they are clear, unambiguous and well-defined.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>The components in this family are levelled on whether the SFRs are derived from SPD (see ACE_REQ.1), or whether the SFRs are derived from the security objectives for the TOE (see ACE_REQ.2.).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-012">1.12 ACE_MCO PP-Module consistency <small>AFML-012</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-002">ACC-002 ACE Protection Profile Configuration evaluation</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-017">ACOM-017 ACE_MCO.1 PP-Module consistency</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The objective of this family is to determine the consistency of the PP-Module and to state the correspondence between the PP-Module and its PP-Module Base(s).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-013">1.13 ACE_CCO PP-Configuration consistency <small>AFML-013</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-002">ACC-002 ACE Protection Profile Configuration evaluation</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-018">ACOM-018 ACE_CCO.1 PP-Configuration consistency</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The objective of this family is to determine the well-formedness and the consistency of the PP-Configuration.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-014">1.14 ASE_INT ST introduction <small>AFML-014</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-003">ACC-003 ASE Security Target (ST) evaluation</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-019">ACOM-019 ASE_INT.1 ST introduction</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The objective of this family is to describe the TOE in a narrative way on three levels of abstraction: TOE reference, TOE overview and TOE description. Evaluation of the ST introduction is required to demonstrate that the ST and the TOE are correctly identified, that the TOE is correctly described at three levels of abstraction and that these three descriptions are consistent with each other.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-015">1.15 ASE_CCL Conformance claims <small>AFML-015</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-003">ACC-003 ASE Security Target (ST) evaluation</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-020">ACOM-020 ASE_CCL.1 Conformance claims</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The objective of this family is to determine the validity of the conformance claim. In addition, this family specifies how STs are to claim conformance with the PP or PP-Configuration.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-016">1.16 ASE_SPD Security problem definition <small>AFML-016</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-003">ACC-003 ASE Security Target (ST) evaluation</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-021">ACOM-021 ASE_SPD.1 Security problem definition</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>This part of the ST defines the security problem to be addressed by the TOE and the operational environment of the TOE. Evaluation of the security problem definition is required to demonstrate that the security problem intended to be addressed by the TOE and its operational environment, is clearly defined.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-017">1.17 ASE_OBJ Security objectives <small>AFML-017</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-003">ACC-003 ASE Security Target (ST) evaluation</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-022">ACOM-022 ASE_OBJ.1 Security objectives for the operational environment</a>, <a href="ACOM.html#ACOM-023">ACOM-023 ASE_OBJ.2 Security objectives</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The security objectives are a concise statement of the intended response to the security problem defined through the Security problem definition (ASE_SPD) family. Evaluation of the security objectives is required to demonstrate that the security objectives adequately and completely address the security problem definition, that the division of this problem between the TOE and its operational environment is clearly defined.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>The components in this family are levelled on whether they prescribe only security objectives for the operational environment (ASE_OBJ.1), or also security objectives for the TOE (ASE_OBJ.2).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-018">1.18 ASE_ECD Extended components definition <small>AFML-018</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-003">ACC-003 ASE Security Target (ST) evaluation</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-024">ACOM-024 ASE_ECD.1 Extended components definition</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>Extended security requirements are requirements that are not based on components from CC Part 2 or this document, but which are based on extended components: components defined by the ST author. Evaluation of the definition of extended components is necessary to determine that they are clear and unambiguous, and that they are necessary, i.e. they may not be clearly expressed using existing CC Part 2 or this document components.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-019">1.19 ASE_REQ Security requirements <small>AFML-019</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-003">ACC-003 ASE Security Target (ST) evaluation</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-025">ACOM-025 ASE_REQ.1 Direct rationale security requirements</a>, <a href="ACOM.html#ACOM-026">ACOM-026 ASE_REQ.2 Derived security requirements</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The SFRs form a clear, unambiguous and well-defined description of the expected security behaviour of the TOE. The SARs form a clear, unambiguous and canonical description of the expected activities that will be undertaken to gain assurance in the TOE. Evaluation of the security requirements is required to ensure that they are clear, unambiguous and well-defined.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>The components in this family are levelled on whether they are stated as is (see ASE_REQ.1), or whether the SFRs are derived from security objectives for the TOE (see ASE_REQ.2.).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-020">1.20 ASE_TSS TOE summary specification <small>AFML-020</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-003">ACC-003 ASE Security Target (ST) evaluation</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-027">ACOM-027 ASE_TSS.1 TOE summary specification</a>, <a href="ACOM.html#ACOM-028">ACOM-028 ASE_TSS.2 TOE summary specification with architectural design summary</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The TOE summary specification enables evaluators and potential consumers to gain a general understanding of how the TOE is implemented. Evaluation of the TOE summary specification is necessary to determine whether it is adequately described how the TOE: — meets its SFRs; — protects itself against interference, logical tampering and bypass; and whether the TOE summary specification is consistent with other narrative descriptions of the TOE.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>The components in this family are levelled on whether the TOE summary specification only needs to describe how the TOE meets the SFRs, or whether the TOE summary specification also needs to describe how the TOE protects itself against logical tampering and bypass. This additional description may be used in special circumstances where there can be a specific concern regarding the TOE security architecture.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-021">1.21 ASE_COMP Consistency of composite product Security Target <small>AFML-021</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-003">ACC-003 ASE Security Target (ST) evaluation</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-029">ACOM-029 ASE_COMP.1 Consistency of Security Target (ST)</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The aim of this family is to determine whether the ST of the composite product (denoted by composite product Security Target or composite-ST in the following) does not contradict the ST of the related base component (denoted by base component Security Target or base-ST in the following, Generally, a Security Target expresses a security policy for the TOE defined.)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>This family contains only one component.</td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>A ST for the composite product shall be written and evaluated. The composite product evaluator shall examine that the ST of the composite product does not contradict the ST of the related base component. In particular, it means that the composite product evaluator shall examine the composite product ST and the base component ST for any conflicting assumptions, compatibility of security objectives, security requirements and security functionality needed by the dependent component. The composite product evaluation sponsor shall ensure that the ST of the base component is available for the dependent component developer, for the composite product evaluator and for the composite product evaluation authority. The information available in the public version of the base component ST may not be sufficient. These application notes aid the developer to create as well as the evaluator to analyse a composite product ST and describe a general methodology for it. In order to create a composite product ST, the developer should perform the following steps: Step 1: The developer formulates a preliminary ST for the composite product (the composite-ST) using the standard code of practice. The composite-ST can be formulated independently of the ST of the composite product’s related base component (the base-ST), at least as long as there are no formal PP conformance claims. Step 2: The developer determines the overlap between the base-ST and the composite-ST through analysing and comparing their respective TOE Security Functionality (TSF). Because the TSF enforce the Security Target (together with the organisational measures enforcing the security objectives for the operational environment of the TOE). The comparison shall be performed on the abstraction level of SFRs. If the developer defined security functionality groups (TSF-groups) in the TSS part of his Security Target, the evaluator should also consider them in order to get a better understanding for the context of the security services offered by the TOE. Step 3: The developer determines under which conditions he can trust in and rely on the base component-TSF being used by the composite-ST without a new examination. Having undertaken these steps the developer completes the preliminary ST for the composite product. It is not mandatory that the composite product and its related base component are being evaluated according to the same edition of the CC. It is due to the fact that the dependent component of the composite product can rely on some security services of the base component, if (i) the assurance level of the base component covers the intended assurance level of the composite product and (ii) the base component evaluation is valid (i.e. accepted by the base component evaluation authority) and up-to-date. Equivalence of single assurance components (and, hence, of assurance levels) belonging to different CC editions shall be established / acknowledged by the composite product evaluation authority. If conformance to a PP is claimed, e.g. a composite product ST claims conformance to a PP (that possibly claims conformance to a further PP), the consistency check can be reduced to the elements of the ST having not already been covered by these PPs. However, in general the fact of compliance to a PP is not sufficient to avoid inconsistencies. Assume the following situation, where → stands for “complies with”: composite-ST → PP 1 → PP 2 ← base-ST PP 1 may require any kind of conformance, e.g. “strict”, “exact” or “demonstrable” according to the CC, but this does not affect the ‘additional elements’ that the base-ST may introduce beyond PP 2. In conclusion, these additions are not necessarily consistent with the composite-ST’s additions chosen beyond PP 1. There is no scenario that ensures their consistency ‘by construction’. Note that consistency may be no direct matching: Objectives for the base component’s environment may become objectives for the composite TOE.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-022">1.22 ADV_ARC Security Architecture <small>AFML-022</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-004">ACC-004 ADV Development</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-030">ACOM-030 ADV_ARC.1 Security architecture description</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The objective of this family is for the developer to provide a description of the security architecture of the TSF. This will allow analysis of the information that, when coupled with the other evidence presented for the TSF, will confirm the TSF achieves the desired properties. The security architecture descriptions support the implicit claim that security analysis of the TOE can be achieved by examining the TSF; without a sound architecture, the entire TOE functionality would have to be examined.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>This family contains only one component.</td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>The properties of self-protection, domain separation, and non-bypassability are distinct from security functionality expressed by CC Part 2 SFRs because self-protection and non-bypassability largely have no directly observable interface at the TSF. Rather, they are properties of the TSF that are achieved through the design of the TOE and TSF and enforced by the correct implementation of that design. The approach used in this family is for the developer to design and provide a TSF that exhibits the above-mentioned properties, and to provide evidence (in the form of documentation) that explains these properties of the TSF. This explanation is provided at the same level of detail as the description of the SFR-enforcing elements of the TOE in the TOE design document. The evaluator has the responsibility for looking at the evidence and, coupled with other evidence delivered for the TOE and TSF, determining that the properties are achieved. Specification of security functionality implementing the SFRs [in the Functional specification (ADV_FSP) and TOE design (ADV_TDS)] will not necessarily describe mechanisms employed in implementing self-protection and non-bypassability (e.g. memory management mechanisms). Therefore, the material needed to provide the assurance that these requirements are being achieved is better suited to a presentation separate from the design decomposition of the TSF as embodied in ADV_FSP and ADV_TDS. This is not to imply that the security architecture description called for by this component cannot reference or make use of the design decomposition material; but it is likely that much of the detail present in the decomposition documentation will not be relevant to the argument being provided for the security architecture description document. The description of architectural soundness can be thought of as a developer´s vulnerability analysis, in that it provides the justification for why the TSF is sound and enforces all of its SFRs. Where the soundness is achieved through specific security mechanisms, these will be tested as part of the Depth (ATE_DPT) requirements; where the soundness is achieved solely through the architecture, the behaviour will be tested as part of the AVA: Vulnerability assessment requirements. This family consists of requirements for a security architecture description that describes the self-protection, domain separation, non-bypassability principles, including a description of how these principles are supported by the parts of the TOE that are used for TSF initialisation. In case of a multi-assurance evaluation the properties of self-protection, domain separation, and non-bypassability may also be described for boundaries between the sub-TSF. Additional information on the security architecture properties of self-protection, domain separation, and non-bypassability can be found in A.1, ADV_ARC: Supplementary material on security architectures.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-023">1.23 ADV_FSP Functional specification <small>AFML-023</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-004">ACC-004 ADV Development</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-031">ACOM-031 ADV_FSP.1 Basic functional specification</a>, <a href="ACOM.html#ACOM-032">ACOM-032 ADV_FSP.2 Security-enforcing functional specification</a>, <a href="ACOM.html#ACOM-033">ACOM-033 ADV_FSP.3 Functional specification with complete summary</a>, <a href="ACOM.html#ACOM-034">ACOM-034 ADV_FSP.4 Complete functional specification</a>, <a href="ACOM.html#ACOM-035">ACOM-035 ADV_FSP.5 Complete semi-formal functional specification with additional error information</a>, <a href="ACOM.html#ACOM-036">ACOM-036 ADV_FSP.6 Complete semi-formal functional specification with additional formal specification</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>This family levies requirements upon the functional specification, which describes the TSF interfaces (TSFIs). The TSFI consists of all means by which external entities (or subjects in the TOE but outside of the TSF) supply data to the TSF, receive data from the TSF or invoke services from the TSF. It does not describe how the TSF processes those service requests, nor does it describe the communication when the TSF invokes services from its operational environment; this information is addressed by the TOE design (ADV_TDS) and Reliance of dependent component (ACO_REL) families, respectively. This family provides assurance directly by allowing the evaluator to understand how the TSF meets the claimed SFRs. It also provides assurance indirectly, as input to other assurance families and classes: — ADV_ARC, where the description of the TSFIs may be used to gain better understanding of how the TSF is protected against corruption (i.e. subversion of self-protection or domain separation) and/or bypass; — ATE, where the description of the TSFIs is an important input for both developer and evaluator testing; — AVA, where the description of the TSFIs is used to search for vulnerabilities.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>The components in this family are levelled on the degree of detail required of the description of the TSFIs, and the degree of formalism required of the description of the TSFIs.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>General Once the TSFIs are determined (see A.2.2 for guidance and examples of determining TSFI), they are described. At lower-level components, developers focus their documentation (and evaluators focus their analysis) on the more security-relevant aspects of the TOE. Three categories of TSFIs are defined, based upon the relevance the services available through them have to the SFRs being claimed: — If a service available through an interface can be traced to one of the SFRs levied on the TSF, then that interface is termed SFR-enforcing. Note that it is possible that an interface may have various services and results, some of which may be SFR-enforcing and some of which may not. — Interfaces to (or services available through an interface relating to) services that SFR-enforcing functionality depend upon, but need only to function correctly in order for the security policies of the TOE to be preserved, are termed SFR-supporting. — Interfaces to services on which SFR-enforcing functionality has no dependence are termed SFR non-interfering. It should be noted that in order for an interface to be SFR-supporting or SFR non-interfering it must have no SFR-enforcing services or results. In contrast, an SFR-enforcing interface may have SFR-supporting services (for example, the ability to set the system clock may be an SFR-enforcing service of an interface, but if that same interface is used to display the system date that service may be only SFR-supporting). An example of a purely SFR-supporting interface is a system call interface that is used both by users and by a portion of the TSF that is running on behalf of users. As more information about the TSFIs becomes available, the greater the assurance that can be gained that the interfaces are correctly categorised/analysed. The requirements are structured such that, at the lowest level, the information required for SFR non-interfering interfaces is the minimum necessary in order for the evaluator to make this determination in an effective manner. At higher levels, more information becomes available so that the evaluator has greater confidence in the designation. The purpose in defining these labels (SFR-enforcing, SFR-supporting, and SFR-non-interfering) and for levying different requirements upon each (at the lower assurance components) is to provide a first approximation of where to focus the analysis and the evidence upon which that analysis is performed. If the developer´s documentation of the TSF interfaces describes all of the interfaces to the degree specified in the requirements for the SFR-enforcing interfaces (i.e. if the documentation exceeds the requirements), there is no need for the developer to create new evidence to match the requirements. Similarly, because the labels are merely a means of differentiating the interface types within the requirements, there is no need for the developer to update the evidence solely to label the interfaces as SFR-enforcing, SFR-supporting, and SFR-non-interfering. The primary purpose of this labelling is to allow developers with less mature development methodologies (and associated artefacts, such as detailed interface and design documentation) to provide only the necessary evidence without undue cost. The last C element of each component within this family provides a direct correspondence between the SFRs and the functional specification, i.e. an indication of which interfaces are used to invoke each of the claimed SFRs. In the cases where the ST contains such functional requirements as CC Part 2, whose functionality may not manifest itself at the TSFIs, the functional specification and/or the tracing is expected to identify these SFRs; including them in the functional specification helps to ensure that they are not lost at lower levels of decomposition, where they will be relevant.</td>
+</tr>
+<tr>
+<td>Detail about the interfaces</td>
+<td></td>
+</tr>
+<tr>
+<td>The requirements define collections of details about TSFI to be provided. For the purposes of the requirements, interfaces are specified (in varying degrees of detail) in terms of their purpose, method of use, parameters, parameter descriptions, and error messages. The purpose of an interface is a high-level description of the general goal of the interface (e.g. process GUI commands, receive network packets, provide printer output, etc.). The interface´s method of use describes how the interface is supposed to be used. This description should be built around the various interactions available at that interface. For instance, if the interface were a Unix command shell, ls, mv and cp would be interactions for that interface. For each interaction the method of use describes what the interaction does, both for behaviour seen at the interface (e.g. the programmer calling the API, the Windows users changing a setting in the registry, etc.) as well as behaviour at other interfaces (e.g. generating an audit record). Parameters are explicit inputs to and outputs from an interface that control the behaviour of that interface. For example, parameters are the arguments supplied to an API; the various fields in a packet for a given network protocol; the individual key values in the Windows Registry; the signals across a set of pins on a chip; the flags that can be set for the ls, etc. The parameters are “identified” with a simple list of what they are. A parameter description tells what the parameter is in some meaningful way. For instance, an acceptable parameter description for interface foo(i) would be “parameter i is an integer that indicates the number of users currently logged in to the system”. A description such as “parameter i is an integer” is not an acceptable. The description of an interface´s actions describes what the interface does. This is more detailed than the purpose in that, while the “purpose” reveals why one might want to use it, the “actions” reveals everything that it does. These actions can be related to the SFRs or not. In cases where the interface´s action is not related to SFRs, its description is said to be summarized, meaning the description merely makes clear that it is indeed not SFR-related. The error message description identifies the condition that generated it, what the message is, and the meaning of any error codes. An error message is generated by the TSF to signify that a problem or irregularity of some degree has been encountered. The requirements in this family refer to different kinds of error messages: — a “direct” error message is a security-relevant response through a specific TSFI invocation. — an “indirect” error cannot be tied to a specific TSFI invocation because it results from system-wide conditions (e.g. resource exhaustion, connectivity interruptions, etc.). Error messages that are not security-relevant are also considered “indirect”. — “remaining” errors are any other errors, such as those that can be referenced within the code. For example, the use of condition-checking code that checks for conditions that would not logically occur (e.g. a final “else” after a list of “case” statements), would provide for generating a catch-all error message; in an operational TOE, these error messages should never be seen. An example functional specification is provided in A.2.4.</td>
+<td></td>
+</tr>
+<tr>
+<td>Components of this family</td>
+<td></td>
+</tr>
+<tr>
+<td>Increasing assurance through increased completeness and accuracy in the interface specification is reflected in the documentation required from the developer as detailed in the various hierarchical components of this family. At ADV_FSP.1 Basic functional specification, the only documentation required is a characterization of all TSFIs and a high-level description of SFR-enforcing and SFR-supporting TSFIs. To provide some assurance that the “important” aspects of the TSF have been correctly characterized at the TSFIs, the developer is required to provide the purpose and method of use, parameters for the SFR-enforcing and SFR-supporting TSFIs. At ADV_FSP.2 Security-enforcing functional specification, the developer is required to provide the purpose, method of use, parameters, and parameter descriptions for all TSFIs. Additionally, for the SFR-enforcing TSFIs the developer shall describe the SFR-enforcing actions and direct error messages. At ADV_FSP.3 Functional specification with complete summary, the developer must now, in addition to the information required at ADV_FSP.2, provide enough information about the SFR-supporting and SFR-non-interfering actions to show that they are not SFR-enforcing. Further, the developer must now document all of the direct error messages resulting from the invocation of SFR-enforcing TSFIs. At ADV_FSP.4 Complete functional specification, all TSFIs, whether SFR-enforcing, SFR-supporting or SFR-non-interfering, must be described to the same degree, including all of the direct error messages. At ADV_FSP.5 Complete semi-formal functional specification with additional error information, the TSFIs descriptions also include error messages that do not result from an invocation of a TSFI. At ADV_FSP.6 Complete semi-formal functional specification with additional formal specification, in addition to the information required by ADV_FSP.5, all remaining error messages are included. The developer must also provide a formal description of the TSFI. This provides an alternative view of the TSFI that may expose inconsistencies or incomplete specification.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-024">1.24 ADV_IMP Implementation representation <small>AFML-024</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-004">ACC-004 ADV Development</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-037">ACOM-037 ADV_IMP.1 Implementation representation of the TSF</a>, <a href="ACOM.html#ACOM-038">ACOM-038 ADV_IMP.2 Complete mapping of the implementation representation of the TSF</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The function of the Implementation representation (ADV_IMP) family is for the developer to make available the implementation representation (and, at higher levels, the implementation itself) of the TOE in a form that can be analysed by the evaluator. The implementation representation is used in analysis activities for other families (analysing the TOE design, for instance) to demonstrate that the TOE conforms its design and to provide a basis for analysis in other areas of the evaluation (e.g. the search for vulnerabilities). The implementation representation is expected to be in a form that captures the detailed internal workings of the TSF. This may be software source code, firmware source code, hardware diagrams and/or IC hardware design language code or layout data.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>The components in this family are levelled on the amount of implementation that is mapped to the TOE design description.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>Source code or hardware diagrams and/or IC hardware design language code or layout data that are used to build the actual hardware are examples of parts of an implementation representation. It is important to note that while the implementation representation must be made available to the evaluator, this does not imply that the evaluator needs to possess that representation. For instance, the developer may require that the evaluator review the implementation representation at a site of the developer´s choosing. The entire implementation representation is made available to ensure that analysis activities are not curtailed due to lack of information. This does not, however, imply that all of the representation is examined when the analysis activities are being performed. This is likely impractical in almost all cases, in addition to the fact that it most likely will not result in a higher-assurance TOE vs. targeted sampling of the implementation representation. The implementation representation is made available to allow analysis of other TOE design decompositions (e.g. functional specification, TOE design), and to gain confidence that the security functionality described at a higher level in the design actually appear to be implemented in the TOE. Conventions in some forms of the implementation representation may make it difficult or impossible to determine from just the implementation representation itself what the actual result of the compilation or run-time interpretation will be. For example, compiler directives for C language compilers will cause the compiler to exclude or include entire portions of the code. For this reason, it is important that such “extra” information or related tools (e.g. scripts, compilers, etc.) be provided so that the implementation representation can be accurately determined. The purpose of the mapping between the implementation representation and the TOE design description is to aid the evaluator´s analysis. The internal workings of the TOE may be better understood when the TOE design is analysed with corresponding portions of the implementation representation. The mapping serves as an index into the implementation representation. At the lower component, only a subset of the implementation representation is mapped to the TOE design description. Because of the uncertainty of which portions of the implementation representation will need such a mapping, the developer may choose either to map the entire implementation representation beforehand, or to wait to see which portions of the implementation representation the evaluator requires to be mapped. The implementation representation is manipulated by the developer in a form that is suitable for transformation to the actual implementation. For instance, the developer may work with files containing source code, which is eventually compiled to become part of the TSF. The developer makes available the implementation representation in the form used by the developer, so that the evaluator may use automated techniques in the analysis. This also increases the confidence that the implementation representation examined is actually the one used in the production of the TSF (as opposed to the case where it is supplied in an alternate presentation format, such as a word processor document). It should be noted that other forms of the implementation representation may also be used by the developer; these forms are supplied as well. The overall goal is to supply the evaluator with the information that will maximize the effectiveness of the evaluator´s analysis efforts. Some forms of the implementation representation may require additional information because they introduce significant barriers to understanding and analysis. Examples include “shrouded” source code or source code that has been obfuscated in other ways such that it prevents understanding and/or analysis. These forms of implementation representation typically result from the TOE developer taking a version of the implementation representation and running a shrouding or obfuscation program on it. While the shrouded representation is what is compiled and may be closer to the implementation (in terms of structure) than the original, un-shrouded representation, supplying such obfuscated code may cause significantly more time to be spent in analysis tasks involving the representation. When such forms of representation are created, the components require details on the shrouding tools/algorithms used so that the un-shrouded representation can be supplied, and the additional information can be used to gain confidence that the shrouding process does not compromise any security functionality.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-026">1.26 ADV_SPM Security policy modelling <small>AFML-026</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-004">ACC-004 ADV Development</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-042">ACOM-042 ADV_SPM.1 Formal TOE security policy model</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>It is the objective of this family to provide additional assurance through the development of a formal representation of the TSF and its properties, as defined by the SFRs and the security objectives of the ST, further referred to as the formal model and the formal properties, respectively. It is expected to establish by means of a formal proof that these formal properties hold in the formal model and to establish by means of a correspondence rationale that the TOE functional specification preserves the formal properties proven for the formal model. A formal proof or semiformal demonstration of preservation of the formal properties in the formal or semiformal specification is expected if the latter exists (ADV_FSP.5 or ADV_FSP.6, respectively).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>This family contains only one component.</td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>Inadequacies in a TOE can result either from a failure in understanding the security requirements or from a flawed implementation of those security requirements. Defining the security requirements adequately to ensure their understanding may be problematic because the definition must be sufficiently precise to prevent undesired results or subtle flaws during the implementation of the TOE. Throughout the design, implementation, and review processes, a formal representation of the TSF and its properties may be used as precise design and implementation guidance, thereby providing increased assurance that the SFRs and the security objectives of the ST are satisfied by the TOE. The resulting guidance and the precision of the TSF representation and its properties, as defined by the SFRs and the security objectives of the ST, are significantly improved by defining the formal model and specifying the formal properties using a formal language and providing a formal proof that these formal properties hold in the formal model. The creation of a formal Security Policy Model (SPM) of the TSF must be complete with respect to the ST; such a model helps to identify and eliminate ambiguous, inconsistent, contradictory, or unenforceable elements and to avoid any misunderstanding on the scope. To this end, the evaluation must determine whether the formal model and the formal properties completely cover the ST and accept only STs and SPMs that match in scope. Once the TOE has been built, the formal model serves the evaluation effort by contributing to the evaluator´s judgement of how well the developer has understood the TSF being implemented and whether there are inconsistencies between the formal properties as defined by the security objectives of the ST and the TOE design. The confidence gained by formally proving properties of the model is accompanied by confidence gained by defining a correspondence rationale between the formal model and the TOE functional specification (as defined for ADV_FSP). The correspondence rationale consists of a formal proof when mapping to formal aspects of the TOE functional specification and semiformal demonstration otherwise. A combination of different formal systems (modelling languages, tools, proof systems) can be used for different parts of the ST (SFRs &amp; Security Objectives) and correspondence rationales.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-027">1.27 ADV_TDS TOE design <small>AFML-027</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-004">ACC-004 ADV Development</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-043">ACOM-043 ADV_TDS.1 Basic design</a>, <a href="ACOM.html#ACOM-044">ACOM-044 ADV_TDS.2 Architectural design</a>, <a href="ACOM.html#ACOM-045">ACOM-045 ADV_TDS.3 Basic modular design</a>, <a href="ACOM.html#ACOM-046">ACOM-046 ADV_TDS.4 Semiformal modular design</a>, <a href="ACOM.html#ACOM-047">ACOM-047 ADV_TDS.5 Complete semiformal modular design</a>, <a href="ACOM.html#ACOM-048">ACOM-048 ADV_TDS.6 Complete semiformal modular design with formal high-level design presentation</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The design description of a TOE provides both context for a description of the TSF, and a thorough description of the TSF. As assurance needs increase, the level of detail provided in the description also increases. As the size and complexity of the TSF increase, multiple levels of decomposition are appropriate. The design requirements are intended to provide information (commensurate with the given assurance level) so that a determination can be made that the SFRs are realized.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>The components in this family are levelled on the basis of the amount of information that is required to be presented with respect to the TSF, and on the degree of formalism required of the design description.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>General</td>
+</tr>
+<tr>
+<td>The goal of design documentation is to provide sufficient information to determine the TSF boundary, and to describe how the TSF implements the SFRs. The amount and structure of the design documentation will depend on the complexity of the TOE and the number of SFRs; in general, a very complex TOE with a large number of SFRs will require more design documentation than a very simple TOE implementing only a few SFRs. Very complex TOEs will benefit (in terms of the assurance provided) from the production of differing levels of decomposition in describing the design, while very simple TOEs do not require both high-level and low-level descriptions of its implementation. This family uses two levels of decomposition: the subsystem and the module. A module is the most specific description of functionality: it is a description of the implementation. A developer should be able to implement the part of the TOE described by the module with no further design decisions. A subsystem is a description of the design of the TOE; it helps to provide a high-level description of what a portion of the TOE is doing and how. As such, a subsystem may be further divided into lower-level subsystems, or into modules. Very complex TOEs can require several levels of subsystems in order to adequately convey a useful description of how the TOE works. Very simple TOEs, in contrast, might not require a subsystem level of description; the module can clearly describe how the TOE works. The general approach adopted for design documentation is that, as the level of assurance increases, the emphasis of description shifts from the general (subsystem level) to more (module level) detail. In cases where a module-level of abstraction is appropriate because the TOE is simple enough to be described at the module level, yet the level of assurance calls for a subsystem level of description, the module-level description alone will suffice. For complex TOEs, however, this is not the case: an enormous amount of (module-level) detail would be incomprehensible without an accompanying subsystem level of description. This approach follows the general paradigm that providing additional detail about the implementation of the TSF will result in greater assurance that the SFRs are implemented correctly and provide information that can be used to demonstrate this in testing (ATE: Tests).</td>
+<td></td>
+</tr>
+<tr>
+<td>Detail about the subsystems and modules</td>
+<td></td>
+</tr>
+<tr>
+<td>The requirements define collections of details about subsystems and modules to be provided: a) The subsystems and modules are identified with a simple list of what they are. b) Subsystems and modules may be categorised (either implicitly or explicitly) as “SFR-enforcing”, “SFR-supporting”, or “SFR-non-interfering”; these terms are used the same as they are used in Functional specification (ADV_FSP). c) A subsystem´s behaviour is what it does. The behaviour may also be categorised as SFR-enforcing, SFR-supporting, or SFR-non-interfering. The behaviour of the subsystem is never categorised as more SFR-relevant than the category of the subsystem itself. For example, an SFR-enforcing subsystem can have SFR-enforcing behaviour as well as SFR-supporting or SFR-non-interfering behaviour. d) A behaviour summary of a subsystem is an overview of the actions it performs (e.g. “The TCP subsystem assembles IP datagrams into reliable byte streams”). e) A behaviour description of a subsystem is an explanation of everything it does. This description should be at a level of detail that one can readily determine whether the behaviour has any relevance to the enforcement of the SFRs. f) A description of interactions among or between subsystems or modules identifies the reason that subsystems or modules communicate and characterizes the information that is passed. It need not define the information to the same level of detail as an interface specification. For example, it would be sufficient to say “subsystem X requests a block of memory from the memory manager, which responds with the location of the allocated memory. g) A description of interfaces provides the details of how the interactions among modules are achieved. Rather than describing the reason the modules are communicating or the purpose of their communication (i.e. the description of interactions), the description of interfaces describes the details of how that communication is accomplished, in terms of the structure and contents of the messages, semaphores, internal process communications. h) The purpose describes how a module provides their functionality. It provides sufficient detail that no further design decisions are needed. The correspondence between the implementation representation that implements the module, and the purpose of the module should be readily apparent. i) A module is otherwise described in terms of whatever is identified in the element. Subsystems and modules, and “SFR-enforcing” are all further explained in greater detail in A.4, ADV_TDS: Subsystems and Modules.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-028">1.28 ADV_COMP Composite design compliance <small>AFML-028</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-004">ACC-004 ADV Development</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-049">ACOM-049 ADV_COMP.1 Design compliance with the base component-related user guidance, ETR for composite evaluation and report of the base component evaluation authority</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The aim of this family is to determine whether the requirements on the dependent component, imposed by the related base component, are fulfilled in the composite product.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>This family contains only one component.</td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>The requirements on the dependent component, imposed by the related base component, can be formulated in the relevant base component-related user guidance, ETR for composite evaluation (in form of observations and recommendations) and report of the base component evaluation authority (e.g. in form of constraints and recommendations). The developer of the dependent component shall regard each of these sources, if available, and implement the dependent component in such a way that the applicable requirements are fulfilled. The composite product evaluator shall verify that all stipulations for the dependent component that are imposed by the base component and provided in its evaluation related documentation are fulfilled by the composite product, i.e. have been taken into account by the dependent component developer. The composite product evaluation sponsor shall ensure that the following is made available for the composite product evaluator: — the base component-related user guidance, — the base component-related ETR for composite evaluation prepared by the base component evaluator, — the report of the base component evaluation authority, — a rationale for secure composite product implementation including evidence prepared by the dependent component developer. The TSF of the composite product are represented at various levels of abstraction in the families of the development class ADV. From experience, the appropriate levels of design representation for examining, whether the requirements of the base component are fulfilled by the composite product, are the TOE design (ADV_TDS), security architecture (ADV_ARC) and the implementation (ADV_IMP). In case that, these design representation levels are not available (e.g. due to the assurance package chosen is EAL1), the current family is not applicable (see the next paragraph for the reason). Due to the definition of the composite product the interface between its base component and dependent component is the internal one, hence, a functional specification (ADV_FSP) as representation level is not appropriate for analysing the design compliance. November 2022 CC:2022 Page 97 of 211 Security architecture ADV_ARC as assurance family is dedicated to ensure that integrative security services like domain separation, self-protection and non-bypassability properly work. It is impossible and not the sense of the composite evaluation to have an insight into the architectural internals of the related base component (it is a matter of the base component evaluation). In the context of the ADV_ARC, the composite product evaluator shall: i. determine whether the dependent component uses services of the related base document within its own composite product ST to provide domain separation, self-protection, non-bypassability and protected start-up; if no, there are no further composite activities for ADV_ARC; if yes, then ii. the evaluator shall determine, whether the dependent component uses these services of the base component in an appropriate/secure way (please refer to the base component user guidance). As consistency of the composite product security policy has already been considered in the context of the ST in the assurance family ASE_COMP, there is no necessity to consider non-contradictoriness of the security policy model (ADV_SPM) of the composite product and the security policy model of its related base component.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-030">1.30 AGD_PRE Preparative procedures <small>AFML-030</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-005">ACC-005 AGD Guidance documents</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-051">ACOM-051 AGD_PRE.1 Preparative procedures</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>Preparative procedures are useful for ensuring that the TOE has been received and installed in a secure manner as intended by the developer. The requirements for preparation call for a secure transition from the delivered TOE to its initial operational environment. This includes investigating whether the TOE can be configured or installed in a manner that is insecure but that the user of the TOE would reasonably believe to be secure.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>This family contains only one component.</td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>It is recognized that the application of these requirements will vary depending on aspects, e.g. whether the TOE is delivered in an operational state, or whether it has to be installed at the TOE owner´s site. The first process covered by the preparative procedures is the consumer´s secure acceptance of the received TOE in accordance with the developer´s delivery procedures. If the developer has not defined delivery procedures, security of the acceptance has to be ensured otherwise. Installation of the TOE includes transforming its operational environment into a state that conforms to the security objectives for the operational environment provided in the ST. It can also be the case that no installation is necessary, for example a smart card. In this case it may be inappropriate to require and analyse installation procedures. The requirements in this assurance family are presented separately from those in the Operational user guidance (AGD_OPE) family, due to the infrequent, possibly one-time use of the preparative procedures.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-031">1.31 ALC_CMC CM capabilities <small>AFML-031</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-006">ACC-006 ALC Life-cycle support</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-052">ACOM-052 ALC_CMC.1 Labelling of the TOE</a>, <a href="ACOM.html#ACOM-053">ACOM-053 ALC_CMC.2 Use of the CM system</a>, <a href="ACOM.html#ACOM-054">ACOM-054 ALC_CMC.3 Authorization controls</a>, <a href="ACOM.html#ACOM-055">ACOM-055 ALC_CMC.4 Production support, acceptance procedures and automation</a>, <a href="ACOM.html#ACOM-056">ACOM-056 ALC_CMC.5 Advanced support</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>Configuration management (CM) techniques, properly defined as part of the development life-cycle model, contribute to the assurance argument that the TOE meets the SFRs. A CM system that is managed and operated correctly will help ensure the integrity of the portions of the TOE that are controlled, by providing a method of tracking any changes to the TOE, and to help ensure that all changes to the TOE are authorized. The objective of this family is to require the TOE developer´s CM system to have certain capabilities. These capabilities are intented to reduce the likelihood that accidental or unauthorised modifications of the configuration items will occur. The CM system should support maintaining the integrity of the TOE throughout the part of the TOE’s life-cycle that is under the control of the developer. The objective of introducing automated CM tools is to increase the effectiveness of the CM system. While both automated and manual CM systems can be bypassed, ignored, or proven insufficient to prevent unauthorised modification, automated systems are less susceptible to human error or negligence. The objectives of this family include the following: a) ensuring that the TOE is identifiable and complete before it is sent to the downstream user; b) ensuring that no configuration items are missed during evaluation; c) preventing unauthorised modification, addition, or deletion of TOE configuration items.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>The components in this family are levelled on the basis of the CM system capabilities, the scope of the CM documentation and the evidence provided by the developer.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>In the case where the TOE is a subset of a product, the requirements of this family apply only to the TOE configuration items, not to the product as a whole. For developer organizations that specify more than one CM application or include different instances of a CM application within the scope of the TOEs design, development, production and maintenance, it is required to document all of them. For evaluation purposes, the set of CM applications should be regarded as parts of an overall CM system, applicable to the TOE, which is addressed in the criteria. The overall CM system should address any aspects of integration between component CM applications. Several elements of this family refer to configuration items. These elements identify CM requirements to be imposed on all items identified in the configuration list, but leave the contents of the list to the discretion of the developer. CM scope (ALC_CMS) can be used to narrow this discretion by identifying specific items that must be included in the configuration list, and hence within the scope of the overall CM system. ALC_CMC.2.3C introduces a requirement that the CM system uniquely identify all configuration items. This also requires that modifications to configuration items result in a new, unique identifier being assigned to the configuration item. ALC_CMC.3.8C introduces the requirement that the evidence shall demonstrate that the CM system operates in accordance with the CM plan. Examples of such evidence can be documentation such as screen snapshots or audit trail output from the CM system, or a detailed demonstration of the CM system by the developer. The evaluator is responsible for determining that this evidence is sufficient to show that the CM system operates in accordance with the CM plan. ALC_CMC.4.5C introduces a requirement that the CM system provide an automated means to support the production of the TOE. This requires that the CM system provide an automated means to assist in determining that the correct configuration items are used in generating the TOE. ALC_CMC.5.10C introduces a requirement that the CM system provide an automated means to ascertain the changes between the TOE and its preceding version. If no previous version of the TOE exists, the developer still needs to provide an automated means to ascertain the changes between the TOE and a future version of the TOE.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-033">1.33 ALC_DEL Delivery <small>AFML-033</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-006">ACC-006 ALC Life-cycle support</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-062">ACOM-062 ALC_DEL.1 Delivery procedures</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The concern of this family is the secure transfer of the finished TOE from the development environment into the responsibility of the user. The requirements for delivery call for system control and distribution facilities and procedures that detail the controls necessary to provide assurance that the security of the TOE is maintained during distribution of the TOE to the user. For a valid distribution of the TOE, the procedures used for the distribution of the TOE address the implied or identified objectives identified in the PP/ST relating to the security of the TOE during delivery.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>This family contains only one component. An increasing level of protection for the TOE is established by requiring that the delivery procedures are commensurate with the assumed attack potential in the family Vulnerability analysis (AVA_VAN) specified in the ST.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>Transfers from subcontractors to the developer or between different development sites are not considered here, but in the family Developer environment security (ALC_DVS). The end of the delivery phase is marked by the acceptance of the transfer of the TOE into the responsibility of the downstream user. NOTE: This does not necessarily coincide with the arrival of the TOE at the downstream user´s location. The delivery procedures should consider, if applicable, issues such as: a) ensuring that the TOE received by the consumer corresponds precisely to the evaluated version of the TOE; b) avoiding or detecting any tampering with the actual version of the TOE; c) preventing submission of a counterfeit version of the TOE; d) avoiding unwanted knowledge of distribution of the TOE to the consumer: there can be cases where potential attackers should not know when and how it is delivered; e) avoiding or detecting the TOE being intercepted during delivery; and f) avoiding the TOE being delayed or stopped during distribution. The delivery procedures should include the recipient´s actions implied by these issues. The consistent description of these implied actions is examined in the Preparative procedures (AGD_PRE) family, if present.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-034">1.34 ALC_DVS Developer environment security <small>AFML-034</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-006">ACC-006 ALC Life-cycle support</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-063">ACOM-063 ALC_DVS.1 Identification of security controls</a>, <a href="ACOM.html#ACOM-064">ACOM-064 ALC_DVS.2 Sufficiency of security controls</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>Development security is concerned with the determination and specification of security controls relating to the developer provided environment. NOTE: Such controls include coverage of security relevant aspects of asset management, human resources security, physical and environmental security, communications and operations management, access control, information systems acquisition, development and maintenance, information security incident management, and business continuity management.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>The components in this family are levelled on the basis of whether justification of the sufficiency of the security controls is required.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>This family deals with controls to remove or reduce threads and security risks existing at the developer´s site. The evaluator should visit the site(s) in order to assess evidence for development security. This may include sites of subcontractors involved in the TOE development and production. Any decision not to visit shall be agreed with the evaluation authority. Although development security deals with the maintenance of the TOE and hence with aspects becoming relevant after the completion of the evaluation, the Developer environment security (ALC_DVS) requirements specify only that the development security controls be in place at the time of evaluation. Furthermore, Developer environment security (ALC_DVS) does not contain any requirements related to the sponsor´s intention to apply the development security controls in the future, after completion of the evaluation. It is recognized that confidentiality may not always be an issue for the protection of the TOE in its development environment. The use of the word “necessary” allows for the selection of appropriate safeguards.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-035">1.35 ALC_FLR Flaw remediation <small>AFML-035</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-006">ACC-006 ALC Life-cycle support</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-065">ACOM-065 ALC_FLR.1 Basic flaw remediation</a>, <a href="ACOM.html#ACOM-066">ACOM-066 ALC_FLR.2 Flaw reporting procedures</a>, <a href="ACOM.html#ACOM-067">ACOM-067 ALC_FLR.3 Systematic flaw remediation</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>Flaw remediation requires that discovered security flaws be tracked and corrected by the developer. Although future compliance with flaw remediation procedures cannot be determined at the time of the TOE evaluation, it is possible to evaluate the policies and procedures that a developer has in place to track and correct flaws, and to distribute the flaw information and corrections.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>The components in this family are levelled on the basis of the increasing extent in scope of the flaw remediation procedures and the rigour of the flaw remediation policies.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>This family provides assurance that the TOE will be maintained and supported in the future, requiring the TOE developer to track and correct flaws in the TOE. Additionally, requirements are included for the distribution of flaw corrections. However, this family does not impose evaluation requirements beyond the current evaluation. The TOE user is considered to be the focal point in the user organization that is responsible for receiving and implementing fixes to security flaws. This is not necessarily an individual user, but may be an organisational representative who is responsible for the handling of security flaws. The use of the term TOE user recognizes that different organisations have different procedures for handling flaw reporting, which may be done either by an individual user, or by a central administrative body. The flaw remediation procedures should describe the methods for dealing with all types of flaws encountered. These flaws may be reported by the developer, by users of the TOE, or by other parties with familiarity with the TOE. Some flaws may not be reparable immediately. There may be some occasions where a flaw cannot be fixed and other (e.g. procedural) controls must be taken. The documentation provided should cover the procedures for providing the operational sites with fixes and providing information on flaws where fixes are delayed (and what to do in the interim) or when fixes are not possible. Changes applied to a TOE after its release render it unevaluated; although some information from the original evaluation may still apply. The phrase “release of the TOE” used in this family therefore refers to a version of a product that is a release of a certified TOE, to which changes have been applied.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-036">1.36 ALC_LCD Development Life-cycle definition <small>AFML-036</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-006">ACC-006 ALC Life-cycle support</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-068">ACOM-068 ALC_LCD.1 Developer defined life-cycle processes</a>, <a href="ACOM.html#ACOM-069">ACOM-069 ALC_LCD.2 Measurable life-cycle model</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>Poorly defined or uncontrolled processes applied during the development, production and maintenance of the TOE can result in a TOE that does not meet all of its security objectives. Therefore, it is important that well defined and controlled processes be established as early as possible in the TOE´s life-cycle. Defining and implementing such processes does not guarantee that the TOE meets all of its SFRs. It is possible that the processes will be insufficient or inadequate. Adopting a life-cycle model, or models that meets the needs of the developer’s organization will improve the likelihood that the development, production and maintenance processes applied to TOE support the correct design and implementation of a TOE that meets the specified SFRs. The determination of appropriate process controls in order to support process improvement is a long-established best practice.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>The components in this family are levelled on the basis of increasing requirements for measurability of the life-cycle model, and for compliance with that model.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>A life-cycle model encompasses the procedures, tools and techniques used to develop and maintain the TOE. Aspects of the process that may be covered by such a model include design methods, review procedures, project management controls, change control procedures, test methods and acceptance procedures. An effective life-cycle model will address these aspects of the development and maintenance process within an overall management structure that assigns responsibilities and monitors progress. There are different types of acceptance situations that are dealt with at different locations in the criteria: — acceptance of parts delivered by subcontractors (“integration”) should be treated in this family, — Life-cycle definition (ALC_LCD), — acceptance subsequent to internal transportations in Development security (ALC_DVS), — acceptance of parts into the CM system in CM capabilities (ALC_CMC), and — acceptance of the delivered TOE by the consumer in Delivery (ALC_DEL). The first three types may overlap. Although life-cycle definition deals with the maintenance of the TOE and hence with aspects becoming relevant after the completion of the evaluation, its evaluation adds assurance through an analysis of the life-cycle information for the TOE provided at the time of the evaluation. A life-cycle model provides for the necessary control over the development and maintenance of the TOE, if the model enables sufficient minimization of the danger that the TOE will not meet its security requirement. A measurable life-cycle model is a model using some quantitative valuation (arithmetic parameters and/or metrics) of the managed product in order to measure development properties of the product. Typical metrics are source code complexity metrics, defect density (errors per size of code) or mean time to failure. For the security evaluation all those metrics are of relevance, which are used to increase quality by decreasing the probability of faults and thereby in turn increasing assurance in the security of the TOE. One should take into account that there exist standardised life-cycle models on the one hand (like the waterfall model) and standardised metrics on the other hand (like error density), which may be combined. The CC does not require the life-cycle to follow exactly one standard defining both aspects.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-037">1.37 ALC_TDA TOE Development Artefacts <small>AFML-037</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-006">ACC-006 ALC Life-cycle support</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-070">ACOM-070 ALC_TDA.1 Uniquely identifying implementation representation</a>, <a href="ACOM.html#ACOM-071">ACOM-071 ALC_TDA.2 Matching CMS scope of implementation representation</a>, <a href="ACOM.html#ACOM-072">ACOM-072 ALC_TDA.3 Regenerate TOE with well-defined development tools</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>This family aims to add trust to the development process or a development. It focuses on the generation of certain artefacts in the development process. These artefacts are used at a later point in time to assess the degree to which the development process is trustable. This trust is realized through the validation of the generated artefacts for confirming them as sufficient evidence for trustable development. This family introduces developer practices within the development process to generate the required artefacts for realizing trustable development. If a requirement in this family does not explicitly specify the use of automation to generate the required artefacts, the developer is free to undertake the corresponding practice manually, or to use some integrated automation in the development process, or to use a hybrid method of both. It is expected that the degree of trust in the development process is proportional to the degree of automation adoption to implement the corresponding practice in the development process. This family also has a relationship with the ALC_TAT family. As ALC_TAT focuses on the tools and techniques aspect for developing, analysing, and implementing the TOE, it provides the necessary context when describing the practices of this family being introduced into the development process.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>The components in this family are levelled on the basis of increasing cross-checking for consistency with relevant evidence from components of other families of other security assurance classes.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>The requirements in ALC_TDA.1 provide a degree of trust in the developer’s ability to identify the set of implementation representation which actually has been used during the TOE generation time. This degree of trust helps to positively answer the question “is that really the source code for this software” or “is that really the register-transfer level (RTL) design or description for this integrated circuit hardware”” or “is that really the set of implementation representation for this TOE”, which is potentially relevant in an evaluation. Such degree of trust is built on a) the timing of when the set of implementation representation identifiers is recorded or logged, b) the integrity and authenticity of the record of implementation representation identifiers, and c) the traceability of implementation representation identifiers from the TOE. In the case where some implementation representation elements are also covered in the configuration list due to ALC_CMS.3, the requirements in ALC_TDA.2 make sure that these implementation representation elements actually are identifiable through the use of the implementation representation identifiers of ALC_TDA.1. With the accurate recording or logging of the actual implementation representation being used by the development tools under the scope of ALC_TAT, it provides an additional evidence to convince a third party that a regeneration of the TOE is functionally equivalent to the original TOE. The requirements in ALC_TDA.3 provide the developer an opportunity to testify the absence of functional differences between the two possibly visibly different TOEs which have been independently generated from the identical set of implementation representation.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-038">1.38 ALC_TAT Tools and techniques <small>AFML-038</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-006">ACC-006 ALC Life-cycle support</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-073">ACOM-073 ALC_TAT.1 Well-defined development tools</a>, <a href="ACOM.html#ACOM-074">ACOM-074 ALC_TAT.2 Compliance with implementation standards</a>, <a href="ACOM.html#ACOM-075">ACOM-075 ALC_TAT.3 Compliance with implementation standards - all parts</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>Tools and techniques is an aspect of selecting tools that are used to develop, analyse and implement the TOE. It includes requirements to prevent ill-defined, inconsistent or incorrect development tools from being used to develop the TOE. This includes, but is not limited to, programming languages, documentation, implementation standards, and other parts of the TOE such as supporting runtime libraries.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>The components in this family are levelled on the basis of increasing requirements on the description and scope of the implementation standards and the documentation of implementation-dependent options.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>There is a requirement for well-defined development tools. These are tools that are clearly and completely described. For example, programming languages and computer aided design (CAD) systems that are based on a standard published by standards bodies are considered to be well-defined. Self-made tools would need further investigation to clarify whether they are well-defined. The requirement in ALC_TAT.1.2C is especially applicable to programming languages so as to ensure that all statements in the source code have an unambiguous meaning. In ALC_TAT.2 and ALC_TAT.3, implementation guidelines may be accepted as an implementation standard if they have been approved by some group of experts (e.g. academic experts, standards bodies). Implementation standards are normally public, well accepted and common practise in a specific industry, but developer-specific implementation guidelines may also be accepted as a standard; the emphasis is on the expertise. Tools and techniques distinguishes between the implementation standards applied by the developer (ALC_TAT.2.3D) and the implementation standards for “all parts of the TOE” (ALC_TAT.3.3D) which include third party software, hardware, or firmware. The configuration list introduced in CM scope (ALC_CMS) requires that for each TSF relevant configuration item to indicate if it has been generated by the TOE developer or by third party developers</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-039">1.39 ALC_COMP Integration of composition parts and consistency check of delivery procedures <small>AFML-039</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-006">ACC-006 ALC Life-cycle support</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-076">ACOM-076 ALC_COMP.1 Integration of the dependent component into the related base component and Consistency check for delivery and acceptance procedures</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The aim of this family is to determine whether — the correct version of the dependent component is installed onto / embedded into the correct version of the related base component, and — the preparative guidance procedures of the base component developer and the dependent component developer are compatible with the acceptance procedures of the composite product integrator.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>This family contains only one component.</td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>The composite product evaluator shall verify that the correct version of the dependent component under evaluation has been installed onto / embedded into the evaluated version of the related base component of the composite product. The composite product evaluation sponsor shall ensure that appropriate evidence generated by the composite product integrator is available for the composite product evaluator. This evidence may include, amongst other, the configuration list of the base component developer (e.g. provided within his acknowledgement statement). The composite product evaluator shall verify that the delivery procedures of the base component developer and the dependent component developer are compatible with the acceptance procedures used by the composite product integrator. The composite product evaluator shall verify that all configuration parameters prescribed by the base component developer and the dependent component developer (e.g. pre-personalization data, pre-personalisation scripts) are used by the composite product integrator. The composite product evaluation sponsor shall ensure that appropriate evidence generated by the composite product integrator is available for the composite product evaluator. This evidence may include, amongst other, the element of evidence for the dependent component reception, acceptance and parameterisation by the base component developer (e.g. in form of his acknowledgement statement).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-041">1.41 ATE_DPT Depth <small>AFML-041</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-007">ACC-007 ATE Tests</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-080">ACOM-080 ATE_DPT.1 Testing: basic design</a>, <a href="ACOM.html#ACOM-081">ACOM-081 ATE_DPT.2 Testing: security enforcing modules</a>, <a href="ACOM.html#ACOM-082">ACOM-082 ATE_DPT.3 Testing: modular design</a>, <a href="ACOM.html#ACOM-083">ACOM-083 ATE_DPT.4 Testing: implementation representation</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The components in this family deal with the level of detail to which the TSF is tested by the developer. Testing of the TSF is based upon increasing depth of information derived from additional design representations and descriptions (TOE design, implementation representation, and security architecture description). The objective is to counter the risk of missing an error in the development of the TOE. Testing that exercises specific internal interfaces can provide assurance not only that the TSF exhibits the desired external security behaviour, but also that this behaviour stems from correctly operating internal functionality.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>The components in this family are levelled on the basis of increasing detail provided in the TSF representations, from the TOE design to the implementation representation. This levelling reflects the TSF representations presented in the ADV class.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>The TOE design describes the internal components (e.g. subsystems) and, perhaps, modules of the TSF, together with a description of the interfaces among these components and modules. Evidence of testing of this TOE design must show that the internal interfaces have been exercised and seen to behave as described. This may be achieved through testing via the external interfaces of the TSF, or by testing of the TOE subsystem or module interfaces in isolation, perhaps employing a test harness. In cases where some aspects of an internal interface cannot be tested via the external interfaces, there should either be justification that these aspects need not be tested, or the internal interface needs to be tested directly. In the latter case the TOE design needs to be sufficiently detailed in order to facilitate direct testing. In cases where the description of the TSF´s architectural soundness [in Security Architecture (ADV_ARC)] cites specific mechanisms, the tests performed by the developer must show that the mechanisms have been exercised and seen to behave as described. At the highest component of this family, the testing is performed not only against the TOE design, but also against the implementation representation.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-042">1.42 ATE_FUN Functional tests <small>AFML-042</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-007">ACC-007 ATE Tests</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-084">ACOM-084 ATE_FUN.1 Functional testing</a>, <a href="ACOM.html#ACOM-085">ACOM-085 ATE_FUN.2 Ordered functional testing</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>Functional testing performed by the developer provides assurance that the tests in the test documentation are performed and documented correctly. The correspondence of these tests to the design descriptions of the TSF is achieved through the Coverage (ATE_COV) and Depth (ATE_DPT) families. This family contributes to providing assurance that the likelihood of undiscovered flaws is relatively small. The families Coverage (ATE_COV), Depth (ATE_DPT) and Functional tests (ATE_FUN) are used in combination to define the evidence of testing to be supplied by a developer. Independent functional testing by the evaluator is specified by Independent testing (ATE_IND).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>This family contains two components, the higher requiring that ordering dependencies are analysed.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>Procedures for performing tests are expected to provide instructions for using test programs and test suites, including the test environment, test conditions, test data parameters and values. The test procedures should also show how the test results are derived from the test inputs. Ordering dependencies are relevant when the successful execution of a particular test depends upon the existence of a particular state. For example, this can require that test A be executed immediately before test B, since the state resulting from the successful execution of test A is a prerequisite for the successful execution of test B. Thus, failure of test B can be related to a problem with the ordering dependencies. In the above example, test B can fail because test C (rather than test A) was executed immediately before it, or the failure of test B can be related to a failure of test A.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-043">1.43 ATE_IND Independent testing <small>AFML-043</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-007">ACC-007 ATE Tests</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-086">ACOM-086 ATE_IND.1 Independent testing - conformance</a>, <a href="ACOM.html#ACOM-087">ACOM-087 ATE_IND.2 Independent testing - sample</a>, <a href="ACOM.html#ACOM-088">ACOM-088 ATE_IND.3 Independent testing - complete</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The objectives of this family are built upon the assurances achieved in the ATE_FUN, ATE_COV, and ATE_DPT families by verifying the developer testing and performing additional tests by the evaluator.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>Levelling is based upon the amount of developer test documentation and test support and the amount of evaluator testing.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>This family deals with the degree to which there is independent functional testing of the TSF. Independent functional testing may take the form of repeating the developer´s functional tests (in whole or in part) or of extending the scope or the depth of the developer´s tests. These activities are complementary, and an appropriate mix must be planned for each TOE, which takes into account the availability and coverage of test results, and the functional complexity of the TSF. Sampling of developer tests is intended to provide confirmation that the developer has carried out his planned test programme on the TSF and has correctly recorded the results. The size of sample selected will be influenced by the detail and quality of the developer´s functional test results. The evaluator will also need to consider the scope for devising additional tests, and the relative benefit that may be gained from effort in these two areas. It is recognized that repetition of all developer tests may be feasible and desirable in some cases, but may be very arduous and less productive in others. The highest component in this family should therefore be used with caution. Sampling will address the whole range of test results available, including those supplied to meet the requirements of both Coverage (ATE_COV) and Depth (ATE_DPT). There is also a need to consider the different configurations of the TOE that are included within the evaluation. The evaluator will need to assess the applicability of the results provided, and to plan his own testing accordingly. The suitability of the TOE for testing is based on the access to the TOE, and the supporting documentation and information required (including any test software or tools) to run tests. The need for such support is addressed by the dependencies to other assurance families. Additionally, suitability of the TOE for testing may be based on other considerations. For example, the version of the TOE submitted by the developer may not be the final version. The term interfaces refers to interfaces described in the functional specification and TOE design, and parameters passed through invocations identified in the implementation representation. The exact set of interfaces to be used is selected through Coverage (ATE_COV) and the Depth (ATE_DPT) components. References to a subset of the interfaces are intended to allow the evaluator to design an appropriate set of tests which is consistent with the objectives of the evaluation being conducted.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-044">1.44 ATE_COMP Composite functional testing <small>AFML-044</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-007">ACC-007 ATE Tests</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-089">ACOM-089 ATE_COMP.1 Composite product functional testing</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The aim of this family is to determine whether the composite product as a whole exhibits the properties necessary to satisfy the functional requirements of its composite product ST.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>This family contains only one component.</td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>A composite product can be tested by testing its components separately and by testing the integrated product. Separate testing means that its base component and its dependent component are being tested independently of each other. A lot of tests of the base component may have been performed within the scope of its accomplished evaluation. The dependent component may be tested on a simulator or an emulator, which represent a virtual machine. Integration testing means that the composite product is being tested as it is: the dependent component is running together with the related base component. Some dependent component functionality testing can only be performed on emulators, before its embedding/integration onto the base component, as effectiveness of this testing may not be visible using the interfaces of the composite product. Nevertheless, functional testing of the composite product shall be performed also on composite product samples according to the description of the security functions of the composite product and using the standard approach as required by the relevant ATE assurance class. No additional developer’s action is required here. Since the amount, the coverage and the depth of the functional tests of the base component have already been validated by the base component evaluation, it is not necessary to re-perform these tasks in the composite evaluation. Please note that the ETR for composite evaluation does not provide any information on functional testing for the base component. The behaviour of implementation of some SFRs can depend on properties of the base component as well as on the dependent component (e.g. correctness of the measures of the composite product to withstand a side channel attack or correctness of the implementation of tamper resistance against physical attacks). In such case the SFR implementation shall be tested on the final composite product, but not on a simulator or an emulator. This family focuses exclusively on testing of the composite product as a whole and represents merely partial efforts within the general test approach being covered by the assurance class ATE. These integration tests shall be specified and performed, whereby the approach of the standard assurance families of the class ATE shall be applied. The composite product evaluation sponsor shall ensure that the following is available for the composite product evaluator: — composite product samples suitable for testing.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-045">1.45 AVA_VAN Vulnerability analysis <small>AFML-045</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-008">ACC-008 AVA Vulnerability assessment</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-090">ACOM-090 AVA_VAN.1 Vulnerability survey</a>, <a href="ACOM.html#ACOM-091">ACOM-091 AVA_VAN.2 Vulnerability analysis</a>, <a href="ACOM.html#ACOM-092">ACOM-092 AVA_VAN.3 Focused vulnerability analysis</a>, <a href="ACOM.html#ACOM-093">ACOM-093 AVA_VAN.4 Methodical vulnerability analysis</a>, <a href="ACOM.html#ACOM-094">ACOM-094 AVA_VAN.5 Advanced methodical vulnerability analysis</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>Vulnerability analysis is an assessment to determine whether potential vulnerabilities identified, during the evaluation of the development and anticipated operation of the TOE or by other methods (e.g. by flaw hypotheses or quantitative or statistical analysis of the security behaviour of the underlying security mechanisms), can allow attackers to violate the SFRs. Vulnerability analysis deals with the threats that an attacker will be able to discover flaws that will allow unauthorised access to data and functionality, allow the ability to interfere with or alter the TSF, or interfere with the authorized capabilities of other users. In case of a multi-assurance evaluation the vulnerability analysis shall assess the defined sub-TSF as well as the TOE as a whole.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>Levelling is based on an increasing rigour of vulnerability analysis by the evaluator and increased levels of attack potential required by an attacker to identify and exploit the potential vulnerabilities.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-046">1.46 AVA_COMP Composite vulnerability assessment <small>AFML-046</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-008">ACC-008 AVA Vulnerability assessment</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-095">ACOM-095 AVA_COMP.1 Composite product vulnerability assessment</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The aim of this family is to determine the exploitability of flaws or weaknesses in the composite product as a whole in the intended environment.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>This family contains only one component.</td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>This family focuses exclusively on the vulnerability assessment of the composite product as a whole and represents merely partial efforts within the general approach being covered by the standard, i.e. as defined by the CEM, assurance family of the class AVA: AVA_VAN. The composite product evaluator shall perform a vulnerability analysis for the composite product using, amongst other, the results of the base component evaluation. This vulnerability analysis shall be confirmed by penetration testing. The composite product evaluator shall check that the confidentiality protection of the dependent component embedded into/installed onto the base component is consistent with the confidentiality level claimed by the dependent component developer for ALC_DVS. In special cases, the vulnerability analysis and the definition of attacks can be difficult, need considerable time and require extensive pre-testing, if only documentation is available. The base component may also be used in a way that was not foreseen by the base component developer and the base component evaluator, or the dependent component developer may not have followed the stipulations provided with the base component. Different possibilities exist to shorten composite product vulnerability analysis in such cases: E.g. the composite product evaluator may consult the base component evaluator and draw on his experience gained during the base component evaluation. Alternatively, an approach aiming on the separation of vulnerabilities of the dependent component and the base component by using specific test samples of the base component on which the composite product evaluator may load test dependent components on his own discretion. The intention hereby is to use test dependent components without countermeasures and without deactivating any base component inherent countermeasure. The results of the vulnerability assessment for the base component of the composite product represented in the ETR for composite evaluation can be re-used under the following conditions: they are up-to-date and all composite activities for correctness – ASE_COMP.1, ALC_COMP.1, ADV_COMP.1 and ATE_COMP.1 – are finalised with the verdict PASS. Due to composing of the base component and the dependent component a new quality arises, which may cause additional vulnerabilities of the base component which might be not mentioned in the ETR for composite evaluation. In these circumstances the composite product evaluation authority may require a re-assessment or re-evaluation of the base component focusing on the new vulnerabilities’ issues. The composite product evaluation sponsor shall ensure that the following is made available for the composite product evaluator: — the base component-related user guidance, — the base component-related ETR for composite evaluation prepared by the base component evaluator, — the report of the base component evaluation authority.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-047">1.47 ACO_COR Composition rationale <small>AFML-047</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-009">ACC-009 ACO Composition</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-096">ACOM-096 ACO_COR.1 Composition rationale</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>This family addresses the requirement to demonstrate that the base component can provide an appropriate level of assurance for use in composition.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>There is only a single component in this family.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-048">1.48 ACO_DEV Development evidence <small>AFML-048</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-009">ACC-009 ACO Composition</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-097">ACOM-097 ACO_DEV.1 Functional Description</a>, <a href="ACOM.html#ACOM-098">ACOM-098 ACO_DEV.2 Basic evidence of design</a>, <a href="ACOM.html#ACOM-099">ACOM-099 ACO_DEV.3 Detailed evidence of design</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>This family sets out requirements for a specification of the base component in increasing levels of detail. Such information is required to gain confidence that the appropriate security functionality is provided to support the requirements of the dependent component (as identified in the reliance information).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>The components are levelled on the basis of increasing amounts of detail about the interfaces provided, and how they are implemented.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>The TSF of the base component is often defined without knowledge of the dependencies of the possible applications with which it may by composed. The TSF of this base component is defined to include all parts of the base component that have to be relied upon for enforcement of the base component SFRs. This will include all parts of the base component required to implement the base component SFRs. The functional specification of the base component will describe the TSFI in terms of the interfaces the base component provides to allow an external entity to invoke operations of the TSF. This includes interfaces to the human user to permit interaction with the operation of the TSF invoking SFRs and also interfaces allowing an external IT entity to make calls into the TSF. The functional specification only provides a description of what the TSF provides at its interface and the means by which that TSF functionality are invoked. Therefore, the functional specification does not necessarily provide a complete interface specification of all possible interfaces available between an external entity and the base component. It does not include what the TSF expects/requires from the operational environment. The description of what a dependent component TSF relies upon of a base component is considered in Reliance of dependent component (ACO_REL) and the development information evidence provides a response to the interfaces specified. The development information evidence includes a specification of the base component. This may be the evidence used during evaluation of the base component to satisfy the ADV requirements, or may be another form of evidence produced by either the base component developer or the composed TOE developer. This specification of the base component is used during Development evidence (ACO_DEV) to gain confidence that the appropriate security functionality is provided to support the requirements of the dependent component. The level of detail required of this evidence increases to reflect the level of required assurance in the composed TOE. This is expected to broadly reflect the increasing confidence gained from the application of the assurance packages to the components. The evaluator determines that this description of the base component is consistent with the reliance information provided for the dependent component.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-049">1.49 ACO_REL Reliance of dependent component <small>AFML-049</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-009">ACC-009 ACO Composition</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-100">ACOM-100 ACO_REL.1 Basic reliance information</a>, <a href="ACOM.html#ACOM-101">ACOM-101 ACO_REL.2 Reliance information</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>The purpose of this family is to provide evidence that describes the reliance that a dependent component has upon the base component. This information is useful to persons responsible for integrating the component with other evaluated IT components to form the composed TOE, and for providing insight into the security properties of the resulting composition. This provides a description of the interface between the dependent and base components of the composed TOE that may not have been analysed during evaluation of the individual components, as the interfaces were not TSFIs of the individual component TOEs.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>The components in this family are levelled according to the amount of detail provided in the description of the reliance by the dependent component upon the base component.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>The Reliance of dependent component (ACO_REL) family considers the interactions between the components where the dependent component relies upon a service from the base component to support the operation of security functionality of the dependent component. The interfaces into these services of the base component may not have been considered during evaluation of the base component because the service in the base component was not considered security-relevant in the component evaluation, either because of the inherent purpose of the service (e.g. adjust type font) or because associated CC Part 2 SFRs are not being claimed in the base component´s ST (e.g. the login interface when no FIA: Identification and authentication SFRs are claimed). These interfaces into the base component are often viewed as functional interfaces in the evaluation of the base component, and are in addition to the security interfaces (TSFI) considered in the functional specification. In summary, the TSFIs described in the functional specification only include the calls made into a TSF by external entities and responses to those calls. Calls made by a TSF, which were not explicitly considered during evaluation of the components, are described by the reliance information provided to satisfy Reliance of dependent component (ACO_REL).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-050">1.50 ACO_CTT Composed TOE testing <small>AFML-050</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-009">ACC-009 ACO Composition</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-102">ACOM-102 ACO_CTT.1 Interface testing</a>, <a href="ACOM.html#ACOM-103">ACOM-103 ACO_CTT.2 Rigorous interface testing</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>This family requires that testing of composed TOE and testing of the base component, as used in the composed TOE, is performed.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>The components in this family are levelled on the basis of increasing rigour of interface testing and increasing rigour of the analysis of the sufficiency of the tests to demonstrate that the composed TSF operates in accordance with the reliance information and the composed TOE SFRs.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>There are two distinct aspects of testing associated with this family: a) testing of the interfaces between the base component and the dependent component, which the dependent component rely upon for enforcement of security functionality, to demonstrate their compatibility; b) testing of the composed TOE to demonstrate that the TOE behaves in accordance with the SFRs for the composed TOE. If the test configurations used during evaluation of the dependent component included use of the base component as a “platform” and the test analysis sufficiently demonstrates that the TSF behaves in accordance with the SFRs, the developer need perform no further testing of the composed TOE functionality. However, if the base component was not used in the testing of the dependent component, or the configuration of either component varied, then the developer is to perform testing of the composed TOE. This may take the form of repeating the dependent component developer testing of the dependent component, provided this adequately demonstrates the composed TOE TSF behaves in accordance with the SFRs. The developer is to provide evidence of testing the base component interfaces used in the composition. The operation of base component TSFIs would have been tested as part of the ATE: Tests activities during evaluation of the base component. Therefore, provided the appropriate interfaces were included within the test sample of the base component evaluation and it was determined in Composition rationale (ACO_COR) that the base component is operating in accordance with the base component evaluated configuration, with all security functionality required by the dependent component included in the TSF, the evaluator action ACO_CTT.1.1E may be met through reuse of the base component ATE: Tests verdicts. If this is not the case, the base component interfaces used relevant to the composition that are affected by any variations to the evaluated configuration and any additional security functionally will be tested to ensure they demonstrate the expected behaviour. The expected behaviour to be tested is that described in the reliance information [reliance of dependent component (ACO_REL) evidence].</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="AFML-051">1.51 ACO_VUL Composition vulnerability analysis <small>AFML-051</small></h2>
+<p><em>Parent links:</em> <a href="ACC.html#ACC-009">ACC-009 ACO Composition</a></p>
+<p><em>Child links:</em> <a href="ACOM.html#ACOM-104">ACOM-104 ACO_VUL.1 Composition vulnerability review</a>, <a href="ACOM.html#ACOM-105">ACOM-105 ACO_VUL.2 Composition vulnerability analysis</a>, <a href="ACOM.html#ACOM-106">ACOM-106 ACO_VUL.3 Enhanced-Basic Composition vulnerability analysis</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectives</td>
+<td>This family calls for an analysis of vulnerability information available in the public domain and of vulnerabilities that may be introduced as a result of the composition.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CompLvl</td>
+<td>The components in this family are levelled on the basis of increasing scrutiny of vulnerability information from the public domain and independent vulnerability analysis.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>appNotes</td>
+<td>The developer will provide details of any residual vulnerabilities reported during evaluation of the components. These may be gained from the component developers or evaluation reports for the components. These will be used as inputs into the evaluator´s vulnerability analysis of the composed TOE in the operational environment. The operational environment of the composed TOE is examined to ensure that the assumptions and objectives for the component operational environment (specified in each component ST) are satisfied in the composed TOE. An initial analysis of the consistency of assumptions and objectives between the components and the composed TOE STs will have been performed during the conduct of the ASE activities for the composed TOE. However, this analysis is revisited with the knowledge acquired during the ACO_REL, ACO_DEV and the ACO_COR activities to ensure that, for example, assumptions of the dependent component that were addressed by the environment in the dependent component ST are not reintroduced as a result of composition (i.e. that the base component adequately addresses the assumptions of the dependent component ST in the composed TOE). A search by the evaluator for issues in each component will identify potential vulnerabilities reported in the public domain since completion of the evaluation of the components. Any potential vulnerabilities will then be subject to testing. If the base component used in the composed TOE has been the subject of assurance continuity activities since certification, the evaluator will consider during the composed TOE vulnerability analysis activities the changes made in base component.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="assets/doorstop/jquery.min.js"></script>
+<script src="assets/doorstop/bootstrap.min.js"></script>
+<script>
+    $(function() {
+        $("table").addClass("table");
+        $("nav ul").addClass("nav nav-stacked");
+        $("nav").affix();
+        $('body').scrollspy({
+          target: '.sidebar'
+        });
+        $("#main a").attr("target", "parent");
+
+  $(window).on('hashchange', function() {
+    $(window).scrollTop($(location.hash.toLowerCase()).offset().top);});
+  });
+</script>
+</body>
+</html>
+

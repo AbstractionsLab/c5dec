@@ -1,0 +1,17 @@
+active: true
+derived: false
+header: |
+  CCT class diagram
+level: 1.0
+links:
+- ARC003: null
+- ARC004: null
+normative: true
+ref: ''
+reviewed: null
+text: |
+  ## Diagram
+
+  The diagram below shows the class diagram of the Common Criteria Toolbox (CCT) of C5-DEC CAD.
+
+  ![CAD context diagram](assets/cct_class_diagram.png "C5-DEC CAD CCT class diagram")

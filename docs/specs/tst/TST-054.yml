@@ -1,0 +1,24 @@
+active: true
+authors: IVS
+derived: false
+expected_outcome: 'The expected outcomes described in the steps are observed'
+header: 'Generate default parts of an ETR document'
+level: 54
+links: []
+normative: true
+platform: Any of MacOS, Windows, GNU/Linux
+precondition: 'c5dec has been successfully installed'
+ref: ''
+release: beta
+reviewed: null
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Test steps
+  1. Run `c5dec etr -h`
+      - Expected output: a help information about the 'etr' command is displayed
+
+  2. Run `c5dec etr`
+      - Expected output: the files `Acronyms-table.md`, `CMC-analysis.qmd`, `DocStruct-table.md` and 
+      `Glossary-table.md` are created at `$C5DEC_ROOT/c5dec/assets/etr/output`
+verification_method: 'Test'

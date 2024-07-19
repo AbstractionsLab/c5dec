@@ -1,0 +1,24 @@
+active: true
+comments: 'Indicate in the CCT user manual the default available families.
+  UPDATE 18/07/2024: this issues is not considered a priority for the beta 
+  release as functionality does not get affected.'
+defect_category: '1'
+defect_description: Empty files are created even for invalid family names (see evidence file). 
+  A validation previous to generating the files would help.
+derived: false
+header: ''
+level: 21
+links:
+- TST-055: cVVpbx08m8QFUfH8wDPIRYv8nHD86EcEKNU1gYFZgIc=
+normative: true
+ref: ''
+references:
+- path: docs/specs/trb/assets/trb-021-ev.png
+  type: file
+reviewed: yekNOHb1q8cGQKqjU6bK1uz2zkBdCLMNa0eZAcRPzAo=
+test_date: 16-07-2024
+tester: IVS
+text: |
+  Test execution results for the test case (TST) referred in the parent link.
+  The files are generated, yet, many of them are empty as the default evaluation checklist was used.
+  Evidence is provided in the file referenced below. Note the generated file `sksdj-analysis.qmd`

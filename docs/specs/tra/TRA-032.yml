@@ -1,0 +1,16 @@
+active: true
+comments: Not implemented for the aplha release.
+defect_category: n/a
+defect_description: null
+derived: false
+header: ''
+level: 32.0
+links:
+- TST-032: UlPQ0eHgP1l1J5wkKIaKhnPxlheMl8sWjPk6MEWhZdA=
+normative: true
+ref: ''
+reviewed: ZwXlePCxi5Z7v8Y0oTfPl99UvESO1QSEERQh-MzjY94=
+test_date: 27-11-2023
+tester: IVS
+text: |
+  Test execution results for the TST in the parent link.

@@ -1,0 +1,17 @@
+active: true
+comments: The TUI works as expected. The reported defect affects the CLI.
+defect_category: '2'
+defect_description: |
+  The CLI crahses if an invalid component id is given. E.g.: `$ poetry run c5dec checklist -c evChck-tst-024 --id aco`
+derived: false
+header: ''
+level: 24.0
+links:
+- TST-024: oO07NQ7BNNe5awMmnVPh0UHDL7b9EITYXGTpqfneBN8=
+normative: true
+ref: ''
+reviewed: 6VBnVOkwoAbIAlePyANHWfk_GT-r5BpiS_4IOsKM9qo=
+test_date: 27-11-2023
+tester: IVS
+text: |
+  Test execution results for the TST in the parent link.

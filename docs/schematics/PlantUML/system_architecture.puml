@@ -1,0 +1,128 @@
+@startuml
+
+hide stereotype
+skinparam linetype ortho
+skinparam dpi 300
+skinparam nodesep 10
+skinparam ranksep 10
+skinparam {
+    DefaultTextAlignment center
+}
+skinparam map {
+    BackgroundColor lightblue
+    FontStyle italic
+}
+skinparam rectangle {
+    BackgroundColor<<LAYER>> CornflowerBlue
+    BackgroundColor<<LAYER3>> CornflowerBlue
+    BorderStyle<<LAYER3>> dashed
+    BackgroundColor<<L1COMP>> Yellow
+    BackgroundColor<<L1COMP3>> Yellow
+    BorderStyle<<L1COMP3>> dashed
+    BackgroundColor<<L2COMP>> LightGreen
+    BackgroundColor<<L3COMP>> Orange
+    BackgroundColor<<L3COMPExp>> Orange
+    BorderStyle<<L3COMPExp>> dashed
+    BackgroundColor<<L4COMP>> Beige
+}
+
+top to bottom direction
+together {
+rectangle "C5-DEC Cad Architecture" as all {
+    together "upper" {
+    rectangle "Front-end layer" <<LAYER>> as FrontEnd {
+        rectangle "Command-Line Interface (CLI)" <<L1COMP>> as CLI
+        rectangle "Textual User Interface (TUI)" <<L1COMP>> as TUI
+        rectangle "Open-source GUI\nVS Code, web browser, Zettlr" <<L1COMP3>> as GUI
+        
+        CLI -[hidden]right-> TUI 
+        TUI -[hidden]right-> GUI
+    }
+
+    rectangle "Core mission logic layer" <<LAYER>> as Core {
+        rectangle "SSDLC\nartifacts, design specs, REM, V&V" <<L2COMP>> as SSDLC
+        rectangle "CPSSA\nthreat modelling, risk management" <<L2COMP>> as CPSSA
+        rectangle "Crptography" <<L2COMP>> as CRYPTO
+        rectangle "PM" <<L2COMP>> as PM
+        rectangle "ISMS" <<L2COMP>> as ISMS
+        rectangle "CCT\nSFR and SAR DB, PP/ST/CEM assistant" <<L2COMP>> as CCT
+        rectangle "Transformer\nimport, export, publish, template engine" <<L2COMP>> as TRAFO
+
+        SSDLC -[hidden]down- CPSSA
+        SSDLC -[hidden]right- CRYPTO
+        CPSSA -[hidden]right- PM
+        PM -[hidden]right- ISMS
+        CRYPTO -[hidden]down- PM
+        CRYPTO -[hidden]right- CCT
+        CCT -[hidden]down- TRAFO
+    }
+
+    rectangle "Processing, Security & Intelligence layer ψ" <<LAYER>> as Psi {
+        rectangle "Mathematical\noptimization\nAI/ML, NLP, LLM\n" <<L3COMPExp>> as MATH
+        rectangle "Search\nFull-text,\nfilters, tag-based\n" <<L3COMP>> as SEARCH
+        rectangle "Graph\nVisualization,\n   properites   \n" <<L3COMP>> as GRAPH
+        rectangle "Security\nValidation,\nintegrity, crypto\n" <<L3COMP>> as SEC
+        rectangle "Simulation\nRes. planning,\ncost estimation\n" <<L3COMPExp>> as SIM
+
+        MATH -[hidden]right- SEARCH
+        SEARCH -[hidden]right- GRAPH
+        GRAPH -[hidden]right- SEC
+        SEC -[hidden]right- SIM
+    }
+    }
+    together "lower" {
+    rectangle "Foundations layer" <<LAYER>> as Foundation {
+        rectangle "Common\nFile system, utilities,helper classes/functions,\nlogging, exceptions" <<L4COMP>> as COMMON
+        rectangle "Settings\n  Project parameters, application configuration  \n" <<L4COMP>> as SETTINGS
+    }
+
+    rectangle "Data Layer\n          NoSQL, document-oriented and version controlled, based on open formats and specifications          \n(Markdown, XML, JSON, CSV, YAML, TOML, LaTeX, Makefile, Git, etc.)" <<LAYER>> as Data
+
+    rectangle "Collaborative web/cload-based software development platform layer\nGitHub, GitLab, Azure DevOps, BitBucket, GForge\n         (User management, authentication, authorization, access control, DevSecOps, sharing, CI/CD)          " <<LAYER3>> as Collab
+    }
+    }
+
+    hide Hidden
+    rectangle Hidden
+    FrontEnd -[hidden]down- Hidden
+    CLI -[hidden]down- SSDLC
+    GUI -[hidden]down- CCT
+    Core -[hidden]up- FrontEnd
+
+    CPSSA -[hidden]down- MATH
+    TRAFO -[hidden]down- SIM
+    PM -[hidden]down- GRAPH
+
+    Psi -[hidden]down- Foundation
+    SETTINGS -[hidden]down- Data
+    COMMON -[hidden]down- Data
+    Data -[hidden]down- Collab
+}
+
+!procedure $create_icon($node, $text, $font_size, $icon_color, $style, $bkg_color, $scale)
+  {{\nscale $scale\nleft to right direction\nskinparam BackgroundColor $bkg_color\nskinparam $node {\nBackgroundColor $icon_color\nFontSize $font_size\nBorderStyle $style\n}\n$node "$text"\n}}
+!endprocedure
+
+map Legend {
+    SSDLC => Secure Software Development Life Cycle
+    REM => Requirement Engineering & management
+    V&V => Verification and nValidation
+    CCT => Common Criteria Toolbox
+    CPSSA => Cyber-Physical System Security Analysis
+    PM => Project management
+    ISMS => Information Security Management System
+    $create_icon(rectangle, "          User-facing module         ", 15, yellow, normal, lightblue, "0.25") => User-facing Module
+    $create_icon(rectangle, "                   3rd party                 ", 15, yellow, dashed, lightblue, "0.25") => 3rd party
+    $create_icon(rectangle, "Independent functional module", 15, lightgreen, normal, lightblue, "0.25") => Independent functional module
+    $create_icon(rectangle, "          Planned <U+03C8> module         ", 15, orange, normal, lightblue, "0.25") => Planned ψ module
+    $create_icon(rectangle, "     Experimental Low-priority    ", 15, orange, Dashed, lightblue, "0.25") => Experimental Low-priority
+    $create_icon(rectangle, "Shared and glue code & config", 15, beige, normal, lightblue, "0.25") => Shared and glue code & config
+    $create_icon(rectangle, "         Third-party software         ", 15, cornflowerblue, dashed, lightblue, "0.25") => Third-party software
+}
+
+all -[norank]- Legend
+FrontEnd -[hidden]right- Legend
+Core -[hidden]right- Legend
+Psi -[hidden]right- Legend
+
+@enduml

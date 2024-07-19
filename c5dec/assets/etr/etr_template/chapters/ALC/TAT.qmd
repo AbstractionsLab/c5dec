@@ -1,0 +1,19 @@
+## Tools and techniques: well-defined development tools (ALC_TAT.1) {#sec-tat}
+
+Tools and techniques is an aspect of selecting tools that are used to develop, analyse and implement the TOE. It includes requirements to prevent ill-defined, inconsistent or incorrect development tools from being used to develop the TOE. This includes, but is not limited to, programming languages, documentation, implementation standards, and other parts of the TOE such as supporting runtime libraries.
+
+The use of well-defined development tools and the application of implementation standards by all parties involved in the development process help to ensure that vulnerabilities are not inadvertently introduced during refinement.
+
+### Evaluation action (ALC_TAT.1.1E)
+
+The objective of this sub-activity is to determine whether the developer has used well-defined development tools (e.g. programming languages or computer-aided design (CAD) systems) that yield consistent and predictable results.
+
+### Content and evidence requirements
+
+The evaluation evidence for this sub-activity is:
+
+a. the development tool documentation;
+b. the implementation standards description;
+c. the provided implementation representation of the TSF
+
+{{< include ALC/TAT-analysis.qmd >}}

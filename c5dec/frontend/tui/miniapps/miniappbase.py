@@ -12,13 +12,13 @@ import logging
 
 MUTABLE_ATTRIBUTES = ["options", "value", "disabled"]
 
-log = logging.getLogger(__name__)
-log.setLevel(logging.ERROR)
+# log = logging.getLogger(__name__)
+# log.setLevel(logging.ERROR)
 
-logHandler = logging.FileHandler("baseapp.log", mode='w')
-formatter = logging.Formatter("%(levelname)s - %(funcName)s() : %(message)s")
-logHandler.setFormatter(formatter)
-log.addHandler(logHandler)
+# logHandler = logging.FileHandler("baseapp.log", mode='a')
+# formatter = logging.Formatter("%(levelname)s - %(funcName)s() : %(message)s")
+# logHandler.setFormatter(formatter)
+# log.addHandler(logHandler)
 
 
 class MiniAppPlaceholderModel:

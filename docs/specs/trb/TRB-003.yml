@@ -1,0 +1,23 @@
+active: true
+comments: null
+defect_category: '2'
+defect_description: |
+  The text needs more clarity with respect on how to perform export and ETR integration
+derived: false
+header: ''
+level: 3
+links:
+- TST-037: Jd2V0O7jz-9ubABbmWxQJiNkduzatTg3e4x8cNj2CCE=
+normative: true
+ref: ''
+reviewed: 6nAx-_4uhhdkJtcG9Wfwovx0pa2j6PEAwWE8JUCLS2c=
+test_date: 16-07-2024
+tester: IVS
+text: |
+  The test execution for the test case (TST) referred in the parent link results in the following observations:
+
+  In the CCT user manual, the part concerning the [ETR creation]
+  is confusing:
+  - The description reads as if the user _always_ needs to create an evaluation checklist before use this command.
+  - The families (and classes) included in the default evaluation checklist could be clarified.
+  - A short section describing a simple flow for the 'export'-'etr'-quarto integration would be very helpful.

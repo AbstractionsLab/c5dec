@@ -1,0 +1,30 @@
+active: true
+authors: Heinrich
+derived: false
+expected_outcome: |
+  - Valid selections are detected as valid selections.\n - invalid selection are detected to be invalid and the potentially valid set matches the\ respective corrected set
+header: |
+  Test validation of hierarchies and dependencies of Security Component sets
+level: 33
+links:
+- SRS-044: eJtIRK6nH7V5KuV5Rb_IbhZ4opTQxOfmPaBjr8yVplo=
+normative: true
+platform: WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04
+precondition: null
+reviewed: 5FZiJWeyCbQFFku43wVrI1fO8ZytYbOQEdhYqW0b8Js=
+roles: null
+success_criteria: 'SRS acceptance criteria fulfilled and expected outcome observed.'
+text: |
+  ## Setup
+  1. In the TUI navigate to '3 - CCT: Common Criteria Toolbox' > 'Create Evaluation Checklist'
+
+  ## Test steps
+  1. Select items from the following component sets and validate that the expectations in the SRS are met:
+      - valid: ACO_COR.1 ACO_DEV.1 ACO_REL.1 ALC_CMS.1 ALC_CMC.1
+      - valid (EAL2): ADV_ARC.1 ADV_FSP.2 ADV_TDS.1 AGD_OPE.1 AGD_PRE.1 ALC_CMC.2 ALC_DEL.1 ASE_INT.1 ASE_CCL.1 ASE_SPD.1 ASE_OBJ.2 ASE_ECD.1 ASE_REQ.2 ASE_TSS.1 ATE_COV.1 ATE_FUN.1 ATE_IND.2 AVA_VAN.2
+      - invalid: ADV_ARC.1 ADV_FSP.2 ADV_TDS.1 AGD_OPE.1 AVA_VAN.2
+        corrected: ADV_ARC.1 ADV_FSP.2 ADV_TDS.1 AGD_OPE.1 AGD_PRE.1 AVA_VAN.2
+      - invalid: ACO_COR.1 ACO_DEV.1 ACO_REL.1
+        corrected: see first set
+verification_method: Test
+release: alpha

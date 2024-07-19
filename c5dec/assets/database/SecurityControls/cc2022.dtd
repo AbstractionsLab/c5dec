@@ -1,0 +1,366 @@
+<!--
+     DTD for CC & CEM, 2022.
+
+     Element prefixes:
+
+	f   Funtional
+	fc  Functional Class
+	ff  Functional Family
+	fco Functional Component
+	fe  Functional Element
+
+	a   Assurance
+	ac  Assurance Class
+	af  Assurance Family
+	aco Assurance Component
+	ae  Assurance Element
+
+	m   Methodology
+	ma  Methodology Evaluation Activity
+	msa Methodology Evaluation Sub-Activity
+  -->
+
+<!ELEMENT cc		(clause|f-class|a-class)+>
+<!ATTLIST cc		version  CDATA	#REQUIRED
+			revision CDATA	#REQUIRED>
+
+<!-- General text clauses -->
+
+<!ENTITY % text		"subclause|para|figure|acronym|biblioentry|glossentry|table">
+<!ENTITY % textrun	"#PCDATA|xref|url|bold|italic|sub|equation|footnote|list">
+
+<!ELEMENT clause	(%text;)*>
+<!ATTLIST clause	title     CDATA                  #REQUIRED
+			type     (normal|annex)          "normal"
+			category (normative|informative) "normative"
+			id	ID                      #REQUIRED
+			patch	IDREF			#IMPLIED>
+
+<!ELEMENT subclause	(%text;)*>
+<!ATTLIST subclause	title	CDATA	#REQUIRED
+			id	ID	#REQUIRED
+			patch	IDREF	#IMPLIED>
+
+<!ELEMENT para		(%textrun;)*>
+<!ATTLIST para		type	(normal|note|example)	 	"normal"
+			title	CDATA 				#IMPLIED
+			id	ID				#IMPLIED
+			patch	IDREF				#IMPLIED>
+
+<!ELEMENT xref		EMPTY>
+<!ATTLIST xref 		id 		IDREF			#IMPLIED
+	 		part		CDATA			#IMPLIED
+	 		show		(title|link|none|id)	"link"
+			patch		IDREF			#IMPLIED>
+
+<!ELEMENT url		EMPTY>
+<!ATTLIST url 		id 		CDATA			#REQUIRED
+			title		CDATA			#IMPLIED
+			patch		IDREF			#IMPLIED>
+
+<!ELEMENT bold		(#PCDATA|xref|italic)*>
+<!ELEMENT italic	(#PCDATA|xref|bold)*>
+<!ELEMENT sub		(#PCDATA|xref)*>
+
+<!ELEMENT equation	EMPTY>
+<!ATTLIST equation	entity	CDATA	#REQUIRED
+			title	CDATA	#IMPLIED
+			width   CDATA   #IMPLIED
+			height  CDATA   #IMPLIED
+			id	ID	#IMPLIED
+			patch	IDREF	#IMPLIED>
+
+<!ELEMENT footnote	(#PCDATA|xref|list|bold|italic)*>
+<!ATTLIST footnote	id	ID	#IMPLIED
+			patch	IDREF	#IMPLIED>
+
+<!ELEMENT list		(item)+>
+<!ATTLIST list		id	ID	#IMPLIED
+			type	(itemized|enumerated) 	"enumerated"
+			patch	IDREF	#IMPLIED>
+
+<!ELEMENT item		(%textrun;|para|assignment|selection)*>
+<!ATTLIST item		id	ID	#IMPLIED
+			patch	IDREF	#IMPLIED>
+
+<!ELEMENT figure	EMPTY>
+<!ATTLIST figure	entity	CDATA	#REQUIRED
+			title	CDATA	#REQUIRED
+			width   CDATA   #IMPLIED
+			height  CDATA   #IMPLIED
+			id	ID	#REQUIRED
+			patch	IDREF	#IMPLIED>
+
+<!ELEMENT acronym	(acronymterm,acronymdef)>
+<!ATTLIST acronym	id	ID	#REQUIRED
+			patch	IDREF	#IMPLIED>
+
+<!ELEMENT acronymterm	(#PCDATA)>
+<!ATTLIST acronymterm	patch	IDREF	#IMPLIED>
+
+<!ELEMENT acronymdef	(#PCDATA)>
+<!ATTLIST acronymdef	patch	IDREF	#IMPLIED>
+
+<!ELEMENT biblioentry	(biblioterm,bibliodef)>
+<!ATTLIST biblioentry	id	ID	#REQUIRED
+			patch	IDREF	#IMPLIED>
+
+<!ELEMENT biblioterm	(#PCDATA)>
+<!ATTLIST biblioterm	patch	IDREF	#IMPLIED>
+
+<!ELEMENT bibliodef	(#PCDATA)>
+<!ATTLIST bibliodef	patch	IDREF	#IMPLIED>
+
+<!ELEMENT glossentry	(glossterm,glossalt?,glossdef,glosssource?,glossnote*)>
+<!ATTLIST glossentry	id	ID	#REQUIRED
+			patch	IDREF	#IMPLIED>
+
+<!ELEMENT glossterm	(#PCDATA)>
+<!ATTLIST glossterm	patch	IDREF	#IMPLIED>
+
+<!ELEMENT glossalt	(#PCDATA)>
+<!ATTLIST glossalt	patch	IDREF	#IMPLIED>
+
+<!ELEMENT glossdef	(#PCDATA)>
+<!ATTLIST glossdef	patch	IDREF	#IMPLIED>
+
+<!ELEMENT glosssource	(#PCDATA)>
+<!ATTLIST glosssource	patch	IDREF	#IMPLIED>
+
+<!ELEMENT glossnote	(%textrun;)*>
+<!ATTLIST glossnote	patch	IDREF	#IMPLIED>
+
+<!ELEMENT foreword	(%text;)*>
+<!ATTLIST foreword	patch	IDREF	#IMPLIED>
+
+<!ELEMENT legalnotice	(%text;)*>
+<!ATTLIST legalnotice	patch	IDREF	#IMPLIED>
+
+<!-- Simplified table model, resembles CALS -->
+
+<!ELEMENT table		(title?,tgroup)>
+<!ATTLIST table		id	ID	#IMPLIED
+			width	CDATA 	#IMPLIED
+			patch	IDREF	#IMPLIED>
+
+<!ELEMENT title         (#PCDATA|xref)*>
+
+<!ELEMENT tgroup	(thead?,tfoot?,tbody)>
+<!ATTLIST tgroup	cols CDATA #REQUIRED>
+
+<!ELEMENT thead		(row+)>
+<!ELEMENT tfoot		(row+)>
+<!ELEMENT tbody		(row+)>
+
+<!ELEMENT row		(entry+)>
+
+<!ELEMENT entry		(%textrun;|assignment|selection)*>
+<!ATTLIST entry		rowspan 	CDATA			#IMPLIED
+			columnspan	CDATA			#IMPLIED
+			width		CDATA 			#IMPLIED
+			align	(left|right|center|justify)	"left"
+			style		CDATA 			#IMPLIED
+			patch		IDREF			#IMPLIED>
+
+<!-- Functional paradigm -->
+
+<!ELEMENT f-class		(fc-introduction,
+				 fc-informative-notes,
+				 f-family+)>
+<!ATTLIST f-class		name	CDATA	#REQUIRED
+				id	ID	#REQUIRED
+				patch	IDREF	#IMPLIED>
+
+<!ELEMENT fc-introduction	(%text;)*>
+<!ELEMENT fc-informative-notes	(%text;)*>
+
+<!ELEMENT f-family              (ff-behaviour,
+				 ff-application-notes?,
+				 ff-user-notes?,
+				 ff-evaluator-notes?,
+                                 f-component+)>
+<!ATTLIST f-family              name	CDATA	#REQUIRED
+                                id	ID	#REQUIRED
+				patch	IDREF	#IMPLIED>
+
+<!ELEMENT ff-behaviour		(%text;)*>
+<!ATTLIST ff-behaviour		patch	IDREF	#IMPLIED>
+
+<!ELEMENT ff-application-notes	(%text;)*>
+<!ATTLIST ff-application-notes	patch	IDREF	#IMPLIED>
+
+<!ELEMENT ff-user-notes		(%text;)*>
+<!ATTLIST ff-user-notes		patch	IDREF	#IMPLIED>
+
+<!ELEMENT ff-evaluator-notes	(%text;)*>
+<!ATTLIST ff-evaluator-notes	patch	IDREF	#IMPLIED>
+
+<!ELEMENT f-component 	 	    	(fco-hierarchical?,
+					 fco-dependencies?,
+					 fco-rationale?,
+					 fco-user-notes?,
+					 fco-evaluator-notes?,
+					 fco-levelling,
+					 fco-management*,
+					 fco-audit*,
+					 f-element+)>
+<!ATTLIST f-component			name 	CDATA	#REQUIRED
+					id   	ID	#REQUIRED
+					patch	IDREF	#IMPLIED>
+
+<!ELEMENT fco-hierarchical		EMPTY>
+<!ATTLIST fco-hierarchical		fcomponent IDREF #REQUIRED
+					patch	IDREF	#IMPLIED>
+
+<!ELEMENT fco-dependencies		(fco-or|fco-dependsoncomponent)*>
+<!ATTLIST fco-dependencies		patch	IDREF	#IMPLIED>
+
+<!ELEMENT fco-or			(fco-dependsoncomponent)+>
+<!ATTLIST fco-or			patch	IDREF	#IMPLIED>
+
+<!ELEMENT fco-dependsoncomponent	EMPTY>
+<!ATTLIST fco-dependsoncomponent	fcomponent IDREF #REQUIRED
+					patch	IDREF	#IMPLIED>
+
+<!ELEMENT fco-rationale			(%text;)*>
+<!ELEMENT fco-user-notes		(%text;)*>
+<!ELEMENT fco-evaluator-notes		(%text;)*>
+<!ELEMENT fco-levelling			(%text;)*>
+
+<!ELEMENT fco-management		(#PCDATA|xref)*>
+<!ATTLIST fco-management		id	ID 	#IMPLIED
+					equal	IDREF	#IMPLIED
+					patch	IDREF	#IMPLIED>
+
+<!ELEMENT fco-audit			(#PCDATA|xref)*>
+<!ATTLIST fco-audit			level (minimal|basic|detailed) #IMPLIED
+					id	ID 	#IMPLIED
+					equal	IDREF	#IMPLIED
+					patch	IDREF	#IMPLIED>
+
+<!ENTITY % elementcontent	"#PCDATA|xref|url|bold|italic|sub|equation|footnote|list|assignment|selection|table">
+
+<!ELEMENT f-element		(%elementcontent;)*>
+<!ATTLIST f-element		id	ID	#REQUIRED
+				boldfrom IDREF	#IMPLIED
+				patch	IDREF	#IMPLIED>
+
+<!ELEMENT assignment		(assignmentitem,assignmentnotes?)>
+<!ATTLIST assignment		id	ID	#IMPLIED
+				patch	IDREF	#IMPLIED>
+
+<!ELEMENT assignmentitem	(%elementcontent;)*>
+<!ATTLIST assignmentitem	patch	IDREF	#IMPLIED>
+
+<!ELEMENT assignmentnotes	(%text;)*>
+<!ATTLIST assignmentnotes	patch	IDREF	#IMPLIED>
+
+<!ELEMENT selection		(selectionitem+,selectionnotes?)>
+<!ATTLIST selection		id		ID		#IMPLIED
+                                exclusive	(YES|NO)	"NO"
+				patch		IDREF		#IMPLIED>
+
+<!ELEMENT selectionitem		(%elementcontent;)*>
+<!ATTLIST selectionitem		patch	IDREF	#IMPLIED>
+
+<!ELEMENT selectionnotes	(%text;)*>
+<!ATTLIST selectionnotes	patch	IDREF	#IMPLIED>
+
+<!-- Assurance paradigm -->
+
+<!ELEMENT a-class		(ac-introduction,
+				ac-overview?,
+				ac-application-notes?,
+				ma-introduction?,
+				ma-objectives?,
+				ma-application-notes?,
+				a-family+)>
+<!ATTLIST a-class		name	CDATA	#REQUIRED
+                                id	ID	#REQUIRED
+				patch	IDREF	#IMPLIED>
+
+<!ELEMENT ac-introduction	(%text;)*>
+<!ELEMENT ac-overview		(%text;)*>
+<!ELEMENT ac-application-notes	(%text;)*>
+<!ELEMENT ma-introduction	(%text;)*>
+<!ELEMENT ma-objectives		(%text;)*>
+<!ELEMENT ma-application-notes	(%text;)*>
+
+<!ELEMENT a-family		(af-objectives?,
+				af-overview?,
+				af-levelling-criteria?,
+				af-application-notes?,
+				a-component+)>
+<!ATTLIST a-family		name	CDATA	#REQUIRED
+				id	ID	#REQUIRED
+				patch	IDREF	#IMPLIED>
+
+<!ELEMENT af-objectives		(%text;)*>
+<!ELEMENT af-overview		(%text;)*>
+<!ELEMENT af-levelling-criteria	(%text;)*>
+<!ELEMENT af-application-notes	(%text;)*>
+
+<!ELEMENT a-component			(aco-hierarchical?,
+					 aco-dependencies*,
+					 aco-objectives?,
+					 aco-application-notes?,
+					 msa-objectives?,
+					 msa-application-notes?,
+					 msa-input?,
+					 (ae-developer|ae-content|ae-evaluator)*)>
+
+<!ATTLIST a-component			name	CDATA	#REQUIRED
+					id	ID	#REQUIRED
+					patch	IDREF	#IMPLIED>
+
+<!ELEMENT aco-hierarchical		EMPTY>
+<!ATTLIST aco-hierarchical		acomponent	IDREF #REQUIRED
+					patch		IDREF #IMPLIED>
+
+<!ELEMENT aco-dependencies		(aco-or|aco-dependsoncomponent)*>
+<!ATTLIST aco-dependencies		patch	IDREF	#IMPLIED>
+
+<!ELEMENT aco-or			(aco-dependsoncomponent)+>
+<!ATTLIST aco-or			patch	IDREF	#IMPLIED>
+
+<!ELEMENT aco-dependsoncomponent	EMPTY>
+<!ATTLIST aco-dependsoncomponent	acomponent IDREF #REQUIRED
+					patch	IDREF	#IMPLIED>
+
+<!ELEMENT aco-objectives		(%text;)*>
+<!ATTLIST aco-objectives		patch	IDREF	#IMPLIED>
+
+<!ELEMENT aco-application-notes		(%text;)*>
+<!ATTLIST aco-application-notes		patch	IDREF	#IMPLIED>
+
+<!ELEMENT msa-objectives		(%text;)*>
+<!ATTLIST msa-objectives		patch	IDREF	#IMPLIED>
+
+<!ELEMENT msa-application-notes		(%text;)*>
+<!ATTLIST msa-application-notes		patch	IDREF	#IMPLIED>
+
+<!ELEMENT msa-input			(%text;)*>
+<!ATTLIST msa-input			patch	IDREF	#IMPLIED>
+
+<!ELEMENT ae-developer		(%elementcontent;|m-workunit)*>
+<!ATTLIST ae-developer		id	 ID	#REQUIRED
+				boldfrom IDREF	#IMPLIED
+				patch	 IDREF	#IMPLIED>
+
+<!ELEMENT ae-content		(%elementcontent;)*>
+<!ATTLIST ae-content		id	 ID	#REQUIRED
+				boldfrom IDREF	#IMPLIED
+				patch	 IDREF	#IMPLIED>
+
+<!ELEMENT ae-evaluator		(%elementcontent;|m-workunit)*>
+<!ATTLIST ae-evaluator		id	 ID	#REQUIRED
+				boldfrom IDREF	#IMPLIED
+				patch	 IDREF	#IMPLIED>
+
+<!ELEMENT m-workunit		(ae-dc-element*,(%text;)*)>
+<!ATTLIST m-workunit		id	ID	#IMPLIED
+				patch	IDREF	#IMPLIED>
+
+<!ELEMENT ae-dc-element		EMPTY>
+<!ATTLIST ae-dc-element		id 	IDREF	#REQUIRED
+				patch	IDREF	#IMPLIED>

@@ -1,0 +1,22 @@
+active: true
+comments: null
+defect_category: '0'
+defect_description: null
+derived: false
+header: ''
+level: 22
+links:
+- TST-056: Gy1NCy_47xigC2PoVgg5OFl2NDz-l9T2qBmx7lKGKXo=
+normative: true
+ref: ''
+references:
+- path: docs/specs/trb/assets/trb-022a-ev.png
+  type: file
+- path: docs/specs/trb/assets/trb-022b-ev.png
+  type: file
+reviewed: SF3fmSEs-lAoLz1DRBclQTQ4_N5kCxv8DGHOS2GWqDE=
+test_date: 16-07-2024
+tester: IVS
+text: |
+  Test execution results for the test case (TST) referred in the parent link.
+  Evidence is provided in the file referenced below.

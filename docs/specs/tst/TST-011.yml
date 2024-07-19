@@ -1,0 +1,33 @@
+active: true
+authors: Heinrich
+derived: false
+expected_outcome: 'Exported or viewed data correctly reflects content and relationships as defined in the CC PDF.'
+header: |
+  Test correctness of CC Database
+level: 11
+links:
+- SRS-022: hsyVqqzuUw4TiipPek_omXOypBZnP6hcqHAC5sILBXg=
+normative: true
+platform: WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04
+precondition: null
+reviewed: h2nTYC5RBf5QU-r_w-B-EoCXFkuO5YDDh3hBJmdo0hw=
+roles: null
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Setup
+  1. Use the CLI to export CC objects using
+
+      `$ poetry run c5dec view <ID> #to print to console`
+
+      `$ poetry run c5dec view <ID> > <filepath>/<filename>.md # to export to markdown`
+
+  2. Use the TUI to view CC objects
+
+      - navigate to '3 - CCT: Common Criteria Toolbox' > 'Common Criteria Browser'
+
+  ## Test steps
+  1. Export or view mulitple CC objects either via CLI or TUI and check that content and relationships
+  correspond to the Common Criteria PDF.
+verification_method: Test
+release: alpha

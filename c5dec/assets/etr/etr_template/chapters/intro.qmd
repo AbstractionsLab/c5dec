@@ -1,0 +1,55 @@
+# Introduction {#sec-intro}
+
+This evaluation technical report (ETR) is produced in the context of an independent system security evaluation, carried out by Abstractions Lab (ALab) for Customer, aimed at evaluating the security of the latter's smart card solution, in turn developed by {{< var party.dev >}}.
+
+Throughout this report, the above-mentioned entity names, namely {{< var party.lab >}}, {{< var party.sponsor >}} and {{< var party.dev >}} are referred to as the evaluator (or evaluation laboratory), sponsor and developer, respectively.
+
+Life-cycle support refers to the processes, measures and policies put in place for establishing discipline and control during the development and maintenance of the Target of Evaluation (TOE).
+
+For the security assurance of the TOE, life-cycle support requires the adoption of a well-defined life cycle model for all the stages of the TOE development, including flaw remediation procedures and policies, correct use of tools and techniques and the adoption of security measures to protect the development environment.
+
+Therefore, the evaluation of life-cycle support concerns the security procedures that the developer uses during the development and maintenance of the TOE. These procedures include the life-cycle model used by the developer, the configuration management, the security measures used throughout the TOE development, the tools used by the developer throughout the life cycle of the TOE, the handling of security flaws, and the delivery activity.
+
+The evaluation basis for the current TOE is version 3.1 (Revision 5) of the Common Criteria (see [@ccpart1;@ccpart2;@ccpart3]) and the Common Evaluation Methodology (see [@cem]).
+
+## Objective
+
+The objective of this document is to provide a report on the evaluation of the TOE life cycle security assurance components, enforced by the developer.
+
+The evaluation follows guidelines defined in the Common Evaluation Methodology (CEM) of the Common Criteria for Information Technology Security Evaluation (CEM v3.1) for the evaluation of the Assurance Class ALC (life-cycle support); see @sec-method for further details on the used methodology.
+
+## Scope
+
+The scope of this report is limited to the mandatory TOE life cycle assurance requirements, as defined in the service concept.
+
+## Enforcement and reading instructions
+
+This document becomes effective once approved by the owner and published on the ALab repository available to all employees of itrust Abstractions Lab. It will remain in effect until revoked or revised by the owner. Only the official documentation available in the Abstractions Lab repository is to be relied upon as the currently applicable version.
+
+The owner’s signature is an official recognition of the mandatory character of this document. It is to be respected by all employees of itrust Abstractions Lab.
+
+The use of the simple present tense or the terms ‘**must**’, ‘**mandatory**’, ‘**required**’, or ‘**shall**’ in a statement means that the statement is considered a formal requirement.
+
+The use of words such as ‘**should**’ or the adjective ‘**recommended**’ means that there may be legitimate reasons to disregard the statement, but that the implications of such an exception are to be assessed.
+The use of terms such as ‘**may**’ or the adjective ‘**optional**’ means that the implementation of the statement is at the discretion of the implementer.
+
+## Audience
+
+This document is intended for the staff members of ALab contributing to this project.
+
+## Document structure
+
+@tbl-doc-struct shows how this document is structured.
+
+| Section   | Title    | Description |
+|:---------|:---------|:---------------|
+| @sec-intro       | {{< var chapter.chp1 >}} | Provides a short introduction outlining the purpose, objectives, and context of this document.  |
+| @sec-method | {{< var chapter.chp2 >}} | Describes the adopted evaluation methodology and the type of required documentation. |
+| @sec-objectives | {{< var chapter.chp3 >}} | Briefly describes the overall evaluation objectives and any dependencies, whenever applicable. |
+| @sec-detailedEv | {{< var chapter.chp4 >}} | Gives a detailed breakdown of the evaluation results, containing evaluation work units, in turn broken down into concrete audit actions. | 
+| @sec-evalResults |  {{< var chapter.chp5 >}} | Provides a summary of the overall assessment and verdict. |
+| @sec-biblio | {{< var chapter.chp6 >}} | Provides bibliographic references. | 
+
+: Document structure {#tbl-doc-struct}
+
+{{< include glossary-acr.qmd >}}

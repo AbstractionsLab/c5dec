@@ -1,0 +1,29 @@
+active: true
+comments: 'The defect reported in TRB-023 has been fixed'
+defect_category: '0'
+defect_description: ''
+derived: false
+header: ''
+level: 23.1
+links:
+- TST-057
+normative: true
+ref: ''
+reviewed: null
+test_date: 18-07-2024
+tester: 'IVS'
+text: |
+  Re-execution of test case TST-057 after a code update addressing the
+  issues reported in the first testing campaign of the beta release.
+
+  **Notes:** 
+  
+  - The output path of the spreadsheet (step 2)
+  has changed. Instead of `$C5DEC_ROOT/c5dec`, now it is `$C5DEC_ROOT/c5dec/export/`.
+
+  - The parameters `eval-wu-sheet` and `eval-awu-sheet` in step 5 do not need to be commented anymore.
+
+  Evidence is provided in the referred file.
+references:
+- path: docs/specs/trb/assets/trb-025-ev.png
+  type: file

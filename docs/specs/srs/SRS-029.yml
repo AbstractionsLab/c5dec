@@ -1,0 +1,39 @@
+acceptance: 'see [above](#SRS-029)'
+active: true
+author: Heinrich
+date: 03.10.2023
+dependence: []
+derived: false
+difficulty: '3'
+header: |
+  Verification of Rationales and Traceability Matrices
+importance: '4'
+level: 17.0
+links:
+- MRS-032: zdmk414Ku_uKO9MC4dv6gH6-9PZsz3atEQm7cnls8UE=
+normative: true
+outlay: '3'
+rationale: 'For an Evaluator, ensuring that the provided rationales and traceability matrices comprehensively cover all elements and adhere to CC standards is paramount for validating the coherence and comprehensiveness of the security documentation.'
+ref: ''
+reviewed: rHbhSbKOJavK7sYeN9m59VuU6jJIiWlNYAH-66IOXXU=
+risk: '1'
+status: Not Started
+text: |
+  ## System requirement specification
+
+  As an Evaluator,
+  I want the system to validate that the generated rationales and traceability matrices
+  comprehensively cover all parent-child elements and are in strict adherence with CC requirements,
+  so that I can confidently validate and certify the coherence and completeness of the security
+  documentation.
+  1. TBD.
+
+  ## Acceptance criteria
+
+  - The system verifies that every parent-child relationship has an associated rationale.
+  - A traceability matrix is provided that covers all parent-child elements of a given level.
+  - An exhaustive list of justifications is available, ensuring full coverage of all parent-child links.
+
+type: F
+urgency: '3'
+version: '1.0'

@@ -1,0 +1,16 @@
+active: true
+comments: Not implemented for the Aplha version.
+defect_category: n/a
+defect_description: null
+derived: false
+header: ''
+level: 27.0
+links:
+- TST-027: mk69LZaNtemlErTk8WTnQO_wYjnktPZ_eV34WhqCeA8=
+normative: true
+ref: ''
+reviewed: MkyQ8NHlf5PJrqLLaCxFszgn0PLRo2WYzKbG951x4q8=
+test_date: 29-11-2023
+tester: IVS
+text: |
+  Test execution results for the TST in the parent link.

@@ -1,0 +1,22 @@
+active: true
+authors: Heinrich
+derived: false
+expected_outcome: None
+header: |
+  Test automated consistency and completeness checks
+level: 19
+links:
+- SRS-030: eK1g58chyNHYp5DdO5exafOMQv1IRfFH-uIeEz6ouYU=
+normative: true
+platform: WSL/GNU/Linux Ubuntu 20/Linux Ubuntu 22.04
+precondition: null
+reviewed: SSa0aMpVw5ycOIQf81ZynEW5-i0UBbbIgo0NORC27wA=
+roles: null
+success_criteria: 'SRS acceptance criteria fulfilled and expected outcome observed.'
+text: |
+  ## Setup
+  1. None
+  ## Test steps
+  1. follow steps in SRS
+verification_method: Test
+release: alpha

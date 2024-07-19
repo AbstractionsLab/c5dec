@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head><title>Doorstop</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="assets/doorstop/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/doorstop/general.css" />
+  <link type="text/css" rel="stylesheet" href="assets/doorstop/sidebar.css" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" ></script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
+  </script>
+</head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-2 hidden-sm hidden-xs">
+          <nav id="TOC" class="nav nav-stacked fixed sidebar">
+              <h3>Table of Contents</h3>
+<ul>
+<li><a href="#CCC-001">1.0 FAU Security Audit</a><ul>
+<li><a href="#CCC-002">1.1 FCO Communication</a></li>
+<li><a href="#CCC-003">1.2 FCS Cryptographic support</a></li>
+<li><a href="#CCC-004">1.3 FDP User data protection</a></li>
+<li><a href="#CCC-005">1.4 FIA Identification and authentication</a></li>
+<li><a href="#CCC-006">1.5 FTM Security management</a></li>
+<li><a href="#CCC-007">1.6 FPR Privacy</a></li>
+<li><a href="#CCC-008">1.7 FPT Protection of the TSF</a></li>
+<li><a href="#CCC-009">1.8 FRU Resource utilization</a></li>
+<li><a href="#CCC-010">1.9 FTA TOE access</a></li>
+<li><a href="#CCC-011">1.10 FTP Trusted path/channels</a></li>
+</ul>
+</li>
+</ul>
+          </nav>
+      </div>
+      <div class="col-lg-8" id="main">
+        <h1 id="CCC-001">1.0 FAU Security Audit <small>CCC-001</small></h1>
+<p>Security auditing involves recognizing, recording, storing, and analyzing information related to security relevant activities (i.e. activities controlled by the TSF). The resulting audit records can be examined to determine which security relevant activities took place and whom (which user) is responsible for them. Annex C provides explanatory information for this class and should be consulted when using the components identified in this class.</p>
+<p><em>Parent links:</em> <a href="CC.html#CC-001">CC-001 Common Criteria - Database</a></p>
+<p><em>Child links:</em> <a href="FML.html#FML-001">FML-001 FAU_ARP Security audit automatic response</a>, <a href="FML.html#FML-002">FML-002 FAU_GEN Security audit data generation</a>, <a href="FML.html#FML-003">FML-003 FAU_SAA Security audit analysis</a>, <a href="FML.html#FML-004">FML-004 FAU_SAR Security audit review</a>, <a href="FML.html#FML-005">FML-005 FAU_SEL Security audit event selection</a>, <a href="FML.html#FML-006">FML-006 FAU_STG Security audit data storage</a></p>
+<h2 id="CCC-002">1.1 FCO Communication <small>CCC-002</small></h2>
+<p>This class provides two families specifically concerned with assuring the identity of a party participating in a data exchange. These families are related to assuring the identity of the originator of transmitted information (proof of origin) and assuring the identity of the recipient of transmitted information (proof of receipt). These families ensure that an originator cannot deny having sent the message, nor can the recipient deny having received it.
+Figure 14 shows the decomposition of the class. Figure 14 shows the decomposition of this class, it's families and components. Elements are not shown in the figure. Annex D provides explanatory information for this class and should be consulted when using the components identified in this class.</p>
+<p><em>Parent links:</em> <a href="CC.html#CC-001">CC-001 Common Criteria - Database</a></p>
+<p><em>Child links:</em> <a href="FML.html#FML-007">FML-007 FCO_NRO Non-repudiation of origin</a>, <a href="FML.html#FML-008">FML-008 FCO_NRR Non-repudiation of receipt</a></p>
+<h2 id="CCC-003">1.2 FCS Cryptographic support <small>CCC-003</small></h2>
+<p>The TSF may employ cryptographic functionality to help satisfy several high-level security objectives. These include, but are not limited to: identification and authentication, non-repudiation, trusted path, trusted channel, and data separation. This class is used when the TOE implements cryptographic functions, the implementation of which can be in hardware, firmware and/or software. The FCS: Cryptographic support class is composed of four families.
+Figure 17 shows the decomposition of this class, it's families and components. Elements are not shown in the figure.
+Annex E provides explanatory information for this class and should be consulted when using the components identified in this class.</p>
+<p><em>Parent links:</em> <a href="CC.html#CC-001">CC-001 Common Criteria - Database</a></p>
+<p><em>Child links:</em> <a href="FML.html#FML-009">FML-009 FCS_CKM Cryptographic key management</a>, <a href="FML.html#FML-010">FML-010 FCS_COP Cryptographic operation</a>, <a href="FML.html#FML-011">FML-011 FCS_RBG Random bit generation</a>, <a href="FML.html#FML-012">FML-012 FCS_RNG Generation of random numbers</a></p>
+<h2 id="CCC-004">1.3 FDP User data protection <small>CCC-004</small></h2>
+<p>This class contains families specifying requirements related to protecting user data. FDP: User data protection is split into four groups of families (listed below) that address user data within a TOE, during import, export, and storage as well as security attributes directly related to user data. The families in this class are organized into four groups:
+1. user data protection SFPs:
+    - Access control policy (FDP_ACC);
+    - Information flow control policy (FDP_IFC).
+Components in these families permit the author of a PP, PP-Module, functional package or ST to name the user data protection SFPs and define the scope of control of the policy, necessary to address the security objectives. The names of these policies are meant to be used throughout the remainder of the functional components that have an operation that calls for an assignment or selection of an "access control SFP" or an "information flow control SFP". The rules that define the functionality of the named access control and information flow control SFPs will be defined in the Access control functions (FDP_ACF) and Information flow control functions (FDP_IFF) families (respectively).
+2. forms of user data protection:
+    - Access control functions (FDP_ACF);
+    - Information flow control functions (FDP_IFF);
+    - Internal TOE transfer (FDP_ITT);
+    - Information Retention Control (FDP_IRC)
+    - Residual information protection (FDP_RIP);
+    - Rollback (FDP_ROL);
+    - Stored data confidentiality (FDP_SDC);
+    - Stored data integrity (FDP_SDI).
+3. off-line storage, import and export:
+    - Data authentication (FDP_DAU);
+    - Export from the TOE (FDP_ETC);
+    - Import from outside of the TOE (FDP_ITC).
+Components in these families address the trustworthy transfer into or out of the TOE.
+4. inter-TSF communication:
+    - Inter-TSF user data confidentiality transfer protection (FDP_UCT);
+    - Inter-TSF user data integrity transfer protection (FDP_UIT).
+Components in these families address communication between the TSF of the TOE and another trusted IT product.</p>
+<p>Figure 22 shows the decomposition of this class, it's families and components. Elements are not shown in the figure.
+Annex F provides explanatory information for this class and should be consulted when using the components identified in this class.</p>
+<p><em>Parent links:</em> <a href="CC.html#CC-001">CC-001 Common Criteria - Database</a></p>
+<p><em>Child links:</em> <a href="FML.html#FML-013">FML-013 FDP_ACC Access control policy</a>, <a href="FML.html#FML-014">FML-014 FDP_ACF Access control functions</a>, <a href="FML.html#FML-015">FML-015 FDP_DAU Data authentication</a>, <a href="FML.html#FML-016">FML-016 FDP_ETC Export from the TOE</a>, <a href="FML.html#FML-017">FML-017 FDP_IFC Information flow control policy</a>, <a href="FML.html#FML-018">FML-018 FDP_IFF Information flow control functions</a>, <a href="FML.html#FML-019">FML-019 FDP_IRC Information Retention Control</a>, <a href="FML.html#FML-020">FML-020 FDP_ITC Import from outside of the TOE</a>, <a href="FML.html#FML-021">FML-021 FDP_ITT Internal TOE transfer</a>, <a href="FML.html#FML-022">FML-022 FDP_RIP Residual information protection</a>, <a href="FML.html#FML-023">FML-023 FDP_ROL Rollback</a>, <a href="FML.html#FML-024">FML-024 FDP_SDC Stored data confidentiality</a>, <a href="FML.html#FML-025">FML-025 FDP_SDI Stored data integrity</a>, <a href="FML.html#FML-026">FML-026 FDP_UCT Inter-TSF user data confidentiality transfer protection</a>, <a href="FML.html#FML-027">FML-027 FDP_UIT Inter-TSF user data integrity transfer protection</a></p>
+<h2 id="CCC-005">1.4 FIA Identification and authentication <small>CCC-005</small></h2>
+<p>Families in this class address the requirements for functions to establish and verify a claimed user identity. Identification and authentication are required to ensure that users are associated with the proper security attributes The unambiguous identification of authorized users and the correct association of security attributes with users and subjects is critical to the enforcement of the intended security policies. The families in this class deal with determining and verifying the identity of users, determining their authority to interact with the TOE, and with the correct association of security attributes for each authorized user. Other classes of requirements are dependent upon correct identification and authentication of users in order to be effective.
+Figure 38 shows the decomposition of this class, it's families and components. Elements are not shown in the figure.
+Annex G provides explanatory information for this class and should be consulted when using the components identified in this class.</p>
+<p><em>Parent links:</em> <a href="CC.html#CC-001">CC-001 Common Criteria - Database</a></p>
+<p><em>Child links:</em> <a href="FML.html#FML-028">FML-028 FIA_AFL Authentication failures</a>, <a href="FML.html#FML-029">FML-029 FIA_API Authentication proof of identity</a>, <a href="FML.html#FML-030">FML-030 FIA_ATD User attribute definition</a>, <a href="FML.html#FML-031">FML-031 FIA_SOS Specification of secrets</a>, <a href="FML.html#FML-032">FML-032 FIA_UAU User authentication</a>, <a href="FML.html#FML-033">FML-033 FIA_UID User identification</a>, <a href="FML.html#FML-034">FML-034 FIA_USB User-subject binding</a></p>
+<h2 id="CCC-006">1.5 FTM Security management <small>CCC-006</small></h2>
+<p>This class is intended to specify the management of several aspects of the TSF: security attributes, TSF data and functions. The different management roles and their interaction, such as separation of capability, can be specified. This class has the following objectives:
+1. management of TSF data;
+2. management of security attributes;
+3. management of functions of the TSF;
+4. definition of security roles.</p>
+<p>Figure 46 shows the decomposition of this class, it's families and components. Elements are not shown in the figure.
+Annex H provides explanatory information for this class and should be consulted when using the components identified in this class.</p>
+<p><em>Parent links:</em> <a href="CC.html#CC-001">CC-001 Common Criteria - Database</a></p>
+<p><em>Child links:</em> <a href="FML.html#FML-035">FML-035 FMT_LIM Limited capabilities and availability</a>, <a href="FML.html#FML-036">FML-036 FMT_MOF Management of functions in TSF</a>, <a href="FML.html#FML-037">FML-037 FMT_MSA Management of security attributes</a>, <a href="FML.html#FML-038">FML-038 FMT_MTD Management of TSF data</a>, <a href="FML.html#FML-039">FML-039 FMT_REV Revocation</a>, <a href="FML.html#FML-040">FML-040 FMT_SAE Security attribute expiration</a>, <a href="FML.html#FML-041">FML-041 FMT_SMF Specification of Management Functions</a>, <a href="FML.html#FML-042">FML-042 FMT_SMR Security management roles</a></p>
+<h2 id="CCC-007">1.6 FPR Privacy <small>CCC-007</small></h2>
+<p>This class contains privacy requirements. These requirements provide a user protection against discovery and misuse of identity by other users.
+Figure 55 shows the decomposition of this class, it's families and components. Elements are not shown in the figure.
+Annex I provides explanatory information for this class and should be consulted when using the components identified in this class.</p>
+<p><em>Parent links:</em> <a href="CC.html#CC-001">CC-001 Common Criteria - Database</a></p>
+<p><em>Child links:</em> <a href="FML.html#FML-043">FML-043 FPR_ANO Anonymity</a>, <a href="FML.html#FML-044">FML-044 FPR_PSE Pseudonymity</a>, <a href="FML.html#FML-045">FML-045 FPR_UNL Unlinkability</a>, <a href="FML.html#FML-046">FML-046 FPR_UNO Unobservability</a></p>
+<h2 id="CCC-008">1.7 FPT Protection of the TSF <small>CCC-008</small></h2>
+<p>This class contains families of functional requirements that relate to the integrity and management of the mechanisms that constitute the TSF and to the integrity of TSF data. Although families in this class appear to duplicate components in the FDP: User data protection class, and they can be implemented using the same mechanisms. However, FDP: User data protection focuses on user data protection, while FPT: Protection of the TSF focuses on TSF data protection.
+In fact, Components from the FPT: Protection of the TSF class are necessary to provide requirements that the SFPs in the TOE cannot be tampered with or bypassed. From the point of view of this class, regarding to the TSF there are three significant elements:
+1. the TSF's implementation, which executes and implements the mechanisms that enforce the SFRs;
+2. the TSF's data, which are the administrative databases that guide the enforcement of the SFRs;
+3. the external entities that the TSF may interact with in order to enforce the SFRs.</p>
+<p>Figure 60 shows the decomposition of this class, it's families and components. Elements are not shown in the figure.
+Annex J provides explanatory information for this class and should be consulted when using the components identified in this class.</p>
+<p><em>Parent links:</em> <a href="CC.html#CC-001">CC-001 Common Criteria - Database</a></p>
+<p><em>Child links:</em> <a href="FML.html#FML-047">FML-047 FPT_EMS TOE emanation</a>, <a href="FML.html#FML-048">FML-048 FPT_FLS Fail secure</a>, <a href="FML.html#FML-049">FML-049 FPT_INI TSF initialization</a>, <a href="FML.html#FML-050">FML-050 FPT_ITA Availability of exported TSF data</a>, <a href="FML.html#FML-051">FML-051 FPT_ITC Confidentiality of exported TSF data</a>, <a href="FML.html#FML-052">FML-052 FPT_ITI Integrity of exported TSF data</a>, <a href="FML.html#FML-053">FML-053 FPT_ITT Internal TOE TSF data transfer</a>, <a href="FML.html#FML-054">FML-054 FPT_PHP TSF physical protection</a>, <a href="FML.html#FML-055">FML-055 FPT_RCV Trusted recovery</a>, <a href="FML.html#FML-056">FML-056 FPT_RPL Replay detection</a>, <a href="FML.html#FML-057">FML-057 FPT_SSP State synchrony protocol</a>, <a href="FML.html#FML-058">FML-058 FPT_STM Time stamps</a>, <a href="FML.html#FML-059">FML-059 FPT_TDC Inter-TSF TSF data consistency</a>, <a href="FML.html#FML-060">FML-060 FPT_TEE Testing of external entities</a>, <a href="FML.html#FML-061">FML-061 FPT_TRC Internal TOE TSF data replication consistency</a>, <a href="FML.html#FML-062">FML-062 FPT_TST TSF self-test</a></p>
+<h2 id="CCC-009">1.8 FRU Resource utilization <small>CCC-009</small></h2>
+<p>This class provides three families that support the availability of required resources such as processing capability and/or storage capacity. The family Fault Tolerance provides protection against unavailability of capabilities caused by failure of the TOE. The family Priority of Service ensures that the resources will be allocated to the more important or time-critical tasks and cannot be monopolized by lower priority tasks. The family Resource Allocation provides limits on the use of available resources, therefore preventing users from monopolizing the resources.</p>
+<p>Figure 77 shows the decomposition of this class, it's families and components. Elements are not shown in the figure.
+Annex K provides explanatory information for this class and should be consulted when using the components identified in this class.</p>
+<p><em>Parent links:</em> <a href="CC.html#CC-001">CC-001 Common Criteria - Database</a></p>
+<p><em>Child links:</em> <a href="FML.html#FML-063">FML-063 FRU_FLT Fault tolerance</a>, <a href="FML.html#FML-064">FML-064 FRU_PRS Priority of service</a>, <a href="FML.html#FML-065">FML-065 FRU_RSA Resource allocation</a></p>
+<h2 id="CCC-010">1.9 FTA TOE access <small>CCC-010</small></h2>
+<p>This family specifies functional requirements for controlling the establishment of a user's session.
+Figure 81 shows the decomposition of this class, it's families and components. Elements are not shown in the figure.
+Annex L provides explanatory information for this class and should be consulted when using the components identified in this class.</p>
+<p><em>Parent links:</em> <a href="CC.html#CC-001">CC-001 Common Criteria - Database</a></p>
+<p><em>Child links:</em> <a href="FML.html#FML-066">FML-066 FTA_LSA Limitation on scope of selectable attributes</a>, <a href="FML.html#FML-067">FML-067 FTA_MCS Limitation on multiple concurrent sessions</a>, <a href="FML.html#FML-068">FML-068 FTA_SSL Session locking and termination</a>, <a href="FML.html#FML-069">FML-069 FTA_TAB TOE access banners</a>, <a href="FML.html#FML-070">FML-070 FTA_TAH TOE access history</a>, <a href="FML.html#FML-071">FML-071 FTA_TSE TOE session establishment</a></p>
+<h2 id="CCC-011">1.10 FTP Trusted path/channels <small>CCC-011</small></h2>
+<p>Families in this class provide requirements for a trusted communication path between users and the TSF, and for a trusted communication channel between the TSF and other trusted IT products. Trusted paths and channels have the following general characteristics:
+- the communications path is constructed using internal and external communications channels (as appropriate for the component) that isolate an identified subset of TSF data and commands from the remainder of the TSF and user data;
+- use of the communications path can be initiated by the user and/or the TSF (as appropriate for the component);
+- the communications path is capable of providing assurance that the user is communicating with the correct TSF, and that the TSF is communicating with the correct user (as appropriate for the component).</p>
+<p>In this paradigm, a trusted channel is a communication channel that can be initiated by either side of the channel and provides non-repudiation characteristics with respect to the identity of the sides of the channel. A trusted path provides a means for users to perform functions through an assured direct interaction with the TSF. Trusted path is usually desired for user actions such as initial identification and/or authentication but can also be desired at other times during a user's session. Trusted path exchanges can be initiated by a user or the TSF. User responses via the trusted path are guaranteed to be protected from modification by or disclosure to untrusted applications. Families describing the use of commonly used communication protocols used in the provision of trusted channels and paths are also given.</p>
+<p>Figure 88 shows the decomposition of this class, it's families and components. Elements are not shown in the figure.
+Annex M provides explanatory information for this class and should be consulted when using the components identified in this class.</p>
+<p><em>Parent links:</em> <a href="CC.html#CC-001">CC-001 Common Criteria - Database</a></p>
+<p><em>Child links:</em> <a href="FML.html#FML-072">FML-072 FTP_ITC Inter-TSF trusted channel</a>, <a href="FML.html#FML-073">FML-073 FTP_PRO Trusted channel protocol</a>, <a href="FML.html#FML-074">FML-074 FTP_TRP Trusted path</a></p>
+      </div>
+    </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="assets/doorstop/jquery.min.js"></script>
+<script src="assets/doorstop/bootstrap.min.js"></script>
+<script>
+    $(function() {
+        $("table").addClass("table");
+        $("nav ul").addClass("nav nav-stacked");
+        $("nav").affix();
+        $('body').scrollspy({
+          target: '.sidebar'
+        });
+        $("#main a").attr("target", "parent");
+
+  $(window).on('hashchange', function() {
+    $(window).scrollTop($(location.hash.toLowerCase()).offset().top);});
+  });
+</script>
+</body>
+</html>
+

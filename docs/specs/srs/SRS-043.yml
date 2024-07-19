@@ -1,0 +1,38 @@
+acceptance: ''
+active: true
+author: Heinrich
+date: 03.10.2023
+dependence:
+- SRS-042
+derived: false
+difficulty: '2'
+header: |
+  Provide CC Document Templates
+importance: '3'
+level: 18.16
+links:
+- MRS-032: zdmk414Ku_uKO9MC4dv6gH6-9PZsz3atEQm7cnls8UE=
+normative: true
+outlay: ''
+rationale: 'Providing predefined templates for each type of CC document simplifies and standardizes the document creation process. It ensures that users can efficiently create documents adhering to CC content and formatting standards without requiring detailed manual input, thus enhancing consistency and reducing the potential for error across CC documentation.'
+ref: ''
+reviewed: PePLy449lwyt6lyQKPdxUhJrwgEbplkBBhUySjoMsh0=
+risk: '1'
+status: Open
+text: |
+  ## System requirement specification
+
+  As a User,
+  I want access to predefined templates for each type of CC document,
+  so that I can efficiently create standardized, CC-compliant documents and optionally export them
+  to supported formats.
+  1. TBD.
+
+  ## Acceptance criteria
+
+  - Templates for each type of CC document are available and adhere to CC standards.
+  - Users can select, utilize, and export templates to supported formats (e.g., .docx, .tex, .xml).
+
+type: F
+urgency: '2'
+version: '1.0'

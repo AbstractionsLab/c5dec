@@ -1,0 +1,26 @@
+cc:
+  alc-flr-1: "ALC\_FLR.1"
+  cem: "Common Evaluation Methodology"
+  toe: "TOE"
+
+party:
+  lab: "ALab"
+  sponsor: "Customer"
+  dev: "Developer/Vendor"
+
+verdict:
+  pass: "PASS"
+  fail: "FAIL"
+  inclsv: "INCONCLUSIVE"
+
+acr:
+  alab: "ALab"
+  c5: "C5-DEC"
+
+chapter:
+  chp1: "Introduction"
+  chp2: "Basis of the evaluation and documentation used"
+  chp3: "Evaluation objective"
+  chp4: "Evaluation per life cycle assurance aspect"
+  chp5: "Evaluation results"
+  chp6: "Bibliography"

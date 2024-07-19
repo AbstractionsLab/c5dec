@@ -1,0 +1,16 @@
+active: true
+comments: The acceptance criteria are satisfied.
+defect_category: '0'
+defect_description: null
+derived: false
+header: ''
+level: 16.0
+links:
+- TST-016: pUPrnn3SOodjTyUtbuBuspaZqBpzlJEZvmH-HkSo6cY=
+normative: true
+ref: ''
+reviewed: ZBtIk01RVyPGjzGHharzX8dmUvoe5Dm1hT6njIK9mdM=
+test_date: 30-11-2023
+tester: Arash
+text: |
+  TC passed.

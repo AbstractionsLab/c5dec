@@ -1,0 +1,41 @@
+acceptance: 'see [above](#SRS-021)'
+active: true
+author: Heinrich
+date: 03.10.2023
+dependence:
+- SRS-014
+derived: false
+difficulty: '1'
+header: |
+  Provision of General Link to a CC-Specific Forum
+importance: '2'
+level: 9.0
+links:
+- MRS-032: zdmk414Ku_uKO9MC4dv6gH6-9PZsz3atEQm7cnls8UE=
+- MRS-040: jqwFH-P3Qx4REe8gp25Ql74vvsWy5f1n3U-K4vdW4BI=
+normative: true
+outlay: '1'
+rationale: 'A CC-specific forum enhances user engagement and community interaction by providing a platform for discussions, knowledge-sharing, and collaborative problem-solving related to Common Criteria, without overcomplicating the navigation within the Knowledge Base.'
+ref: ''
+reviewed: 0DQkHEeHGY_PXaW1COOnIImhq8fn0nDIQ4nO2VvUwbE=
+risk: '1'
+status: Not Started
+text: |
+  ## System requirement specification
+
+  As a General User, I want a straightforward way to access a CC-specific forum from the Knowledge Base,
+  so that I can explore, contribute to, and learn from discussions and interactions within a community
+  of CC practitioners and experts.
+  1. When I am on the main page or any part of the Knowledge Base, I should easily identify and access
+     a link that navigates to a CC-specific forum.
+  2. The link directs me to a forum where I can view and participate in discussions related to the
+     Common Criteria.
+
+  ## Acceptance criteria
+
+  - A prominently visible link to a CC-specific forum is available on the main page or navigation bar of the Knowledge Base.
+  - Users can effortlessly navigate to the forum to participate in or view discussions related to CC topics.
+
+type: F
+urgency: '2'
+version: '0.1'

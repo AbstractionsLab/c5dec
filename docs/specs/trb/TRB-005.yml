@@ -1,0 +1,23 @@
+active: true
+comments: |
+  When selecting a CC item from a dropdown list, clearing the dropdown lists of the child CC items would be very helpful for navigation. This is just a reminder as the developers are aware of the issue.
+defect_category: '0'
+defect_description: null
+derived: false
+header: ''
+level: 5
+links:
+- TST-039: GJPTtNQqf92M2dSCrh5xn1V-4F-mD0y6ADE0RyVU62U=
+normative: true
+ref: ''
+references:
+- path: docs/specs/trb/assets/trb-005i-ev.png
+  type: file
+- path: docs/specs/trb/assets/trb-005ii-ev.png
+  type: file
+reviewed: F_4RYQIeW66k8U5-sjmI4BkceAwoqWCfl7u4YW_YDsc=
+test_date: 15-07-2024
+tester: IVS
+text: |
+  Test execution results for the test case (TST) referred in the parent link.
+  Evidence is provided in the files:

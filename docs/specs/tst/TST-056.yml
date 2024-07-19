@@ -1,0 +1,22 @@
+active: true
+authors: IVS
+derived: false
+expected_outcome: 'The following output is created at the folder `$c5DEC_ROOT/c5dec/assets/etr/etr_template/_output`:
+    (i) `Single-Evaluation-Technical-Report.pdf` (ii) `Single-Evaluation-Technical-Report.docx` 
+    (iii) html files corresponding to the report in HTML format'
+header: 'Generate an ETR report template using the C5-DEC DocEngine'
+level: 56
+links: []
+normative: true
+platform: Any of MacOS, Windows, GNU/Linux
+precondition: 'The VS Code extension for [Quarto](https://quarto.org/) must be installed'
+ref: ''
+release: beta
+reviewed: null
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Test steps
+  1. Open the folder `$c5DEC_ROOT/c5dec/assets/etr/` in VS Code
+  2. In a VS Code terminal run: `quarto render etr_template/chapters/intro.qmd`
+verification_method: 'Test'

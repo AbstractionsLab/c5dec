@@ -1,0 +1,114 @@
+$if(has-frontmatter)$
+\frontmatter
+$endif$
+$if(title)$
+\cleardoublepage
+\thispagestyle{empty}
+
+{\centering
+
+\vspace{-3cm}
+    \includegraphics[width=0.4\textwidth]{figs/ITR-logo.jpg}
+    \hfill
+    \includegraphics[width=0.4\textwidth]{figs/Alab-logo.png}\\
+    [1cm]
+    \includegraphics[width=0.5\textwidth]{figs/CyFORT-logo.png}\\
+    [2cm]
+    \centering
+    \Huge \textbf{\textcolor{AlabRed}{$title$}} \\
+    [0.5cm]
+\Large \textcolor{AlabLightBlue}{$subtitle$}
+
+\vspace{2ex}
+% \hbox{}\vskip 0cm plus 1fill
+
+\begin{flushleft}
+\textcolor{AlabRed}{\textbf{General information}}\\
+\end{flushleft}
+\vspace{1ex}
+
+\rowcolors{1}{white}{white} % override global table customization specified in tables.tex
+{\large
+\begin{tabular}{| >{\bfseries} a p{0.5\textwidth} | b p{0.5\textwidth} |} % Table start
+    \hline
+    \cellcolor{AlabTableColLightBlue}Name of the company & <!-- </co-name> --> \\
+    \hline
+    \cellcolor{AlabTableColLightBlue}Project title & <!-- </project-name> --> \\
+    \hline
+    \cellcolor{AlabTableColLightBlue}Type & <!-- </doc-type> --> \\
+    \hline
+    \cellcolor{AlabTableColLightBlue}Reference & <!-- </doc-ref> --> \\
+    \hline
+    \cellcolor{AlabTableColLightBlue}Version & <!-- </doc-ver> --> \\
+    \hline
+    \cellcolor{AlabTableColLightBlue}State & <!-- </doc-state> --> \\
+    \hline
+    \cellcolor{AlabTableColLightBlue}Owner & <!-- </doc-owner> --> \\
+    \hline
+    \cellcolor{AlabTableColLightBlue}Authors & <!-- </doc-authors> --> \\
+    \hline
+    \cellcolor{AlabTableColLightBlue}Application date & <!-- </doc-application-date> --> \\
+    \hline
+    \cellcolor{AlabTableColLightBlue}Classification & <!-- </doc-classification> --> \\
+    \hline
+\end{tabular} % Table end
+}
+\vspace{1ex}
+\hbox{}\vskip 0cm plus 1fill
+
+\vspace{1ex}
+{\small <!-- </doc-bottom-text> --> \par}
+}
+$endif$
+\pagebreak
+
+\begin{flushleft}
+    \textcolor{AlabRed}{\textbf{Document history}}\\
+\end{flushleft}
+\vspace{1ex}
+
+\rowcolors{1}{white}{white} % override global table customization specified in tables.tex
+\begin{tabular}{ | p{0.22\textwidth}| p{0.22\textwidth}| p{0.22\textwidth}| p{0.22\textwidth}| } % Table start
+    \hline
+    \rowcolor{AlabTableColLightBlue}
+    \textbf{Version} & \textbf{Date} & \textbf{Author} & \textbf{Modifications} \\
+    \hline
+    <!-- </doc-changelog> -->
+    \hline
+\end{tabular} % Table end
+\vspace{1ex}
+
+% \begin{table}[ht]
+%     \centering
+%     \caption{Your caption}
+%     \label{your-label}
+%     \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}|l|l|l|l|}
+    %     \hline
+    %     \rowcolor{AlabTableColLightBlue}
+    %     Version & Date & Author & Modifications \\ 
+    %     \hline
+    %     1.0 & 29/06/2024 & Ada & First release \\ 
+    %     \hline
+%     \end{tabular*}
+% \end{table}
+        
+
+\begin{flushleft}
+    \textcolor{AlabRed}{\textbf{Approval}}\\
+\end{flushleft}
+\vspace{1ex}
+
+\begin{tabular}{ | p{0.22\textwidth}| p{0.22\textwidth}| p{0.22\textwidth}| p{0.22\textwidth}| } % Table start
+    \hline
+    \rowcolor{AlabTableColLightBlue}
+    \textbf{Name} & \textbf{Role} & \textbf{Responsibility} & \textbf{Signature} \\
+    \hline
+    <!-- </doc-approval> -->
+    \hline
+\end{tabular} % Table end
+\vspace{1ex}
+\hbox{}\vskip 0cm plus 1fill
+\pagebreak
+% Resume default table color coding scheme
+% \rowcolors{1}{AlabTableColLightBlue}{}
+\arrayrulecolor{AlabLightBlue}

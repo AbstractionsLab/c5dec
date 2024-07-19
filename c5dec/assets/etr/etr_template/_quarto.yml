@@ -1,0 +1,68 @@
+project:
+  type: book
+  output-dir: _output
+  pre-render:
+    - scripts/restore_tex_files.py
+    - scripts/custom_vars.py
+  post-render: 
+    - scripts/restore_tex_files.py
+
+book:
+  title: "Single Evaluation Technical Report"
+  subtitle: "as part of the Evaluation Technical Report part A (ETR-Part <CLASS>)"
+  author: "Abstractions Lab"
+  date: "04/07/2024"
+  #   - name: "ALab RD"
+      # orcid: "AAAA-BBBB-CCCC-DDDD"
+      # affiliations:
+      #   - name: "Abstractions Lab"
+      #     department: "Cryptography and Formal Methods"
+  # date: "30/06/2024"
+  chapters:
+    - index.qmd
+    - chapters/intro.qmd
+    - chapters/methodology.qmd
+    - chapters/eval-objective-dependencies.qmd
+    - chapters/detailed-evaluation.qmd
+    - chapters/results.qmd
+    - chapters/references.qmd
+
+tbl-cap-location: bottom
+
+bibliography: references.bib
+csl: ieee.csl
+toc: true
+lof: true
+lot: true
+number-sections: true 
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    pdf-engine: xelatex
+    number-sections: true
+    fontsize: 12 pt
+    papersize: A4
+    fig-pos: 'H'
+    geometry: "left=2.54cm,right=2.54cm,top=2.54cm,bottom=2.54cm"
+    mainfont: "Gill Sans"
+    # sansfont: "Futura"
+    # monofont: "Courier New"
+    documentclass: report
+    classoption: table
+    include-in-header: tex/include-in-header.tex
+    template-partials:
+      - tex/before-body.tex
+      - tex/pandoc.tex
+      - tex/tables.tex
+      - tex/toc.tex
+  docx:
+    reference-doc: custom-docx-format-ref.docx
+    number-sections: false
+    toc: true
+    title: Single Evaluation Technical Report
+    subtitle: TOE Life Cycle support processes
+    subject: TOE Life Cycle Evaluation
+    category: Report (REP)
+    description: Confidential

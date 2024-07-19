@@ -1,0 +1,26 @@
+active: true
+comments: The defect reported in TRB-014 has been fixed.
+defect_category: '0'
+defect_description: ''
+derived: false
+header: ''
+level: 14.1
+links: 
+- TST-048
+normative: true
+ref: ''
+reviewed: null
+test_date: 18-07-2024
+tester: IVS
+text: |
+  Re-execution of test case TST-048 after a code update addressing the
+  issues reported in the first testing campaign of the beta release.
+  
+  **Note:** The output path of the spreadsheet has changed from
+  `$C5DEC_ROOT/c5dec` to `$C5DEC_ROOT/c5dec/export/`.
+
+  
+  Evidence is provided in the referred file.
+references:
+- path: docs/specs/trb/assets/trb-027-ev.png
+  type: file

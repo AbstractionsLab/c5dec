@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block headscript %}
+<script type="text/javascript">
+    function changeElementValue(i) {
+        $(sliderList[i]).change(function () {
+            $(currentValueSpanIDList[i]).html(this.value);
+        });
+        $(sliderList[i]).change();
+    }
+    var sliderList = ["#ealSlider"];
+    var currentValueSpanIDList = ["#ccEALValue"];
+    var currentValueElements = new Array(sliderList.length);
+
+    function validateForm() {
+        $("#ccCreateButton").attr('disabled', 'disabled');
+        return true;
+    }
+
+</script>
+{% endblock %}
+{% block content %}
+<script type="text/javascript">
+
+    $(function () {
+        for (i = 0; i < sliderList.length; i++) {
+            changeElementValue(i);
+        }
+
+        $(window).bind('unload', function () {
+            $("#ccCreateButton").removeAttr('disabled');
+        });
+
+        $("#ccLabForm").on('submit', function () {
+            validateForm();
+        });
+
+    });
+</script>
+<p>The Common Criteria (CC) Laboratory module of C5-DEC CAD &copy; allows the user to select specific CC assurance
+    classes (SAR) or components to generate an evaluation checklist of work units, which is also exported to a
+    spreadsheet document (ods, xlsx).</p>
+<h4 class="text-center" style="padding: 1em;">Select a list of classes/components and press the <a href="#ccCreateButton">Create checklist</a>
+    button.</h4>
+<form role="form" id="ccLabForm" action="submit" method="post">
+    CC version:
+    <select name="ccVersionSelect" id="ccVersionSelect">
+        <option value="3R5">3R5</option>
+        <option value="2022R1">2022R1</option>
+    </select>
+    Assurance class:
+    <select name="ccClassSelect" id="ccClassSelect">
+        <option value="ACE">ACE</option>
+        <option value="ACO">ACO</option>
+        <option value="ADV">ADV</option>
+        <option value="AGD">AGD</option>
+        <option value="ALC">ALC</option>
+        <option value="APE">APE</option>
+        <option value="ASE">ASE</option>
+        <option value="ATE">ATE</option>
+        <option value="AVA">AVA</option>
+        <option value="ALL-CLASSES">ALL-CLASSES</option>
+    </select>
+    <p></p>
+    <p>
+        <table class="table table-hover table-bordered table-condensed table-striped">
+        <thead>
+            <tr class="bg-warning">
+                <th>Parameter</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-trigger="hover" data-toggle="tooltip" data-placement="top"
+                title="Set the EAL (currently not implemented for GUI; use the C5-DEC CAD TUI instead)">
+                <td>Evalulation Assurance Level (EAL)</td>
+                <td><input type="range" id="ealSlider" name="ealSlider" min="1" max="7" step="1" value="1" />
+                    <p class="text-center">Current value: <span id="ccEALValue">1</span></p>
+                </td>
+            </tr>
+            <tr data-trigger="hover" data-toggle="tooltip" data-placement="top"
+            title="Select if you wish to validate your component selection (currently only available via the TUI)">
+                <td>Validate component selection</td>
+                <td>
+                    <input type="checkbox" aria-label="Yes">
+                </td>
+            </tr>
+            <tr data-trigger="hover" data-toggle="tooltip" data-placement="top"
+            title="Select if you wish to resolve dependencies (currently only available via the TUI)">
+                <td>Resolve for dependencies</td>
+                <td>
+                    <input type="checkbox" aria-label="Yes">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        {% if not session.get('username') %}
+        <button type="submit" id="ccCreateButton" class="btn btn-primary btn-lg" data-toggle="popover"
+            title="Create evaluation checklist and export to spreadsheet."
+            data-content="This will create C5-DEC documents for the selected checklist and export a consolidated version to an xlsx file."
+            data-trigger="hover" data-placement="top">Create checklist</button>
+        {% else %}
+        <button type="submit" id="simButton" class="btn btn-primary btn-lg">Run CC search</button>
+        {% endif %}
+    </p>
+</form>
+{% endblock %}

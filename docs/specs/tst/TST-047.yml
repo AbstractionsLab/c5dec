@@ -1,0 +1,24 @@
+active: true
+authors: IVS
+derived: false
+expected_outcome: 'All the expected outcomes described in the test steps are observed.'
+header: 'Export to spreadsheet an evaluation checklists with all the assurance classes of CCv3.1R5 from the CLI'
+level: 47
+links: []
+normative: true
+platform: Any of MacOS, Windows, GNU/Linux
+precondition: 'c5dec has been succesfully installed'
+ref: ''
+release: beta
+reviewed: null
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Test steps
+  1. Run `c5dec export -h`
+      - Expected outcome: usage information for the export command is displayed
+
+  2. Run `c5dec export trp-047-ev 3R5`
+      - Expected outcome: a spreadsheet containing all the work units in CCv3.1R5 is created at
+       `$C5DEC_ROOT/c5dec/trp-047-ev-<yyyymmdd>-<hhmmss>`
+verification_method: 'Test'

@@ -1,0 +1,22 @@
+active: true
+comments: null
+defect_category: '0'
+defect_description: null
+derived: false
+header: ''
+level: 7
+links:
+- TST-041: 4tle5f7XTpp_8IYlVLsapBoKtr4GAhdilWgcDzwC8wM=
+normative: true
+ref: ''
+references:
+- path: docs/specs/trb/assets/trb-007a-ev.png
+  type: file
+- path: docs/specs/trb/assets/trb-007b-ev.png
+  type: file
+reviewed: 4cIWqK_Qma9tteVf6vbr5UegI6fvM-SBKyy4cWOjFrk=
+test_date: 15-07-2024
+tester: IVS
+text: |
+  Test execution results for the test case (TST) referred in the parent link.
+  Evidence pictures are provided in the files:

@@ -1,0 +1,19 @@
+active: true
+authors: IVS
+derived: false
+expected_outcome: The evaluation checklist for classes ACE and AVA of CC2022R1 is created in a spreadsheet at '$C5DEC_ROOT/c5dec'
+header: 'Export to spreadsheet an evaluation checklists with some assurance classes of CC2022R1 from the CLI'
+level: 50
+links: []
+normative: true
+platform: Any of MacOS, Windows, GNU/Linux
+precondition: ''
+ref: ''
+release: beta
+reviewed: null
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Test steps
+  1. Run `c5dec export chcklst2022R1 2022R1 -c ACE AVA`
+verification_method: 'Test'

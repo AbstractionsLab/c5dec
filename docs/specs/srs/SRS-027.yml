@@ -1,0 +1,47 @@
+acceptance: 'see [above](#SRS-027)'
+active: true
+author: Heinrich
+date: 03.10.2023
+dependence: []
+derived: false
+difficulty: '3'
+header: |
+  Unified Storage Mechanism for CC Artifacts and Security Elements
+importance: '3'
+level: 15.0
+links:
+- MRS-030: WD1oJQp095vxiYGs3qr31riG3NJviA8QU4IdXlf8gEk=
+- MRS-036: CxmX-BEQNEemhvaifcx9we-Nm6qRgHv4EsJ1WvKMGvg=
+normative: true
+outlay: '4'
+rationale: 'Implementing a unified and structured storage mechanism ensures that data related to SFRs/SARs and other CC elements is consistently stored and managed within the C5-DEC document-based data store, facilitating efficient data retrieval, management, and overall system reliability.'
+ref: ''
+reviewed: 1aeEEqJSsIXOK8FEml_lGBKy4WNGtTsbc44ujmfqzw4=
+risk: '3'
+status: In Progress
+text: |
+  ## System requirement specification
+
+  As a User, I want the CC toolbox within the C5-DEC software to enable consistent and structured
+  storage of various CC artifacts and security elements, ensuring ease of data management and
+  integrity.
+
+  1. When I choose to store SFRs/SARs, Security Functional Classes, Security Assurance Classes,
+  Evaluation Activities, and Packages in the CC toolbox,
+  2. I want the storage process to utilize the same open file format used for all artifacts
+  ensuring uniformity,
+  3. And store all elements in a structured, human and machine-readable format within the C5-DEC
+  document-based data store, enabling efficient data retrieval and management.
+  4. Thus, I can consistently and efficiently manage, access, and utilize the stored data in varied
+  formats without loss of integrity and structure.
+
+  ## Acceptance criteria
+
+  - User can store SFRs/SARs and all relevant CC artifacts and security elements in the CC toolbox.
+  - All stored artifacts utilize the same open file format ensuring consistent data management.
+  - Data for all elements (including Security Functional Classes, Security Assurance Classes, etc.) is stored in a structured, human and machine-readable format.
+  - User can retrieve and manage the stored data efficiently without loss of integrity and structure.
+
+type: F
+urgency: '2'
+version: '1.0'

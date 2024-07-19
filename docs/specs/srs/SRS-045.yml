@@ -1,0 +1,42 @@
+acceptance: ''
+active: true
+author: Heinrich
+date: 03.10.2023
+dependence: []
+derived: false
+difficulty: '3'
+header: |
+  Generate Impact Analysis Reports for Certification Maintenance.
+importance: '2'
+level: 18.18
+links:
+- MRS-032: zdmk414Ku_uKO9MC4dv6gH6-9PZsz3atEQm7cnls8UE=
+- MRS-053: hH1BOxsxqL7gqcXVVQlq03aDkjjLO_6EB3F9g4I0Sy4=
+- MRS-055: 170X_04gCc9dZmaqVWbxq6N4LfKUhgGniwmIs33xeVY=
+normative: true
+outlay: ''
+rationale: 'To maintain existing certifications and facilitate incremental certification processes in the face of changes, the system needs to automatically deduce and report the impacts stemming from alterations in code and documentation. Impact Analysis Reports (IARs) crystallize these impacts in a structured format, offering a clear overview of potential repercussions and are a required evaluation evidence for certification maintanence.'
+ref: ''
+reviewed: _paoDTL24ZLDBGz34E4JLA6F1SEDk88VKD3QL-cfH-A=
+risk: '2'
+status: Open
+text: |
+  ## System requirement specification
+
+  As a Developer,
+  I want the system to automatically infer the impact of changes in both code and documentation,
+  So that these insights are summarized in comprehensive Impact Analysis Reports (IARs), ensuring effective
+  management of compliance and certification aspects throughout project alterations.
+  1. TBD
+
+  ## Acceptance criteria
+
+  1. The system must identify and track changes in both code and documentation.
+  2. The system must automatically infer the impacts of these changes.
+  3. An Impact Analysis Report (IAR) is generated, summarizing the inferred impacts.
+  4. The IAR must be comprehensible and encapsulate all necessary impact details.
+  5. The IAR should be structured to support certification maintenance and incremental certification processes.
+
+type: F
+urgency: '2'
+version: '1.0'

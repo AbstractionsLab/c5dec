@@ -8,8 +8,18 @@ import re
 import copy
 import c5dec.settings as c5settings
 import c5dec.common as common
+import c5dec.core.transformer as c5transformer
+import time
+import pandas as pd
+import traceback
 
 log = common.logger(__name__)
+log.setLevel(common.logging.DEBUG)
+
+logHandler = common.logging.FileHandler(c5settings.CCT_LOG_FILE, mode='a')
+formatter = common.logging.Formatter("%(asctime)s - %(levelname)s - %(funcName)s() : %(message)s", "%Y-%m-%d %H:%M:%S")
+logHandler.setFormatter(formatter)
+log.addHandler(logHandler)
 
 UTF8 = "utf-8"
 CP437 = "cp437"
@@ -39,6 +49,7 @@ class Index:
     """
     _instance = None
     _index = {}
+    _cc_tree_root = None
 
     def __new__(cls):
         """
@@ -137,6 +148,20 @@ class Index:
         Clear the index, removing all entries.
         """
         cls._index.clear()
+
+    @classmethod
+    def set_cc_tree(cls, cc_tree):
+        cls._cc_tree_root = cc_tree
+
+    @classmethod
+    def is_tree_loaded(cls):
+        """
+        Check if the CC XML tree has been loaded
+        """
+        if cls._cc_tree_root is None:
+            return False
+        
+        return True 
 
 
 class UniqueIDManager:
@@ -1412,12 +1437,14 @@ class Operation(BaseClass):
             # if operations are of valid type.
             info_msg = f"<{self.__repr__()} at {hex(id(self))}> invalid.\
                   \nOperation must be one of type {self.VALID_TYPES}. Is {self.type}"
-            raise common.C5decError(info_msg)
+            # raise common.C5decError(info_msg)
+            log.error(info_msg)
         if not self.item and not hasattr(self.parent, "type"):
             # Only Assurance Elements (AElement) are allowed to not contain operation items (FEItem)
             info_msg = f"<{self.__repr__()} at {hex(id(self))}> invalid.\
                     \nOperation must contain {self.type}item/s."
-            raise common.C5decError(info_msg)
+            log.error(info_msg)
+            # raise common.C5decError(info_msg)
         return True
 
 
@@ -1473,6 +1500,58 @@ class OperationBuilder(BaseBuilder):
         self.instance.is_valid()
         return self.instance
     
+
+class OperationBuilder2022(BaseBuilder):
+    """
+    Builder class for creating Operation instances.
+
+    :param instance: An instance of Operation to build upon.
+    :type instance: Operation
+    """
+
+    def __init__(self, instance):
+        """
+        Initialize an OperationBuilder instance.
+
+        :param instance: An instance of Operation to build upon.
+        :type instance: Operation
+        :raises ValueError: If the provided instance is not an Operation object.
+        """
+        if not isinstance(instance, Operation):
+            info_msg = f"Object must be {Operation}, but is {type(instance)}."
+            raise common.C5decError(info_msg)
+        super().__init__(instance)
+        
+    def _build_attributes(self, node, parent_obj=None):
+        self.instance.parent = parent_obj
+        for attribute in node.attrib:
+            if attribute == "id":
+                self.instance._id = node.get(attribute)
+            if attribute == "exclusive":
+                self.instance.exclusive = node.get(attribute)
+
+    def _build_children(self, child):
+        node_name = child.tag
+        if node_name in ["assignmentitem", "selectionitem"]:
+            item = FEItem()
+            obj_ = FEItemBuilder2022(item).build(child, self.instance)
+            self.instance.item.append(obj_)
+            self.instance.container.append(obj_)   
+        if node_name in ["assignmentnotes", "selectionnotes"]:
+            obj_ = ParaSequence().build(child, self.instance)
+            self.instance.note = obj_
+            self.instance.container.append(obj_) 
+        if node_name == "list":
+            flist = FEList()
+            obj_ = FEListBuilder2022(flist).build(child, self.instance)
+            self.instance.container.append(obj_)
+    
+    def build(self, node, parent_obj=None):
+        self._build_attributes(node, parent_obj)
+        for child in node:
+            self._build_children(child)
+        self.instance.is_valid()
+        return self.instance
 
 class FEItem(BaseClass):
     """
@@ -1553,6 +1632,57 @@ class FEItemBuilder(BaseBuilder):
         return self.instance
     
 
+class FEItemBuilder2022(BaseBuilder):
+    """
+    Builder class for creating FEItem instances.
+
+    :param instance: An instance of FEItem to build upon.
+    :type instance: Operation
+    """
+
+    def __init__(self, instance):
+        """
+        Initialize an FEItemBuilder instance.
+
+        :param instance: An instance of FEItem to build upon.
+        :type instance: FEItem
+        :raises ValueError: If the provided instance is not an FEItem object.
+        """
+        if not isinstance(instance, FEItem):
+            info_msg = f"Object must be {FEItem}, but is {type(instance)}."
+            raise common.C5decError(info_msg)
+        super().__init__(instance)
+        
+    def _build_children(self, child):
+        
+        node_name = child.tag
+        if child.text:
+            self.instance.container.append(Text(child.text))
+        if child.tail:
+            self.instance.container.append(Text(child.tail))
+        if node_name == "list":
+            flist = FEList()
+            obj_ = FEListBuilder2022(flist).build(child, self.instance)
+            self.instance.list.append(obj_)
+            self.instance.container.append(obj_)
+        else:
+            op_type = re.sub(r"(.*?)", r"\1", node_name)
+            operation = Operation(op_type=op_type)
+            obj_ = OperationBuilder2022(operation).build(child, self.instance)
+            self.instance.operation.append(obj_)
+            self.instance.container.append(obj_)  
+        
+    
+    def build(self, node, parent_obj=None):
+        self._build_attributes(node, parent_obj)
+        if node.text:
+            self.instance.container.append(Text(node.text))
+        if len(node):
+            for child in node:
+                self._build_children(child)
+        self.instance.is_valid()        
+        return self.instance
+
 class FEList(BaseClass):
     """
     Class representing a Functional Element (FE) List in the context of CC.
@@ -1618,6 +1748,44 @@ class FEListBuilder(BaseBuilder):
         self.instance.is_valid()
         return self.instance
 
+class FEListBuilder2022(BaseBuilder):
+    """
+    Builder class for creating FEList instances.
+
+    :param instance: An instance of FEList to build upon.
+    :type instance: FEList
+    """
+
+    def __init__(self, instance):
+        """
+        Initialize an FEListBuilder instance.
+
+        :param instance: An instance of FEList to build upon.
+        :type instance: FEList
+        :raises ValueError: If the provided instance is not an FEList object.
+        """
+        if not isinstance(instance, FEList):
+            info_msg = f"Object must be {FEList}, but is {type(instance)}."
+            raise common.C5decError(info_msg)
+        super().__init__(instance)
+        
+    def _build_attributes(self, node, parent_obj=None):
+        self.instance.parent = parent_obj
+        
+    def _build_children(self, child):
+        node_name = child.tag
+        if node_name == "item":
+            item = FEItem()
+            obj_ = FEItemBuilder2022(item).build(child, self.instance)
+            self.instance.container.append(obj_)
+            self.instance.item.append(obj_)
+            
+    def build(self, node, parent_obj=None):
+        self._build_attributes(node, parent_obj)
+        for child in node:
+            self._build_children(child)
+        self.instance.is_valid()
+        return self.instance
 
 class FElement(BaseClass):
     """
@@ -1650,7 +1818,8 @@ class FElement(BaseClass):
         formatted_text += "\n\n"
         notes = self.collector("note")
         for note in notes:
-            formatted_text += note.get_formatted_text(level=(level+1)) + "\n"
+            if note is not None:
+                formatted_text += note.get_formatted_text(level=(level+1)) + "\n"
         
         return formatted_text
     
@@ -1722,6 +1891,65 @@ class FElementBuilder(BaseBuilder):
         self.instance.is_valid()
         return self.instance
 
+class FElementBuilder2022(BaseBuilder):
+    """
+    Builder class for creating FElement instances.
+
+    :param instance: An instance of FElement to build upon.
+    :type instance: FElement
+    """
+
+    def __init__(self, instance):
+        """
+        Initialize an FElementBuilder instance.
+
+        :param instance: An instance of FElement to build upon.
+        :type instance: FElement
+        :raises ValueError: If the provided instance is not an FElement object.
+        """
+        if not isinstance(instance, FElement):
+            info_msg = f"Object must be {FElement}, but is {type(instance)}."
+            raise common.C5decError(info_msg)
+        super().__init__(instance)
+
+        
+    def _build_requirement(self):
+        requirement = ""
+        for element in self.instance.container:
+            requirement += element.text
+        self.instance.requirement = clean_string(requirement)
+                
+    def _build_children(self, child):
+        node_name = child.tag
+        if node_name != "list":
+            if child.text:
+                self.instance.container.append(Text(child.text))
+                
+            op_type = re.sub(r"(.*?)", r"\1", node_name)
+            operation = Operation(op_type=op_type)
+            obj_ = OperationBuilder2022(operation).build(child, self.instance)
+            self.instance.operation.append(obj_)
+            self.instance.container.append(obj_)
+            
+            if child.tail:
+                self.instance.container.append(Text(child.tail))
+        else:
+            flist = FEList()
+            obj_ = FEListBuilder2022(flist).build(child, self.instance)
+            self.instance.container.append(obj_)
+    
+    def build(self, node, parent_obj=None):
+        self._build_attributes(node, parent_obj)
+        if node.text:
+            self.instance.container.append(Text(node.text))
+        for child in node:
+            self._build_children(child)
+        if node.tail:
+            self.instance.container.append(Text(node.tail))
+        self._build_requirement()
+        Index.update(self.instance._id, self.instance)
+        self.instance.is_valid()
+        return self.instance
 
 class FCoAudit(BaseClass):
     """
@@ -2037,7 +2265,10 @@ class FComponentBuilder(BaseBuilder):
             self.instance.container.append(obj_)
         if node_name == "f-element":
             element = FElement()
-            obj_ = FElementBuilder(element).build(child, self.instance)
+            if c5settings.SELECTED_CC_VERSION == "3R5":
+                obj_ = FElementBuilder(element).build(child, self.instance)
+            else:
+                obj_ = FElementBuilder2022(element).build(child, self.instance)
             self.instance.children.append(obj_)
         if node_name == "fco-hierarchical":
             self.instance.hierarchical = [child.get("fcomponent")]
@@ -2944,10 +3175,12 @@ class CCDocument(BaseClass):
             raise common.C5decError(info_msg)
         if not self.revision:
             info_msg = f"<{self.__repr__()} at {hex(id(self))}> Revision is missing"
-            raise common.C5decError(info_msg)
+            log.error(info_msg)
+            # raise common.C5decError(info_msg)
         if not all([self.clause, self.f_class, self.a_class, self.eal, self.cap]):
             info_msg = f"<{self.__repr__()} at {hex(id(self))}> Incomplete."
-            raise common.C5decWarning(info_msg)
+            log.error(info_msg)
+            # raise common.C5decWarning(info_msg)
         for element in self.container:
             element.is_valid()
         return True
@@ -2988,8 +3221,11 @@ class CCDocumentBuilder(BaseBuilder):
                     self.instance.revision = int(match.group(1)) if match else 1
             if attribute == "lang":
                 self.instance.lang = node.get(attribute)
-        self.instance._id = "CCv" + str(int(float(self.instance.version))) + \
-            "R" + str(int(float(self.instance.revision)))
+        if c5settings.SELECTED_CC_VERSION == "3R5":
+            self.instance._id = "CCv" + str(int(float(self.instance.version))) + \
+                "R" + str(int(float(self.instance.revision)))
+        else:
+            self.instance._id = "CCv2022R1"
     
     def _build_children(self, child):
         UniqueIDManager()
@@ -3071,7 +3307,7 @@ def parsexml_(file_path, parser=None, **kwargs):
     doc = etree_.parse(file_path, parser=parser, **kwargs)
     return doc
 
-def load_cc_xml(version, parser=None, silence=False):
+def load_cc_xml(version="3R5", parser=None, silence=False):
     """
     Load a Common Criteria XML document based on the specified version.
 
@@ -3096,8 +3332,6 @@ def load_cc_xml(version, parser=None, silence=False):
     root_object = load_cc_xml("3R5", parser=None, silence=True)
     ```
     """
-    if not version:
-        version = "3R5"
     xml_version_path = c5settings.CC_VERSION_TO_PATH.get(version)
 
     doc = parsexml_(xml_version_path, parser)
@@ -3117,7 +3351,9 @@ def load_cc_xml(version, parser=None, silence=False):
 
     if not silence:
         sys.stdout.write(info_msg)
-        
+
+    Index().set_cc_tree(root_obj)
+
     return root_obj
 
 """End: Read XML"""
@@ -3332,7 +3568,7 @@ def create_evaluation_document(rootpath=None, doc_prefix=None):
                                 auto=False)
     save_document_config(doc)
     doc.load(reload=True)
-    log.info(f"Doorstop was initilaized at {path}")
+    log.info(f"Doorstop was initialized at {path}")
     return doc
 
 
@@ -3479,6 +3715,88 @@ def create_evaluation_checklist(components: [AComponent], gen_info: dict, export
     create_index(eval_input, workunit_dict, index_info, filepath=doc.path)
     return doc
 
+class ChecklistBuilder:
+
+    def __init__(self, cc_version="3R5", checklist_name="chklist", silence=True):
+        self.checklist_name = checklist_name
+        self.cc_version = cc_version
+        if not Index().is_tree_loaded():
+            try:
+                load_cc_xml(cc_version, silence=silence)
+            except Exception as e:
+                info_msg = f"The provided CC version {cc_version} does not exist."
+                raise common.C5decError(info_msg)
+        self.cc_index = Index
+
+    def build_component_id_vector_for_classes(self, class_id_vector):
+        cc_index = self.cc_index
+        component_id_vector = []
+        for cc_class_id in class_id_vector:
+                cc_class = cc_index.get(cc_class_id)
+                for family in cc_class.get_children():
+                    for component in family.get_children():
+                        component_id_vector.append(component._id.upper())
+        
+        return component_id_vector
+
+    def export_eval_checklist(self, class_id_vector=None, component_id_vector=None):
+        """
+        Creates an evaluation checklist and exports it to a spreadsheet (xlsx)
+        """
+        checklist_name = self.checklist_name
+        cc_version = self.cc_version
+        cc_index = self.cc_index
+
+        if component_id_vector is None:
+            if class_id_vector is None:
+                cc_object = AClass
+                cc_classes = cc_index.yield_obj(cc_object)
+                class_id_vector = [cc_class._id.upper() for cc_class in cc_classes]
+                component_id_vector = self.build_component_id_vector_for_classes(class_id_vector)
+            else:
+                component_id_vector = self.build_component_id_vector_for_classes(class_id_vector)
+
+        current_time = time.strftime("%Y%m%d-%H%M%S")
+        info = dict({"identifier": "{}-{}".format(checklist_name,current_time), "Timestamp": current_time})
+        gen_info = {"GeneralInfo" : {**{"CCVersion": cc_version}, **info}}
+
+        components = [cc_index.get(component) for component in component_id_vector]
+        usr_prefix = info["identifier"]
+
+        try:
+            log.debug(f"save in : {c5settings.PROJECT_ROOT} - with prefix: {usr_prefix}")
+                # abort if a doorstop document with the same prefix exists
+            if(doorstop.find_document(usr_prefix)):
+                print("ERROR: The selected prefix '{usr_prefix}' is already in use in your repository.")
+                
+        except doorstop.common.DoorstopError as x:
+            log.debug(f"Doorstop error: {x}")
+            try:
+                create_evaluation_checklist(components, gen_info, 
+                                        export_path=c5settings.PROJECT_ROOT, 
+                                        doc_prefix=usr_prefix)
+                
+                export_format = ".xlsx"
+                export_file_name = usr_prefix+export_format
+                export_path = os.path.join(c5settings.EXPORT_FOLDER, export_file_name)
+                c5transformer.export_ssdlc_document(usr_prefix, path=export_path, format=export_format)
+
+                # Rename first sheet from Sheet to the EVAL WU sheet name 
+                exported_checklist_df = pd.read_excel(export_path)
+                writer = pd.ExcelWriter(export_path)
+                exported_checklist_df.to_excel(writer, sheet_name=c5settings.ETR_EVAL_WU_SHEET_NAME, index=False)
+
+                # Add AWI sheet and populate it using the default etr-eval-checklist.xlsx file
+                default_etr_checklist_file_name = c5settings.ETR_EVAL_CHECKLIST_DEFAULT_FILE_NAME+".xlsx"
+                awi_df = pd.read_excel(os.path.join(c5settings.ASSETS_FOLDER_NAME, c5settings.ETR_FOLDER_NAME, default_etr_checklist_file_name), sheet_name=c5settings.ETR_EVAL_AWI_SHEET_NAME)
+
+                awi_df.to_excel(writer, sheet_name=c5settings.ETR_EVAL_AWI_SHEET_NAME, index=False)
+                writer.close()
+
+
+                print("Evaluation checklist created and exported to: {}".format(export_path))
+            except doorstop.common.DoorstopError as e:
+                print(e)
 
 """End: Evaluation Checklist"""
 
@@ -3529,7 +3847,8 @@ class CLIChecklistHandler:
         is_valid, valid_set = validate_dependencies(item_ids)
         if not is_valid:
             print(f"Component selection not valid. Potential valid set: {valid_set}")
-            return
+            # return
+            log.info("Component selection not valid. Potential valid set: {valid_set}")
         components = [Index.get(_id) for _id in item_ids]
         create_evaluation_checklist(components, info, doc_prefix=prefix)
 
@@ -3601,5 +3920,173 @@ class CLIChecklistHandler:
         doc = tree.find_document(prefix)
         doorstop.core.publisher.publish(doc, path, template=template)
 
+
+class ETR:
+
+    def __init__(self, checklist_name=c5settings.ETR_EVAL_CHECKLIST_FILE_NAME, checklist_type = "xlsx", silence=True):
+        self.checklist_file_name = checklist_name + "." + checklist_type
+        
+        self.output_folder_name = c5settings.ETR_OUTPUT_FOLDER_NAME
+        self.output_folder_path = os.path.join(c5settings.ASSETS_FOLDER_NAME, c5settings.ETR_FOLDER_NAME, self.output_folder_name)
+
+        if not os.path.exists(self.output_folder_path):
+            os.makedirs(self.output_folder_path)
+
+        self.input_file_path = os.path.join(c5settings.ASSETS_FOLDER_NAME, c5settings.ETR_FOLDER_NAME, self.checklist_file_name)
+        self.etr_partial_export_file_name = "analysis.qmd"
+        self.etr_table_export_file_name = "table.md"
+
+    def read_csv_to_df(self, csv_path) -> pd.DataFrame:
+        return pd.read_csv(csv_path)
+
+    def get_wu_awi(self, df, wu_id):
+        for index, row in df.iterrows():
+            if row[c5settings.ETR_EVAL_WU_ID_COL] == wu_id:
+                print(row)
+
+    def filter_wu_df_by_family(self, df, family_name):
+        filtered_df = df.loc[df[c5settings.ETR_EVAL_WU_ID_COL].str.contains(family_name)]
+        return filtered_df
+
+    def filter_awi_df_by_wu_id(self, df, wu_id):
+        filtered_awi_df = df.loc[df[c5settings.ETR_EVAL_WU_ID_COL] == wu_id]
+        return filtered_awi_df
+
+    def family_wu_to_etr(self, family_name):
+        output_file_name = os.path.join(self.output_folder_path, family_name + "-" + self.etr_partial_export_file_name)
+        writer = open(output_file_name, 'w+')
+        wu_df = pd.read_excel(self.input_file_path, sheet_name=c5settings.ETR_EVAL_WU_SHEET_NAME)
+        awi_df = pd.read_excel(self.input_file_path, sheet_name=c5settings.ETR_EVAL_AWI_SHEET_NAME)
+
+        f_wu_df = self.filter_wu_df_by_family(wu_df, family_name)
+        etr_content = list()
+        for index, row in f_wu_df.iterrows():
+            f_awi_df = self.filter_awi_df_by_wu_id(awi_df, row[c5settings.ETR_EVAL_WU_ID_COL])
+
+            line = "### " + str(row[c5settings.ETR_EVAL_WU_ID_COL]) + "\n"
+            etr_content.append(line)
+
+            line = self.make_markdown_line(row[c5settings.ETR_EVAL_WU_DESCRIPTION_COL])
+            etr_content.append(line)
+
+            for awi_index, awi_row in f_awi_df.iterrows():
+                heading_line = self.make_markdown_heading(4, "Audit action " + str(awi_row[c5settings.ETR_EVAL_AWI_ID_COL]) + " in category " + awi_row[c5settings.ETR_EVAL_AWI_CATEGORY_COL])
+                etr_content.append(heading_line)
+                line = self.make_markdown_line(awi_row[c5settings.ETR_EVAL_AWI_DESCRIPTION_COL])
+                etr_content.append(line)
+                # line = make_markdown_line(awi_row['AWI-Cat'])
+                # etr_content.append(line)
+
+                heading_line = self.make_markdown_heading(5, "Evaluation scope and evidence")
+                etr_content.append(heading_line)
+                line = self.make_markdown_line("Scope of evaluation: **{0}**".format(awi_row[c5settings.ETR_EVAL_AWI_EVAL_OBJECT_COL]))
+                etr_content.append(line)
+
+                heading_line = self.make_markdown_heading(6, "Evidence required from developer or sponsor")
+                etr_content.append(heading_line)
+                line = self.make_markdown_line("For this audit action to be carried out, the following pieces of evidence are required from the developer or sponsor:")
+                etr_content.append(line)
+                line = self.make_markdown_line(awi_row[c5settings.ETR_EVAL_AWI_REQUIRED_INPUT_COL])
+                etr_content.append(line)
+
+                heading_line = self.make_markdown_heading(6, "Input provided by the developer")
+                etr_content.append(heading_line)
+                # line = make_markdown_line("Input provided by the developer: \n")
+                # INI-ivs: append text to the output
+                # etr_content.append(line)
+                # FIN-ivs
+                line = self.make_markdown_line(awi_row[c5settings.ETR_EVAL_AWI_DEV_INPUT_COL])
+                etr_content.append(line)
+
+                heading_line = self.make_markdown_heading(5, "Analysis")
+                etr_content.append(heading_line)
+                line = self.make_markdown_line(awi_row[c5settings.ETR_EVAL_AWI_ANALYSIS_COL])
+                etr_content.append(line)
+
+                # INI-ivs: modify text
+                heading_line = self.make_markdown_heading(5, "Assessment outcome")
+                # FIN-ivs
+                etr_content.append(heading_line)
+                line = self.make_markdown_line(awi_row[c5settings.ETR_EVAL_AWI_VERDICT_COL])
+                etr_content = self.add_markdown_verdict("Audit action verdict", awi_row[c5settings.ETR_EVAL_AWI_VERDICT_COL], etr_content)
+
+            heading_line = self.make_markdown_heading(4, "Verdict")
+            etr_content.append(heading_line)
+            etr_content = self.add_markdown_verdict("Work unit verdict", row[c5settings.ETR_EVAL_WU_VERDICT_COL], etr_content)
+
+        for r in etr_content:
+            writer.write(r)
+
+        writer.close()
+
+    def make_markdown_heading(self, heading_lvl=2, txt=""):
+        # INI-ivs: add newline
+        line = str("#"*heading_lvl) + " " + str(txt) + "\n\n"
+        # FIN-ivs
+        return line
+
+    def make_markdown_line(self, content):
+        # INI-ivs: add newline
+        line = str(content) + "\n\n"
+        # FIN-ivs
+        return line
+
+    def add_markdown_verdict(self, title, content, original_text_list):
+        verdict_content = original_text_list
+        
+        # INI-ivs: remove one newline at the beginning
+        line = ':::{{.callout-note title=\"{0}\"}}'.format(title) + "\n"
+        # FIN-ivs
+        verdict_content.append(line)
+        color = "black"
+        if content == "Pass":
+            color = "green"
+        elif content == "Fail":
+            color = "red"
+        elif content == "Inconclusive":
+            color = "orange"
+        color_attrib = "{{style=\"color:{0};\"}}".format(color)
+        line = "[{0}]{1}".format(content,color_attrib) + "\n"
+        verdict_content.append(line)
+        line = ":::" + "\n\n"
+        verdict_content.append(line)
+
+        return verdict_content
+
+    def dataframe_to_markdown(self, df):
+        markdown = df.to_markdown(index=False)
+        return markdown
+
+    def dataframe_to_markdown_file(self, df, output_name):
+        df_in_markdown = self.dataframe_to_markdown(df)
+
+        output_file_path = os.path.join(self.output_folder_path, output_name + "-" + self.etr_table_export_file_name)
+        table_writer = open(output_file_path, 'w+')
+        table_writer.write(df_in_markdown)
+        table_writer.close()
+
+    def spreadsheet_table_to_markdown_table(self, input_file_path, sheet_number, output_name):
+        df = pd.read_excel(input_file_path, sheet_name=sheet_number)
+        self.dataframe_to_markdown_file(df, output_name)
+
+    def generate_etr(self, family_list=["CMC"], tables_list=["DocStruct"]):
+        if family_list is None:
+            family_list = ["CMC"]
+        for cc_family in family_list:
+            try:
+                self.family_wu_to_etr(cc_family)
+                print("ETR parts created in: {}".format(os.path.join(c5settings.ASSETS_FOLDER_NAME, c5settings.ETR_FOLDER_NAME, c5settings.ETR_OUTPUT_FOLDER_NAME)))
+            except Exception as e:
+                print(e)
+        
+        tables_input_file_path = os.path.join(c5settings.ASSETS_FOLDER_NAME, c5settings.ETR_FOLDER_NAME, c5settings.ETR_TABLES_FILE_NAME)
+        if tables_list is None:
+            tables_list = ["DocStruct", "Acronyms", "Glossary"]
+
+        for table in tables_list:
+            try:
+                self.spreadsheet_table_to_markdown_table(tables_input_file_path, table, table)
+            except Exception as e:
+                print(e)
 
 """End: CLI methods"""

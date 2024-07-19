@@ -1,0 +1,21 @@
+active: true
+derived: false
+header: |
+  C5-DEC CAD functional tree
+level: 2.0
+links:
+- MRS-012: null
+- MRS-014: null
+- MRS-015: null
+- MRS-016: null
+- MRS-026: null
+- MRS-058: null
+normative: true
+ref: ''
+reviewed: null
+text: |
+  ## Diagram
+
+  The diagram below depicts the functional tree of C5-DEC CAD.
+
+  ![CAD context diagram](assets/functional_tree.png "C5-DEC CAD functional tree")

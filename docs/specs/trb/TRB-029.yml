@@ -1,0 +1,19 @@
+active: true
+comments: The suggestion on TRB-008 has been addressed
+defect_category: '0'
+defect_description: ''
+derived: false
+header: ''
+level: 8.1
+links: 
+- TST-042
+normative: true
+ref: ''
+reviewed: null
+test_date: 18-07-2024
+tester: IVS
+text: |
+  Re-execution of test case TST-042 after a code update addressing the
+  issues reported in the first testing campaign of the beta release.
+  This test execution covers the section *Updates 18-07-2024* in the test
+  case description.

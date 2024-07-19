@@ -8,13 +8,13 @@ The secure software development life cycle (SSDLC) module supports three main fu
 
 - Artifact item management including artifact creation, editing and deletion, e.g., for individual requirements, test case (TC) specifications and source code files in their corresponding documents
 
-- Artifact item relation management allowing the creation and removal of links between arbitrary items (e.g., TC to requirement, TC to soure code), as well as browsing linked items and their content, for a selected artifact item
+- Artifact item relation management allowing the creation and removal of links between arbitrary items (e.g., TC to requirement, TC to source code), as well as browsing linked items and their content, for a selected artifact item
 
 - Managing artifact repository structure such as suspect link resolution, and review status updates
 
 ## Quick start guide
 
-Once you have installed C5-DEC, the SSDLC module can be accessed via the TUI, i.e., by simplying entering `c5dec` via the terminal, without any additional parameters.
+Once you have installed C5-DEC, the SSDLC module can be accessed via the TUI, i.e., by simplifying entering `c5dec` via the terminal, without any additional parameters.
 
 In order to access the SSDLC functionality, navigate to the corresponding menu item shown on the landing page of C5-DEC CAD, namely "2 - SSDLC: secure software development life cycle", as shown in the screenshot below.
 
@@ -63,3 +63,27 @@ Pressing the "Show child item links" button results in retrieving items linked t
 This submenu, shown below, allows the user to trigger the doorstop operations for reordering, clearing and reviewing; see the official doorstop documentation for its [reordering](https://doorstop.readthedocs.io/en/latest/cli/reordering/) and [validation](https://doorstop.readthedocs.io/en/latest/cli/validation/) commands.
 
 ![SSDLC document structure management - submenu view.](./_figures/ssdlc-manage-document-structure.png)
+
+### C5-DEC DocEngine for report generation
+
+A new feature made available as part of the beta release deals with the creation of reports, based on a robust publishing solution, namely Quarto. To this end, we have provided a complete Quarto template (found at `assets/report`).
+
+This baseline report template can be used out of the box without any adjustments other than including your content. Our template provides a series of LaTeX customizations enhancing the fully Markdown-based experience, hiding away all such technical changes in a dedicated `tex` subfolder, which includes all the `.tex` files we use to customize our report template. We also group raw document content in a dedicated `chapters` folder, which in turn can and in our case does include sub-folders for a better separation of specifics subparts.
+
+![C5-DEC CAD SSDLC - DocEngine baseline report based on Quarto.](./_figures/c5dec-cad-DocEngine-report.png)
+
+Moreover, we provide pre-rendering and post-rendering code (`etr_template/scripts`) that provides various types of automation in the form of an easy-to-understand pipeline. In particular, our pre-render scripts allow the user to define all the meta data used in the cover page, as well as the headers and footers of the output report, via a dedicated YAML configuration file `c5dec_config.yml` found at the root of the `report` folder.
+
+Using the same input format, the user can easily compile the report to several well-known and widely-used formats such as PDF, docx, and HTML, available at `assets/report/_output`. Our main enhancements focus on the PDF version as some of the specific features of Quarto itself are also better supported in this format, e.g., text call-outs.
+
+This can be done either via the dedicated VS Code extension for Quarto, accessible using the VS Code Command Palette (Cmd/Ctr+Shift+P) and selecting the `Quarto: Render Document` option or simply via the command line, e.g.,
+
+```sh
+$ quarto render ./c5dec/assets/report/index.qmd --to pdf
+```
+
+This would then generate a PDF document stored under the `_output` folder, with an example shown below:
+
+![C5-DEC CAD SSDLC - DocEngine compiled report example.](./_figures/c5dec-cad-DocEngine-compiled-report.png)
+
+For exporting to `docx`, we have also provided a reference template document that Quarto uses to adjust various aspects of the generated report such as heading and table styles, but the user can and is encouraged to update this reference template or replace it with their own version. Note that most features of the conversion to `docx` work rather well out of the box, but the user needs to manually copy their cover page into the automatically generated report.

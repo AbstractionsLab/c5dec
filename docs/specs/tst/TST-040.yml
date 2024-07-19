@@ -1,0 +1,22 @@
+active: true
+authors: IVS
+derived: false
+expected_outcome: 'The copied text is pasted into the text editor.'
+header: 'Copy content in markdown from the CC browser text area'
+level: 40
+links: []
+normative: true
+platform: Any of MacOS, Windows, GNU/Linux
+precondition: 'The GUI has been launched from the terminal'
+ref: ''
+release: beta
+reviewed: null
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Test steps
+  1. Select any class, family, component and/or element from the dropdown lists.
+  2. Click on the "Copy" button below the text area.
+  3. Open a text editor.
+  4. Paste the content (e.g., with `ctrl+v`)
+verification_method: 'Test'

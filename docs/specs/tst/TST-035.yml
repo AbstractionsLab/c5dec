@@ -1,0 +1,19 @@
+active: true
+authors: 'IVS'
+derived: false
+header: 'Run the GUI from the CLI with option `--gui`'
+level: 35
+links: []
+normative: true
+platform: Any of MacOS, Windows, GNU/Linux
+precondition: 'c5dec has been successfully installed'
+ref: ''
+release: beta
+reviewed: null
+success_criteria: |
+  SRS acceptance criteria fulfilled and expected outcome observed.
+text: |
+  ## Test steps
+  1. In the CLI run `c5dec --gui`
+expected_outcome: The GUI of the CCT module opens in the default browser
+verification_method: Test
