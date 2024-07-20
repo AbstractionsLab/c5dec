@@ -170,3 +170,6 @@ cython_debug/
 
 # WSL stuff
 *:Zone.Identifier
+
+/.quarto/
+.Rhistory
