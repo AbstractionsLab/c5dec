@@ -6,13 +6,14 @@ C5-DEC, short for "Common Criteria for Cybersecurity, Cryptography, Clouds – D
 
 C5-DEC CAD, the software component of C5-DEC, is a suite of tools for computer-aided design and development (CAD), mainly dealing with: the creation and evaluation of secure IT systems according to the [Common Criteria](https://www.commoncriteriaportal.org) standards, secure software development life cycle (SSDLC), software verification and validation model (SVVM), and what we refer to as cyber-physical system security assessment (CPSSA).
 
-This repository contains the source code and full documentation (requirements, technical specifications, schematics, user manual, test case specifications and test reports) of C5-DEC CAD, exemplifying the C5-DEC method, which relies on storing, interlinking and processing all software development life cycle (SDLC) artifacts in a unified manner.
+This repository contains the source code and full documentation (requirements, technical specifications, schematics, user manual, test case specifications and test reports) of C5-DEC CAD, exemplifying the C5-DEC method, which relies on storing, interlinking and processing all software development life cycle (SDLC) artifacts in a unified manner; see our [traceability web page](https://abstractionslab.github.io/c5dec/docs/traceability/index.html) for a concrete example reflecting the technical specifications of C5-DEC CAD itself.
 
 ## Table of contents
 
 - [Overview](#overview)
 - [Features](#features)
 - [User manual](#user-manual)
+- [Technical specifications](#documentation-and-technical-specifications)
 - [Getting started](#getting-started)
 - [Usage](#usage)
 - [Roadmap](#roadmap)
@@ -27,7 +28,7 @@ To this end, C5-DEC CAD is aimed at assisting both system/software designers/dev
 
 C5-DEC consists of two key elements that complement each other to form a coherent ensemble: a software component (C5-DEC CAD) and a knowledge base (KB) consisting of SSDLC and CPSSA methodologies as well as a [wiki of key CC concepts](./c5dec/assets/database/KnowledgeBase/0_MapofContent.md).
 
-As certain parts of our KB reports rely on ISO standards (ISO/IEC/IEEE 12207,  ISO 29119:2022 and ISO 29148:2018), if you wish to access them, please contact us at info@abstractionslab.lu. Simply provide evidence that you are eligible for accessing the standard(s), and upon successful verification, we will share the reports.
+As certain parts of our KB reports rely on ISO standards (ISO/IEC/IEEE 12207, ISO 29119:2022 and ISO 29148:2018), if you wish to access them, please contact us at info@abstractionslab.lu. Simply provide evidence that you are eligible for accessing the standard(s), and upon successful verification, we will share the reports.
 
 ## Features
 
@@ -74,6 +75,10 @@ As certain parts of our KB reports rely on ISO standards (ISO/IEC/IEEE 12207,  I
 ## User manual
 
 Please see the [CAD user manual](./docs/manual/overview.md) to learn more about the installation, setup requirements, overall usage and specific modules of C5-DEC CAD. A concise guide for getting quickly started is given below.
+
+## Documentation and technical specifications
+
+You can visit our [traceability page](https://abstractionslab.github.io/c5dec/docs/traceability/index.html) to view the technical specifications of C5-DEC CAD, which have been published to HTML from the source specification files via the `publish` CLI command of C5-DEC CAD, which in turn acts as a wrapper for the underlying Doorstop publish feature, offering some enhancements.
 
 ## Getting Started
 
