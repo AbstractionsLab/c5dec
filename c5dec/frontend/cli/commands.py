@@ -17,8 +17,15 @@ from datetime import datetime
 import c5dec.core.cct as cct
 import c5dec.psi.search as c5search
 import c5dec.core.transformer as transformer
+from docx.opc.exceptions import PackageNotFoundError
 
 log = common.logger(__name__)
+log.setLevel(common.logging.INFO)
+
+logHandler = common.logging.FileHandler(c5settings.CMD_LOG_FILE, mode='a')
+formatter = common.logging.Formatter("%(asctime)s - %(levelname)s - %(funcName)s() : %(message)s", "%Y-%m-%d %H:%M:%S")
+logHandler.setFormatter(formatter)
+log.addHandler(logHandler)
 
 def open_editor(editor, filepath):
     if not editor:
@@ -77,22 +84,41 @@ def run(args, cwd, error, catch=True):  # pylint: disable=W0613
 
 def run_timerep(args, cwd, _, catch=True):
     timerep_assistant = pm.TimeReportAssistant()
-    timerep_assistant.input_file_path = args.path
-    timerep_assistant.convert_openproject_time_report_to_IAL_format()
+    timerep_assistant.input_file_name = args.name
+    try:
+        timerep_assistant.convert_openproject_time_report_to_IAL_format()
+    except Exception as e:
+        log.error("Something unexpected went wrong: {}".format(e))
 
 def run_consolidate(args, cwd, _, catch=True):
     timerep_assistant = pm.TimeReportAssistant()
-    timerep_assistant.set_tsh_folder_path(args.path)
+    timerep_assistant.set_tsh_folder_name(args.name)
     date_format = '%d-%m-%Y'
     if args.filter == None:
-        timerep_assistant.set_timerep_parameters(source_folder=args.path,apply_filters=False)
+        timerep_assistant.set_timerep_parameters(source_folder=args.name,apply_filters=False)
     else:
-        timerep_assistant.set_timerep_parameters(source_folder=args.path, apply_filters=True, 
-                                             from_date=datetime.strptime(args.fromdate, date_format), 
-                                             to_date=datetime.strptime(args.to, date_format),
-                                             filter_field=args.field,
-                                             filter_field_value=args.value)
-    timerep_assistant.consolidate_timesheets()
+        timerep_assistant.set_timerep_parameters(source_folder=args.name, apply_filters=True, 
+                                            from_date=datetime.strptime(args.fromdate, date_format), 
+                                            to_date=datetime.strptime(args.to, date_format),
+                                            filter_field=args.field,
+                                            filter_field_value=args.value)
+    try:
+        timerep_assistant.consolidate_timesheets()
+    except IOError:
+        log.error("Missing or bad arguments.")
+    except PackageNotFoundError:
+        log.error("No xlsx file found at the provided path.")
+    except Exception as e:
+        log.error("Something unexpected went wrong: {}".format(e))
+
+
+def run_costrep(args, cwd, _, catch=True):
+    timerep_assistant = pm.TimeReportAssistant()
+    timerep_assistant.input_file_name = args.name
+    try:
+        timerep_assistant.compute_cost_report()
+    except Exception as e:
+        log.error("Something unexpected went wrong: {}".format(e)) 
 
 # This function is no longer used and should be removed
 # @deprecated

@@ -35,4 +35,4 @@ text: |
 
   The diagram below depicts the high-level architecture of C5-DEC CAD.
 
-  ![CAD context diagram](assets/system_architecture.png "C5-DEC CAD system architecture")
+  ![CAD context diagram](assets/system_architecture.png "C5-DEC CAD system architecture"){: width="80%"}

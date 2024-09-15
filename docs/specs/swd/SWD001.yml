@@ -14,4 +14,4 @@ text: |
 
   The diagram below shows the class diagram of the Common Criteria Toolbox (CCT) of C5-DEC CAD.
 
-  ![CAD context diagram](assets/cct_class_diagram.png "C5-DEC CAD CCT class diagram")
+  ![CAD context diagram](assets/cct_class_diagram.png "C5-DEC CAD CCT class diagram"){: width="80%"}

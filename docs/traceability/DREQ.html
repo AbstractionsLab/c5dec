@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html>
+<head><title>Doorstop</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="assets/doorstop/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/doorstop/general.css" />
+  <link type="text/css" rel="stylesheet" href="assets/doorstop/sidebar.css" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" ></script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
+  </script>
+</head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-2 hidden-sm hidden-xs">
+          <nav id="TOC" class="nav nav-stacked fixed sidebar">
+              <h3>Table of Contents</h3>
+<ul>
+<li><a href="#DREQ-001">1.0 APE_INT.1.1D</a><ul>
+<li><a href="#DREQ-002">1.1 APE_CCL.1.1D</a></li>
+<li><a href="#DREQ-003">1.2 APE_CCL.1.2D</a></li>
+<li><a href="#DREQ-004">1.3 APE_CCL.1.3D</a></li>
+<li><a href="#DREQ-005">1.4 APE_SPD.1.1D</a></li>
+<li><a href="#DREQ-006">1.5 APE_OBJ.1.1D</a></li>
+<li><a href="#DREQ-007">1.6 APE_OBJ.1.2D</a></li>
+<li><a href="#DREQ-008">1.7 APE_OBJ.2.1D</a></li>
+<li><a href="#DREQ-009">1.8 APE_OBJ.2.2D</a></li>
+<li><a href="#DREQ-010">1.9 APE_ECD.1.1D</a></li>
+<li><a href="#DREQ-011">1.10 APE_ECD.1.2D</a></li>
+<li><a href="#DREQ-012">1.11 APE_REQ.1.1D</a></li>
+<li><a href="#DREQ-013">1.12 APE_REQ.1.2D</a></li>
+<li><a href="#DREQ-014">1.13 APE_REQ.2.1D</a></li>
+<li><a href="#DREQ-015">1.14 APE_REQ.2.2D</a></li>
+<li><a href="#DREQ-016">1.15 ACE_INT.1.1D</a></li>
+<li><a href="#DREQ-017">1.16 ACE_CCL.1.1D</a></li>
+<li><a href="#DREQ-018">1.17 ACE_CCL.1.2D</a></li>
+<li><a href="#DREQ-019">1.18 ACE_SPD.1.1D</a></li>
+<li><a href="#DREQ-020">1.19 ACE_OBJ.1.1D</a></li>
+<li><a href="#DREQ-021">1.20 ACE_OBJ.1.2D</a></li>
+<li><a href="#DREQ-022">1.21 ACE_OBJ.2.1D</a></li>
+<li><a href="#DREQ-023">1.22 ACE_OBJ.2.2D</a></li>
+<li><a href="#DREQ-024">1.23 ACE_ECD.1.1D</a></li>
+<li><a href="#DREQ-025">1.24 ACE_ECD.1.2D</a></li>
+<li><a href="#DREQ-026">1.25 ACE_REQ.1.1D</a></li>
+<li><a href="#DREQ-027">1.26 ACE_REQ.1.2D</a></li>
+<li><a href="#DREQ-028">1.27 ACE_REQ.2.1D</a></li>
+<li><a href="#DREQ-029">1.28 ACE_REQ.2.2D</a></li>
+<li><a href="#DREQ-030">1.29 ACE_MCO.1.1D</a></li>
+<li><a href="#DREQ-031">1.30 ACE_MCO.1.2D</a></li>
+<li><a href="#DREQ-032">1.31 ACE_CCO.1.1D</a></li>
+<li><a href="#DREQ-033">1.32 ACE_CCO.1.2D</a></li>
+<li><a href="#DREQ-034">1.33 ACE_CCO.1.3D</a></li>
+<li><a href="#DREQ-035">1.34 ACE_CCO.1.4D</a></li>
+<li><a href="#DREQ-036">1.35 ACE_CCO.1.5D</a></li>
+<li><a href="#DREQ-037">1.36 ACE_CCO.1.6D</a></li>
+<li><a href="#DREQ-038">1.37 ACE_CCO.1.7D</a></li>
+<li><a href="#DREQ-039">1.38 ACE_CCO.1.8D</a></li>
+<li><a href="#DREQ-040">1.39 ASE_INT.1.1D</a></li>
+<li><a href="#DREQ-041">1.40 ASE_CCL.1.1D</a></li>
+<li><a href="#DREQ-042">1.41 ASE_CCL.1.2D</a></li>
+<li><a href="#DREQ-043">1.42 ASE_SPD.1.1D</a></li>
+<li><a href="#DREQ-044">1.43 ASE_OBJ.1.1D</a></li>
+<li><a href="#DREQ-045">1.44 ASE_OBJ.1.2D</a></li>
+<li><a href="#DREQ-046">1.45 ASE_OBJ.2.1D</a></li>
+<li><a href="#DREQ-047">1.46 ASE_OBJ.2.2D</a></li>
+<li><a href="#DREQ-048">1.47 ASE_ECD.1.1D</a></li>
+<li><a href="#DREQ-049">1.48 ASE_ECD.1.2D</a></li>
+<li><a href="#DREQ-050">1.49 ASE_REQ.1.1D</a></li>
+<li><a href="#DREQ-051">1.50 ASE_REQ.1.2D</a></li>
+<li><a href="#DREQ-052">1.51 ASE_REQ.2.1D</a></li>
+<li><a href="#DREQ-053">1.52 ASE_REQ.2.2D</a></li>
+<li><a href="#DREQ-054">1.53 ASE_TSS.1.1D</a></li>
+<li><a href="#DREQ-055">1.54 ASE_TSS.2.1D</a></li>
+<li><a href="#DREQ-056">1.55 ASE_COMP.1.1D</a></li>
+<li><a href="#DREQ-057">1.56 ADV_ARC.1.1D</a></li>
+<li><a href="#DREQ-058">1.57 ADV_ARC.1.2D</a></li>
+<li><a href="#DREQ-059">1.58 ADV_ARC.1.3D</a></li>
+<li><a href="#DREQ-060">1.59 ADV_FSP.1.1D</a></li>
+<li><a href="#DREQ-061">1.60 ADV_FSP.1.2D</a></li>
+<li><a href="#DREQ-062">1.61 ADV_FSP.2.1D</a></li>
+<li><a href="#DREQ-063">1.62 ADV_FSP.2.2D</a></li>
+<li><a href="#DREQ-064">1.63 ADV_FSP.3.1D</a></li>
+<li><a href="#DREQ-065">1.64 ADV_FSP.3.2D</a></li>
+<li><a href="#DREQ-066">1.65 ADV_FSP.4.1D</a></li>
+<li><a href="#DREQ-067">1.66 ADV_FSP.4.2D</a></li>
+<li><a href="#DREQ-068">1.67 ADV_FSP.5.1D</a></li>
+<li><a href="#DREQ-069">1.68 ADV_FSP.5.2D</a></li>
+<li><a href="#DREQ-070">1.69 ADV_FSP.6.1D</a></li>
+<li><a href="#DREQ-071">1.70 ADV_FSP.6.2D</a></li>
+<li><a href="#DREQ-072">1.71 ADV_FSP.6.3D</a></li>
+<li><a href="#DREQ-073">1.72 ADV_IMP.1.1D</a></li>
+<li><a href="#DREQ-074">1.73 ADV_IMP.1.2D</a></li>
+<li><a href="#DREQ-075">1.74 ADV_IMP.2.1D</a></li>
+<li><a href="#DREQ-076">1.75 ADV_IMP.2.2D</a></li>
+<li><a href="#DREQ-077">1.76 ADV_INT.1.1D</a></li>
+<li><a href="#DREQ-078">1.77 ADV_INT.1.2D</a></li>
+<li><a href="#DREQ-079">1.78 ADV_INT.2.1D</a></li>
+<li><a href="#DREQ-080">1.79 ADV_INT.2.2D</a></li>
+<li><a href="#DREQ-081">1.80 ADV_INT.3.1D</a></li>
+<li><a href="#DREQ-082">1.81 ADV_INT.3.2D</a></li>
+<li><a href="#DREQ-083">1.82 ADV_SPM.1.1D</a></li>
+<li><a href="#DREQ-084">1.83 ADV_SPM.1.2D</a></li>
+<li><a href="#DREQ-085">1.84 ADV_SPM.1.3D</a></li>
+<li><a href="#DREQ-086">1.85 ADV_SPM.1.4D</a></li>
+<li><a href="#DREQ-087">1.86 ADV_SPM.1.5D</a></li>
+<li><a href="#DREQ-088">1.87 ADV_SPM.1.6D</a></li>
+<li><a href="#DREQ-089">1.88 ADV_TDS.1.1D</a></li>
+<li><a href="#DREQ-090">1.89 ADV_TDS.1.2D</a></li>
+<li><a href="#DREQ-091">1.90 ADV_TDS.2.1D</a></li>
+<li><a href="#DREQ-092">1.91 ADV_TDS.2.2D</a></li>
+<li><a href="#DREQ-093">1.92 ADV_TDS.3.1D</a></li>
+<li><a href="#DREQ-094">1.93 ADV_TDS.3.2D</a></li>
+<li><a href="#DREQ-095">1.94 ADV_TDS.4.1D</a></li>
+<li><a href="#DREQ-096">1.95 ADV_TDS.4.2D</a></li>
+<li><a href="#DREQ-097">1.96 ADV_TDS.5.1D</a></li>
+<li><a href="#DREQ-098">1.97 ADV_TDS.5.2D</a></li>
+<li><a href="#DREQ-099">1.98 ADV_TDS.6.1D</a></li>
+<li><a href="#DREQ-100">1.99 ADV_TDS.6.2D</a></li>
+<li><a href="#DREQ-101">1.100 ADV_TDS.6.3D</a></li>
+<li><a href="#DREQ-102">1.101 ADV_TDS.6.4D</a></li>
+<li><a href="#DREQ-103">1.102 ADV_COMP.1.1D</a></li>
+<li><a href="#DREQ-104">1.103 AGD_OPE.1.1D</a></li>
+<li><a href="#DREQ-105">1.104 AGD_PRE.1.1D</a></li>
+<li><a href="#DREQ-106">1.105 ALC_CMC.1.1D</a></li>
+<li><a href="#DREQ-107">1.106 ALC_CMC.2.1D</a></li>
+<li><a href="#DREQ-108">1.107 ALC_CMC.2.2D</a></li>
+<li><a href="#DREQ-109">1.108 ALC_CMC.2.3D</a></li>
+<li><a href="#DREQ-110">1.109 ALC_CMC.3.1D</a></li>
+<li><a href="#DREQ-111">1.110 ALC_CMC.3.2D</a></li>
+<li><a href="#DREQ-112">1.111 ALC_CMC.3.3D</a></li>
+<li><a href="#DREQ-113">1.112 ALC_CMC.4.1D</a></li>
+<li><a href="#DREQ-114">1.113 ALC_CMC.4.2D</a></li>
+<li><a href="#DREQ-115">1.114 ALC_CMC.4.3D</a></li>
+<li><a href="#DREQ-116">1.115 ALC_CMC.5.1D</a></li>
+<li><a href="#DREQ-117">1.116 ALC_CMC.5.2D</a></li>
+<li><a href="#DREQ-118">1.117 ALC_CMC.5.3D</a></li>
+<li><a href="#DREQ-119">1.118 ALC_CMS.1.1D</a></li>
+<li><a href="#DREQ-120">1.119 ALC_CMS.2.1D</a></li>
+<li><a href="#DREQ-121">1.120 ALC_CMS.3.1D</a></li>
+<li><a href="#DREQ-122">1.121 ALC_CMS.4.1D</a></li>
+<li><a href="#DREQ-123">1.122 ALC_CMS.5.1D</a></li>
+<li><a href="#DREQ-124">1.123 ALC_DEL.1.1D</a></li>
+<li><a href="#DREQ-125">1.124 ALC_DEL.1.2D</a></li>
+<li><a href="#DREQ-126">1.125 ALC_DVS.1.1D</a></li>
+<li><a href="#DREQ-127">1.126 ALC_DVS.2.1D</a></li>
+<li><a href="#DREQ-128">1.127 ALC_FLR.1.1D</a></li>
+<li><a href="#DREQ-129">1.128 ALC_FLR.2.1D</a></li>
+<li><a href="#DREQ-130">1.129 ALC_FLR.2.2D</a></li>
+<li><a href="#DREQ-131">1.130 ALC_FLR.2.3D</a></li>
+<li><a href="#DREQ-132">1.131 ALC_FLR.3.1D</a></li>
+<li><a href="#DREQ-133">1.132 ALC_FLR.3.2D</a></li>
+<li><a href="#DREQ-134">1.133 ALC_FLR.3.3D</a></li>
+<li><a href="#DREQ-135">1.134 ALC_LCD.1.1D</a></li>
+<li><a href="#DREQ-136">1.135 ALC_LCD.1.2D</a></li>
+<li><a href="#DREQ-137">1.136 ALC_LCD.2.1D</a></li>
+<li><a href="#DREQ-138">1.137 ALC_LCD.2.2D</a></li>
+<li><a href="#DREQ-139">1.138 ALC_LCD.2.3D</a></li>
+<li><a href="#DREQ-140">1.139 ALC_LCD.2.4D</a></li>
+<li><a href="#DREQ-141">1.140 ALC_TDA.1.1D</a></li>
+<li><a href="#DREQ-142">1.141 ALC_TDA.1.2D</a></li>
+<li><a href="#DREQ-143">1.142 ALC_TDA.1.3D</a></li>
+<li><a href="#DREQ-144">1.143 ALC_TDA.1.4D</a></li>
+<li><a href="#DREQ-145">1.144 ALC_TDA.1.5D</a></li>
+<li><a href="#DREQ-146">1.145 ALC_TDA.1.6D</a></li>
+<li><a href="#DREQ-147">1.146 ALC_TDA.2.1D</a></li>
+<li><a href="#DREQ-148">1.147 ALC_TDA.2.2D</a></li>
+<li><a href="#DREQ-149">1.148 ALC_TDA.2.3D</a></li>
+<li><a href="#DREQ-150">1.149 ALC_TDA.2.4D</a></li>
+<li><a href="#DREQ-151">1.150 ALC_TDA.2.5D</a></li>
+<li><a href="#DREQ-152">1.151 ALC_TDA.2.6D</a></li>
+<li><a href="#DREQ-153">1.152 ALC_TDA.2.7D</a></li>
+<li><a href="#DREQ-154">1.153 ALC_TDA.3.1D</a></li>
+<li><a href="#DREQ-155">1.154 ALC_TDA.3.2D</a></li>
+<li><a href="#DREQ-156">1.155 Page 132 of 211 CC:2022 November 2022 ALC_TDA.3.3D</a></li>
+<li><a href="#DREQ-157">1.156 ALC_TDA.3.4D</a></li>
+<li><a href="#DREQ-158">1.157 ALC_TDA.3.5D</a></li>
+<li><a href="#DREQ-159">1.158 ALC_TDA.3.6D</a></li>
+<li><a href="#DREQ-160">1.159 ALC_TDA.3.7D</a></li>
+<li><a href="#DREQ-161">1.160 DREQ-161</a></li>
+<li><a href="#DREQ-162">1.161 ALC_TDA.3.9D</a></li>
+<li><a href="#DREQ-163">1.162 ALC_TAT.1.1D</a></li>
+<li><a href="#DREQ-164">1.163 ALC_TAT.1.2D</a></li>
+<li><a href="#DREQ-165">1.164 ALC_TAT.2.1D</a></li>
+<li><a href="#DREQ-166">1.165 ALC_TAT.2.2D</a></li>
+<li><a href="#DREQ-167">1.166 ALC_TAT.2.3D</a></li>
+<li><a href="#DREQ-168">1.167 ALC_TAT.3.1D</a></li>
+<li><a href="#DREQ-169">1.168 ALC_TAT.3.2D</a></li>
+<li><a href="#DREQ-170">1.169 ALC_TAT.3.3D</a></li>
+<li><a href="#DREQ-171">1.170 ALC_COMP.1.1D</a></li>
+<li><a href="#DREQ-172">1.171 ATE_COV.1.1D</a></li>
+<li><a href="#DREQ-173">1.172 ATE_COV.2.1D</a></li>
+<li><a href="#DREQ-174">1.173 ATE_COV.3.1D</a></li>
+<li><a href="#DREQ-175">1.174 ATE_DPT.1.1D</a></li>
+<li><a href="#DREQ-176">1.175 ATE_DPT.2.1D</a></li>
+<li><a href="#DREQ-177">1.176 ATE_DPT.3.1D</a></li>
+<li><a href="#DREQ-178">1.177 ATE_DPT.4.1D</a></li>
+<li><a href="#DREQ-179">1.178 ATE_FUN.1.1D</a></li>
+<li><a href="#DREQ-180">1.179 ATE_FUN.1.2D</a></li>
+<li><a href="#DREQ-181">1.180 ATE_FUN.2.1D</a></li>
+<li><a href="#DREQ-182">1.181 ATE_FUN.2.2D</a></li>
+<li><a href="#DREQ-183">1.182 ATE_IND.1.1D</a></li>
+<li><a href="#DREQ-184">1.183 ATE_IND.2.1D</a></li>
+<li><a href="#DREQ-186">1.185 ATE_IND.3.1D</a></li>
+<li><a href="#DREQ-187">1.186 ATE_COMP.1.1D</a></li>
+<li><a href="#DREQ-188">1.187 ATE_COMP.1.2D</a></li>
+<li><a href="#DREQ-189">1.188 AVA_VAN.1.1D</a></li>
+<li><a href="#DREQ-190">1.189 AVA_VAN.2.1D</a></li>
+<li><a href="#DREQ-191">1.190 AVA_VAN.2.2D</a></li>
+<li><a href="#DREQ-192">1.191 AVA_VAN.3.1D</a></li>
+<li><a href="#DREQ-193">1.192 AVA_VAN.3.2D</a></li>
+<li><a href="#DREQ-194">1.193 AVA_VAN.4.1D</a></li>
+<li><a href="#DREQ-195">1.194 AVA_VAN.4.2D</a></li>
+<li><a href="#DREQ-196">1.195 AVA_VAN.5.1D</a></li>
+<li><a href="#DREQ-197">1.196 AVA_VAN.5.2D</a></li>
+<li><a href="#DREQ-198">1.197 AVA_COMP.1.1D</a></li>
+<li><a href="#DREQ-199">1.198 ACO_COR.1.1D</a></li>
+<li><a href="#DREQ-200">1.199 ACO_DEV.1.1D</a></li>
+<li><a href="#DREQ-201">1.200 ACO_DEV.2.1D</a></li>
+<li><a href="#DREQ-202">1.201 ACO_DEV.3.1D</a></li>
+<li><a href="#DREQ-203">1.202 ACO_REL.1.1D</a></li>
+<li><a href="#DREQ-204">1.203 ACO_REL.2.1DACO_REL.2.1D</a></li>
+<li><a href="#DREQ-205">1.204 ACO_CTT.1.1D</a></li>
+<li><a href="#DREQ-206">1.205 ACO_CTT.1.2D</a></li>
+<li><a href="#DREQ-207">1.206 ACO_CTT.1.3D</a></li>
+<li><a href="#DREQ-208">1.207 ACO_CTT.1.4D</a></li>
+<li><a href="#DREQ-209">1.208 ACO_CTT.2.1D</a></li>
+<li><a href="#DREQ-210">1.209 ACO_CTT.2.2D</a></li>
+<li><a href="#DREQ-211">1.210 ACO_CTT.2.3D</a></li>
+<li><a href="#DREQ-212">1.211 ACO_CTT.2.4D</a></li>
+<li><a href="#DREQ-213">1.212 ACO_VUL.1.1D</a></li>
+<li><a href="#DREQ-214">1.213 ACO_VUL.2.1D</a></li>
+<li><a href="#DREQ-215">1.214 ACO_VUL.3.1D</a></li>
+</ul>
+</li>
+</ul>
+          </nav>
+      </div>
+      <div class="col-lg-8" id="main">
+        <h1 id="DREQ-001">1.0 APE_INT.1.1D <small>DREQ-001</small></h1>
+<p>The developer shall provide a PP introduction.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-001">ACOM-001 APE_INT.1 PP introduction</a></p>
+<h2 id="DREQ-002">1.1 APE_CCL.1.1D <small>DREQ-002</small></h2>
+<p>The developer shall provide a conformance claim.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-002">ACOM-002 APE_CCL.1 Conformance claims</a></p>
+<h2 id="DREQ-003">1.2 APE_CCL.1.2D <small>DREQ-003</small></h2>
+<p>The developer shall provide a conformance claim rationale.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-002">ACOM-002 APE_CCL.1 Conformance claims</a></p>
+<h2 id="DREQ-004">1.3 APE_CCL.1.3D <small>DREQ-004</small></h2>
+<p>The developer shall provide a conformance statement.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-002">ACOM-002 APE_CCL.1 Conformance claims</a></p>
+<h2 id="DREQ-005">1.4 APE_SPD.1.1D <small>DREQ-005</small></h2>
+<p>The developer shall provide a security problem definition.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-003">ACOM-003 APE_SPD.1 Security problem definition</a></p>
+<h2 id="DREQ-006">1.5 APE_OBJ.1.1D <small>DREQ-006</small></h2>
+<p>The developer shall provide a statement of security objectives for the operational environment.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-004">ACOM-004 APE_OBJ.1 Security objectives for the operational environment</a></p>
+<h2 id="DREQ-007">1.6 APE_OBJ.1.2D <small>DREQ-007</small></h2>
+<p>The developer shall provide a security objectives rationale objectives for the operational environment.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-004">ACOM-004 APE_OBJ.1 Security objectives for the operational environment</a></p>
+<h2 id="DREQ-008">1.7 APE_OBJ.2.1D <small>DREQ-008</small></h2>
+<p>The developer shall provide a statement of security objectives.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-005">ACOM-005 APE_OBJ.2 Security objectives</a></p>
+<h2 id="DREQ-009">1.8 APE_OBJ.2.2D <small>DREQ-009</small></h2>
+<p>The developer shall provide a security objectives rationale.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-005">ACOM-005 APE_OBJ.2 Security objectives</a></p>
+<h2 id="DREQ-010">1.9 APE_ECD.1.1D <small>DREQ-010</small></h2>
+<p>The developer shall provide a statement of security requirements.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-006">ACOM-006 APE_ECD.1 Extended components definition</a></p>
+<h2 id="DREQ-011">1.10 APE_ECD.1.2D <small>DREQ-011</small></h2>
+<p>The developer shall provide an extended components definition.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-006">ACOM-006 APE_ECD.1 Extended components definition</a></p>
+<h2 id="DREQ-012">1.11 APE_REQ.1.1D <small>DREQ-012</small></h2>
+<p>The developer shall provide a statement of security requirements.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-007">ACOM-007 APE_REQ.1 Direct rationale PP-Module security requirements</a></p>
+<h2 id="DREQ-013">1.12 APE_REQ.1.2D <small>DREQ-013</small></h2>
+<p>The developer shall provide a security requirements rationale.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-007">ACOM-007 APE_REQ.1 Direct rationale PP-Module security requirements</a></p>
+<h2 id="DREQ-014">1.13 APE_REQ.2.1D <small>DREQ-014</small></h2>
+<p>The developer shall provide a statement of security requirements.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-008">ACOM-008 APE_REQ.2 Derived security requirements</a></p>
+<h2 id="DREQ-015">1.14 APE_REQ.2.2D <small>DREQ-015</small></h2>
+<p>The developer shall provide a security requirements rationale.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-008">ACOM-008 APE_REQ.2 Derived security requirements</a></p>
+<h2 id="DREQ-016">1.15 ACE_INT.1.1D <small>DREQ-016</small></h2>
+<p>The developer shall provide a PP-Module introduction.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-009">ACOM-009 ACE_INT.1 PP-Module introduction</a></p>
+<h2 id="DREQ-017">1.16 ACE_CCL.1.1D <small>DREQ-017</small></h2>
+<p>The developer shall provide a conformance claim.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-010">ACOM-010 ACE_CCL.1 PP-Module conformance claims</a></p>
+<h2 id="DREQ-018">1.17 ACE_CCL.1.2D <small>DREQ-018</small></h2>
+<p>The developer shall provide a conformance statement.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-010">ACOM-010 ACE_CCL.1 PP-Module conformance claims</a></p>
+<h2 id="DREQ-019">1.18 ACE_SPD.1.1D <small>DREQ-019</small></h2>
+<p>The developer shall provide a security problem definition.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-011">ACOM-011 ACE_SPD.1 PP-Module security problem definition</a></p>
+<h2 id="DREQ-020">1.19 ACE_OBJ.1.1D <small>DREQ-020</small></h2>
+<p>The developer shall provide a statement of security objectives for the operational environment of the PP-Module.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-012">ACOM-012 ACE_OBJ.1 PP-Module security objectives for the operational environment</a></p>
+<h2 id="DREQ-021">1.20 ACE_OBJ.1.2D <small>DREQ-021</small></h2>
+<p>The developer shall provide a security objectives rationale for the operational environment of the PP-Module.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-012">ACOM-012 ACE_OBJ.1 PP-Module security objectives for the operational environment</a></p>
+<h2 id="DREQ-022">1.21 ACE_OBJ.2.1D <small>DREQ-022</small></h2>
+<p>The developer shall provide a statement of security objectives for the PP-Module.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-013">ACOM-013 ACE_OBJ.2 PP-Module security objectives</a></p>
+<h2 id="DREQ-023">1.22 ACE_OBJ.2.2D <small>DREQ-023</small></h2>
+<p>The developer shall provide a security objectives rationale for the PP-Module.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-013">ACOM-013 ACE_OBJ.2 PP-Module security objectives</a></p>
+<h2 id="DREQ-024">1.23 ACE_ECD.1.1D <small>DREQ-024</small></h2>
+<p>The developer shall provide a statement of security requirements for the PP-Module.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-014">ACOM-014 ACE_ECD.1 PP-Module extended components definition</a></p>
+<h2 id="DREQ-025">1.24 ACE_ECD.1.2D <small>DREQ-025</small></h2>
+<p>The developer shall provide an extended components definition for the PP-Module.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-014">ACOM-014 ACE_ECD.1 PP-Module extended components definition</a></p>
+<h2 id="DREQ-026">1.25 ACE_REQ.1.1D <small>DREQ-026</small></h2>
+<p>The developer shall provide a statement of security requirements for the PP-Module.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-015">ACOM-015 ACE_REQ.1 PP-Module stated security requirements</a></p>
+<h2 id="DREQ-027">1.26 ACE_REQ.1.2D <small>DREQ-027</small></h2>
+<p>The developer shall provide a security requirements rationale for the PP-Module.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-015">ACOM-015 ACE_REQ.1 PP-Module stated security requirements</a></p>
+<h2 id="DREQ-028">1.27 ACE_REQ.2.1D <small>DREQ-028</small></h2>
+<p>The developer shall provide a statement of security requirements for the PP-Module.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-016">ACOM-016 ACE_REQ.2 PP-Module derived security requirements</a></p>
+<h2 id="DREQ-029">1.28 ACE_REQ.2.2D <small>DREQ-029</small></h2>
+<p>The developer shall provide a security requirement rationale for the PP-Module.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-016">ACOM-016 ACE_REQ.2 PP-Module derived security requirements</a></p>
+<h2 id="DREQ-030">1.29 ACE_MCO.1.1D <small>DREQ-030</small></h2>
+<p>The developer shall provide a consistency rationale of the PP-Module for each of the alternative PP-Module Bases identified in the PP-Module introduction.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-017">ACOM-017 ACE_MCO.1 PP-Module consistency</a></p>
+<h2 id="DREQ-031">1.30 ACE_MCO.1.2D <small>DREQ-031</small></h2>
+<p>The developer shall provide an assurance rationale of the PP-Module for each of the alternative PP-Module Bases identified in the PP-Module introduction.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-017">ACOM-017 ACE_MCO.1 PP-Module consistency</a></p>
+<h2 id="DREQ-032">1.31 ACE_CCO.1.1D <small>DREQ-032</small></h2>
+<p>The developer shall provide the reference of the PP-Configuration.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-018">ACOM-018 ACE_CCO.1 PP-Configuration consistency</a></p>
+<h2 id="DREQ-033">1.32 ACE_CCO.1.2D <small>DREQ-033</small></h2>
+<p>The developer shall provide a components statement.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-018">ACOM-018 ACE_CCO.1 PP-Configuration consistency</a></p>
+<h2 id="DREQ-034">1.33 ACE_CCO.1.3D <small>DREQ-034</small></h2>
+<p>The developer shall provide a TOE overview.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-018">ACOM-018 ACE_CCO.1 PP-Configuration consistency</a></p>
+<h2 id="DREQ-035">1.34 ACE_CCO.1.4D <small>DREQ-035</small></h2>
+<p>The developer shall provide a conformance claim.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-018">ACOM-018 ACE_CCO.1 PP-Configuration consistency</a></p>
+<h2 id="DREQ-036">1.35 ACE_CCO.1.5D <small>DREQ-036</small></h2>
+<p>The developer shall provide a conformance statement within the conformance claim.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-018">ACOM-018 ACE_CCO.1 PP-Configuration consistency</a></p>
+<h2 id="DREQ-037">1.36 ACE_CCO.1.6D <small>DREQ-037</small></h2>
+<p>The developer shall provide a consistency rationale.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-018">ACOM-018 ACE_CCO.1 PP-Configuration consistency</a></p>
+<h2 id="DREQ-038">1.37 ACE_CCO.1.7D <small>DREQ-038</small></h2>
+<p>The developer shall provide a SAR statement.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-018">ACOM-018 ACE_CCO.1 PP-Configuration consistency</a></p>
+<h2 id="DREQ-039">1.38 ACE_CCO.1.8D <small>DREQ-039</small></h2>
+<p>The developer shall provide the set of evaluation methods and/or activities that are applicable to the PP-Configuration.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-018">ACOM-018 ACE_CCO.1 PP-Configuration consistency</a></p>
+<h2 id="DREQ-040">1.39 ASE_INT.1.1D <small>DREQ-040</small></h2>
+<p>The developer shall provide an ST introduction.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-019">ACOM-019 ASE_INT.1 ST introduction</a></p>
+<h2 id="DREQ-041">1.40 ASE_CCL.1.1D <small>DREQ-041</small></h2>
+<p>The developer shall provide a conformance claim.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-020">ACOM-020 ASE_CCL.1 Conformance claims</a></p>
+<h2 id="DREQ-042">1.41 ASE_CCL.1.2D <small>DREQ-042</small></h2>
+<p>The developer shall provide a conformance claim rationale.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-020">ACOM-020 ASE_CCL.1 Conformance claims</a></p>
+<h2 id="DREQ-043">1.42 ASE_SPD.1.1D <small>DREQ-043</small></h2>
+<p>The developer shall provide a security problem definition.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-021">ACOM-021 ASE_SPD.1 Security problem definition</a></p>
+<h2 id="DREQ-044">1.43 ASE_OBJ.1.1D <small>DREQ-044</small></h2>
+<p>The developer shall provide a statement of security objectives for the operational environment.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-022">ACOM-022 ASE_OBJ.1 Security objectives for the operational environment</a></p>
+<h2 id="DREQ-045">1.44 ASE_OBJ.1.2D <small>DREQ-045</small></h2>
+<p>The developer shall provide a security objectives rationale for the operational environment.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-022">ACOM-022 ASE_OBJ.1 Security objectives for the operational environment</a></p>
+<h2 id="DREQ-046">1.45 ASE_OBJ.2.1D <small>DREQ-046</small></h2>
+<p>The developer shall provide a statement of security objectives.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-023">ACOM-023 ASE_OBJ.2 Security objectives</a></p>
+<h2 id="DREQ-047">1.46 ASE_OBJ.2.2D <small>DREQ-047</small></h2>
+<p>The developer shall provide a security objectives rationale.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-023">ACOM-023 ASE_OBJ.2 Security objectives</a></p>
+<h2 id="DREQ-048">1.47 ASE_ECD.1.1D <small>DREQ-048</small></h2>
+<p>The developer shall provide a statement of security requirements.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-024">ACOM-024 ASE_ECD.1 Extended components definition</a></p>
+<h2 id="DREQ-049">1.48 ASE_ECD.1.2D <small>DREQ-049</small></h2>
+<p>The developer shall provide an extended components definition.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-024">ACOM-024 ASE_ECD.1 Extended components definition</a></p>
+<h2 id="DREQ-050">1.49 ASE_REQ.1.1D <small>DREQ-050</small></h2>
+<p>The developer shall provide a statement of security requirements.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-025">ACOM-025 ASE_REQ.1 Direct rationale security requirements</a></p>
+<h2 id="DREQ-051">1.50 ASE_REQ.1.2D <small>DREQ-051</small></h2>
+<p>The developer shall provide a security requirements rationale.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-025">ACOM-025 ASE_REQ.1 Direct rationale security requirements</a></p>
+<h2 id="DREQ-052">1.51 ASE_REQ.2.1D <small>DREQ-052</small></h2>
+<p>The developer shall provide a statement of security requirements.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-026">ACOM-026 ASE_REQ.2 Derived security requirements</a></p>
+<h2 id="DREQ-053">1.52 ASE_REQ.2.2D <small>DREQ-053</small></h2>
+<p>The developer shall provide a security requirements rationale.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-026">ACOM-026 ASE_REQ.2 Derived security requirements</a></p>
+<h2 id="DREQ-054">1.53 ASE_TSS.1.1D <small>DREQ-054</small></h2>
+<p>The developer shall provide a TOE summary specification.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-027">ACOM-027 ASE_TSS.1 TOE summary specification</a></p>
+<h2 id="DREQ-055">1.54 ASE_TSS.2.1D <small>DREQ-055</small></h2>
+<p>The developer shall provide a TOE summary specification.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-028">ACOM-028 ASE_TSS.2 TOE summary specification with architectural design summary</a></p>
+<h2 id="DREQ-056">1.55 ASE_COMP.1.1D <small>DREQ-056</small></h2>
+<p>The developer shall provide a statement of compatibility between the composite product Security Target and the base component Security Target. This statement may be provided within the composite product Security Target.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-029">ACOM-029 ASE_COMP.1 Consistency of Security Target (ST)</a></p>
+<h2 id="DREQ-057">1.56 ADV_ARC.1.1D <small>DREQ-057</small></h2>
+<p>The developer shall design and implement the TOE so that the security features of the TSF cannot be bypassed.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-030">ACOM-030 ADV_ARC.1 Security architecture description</a></p>
+<h2 id="DREQ-058">1.57 ADV_ARC.1.2D <small>DREQ-058</small></h2>
+<p>The developer shall design and implement the TSF so that it is able to protect itself from tampering by untrusted active entities.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-030">ACOM-030 ADV_ARC.1 Security architecture description</a></p>
+<h2 id="DREQ-059">1.58 ADV_ARC.1.3D <small>DREQ-059</small></h2>
+<p>The developer shall provide a security architecture description of the TSF.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-030">ACOM-030 ADV_ARC.1 Security architecture description</a></p>
+<h2 id="DREQ-060">1.59 ADV_FSP.1.1D <small>DREQ-060</small></h2>
+<p>The developer shall provide a functional specification.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-031">ACOM-031 ADV_FSP.1 Basic functional specification</a></p>
+<h2 id="DREQ-061">1.60 ADV_FSP.1.2D <small>DREQ-061</small></h2>
+<p>The developer shall provide a tracing from the functional specification to the SFRs.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-031">ACOM-031 ADV_FSP.1 Basic functional specification</a></p>
+<h2 id="DREQ-062">1.61 ADV_FSP.2.1D <small>DREQ-062</small></h2>
+<p>The developer shall provide a functional specification.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-032">ACOM-032 ADV_FSP.2 Security-enforcing functional specification</a></p>
+<h2 id="DREQ-063">1.62 ADV_FSP.2.2D <small>DREQ-063</small></h2>
+<p>The developer shall provide a tracing from the functional specification to the SFRs.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-032">ACOM-032 ADV_FSP.2 Security-enforcing functional specification</a></p>
+<h2 id="DREQ-064">1.63 ADV_FSP.3.1D <small>DREQ-064</small></h2>
+<p>The developer shall provide a functional specification.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-033">ACOM-033 ADV_FSP.3 Functional specification with complete summary</a></p>
+<h2 id="DREQ-065">1.64 ADV_FSP.3.2D <small>DREQ-065</small></h2>
+<p>The developer shall provide a tracing from the functional specification to the SFRs.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-033">ACOM-033 ADV_FSP.3 Functional specification with complete summary</a></p>
+<h2 id="DREQ-066">1.65 ADV_FSP.4.1D <small>DREQ-066</small></h2>
+<p>The developer shall provide a functional specification.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-034">ACOM-034 ADV_FSP.4 Complete functional specification</a></p>
+<h2 id="DREQ-067">1.66 ADV_FSP.4.2D <small>DREQ-067</small></h2>
+<p>The developer shall provide a tracing from the functional specification to the SFRs.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-034">ACOM-034 ADV_FSP.4 Complete functional specification</a></p>
+<h2 id="DREQ-068">1.67 ADV_FSP.5.1D <small>DREQ-068</small></h2>
+<p>The developer shall provide a functional specification.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-035">ACOM-035 ADV_FSP.5 Complete semi-formal functional specification with additional error information</a></p>
+<h2 id="DREQ-069">1.68 ADV_FSP.5.2D <small>DREQ-069</small></h2>
+<p>The developer shall provide a tracing from the functional specification to the SFRs.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-035">ACOM-035 ADV_FSP.5 Complete semi-formal functional specification with additional error information</a></p>
+<h2 id="DREQ-070">1.69 ADV_FSP.6.1D <small>DREQ-070</small></h2>
+<p>The developer shall provide a functional specification.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-036">ACOM-036 ADV_FSP.6 Complete semi-formal functional specification with additional formal specification</a></p>
+<h2 id="DREQ-071">1.70 ADV_FSP.6.2D <small>DREQ-071</small></h2>
+<p>The developer shall provide a formal presentation of the functional specification of the TSF.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-036">ACOM-036 ADV_FSP.6 Complete semi-formal functional specification with additional formal specification</a></p>
+<h2 id="DREQ-072">1.71 ADV_FSP.6.3D <small>DREQ-072</small></h2>
+<p>The developer shall provide a tracing from the functional specification to the SFRs.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-036">ACOM-036 ADV_FSP.6 Complete semi-formal functional specification with additional formal specification</a></p>
+<h2 id="DREQ-073">1.72 ADV_IMP.1.1D <small>DREQ-073</small></h2>
+<p>The developer shall make available the implementation representation for the entire TSF.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-037">ACOM-037 ADV_IMP.1 Implementation representation of the TSF</a></p>
+<h2 id="DREQ-074">1.73 ADV_IMP.1.2D <small>DREQ-074</small></h2>
+<p>The developer shall provide a mapping between the TOE design description and the sample of the implementation representation.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-037">ACOM-037 ADV_IMP.1 Implementation representation of the TSF</a></p>
+<h2 id="DREQ-075">1.74 ADV_IMP.2.1D <small>DREQ-075</small></h2>
+<p>The developer shall make available the implementation representation for the entire TSF.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-038">ACOM-038 ADV_IMP.2 Complete mapping of the implementation representation of the TSF</a></p>
+<h2 id="DREQ-076">1.75 ADV_IMP.2.2D <small>DREQ-076</small></h2>
+<p>The developer shall provide a mapping between the TOE design description and the entire implementation representation.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-038">ACOM-038 ADV_IMP.2 Complete mapping of the implementation representation of the TSF</a></p>
+<h2 id="DREQ-077">1.76 ADV_INT.1.1D <small>DREQ-077</small></h2>
+<p>The developer shall design and implement [assignment: subset of the TSF] such that it has well-structured internals.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-039">ACOM-039 ADV_INT.1 Well-structured subset of TSF internals</a></p>
+<h2 id="DREQ-078">1.77 ADV_INT.1.2D <small>DREQ-078</small></h2>
+<p>The developer shall provide an internals description and justification.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-039">ACOM-039 ADV_INT.1 Well-structured subset of TSF internals</a></p>
+<h2 id="DREQ-079">1.78 ADV_INT.2.1D <small>DREQ-079</small></h2>
+<p>The developer shall design and implement the entire TSF such that it has well-structured internals.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-040">ACOM-040 ADV_INT.2 Well-structured internals</a></p>
+<h2 id="DREQ-080">1.79 ADV_INT.2.2D <small>DREQ-080</small></h2>
+<p>The developer shall provide an internals description and justification.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-040">ACOM-040 ADV_INT.2 Well-structured internals</a></p>
+<h2 id="DREQ-081">1.80 ADV_INT.3.1D <small>DREQ-081</small></h2>
+<p>The developer shall design and implement the entire TSF such that it has well-structured internals.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-041">ACOM-041 ADV_INT.3 Minimally complex internals</a></p>
+<h2 id="DREQ-082">1.81 ADV_INT.3.2D <small>DREQ-082</small></h2>
+<p>The developer shall provide an internals description and justification.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-041">ACOM-041 ADV_INT.3 Minimally complex internals</a></p>
+<h2 id="DREQ-083">1.82 ADV_SPM.1.1D <small>DREQ-083</small></h2>
+<p>The developer shall provide a formal model for the TSF supported by explanatory text.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-042">ACOM-042 ADV_SPM.1 Formal TOE security policy model</a></p>
+<h2 id="DREQ-084">1.83 ADV_SPM.1.2D <small>DREQ-084</small></h2>
+<p>The developer shall provide the set of formal properties for the TOE supported by explanatory text.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-042">ACOM-042 ADV_SPM.1 Formal TOE security policy model</a></p>
+<h2 id="DREQ-085">1.84 ADV_SPM.1.3D <small>DREQ-085</small></h2>
+<p>The developer shall provide a formal proof that the model satisfies the formal properties supported by explanatory text.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-042">ACOM-042 ADV_SPM.1 Formal TOE security policy model</a></p>
+<h2 id="DREQ-086">1.85 ADV_SPM.1.4D <small>DREQ-086</small></h2>
+<p>The developer shall provide a correspondence rationale between the formal model and the functional specification.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-042">ACOM-042 ADV_SPM.1 Formal TOE security policy model</a></p>
+<h2 id="DREQ-087">1.86 ADV_SPM.1.5D <small>DREQ-087</small></h2>
+<p>The developer shall provide a semi-formal demonstration of correspondence between the formal model and any semi-formal functional specification.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-042">ACOM-042 ADV_SPM.1 Formal TOE security policy model</a></p>
+<h2 id="DREQ-088">1.87 ADV_SPM.1.6D <small>DREQ-088</small></h2>
+<p>The developer shall provide a formal proof of correspondence between the formal model and any formal functional specification.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-042">ACOM-042 ADV_SPM.1 Formal TOE security policy model</a></p>
+<h2 id="DREQ-089">1.88 ADV_TDS.1.1D <small>DREQ-089</small></h2>
+<p>The developer shall provide the design of the TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-043">ACOM-043 ADV_TDS.1 Basic design</a></p>
+<h2 id="DREQ-090">1.89 ADV_TDS.1.2D <small>DREQ-090</small></h2>
+<p>The developer shall provide a mapping from the TSFI of the functional specification to the lowest level of decomposition available in the TOE design.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-043">ACOM-043 ADV_TDS.1 Basic design</a></p>
+<h2 id="DREQ-091">1.90 ADV_TDS.2.1D <small>DREQ-091</small></h2>
+<p>The developer shall provide the design of the TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-044">ACOM-044 ADV_TDS.2 Architectural design</a></p>
+<h2 id="DREQ-092">1.91 ADV_TDS.2.2D <small>DREQ-092</small></h2>
+<p>The developer shall provide a mapping from the TSFI of the functional specification to the lowest level of decomposition available in the TOE design.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-044">ACOM-044 ADV_TDS.2 Architectural design</a></p>
+<h2 id="DREQ-093">1.92 ADV_TDS.3.1D <small>DREQ-093</small></h2>
+<p>The developer shall provide the design of the TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-045">ACOM-045 ADV_TDS.3 Basic modular design</a></p>
+<h2 id="DREQ-094">1.93 ADV_TDS.3.2D <small>DREQ-094</small></h2>
+<p>The developer shall provide a mapping from the TSFI of the functional specification to the lowest level of decomposition available in the TOE design.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-045">ACOM-045 ADV_TDS.3 Basic modular design</a></p>
+<h2 id="DREQ-095">1.94 ADV_TDS.4.1D <small>DREQ-095</small></h2>
+<p>The developer shall provide the design of the TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-046">ACOM-046 ADV_TDS.4 Semiformal modular design</a></p>
+<h2 id="DREQ-096">1.95 ADV_TDS.4.2D <small>DREQ-096</small></h2>
+<p>The developer shall provide a mapping from the TSFI of the functional specification to the lowest level of decomposition available in the TOE design.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-046">ACOM-046 ADV_TDS.4 Semiformal modular design</a></p>
+<h2 id="DREQ-097">1.96 ADV_TDS.5.1D <small>DREQ-097</small></h2>
+<p>The developer shall provide the design of the TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-047">ACOM-047 ADV_TDS.5 Complete semiformal modular design</a></p>
+<h2 id="DREQ-098">1.97 ADV_TDS.5.2D <small>DREQ-098</small></h2>
+<p>The developer shall provide a mapping from the TSFI of the functional specification to the lowest level of decomposition available in the TOE design.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-047">ACOM-047 ADV_TDS.5 Complete semiformal modular design</a></p>
+<h2 id="DREQ-099">1.98 ADV_TDS.6.1D <small>DREQ-099</small></h2>
+<p>The developer shall provide the design of the TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-048">ACOM-048 ADV_TDS.6 Complete semiformal modular design with formal high-level design presentation</a></p>
+<h2 id="DREQ-100">1.99 ADV_TDS.6.2D <small>DREQ-100</small></h2>
+<p>The developer shall provide a mapping from the TSFI of the functional specification to the lowest level of decomposition available in the TOE design.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-048">ACOM-048 ADV_TDS.6 Complete semiformal modular design with formal high-level design presentation</a></p>
+<h2 id="DREQ-101">1.100 ADV_TDS.6.3D <small>DREQ-101</small></h2>
+<p>The developer shall provide a formal specification of the TSF subsystems.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-048">ACOM-048 ADV_TDS.6 Complete semiformal modular design with formal high-level design presentation</a></p>
+<h2 id="DREQ-102">1.101 ADV_TDS.6.4D <small>DREQ-102</small></h2>
+<p>The developer shall provide a proof of correspondence between the formal specifications of the TSF subsystems and of the functional specification.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-048">ACOM-048 ADV_TDS.6 Complete semiformal modular design with formal high-level design presentation</a></p>
+<h2 id="DREQ-103">1.102 ADV_COMP.1.1D <small>DREQ-103</small></h2>
+<p>The developer shall provide a design compliance justification.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-049">ACOM-049 ADV_COMP.1 Design compliance with the base component-related user guidance, ETR for composite evaluation and report of the base component evaluation authority</a></p>
+<h2 id="DREQ-104">1.103 AGD_OPE.1.1D <small>DREQ-104</small></h2>
+<p>The developer shall provide operational user guidance.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-050">ACOM-050 AGD_OPE.1 Operational user guidance</a></p>
+<h2 id="DREQ-105">1.104 AGD_PRE.1.1D <small>DREQ-105</small></h2>
+<p>The developer shall provide the TOE including its preparative procedures.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-051">ACOM-051 AGD_PRE.1 Preparative procedures</a></p>
+<h2 id="DREQ-106">1.105 ALC_CMC.1.1D <small>DREQ-106</small></h2>
+<p>The developer shall provide the TOE and a unique reference for the TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-052">ACOM-052 ALC_CMC.1 Labelling of the TOE</a></p>
+<h2 id="DREQ-107">1.106 ALC_CMC.2.1D <small>DREQ-107</small></h2>
+<p>The developer shall provide the TOE and a unique reference for the TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-053">ACOM-053 ALC_CMC.2 Use of the CM system</a></p>
+<h2 id="DREQ-108">1.107 ALC_CMC.2.2D <small>DREQ-108</small></h2>
+<p>The developer shall provide the CM documentation.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-053">ACOM-053 ALC_CMC.2 Use of the CM system</a></p>
+<h2 id="DREQ-109">1.108 ALC_CMC.2.3D <small>DREQ-109</small></h2>
+<p>The developer shall use a CM system.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-053">ACOM-053 ALC_CMC.2 Use of the CM system</a></p>
+<h2 id="DREQ-110">1.109 ALC_CMC.3.1D <small>DREQ-110</small></h2>
+<p>The developer shall provide the TOE and a unique reference for the TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-054">ACOM-054 ALC_CMC.3 Authorization controls</a></p>
+<h2 id="DREQ-111">1.110 ALC_CMC.3.2D <small>DREQ-111</small></h2>
+<p>The developer shall provide the CM documentation.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-054">ACOM-054 ALC_CMC.3 Authorization controls</a></p>
+<h2 id="DREQ-112">1.111 ALC_CMC.3.3D <small>DREQ-112</small></h2>
+<p>The developer shall use a CM system.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-054">ACOM-054 ALC_CMC.3 Authorization controls</a></p>
+<h2 id="DREQ-113">1.112 ALC_CMC.4.1D <small>DREQ-113</small></h2>
+<p>The developer shall provide the TOE and a unique reference for the TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-055">ACOM-055 ALC_CMC.4 Production support, acceptance procedures and automation</a></p>
+<h2 id="DREQ-114">1.113 ALC_CMC.4.2D <small>DREQ-114</small></h2>
+<p>The developer shall provide the CM documentation.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-055">ACOM-055 ALC_CMC.4 Production support, acceptance procedures and automation</a></p>
+<h2 id="DREQ-115">1.114 ALC_CMC.4.3D <small>DREQ-115</small></h2>
+<p>The developer shall use a CM system.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-055">ACOM-055 ALC_CMC.4 Production support, acceptance procedures and automation</a></p>
+<h2 id="DREQ-116">1.115 ALC_CMC.5.1D <small>DREQ-116</small></h2>
+<p>The developer shall provide the TOE and a unique reference for the TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-056">ACOM-056 ALC_CMC.5 Advanced support</a></p>
+<h2 id="DREQ-117">1.116 ALC_CMC.5.2D <small>DREQ-117</small></h2>
+<p>The developer shall provide the CM documentation.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-056">ACOM-056 ALC_CMC.5 Advanced support</a></p>
+<h2 id="DREQ-118">1.117 ALC_CMC.5.3D <small>DREQ-118</small></h2>
+<p>The developer shall use a CM system.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-056">ACOM-056 ALC_CMC.5 Advanced support</a></p>
+<h2 id="DREQ-119">1.118 ALC_CMS.1.1D <small>DREQ-119</small></h2>
+<p>The developer shall provide a configuration list for the TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-057">ACOM-057 ALC_CMS.1 TOE CM coverage</a></p>
+<h2 id="DREQ-120">1.119 ALC_CMS.2.1D <small>DREQ-120</small></h2>
+<p>The developer shall provide a configuration list for the TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-058">ACOM-058 ALC_CMS.2 Parts of the TOE CM coverage</a></p>
+<h2 id="DREQ-121">1.120 ALC_CMS.3.1D <small>DREQ-121</small></h2>
+<p>The developer shall provide a configuration list for the TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-059">ACOM-059 ALC_CMS.3 Implementation representation CM coverage</a></p>
+<h2 id="DREQ-122">1.121 ALC_CMS.4.1D <small>DREQ-122</small></h2>
+<p>The developer shall provide a configuration list for the TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-060">ACOM-060 ALC_CMS.4 Problem tracking CM coverage</a></p>
+<h2 id="DREQ-123">1.122 ALC_CMS.5.1D <small>DREQ-123</small></h2>
+<p>The developer shall provide a configuration list for the TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-061">ACOM-061 ALC_CMS.5 Development tools CM coverage</a></p>
+<h2 id="DREQ-124">1.123 ALC_DEL.1.1D <small>DREQ-124</small></h2>
+<p>The developer shall document and provide procedures for delivery of the TOE or parts of it to the consumer.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-062">ACOM-062 ALC_DEL.1 Delivery procedures</a></p>
+<h2 id="DREQ-125">1.124 ALC_DEL.1.2D <small>DREQ-125</small></h2>
+<p>The developer shall use the delivery procedures.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-062">ACOM-062 ALC_DEL.1 Delivery procedures</a></p>
+<h2 id="DREQ-126">1.125 ALC_DVS.1.1D <small>DREQ-126</small></h2>
+<p>The developer shall produce and provide development security documentation.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-063">ACOM-063 ALC_DVS.1 Identification of security controls</a></p>
+<h2 id="DREQ-127">1.126 ALC_DVS.2.1D <small>DREQ-127</small></h2>
+<p>The developer shall produce and provide development security documentation.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-064">ACOM-064 ALC_DVS.2 Sufficiency of security controls</a></p>
+<h2 id="DREQ-128">1.127 ALC_FLR.1.1D <small>DREQ-128</small></h2>
+<p>The developer shall document and provide flaw remediation procedures addressed to TOE developers.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-065">ACOM-065 ALC_FLR.1 Basic flaw remediation</a></p>
+<h2 id="DREQ-129">1.128 ALC_FLR.2.1D <small>DREQ-129</small></h2>
+<p>The developer shall document and provide flaw remediation procedures addressed to TOE developers.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-066">ACOM-066 ALC_FLR.2 Flaw reporting procedures</a></p>
+<h2 id="DREQ-130">1.129 ALC_FLR.2.2D <small>DREQ-130</small></h2>
+<p>The developer shall establish a procedure for accepting and acting upon all reports of security flaws and requests for corrections to those flaws.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-066">ACOM-066 ALC_FLR.2 Flaw reporting procedures</a></p>
+<h2 id="DREQ-131">1.130 ALC_FLR.2.3D <small>DREQ-131</small></h2>
+<p>The developer shall provide flaw remediation guidance addressed to TOE users.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-066">ACOM-066 ALC_FLR.2 Flaw reporting procedures</a></p>
+<h2 id="DREQ-132">1.131 ALC_FLR.3.1D <small>DREQ-132</small></h2>
+<p>The developer shall document and provide flaw remediation procedures addressed to TOE developers.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-067">ACOM-067 ALC_FLR.3 Systematic flaw remediation</a></p>
+<h2 id="DREQ-133">1.132 ALC_FLR.3.2D <small>DREQ-133</small></h2>
+<p>The developer shall establish a procedure for accepting and acting upon all reports of security flaws and requests for corrections to those flaws.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-067">ACOM-067 ALC_FLR.3 Systematic flaw remediation</a></p>
+<h2 id="DREQ-134">1.133 ALC_FLR.3.3D <small>DREQ-134</small></h2>
+<p>The developer shall provide flaw remediation guidance addressed to TOE users.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-067">ACOM-067 ALC_FLR.3 Systematic flaw remediation</a></p>
+<h2 id="DREQ-135">1.134 ALC_LCD.1.1D <small>DREQ-135</small></h2>
+<p>The developer shall establish a life-cycle model to be used in the development and maintenance of the TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-068">ACOM-068 ALC_LCD.1 Developer defined life-cycle processes</a></p>
+<h2 id="DREQ-136">1.135 ALC_LCD.1.2D <small>DREQ-136</small></h2>
+<p>The developer shall provide life-cycle definition documentation.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-068">ACOM-068 ALC_LCD.1 Developer defined life-cycle processes</a></p>
+<h2 id="DREQ-137">1.136 ALC_LCD.2.1D <small>DREQ-137</small></h2>
+<p>The developer shall establish a life-cycle model to be used in the development and maintenance of the TOE that is based on a measurable life-cycle model.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-069">ACOM-069 ALC_LCD.2 Measurable life-cycle model</a></p>
+<h2 id="DREQ-138">1.137 ALC_LCD.2.2D <small>DREQ-138</small></h2>
+<p>The developer shall provide life-cycle definition documentation.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-069">ACOM-069 ALC_LCD.2 Measurable life-cycle model</a></p>
+<h2 id="DREQ-139">1.138 ALC_LCD.2.3D <small>DREQ-139</small></h2>
+<p>The developer shall measure the TOE development using the measurable life-cycle model.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-069">ACOM-069 ALC_LCD.2 Measurable life-cycle model</a></p>
+<h2 id="DREQ-140">1.139 ALC_LCD.2.4D <small>DREQ-140</small></h2>
+<p>The developer shall provide life-cycle output documentation.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-069">ACOM-069 ALC_LCD.2 Measurable life-cycle model</a></p>
+<h2 id="DREQ-141">1.140 ALC_TDA.1.1D <small>DREQ-141</small></h2>
+<p>The developer shall identify individual elements of the TOE implementation representation to record the list of unique TOE implementation representation identifiers, as the development tool generates the TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-070">ACOM-070 ALC_TDA.1 Uniquely identifying implementation representation</a></p>
+<h2 id="DREQ-142">1.141 ALC_TDA.1.2D <small>DREQ-142</small></h2>
+<p>The developer shall use the current date and time to timestamp the list of unique TOE implementation representation identifiers as recorded during the TOE generation time.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-070">ACOM-070 ALC_TDA.1 Uniquely identifying implementation representation</a></p>
+<h2 id="DREQ-143">1.142 ALC_TDA.1.3D <small>DREQ-143</small></h2>
+<p>The developer shall maintain the integrity of the list of unique TOE implementation representation identifiers as recorded during the TOE generation time.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-070">ACOM-070 ALC_TDA.1 Uniquely identifying implementation representation</a></p>
+<h2 id="DREQ-144">1.143 ALC_TDA.1.4D <small>DREQ-144</small></h2>
+<p>The developer shall ensure the authenticity of the list of unique TOE implementation representation identifiers as recorded during the TOE generation time, with the maintenance of the (author) origination information.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-070">ACOM-070 ALC_TDA.1 Uniquely identifying implementation representation</a></p>
+<h2 id="DREQ-145">1.144 ALC_TDA.1.5D <small>DREQ-145</small></h2>
+<p>The developer shall be able to trace from the TOE to the list of unique TOE implementation representation identifiers as recorded during the TOE generation time.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-070">ACOM-070 ALC_TDA.1 Uniquely identifying implementation representation</a></p>
+<h2 id="DREQ-146">1.145 ALC_TDA.1.6D <small>DREQ-146</small></h2>
+<p>The developer shall produce and provide documentation describing a) the developer´s creation of the list of unique TOE implementation representation identifiers as recorded during the TOE generation time; b) the developer´s timestamp being applied to the list of unique TOE implementation representation identifiers as recorded during the TOE generation time; c) the maintenance of the (author) origination information of the list of unique TOE implementation representation identifiers as recorded during the TOE generation time; d) the maintenance of the integrity of the list of unique TOE implementation representation identifiers as recorded during the TOE generation time and its associated timestamp and (author) origination information; e) the developer´s mechanism to trace from the TOE to the list of unique TOE implementation representation identifiers as recorded during the TOE generation time.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-070">ACOM-070 ALC_TDA.1 Uniquely identifying implementation representation</a></p>
+<h2 id="DREQ-147">1.146 ALC_TDA.2.1D <small>DREQ-147</small></h2>
+<p>The developer shall identify individual elements of the TOE implementation representation to record the list of unique TOE implementation representation identifiers, as the development tool generates the TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-071">ACOM-071 ALC_TDA.2 Matching CMS scope of implementation representation</a></p>
+<h2 id="DREQ-148">1.147 ALC_TDA.2.2D <small>DREQ-148</small></h2>
+<p>The developer shall use the current date and time to timestamp the list of unique TOE implementation representation identifiers as recorded during the TOE generation time.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-071">ACOM-071 ALC_TDA.2 Matching CMS scope of implementation representation</a></p>
+<h2 id="DREQ-149">1.148 ALC_TDA.2.3D <small>DREQ-149</small></h2>
+<p>The developer shall maintain the integrity of the list of unique TOE implementation representation identifiers as recorded during the TOE generation time.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-071">ACOM-071 ALC_TDA.2 Matching CMS scope of implementation representation</a></p>
+<h2 id="DREQ-150">1.149 ALC_TDA.2.4D <small>DREQ-150</small></h2>
+<p>The developer shall ensure the authenticity of the list of unique TOE implementation representation identifiers as recorded during the TOE generation time, with the maintenance of the (author) origination information.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-071">ACOM-071 ALC_TDA.2 Matching CMS scope of implementation representation</a></p>
+<h2 id="DREQ-151">1.150 ALC_TDA.2.5D <small>DREQ-151</small></h2>
+<p>The developer shall be able to trace from the TOE to the list of unique TOE implementation representation identifiers as recorded during the TOE generation time.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-071">ACOM-071 ALC_TDA.2 Matching CMS scope of implementation representation</a></p>
+<h2 id="DREQ-152">1.151 ALC_TDA.2.6D <small>DREQ-152</small></h2>
+<p>The developer shall produce and provide documentation describing a) the developer´s creation of the list of unique TOE implementation representation identifiers as recorded during the TOE generation time; b) the developer´s timestamp being applied to the list of unique TOE implementation representation identifiers as recorded during the TOE generation time; c) the maintenance of the (author) origination information of the list of unique TOE implementation representation identifiers as recorded during the TOE generation time; d) the maintenance of the integrity of the list of unique TOE implementation representation identifiers as recorded during the TOE generation time and its associated timestamp and (author) origination information; e) the developer´s mechanism to trace from the TOE to the list of unique TOE implementation representation identifiers as recorded during the TOE generation time.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-071">ACOM-071 ALC_TDA.2 Matching CMS scope of implementation representation</a></p>
+<h2 id="DREQ-153">1.152 ALC_TDA.2.7D <small>DREQ-153</small></h2>
+<p>The developer shall provide evidence that the elements of implementation representation under the configuration scope of ALC_CMS.3 are identified by the list of unique TOE implementation representation identifiers as recorded during the TOE generation time.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-071">ACOM-071 ALC_TDA.2 Matching CMS scope of implementation representation</a></p>
+<h2 id="DREQ-154">1.153 ALC_TDA.3.1D <small>DREQ-154</small></h2>
+<p>The developer shall identify individual elements of the TOE implementation representation to record the list of unique TOE implementation representation identifiers, as the development tool generates the TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-072">ACOM-072 ALC_TDA.3 Regenerate TOE with well-defined development tools</a></p>
+<h2 id="DREQ-155">1.154 ALC_TDA.3.2D <small>DREQ-155</small></h2>
+<p>The developer shall use the current date and time to timestamp the list of unique TOE implementation representation identifiers as recorded during the TOE generation time.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-072">ACOM-072 ALC_TDA.3 Regenerate TOE with well-defined development tools</a></p>
+<h2 id="DREQ-156">1.155 Page 132 of 211 CC:2022 November 2022 ALC_TDA.3.3D <small>DREQ-156</small></h2>
+<p>The developer shall maintain the integrity of the list of unique TOE implementation representation identifiers as recorded during the TOE generation time.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-072">ACOM-072 ALC_TDA.3 Regenerate TOE with well-defined development tools</a></p>
+<h2 id="DREQ-157">1.156 ALC_TDA.3.4D <small>DREQ-157</small></h2>
+<p>The developer shall ensure the authenticity of the list of unique TOE implementation representation identifiers as recorded during the TOE generation time, with the maintenance of the (author) origination information.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-072">ACOM-072 ALC_TDA.3 Regenerate TOE with well-defined development tools</a></p>
+<h2 id="DREQ-158">1.157 ALC_TDA.3.5D <small>DREQ-158</small></h2>
+<p>The developer shall be able to trace from the TOE to the list of unique TOE implementation representation identifiers as recorded during the TOE generation time.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-072">ACOM-072 ALC_TDA.3 Regenerate TOE with well-defined development tools</a></p>
+<h2 id="DREQ-159">1.158 ALC_TDA.3.6D <small>DREQ-159</small></h2>
+<p>The developer shall produce and provide documentation describing a) the developer´s creation of the list of unique TOE implementation representation identifiers as recorded during the TOE generation time; b) the developer´s timestamp being applied to the list of unique TOE implementation representation identifiers as recorded during the TOE generation time; c) the maintenance of the (author) origination information of the list of unique TOE implementation representation identifiers as recorded during the TOE generation time; d) the maintenance of the integrity of the list of unique TOE implementation representation identifiers as recorded during the TOE generation time and its associated timestamp and (author) origination information; e) the developer´s mechanism to trace from the TOE to the list of unique TOE implementation representation identifiers as recorded during the TOE generation time.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-072">ACOM-072 ALC_TDA.3 Regenerate TOE with well-defined development tools</a></p>
+<h2 id="DREQ-160">1.159 ALC_TDA.3.7D <small>DREQ-160</small></h2>
+<p>The developer shall provide evidence that the elements of implementation representation under the configuration scope of ALC_CMS.3 are identified by the list of unique TOE implementation representation identifiers as recorded during the TOE generation time.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-072">ACOM-072 ALC_TDA.3 Regenerate TOE with well-defined development tools</a></p>
+<h2 id="DREQ-161">1.160 DREQ-161</h2>
+<h1></h1>
+<p>After applying the development tools to another copy of the TOE implementation representation according to the list of unique TOE implementation representation identifiers to regenerate a TOE copy, the developer shall explain the functional differences, if any, between the TOE copy and the original TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-072">ACOM-072 ALC_TDA.3 Regenerate TOE with well-defined development tools</a></p>
+<h2 id="DREQ-162">1.161 ALC_TDA.3.9D <small>DREQ-162</small></h2>
+<p>The developer shall produce and provide documentation explaining the functional differences, if any, between the regenerated TOE copy and the original TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-072">ACOM-072 ALC_TDA.3 Regenerate TOE with well-defined development tools</a></p>
+<h2 id="DREQ-163">1.162 ALC_TAT.1.1D <small>DREQ-163</small></h2>
+<p>The developer shall provide the documentation identifying each development tool being used for the TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-073">ACOM-073 ALC_TAT.1 Well-defined development tools</a></p>
+<h2 id="DREQ-164">1.163 ALC_TAT.1.2D <small>DREQ-164</small></h2>
+<p>The developer shall document and provide the selected implementation-dependent options of each development tool.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-073">ACOM-073 ALC_TAT.1 Well-defined development tools</a></p>
+<h2 id="DREQ-165">1.164 ALC_TAT.2.1D <small>DREQ-165</small></h2>
+<p>The developer shall provide the documentation identifying each development tool being used for the TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-074">ACOM-074 ALC_TAT.2 Compliance with implementation standards</a></p>
+<h2 id="DREQ-166">1.165 ALC_TAT.2.2D <small>DREQ-166</small></h2>
+<p>The developer shall document and provide the selected implementation-dependent options of each development tool.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-074">ACOM-074 ALC_TAT.2 Compliance with implementation standards</a></p>
+<h2 id="DREQ-167">1.166 ALC_TAT.2.3D <small>DREQ-167</small></h2>
+<p>The developer shall describe and provide the implementation standards that are being applied by the developer.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-074">ACOM-074 ALC_TAT.2 Compliance with implementation standards</a></p>
+<h2 id="DREQ-168">1.167 ALC_TAT.3.1D <small>DREQ-168</small></h2>
+<p>The developer shall provide the documentation identifying each development tool being used for the TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-075">ACOM-075 ALC_TAT.3 Compliance with implementation standards - all parts</a></p>
+<h2 id="DREQ-169">1.168 ALC_TAT.3.2D <small>DREQ-169</small></h2>
+<p>The developer shall document and provide the selected implementation-dependent options of each development tool.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-075">ACOM-075 ALC_TAT.3 Compliance with implementation standards - all parts</a></p>
+<h2 id="DREQ-170">1.169 ALC_TAT.3.3D <small>DREQ-170</small></h2>
+<p>The developer shall describe and provide the implementation standards that are being applied by the developer and by any third-party providers for all parts of the TOE.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-075">ACOM-075 ALC_TAT.3 Compliance with implementation standards - all parts</a></p>
+<h2 id="DREQ-171">1.170 ALC_COMP.1.1D <small>DREQ-171</small></h2>
+<p>The developer shall provide components configuration evidence.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-076">ACOM-076 ALC_COMP.1 Integration of the dependent component into the related base component and Consistency check for delivery and acceptance procedures</a></p>
+<h2 id="DREQ-172">1.171 ATE_COV.1.1D <small>DREQ-172</small></h2>
+<p>The developer shall provide evidence of the test coverage.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-077">ACOM-077 ATE_COV.1 Evidence of coverage</a></p>
+<h2 id="DREQ-173">1.172 ATE_COV.2.1D <small>DREQ-173</small></h2>
+<p>The developer shall provide an analysis of the test coverage.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-078">ACOM-078 ATE_COV.2 Analysis of coverage</a></p>
+<h2 id="DREQ-174">1.173 ATE_COV.3.1D <small>DREQ-174</small></h2>
+<p>The developer shall provide an analysis of the test coverage.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-079">ACOM-079 ATE_COV.3 Rigorous analysis of coverage</a></p>
+<h2 id="DREQ-175">1.174 ATE_DPT.1.1D <small>DREQ-175</small></h2>
+<p>The developer shall provide the analysis of the depth of testing.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-080">ACOM-080 ATE_DPT.1 Testing: basic design</a></p>
+<h2 id="DREQ-176">1.175 ATE_DPT.2.1D <small>DREQ-176</small></h2>
+<p>The developer shall provide the analysis of the depth of testing.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-081">ACOM-081 ATE_DPT.2 Testing: security enforcing modules</a></p>
+<h2 id="DREQ-177">1.176 ATE_DPT.3.1D <small>DREQ-177</small></h2>
+<p>The developer shall provide the analysis of the depth of testing.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-082">ACOM-082 ATE_DPT.3 Testing: modular design</a></p>
+<h2 id="DREQ-178">1.177 ATE_DPT.4.1D <small>DREQ-178</small></h2>
+<p>The developer shall provide the analysis of the depth of testing.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-083">ACOM-083 ATE_DPT.4 Testing: implementation representation</a></p>
+<h2 id="DREQ-179">1.178 ATE_FUN.1.1D <small>DREQ-179</small></h2>
+<p>The developer shall test the TSF and document the results.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-084">ACOM-084 ATE_FUN.1 Functional testing</a></p>
+<h2 id="DREQ-180">1.179 ATE_FUN.1.2D <small>DREQ-180</small></h2>
+<p>The developer shall provide test documentation.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-084">ACOM-084 ATE_FUN.1 Functional testing</a></p>
+<h2 id="DREQ-181">1.180 ATE_FUN.2.1D <small>DREQ-181</small></h2>
+<p>The developer shall test the TSF and document the results.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-085">ACOM-085 ATE_FUN.2 Ordered functional testing</a></p>
+<h2 id="DREQ-182">1.181 ATE_FUN.2.2D <small>DREQ-182</small></h2>
+<p>The developer shall provide test documentation.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-085">ACOM-085 ATE_FUN.2 Ordered functional testing</a></p>
+<h2 id="DREQ-183">1.182 ATE_IND.1.1D <small>DREQ-183</small></h2>
+<p>The developer shall provide the TOE for testing.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-086">ACOM-086 ATE_IND.1 Independent testing - conformance</a></p>
+<h2 id="DREQ-184">1.183 ATE_IND.2.1D <small>DREQ-184</small></h2>
+<p>The developer shall provide the TOE for testing.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-087">ACOM-087 ATE_IND.2 Independent testing - sample</a></p>
+<h2 id="DREQ-186">1.185 ATE_IND.3.1D <small>DREQ-186</small></h2>
+<p>The developer shall provide the TOE for testing.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-088">ACOM-088 ATE_IND.3 Independent testing - complete</a></p>
+<h2 id="DREQ-187">1.186 ATE_COMP.1.1D <small>DREQ-187</small></h2>
+<p>The developer shall provide a set of tests as required by the assurance package chosen.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-089">ACOM-089 ATE_COMP.1 Composite product functional testing</a></p>
+<h2 id="DREQ-188">1.187 ATE_COMP.1.2D <small>DREQ-188</small></h2>
+<p>The developer shall provide the composite product for testing.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-089">ACOM-089 ATE_COMP.1 Composite product functional testing</a></p>
+<h2 id="DREQ-189">1.188 AVA_VAN.1.1D <small>DREQ-189</small></h2>
+<p>The developer shall provide the TOE for testing.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-090">ACOM-090 AVA_VAN.1 Vulnerability survey</a></p>
+<h2 id="DREQ-190">1.189 AVA_VAN.2.1D <small>DREQ-190</small></h2>
+<p>The developer shall provide the TOE for testing.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-091">ACOM-091 AVA_VAN.2 Vulnerability analysis</a></p>
+<h2 id="DREQ-191">1.190 AVA_VAN.2.2D <small>DREQ-191</small></h2>
+<p>The developer shall provide a list of third party components included in the TOE and the TOE delivery.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-091">ACOM-091 AVA_VAN.2 Vulnerability analysis</a></p>
+<h2 id="DREQ-192">1.191 AVA_VAN.3.1D <small>DREQ-192</small></h2>
+<p>The developer shall provide the TOE for testing.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-092">ACOM-092 AVA_VAN.3 Focused vulnerability analysis</a></p>
+<h2 id="DREQ-193">1.192 AVA_VAN.3.2D <small>DREQ-193</small></h2>
+<p>The developer shall provide a list of third party components included in the TOE and the TOE delivery.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-092">ACOM-092 AVA_VAN.3 Focused vulnerability analysis</a></p>
+<h2 id="DREQ-194">1.193 AVA_VAN.4.1D <small>DREQ-194</small></h2>
+<p>The developer shall provide the TOE for testing.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-093">ACOM-093 AVA_VAN.4 Methodical vulnerability analysis</a></p>
+<h2 id="DREQ-195">1.194 AVA_VAN.4.2D <small>DREQ-195</small></h2>
+<p>The developer shall provide a list of third party components included in the TOE and the TOE delivery.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-093">ACOM-093 AVA_VAN.4 Methodical vulnerability analysis</a></p>
+<h2 id="DREQ-196">1.195 AVA_VAN.5.1D <small>DREQ-196</small></h2>
+<p>The developer shall provide the TOE for testing.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-094">ACOM-094 AVA_VAN.5 Advanced methodical vulnerability analysis</a></p>
+<h2 id="DREQ-197">1.196 AVA_VAN.5.2D <small>DREQ-197</small></h2>
+<p>The developer shall provide a list of third party components included in the TOE and the TOE delivery.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-094">ACOM-094 AVA_VAN.5 Advanced methodical vulnerability analysis</a></p>
+<h2 id="DREQ-198">1.197 AVA_COMP.1.1D <small>DREQ-198</small></h2>
+<p>The developer shall provide the composite product for penetration testing.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-095">ACOM-095 AVA_COMP.1 Composite product vulnerability assessment</a></p>
+<h2 id="DREQ-199">1.198 ACO_COR.1.1D <small>DREQ-199</small></h2>
+<p>The developer shall provide composition rationale for the base component.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-096">ACOM-096 ACO_COR.1 Composition rationale</a></p>
+<h2 id="DREQ-200">1.199 ACO_DEV.1.1D <small>DREQ-200</small></h2>
+<p>The developer shall provide development information for the base component.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-097">ACOM-097 ACO_DEV.1 Functional Description</a></p>
+<h2 id="DREQ-201">1.200 ACO_DEV.2.1D <small>DREQ-201</small></h2>
+<p>The developer shall provide development information for the base component.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-098">ACOM-098 ACO_DEV.2 Basic evidence of design</a></p>
+<h2 id="DREQ-202">1.201 ACO_DEV.3.1D <small>DREQ-202</small></h2>
+<p>The developer shall provide development information for the base component.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-099">ACOM-099 ACO_DEV.3 Detailed evidence of design</a></p>
+<h2 id="DREQ-203">1.202 ACO_REL.1.1D <small>DREQ-203</small></h2>
+<p>The developer shall provide reliance information of the dependent component.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-100">ACOM-100 ACO_REL.1 Basic reliance information</a></p>
+<h2 id="DREQ-204">1.203 ACO_REL.2.1DACO_REL.2.1D <small>DREQ-204</small></h2>
+<p>The developer shall provide reliance information of the dependent component.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-101">ACOM-101 ACO_REL.2 Reliance information</a></p>
+<h2 id="DREQ-205">1.204 ACO_CTT.1.1D <small>DREQ-205</small></h2>
+<p>The developer shall provide composed TOE test documentation.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-102">ACOM-102 ACO_CTT.1 Interface testing</a></p>
+<h2 id="DREQ-206">1.205 ACO_CTT.1.2D <small>DREQ-206</small></h2>
+<p>The developer shall provide base component interface test documentation.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-102">ACOM-102 ACO_CTT.1 Interface testing</a></p>
+<h2 id="DREQ-207">1.206 ACO_CTT.1.3D <small>DREQ-207</small></h2>
+<p>The developer shall provide the composed TOE for testing.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-102">ACOM-102 ACO_CTT.1 Interface testing</a></p>
+<h2 id="DREQ-208">1.207 ACO_CTT.1.4D <small>DREQ-208</small></h2>
+<p>The developer shall provide an equivalent set of resources to those that were used in the base component developer´s functional testing of the base component.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-102">ACOM-102 ACO_CTT.1 Interface testing</a></p>
+<h2 id="DREQ-209">1.208 ACO_CTT.2.1D <small>DREQ-209</small></h2>
+<p>The developer shall provide composed TOE test documentation.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-103">ACOM-103 ACO_CTT.2 Rigorous interface testing</a></p>
+<h2 id="DREQ-210">1.209 ACO_CTT.2.2D <small>DREQ-210</small></h2>
+<p>The developer shall provide base component interface test documentation.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-103">ACOM-103 ACO_CTT.2 Rigorous interface testing</a></p>
+<h2 id="DREQ-211">1.210 ACO_CTT.2.3D <small>DREQ-211</small></h2>
+<p>The developer shall provide the composed TOE for testing.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-103">ACOM-103 ACO_CTT.2 Rigorous interface testing</a></p>
+<h2 id="DREQ-212">1.211 ACO_CTT.2.4D <small>DREQ-212</small></h2>
+<p>The developer shall provide an equivalent set of resources to those that were used in the base component developer´s functional testing of the base component.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-103">ACOM-103 ACO_CTT.2 Rigorous interface testing</a></p>
+<h2 id="DREQ-213">1.212 ACO_VUL.1.1D <small>DREQ-213</small></h2>
+<p>The developer shall provide the composed TOE for testing.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-104">ACOM-104 ACO_VUL.1 Composition vulnerability review</a></p>
+<h2 id="DREQ-214">1.213 ACO_VUL.2.1D <small>DREQ-214</small></h2>
+<p>The developer shall provide the composed TOE for testing.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-105">ACOM-105 ACO_VUL.2 Composition vulnerability analysis</a></p>
+<h2 id="DREQ-215">1.214 ACO_VUL.3.1D <small>DREQ-215</small></h2>
+<p>The developer shall provide the composed TOE for testing.</p>
+<p><em>Parent links:</em> <a href="ACOM.html#ACOM-106">ACOM-106 ACO_VUL.3 Enhanced-Basic Composition vulnerability analysis</a></p>
+      </div>
+    </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="assets/doorstop/jquery.min.js"></script>
+<script src="assets/doorstop/bootstrap.min.js"></script>
+<script>
+    $(function() {
+        $("table").addClass("table");
+        $("nav ul").addClass("nav nav-stacked");
+        $("nav").affix();
+        $('body').scrollspy({
+          target: '.sidebar'
+        });
+        $("#main a").attr("target", "parent");
+
+  $(window).on('hashchange', function() {
+    $(window).scrollTop($(location.hash.toLowerCase()).offset().top);});
+  });
+</script>
+</body>
+</html>
+

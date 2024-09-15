@@ -4,6 +4,7 @@ project:
   pre-render:
     - scripts/restore_tex_files.py
     - scripts/custom_vars.py
+    # - scripts/tables.py # before uncommenting, create and activate a virtual environment (using venv), activate and install requirements.txt, and set QUARTO_PATH env variable to venv/bin/python
   post-render: 
     - scripts/restore_tex_files.py
 

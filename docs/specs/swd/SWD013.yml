@@ -1,0 +1,17 @@
+active: true
+derived: false
+header: |
+  C5-DEC CCT generic Doorstop document
+level: 13.0
+links:
+- ARC003: null
+- ARC004: null
+normative: true
+ref: ''
+reviewed: null
+text: |
+  ## Diagram
+
+  The diagram below shows the C5-DEC CCT generic Doorstop document model.
+
+  ![CCT generic Doorstop document data model](assets/cct-data-model-generic-doorstop-doc.png "C5-DEC CAD generic Doorstop document"){: width="80%"}

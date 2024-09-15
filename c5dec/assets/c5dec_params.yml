@@ -8,3 +8,42 @@ etr:
 cc:
   # release: "2022R1"
   release: "3R5"
+
+# Project resource management field mappings (timesheet, cost report, reference parameter files, etc.)
+pm:
+  tsh: # all timesheet schema mappings
+    sheet-name: "Timesheet"
+    id: "ACR" # a person name acronym
+    day: "Date"
+    month: "MM"
+    year: "YYYY"
+    weekday: "Day"
+    type: "Type"
+    domain: "Domain/Project name"
+    wp: "Cust/WP"
+    task: "Task"
+    loc: "Location"
+    start: "Start"
+    end: "End"
+    hours-spent: "Hours"
+    days-spent: "Days"
+    description: "Description"
+  cost: # all RMT schema mappings
+    daily-rate-col-name: "Daily rate"
+    staff-type-col-name: "StaffType"
+    gross-salary-col-name: "Gross salary"
+    cost-col-name: "Cost"
+    cofunding-rate-col-name: "Cofunding rate"
+    is-fixed-rate-used: "Fixed rate used"
+    social-security: "SocialSec"
+    mg-overhead: "Overhead (MG)"
+    bi-overhead: "Overhead (BI equip/profit)"
+    effective-days: "Effective days"
+    computation-verification-col-name: "ComputeVerif"
+    self-fund-cost-col-name: "Self funding cost"
+    cofund-contribution-col-name: "Cofunding contribution"
+    sheet-tables: # the following item ordering matters: rename but leave order unchanged (to be changed to a dictionary later)
+      - StaffParams
+      - ActivityCostParams
+      - FixedRates
+      - GlobalParams

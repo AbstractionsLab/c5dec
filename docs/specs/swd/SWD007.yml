@@ -1,0 +1,17 @@
+active: true
+derived: false
+header: |
+  C5-DEC CCT Doorstop Markdown body 
+level: 7.0
+links:
+- ARC003: null
+- ARC004: null
+normative: true
+ref: ''
+reviewed: null
+text: |
+  ## Diagram
+
+  The diagram below shows the C5-DEC CCT Doorstop Markdown body data model.
+
+  ![CCT Doorstop Markdown body data model](assets/cct-data-model-markdown-body.png "C5-DEC CAD CCT Markdown body"){: width="80%"}

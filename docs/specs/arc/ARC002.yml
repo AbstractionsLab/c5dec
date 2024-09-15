@@ -18,4 +18,4 @@ text: |
 
   The diagram below depicts the functional tree of C5-DEC CAD.
 
-  ![CAD context diagram](assets/functional_tree.png "C5-DEC CAD functional tree")
+  ![CAD context diagram](assets/functional_tree.png "C5-DEC CAD functional tree"){: width="80%"}

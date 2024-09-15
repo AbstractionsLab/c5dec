@@ -30,7 +30,7 @@ class OpenProjectTimeReportAssistantView(BaseView):
         builder.addLayout([100])
 
         # Input
-        self.input_file_path = builder.addPath("Path to OpenProject time report file:")
+        self.input_file_path = builder.addPath("Full name (.xls) of OpenProject time report stored in c5dec/input:")
         
         builder.addButton("Convert to IAL timesheet format", self.run_timerep_conversion, gap=True, 
             gap_height=2)
@@ -46,16 +46,18 @@ class OpenProjectTimeReportAssistantView(BaseView):
 
 
     def run_timerep_conversion(self):
-        input_file_path = self.input_file_path.value
+        # input_file_path = self.input_file_path.value
+        input_file_name = self.input_file_path.value
         try:
-            if not (input_file_path is None):
-                self.data_model.input_file_path = input_file_path
+            if not (input_file_name is None):
+                # self.data_model.input_file_path = input_file_path
+                self.data_model.input_file_name = input_file_name
                 _ = self.data_model.convert_openproject_time_report_to_IAL_format()
         except IOError:
             self.statusbar.value = translate("Missing or bad arguments.")
             return None
         except PackageNotFoundError:
-            self.statusbar.value = translate("No xlsx file found at the provided path.")
+            self.statusbar.value = translate("No xls file found at the provided path.")
             return None
         except Exception as e:
             self.statusbar.value = translate("Something unexpected went wrong: {}".format(e))
@@ -86,7 +88,7 @@ class TimeReportAssistantView(BaseView):
         builder.addLayout([100])
 
         # Input
-        self.tsh_folder_path = builder.addPath("Path to folder containing time report files:")
+        self.tsh_folder_path = builder.addPath("Name of folder under c5dec/input containing time report files:")
 
         self.use_filters = builder.addTickBox("Apply filters?", "filteruse")
 

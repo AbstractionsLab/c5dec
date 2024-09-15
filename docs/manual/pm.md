@@ -47,6 +47,42 @@ Once the consolidation is finished, if executed successfully, the resulting outp
 - “consolidated-TSH-<current-date>-<current-timestamp>.xlsx”, with an example provided below:
     - consolidated-TSH-20230930-131452.xlsx
 
-## Auxiliary configuration files for consolidation
+### Auxiliary configuration files for consolidation
 
 See [the previous configuration files section](#auxiliary-configuration-files).
+
+## Cost report computation
+
+The project resource management tool (RMT) of C5-DEC also provides a complete and customizable feature for cost report computation and financial analysis. The cost report computation function can be currently invoked using the CLI by running the `costrep` subcommand and providing it with a timesheet file name as input, e.g.,
+
+```sh
+./c5dec.sh costrep tsh.xlsx
+```
+
+The screenshot below provides a view of the outcome using MS Excel.
+
+![C5-DEC RMT cost report viewed in MS Excel](./_figures/c5dec-rmt-costrep-excel.png)
+
+The toolchain and the produced output have no dependencies on any Excel features and they can just as well be viewed and processed using other spreadsheet tools, in particular open-source ones such as LibreOffice Calc, as shown below.
+
+![C5-DEC RMT cost report viewed in LibreOffice Calc](./_figures/c5dec-rmt-costrep-libreoffice.png)
+
+This cost report is produced by using a reference parameterization file, namely `rmt-params.xlsx` stored in the `c5dec/assets/tshparams` folder. This auxiliary parameterization file allows the user to customize a range of parameters such as project-specific properties (e.g., cofunding rate, overhead rates, etc.) as well as staff/team member attributes (e.g., gross salary per month and year).
+
+![C5-DEC CAD RMT params file](./_figures/rmt-params.png)
+
+These values will then be used by the cost report generation function to compute granular cost values per each row of the time sheet provided as input.
+
+The generated cost report provides two sheets, namely a cost report and a verification sheet, providing a detailed breakdown of every parameter used to compute the daily rates and costs per time sheet row. 
+
+The cost report sheet itself also provides an extra column summarizing the key parameters for quick verification, but the dedicated verification sheet allows you to quickly reproduce specific calculations as all the intermediate values are made available in dedicated columns.
+
+![C5-DEC CAD RMT verification sheet](./_figures/c5dec-rmt-verifsheet.png)
+
+Finally, while the user can easily create tables from the automatically produced cost report and perform their custom analysis, we also provide an analysis spreadsheet tool for a quick post-processing of the generated cost reports. This tool, named `c5dec-rmt-analysis.xlsx`, is stored in the `c5dec/assets/costrep` folder and it contains an additional sheet embedding a prepared pivot table for a VAT-included cost analysis. 
+
+![C5-DEC CAD RMT analysis tool](./_figures/c5dec-rmt-analysis-costrep.png)
+
+The cost+VAT column is already added to the CostReport sheet such that the user can easily copy-paste the automatically generated cost report table into this template table and obtain an overview upon refreshing the pivot table.
+
+![C5-DEC CAD RMT analysis overview](./_figures/c5dec-rmt-analysis-overview.png)

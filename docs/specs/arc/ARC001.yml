@@ -12,4 +12,4 @@ text: |
 
   The C5-DEC CAD software has been designed in a modular manner, with the diagram below depicting the current design.
 
-  ![CAD context diagram](assets/cad_context_diagram.png "C5-DEC CAD context diagram")
+  ![CAD context diagram](assets/cad_context_diagram.png "C5-DEC CAD context diagram"){: width="80%"}

@@ -1,3 +1,3 @@
 #!/bin/bash
 echo Building C5-DEC CAD image...
-docker build -t c5dec .
+docker build -t c5dec:v0.2.0 .

@@ -39,4 +39,4 @@ text: |
 
   The diagram below depicts a view of the C5-DEC CAD subsystems.
 
-  ![CAD context diagram](assets/subsystems.png "C5-DEC CAD subsystems view")
+  ![CAD context diagram](assets/subsystems.png "C5-DEC CAD subsystems view"){: width="80%"}

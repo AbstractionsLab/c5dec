@@ -1,3 +1,31 @@
+# 0.3 (2024-09-15)
+
+## Added
+
+- A resource management tool (RMT) and cost report computation feature to the project management (PM) module
+- A dedicated RMT analysis spreadsheet for obtaining a quick overview: `c5dec/assets/costrep/c5dec-rmt-analysis.xlsx`
+- A new command to the CLI for running the cost report computation feature
+- RMT parameterization file (`rmt-params.xlsx`) to the `c5dec/assets/tshparams` folder
+- An example time sheet input file (`tsh.xlsx`) to the `c5dec/input` folder
+- Automation code to the Quarto-based C5-DEC DocEngine for generating Quarto tables from spreadsheets
+- Unit tests for the time report assistant component of the PM module
+- A unit test suite runner shell script
+- A user manual section to the PM page describing the RMT cost report feature
+- New software design schematics related to the CCT module
+
+## Fixed
+
+- Deployment scripts bug not allowing modification of specs: docs volume mapping
+- Settings module to fix a bug preventing unit test suites to run (relative path)
+- Time report assistant unit tests to compute the correct path
+
+## Modified
+
+- Project resource management tool (RMT) module behavior so it always picks up input files/folders from the `c5dec/input` folder
+- RMT CLI commands and TUI mini apps accordingly to use the new input retrieval mechanism
+- Deployment scripts to improve customization
+- Updated the technical specifications and traceability HTML publication following the inclusion of previously missing SWD items
+
 # 0.2 (2024-07-19)
 
 ## Added

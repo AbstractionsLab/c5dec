@@ -92,7 +92,7 @@ def add_cpssa_module(app, name):
     app.get_submenu(cpssa_app_name).add_function(
          "Generate input for threagile (not implemented, on the roadmap)", MiniAppPlaceholderView, MiniAppPlaceholderModel)
     app.get_submenu(cpssa_app_name).add_function(
-         "Generate input for TRICK Service (not implemented, on the roadmap)", MiniAppPlaceholderView, MiniAppPlaceholderModel)
+         "Generate input for OpenTRICK (not implemented, on the roadmap)", MiniAppPlaceholderView, MiniAppPlaceholderModel)
 
 @common.feature_flag('ON')
 def add_transformer_module(app, name):
@@ -103,7 +103,7 @@ def add_transformer_module(app, name):
     app.get_submenu(transformer_app_name).add_function("Publish SSDLC data", PublisherView, PublisherModel())
     app.get_submenu(transformer_app_name).add_function("Convert data", ConverterView, ConverterModel())
 
-@common.feature_flag('ON')
+@common.feature_flag('OFF')
 def add_isms_module(app, name):
     ISMS_app_name = name
     app.add_menu(ISMS_app_name)
@@ -146,8 +146,8 @@ def main(args=None, cwd=None):
     cryptography_app_name = "3 - Cryptography (see user manual)"
     cpssa_app_name = "4 - CPSSA: Cyber-physical system security assessment (see user manual)"
     transformer_app_name = "5 - Transformer: import, export, publish"
-    ISMS_app_name = "6 - ISMS: document management"
-    pm_app_name = "7 - PM: project resource management"
+    pm_app_name = "6 - PM: project resource management"
+    ISMS_app_name = "7 - ISMS: document management"
     settings_app_name = "8 - Settings"
 
     add_cct_module(app, CCT_app_name)

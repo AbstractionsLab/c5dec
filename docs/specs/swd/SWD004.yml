@@ -1,0 +1,17 @@
+active: true
+derived: false
+header: |
+  C5-DEC CCT data model part 1
+level: 4.0
+links:
+- ARC003: null
+- ARC004: null
+normative: true
+ref: ''
+reviewed: null
+text: |
+  ## Diagram
+
+  The diagram below shows part 1 of the overall C5-DEC CCT data model.
+
+  ![CCT data model part 1](assets/cct-data-model-part1.png "C5-DEC CAD CCT data model part 1"){: width="80%"}

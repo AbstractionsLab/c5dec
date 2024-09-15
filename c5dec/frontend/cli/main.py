@@ -67,6 +67,7 @@ def run(args=None):
     subs = parser.add_subparsers(help="", dest="command", metavar="<command>")
     _timerep(subs)
     _consolidate(subs)
+    _costrep(subs)
     _retrieveattr(subs)
     _view(subs)
     _validate(subs)
@@ -100,24 +101,32 @@ def run(args=None):
 
 @common.feature_flag("ON")
 def _timerep(subs):
-    info = "Convert the OpenProject xlsx time report export to the C5-DEC time report template"
+    info = "Convert the OpenProject-exported xls time report to the C5-DEC time sheet format"
     sub = subs.add_parser(
         "timerep", description=info.capitalize() + ".", help=info
     )
-    sub.add_argument("path", help="path to OpenProject time report")
+    sub.add_argument("name", help="Full name (.xls) of OpenProject time report stored in c5dec/input")
 
 @common.feature_flag("ON")
 def _consolidate(subs):
-    info = "Consolidate all C5-DEC time reports stored in a folder into a single time report"
+    info = "Consolidate all C5-DEC time sheets stored in a folder under c5dec/input into a single time sheet"
     sub = subs.add_parser(
         "consolidate", description=info.capitalize() + ".", help=info
     )
-    sub.add_argument("path", help="path to directory containing time reports")
+    sub.add_argument("name", help="name of directory under c5dec/input containing time reports")
     sub.add_argument("-l", "--filter", help="apply filters to the consolidated report")
     sub.add_argument("-f", "--fromdate", help="starting from date, i.e., entries having date after this input")
     sub.add_argument("-t", "--to", help="up to date, i.e., entries having date before this input")
     sub.add_argument("-d", "--field", help="Field name to filter for, e.g., Domain")
     sub.add_argument("-v", "--value", help="Field value to filter for, e.g., RD")
+
+@common.feature_flag("ON")
+def _costrep(subs):
+    info = "Compute cost report from input C5-DEC time sheet"
+    sub = subs.add_parser(
+        "costrep", description=info.capitalize() + ".", help=info
+    )
+    sub.add_argument("name", help="Full name (.xlsx) of C5-DEC time report stored in c5dec/input")
 
 @common.feature_flag("OFF")
 def _retrieveattr(subs):
@@ -200,7 +209,7 @@ def _export(subs):
 
 @common.feature_flag("ON")
 def _etr(subs):
-    info = "Process a C5-DEC evaluation checklist spreadsheet of WUs and atomic work items to generate ETR parts that can be input to C5DEC DocEngine"
+    info = "Process a C5-DEC evaluation checklist spreadsheet of WUs and atomic work items to generate ETR parts that can be input to C5-DEC DocEngine"
     sub = subs.add_parser(
         "etr", description=info + ".", help=info
     )
