@@ -2,8 +2,7 @@
 
 C5-DEC, short for "Common Criteria for Cybersecurity, Cryptography, Clouds – Design, Evaluation and Certification", is a sub-project of the [CyFORT](https://abstractionslab.com/index.php/research/) project, which in turn stands for "Cloud Cybersecurity Fortress of Open Resources and Tools for Resilience". CyFORT is carried out in the context of the [IPCEI-CIS](https://ec.europa.eu/commission/presscorner/detail/en/ip_23_6246) project, with further details available [here](https://www.bmwk.de/Redaktion/EN/Artikel/Industry/ipcei-cis.html).
 
-<img src="./docs/manual/_figures/CyFORT-logo.png" alt="cyfort_logo" width="400"/>
-<img src="./docs/manual/_figures/C5DEC-logo.png" alt="c5dec_logo" width="200"/> 
+<img src="./docs/manual/_figures/CyFORT-C5CEC-logo.png" alt="cyfort_logo" width="500"/>
 
 C5-DEC CAD, the software component of C5-DEC, is a suite of tools for computer-aided design and development (CAD), mainly dealing with: the creation and evaluation of secure IT systems according to the [Common Criteria](https://www.commoncriteriaportal.org) standards, secure software development life cycle (SSDLC), software verification and validation model (SVVM), and what we refer to as cyber-physical system security assessment (CPSSA).
 
