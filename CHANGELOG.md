@@ -1,3 +1,17 @@
+# 0.3.1 (2024-09-16)
+
+## Added
+
+- A check to the RMT consolidation algorithm to skip invalid file extensions
+
+## Fixed
+
+- The software version in the project TOML
+
+## Modified
+
+- The README to add the C5-DEC (beta) logo
+
 # 0.3 (2024-09-15)
 
 ## Added

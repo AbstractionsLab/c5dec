@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "c5dec"
-version = "0.2"
+version = "0.3.1"
 description = "This is the main repository of the software component of C5-DEC for computer-assisted design and development (CAD), i.e., C5-DEC CAD."
-authors = ["Arash Atashpendar <arash@abstractionslab.lu>", "Heinrich Fries <fries@itrust.lu>", "Itzel Vazquez Sandoval <itzel@abstractionslab.lu>", "Sven Angel"]
+authors = ["Arash Atashpendar <arash@abstractionslab.lu>", "Heinrich Fries <fries@itrust.lu>", "Itzel Vazquez Sandoval <itzel@abstractionslab.lu>", "Sven Angel <sven.angel@proton.me>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]

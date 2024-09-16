@@ -1,8 +1,9 @@
-# C5-DEC CAD
+# C5-DEC
 
 C5-DEC, short for "Common Criteria for Cybersecurity, Cryptography, Clouds – Design, Evaluation and Certification", is a sub-project of the [CyFORT](https://abstractionslab.com/index.php/research/) project, which in turn stands for "Cloud Cybersecurity Fortress of Open Resources and Tools for Resilience". CyFORT is carried out in the context of the [IPCEI-CIS](https://ec.europa.eu/commission/presscorner/detail/en/ip_23_6246) project, with further details available [here](https://www.bmwk.de/Redaktion/EN/Artikel/Industry/ipcei-cis.html).
 
 <img src="./docs/manual/_figures/CyFORT-logo.png" alt="cyfort_logo" width="400"/>
+<img src="./docs/manual/_figures/C5DEC-logo.png" alt="c5dec_logo" width="200"/> 
 
 C5-DEC CAD, the software component of C5-DEC, is a suite of tools for computer-aided design and development (CAD), mainly dealing with: the creation and evaluation of secure IT systems according to the [Common Criteria](https://www.commoncriteriaportal.org) standards, secure software development life cycle (SSDLC), software verification and validation model (SVVM), and what we refer to as cyber-physical system security assessment (CPSSA).
 
@@ -28,7 +29,7 @@ To this end, C5-DEC CAD is aimed at assisting both system/software designers/dev
 
 C5-DEC consists of two key elements that complement each other to form a coherent ensemble: a software component (C5-DEC CAD) and a knowledge base (KB) consisting of SSDLC and CPSSA methodologies as well as a [wiki of key CC concepts](./c5dec/assets/database/KnowledgeBase/0_MapofContent.md).
 
-As certain parts of our KB reports rely on ISO standards (ISO/IEC/IEEE 12207,  ISO 29119:2022 and ISO 29148:2018), if you wish to access them, please contact us at info@abstractionslab.lu. Simply provide evidence that you are eligible for accessing the standard(s), and upon successful verification, we will share the reports.
+As certain parts of our KB reports rely on ISO standards (ISO/IEC/IEEE 12207, ISO 29119:2022 and ISO 29148:2018), if you wish to access them, please contact us at info@abstractionslab.lu. Simply provide evidence that you are eligible for accessing the standard(s), and upon successful verification, we will share the reports.
 
 ## Features
 
@@ -87,7 +88,6 @@ C5-DEC CAD can be deployed using any of the following methods:
 - Deployment using Docker and our shell scripts: `build-c5dec.sh` and `c5dec.sh` (**recommended for users**);
 - Deployment in a development containerized environment in VS Code (**recommended for developers**);
 - Installation via [pipx](https://pypa.github.io/pipx/) using the official distribution file, accessible through the [releases page](https://github.com/AbstractionsLab/c5dec/releases);
-- Installation via the official PyPI repository (**currently not available, coming soon**).
 
 Below we describe the deployment using Docker and shell scripts. For other installation methods, please see the [installation](./docs/manual/installation.md) page of the user manual; these include installation via our distribution wheel file and `pipx` or Windows installations without using Windows Subsystem for Linux (WSL).
 

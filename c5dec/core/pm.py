@@ -76,6 +76,9 @@ class TimeReportAssistant:
         for index, item in enumerate(folder_obj.iterdir()):
             if not item.is_dir():
                 log.info("Processing {}".format(item))
+                if not (pathlib.Path(item).suffix in ['.xlsx', '.xls']):
+                    log.info("Skipping non xls/xlsx file: {}".format(item))
+                    continue
                 if index == 0:
                     df = pd.read_excel(item, sheet_name='Timesheet')
                     df = df[columns]
