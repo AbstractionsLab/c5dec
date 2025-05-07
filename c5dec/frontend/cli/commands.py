@@ -82,6 +82,9 @@ def run(args, cwd, error, catch=True):  # pylint: disable=W0613
         tui.main(args, cwd)
     return True
 
+def run_new(args, cwd, _, catch=True):
+    ssdlc.create_new_c5dec_project(project=args.project, user=args.user) 
+
 def run_timerep(args, cwd, _, catch=True):
     timerep_assistant = pm.TimeReportAssistant()
     timerep_assistant.input_file_name = args.name
@@ -182,8 +185,45 @@ def run_etr(args, cwd, _, catch=True, **kwargs):
     else:
         cct.ETR(checklist_name=args.name).generate_etr(family_list=args.families, tables_list=args.tables)
 
-def run_publish(args, cwd, _, catch=True, **kwargs):
-    if args.format is None:
-        transformer.publish(format=".html")
-    else:    
-        transformer.publish(format=args.format)
+# def run_publish(args, cwd, _, catch=True, **kwargs):
+#     if args.directory is None:
+#         print(f"Please specify an input directory. See c5dec publish -h for more information.")
+#         return
+#     if args.format is None:
+#         transformer.publish(format=".html", name=args.directory)
+#     else:    
+#         transformer.publish(format=args.format, name=args.directory)
+
+def run_transform(args, cwd, _, catch=True, **kwargs):
+    print("---")
+    print("Open C5-DEC CAD dev container in VS Code or run session (./c5dec.sh session) to use the commands below:")
+    print("To import, try: doorstop import -h")
+    print("To export, try: doorstop export -h")
+    print("To render, use: quarto render -h")
+    print("To convert, use: quarto pandoc -h")
+    print("---")
+    print("Also see Transformer page in user manual:")
+    print("c5dec/docs/manual/transformer.md OR https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/transformer.md")
+
+def run_cpssa(args, cwd, _, catch=True, **kwargs):
+    print("---")
+    print("OpenTRICK: https://github.com/itrust-consulting/OpenTRICK")
+    print("Threagile: https://github.com/Threagile/threagile")
+    print("ADTool: https://github.com/tahti/ADTool2")
+    print("Threat Dragon: https://github.com/OWASP/threat-dragon")
+    print("Capella Darc Viewpoint: https://github.com/eclipse-capella/capella-cybersecurity/wiki")
+    print("Capella: https://github.com/eclipse-capella/capella")
+    print("---")
+    print("See CPSSA page in user manual:")
+    print("c5dec/docs/manual/cpssa.md OR https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/cpssa.md")
+
+def run_crypto(args, cwd, _, catch=True, **kwargs):
+    print("---")
+    print("Open C5-DEC CAD dev container in VS Code or run session (./c5dec.sh session) to use the commands below:")
+    print("For GnuPG, try: gpg -h")
+    print("For encryption and signing, try: kryptor -h")
+    print("For secure cloud storage, try: cryptomator -h")
+    print("For PQC, use C5-DEC cryptography dev container: ./c5dec.sh pqc (or reopen container in VS Code)")
+    print("---")
+    print("Also see Cryptography page in user manual for PQC:")
+    print("c5dec/docs/manual/cryptography.md OR https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/cryptography.md")

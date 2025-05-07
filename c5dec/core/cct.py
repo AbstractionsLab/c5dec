@@ -3984,7 +3984,7 @@ class ETR:
 
                 heading_line = self.make_markdown_heading(6, "Evidence required from developer or sponsor")
                 etr_content.append(heading_line)
-                line = self.make_markdown_line("For this audit action to be carried out, the following pieces of evidence are required from the developer or sponsor:")
+                line = self.make_markdown_line("The following pieces of evidence are required from the developer or sponsor:")
                 etr_content.append(line)
                 line = self.make_markdown_line(awi_row[c5settings.ETR_EVAL_AWI_REQUIRED_INPUT_COL])
                 etr_content.append(line)
@@ -3998,15 +3998,15 @@ class ETR:
                 line = self.make_markdown_line(awi_row[c5settings.ETR_EVAL_AWI_DEV_INPUT_COL])
                 etr_content.append(line)
 
-                heading_line = self.make_markdown_heading(5, "Analysis")
+                heading_line = self.make_markdown_heading(5, "Analysis and assessment outcome")
                 etr_content.append(heading_line)
                 line = self.make_markdown_line(awi_row[c5settings.ETR_EVAL_AWI_ANALYSIS_COL])
                 etr_content.append(line)
 
                 # INI-ivs: modify text
-                heading_line = self.make_markdown_heading(5, "Assessment outcome")
+                # heading_line = self.make_markdown_heading(5, "Assessment outcome")
                 # FIN-ivs
-                etr_content.append(heading_line)
+                # etr_content.append(heading_line)
                 line = self.make_markdown_line(awi_row[c5settings.ETR_EVAL_AWI_VERDICT_COL])
                 etr_content = self.add_markdown_verdict("Audit action verdict", awi_row[c5settings.ETR_EVAL_AWI_VERDICT_COL], etr_content)
 
@@ -4035,18 +4035,19 @@ class ETR:
         verdict_content = original_text_list
         
         # INI-ivs: remove one newline at the beginning
-        line = ':::{{.callout-note title=\"{0}\"}}'.format(title) + "\n"
+        line = "\n" + ':::{{.callout-note title=\"{0}\"}}'.format(title) + "\n"
         # FIN-ivs
         verdict_content.append(line)
         color = "black"
         if content == "Pass":
-            color = "green"
+            color = "pass"
         elif content == "Fail":
-            color = "red"
+            color = "fail"
         elif content == "Inconclusive":
-            color = "orange"
-        color_attrib = "{{style=\"color:{0};\"}}".format(color)
-        line = "[{0}]{1}".format(content,color_attrib) + "\n"
+            color = "inclsv"
+        # color_attrib = "{{style=\"color:{0};\"}}".format(color)
+        # line = "[{0}]{1}".format(content,color_attrib) + "\n"
+        line = '\\{0}{1}{2}{3}'.format(color,"{",content,"}") + "\n"
         verdict_content.append(line)
         line = ":::" + "\n\n"
         verdict_content.append(line)

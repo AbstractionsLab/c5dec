@@ -1,0 +1,21 @@
+settings:
+  digits: 3
+  itemformat: markdown 
+  parent: MRS
+  prefix: ARC
+  sep: '-'
+
+attributes:
+  defaults:
+    release: "Alpha"
+    header: |
+      Add a short description here
+    text: |
+      ## Architecture design artifact
+
+
+  publish:
+    - release
+  
+  reviewed:
+    - release

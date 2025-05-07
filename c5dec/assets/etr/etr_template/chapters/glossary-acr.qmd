@@ -42,14 +42,6 @@
 
 ## Glossary
 
-<!-- +------------------------------+--------------------------------------------------------------------------------------------------------------+
-| Term                         | Definition                                                                                                   |
-+==============================+====================================================================+=========================================+
-| CM access control            | Set of mechanisms and procedures guaranteeing that only authorised access is granted to configuration items. |
-+------------------------------+--------------------------------------------------------------------------------------------------------------+
-| CM documentation             | Set of documents describing how the CM system is defined and used.                                           |
-+------------------------------+--------------------------------------------------------------------------------------------------------------+ -->
-
 | Term | Definition |
 |:-----|:-----------|
 | CM access control | Set of mechanisms and procedures guaranteeing that only authorised access is granted to configuration items. |
@@ -60,4 +52,4 @@
 | CM system records | CM output documents produced during the operation of the CM system documenting important activities. E.g., CM item change control forms (recording modifications to a configuration item together with the ID of the person making the changes), CM item access approval forms, CM system logs, etc. |
 | Configuration item | An object managed by the CM system during the TOE development. These may be either parts of the TOE or objects related to the development of the TOE like evaluation documents or development tools. CM items may be stored in the CM system directly (for example files) or by reference (for example hardware parts) together with their version. |
 
-: Glossary {#tbl-glossary}
+: Glossary {#tbl-glossary tbl-colwidths="[27,73]"}

@@ -15,15 +15,13 @@ from c5dec.core import (
     transformer
 )
 
-__project__ = "Doorstop"
+__project__ = "C5-DEC"
 
 
 script_dir = os.path.dirname(__file__)
 mymodule_dir = os.path.join(script_dir, '.')
 sys.path.append(mymodule_dir)
 # pprint(sys.path)
-
-__project__ = "c5dec"
 
 try:
     __version__ = get_distribution(__project__).version
@@ -33,4 +31,4 @@ except DistributionNotFound:
 CLI = "c5dec"
 TUI = "c5dec-tui"
 VERSION = "{0} v{1}".format(__project__, __version__)
-DESCRIPTION = "C5-DEC for computer-assisted design and development (C5-DEC CAD)."
+DESCRIPTION = "C5-DEC CAD for Computer-Assisted Design and Development."

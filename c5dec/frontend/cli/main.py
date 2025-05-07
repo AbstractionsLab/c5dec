@@ -26,7 +26,7 @@ def run(args=None):
         "-j",
         "--project",
         metavar="PATH",
-        help="set the path to the root of the project",
+        help="set path to project root",
         default=root,
     )
     settings.PROJECT_ROOT = root
@@ -52,7 +52,7 @@ def run(args=None):
         "--tui",
         action="store_true",
         default=True,
-        help="run the textual user interface",
+        help="run textual user interface (TUI)",
     )
 
     parser.add_argument(
@@ -60,11 +60,12 @@ def run(args=None):
         "--gui",
         action="store_true",
         default=False,
-        help="run the graphical (web-based) user interface",
+        help="run graphical user interface (GUI)",
     )
     
     # Build sub-parsers
     subs = parser.add_subparsers(help="", dest="command", metavar="<command>")
+    _new(subs)
     _timerep(subs)
     _consolidate(subs)
     _costrep(subs)
@@ -76,6 +77,9 @@ def run(args=None):
     _export(subs)
     _etr(subs)
     _publish(subs)
+    _transform(subs)
+    _cpssa(subs)
+    _cryptography(subs)
 
     # Parse arguments
     args = parser.parse_args(args=args)
@@ -99,9 +103,18 @@ def run(args=None):
         log.debug("command failed")
         sys.exit(1)
 
+common.feature_flag("ON")
+def _new(subs):
+    info = "ssdlc - create new C5-DEC project with containerization, scripts, templates and configuration"
+    sub = subs.add_parser(
+        "new", description=info.capitalize() + ".", help=info
+    )
+    sub.add_argument("-p", "--project", help="New project name", default="myproject")
+    sub.add_argument("-u", "--user", help="Username in the Dockerized GNU/Linux environment", default="user")
+
 @common.feature_flag("ON")
 def _timerep(subs):
-    info = "Convert the OpenProject-exported xls time report to the C5-DEC time sheet format"
+    info = "pm - convert OpenProject xls time report to C5-DEC time sheet"
     sub = subs.add_parser(
         "timerep", description=info.capitalize() + ".", help=info
     )
@@ -109,20 +122,20 @@ def _timerep(subs):
 
 @common.feature_flag("ON")
 def _consolidate(subs):
-    info = "Consolidate all C5-DEC time sheets stored in a folder under c5dec/input into a single time sheet"
+    info = "pm - consolidate all C5-DEC time sheets from c5dec/input directory"
     sub = subs.add_parser(
         "consolidate", description=info.capitalize() + ".", help=info
     )
-    sub.add_argument("name", help="name of directory under c5dec/input containing time reports")
-    sub.add_argument("-l", "--filter", help="apply filters to the consolidated report")
-    sub.add_argument("-f", "--fromdate", help="starting from date, i.e., entries having date after this input")
-    sub.add_argument("-t", "--to", help="up to date, i.e., entries having date before this input")
+    sub.add_argument("name", help="Name of directory under c5dec/input containing time reports")
+    sub.add_argument("-l", "--filter", help="Apply filters to consolidated report")
+    sub.add_argument("-f", "--fromdate", help="Starting from date, i.e., entries having date after this input")
+    sub.add_argument("-t", "--to", help="Up to date, i.e., entries having date before this input")
     sub.add_argument("-d", "--field", help="Field name to filter for, e.g., Domain")
     sub.add_argument("-v", "--value", help="Field value to filter for, e.g., RD")
 
 @common.feature_flag("ON")
 def _costrep(subs):
-    info = "Compute cost report from input C5-DEC time sheet"
+    info = "pm - compute cost report from C5-DEC time sheet"
     sub = subs.add_parser(
         "costrep", description=info.capitalize() + ".", help=info
     )
@@ -140,54 +153,54 @@ def add_common_args(sub):
     versions_supported = ["3R1", "3R2", "3R3", "3R4", "3R5"]
     sub.add_argument("-v", "--verbose", action="store_true")
     sub.add_argument("--version",
-                     help=f"Specify the Common Criteria (CC) version: {versions_supported}")
+                     help=f"Specify Common Criteria (CC) version: {versions_supported}")
 
 @common.feature_flag("ON")
 def _view(subs):
-    info = "Retrieve Common Criteria (CC) item (class/family/component/element) by ID or name"
+    info = "cct - retrieve Common Criteria (CC) item (class/family/component/element) by ID or name"
     sub = subs.add_parser(
         "view", description=info.capitalize() + ".", help=info)
-    sub.add_argument("id", help="CC item ID. Case insensitive.")
+    sub.add_argument("id", help="CC item ID (case insensitive).")
     add_common_args(sub)
 
 @common.feature_flag("ON")
 def _validate(subs):
-    info = "Run the CC component choice validation routine"
+    info = "cct - run CC component choice validation routine"
     sub = subs.add_parser(
         "validate", description=info.capitalize() + ".", help=info)
     sub.add_argument("id", help="List of CC component IDs.", nargs="+")
     sub.add_argument("-d", "--dependency", action="store_const", const="dep", dest="mode",
-                     help="Validate Component List for dependencies.")
+                     help="Validate component list for dependencies.")
     add_common_args(sub)
 
 @common.feature_flag("ON")
 def _checklist(subs):
-    info = "Create a C5-DEC evaluation checklist in YAML+Markdown files, editable via the TUI"
+    info = "cct - create evaluation checklist in YAML+Markdown, editable via TUI"
     sub = subs.add_parser(
         "checklist", description=f"{info.capitalize()}. NOTE: the <prefix> must appear before the options: c5dec checklist prefix [options]" + ".", help=info)
-    sub.add_argument("prefix", help="The identifier/name of the checklist, used as a prefix to name its components.")
+    sub.add_argument("prefix", help="Identifier/name of checklist used as prefix to name its components.")
 
     group = sub.add_mutually_exclusive_group()
     group.add_argument("-c", "--create", action="store_true", 
                     help="Create evaluation checklist from component and/or package IDs.")
     group.add_argument("-l", "--list", const=True, default=False,
                     help="List all available checklists.", nargs="?")
-    group.add_argument("--edit", help="Edit Work Unit.")
+    group.add_argument("--edit", help="Edit work unit.")
     group.add_argument("-u", "--update", action="store_true",
-                       help="Update Evaluation Checklist.")
+                       help="Update evaluation checklist.")
     group.add_argument("--validate", action="store_true",
-                       help="Validate Evaluation Checklist.")
+                       help="Validate evaluation checklist.")
     group.add_argument("-s", "--status", action="store_true",
-                       help="Retrieve the status of Evaluation Checklist.")
-    group.add_argument("--publish", help="Publish Evaluation Checklist to path.")
+                       help="Retrieve status of evaluation checklist.")
+    group.add_argument("--publish", help="Publish evaluation checklist to path.")
 
     sub.add_argument("--id", help="List of Component IDs", 
                     required='-c' in sys.argv or '--create' in sys.argv, nargs="+")
-    sub.add_argument("--info", help="General Information of Evaluation Project.", nargs="+")
-    sub.add_argument("--editor", help="Set editor. Defaults to 'vim'.")
+    sub.add_argument("--info", help="General information about evaluation project.", nargs="+")
+    sub.add_argument("--editor", help="Set editor (defaults to vim).")
     add_common_args(sub)
 
-@common.feature_flag("ON")
+@common.feature_flag("OFF")
 def _search(subs):
     info = "Invoke the search by XPath routine"
     sub = subs.add_parser(
@@ -197,31 +210,53 @@ def _search(subs):
 
 @common.feature_flag("ON")
 def _export(subs):
-    info = "Export an evaluation checklist of work units (WU) as a spreadsheet; no selection -> all WUs exported."
+    info = "cct - export work unit (WU) evaluation checklist to spreadsheet: no selection -> all WUs exported."
     usg_note = "Usage note: c5dec export name version [-h] [-p COMPONENT [COMPONENT ...]] [-c CLASS [CLASS ...]]"
     sub = subs.add_parser(
         "export", description=info + " " + usg_note + ".", help=info
     )
-    sub.add_argument("name", help="Unique prefix for the evaluation checklist")
-    sub.add_argument("version", help="Desired Common Criteria release version (options: 3R5 or 2022R1)")
-    sub.add_argument("-p", "--components", help="The list of desired CC component IDs (e.g., ACO_REL.2 ALC_CMC.1). This argument overrides class choices (default: empty)", nargs="+")
-    sub.add_argument("-c", "--classes", help="The list of desired CC class IDs (e.g., ATE ALC); used only if no CC components provided (default: empty)", nargs="+") 
+    sub.add_argument("name", help="Unique prefix for evaluation checklist")
+    sub.add_argument("version", help="Desired CC release version (options: 3R5 or 2022R1)")
+    sub.add_argument("-p", "--components", help="List of desired CC component IDs (e.g., ACO_REL.2 ALC_CMC.1); overrides class choices (default: empty)", nargs="+")
+    sub.add_argument("-c", "--classes", help="List of desired CC class IDs (e.g., ATE ALC); used only if no CC components provided (default: empty)", nargs="+") 
 
 @common.feature_flag("ON")
 def _etr(subs):
-    info = "Process a C5-DEC evaluation checklist spreadsheet of WUs and atomic work items to generate ETR parts that can be input to C5-DEC DocEngine"
+    info = "cct - process WU evaluation checklist spreadsheet to generate ETR parts for C5-DEC DocEngine"
     sub = subs.add_parser(
         "etr", description=info + ".", help=info
     )
     eval_checklist_folder = os.path.join(os.getcwd(), settings.ASSETS_FOLDER_NAME, settings.ETR_FOLDER_NAME)
-    sub.add_argument("-n", "--name", help="File name of evaluation checklist to load from the {} folder; it can also be set in c5dec_params.yml (default: etr-eval-checklist)".format(eval_checklist_folder))
-    sub.add_argument("-f", "--families", help="The list of desired CC family IDs, (default: CMC)", nargs="+") 
-    sub.add_argument("-t", "--tables", help="The list of tables to convert to standard Markdown (default (all options): DocStruct Acronyms Glossary)", nargs="+")
+    sub.add_argument("-n", "--name", help="File name of evaluation checklist to load from {} folder; can also be set in c5dec_params.yml (default: etr-eval-checklist)".format(eval_checklist_folder))
+    sub.add_argument("-f", "--families", help="List of desired CC family IDs (default: CMC)", nargs="+") 
+    sub.add_argument("-t", "--tables", help="List of tables to convert to standard Markdown (default (all options): DocStruct Acronyms Glossary)", nargs="+")
 
-@common.feature_flag("ON")
+@common.feature_flag("OFF")
 def _publish(subs):
-    info = "Publish documentation and technical specifications"
+    info = "transformer - publish documentation and technical specifications"
     sub = subs.add_parser(
         "publish", description=info + ".", help=info
     )
-    sub.add_argument("-f", "--format", help="The publication format: .md .html (default: .html)") 
+    sub.add_argument("-f", "--format", help="Publication format: .md .html (default: .html)")
+    sub.add_argument("-d", "--directory", help="Name of directory stored in c5dec/input.")
+
+@common.feature_flag("ON")
+def _transform(subs):
+    info = "transformer - import, export, convert and compile using integrated doorstop, pandoc and quarto"
+    sub = subs.add_parser(
+        "transform", description=info + ".", help=info
+    )
+
+common.feature_flag("ON")
+def _cpssa(subs):
+    info = "cpssa - use C5-DEC CPSSA method with TARA software: OpenTRICK, threagile, ADTool, ThreatDragon, Capella Darc Viewpoint"
+    sub = subs.add_parser(
+        "cpssa", description=info + ".", help=info
+    )
+
+common.feature_flag("ON")
+def _cryptography(subs):
+    info = "cryptography - run integrated cryptographic software: GnuPG, Kryptor, Cryptomator and OQS-OpenSSL for PQC"
+    sub = subs.add_parser(
+        "crypto", description=info + ".", help=info
+    )

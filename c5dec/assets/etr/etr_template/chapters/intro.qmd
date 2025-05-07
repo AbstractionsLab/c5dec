@@ -28,10 +28,10 @@ This document becomes effective once approved by the owner and published on the 
 
 The owner’s signature is an official recognition of the mandatory character of this document. It is to be respected by all employees of itrust Abstractions Lab.
 
-The use of the simple present tense or the terms ‘**must**’, ‘**mandatory**’, ‘**required**’, or ‘**shall**’ in a statement means that the statement is considered a formal requirement.
+The use of the simple present tense or the terms '**must**', ‘**mandatory**’, ‘**required**’, or ‘**shall**’ in a statement means that the statement is considered a formal requirement.
 
-The use of words such as ‘**should**’ or the adjective ‘**recommended**’ means that there may be legitimate reasons to disregard the statement, but that the implications of such an exception are to be assessed.
-The use of terms such as ‘**may**’ or the adjective ‘**optional**’ means that the implementation of the statement is at the discretion of the implementer.
+The use of words such as ‘**should**’ or the adjective ‘**recommended**’ means that there may be legitimate reasons to disregard the statement, but that the implications of such an exception are to be assessed.
+The use of terms such as ‘**may**’ or the adjective ‘**optional**’ means that the implementation of the statement is at the discretion of the implementer.
 
 ## Audience
 
@@ -41,15 +41,20 @@ This document is intended for the staff members of ALab contributing to this pro
 
 @tbl-doc-struct shows how this document is structured.
 
-| Section   | Title    | Description |
-|:---------|:---------|:---------------|
-| @sec-intro       | {{< var chapter.chp1 >}} | Provides a short introduction outlining the purpose, objectives, and context of this document.  |
-| @sec-method | {{< var chapter.chp2 >}} | Describes the adopted evaluation methodology and the type of required documentation. |
-| @sec-objectives | {{< var chapter.chp3 >}} | Briefly describes the overall evaluation objectives and any dependencies, whenever applicable. |
-| @sec-detailedEv | {{< var chapter.chp4 >}} | Gives a detailed breakdown of the evaluation results, containing evaluation work units, in turn broken down into concrete audit actions. | 
-| @sec-evalResults |  {{< var chapter.chp5 >}} | Provides a summary of the overall assessment and verdict. |
-| @sec-biblio | {{< var chapter.chp6 >}} | Provides bibliographic references. | 
+{{< include ./generated-input/DocStruct-table.md >}}
 
-: Document structure {#tbl-doc-struct}
+: Document structure {#tbl-doc-struct tbl-colwidths="[15,25,60]"}
 
-{{< include glossary-acr.qmd >}}
+<!-- {{< include glossary-acr.qmd >}} -->
+
+## Acronyms
+
+{{< include ./generated-input/Acronyms-table.md >}}
+
+: Acronyms {#tbl-acronyms}
+
+## Glossary
+
+{{< include ./generated-input/Glossary-table.md >}}
+
+: Glossary {#tbl-glossary tbl-colwidths="[27,73]"}

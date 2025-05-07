@@ -10,6 +10,6 @@ reviewed: null
 text: |
   ## Diagram
 
-  The C5-DEC CAD software has been designed in a modular manner, with the diagram below depicting the current design.
+  The C5-DEC CAD system is divided into five modules providing diverse functionality for different kinds of users. These modules interact with and/or build upon external open-source tools to provide an integrated CAD solution.
 
-  ![CAD context diagram](assets/cad_context_diagram.png "C5-DEC CAD context diagram"){: width="80%"}
+  ![CAD context diagram](assets/cad_context_diagram.drawio.png "C5-DEC CAD context diagram"){: width="80%"}

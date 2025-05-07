@@ -1,0 +1,113 @@
+### ALC_CMC.1-1
+The evaluator shall check that the TOE provided for evaluation is labelled with its reference.The evaluator should ensure that the TOE contains the unique reference which is stated in the ST. This can be achieved through labelled packaging or media, or by a label displayed by the operational TOE. This is to ensure that it would be possible for consumers to identify the TOE (e.g. at the point of purchase or use).The TOE may provide a method by which it can be easily identified. For example, a software TOE may display its name and version number during the start up routine, or in response to a command line entry. A hardware or firmware TOE may be identified by a part number physically stamped on the TOE.Alternatively, the unique reference provided for the TOE may be the combination of the unique reference of each component from which the TOE is comprised (e.g. in the case of a composed TOE).
+
+#### Audit action 1 in category Unique reference
+
+Verify that the hardware of the operational TOE has an identification label.
+
+##### Evaluation scope and evidence
+
+Scope of evaluation: **Hardware of the TOE**
+
+###### Evidence required from developer or sponsor
+
+The following pieces of evidence are required from the developer or sponsor:
+
+(ST + development security documentation) OR Audit report
+
+###### Input provided by the developer
+
+Missing evidence
+
+##### Analysis and assessment outcome
+
+Analysis not possible due to missing evidence.
+
+**Note**: This aspect could be checked by looking at the TOE devices.
+
+
+:::{.callout-note title="Audit action verdict"}
+\inclsv{Inconclusive}
+:::
+
+#### Verdict
+
+
+:::{.callout-note title="Work unit verdict"}
+\inclsv{Inconclusive}
+:::
+
+### ALC_CMC.1-2
+The evaluator shall check that the TOE references used are consistent.If the TOE is labelled more than once then the labels have to be consistent. For example, it should be possible to relate any labelled guidance documentation supplied as part of the TOE to the evaluated operational TOE. This ensures that consumers can be confident that they have purchased the evaluated version of the TOE, that they have installed this version, and that they have the correct version of the guidance to operate the TOE in accordance with its ST.The evaluator also verifies that the TOE reference is consistent with the ST.If this work unit is applied to a composed TOE, the following will apply. The composed IT TOE will not be labelled with its unique (composite) reference, but only the individual components will be labelled with their appropriate TOE reference. It would require further development for the IT TOE to be labelled, i.e. during start-up and/or operation, with the composite reference. If the composed TOE is delivered as the constituent component TOEs, then the TOE items delivered will not contain the composite reference. However, the composed TOE ST will include the unique reference for the composed TOE and will identify the components comprising the composed TOE through which the consumers will be able to determine whether they have the appropriate items.
+
+#### Audit action 2 in category Some category
+
+Some description
+
+##### Evaluation scope and evidence
+
+Scope of evaluation: **Some evaluation object**
+
+###### Evidence required from developer or sponsor
+
+The following pieces of evidence are required from the developer or sponsor:
+
+Some required input
+
+###### Input provided by the developer
+
+Some developer-provided input
+
+##### Analysis and assessment outcome
+
+Laboratory analysis
+
+
+:::{.callout-note title="Audit action verdict"}
+\fail{Fail}
+:::
+
+#### Verdict
+
+
+:::{.callout-note title="Work unit verdict"}
+\fail{Fail}
+:::
+
+### ALC_CMC.4-1
+The evaluator shall check that the TOE provided for evaluation is labelled with its reference.The evaluator should ensure that the TOE contains the unique reference which is stated in the ST. This can be achieved through labelled packaging or media, or by a label displayed by the operational TOE. This is to ensure that it would be possible for consumers to identify the TOE (e.g. at the point of purchase or use).The TOE may provide a method by which it can be easily identified. For example, a software TOE may display its name and version number during the start up routine, or in response to a command line entry. A hardware or firmware TOE may be identified by a part number physically stamped on the TOE.Alternatively, the unique reference provided for the TOE may be the combination of the unique reference of each component from which the TOE is comprised (e.g. in the case of a composed TOE).
+
+#### Audit action 3 in category Some category
+
+Some description
+
+##### Evaluation scope and evidence
+
+Scope of evaluation: **Some evaluation object**
+
+###### Evidence required from developer or sponsor
+
+The following pieces of evidence are required from the developer or sponsor:
+
+Some required input
+
+###### Input provided by the developer
+
+Some developer-provided input
+
+##### Analysis and assessment outcome
+
+Laboratory analysis
+
+
+:::{.callout-note title="Audit action verdict"}
+\fail{Fail}
+:::
+
+#### Verdict
+
+
+:::{.callout-note title="Work unit verdict"}
+\fail{Fail}
+:::
+

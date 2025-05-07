@@ -9,9 +9,9 @@ party:
   dev: "Developer/Vendor"
 
 verdict:
-  pass: "PASS"
-  fail: "FAIL"
-  inclsv: "INCONCLUSIVE"
+  pass: "Pass"
+  fail: "Fail"
+  inclsv: "Inconclusive"
 
 acr:
   alab: "ALab"

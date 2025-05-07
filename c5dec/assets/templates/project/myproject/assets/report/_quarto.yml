@@ -1,0 +1,72 @@
+project:
+  type: book
+  output-dir: _output
+  pre-render:
+    - scripts/restore_tex_files.py
+    - scripts/custom_vars.py
+    - scripts/tables.py # when not using the c5dec containerized dev environment in VS Code, see README or first create and activate a virtual environment (using venv), activate and install requirements.txt, and set QUARTO_PATH env variable to venv/bin/python
+  post-render: 
+    - scripts/restore_tex_files.py
+
+book:
+  title: "C5-DEC CAD DocEngine"
+  subtitle: "Report template"
+  author: "Abstractions Lab"
+  abstract: "This document is a C5-DEC CAD DocEngine template report. Modify the various configuration files as described in the user manual to tailor this to your requirements."
+  date: "30/06/2024"
+  #   - name: "ALab RD"
+      # orcid: "AAAA-BBBB-CCCC-DDDD"
+      # affiliations:
+      #   - name: "Abstractions Lab"
+      #     department: "Cryptography and Formal Methods"
+  # date: "30/06/2024"
+  chapters:
+    - index.qmd
+    - chapters/intro.qmd
+    - chapters/analysis.qmd
+    - chapters/summary.qmd
+    - chapters/references.qmd
+
+tbl-cap-location: bottom
+
+bibliography: references.bib
+csl: ieee.csl
+toc: true
+lof: true
+lot: true
+number-sections: true 
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    pdf-engine: lualatex
+    # pdf-engine: xelatex
+    number-sections: true
+    colorlinks: true
+    fontsize: 11 pt
+    papersize: A4
+    fig-pos: 'H'
+    # geometry: "left=2.54cm,right=2.54cm,top=2.54cm,bottom=2.54cm"
+    geometry: "left=2cm,right=2cm,top=2cm,bottom=2cm"
+    mainfont: "Ubuntu"
+    # mainfont: "Gill Sans"
+    # sansfont: "Futura"
+    # monofont: "Courier New"
+    documentclass: report
+    classoption: table
+    include-in-header: tex/include-in-header.tex
+    template-partials:
+      - tex/before-body.tex
+      - tex/pandoc.tex
+      - tex/tables.tex
+      - tex/toc.tex
+  docx:
+    reference-doc: custom-docx-format-ref.docx
+    number-sections: false
+    toc: true
+    title: C5-DEC
+    subtitle: DocEngine report template
+    subject: C5-DEC document generation
+    category: Report (REP)
+    description: Restricted

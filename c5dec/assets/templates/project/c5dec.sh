@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# Define variables
+USER=alab
+CONTAINER_NAME=c5dec-container
+IMAGE_NAME=c5dec:v1.0
+PROJECT_NAME=c5dec
+
+DEV_CONTAINER_NAME=c5dec-dev-container
+DEV_IMAGE_NAME=c5dec-dev:v1.0
+
+echo Starting $PROJECT_NAME...
+echo For usage instructions, run: ./c5dec.sh help
+
+# Define volume mounts
+C5_VOLUME=$(pwd):/home/$USER/$PROJECT_NAME
+
+if [ "$#" -lt 1 ]
+then
+    # Run the Docker container with no argument: pass the -h argument to your application 
+    docker run -it --rm --name $CONTAINER_NAME \
+        -v $C5_VOLUME \
+        --network host \
+        $IMAGE_NAME -h
+elif [ "$1" == "session" ]
+then
+    # Create the Docker container and open a session for interactive use
+    echo Launching an interactive c5dec session...
+    docker run -it --rm --name $DEV_CONTAINER_NAME \
+        -v $C5_VOLUME \
+        -p 5432:5432 \
+        $DEV_IMAGE_NAME /bin/bash
+elif [ "$1" == "help" ]
+then
+    echo ---
+    echo ./c5dec.sh
+    echo ... to open the c5dec CLI help menu
+    echo ./c5dec.sh session
+    echo ... to start an interactive c5dec session
+    echo ./c5dec.sh \<command\>
+    echo ... to run a c5dec CLI command
+    echo ./c5dec.sh \<command\> -h
+    echo ... to get help for a c5dec CLI command
+    echo ---
+else
+    # Run the Docker container with the user-specified arguments
+    docker run -it --rm --name $CONTAINER_NAME \
+        -v $C5_VOLUME \
+        $IMAGE_NAME "$@"
+fi

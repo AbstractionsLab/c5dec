@@ -30,4 +30,6 @@ The SSDLC module of C5-DEC CAD aims at assisting with the development of secure 
 
 Moreover, the C5-DEC methodology for secure software development life cycle (SSDLC) and a guide for Cyber-Physical System Security Assessment (CPSSA) form part of the C5-DEC knowledge base, and are supported by the SSDLC module of C5-DEC CAD.
 
-Note that to fully implement the C5-DEC method described in the SSDLC and CPSSA reports, C5-DEC integrates and relies on other open-source solutions (e.g. doorstop-dev, OpenProject, GitLab, threagile, ADTool, Capella Darc Viewpoint, and Threat Dragon) for some of its features such as requirements and artifacts management, system design and testing, project (resource) management, DevSecOps, threat modeling, and security risk assessment.
+Note that to fully implement the C5-DEC method described in the SSDLC and CPSSA reports, C5-DEC integrates and relies on other open-source solutions (e.g. doorstop-dev, OpenProject, GitLab, threagile, ADTool, Capella Darc Viewpoint, and Threat Dragon) for some of its features such as requirements and artifacts management, system design and testing, project (resource) management, DevSecOps, threat modelling, and security risk assessment.
+
+Finally, C5-DEC builds on open-source software for cryptography-related functionality, more precisely, for classical cryptography using `Kryptor`, `GnuPG`, `Cryptomator`, and for post-quantum cryptography, a dedicated container for the `OQS-OpenSSL provider`. See the [Cryptography](./cryptography.md) page for more details.

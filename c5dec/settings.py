@@ -3,12 +3,17 @@
 import logging
 import os
 import yaml
+import pathlib
 
 # Constants
+
+PROJECT_ROOT_PATH = pathlib.Path(os.path.abspath(os.path.join(__file__, ".."))).parent.absolute()
+
 ASSETS_FOLDER_NAME = "assets"
 DB_FOLDER_NAME = "database"
 ETR_FOLDER_NAME = "etr"
 DOCS_FOLDER_NAME = "docs"
+SPECS_FOLDER_NAME = "specs"
 INPUT_FOLDER_NAME = "input"
 EXPORT_FOLDER_NAME = "export"
 PUBLISH_FOLDER_NAME = "publish"
@@ -62,7 +67,7 @@ ETR_EVAL_AWI_ANALYSIS_COL = "Analysis"
 ETR_EVAL_WU_VERDICT_COL = "verdict"
 ETR_EVAL_AWI_VERDICT_COL = "Verdict"
 ETR_ACRONYMS_GLOSSARY_FILE_NAME = "acronyms-glossary.xlsx"
-ETR_TABLES_FILE_NAME = "tables.xlsx"
+ETR_TABLES_FILE_NAME = "etr-tables.xlsx"
 
 
 # Logging settings
@@ -89,6 +94,7 @@ OPENPROJECT_PARAMS_CSV_FILE_PATH = os.path.join(ASSETS_FOLDER_NAME, TSH_PARAMS_F
 TSHFORMAT_JSON_FILE_PATH = os.path.join(dirname, ASSETS_FOLDER_NAME, TSH_PARAMS_FOLDER_NAME, TSH_FORMAT_FILE_NAME)
 RMT_PARAMS_FILE_PATH = os.path.join(dirname, ASSETS_FOLDER_NAME, TSH_PARAMS_FOLDER_NAME, RMT_PARAMS_FILE_NAME) 
 
+SPECS_FOLDER_PATH = os.path.join(PROJECT_ROOT_PATH, DOCS_FOLDER_NAME, SPECS_FOLDER_NAME)
 PUBLISH_FOLDER_PATH = os.path.join(os.getcwd(), DOCS_FOLDER_NAME, PUBLISH_FOLDER_NAME)
 EXPORT_FOLDER = os.path.join(os.getcwd(), EXPORT_FOLDER_NAME)
 HTML_INDEX_FILENAME = "index.html"

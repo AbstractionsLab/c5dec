@@ -32,7 +32,7 @@ if __name__ == "__main__":
 
     print(f"Running table generation pre-render script...")
 
-    tables_list = ["DocStruct", "Acronyms", "Glossary"]
+    tables_list = ["DocStruct", "Acronyms", "Glossary", "EvalOverviewPP"]
 
     tables_input_file_path = os.path.join(CHAPTERS_FOLDER_NAME, INPUT_FOLDER_NAME, "tables.xlsx")
     for table in tables_list:

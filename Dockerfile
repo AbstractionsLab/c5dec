@@ -11,10 +11,10 @@ ENV MY_ENV=${MY_ENV} \
   PIP_DEFAULT_TIMEOUT=100 \
   POETRY_VERSION=1.5.0
 
-ENV user=root
+ENV user=alab
 ENV c5folder=c5dec
 
-# Update and install depencencies
+# Update and install dependencies
 RUN apt update --fix-missing
 RUN apt-get install -y git python3-pip graphviz
 

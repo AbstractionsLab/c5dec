@@ -1,0 +1,42 @@
+settings:
+  digits: 3
+  itemformat: markdown
+  prefix: MRS
+  sep: '-'
+
+attributes:
+  defaults:
+    author: 'ACR'
+    type: 'Functional (F)/Non-Functional (NF)'
+    category: 'Compliance (C)/Performance (P)/Security (S)/Usability (U)/Reliability (R)/Maintainability (M)/Portability (P)'
+    rationale: ""
+    importance: "5"
+    urgency: "5"
+    vm: 'Test (T)/Review of design (R)/Inspection (I)/Analysis (A)'
+    release: "Alpha/Beta/Stable"
+    version: '0.1'
+    header: |
+      Add a short description here
+    text: |
+      ## Mission Requirements Specification
+
+
+      ## Acceptance criteria
+      
+      e.g., Successful validation according to the corresponding test case specification
+
+  publish:
+    - type
+    - importance
+    - urgency
+    - vm
+    - release
+    - version
+  
+  reviewed:
+    - type
+    - importance
+    - urgency
+    - vm
+    - release
+    - version

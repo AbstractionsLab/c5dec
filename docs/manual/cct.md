@@ -245,7 +245,7 @@ c5dec etr -f CMC -t DocStruct Acronyms Glossary
 ```
 1. picks up the default evaluation checklist included at `c5dec/assets/etr/etr-eval-checklist.xlsx`. This checklist contains work units for the components ALC_CMC.1, ALC_CMC.4, ALC_DVS.1 and AVA_VAN.4. The predefined evaluation checklist can be changed as explained [below](#customize-the-checklist-combining-the-export-and-etr-commands).
 2. parses and processes the selected spreadsheet to generate ETR document parts capturing content both at the level of work units as well as their corresponding atomic work items (AWI), if any are provided by the user in the AWI sheet. In this example, only work units of the CMC family are filtered.
-3. generates Markdown encodings of the tables specified in each sheet of the `tables.xlsx` spreadsheet, included in the same `c5dec/assets/etr` folder. The user can choose to parse only selected tables using the `-t` flag.
+3. generates Markdown encodings of the tables specified in each sheet of the `etr-tables.xlsx` spreadsheet, included in the same `c5dec/assets/etr` folder. The user can choose to parse only selected tables using the `-t` flag.
 4. the generated outcomes are stored in the `c5dec/assets/etr/output` folder in separate and dedicated Markdown files.
 
 Note that if the checklist does not contain data regarding the selected family, an empty file is still created.

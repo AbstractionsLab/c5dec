@@ -52,27 +52,33 @@ def add_function_to_tui(app, app_name, function_name, view, model):
     app.get_submenu(app_name).add_function(
         function_name, view, model)
 
-@common.feature_flag('ON')
+@common.feature_flag('OFF')
 def add_ssdlc_module(app, name):
     SSDLC_app_name = name
     app.add_menu(SSDLC_app_name)
+    # app.get_submenu(SSDLC_app_name).add_function(
+    #     "Manage artifact repositories", RepositoryManagementView, RepositoryManagementModel())
+    # app.get_submenu(SSDLC_app_name).add_function(
+    #     "Manage artifact items", ItemManagementView, ItemManagementModel())
+    # app.get_submenu(SSDLC_app_name).add_function(
+    #     "Manage item relations", ItemRelationManagementView, ItemRelationModel())
+    # app.get_submenu(SSDLC_app_name).add_function(
+    #     "Manage repository structure and item status", ArtifactStatusManagementView, ArtifactStatusManagementModel())
+    
     app.get_submenu(SSDLC_app_name).add_function(
-        "Manage artifact repositories", RepositoryManagementView, RepositoryManagementModel())
-    app.get_submenu(SSDLC_app_name).add_function(
-        "Manage artifact items", ItemManagementView, ItemManagementModel())
-    app.get_submenu(SSDLC_app_name).add_function(
-        "Manage item relations", ItemRelationManagementView, ItemRelationModel())
-    app.get_submenu(SSDLC_app_name).add_function(
-        "Manage repository structure and item status", ArtifactStatusManagementView, ArtifactStatusManagementModel())
+         "Migrated to CLI: c5dec cad", MiniAppPlaceholderView, MiniAppPlaceholderModel)
 
 @common.feature_flag('ON')
 def add_cryptography_module(app, name):
     cryptography_app_name = name
     app.add_menu(cryptography_app_name)
+    # app.get_submenu(cryptography_app_name).add_function(
+    #      "PQC public-key encryption (not implemented, on the roadmap)", MiniAppPlaceholderView, MiniAppPlaceholderModel)
+    # app.get_submenu(cryptography_app_name).add_function(
+    #      "PQC digital signature (not implemented, on the roadmap)", MiniAppPlaceholderView, MiniAppPlaceholderModel)
+
     app.get_submenu(cryptography_app_name).add_function(
-         "PQC public-key encryption (not implemented, on the roadmap)", MiniAppPlaceholderView, MiniAppPlaceholderModel)
-    app.get_submenu(cryptography_app_name).add_function(
-         "PQC digital signature (not implemented, on the roadmap)", MiniAppPlaceholderView, MiniAppPlaceholderModel)
+         "Migrated to CLI: c5dec cryptography", MiniAppPlaceholderView, MiniAppPlaceholderModel)
 
 @common.feature_flag('ON')
 def add_cct_module(app, name):
@@ -85,23 +91,28 @@ def add_cct_module(app, name):
     app.get_submenu(CCT_app_name).add_function(
         "Evaluation Checklist", WorkUnitView, WorkUnitModel())
     
-@common.feature_flag('ON')
+@common.feature_flag('OFF')
 def add_cpssa_module(app, name):
     cpssa_app_name = name
     app.add_menu(cpssa_app_name)
+    # app.get_submenu(cpssa_app_name).add_function(
+    #      "Generate input for threagile (not implemented, on the roadmap)", MiniAppPlaceholderView, MiniAppPlaceholderModel)
+    # app.get_submenu(cpssa_app_name).add_function(
+    #      "Generate input for OpenTRICK (not implemented, on the roadmap)", MiniAppPlaceholderView, MiniAppPlaceholderModel)
+    
     app.get_submenu(cpssa_app_name).add_function(
-         "Generate input for threagile (not implemented, on the roadmap)", MiniAppPlaceholderView, MiniAppPlaceholderModel)
-    app.get_submenu(cpssa_app_name).add_function(
-         "Generate input for OpenTRICK (not implemented, on the roadmap)", MiniAppPlaceholderView, MiniAppPlaceholderModel)
+         "Migrated to CLI: c5dec cpssa", MiniAppPlaceholderView, MiniAppPlaceholderModel)
 
-@common.feature_flag('ON')
+@common.feature_flag('OFF')
 def add_transformer_module(app, name):
     transformer_app_name = name
     app.add_menu(transformer_app_name)
-    app.get_submenu(transformer_app_name).add_function("Import SSDLC data", ImportView, ImportModel())
-    app.get_submenu(transformer_app_name).add_function("Export SSDLC data", ExportView, ExportModel())
-    app.get_submenu(transformer_app_name).add_function("Publish SSDLC data", PublisherView, PublisherModel())
-    app.get_submenu(transformer_app_name).add_function("Convert data", ConverterView, ConverterModel())
+    # app.get_submenu(transformer_app_name).add_function("Import SSDLC data", ImportView, ImportModel())
+    # app.get_submenu(transformer_app_name).add_function("Export SSDLC data", ExportView, ExportModel())
+    # app.get_submenu(transformer_app_name).add_function("Publish SSDLC data", PublisherView, PublisherModel())
+    # app.get_submenu(transformer_app_name).add_function("Convert data", ConverterView, ConverterModel())
+    app.get_submenu(transformer_app_name).add_function(
+         "Migrated to CLI: c5dec transform", MiniAppPlaceholderView, MiniAppPlaceholderModel)
 
 @common.feature_flag('OFF')
 def add_isms_module(app, name):
@@ -142,22 +153,22 @@ def main(args=None, cwd=None):
     app = Application()
 
     CCT_app_name = "1 - CCT: Common Criteria toolbox"
-    SSDLC_app_name = "2 - SSDLC: secure software development life cycle"
-    cryptography_app_name = "3 - Cryptography (see user manual)"
-    cpssa_app_name = "4 - CPSSA: Cyber-physical system security assessment (see user manual)"
-    transformer_app_name = "5 - Transformer: import, export, publish"
-    pm_app_name = "6 - PM: project resource management"
-    ISMS_app_name = "7 - ISMS: document management"
-    settings_app_name = "8 - Settings"
+    # SSDLC_app_name = "2 - SSDLC: secure software development life cycle (moved to CLI)"
+    # cryptography_app_name = "3 - Cryptography (moved to CLI)"
+    # cpssa_app_name = "4 - CPSSA: Cyber-physical system security assessment (moved to CLI)"
+    # transformer_app_name = "5 - Transformer: import, export, publish (moved to CLI)"
+    pm_app_name = "2 - PM: project resource management"
+    # ISMS_app_name = "7 - ISMS: document management"
+    # settings_app_name = "8 - Settings"
 
     add_cct_module(app, CCT_app_name)
-    add_ssdlc_module(app, SSDLC_app_name)
-    add_cryptography_module(app, cryptography_app_name)
-    add_cpssa_module(app, cpssa_app_name)
-    add_transformer_module(app, transformer_app_name)
-    add_isms_module(app, ISMS_app_name)
+    # # add_ssdlc_module(app, SSDLC_app_name)
+    # add_cryptography_module(app, cryptography_app_name)
+    # add_cpssa_module(app, cpssa_app_name)
+    # add_transformer_module(app, transformer_app_name)
+    # add_isms_module(app, ISMS_app_name)
     add_pm_module(app, pm_app_name)
-    add_settings_module(app, settings_app_name)
+    # add_settings_module(app, settings_app_name)
     
     app.run()
 

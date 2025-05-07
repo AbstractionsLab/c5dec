@@ -46,7 +46,7 @@ class MiniAppPlaceholderView(BaseView):
         frame_height = max_height - 12
         max_width = screen.width
 
-        builder = Builder("Planned for future release")
+        builder = Builder("Use the CLI: c5dec -h")
         builder.addLayout([13, 7, 10, 10, 10, 50], True)
 
         super(MiniAppPlaceholderView, self).__init__(screen, root_menu, builder)

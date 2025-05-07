@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+<head><title>Doorstop</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="assets/doorstop/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/doorstop/general.css" />
+  <link type="text/css" rel="stylesheet" href="assets/doorstop/sidebar.css" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" ></script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
+  </script>
+</head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-2 hidden-sm hidden-xs">
+          <nav id="TOC" class="nav nav-stacked fixed sidebar">
+              <h3>Table of Contents</h3>
+<ul>
+<li><a href="#TRS-001">1 TCER: containerized deployment x86-64</a></li>
+<li><a href="#TRS-002">2 TCER: containerized deployment arm64</a></li>
+<li><a href="#TRS-003">3 TCER: PQ cryptography container</a></li>
+<li><a href="#TRS-004">4 TCER: Test DocEngine</a></li>
+<li><a href="#TRS-005">5 TCER: creation of empty C5-DEC-based project</a></li>
+<li><a href="#TRS-006">6 TCER: build and run an empty created project</a></li>
+<li><a href="#TRS-007">7 TCER: New project in VS Code</a></li>
+</ul>
+          </nav>
+      </div>
+      <div class="col-lg-8" id="main">
+        <h1 id="TRS-001">1 TCER: containerized deployment x86-64 <small>TRS-001</small></h1>
+<h2>Relevant test environment and configuration details</h2>
+<ul>
+<li>Software deviations: aligned with test case specifications</li>
+<li>Hardware deviations: aligned with test case specifications</li>
+</ul>
+<h2>Test execution results</h2>
+<p>Here we report the results in terms of step-wise alignments or deviations with respect to the expected outcome of the covered test case.</p>
+<p><strong>Test case step 1</strong>: Clone repository</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span></li>
+</ul>
+<p><strong>Test case step 2</strong>: Start Docker Desktop</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span>: Docker Desktop was already running</li>
+</ul>
+<p><strong>Test case step 3</strong>: Open the C5-DEC repository in VS Code</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span></li>
+</ul>
+<p><strong>Test case step 4</strong>: Reopen in container with options</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span>: the pop-up "Reopen in Container" appeared. When clicked, the two expected options (shown in the test case image) were presented in VS Code</li>
+</ul>
+<p><strong>Test case step 5</strong>: Build the CAD dev container</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span>: the image was created without errors when selecting the <code>C5-DEC CAD dev container</code> option</li>
+</ul>
+<p><strong>Test case step 6</strong>: Open a terminal and a shell</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span>: a terminal and a poetry shell were manually created. The expected outcome is in alignment with the expected outcome shown in TSS-001.</li>
+</ul>
+<h3>Defect summary description</h3>
+<p>Defect-free test execution, i.e., defect category: <span style="color:green"><strong>0 = flawless</strong></span></p>
+<h3>Text execution evidence</h3>
+<p>See linked files (if any), e.g., screenshots, logs, etc.</p>
+<h3>Comments</h3>
+<p>N/A</p>
+<h2>Guide</h2>
+<ul>
+<li>Defect category: <span style="color:green"><strong>0 = flawless</strong></span>; <span style="color:SeaGreen"><strong>1 = insignificant defect</strong></span>; <span style="color:orange"><strong>2 = minor defect</strong></span>; <span style="color:DarkOrange"><strong>3 = major defect</strong></span>; <span style="color:red"><strong>4 = critical defect</strong></span></li>
+<li>Verification method (VM): Test (T), Review of design (R), Inspection (I), Analysis (A)</li>
+</ul>
+<p><em>Parent links:</em> <a href="TSS.html#TSS-001">TSS-001 TC: Test containerized deployment on x86-64</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test-date</td>
+<td>2025-05-02</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect-category</td>
+<td><span style="color:green"><strong>0 = flawless</strong></span></td>
+</tr>
+<tr>
+<td>passed-steps</td>
+<td>6</td>
+</tr>
+<tr>
+<td>failed-steps</td>
+<td>0</td>
+</tr>
+<tr>
+<td>not-executed-steps</td>
+<td>0</td>
+</tr>
+<tr>
+<td>release-version</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>verification-method</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRS-002">2 TCER: containerized deployment arm64 <small>TRS-002</small></h1>
+<h2>Relevant test environment and configuration details</h2>
+<ul>
+<li>Software deviations: aligned with test case specifications</li>
+<li>Hardware deviations: aligned with test case specifications</li>
+</ul>
+<h2>Test execution results</h2>
+<p><strong>Test case step 1</strong>: Clone repository</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span></li>
+</ul>
+<p><strong>Test case step 2</strong>: Open the C5-DEC repository in VS Code</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span></li>
+</ul>
+<p><strong>Test case step 3</strong>: Reopen in container with options</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span>: the pop-up "Reopen in Container" appeared. When clicked, the two expected options (shown in the test case image) were presented in VS Code</li>
+</ul>
+<p><strong>Test case step 4</strong>: Build the CAD dev container</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span>: when selecting the <code>C5-DEC CAD dev container</code> option, the image was created without errors after approx. 3-4 minutes</li>
+</ul>
+<p><strong>Test case step 5</strong>: Open a terminal and a shell</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span>: a terminal and a poetry shell were manually created. The expected outcome is in alignment with the expected outcome shown in TSS-002. Furthermore, the c5dec TUI was opened when running <code>c5dec</code>, once inside the c5dec folder.</li>
+</ul>
+<h3>Defect summary description</h3>
+<p>Defect-free test execution, i.e., defect category: <span style="color:green"><strong>0 = flawless</strong></span></p>
+<h3>Text execution evidence</h3>
+<p>See linked files (if any), e.g., screenshots, logs, etc.</p>
+<h3>Comments</h3>
+<p>N/A</p>
+<h2>Guide</h2>
+<ul>
+<li>Defect category: <span style="color:green"><strong>0 = flawless</strong></span>; <span style="color:SeaGreen"><strong>1 = insignificant defect</strong></span>; <span style="color:orange"><strong>2 = minor defect</strong></span>; <span style="color:DarkOrange"><strong>3 = major defect</strong></span>; <span style="color:red"><strong>4 = critical defect</strong></span></li>
+<li>Verification method (VM): Test (T), Review of design (R), Inspection (I), Analysis (A)</li>
+</ul>
+<p><em>Parent links:</em> <a href="TSS.html#TSS-002">TSS-002 TC: Test containerized deployment on arm64</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test-date</td>
+<td>2025-05-02</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect-category</td>
+<td><span style="color:green"><strong>0 = flawless</strong></span></td>
+</tr>
+<tr>
+<td>passed-steps</td>
+<td>5</td>
+</tr>
+<tr>
+<td>failed-steps</td>
+<td>0</td>
+</tr>
+<tr>
+<td>not-executed-steps</td>
+<td>0</td>
+</tr>
+<tr>
+<td>release-version</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>verification-method</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRS-003">3 TCER: PQ cryptography container <small>TRS-003</small></h1>
+<h2>Relevant test environment and configuration details</h2>
+<ul>
+<li>Software deviations: aligned with test case specifications</li>
+<li>Hardware deviations: N/A</li>
+</ul>
+<h2>Test execution results</h2>
+<p><strong>Test case step 1</strong>: Clone the C5-DEC repository</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span></li>
+</ul>
+<p><strong>Test case step 2</strong>: Open the project in VS Code</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span></li>
+</ul>
+<p><strong>Test case step 3</strong>: Reopen in container with the option "C5-DEC cryptography dev container"</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span>: the container is opened successfully</li>
+</ul>
+<p><strong>Test case step 4</strong>: Get a list of the available quantum-safe signature algorithms</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span>: the output list corresponds to the expected outcome described in TSS-003</li>
+</ul>
+<p><strong>Test case step 5</strong>: Get a list of the available quantum-safe KEM algorithms</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span>: the list of the available quantum-safe KEM algorithms corresponds to the expected outcome described in TSS-003</li>
+</ul>
+<h3>Defect summary description</h3>
+<p>Defect-free test execution, i.e., defect category: <span style="color:green"><strong>0 = flawless</strong></span></p>
+<h3>Text execution evidence</h3>
+<p>See linked files (if any), e.g., screenshots, logs, etc.</p>
+<h3>Comments</h3>
+<p>If we want to open the 'C5-DEC cryptography dev container' while already in VS Code and using the C5-DEC CAD container, the "Reopen in Container" option is not available. This happens more generally when trying to switch between the two C5-DEC containers.</p>
+<p>However, this behavior is not related with C5-DEC but with the VS Code dev containers extension. The workaround is to "Reopen folder locally" for the "Reopen in Container" option to become available again.</p>
+<h2>Guide</h2>
+<ul>
+<li>Defect category: <span style="color:green"><strong>0 = flawless</strong></span>; <span style="color:SeaGreen"><strong>1 = insignificant defect</strong></span>; <span style="color:orange"><strong>2 = minor defect</strong></span>; <span style="color:DarkOrange"><strong>3 = major defect</strong></span>; <span style="color:red"><strong>4 = critical defect</strong></span></li>
+<li>Verification method (VM): Test (T), Review of design (R), Inspection (I), Analysis (A)</li>
+</ul>
+<p><em>Parent links:</em> <a href="TSS.html#TSS-003">TSS-003 TC: Test PQ cryptography container</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test-date</td>
+<td>2025-05-02</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect-category</td>
+<td><span style="color:green"><strong>0 = flawless</strong></span></td>
+</tr>
+<tr>
+<td>passed-steps</td>
+<td>5</td>
+</tr>
+<tr>
+<td>failed-steps</td>
+<td>0</td>
+</tr>
+<tr>
+<td>not-executed-steps</td>
+<td>0</td>
+</tr>
+<tr>
+<td>release-version</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>verification-method</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRS-004">4 TCER: Test DocEngine <small>TRS-004</small></h1>
+<h2>Relevant test environment and configuration details</h2>
+<ul>
+<li>Software deviations: aligned with test case specification</li>
+<li>Hardware deviations: N/A</li>
+</ul>
+<h2>Test execution results</h2>
+<p><strong>Test case step 1</strong>: Open the C5-DEC CAD container in VS Code and activate the Python environment in the root folder</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span></li>
+</ul>
+<p><strong>Test case step 2</strong>: Go to the execution path of C5DEC CAD</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span></li>
+</ul>
+<p><strong>Test case step 3</strong>: Use <code>quarto</code> to render a PDF document</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span>: the quarto command run successfully without showing error messages in the terminal; the PDF file was generated in the folder <code>~/c5dec/assets/report/_output/C5-DEC-CAD-DocEngine.pdf</code>.</li>
+</ul>
+<h3>Defect summary description</h3>
+<p>Defect-free test execution, i.e., defect category: <span style="color:green"><strong>0 = flawless</strong></span></p>
+<h3>Text execution evidence</h3>
+<p>See the file referred below in this test case report.</p>
+<h3>Comments</h3>
+<p>The final message in the terminal indicates <code>Output created: _output/C5-DEC-CAD-DocEngine.pdf</code>.
+While this path is correct w.r.t to the root of the quarto project, it is not correct w.r.t. to the execution path and it might be confusing. If the implementation effort is minimal, it would be better to show the complete path, i.e., <code>~/c5dec/assets/report/_output/C5-DEC-CAD-DocEngine.pdf</code>.</p>
+<h2>Guide</h2>
+<ul>
+<li>Defect category: <span style="color:green"><strong>0 = flawless</strong></span>; <span style="color:SeaGreen"><strong>1 = insignificant defect</strong></span>; <span style="color:orange"><strong>2 = minor defect</strong></span>; <span style="color:DarkOrange"><strong>3 = major defect</strong></span>; <span style="color:red"><strong>4 = critical defect</strong></span></li>
+<li>Verification method (VM): Test (T), Review of design (R), Inspection (I), Analysis (A)</li>
+</ul>
+<blockquote>
+<p><code>docs/specs/trs/assets/C5-DEC-CAD-DocEngine-evidence.pdf</code></p>
+</blockquote>
+<p><em>Parent links:</em> <a href="TSS.html#TSS-004">TSS-004 TC: Test DocEngine</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test-date</td>
+<td>2025-05-02</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect-category</td>
+<td><span style="color:green"><strong>0 = flawless</strong></span></td>
+</tr>
+<tr>
+<td>passed-steps</td>
+<td>3</td>
+</tr>
+<tr>
+<td>failed-steps</td>
+<td>0</td>
+</tr>
+<tr>
+<td>not-executed-steps</td>
+<td>0</td>
+</tr>
+<tr>
+<td>release-version</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>verification-method</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRS-005">5 TCER: creation of empty C5-DEC-based project <small>TRS-005</small></h1>
+<h2>Relevant test environment and configuration details</h2>
+<ul>
+<li>Software deviations: aligned with test case specification</li>
+</ul>
+<h2>Test execution results</h2>
+<p><strong>Test case step 1</strong>: Go to the c5dec root folder</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span></li>
+</ul>
+<p><strong>Test case step 2</strong>: Run the <code>c5dec new</code> command</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span>: The command ran without errors, printing the following output log:</li>
+</ul>
+<pre><code class="language-sh">Starting C5-DEC CAD...
+For usage instructions, run: ./c5dec.sh help
+Executing C5-DEC CAD CLI command new...
+Copied project folder to /home/alab/c5dec/myproject
+Renamed devcontainer folder to /home/alab/c5dec/myproject/.devcontainer
+Renamed template_devcontainer.json to /home/alab/c5dec/myproject/.devcontainer/devcontainer.json
+Updated /home/alab/c5dec/myproject/.devcontainer/devcontainer.json with user=user
+Updated /home/alab/c5dec/myproject/dev.Dockerfile with user=user
+Updated /home/alab/c5dec/myproject/Dockerfile with user=user
+Updated /home/alab/c5dec/myproject/build-c5dec.sh with username user and project name myproject
+Renamed script /home/alab/c5dec/myproject/build-c5dec.sh to /home/alab/c5dec/myproject/build-myproject.sh
+Updated /home/alab/c5dec/myproject/c5dec.sh with username user and project name myproject
+Renamed script /home/alab/c5dec/myproject/c5dec.sh to /home/alab/c5dec/myproject/myproject.sh
+Updated /home/alab/c5dec/myproject/pyproject.toml with username user and project name myproject
+Renamed script /home/alab/c5dec/myproject/pyproject.toml to /home/alab/c5dec/myproject/pyproject.toml
+Renamed /home/alab/c5dec/myproject/docs/specs/tra/template_doorstop.yml to /home/alab/c5dec/myproject/docs/specs/tra/.doorstop.yml
+Renamed /home/alab/c5dec/myproject/docs/specs/trs/template_doorstop.yml to /home/alab/c5dec/myproject/docs/specs/trs/.doorstop.yml
+Renamed /home/alab/c5dec/myproject/docs/specs/srs/template_doorstop.yml to /home/alab/c5dec/myproject/docs/specs/srs/.doorstop.yml
+Renamed /home/alab/c5dec/myproject/docs/specs/swd/template_doorstop.yml to /home/alab/c5dec/myproject/docs/specs/swd/.doorstop.yml
+Renamed /home/alab/c5dec/myproject/docs/specs/trb/template_doorstop.yml to /home/alab/c5dec/myproject/docs/specs/trb/.doorstop.yml
+Renamed /home/alab/c5dec/myproject/docs/specs/tss/template_doorstop.yml to /home/alab/c5dec/myproject/docs/specs/tss/.doorstop.yml
+Renamed /home/alab/c5dec/myproject/docs/specs/tst/template_doorstop.yml to /home/alab/c5dec/myproject/docs/specs/tst/.doorstop.yml
+Renamed /home/alab/c5dec/myproject/docs/specs/mrs/template_doorstop.yml to /home/alab/c5dec/myproject/docs/specs/mrs/.doorstop.yml
+Renamed /home/alab/c5dec/myproject/docs/specs/arc/template_doorstop.yml to /home/alab/c5dec/myproject/docs/specs/arc/.doorstop.yml
+Deleted the copied project folder /home/alab/c5dec/myproject
+Created ZIP archive at /home/alab/c5dec/myproject.zip
+</code></pre>
+<p><strong>Test case step 3</strong>: Verify creation of a zipped project file</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span>: the ZIP file <code>myproject.zip</code> was in the list output by <code>ls</code></li>
+</ul>
+<p><strong>Test case step 4</strong>: Unzip and access the project folder</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span>: after unzipping the file, the structure of the internal folders was aligned with the one shown in the "Expected outcome" of the test case specification.</li>
+</ul>
+<h3>Defect summary description</h3>
+<p>Defect-free test execution, i.e., defect category: <span style="color:green"><strong>0 = flawless</strong></span></p>
+<h3>Text execution evidence</h3>
+<p>See log in test case step 2 above.</p>
+<h3>Comments</h3>
+<p>N/A</p>
+<h2>Guide</h2>
+<ul>
+<li>Defect category: <span style="color:green"><strong>0 = flawless</strong></span>; <span style="color:SeaGreen"><strong>1 = insignificant defect</strong></span>; <span style="color:orange"><strong>2 = minor defect</strong></span>; <span style="color:DarkOrange"><strong>3 = major defect</strong></span>; <span style="color:red"><strong>4 = critical defect</strong></span></li>
+<li>Verification method (VM): Test (T), Review of design (R), Inspection (I), Analysis (A)</li>
+</ul>
+<p><em>Parent links:</em> <a href="TSS.html#TSS-005">TSS-005 TC: Test the creation of an empty C5-DEC-based project</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test-date</td>
+<td>2025-05-06</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect-category</td>
+<td><span style="color:green"><strong>0 = flawless</strong></span></td>
+</tr>
+<tr>
+<td>passed-steps</td>
+<td>4</td>
+</tr>
+<tr>
+<td>failed-steps</td>
+<td>0</td>
+</tr>
+<tr>
+<td>not-executed-steps</td>
+<td>0</td>
+</tr>
+<tr>
+<td>release-version</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>verification-method</td>
+<td>T, I</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRS-006">6 TCER: build and run an empty created project <small>TRS-006</small></h1>
+<h2>Relevant test environment and configuration details</h2>
+<ul>
+<li>Software deviations: aligned with test case specification</li>
+<li>Hardware deviations: N/A</li>
+</ul>
+<h2>Test execution results</h2>
+<p><strong>Test case step 1</strong>: Go to the <code>myproject</code> folder</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span></li>
+</ul>
+<p><strong>Test case step 2</strong>: Run the build script</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span>: the log showed a healthy built of the images <code>myproject:v1.0</code> and <code>myproject-dev:v1.0</code></li>
+</ul>
+<pre><code>Building myproject images...
+[+] Building 3.8s (20/20) FINISHED                                                               docker:desktop-linux
+ =&gt; [internal] load build definition from Dockerfile                                                             0.0s
+...
+ =&gt; =&gt; writing image sha256:c8a9121fa2a7f1cdedb6cb06e68cfc0321681cf0c37148aefb026c18d8d61008                     0.0s
+ =&gt; =&gt; naming to docker.io/library/myproject:v1.0                                                                0.0s
+...
+
+[+] Building 38.2s (24/29)                                                                       docker:desktop-linux
+[+] Building 63.0s (30/30) FINISHED                                                              docker:desktop-linux
+ =&gt; [internal] load build definition from dev.Dockerfile
+...
+=&gt; =&gt; writing image sha256:cf96ad7b07c3327dd0c315ddb11fc3450cf73fd6516ad8615f0838aeba7c20ab                      0.0s
+=&gt; =&gt; naming to docker.io/library/myproject-dev:v1.0
+...
+</code></pre>
+<p><strong>Test case step 3</strong>: Verify that the images exist</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span>: the images <code>myproject-dev</code> and <code>myproject</code>, each with tag <code>v1.0</code> appear in the output of the executed command</li>
+</ul>
+<pre><code>REPOSITORY                               TAG       IMAGE ID       CREATED          SIZE
+myproject-dev                            v1.0      cf96ad7b07c3   13 minutes ago   3.12GB
+myproject                                v1.0      c8a9121fa2a7   14 minutes ago   1.86GB
+</code></pre>
+<p><strong>Test case step 4</strong>: Run the help of <code>myproject</code></p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span>: the command showed the following output:</li>
+</ul>
+<pre><code>~/myproject % ./myproject.sh help
+Starting myproject...
+For usage instructions, run: ./myproject.sh help
+---
+./myproject.sh
+... to open the myproject CLI help menu
+./myproject.sh session
+... to start an interactive myproject session
+./myproject.sh &lt;command&gt;
+... to run a myproject CLI command
+./myproject.sh &lt;command&gt; -h
+... to get help for a myproject CLI command
+---
+</code></pre>
+<p><strong>Test case step 5</strong>: Run <code>myproject</code> in a container</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span>: an interactive shell within the container was created for the default user:</li>
+</ul>
+<pre><code>~/myproject % ./myproject.sh session
+Starting myproject...
+For usage instructions, run: ./myproject.sh help
+Launching an interactive myproject session...
+user@f8e418686013:~/myproject/myproject$
+</code></pre>
+<p><strong>Test case step 6</strong>: Dependencies correctly installed</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span>: the version of doorstop corresponds with the expected outcome for step 6 in TSS-006.</li>
+</ul>
+<p><strong>Test case step 7</strong>: Exit the session</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span>: the container shell was closed and the control was given back to the terminal shell</li>
+</ul>
+<h3>Defect summary description</h3>
+<p>Defect-free test execution, i.e., defect category: <span style="color:green"><strong>0 = flawless</strong></span></p>
+<h3>Text execution evidence</h3>
+<p>See logs in the steps above.</p>
+<h3>Comments</h3>
+<p>N/A</p>
+<h2>Guide</h2>
+<ul>
+<li>Defect category: <span style="color:green"><strong>0 = flawless</strong></span>; <span style="color:SeaGreen"><strong>1 = insignificant defect</strong></span>; <span style="color:orange"><strong>2 = minor defect</strong></span>; <span style="color:DarkOrange"><strong>3 = major defect</strong></span>; <span style="color:red"><strong>4 = critical defect</strong></span></li>
+<li>Verification method (VM): Test (T), Review of design (R), Inspection (I), Analysis (A)</li>
+</ul>
+<p><em>Parent links:</em> <a href="TSS.html#TSS-006">TSS-006 TC: Test build and run of new project via scripts</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test-date</td>
+<td>2025-05-06</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect-category</td>
+<td><span style="color:green"><strong>0 = flawless</strong></span></td>
+</tr>
+<tr>
+<td>passed-steps</td>
+<td>7</td>
+</tr>
+<tr>
+<td>failed-steps</td>
+<td>0</td>
+</tr>
+<tr>
+<td>not-executed-steps</td>
+<td>0</td>
+</tr>
+<tr>
+<td>release-version</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>verification-method</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TRS-007">7 TCER: New project in VS Code <small>TRS-007</small></h1>
+<h2>Relevant test environment and configuration details</h2>
+<ul>
+<li>Software deviations: aligned with test case specification</li>
+<li>Hardware deviations: N/A</li>
+</ul>
+<h2>Test execution results</h2>
+<p><strong>Test case step 1</strong>: Open <code>myproject</code> in VS Code.</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span></li>
+</ul>
+<p><strong>Test case step 2</strong>: Select the "Reopen in Container" option or use the command palette to reopen in a container.</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span>: the container environment was successfully initialized.</li>
+</ul>
+<p><strong>Test case step 3</strong>: Open a terminal in VS Code and run <code>poetry shell</code></p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span>: the <code>poetry shell</code> command successfully activated the environment as shown in the expected outcome.</li>
+</ul>
+<p><strong>Test case step 4</strong>: Verify that dependencies are installed by checking the version of <code>quarto</code>.</p>
+<ul>
+<li><span style="color:green"><strong>0 = flawless</strong></span>: The <code>quarto -V</code> command returned the expected version <code>1.6.43</code>. Moreover, the other suggested dependencies were verified successfully.</li>
+</ul>
+<h3>Defect summary description</h3>
+<p>Defect-free test execution, i.e., defect category: <span style="color:green"><strong>0 = flawless</strong></span></p>
+<h3>Text execution evidence</h3>
+<p>N/A</p>
+<h3>Comments</h3>
+<p>N/A</p>
+<h2>Guide</h2>
+<ul>
+<li>Defect category: <span style="color:green"><strong>0 = flawless</strong></span>; <span style="color:SeaGreen"><strong>1 = insignificant defect</strong></span>; <span style="color:orange"><strong>2 = minor defect</strong></span>; <span style="color:DarkOrange"><strong>3 = major defect</strong></span>; <span style="color:red"><strong>4 = critical defect</strong></span></li>
+<li>Verification method (VM): Test (T), Review of design (R), Inspection (I), Analysis (A)</li>
+</ul>
+<p><em>Parent links:</em> <a href="TSS.html#TSS-007">TSS-007 TC: Test new project in VS Code</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test-date</td>
+<td>2025-05-06</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>IVS</td>
+</tr>
+<tr>
+<td>defect-category</td>
+<td><span style="color:green"><strong>0 = flawless</strong></span></td>
+</tr>
+<tr>
+<td>passed-steps</td>
+<td>4</td>
+</tr>
+<tr>
+<td>failed-steps</td>
+<td>0</td>
+</tr>
+<tr>
+<td>not-executed-steps</td>
+<td>0</td>
+</tr>
+<tr>
+<td>release-version</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>verification-method</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="assets/doorstop/jquery.min.js"></script>
+<script src="assets/doorstop/bootstrap.min.js"></script>
+<script>
+    $(function() {
+        $("table").addClass("table");
+        $("nav ul").addClass("nav nav-stacked");
+        $("nav").affix();
+        $('body').scrollspy({
+          target: '.sidebar'
+        });
+        $("#main a").attr("target", "parent");
+
+  $(window).on('hashchange', function() {
+    $(window).scrollTop($(location.hash.toLowerCase()).offset().top);});
+  });
+</script>
+</body>
+</html>
+

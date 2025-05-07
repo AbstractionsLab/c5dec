@@ -8,18 +8,27 @@ $if(title)$
 {\centering
 
 \vspace{-3cm}
-    \includegraphics[width=0.4\textwidth]{figs/ITR-logo.jpg}
+    \includegraphics[width=0.3\textwidth]{figs/ITR-logo.jpg}
     \hfill
-    \includegraphics[width=0.4\textwidth]{figs/Alab-logo.png}\\
+    \includegraphics[width=0.3\textwidth]{figs/Alab-logo.png}\\
     [1cm]
-    \includegraphics[width=0.5\textwidth]{figs/CyFORT-logo.png}\\
+    \includegraphics[width=0.4\textwidth]{figs/CyFORT-logo.png}\\
     [2cm]
     \centering
     \Huge \textbf{\textcolor{AlabRed}{$title$}} \\
     [0.5cm]
 \Large \textcolor{AlabLightBlue}{$subtitle$}
 
-\vspace{2ex}
+
+\vspace{4ex}
+% \hbox{}\vskip 0cm plus 1fill
+
+\begin{justify}
+{\normalsize {$abstract$}}
+\end{justify}
+
+
+\vspace{10ex}
 % \hbox{}\vskip 0cm plus 1fill
 
 \begin{flushleft}
@@ -68,7 +77,7 @@ $endif$
 \vspace{1ex}
 
 \rowcolors{1}{white}{white} % override global table customization specified in tables.tex
-\begin{tabular}{ | p{0.22\textwidth}| p{0.22\textwidth}| p{0.22\textwidth}| p{0.22\textwidth}| } % Table start
+\begin{tabular}{ | p{0.08\textwidth}| p{0.12\textwidth}| p{0.2\textwidth}| p{0.48\textwidth}| } % Table start
     \hline
     \rowcolor{AlabTableColLightBlue}
     \textbf{Version} & \textbf{Date} & \textbf{Author} & \textbf{Modifications} \\
@@ -98,7 +107,8 @@ $endif$
 \end{flushleft}
 \vspace{1ex}
 
-\begin{tabular}{ | p{0.22\textwidth}| p{0.22\textwidth}| p{0.22\textwidth}| p{0.22\textwidth}| } % Table start
+% \begin{tabular}{ | p{0.22\textwidth}| p{0.22\textwidth}| p{0.22\textwidth}| p{0.22\textwidth}| } % Table start
+\begin{tabular}{ | p{0.27\textwidth}| p{0.2\textwidth}| p{0.22\textwidth}| p{0.19\textwidth}| } % Table start
     \hline
     \rowcolor{AlabTableColLightBlue}
     \textbf{Name} & \textbf{Role} & \textbf{Responsibility} & \textbf{Signature} \\

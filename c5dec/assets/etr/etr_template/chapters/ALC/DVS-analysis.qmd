@@ -1,0 +1,40 @@
+### ALC_DVS.1-2
+The evaluator shall examine the development confidentiality and integrity policies in order to determine the sufficiency of the security measures employed.The evaluator should examine whether the following is included in the policies:
+1. what information relating to the TOE development needs to be kept confidential, and which members of the development staff are allowed to access such material;
+2. what material must be protected from unauthorized modification in order to preserve the integrity of the TOE, and which members of the development staff are allowed to modify such material.
+The evaluator should determine that these policies are described in the development security documentation, that the security measures employed are consistent with the policies, and that they are complete.It should be noted that configuration management procedures will help protect the integrity of the TOE and the evaluator should avoid overlap with the work-units conducted for the [alc_cmc]() . For example, the CM documentation may describe the security procedures necessary for controlling the roles or individuals who should have access to the development environment and who may modify the TOE.Whereas the [alc_cmc]() requirements are fixed, those for the Development security [alc_dvs]() , mandating only necessary measures, are dependent on the nature of the TOE, and on information that may be provided in the ST. The evaluators would then determine that such a policy had been applied under this sub-activity.
+
+#### Audit action 4 in category Some category
+
+Some description
+
+##### Evaluation scope and evidence
+
+Scope of evaluation: **Some evaluation object**
+
+###### Evidence required from developer or sponsor
+
+The following pieces of evidence are required from the developer or sponsor:
+
+Some required input
+
+###### Input provided by the developer
+
+Some developer-provided input
+
+##### Analysis and assessment outcome
+
+Laboratory analysis
+
+
+:::{.callout-note title="Audit action verdict"}
+\pass{Pass}
+:::
+
+#### Verdict
+
+
+:::{.callout-note title="Work unit verdict"}
+\pass{Pass}
+:::
+

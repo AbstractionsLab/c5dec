@@ -4,7 +4,7 @@ project:
   pre-render:
     - scripts/restore_tex_files.py
     - scripts/custom_vars.py
-    # - scripts/tables.py # before uncommenting, create and activate a virtual environment (using venv), activate and install requirements.txt, and set QUARTO_PATH env variable to venv/bin/python
+    - scripts/tables.py # when not using the c5dec containerized dev environment in VS Code, see README or first create and activate a virtual environment (using venv), activate and install requirements.txt, and set QUARTO_PATH env variable to venv/bin/python
   post-render: 
     - scripts/restore_tex_files.py
 
@@ -12,6 +12,7 @@ book:
   title: "Single Evaluation Technical Report"
   subtitle: "as part of the Evaluation Technical Report part A (ETR-Part <CLASS>)"
   author: "Abstractions Lab"
+  abstract: "This document is a technical report that describes the evaluation of the TOE. It includes information about the evaluation process, the evaluation results, and any other relevant information."
   date: "04/07/2024"
   #   - name: "ALab RD"
       # orcid: "AAAA-BBBB-CCCC-DDDD"
@@ -41,13 +42,17 @@ format:
   html:
     theme: cosmo
   pdf:
-    pdf-engine: xelatex
+    pdf-engine: lualatex
+    # pdf-engine: xelatex
     number-sections: true
-    fontsize: 12 pt
+    colorlinks: true
+    fontsize: 11 pt
     papersize: A4
     fig-pos: 'H'
-    geometry: "left=2.54cm,right=2.54cm,top=2.54cm,bottom=2.54cm"
-    mainfont: "Gill Sans"
+    # geometry: "left=2.54cm,right=2.54cm,top=2.54cm,bottom=2.54cm"
+    geometry: "left=2cm,right=2cm,top=2cm,bottom=2cm" 
+    mainfont: "Ubuntu"
+    # mainfont: "Gill Sans"
     # sansfont: "Futura"
     # monofont: "Courier New"
     documentclass: report
@@ -66,4 +71,4 @@ format:
     subtitle: TOE Life Cycle support processes
     subject: TOE Life Cycle Evaluation
     category: Report (REP)
-    description: Confidential
+    description: Restricted

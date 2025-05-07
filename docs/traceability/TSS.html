@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+<head><title>Doorstop</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="assets/doorstop/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/doorstop/general.css" />
+  <link type="text/css" rel="stylesheet" href="assets/doorstop/sidebar.css" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" ></script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
+  </script>
+</head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-2 hidden-sm hidden-xs">
+          <nav id="TOC" class="nav nav-stacked fixed sidebar">
+              <h3>Table of Contents</h3>
+<ul>
+<li><a href="#TSS-001">1 TC: Test containerized deployment on x86-64</a></li>
+<li><a href="#TSS-002">2 TC: Test containerized deployment on arm64</a></li>
+<li><a href="#TSS-003">3 TC: Test PQ cryptography container</a></li>
+<li><a href="#TSS-004">4 TC: Test DocEngine</a></li>
+<li><a href="#TSS-005">5 TC: Test the creation of an empty C5-DEC-based project</a></li>
+<li><a href="#TSS-006">6 TC: Test build and run of new project via scripts</a></li>
+<li><a href="#TSS-007">7 TC: Test new project in VS Code</a></li>
+</ul>
+          </nav>
+      </div>
+      <div class="col-lg-8" id="main">
+        <h1 id="TSS-001">1 TC: Test containerized deployment on x86-64 <small>TSS-001</small></h1>
+<p>Test the C5-DEC initialization and setup scripts for containerized deployment.</p>
+<h2>Preconditions and setup actions</h2>
+<ul>
+<li>A device/VM with an x86_64 hardware architecture</li>
+<li>Access to the C5-DEC deployment artifacts</li>
+<li><a href="https://docs.docker.com/engine/">Docker Engine</a> (or daemon or <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a>) running with the right privileges for the testing user</li>
+<li>Microsoft <a href="https://code.visualstudio.com/">Visual Studio Code</a> installed (v1.98.2)</li>
+<li>Microsoft VS Code <a href="https://code.visualstudio.com/docs/devcontainers/containers">Dev Containers</a> installed, i.e., the VS Code <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">extension</a> (v0.401.0)</li>
+</ul>
+<h2>Test steps</h2>
+<ol>
+<li>Clone this repository:</li>
+</ol>
+<pre><code class="language-sh">git clone https://github.com/AbstractionsLab/c5dec.git
+</code></pre>
+<ol start="2">
+<li>Start Docker Desktop if not already running;</li>
+<li>Open the project folder in VS Code;</li>
+<li>Select the "Reopen in Container" option in the notification that pops up in VS Code; or launch the command palette (Cmd/Ctrl+Shift+P) and select "Dev Containers: Reopen in Container" from the list of available commands. You will then be prompted to select a dev container configuration: the <code>C5-DEC CAD dev container</code> provides the bulk of the functionality, while the <code>C5-DEC CAD cryptography dev container</code> provides an environment with <a href="https://docs.openssl.org/master/man7/ossl-guide-libcrypto-introduction/">OpenSSL</a> and the <a href="https://github.com/open-quantum-safe/oqs-provider">OQS-OpenSSL provider</a> installed.</li>
+</ol>
+<p><img alt="Selecting between C5-DEC dev containers" src="assets/c5dec-devcontainer-options.png" title="Selecting between C5-DEC dev containers" width="60%" /></p>
+<ol start="5">
+<li>Select the <code>C5-DEC CAD dev container</code>. Once selected, wait for the container to build and start. This may take a few minutes, depending on your internet connection and the performance of your machine.</li>
+<li>Once the container is up and running, you will see a terminal window open in VS Code, and you can start using C5-DEC CAD. If a terminal window does not open automatically, you can open a new terminal by selecting "Terminal" from the top menu and then "New Terminal". This will open a terminal window inside the container, with a Poetry shell activated. If the shell is not automatically activated upon reopening the project in a container, simply run</li>
+</ol>
+<pre><code class="language-sh">poetry shell
+</code></pre>
+<h2>Expected outcome</h2>
+<ol start="6">
+<li>Container creation done successfully, a new VS Code terminal session connecting to the C5-DEC container opened and Python environment via Poetry shell activated, e.g., similar to the view below:</li>
+</ol>
+<p><img alt="C5-DEC dev container open in VS Code" src="assets/c5dec-containerized-dev-env-terminal.png" title="C5-DEC dev container open in VS Codes" width="60%" /></p>
+<p><em>Child links:</em> <a href="TRS.html#TRS-001">TRS-001 TCER: containerized deployment x86-64</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>GNU/Linux x86-64 (Dockerized C5-DEC deployment environment)</td>
+</tr>
+<tr>
+<td>execution_type</td>
+<td>Manual</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test (T)</td>
+</tr>
+<tr>
+<td>release</td>
+<td>stable</td>
+</tr>
+<tr>
+<td>complexity</td>
+<td>2</td>
+</tr>
+<tr>
+<td>test_data</td>
+<td>see referenced files</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TSS-002">2 TC: Test containerized deployment on arm64 <small>TSS-002</small></h1>
+<p>Test the C5-DEC initialization and setup scripts for containerized deployment.</p>
+<h2>Preconditions and setup actions</h2>
+<ul>
+<li>A device/VM with an arm64 hardware architecture</li>
+<li>Access to the C5-DEC deployment artifacts</li>
+<li><a href="https://docs.docker.com/engine/">Docker Engine</a> (or daemon or <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a>) running with the right privileges for the testing user</li>
+<li>Microsoft <a href="https://code.visualstudio.com/">Visual Studio Code</a> installed (v1.98.2)</li>
+<li>Microsoft VS Code <a href="https://code.visualstudio.com/docs/devcontainers/containers">Dev Containers</a> installed, i.e., the VS Code <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">extension</a> (v0.401.0)</li>
+</ul>
+<h2>Test steps</h2>
+<ol>
+<li>Clone this repository:</li>
+</ol>
+<pre><code class="language-sh">git clone https://github.com/AbstractionsLab/c5dec.git
+</code></pre>
+<ol start="2">
+<li>Open the project folder in VS Code;</li>
+<li>Select the "Reopen in Container" option in the notification that pops up in VS Code; or launch the command palette (Cmd/Ctrl+Shift+P) and select "Dev Containers: Reopen in Container" from the list of available commands. You will then be prompted to select a dev container configuration: the <code>C5-DEC CAD dev container</code> provides the bulk of the functionality, while the <code>C5-DEC CAD cryptography dev container</code> provides an environment with <a href="https://docs.openssl.org/master/man7/ossl-guide-libcrypto-introduction/">OpenSSL</a> and the <a href="https://github.com/open-quantum-safe/oqs-provider">OQS-OpenSSL provider</a> installed.</li>
+</ol>
+<p><img alt="Selecting between C5-DEC dev containers" src="assets/c5dec-devcontainer-options.png" title="Selecting between C5-DEC dev containers" width="60%" /></p>
+<ol start="4">
+<li>Select the <code>C5-DEC CAD dev container</code>. Once selected, wait for the container to build and start. This may take a few minutes, depending on your internet connection and the performance of your machine.</li>
+<li>Once the container is up and running, you will see a terminal window open in VS Code, and you can start using C5-DEC CAD. If a terminal window does not open automatically, you can open a new terminal by selecting "Terminal" from the top menu and then "New Terminal". This will open a terminal window inside the container, with a Poetry shell activated. If the shell is not automatically activated upon reopening the project in a container, simply run</li>
+</ol>
+<pre><code class="language-sh">poetry shell
+</code></pre>
+<h2>Expected outcome</h2>
+<ol start="5">
+<li>Container creation done successfully, a new VS Code terminal session connecting to the C5-DEC container opened and Python environment via Poetry shell activated, e.g., similar to the view below:</li>
+</ol>
+<p><img alt="C5-DEC dev container open in VS Code" src="assets/c5dec-containerized-dev-env-terminal.png" title="C5-DEC dev container open in VS Codes" width="60%" /></p>
+<p><em>Child links:</em> <a href="TRS.html#TRS-002">TRS-002 TCER: containerized deployment arm64</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>GNU/Linux arm64 (Dockerized C5-DEC deployment environment)</td>
+</tr>
+<tr>
+<td>execution_type</td>
+<td>Manual</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test (T)</td>
+</tr>
+<tr>
+<td>release</td>
+<td>stable</td>
+</tr>
+<tr>
+<td>complexity</td>
+<td>2</td>
+</tr>
+<tr>
+<td>test_data</td>
+<td>see referenced files</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TSS-003">3 TC: Test PQ cryptography container <small>TSS-003</small></h1>
+<p>Test the C5-DEC cryptography dev container deployment.</p>
+<h2>Preconditions and setup actions</h2>
+<ul>
+<li>Access to the C5-DEC deployment artifacts</li>
+<li><a href="https://docs.docker.com/engine/">Docker Engine</a> (or daemon or <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a>) running with the right privileges for the testing user</li>
+<li>Microsoft <a href="https://code.visualstudio.com/">Visual Studio Code</a> installed (v1.98.2)</li>
+<li>Microsoft VS Code <a href="https://code.visualstudio.com/docs/devcontainers/containers">Dev Containers</a> installed, i.e., the VS Code <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">extension</a> (v0.401.0)</li>
+</ul>
+<h2>Test steps</h2>
+<ol>
+<li>Clone this repository:</li>
+</ol>
+<pre><code class="language-sh">git clone https://github.com/AbstractionsLab/c5dec.git
+</code></pre>
+<ol start="2">
+<li>Open the project folder in VS Code;</li>
+<li>Select the <code>C5-DEC cryptography dev container</code>, to create and connect to the OQS-OpenSSL provider, i.e., select the "Reopen in Container" option in the notification that pops up in VS Code; or launch the command palette (Cmd/Ctrl+Shift+P) and select "Dev Containers: Reopen in Container" from the list of available commands. Then, select <code>C5-DEC cryptography dev container</code>, which provides an environment with <a href="https://docs.openssl.org/master/man7/ossl-guide-libcrypto-introduction/">OpenSSL</a> and the <a href="https://github.com/open-quantum-safe/oqs-provider">OQS-OpenSSL provider</a> installed.</li>
+</ol>
+<p><img alt="Selecting between C5-DEC dev containers" src="./assets/c5dec-devcontainer-pqc-option.png" /></p>
+<p>This allows you to use post-quantum cryptography algorithms while benefitting from direct access to your host file system, thanks to volume mounting. To use the OQS-OpenSSL provider, we recommend consulting the <a href="https://github.com/open-quantum-safe/oqs-provider/blob/main/USAGE.md#sample-commands">OQS-OpenSSL usage documentation</a>.</p>
+<ol start="4">
+<li>To get a list of the available quantum-safe signature algorithms, run the following command in the VS Code terminal:</li>
+</ol>
+<pre><code class="language-sh">openssl list -signature-algorithms -provider oqsprovider
+</code></pre>
+<ol start="5">
+<li>To get a list of the available quantum-safe KEM algorithms, run:</li>
+</ol>
+<pre><code class="language-sh">openssl list -kem-algorithms -provider oqsprovider
+</code></pre>
+<h2>Expected outcome</h2>
+<ol start="4">
+<li>The command should return a list of the available quantum-safe signature algorithms:</li>
+</ol>
+<pre><code class="language-sh">{ 1.2.840.113549.1.1.1, 2.5.8.1.1, RSA, rsaEncryption } @ default
+  { 1.2.840.10040.4.1, 1.3.14.3.2.12, DSA, DSA-old, dsaEncryption, dsaEncryption-old } @ default
+  { 1.2.840.10040.4.3, 1.3.14.3.2.27, DSA-SHA, DSA-SHA-1, DSA-SHA1, DSA-SHA1-old, dsaWithSHA, dsaWithSHA1, dsaWithSHA1-old } @ default
+  { 1.3.101.112, ED25519 } @ default
+  { 1.3.101.113, ED448 } @ default
+  { 1.2.156.10197.1.301, SM2 } @ default
+  { 2.16.840.1.101.3.4.3.1, DSA-SHA2-224, DSA-SHA224, dsa_with_SHA224 } @ default
+  { 2.16.840.1.101.3.4.3.2, DSA-SHA2-256, DSA-SHA256, dsa_with_SHA256 } @ default
+  { 1.2.840.1.101.3.4.3.3, DSA-SHA2-384, DSA-SHA384, dsa_with_SHA384, id-dsa-with-sha384 } @ default
+  { 1.2.840.1.101.3.4.3.4, DSA-SHA2-512, DSA-SHA512, dsa_with_SHA512, id-dsa-with-sha512 } @ default
+  { 2.16.840.1.101.3.4.3.5, DSA-SHA3-224, dsa_with_SHA3-224, id-dsa-with-sha3-224 } @ default
+  { 2.16.840.1.101.3.4.3.6, DSA-SHA3-256, dsa_with_SHA3-256, id-dsa-with-sha3-256 } @ default
+  { 2.16.840.1.101.3.4.3.7, DSA-SHA3-384, dsa_with_SHA3-384, id-dsa-with-sha3-384 } @ default
+  { 2.16.840.1.101.3.4.3.8, DSA-SHA3-512, dsa_with_SHA3-512, id-dsa-with-sha3-512 } @ default
+  { 1.3.36.3.3.1.2, ripemd160WithRSA, RSA-RIPEMD160 } @ default
+  { 1.2.840.113549.1.1.5, RSA-SHA-1, RSA-SHA1, sha1WithRSAEncryption } @ default
+  { 1.2.840.113549.1.1.14, RSA-SHA2-224, RSA-SHA224, sha224WithRSAEncryption } @ default
+  { 1.2.840.113549.1.1.11, RSA-SHA2-256, RSA-SHA256, sha256WithRSAEncryption } @ default
+  { 1.2.840.113549.1.1.12, RSA-SHA2-384, RSA-SHA384, sha384WithRSAEncryption } @ default
+  { 1.2.840.113549.1.1.13, RSA-SHA2-512, RSA-SHA512, sha512WithRSAEncryption } @ default
+  { 1.2.840.113549.1.1.15, RSA-SHA2-512/224, RSA-SHA512-224, sha512-224WithRSAEncryption } @ default
+  { 1.2.840.113549.1.1.16, RSA-SHA2-512/256, RSA-SHA512-256, sha512-256WithRSAEncryption } @ default
+  { 2.16.840.1.101.3.4.3.13, id-rsassa-pkcs1-v1_5-with-sha3-224, RSA-SHA3-224 } @ default
+  { 2.16.840.1.101.3.4.3.14, id-rsassa-pkcs1-v1_5-with-sha3-256, RSA-SHA3-256 } @ default
+  { 2.16.840.1.101.3.4.3.15, id-rsassa-pkcs1-v1_5-with-sha3-384, RSA-SHA3-384 } @ default
+  { 2.16.840.1.101.3.4.3.16, id-rsassa-pkcs1-v1_5-with-sha3-512, RSA-SHA3-512 } @ default
+  { 1.2.156.10197.1.504, RSA-SM3, sm3WithRSAEncryption } @ default
+  ED25519ph @ default
+  ED25519ctx @ default
+  ED448ph @ default
+  ECDSA @ default
+  { 1.2.840.10045.4.1, ECDSA-SHA-1, ECDSA-SHA1, ecdsa-with-SHA1 } @ default
+  { 1.2.840.10045.4.3.1, ECDSA-SHA2-224, ECDSA-SHA224, ecdsa-with-SHA224 } @ default
+  { 1.2.840.10045.4.3.2, ECDSA-SHA2-256, ECDSA-SHA256, ecdsa-with-SHA256 } @ default
+  { 1.2.840.10045.4.3.3, ECDSA-SHA2-384, ECDSA-SHA384, ecdsa-with-SHA384 } @ default
+  { 1.2.840.10045.4.3.4, ECDSA-SHA2-512, ECDSA-SHA512, ecdsa-with-SHA512 } @ default
+  { 2.16.840.1.101.3.4.3.9, ECDSA-SHA3-224, ecdsa_with_SHA3-224, id-ecdsa-with-sha3-224 } @ default
+  { 2.16.840.1.101.3.4.3.10, ECDSA-SHA3-256, ecdsa_with_SHA3-256, id-ecdsa-with-sha3-256 } @ default
+  { 2.16.840.1.101.3.4.3.11, ECDSA-SHA3-384, ecdsa_with_SHA3-384, id-ecdsa-with-sha3-384 } @ default
+  { 2.16.840.1.101.3.4.3.12, ECDSA-SHA3-512, ecdsa_with_SHA3-512, id-ecdsa-with-sha3-512 } @ default
+  HMAC @ default
+  SIPHASH @ default
+  POLY1305 @ default
+  CMAC @ default
+  dilithium2 @ oqsprovider
+  p256_dilithium2 @ oqsprovider
+  rsa3072_dilithium2 @ oqsprovider
+  dilithium3 @ oqsprovider
+  p384_dilithium3 @ oqsprovider
+  dilithium5 @ oqsprovider
+  p521_dilithium5 @ oqsprovider
+  mldsa44 @ oqsprovider
+  p256_mldsa44 @ oqsprovider
+  rsa3072_mldsa44 @ oqsprovider
+  mldsa44_pss2048 @ oqsprovider
+  mldsa44_rsa2048 @ oqsprovider
+  mldsa44_ed25519 @ oqsprovider
+  mldsa44_p256 @ oqsprovider
+  mldsa44_bp256 @ oqsprovider
+  mldsa65 @ oqsprovider
+  p384_mldsa65 @ oqsprovider
+  mldsa65_pss3072 @ oqsprovider
+  mldsa65_rsa3072 @ oqsprovider
+  mldsa65_p256 @ oqsprovider
+  mldsa65_bp256 @ oqsprovider
+  mldsa65_ed25519 @ oqsprovider
+  mldsa87 @ oqsprovider
+  p521_mldsa87 @ oqsprovider
+  mldsa87_p384 @ oqsprovider
+  mldsa87_bp384 @ oqsprovider
+  mldsa87_ed448 @ oqsprovider
+  falcon512 @ oqsprovider
+  p256_falcon512 @ oqsprovider
+  rsa3072_falcon512 @ oqsprovider
+  falconpadded512 @ oqsprovider
+  p256_falconpadded512 @ oqsprovider
+  rsa3072_falconpadded512 @ oqsprovider
+  falcon1024 @ oqsprovider
+  p521_falcon1024 @ oqsprovider
+  falconpadded1024 @ oqsprovider
+  p521_falconpadded1024 @ oqsprovider
+  sphincssha2128fsimple @ oqsprovider
+  p256_sphincssha2128fsimple @ oqsprovider
+  rsa3072_sphincssha2128fsimple @ oqsprovider
+  sphincssha2128ssimple @ oqsprovider
+  p256_sphincssha2128ssimple @ oqsprovider
+  rsa3072_sphincssha2128ssimple @ oqsprovider
+  sphincssha2192fsimple @ oqsprovider
+  p384_sphincssha2192fsimple @ oqsprovider
+  sphincsshake128fsimple @ oqsprovider
+  p256_sphincsshake128fsimple @ oqsprovider
+  rsa3072_sphincsshake128fsimple @ oqsprovider
+  mayo1 @ oqsprovider
+  p256_mayo1 @ oqsprovider
+  mayo2 @ oqsprovider
+  p256_mayo2 @ oqsprovider
+  mayo3 @ oqsprovider
+  p384_mayo3 @ oqsprovider
+  mayo5 @ oqsprovider
+  p521_mayo5 @ oqsprovider
+  CROSSrsdp128balanced @ oqsprovider
+</code></pre>
+<ol start="5">
+<li>The command should return a list of the available quantum-safe KEM algorithms:</li>
+</ol>
+<pre><code class="language-sh">{ 1.2.840.113549.1.1.1, 2.5.8.1.1, RSA, rsaEncryption } @ default
+  { 1.2.840.10045.2.1, EC, id-ecPublicKey } @ default
+  { 1.3.101.110, X25519 } @ default
+  { 1.3.101.111, X448 } @ default
+  frodo640aes @ oqsprovider
+  p256_frodo640aes @ oqsprovider
+  x25519_frodo640aes @ oqsprovider
+  frodo640shake @ oqsprovider
+  p256_frodo640shake @ oqsprovider
+  x25519_frodo640shake @ oqsprovider
+  frodo976aes @ oqsprovider
+  p384_frodo976aes @ oqsprovider
+  x448_frodo976aes @ oqsprovider
+  frodo976shake @ oqsprovider
+  p384_frodo976shake @ oqsprovider
+  x448_frodo976shake @ oqsprovider
+  frodo1344aes @ oqsprovider
+  p521_frodo1344aes @ oqsprovider
+  frodo1344shake @ oqsprovider
+  p521_frodo1344shake @ oqsprovider
+  kyber512 @ oqsprovider
+  p256_kyber512 @ oqsprovider
+  x25519_kyber512 @ oqsprovider
+  kyber768 @ oqsprovider
+  p384_kyber768 @ oqsprovider
+  x448_kyber768 @ oqsprovider
+  x25519_kyber768 @ oqsprovider
+  p256_kyber768 @ oqsprovider
+  kyber1024 @ oqsprovider
+  p521_kyber1024 @ oqsprovider
+  mlkem512 @ oqsprovider
+  p256_mlkem512 @ oqsprovider
+  x25519_mlkem512 @ oqsprovider
+  mlkem768 @ oqsprovider
+  p384_mlkem768 @ oqsprovider
+  x448_mlkem768 @ oqsprovider
+  X25519MLKEM768 @ oqsprovider
+  SecP256r1MLKEM768 @ oqsprovider
+  mlkem1024 @ oqsprovider
+  p521_mlkem1024 @ oqsprovider
+  p384_mlkem1024 @ oqsprovider
+  bikel1 @ oqsprovider
+  p256_bikel1 @ oqsprovider
+  x25519_bikel1 @ oqsprovider
+  bikel3 @ oqsprovider
+  p384_bikel3 @ oqsprovider
+  x448_bikel3 @ oqsprovider
+  bikel5 @ oqsprovider
+  p521_bikel5 @ oqsprovider
+  hqc128 @ oqsprovider
+  p256_hqc128 @ oqsprovider
+  x25519_hqc128 @ oqsprovider
+  hqc192 @ oqsprovider
+  p384_hqc192 @ oqsprovider
+  x448_hqc192 @ oqsprovider
+  hqc256 @ oqsprovider
+  p521_hqc256 @ oqsprovider
+</code></pre>
+<p><em>Child links:</em> <a href="TRS.html#TRS-003">TRS-003 TCER: PQ cryptography container</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>GNU/Linux (Dockerized C5-DEC deployment environment)</td>
+</tr>
+<tr>
+<td>execution_type</td>
+<td>Manual</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test (T)</td>
+</tr>
+<tr>
+<td>release</td>
+<td>stable</td>
+</tr>
+<tr>
+<td>complexity</td>
+<td>1</td>
+</tr>
+<tr>
+<td>test_data</td>
+<td>see referenced files</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TSS-004">4 TC: Test DocEngine <small>TSS-004</small></h1>
+<p>Test the DocEngine compilation of the report template.</p>
+<h2>Preconditions and setup actions</h2>
+<ul>
+<li>Access to the C5-DEC deployment artifacts</li>
+<li><a href="https://docs.docker.com/engine/">Docker Engine</a> (or daemon or <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a>) running with the right privileges for the testing user</li>
+<li>Microsoft <a href="https://code.visualstudio.com/">Visual Studio Code</a> installed (v1.98.2)</li>
+<li>Microsoft VS Code <a href="https://code.visualstudio.com/docs/devcontainers/containers">Dev Containers</a> installed, i.e., the VS Code <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">extension</a> (v0.401.0)</li>
+</ul>
+<h3>Test dependencies</h3>
+<ul>
+<li><strong>TSS-001</strong> executed successfully</li>
+</ul>
+<h2>Test steps</h2>
+<ol>
+<li>Open a VS Code terminal connecting to the <code>C5-DEC CAD dev container</code> and ensure the Poetry shell environment is activated, otherwise run <code>poetry shell</code>.</li>
+<li>Change directory to <code>c5dec</code>:</li>
+</ol>
+<pre><code class="language-sh">cd ~/c5dec
+</code></pre>
+<ol start="3">
+<li>Run</li>
+</ol>
+<pre><code class="language-sh">quarto render ./c5dec/assets/report/index.qmd --to pdf
+</code></pre>
+<h2>Expected outcome</h2>
+<ol start="3">
+<li>Quarto compilation finished successfully, with all pre and post-rending scripts executed successfully and final PDF file created: <code>/home/alab/c5dec/c5dec/assets/report/_output/C5-DEC-CAD-DocEngine.pdf</code>.</li>
+</ol>
+<p><em>Child links:</em> <a href="TRS.html#TRS-004">TRS-004 TCER: Test DocEngine</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>GNU/Linux (Dockerized C5-DEC deployment environment)</td>
+</tr>
+<tr>
+<td>execution_type</td>
+<td>Manual</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test (T)</td>
+</tr>
+<tr>
+<td>release</td>
+<td>stable</td>
+</tr>
+<tr>
+<td>complexity</td>
+<td>1</td>
+</tr>
+<tr>
+<td>test_data</td>
+<td>see referenced files</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TSS-005">5 TC: Test the creation of an empty C5-DEC-based project <small>TSS-005</small></h1>
+<p>Verify that the <code>c5dec new</code> command creates a project structured in agreement with the C5-DEC model.</p>
+<h2>Preconditions and setup actions</h2>
+<ul>
+<li>Access to the C5-DEC deployment artifacts obtained from the Git repository</li>
+<li><a href="https://docs.docker.com/engine/">Docker Engine</a> (or daemon or <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a>) running with the right privileges for the testing user</li>
+<li>A terminal running a shell (e.g., bash, zsh)</li>
+</ul>
+<h3>Test dependencies</h3>
+<ul>
+<li><strong>TSS-001</strong> or <strong>TSS-002</strong> executed successfully</li>
+</ul>
+<h2>Test steps</h2>
+<ol>
+<li>Go to the C5-DEC project folder. E.g., in the path where C5-DEC was cloned from GitHub: <code>cd c5dec</code>.</li>
+<li>Run <code>./c5dec.sh new</code>.</li>
+<li>Run <code>ls</code> or equivalent and verify that a zip folder named <code>myproject.zip</code> has been created.</li>
+<li>Unzip the file and access its contents (e.g., via a shell command, in a system explorer or in VS Code).</li>
+</ol>
+<h2>Expected outcome</h2>
+<ol start="3">
+<li>The ZIP file <code>myproject.zip</code> exists at the current path.</li>
+<li>The project folder has the structure shown below:</li>
+</ol>
+<p><img alt="Custom new project" src="./assets/new-project-structure.png" width="34%" /></p>
+<p><em>Child links:</em> <a href="TRS.html#TRS-005">TRS-005 TCER: creation of empty C5-DEC-based project</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>GNU/Linux, Windows</td>
+</tr>
+<tr>
+<td>execution_type</td>
+<td>Manual</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test (T), Inspection (I)</td>
+</tr>
+<tr>
+<td>release</td>
+<td>stable</td>
+</tr>
+<tr>
+<td>complexity</td>
+<td>1</td>
+</tr>
+<tr>
+<td>test_data</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TSS-006">6 TC: Test build and run of new project via scripts <small>TSS-006</small></h1>
+<p>Verify that the scripts of a new project created by c5dec successfully build an image of the new project and can run a default interactive session.</p>
+<h2>Preconditions</h2>
+<ul>
+<li>Access to the C5-DEC deployment artifacts obtained from the Git repository</li>
+<li><a href="https://docs.docker.com/engine/">Docker Engine</a> (or daemon or <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a>) running with the right privileges for the testing user</li>
+<li>A terminal running a shell (e.g., bash, zsh)</li>
+</ul>
+<h3>Test dependencies</h3>
+<ul>
+<li><strong>TSS-005</strong> executed successfully</li>
+</ul>
+<h2>Setup actions</h2>
+<p>To keep a clean separation of the tested artifact, copy or move the unzipped project created during the execution of TSS-005 to a location of your choice outside the C5-DEC project folder. This location will be referred as the <code>test_root</code> folder.</p>
+<h2>Test steps</h2>
+<ol>
+<li>Go to the <code>test_root</code> folder and then to <code>myproject</code>: <code>cd test_root/myproject</code></li>
+<li>Build the project using the build script:</li>
+</ol>
+<pre><code class="language-sh">./build-myproject.sh
+</code></pre>
+<ol start="3">
+<li>Verify that the images <code>myproject:v1.0</code> and <code>myproject-dev:v1.0</code> have been created</li>
+</ol>
+<pre><code class="language-sh">docker images
+</code></pre>
+<ol start="4">
+<li>Run the help menu of the project</li>
+</ol>
+<pre><code class="language-sh">./myproject.sh help
+</code></pre>
+<ol start="5">
+<li>Create a container of the image built in 3 and open an interactive shell.</li>
+</ol>
+<pre><code class="language-sh">./myproject.sh session
+</code></pre>
+<ol start="6">
+<li>Verify that doorstop is installed</li>
+</ol>
+<pre><code class="language-sh">doorstop -V
+</code></pre>
+<ol start="7">
+<li>Exit the container session</li>
+</ol>
+<pre><code class="language-sh">exit
+</code></pre>
+<h2>Expected outcome</h2>
+<ol start="2">
+<li>The command execution finishes showing a log without errors.</li>
+<li>The docker images <code>myproject-dev</code> and <code>myproject-dev</code> with tag <code>v1.0</code> appear in the list of images.</li>
+<li>An informative text with the available commands is shown in the terminal.</li>
+<li>An interactive shell inside a docker container is opened.</li>
+<li><code>Doorstop v3.0b9</code> is shown as the output.</li>
+<li>The system shell appears back in the terminal.</li>
+</ol>
+<p><em>Child links:</em> <a href="TRS.html#TRS-006">TRS-006 TCER: build and run an empty created project</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>GNU/Linux</td>
+</tr>
+<tr>
+<td>execution_type</td>
+<td>Manual</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test (T)</td>
+</tr>
+<tr>
+<td>release</td>
+<td>stable</td>
+</tr>
+<tr>
+<td>complexity</td>
+<td>2</td>
+</tr>
+<tr>
+<td>test_data</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TSS-007">7 TC: Test new project in VS Code <small>TSS-007</small></h1>
+<p>Validate that the empty C5-DEc-based project opens correctly in VS Code.</p>
+<h2>Preconditions</h2>
+<ul>
+<li>Access to the C5-DEC deployment artifacts obtained from the Git repository</li>
+<li><a href="https://docs.docker.com/engine/">Docker Engine</a> running with the right privileges for the testing user</li>
+<li>Microsoft <a href="https://code.visualstudio.com/">Visual Studio Code</a> installed (v1.98.2)</li>
+<li>Microsoft VS Code <a href="https://code.visualstudio.com/docs/devcontainers/containers">Dev Containers</a> installed, i.e., the VS Code <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">extension</a> (v0.401.0)</li>
+</ul>
+<h3>Test dependencies</h3>
+<ul>
+<li><strong>TSS-005</strong> executed successfully</li>
+</ul>
+<h2>Setup actions</h2>
+<p>To keep a clean separation of the tested artifact, copy or move the unzipped project created during the execution of TSS-005 to a location of your choice outside the C5-DEC project folder.</p>
+<h2>Test steps</h2>
+<ol>
+<li>Open <code>myproject</code> in VS Code.</li>
+<li>Select the "Reopen in Container" option in the notification that pops up. Alternatively, launch the command palette (Cmd/Ctrl+Shift+P) and select "Dev Containers: Reopen in Container" from the list of available commands.</li>
+<li>Open a terminal in VS Code if it none is open and run</li>
+</ol>
+<pre><code class="language-sh">poetry shell
+</code></pre>
+<ol start="4">
+<li>To verify that dependencies are installed, check the version of quarto. You can try other dependencies of your choice (e.g doorstop, kryptor, etc.)</li>
+</ol>
+<pre><code class="language-sh">quarto -V
+</code></pre>
+<h2>Expected outcome</h2>
+<ol start="3">
+<li>A <code>myproject</code> shell is created</li>
+</ol>
+<p><img alt="New project shell" src="./assets/new-project-shell.png" width="65%" /></p>
+<ol start="4">
+<li><code>1.6.43</code> is shown as the output.</li>
+</ol>
+<p><em>Child links:</em> <a href="TRS.html#TRS-007">TRS-007 TCER: New project in VS Code</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>platform</td>
+<td>GNU/Linux (Dockerized C5-DEC deployment environment)</td>
+</tr>
+<tr>
+<td>execution_type</td>
+<td>Manual</td>
+</tr>
+<tr>
+<td>verification_method</td>
+<td>Test (T)</td>
+</tr>
+<tr>
+<td>release</td>
+<td>stable</td>
+</tr>
+<tr>
+<td>complexity</td>
+<td>2</td>
+</tr>
+<tr>
+<td>test_data</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>version</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="assets/doorstop/jquery.min.js"></script>
+<script src="assets/doorstop/bootstrap.min.js"></script>
+<script>
+    $(function() {
+        $("table").addClass("table");
+        $("nav ul").addClass("nav nav-stacked");
+        $("nav").affix();
+        $('body').scrollspy({
+          target: '.sidebar'
+        });
+        $("#main a").attr("target", "parent");
+
+  $(window).on('hashchange', function() {
+    $(window).scrollTop($(location.hash.toLowerCase()).offset().top);});
+  });
+</script>
+</body>
+</html>
+

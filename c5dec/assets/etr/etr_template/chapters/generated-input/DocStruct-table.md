@@ -1,0 +1,8 @@
+| Chapter          | Title                    | Description                                                                                                                              |
+|:-----------------|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
+| @sec-intro       | {{< var chapter.chp1 >}} | Provides a short introduction outlining the purpose, objectives, and context of this document.                                           |
+| @sec-method      | {{< var chapter.chp2 >}} | Describes the adopted evaluation methodology and the type of required documentation.                                                     |
+| @sec-objectives  | {{< var chapter.chp3 >}} | Briefly describes the overall evaluation objectives and any dependencies, whenever applicable.                                           |
+| @sec-detailedEv  | {{< var chapter.chp4 >}} | Gives a detailed breakdown of the evaluation results, containing evaluation work units, in turn broken down into concrete audit actions. |
+| @sec-evalResults | {{< var chapter.chp5 >}} | Provides a summary of the overall assessment and verdict.                                                                                |
+| @sec-biblio      | {{< var chapter.chp6 >}} | Provides bibliographic references.                                                                                                       |

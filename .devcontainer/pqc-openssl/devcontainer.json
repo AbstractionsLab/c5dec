@@ -1,0 +1,43 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
+{
+	"name": "C5-DEC cryptography dev container",
+	"image": "openquantumsafe/oqs-ossl3:latest",
+	// Use 'dockerFile' if you want to build an image from a Dockerfile.
+	// Use 'image' if you want to use an existing image from Docker Hub or a local image, e.g., the commented line for OpenSSL with oqs provider for PQC.
+	// Use 'dockerComposeFile' and 'service' if you want to use a service from a docker-compose.yml file.
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Uncomment the next line to run commands after the container is created.
+	// "postCreateCommand": "cat /etc/os-release",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+            "extensions": [
+				"ms-python.python",
+				"streetsidesoftware.code-spell-checker",
+				"quarto.quarto"
+			],
+            "settings": {
+                "python.testing.pytestArgs": [
+                    "."
+                ],
+                "python.testing.unittestEnabled": false,
+                "python.testing.pytestEnabled": true,
+                "python.formatting.provider": "black"
+            }
+        }
+	},
+
+	"workspaceMount": "source=${localWorkspaceFolder},target=/home/alab/c5dec,type=bind",
+	"workspaceFolder": "/home/alab/c5dec"
+
+	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "devcontainer"
+}

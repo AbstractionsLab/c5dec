@@ -1,3 +1,46 @@
+# 1.0 (2025-05-07)
+
+Version 1.0 marks the stable release of C5-DEC.
+
+## Added
+
+- C5-DEC new project creation feature and command added to the CLI: `c5dec.sh new`
+- C5-DEC DocEngine enhancement: new templates, automation scripts, LaTeX enhancements
+- ETR evaluation spreadsheet formulas for automatic work unit verdict computation from atomic work item
+- LaTeX commands for dynamic and color-coded ETR verdict encoding: pass, fail, inconclusive
+- ETR evaluation overview templates, spreadsheets and compilation into Markdown for DocEngine
+- Doorstop source processing code for C5-DEC keyword handling in test reports
+- CPSSA, Cryptography, and Transformer commands to the CLI
+- Cryptographic software to the containerized `C5-DEC cryptography dev container`: Kryptor, Cryptomator CLI
+- Fully containerized DocEngine and dependencies within the `C5-DEC CAD dev container`
+- OQS-OpenSSL provider container to `.devcontainer` and allow selection between C5-DEC containers
+- Abstract to DocEngine report template cover pages
+- Interactive session mode with the C5-DEC container accessed via `c5dec.sh session`
+- Interactive session mode with the OQS-OpenSSL container for PQC accessed via `c5dec.sh pqc`
+- Publish function isolation in `docs/specs`
+- C5-DEC project template with placeholders used as input by the CLI `new` command
+- Validation test cases (`TSS`) and test report (`TRS`) for the stable release
+
+## Fixed
+
+- Header and footer logo placement offset bugs in DocEngine report compilation
+
+## Modified
+
+- DocEngine default report and ETR layouts for the cover page
+- DocEngine for ETR part generation to improve work unit and atomic work item compilation
+- `_quarto.yml` files for both DocEngine report and ETR templates
+- CLI command descriptions and help instructions
+- User manual pages for Cryptography, CPSSA, SSDLC and Transformer
+- Runner `c5dec.sh` implementation to provide new modes: `help`, `session`, `pqc`, `c5dec <command>`
+- Build script `build-c5dec.sh` to also build the dev container for access via `c5dec.sh session`
+- VS Code dev container configuration to include new extensions: Code Spell Checker, Quarto, Jupyter and Data Wrangler
+
+## Removed
+
+- All CLI commands for SSDLC (all have been integrated into the `new` CLI command)
+- TUI menus of features migrated to the CLI: SSDLC, CPSSA, Cryptography, Transformer
+
 # 0.3.1 (2024-09-16)
 
 ## Added

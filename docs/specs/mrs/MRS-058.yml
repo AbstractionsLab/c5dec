@@ -1,7 +1,7 @@
 active: true
 derived: false
 difficulty: N/A
-header: ''
+header: 'Follow modular design'
 importance: 5
 level: 58
 links: []
@@ -9,7 +9,7 @@ normative: true
 rationale: See Mission Analysis
 ref: ''
 references:
-- path: docs/specs/arc/assets/cad_context_diagram.png
+- path: docs/specs/arc/assets/cad_context_diagram.drawio.png
   type: file
 - path: docs/specs/arc/assets/functional_tree.png
   type: file

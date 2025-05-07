@@ -27,6 +27,12 @@ logging.Logger.trace = _trace  # type: ignore
 logger = logging.getLogger
 log = logger(__name__)
 
+def build_path_to_folder(folder_name):
+    """Build an absolute path to a destination folder based on a root folder."""
+    base_root = c5settings.dirname if hasattr(c5settings, 'dirname') else os.getcwd()
+    absolute_path = os.path.abspath(os.path.join(base_root, folder_name))
+    return absolute_path
+
 
 class HelpFormatter(argparse.ArgumentDefaultsHelpFormatter):
     """Command-line help text formatter with wider help text."""
