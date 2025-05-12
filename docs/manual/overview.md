@@ -3,16 +3,24 @@
 ## Table of contents
 
 - [Installation](./installation.md)
+
 - [Setup](./setup.md)
+
 - [Quick start](./start.md)
+
 - [CCT: Common Criteria Toolbox](./cct.md)
+
+    - [C5-DEC Common Criteria wiki](../../c5dec/assets/database/KnowledgeBase/0_MapofContent.md)
+
 - [SSDLC: secure software development life cycle](./ssdlc.md)
-- [Cryptography](./cryptography.md)
-- [CPSSA: Cyber-Physical System Security Assessment](./cpssa.md)
-- [Transformer: import, export, publish](./transformer.md)
-- [ISMS: document management](./isms.md)
+
+    - [Transformer: import/export, convert, publish and automate file management](./ssdlc.md#transformer)
+    
 - [PM: project (resource) management](./pm.md)
-- [C5-DEC Common Criteria wiki](../../c5dec/assets/database/KnowledgeBase/0_MapofContent.md)
+
+- [CPSSA: Cyber-Physical System Security Assessment](./cpssa.md)
+
+- [Cryptography](./cryptography.md)
 
 ## Overview
 

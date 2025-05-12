@@ -36,13 +36,15 @@ A summary of the `c5dec.sh` runner options are provided below:
 ./c5dec.sh <command> -h
 ```
 
-- To start an interactive C5-DEC session for using the [Transformer](./docs/manual/transformer.md) and [Cryptography](./docs/manual/cryptography.md) features:
+- To start an interactive C5-DEC session for using the [Transformer](./ssdlc.md#transformer) and [Cryptography](./cryptography.md) features:
 
 ```sh
-./c5dec.sh session
+./c5dec.sh session <workspace>
 ```
 
-- To use the [OQS-OpenSSL](./docs/manual/cryptography.md#post-quantum-cryptography-pqc) provider for post-quantum cryptography:
+The argument `<workspace>` can be optionally used to provide the path to a directory on the user's file system that can reside outside the C5-DEC folder itself. The workspace can be a folder that contains all the files and folders that the user may wish to process using C5-DEC tools, e.g., stored outside your project folder. The workspace folder is created automatically if it does not exist and mapped to the corresponding folder in the C5-DEC CAD container. The workspace folder is mounted as a volume in the container, allowing the user to access the files and folders in the workspace from within the container. If not provided, the workspace folder defaults to the `workspace` folder in the C5-DEC CAD folder.
+
+- To use the [OQS-OpenSSL](./cryptography.md#post-quantum-cryptography-pqc) provider for post-quantum cryptography:
 
 ```sh
 ./c5dec.sh pqc

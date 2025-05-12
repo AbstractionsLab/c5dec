@@ -136,8 +136,9 @@ RUN poetry install
 # Install python virtual environment for the project
 WORKDIR /home/${user}/${c5folder}/${c5folder}
 
-# Install Doorstop
+# Install Doorstop and organize-tool
 RUN pipx install doorstop==3.0b10
+RUN pipx install organize-tool==2.4.3
 
 # Clean up unnecessary packages
 USER root

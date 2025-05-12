@@ -4,7 +4,7 @@ C5-DEC, short for "Common Criteria for Cybersecurity, Cryptography, Clouds – D
 
 <img src="./docs/manual/_figures/CyFORT-C5CEC-logo.png" alt="cyfort_logo" width="500"/>
 
-C5-DEC CAD, the software component of C5-DEC, is a suite of tools for computer-aided design and development (CAD) enforcing the C5-DEC method, The method mainly deals with the creation and evaluation of secure IT systems following a structured and systematic approach, based on the [Common Criteria](https://www.commoncriteriaportal.org) standards, a secure software development life cycle (SSDLC) method, a software verification and validation model (SVVM), and our cyber-physical system security assessment (CPSSA) method.
+C5-DEC CAD, the software component of C5-DEC, is a suite of [AI-enabled](./docs/manual/ssdlc.md#ai-enabled-design-and-specification) tools for computer-aided design and development (CAD) enforcing the C5-DEC method. The method mainly deals with the creation and evaluation of secure IT systems following a structured and systematic approach, based on the [Common Criteria](https://www.commoncriteriaportal.org) standards, a secure software development life cycle (SSDLC) method, a software verification and validation model (SVVM), and our cyber-physical system security assessment (CPSSA) method.
 
 This repository contains the source code and full documentation (requirements, technical specifications, schematics, [user manual](./docs/manual/overview.md), test case specifications and test reports) of C5-DEC CAD, exemplifying the C5-DEC method, which relies on storing, interlinking and processing all software development life cycle (SDLC) artifacts in a unified manner; see our [traceability web page](https://abstractionslab.github.io/c5dec/docs/traceability/index.html) for a concrete example reflecting the technical specifications of C5-DEC CAD itself.
 
@@ -27,6 +27,8 @@ The overall goal of the C5-DEC method is to bring together and contextualize SSD
 To this end, C5-DEC CAD is aimed at assisting both system/software designers/developers as well as system security analysts with creating and evaluating secure software systems. For instance, it can be used by evaluation laboratories for the execution of impartial assessments of the security of computer systems and software according to the Common Criteria (CC), a set of internationally recognized standards (ISO/IEC 15408), and the complementary ISO/IEC 18045, dealing with a common methodology for computer security evaluation (CEM). CC certification gives users the assurance that a product satisfies the security guarantees and properties it claims to possess.
 
 C5-DEC consists of two key elements that complement each other to form a coherent ensemble: a software component (C5-DEC CAD) and a knowledge base (KB) consisting of SSDLC, SVV and CPSSA methodologies as well as a [wiki of key CC concepts](./c5dec/assets/database/KnowledgeBase/0_MapofContent.md).
+
+### Knowledge base
 
 As certain parts of our KB reports rely on ISO standards (ISO/IEC/IEEE 12207, ISO 29119:2022 and ISO 29148:2018), if you wish to access them, please contact us at info@abstractionslab.lu. Simply provide evidence that you are eligible for accessing the standard(s), and upon successful verification, we will share the reports.
 
@@ -62,22 +64,12 @@ As certain parts of our KB reports rely on ISO standards (ISO/IEC/IEEE 12207, IS
 
 ### Secure software development life cycle (SSDLC)
 
-- The KB report is inspired by and builds on ISO/IEC/IEEE 12207 - Software life cycle processes, the European Cooperation for Space Standardization (ECSS) standard ECSS-E-ST-40C, ISO/IEC/IEEE 29119:2022 Software testing, ISO/IEC/IEEE 29148:2018 Requirements engineering, the DevSecOps Platform Independent Model (PIM) by the Software Engineering Institute (SEI) of Carnegie Mellon University (CMU), SAFECode, OWASP, as well as McGraw’s publications on software security;
-- A KB report on software verification and validation (SVV) complementing the SSDLC;
+- The SSDLC report, part of the [C5-DEC KB](#knowledge-base), is inspired by and builds on ISO/IEC/IEEE 12207 - Software life cycle processes, the European Cooperation for Space Standardization (ECSS) standard ECSS-E-ST-40C, ISO/IEC/IEEE 29119:2022 Software testing, ISO/IEC/IEEE 29148:2018 Requirements engineering, the DevSecOps Platform Independent Model (PIM) by the Software Engineering Institute (SEI) of Carnegie Mellon University (CMU), SAFECode, OWASP, as well as McGraw’s publications on software security;
+- Create [new project repositories based on C5-DEC (batteries included)](./docs/manual/ssdlc.md#c5-dec-project-creation): a fresh development repository with containerized development artifacts, all dependencies installed, templates, DocEngine, source code and technical specification processing software for enhancing [SSDLC](./docs/manual/ssdlc.md) and enforcing the C5-DEC method, powered by [Doorstop](https://github.com/doorstop-dev/doorstop), and [**AI-enabled**](./docs/manual/ssdlc.md#ai-enabled-design-and-specification) approach facilitating the generation and [processing of technical specifications](#c5-dec-vs-code-workbench-and-containerized-development-environment), documentation, and design artifacts, including requirements, test cases, and technical reports;
 - C5-DEC [DocEngine](./docs/manual/ssdlc.md#c5-dec-docengine-for-report-generation): a flexible, easily extensible, and complete publishing solution based on [Quarto](https://quarto.org/) (an open-source scientific and technical publishing system), enhanced by our Quarto configurations, dedicated LaTeX customizations and pre-render and post-render Python scripts providing a baseline automated publishing pipeline (see [SSDLC](./docs/manual/ssdlc.md) and [CCT](./docs/manual/cct.md));
-- Create new project repositories based on C5-DEC (batteries included): a fresh development repository with containerized development artifacts, all dependencies installed, templates, DocEngine, source code and technical specification processing software for enhancing [SSDLC](./docs/manual/ssdlc.md) and enforcing the C5-DEC method, powered by [Doorstop](https://github.com/doorstop-dev/doorstop);
-- [Transformer](./docs/manual/transformer.md): a module dedicated to universal document transformation and conversion based on our integration of [Doorstop](https://github.com/doorstop-dev/doorstop), [Quarto](https://github.com/quarto-dev/quarto) and [Pandoc](https://pandoc.org/).
+- [Transformer](./docs/manual/ssdlc.md#transformer): a suite of integrated tools dedicated to universal document transformation, format conversion, content import/export, publishing, and file management automation based on our customized use of [Doorstop](https://github.com/doorstop-dev/doorstop), [Quarto](https://github.com/quarto-dev/quarto), [pandoc](https://pandoc.org/) and [organize](https://github.com/tfeldmann/organize);
+- Another [KB](#knowledge-base) element dedicated to software verification and validation (SVV) complementing the SSDLC.
 
-### Cryptography
-
-- A containerized and pre-configured deployment of open-source cryptographic software in the development environment for classical cryptography: [GnuPG](https://gnupg.org/), [Kryptor](https://www.kryptor.co.uk/), [Cryptomator CLI](https://github.com/cryptomator/cli);
-- A VS Code dev container packaging of [OQS-OpenSSL provider](https://github.com/open-quantum-safe/oqs-provider) for post-quantum cryptography.
-- A [guide](./docs/manual/cryptography.md) on the use of the integrated cryptographic software.
-
-### Cyber-Physical System Security Assessment
-
-- A KB report describing the C5-DEC method for Cyber-Physical System Security Assessment (CPSSA);
-- A [guide](./docs/manual/cpssa.md) on the use of existing open-source software to enforce the CPSSA method.
 
 ### Project (resource) management
 
@@ -85,6 +77,17 @@ As certain parts of our KB reports rely on ISO standards (ISO/IEC/IEEE 12207, IS
 - [Processing of OpenProject time reports](./docs/manual/pm.md#openproject-time-report-assistant) and conversion to custom formats;
 - [Consolidation](./docs/manual/pm.md#time-report-consolidation-assistant) of C5-DEC time sheets;
 - Dedicated software for detailed resource and [cost computations](./docs/manual/pm.md#cost-report-computation).
+
+### Cyber-Physical System Security Assessment
+
+- Our CPSSA report, a third [KB element](#knowledge-base), describing the C5-DEC method for Cyber-Physical System Security Assessment (CPSSA);
+- A [guide](./docs/manual/cpssa.md) on the use of existing open-source software to enforce the CPSSA method.
+
+### Cryptography
+
+- A containerized and pre-configured deployment of open-source cryptographic software in the development environment for classical cryptography: [GnuPG](https://gnupg.org/), [Kryptor](https://www.kryptor.co.uk/), [Cryptomator CLI](https://github.com/cryptomator/cli);
+- A VS Code dev container packaging of [OQS-OpenSSL provider](https://github.com/open-quantum-safe/oqs-provider) for post-quantum cryptography.
+- A [guide](./docs/manual/cryptography.md) on the use of the integrated cryptographic software.
 
 ## User manual
 
@@ -98,7 +101,7 @@ You can visit our [traceability page](https://abstractionslab.github.io/c5dec/do
 
 C5-DEC CAD can be deployed using any of the following methods:
 
-1. Deployment using Docker and our shell scripts: `build-c5dec.sh` and `c5dec.sh`: our runner script (`c5dec.sh`) offers a command mode tailored to the use of the Common Criteria Toolbox (CCT) and the Project Management (PM) modules, as well as an interactive session mode (`c5dec.sh session`) for using the [Transformer](./docs/manual/transformer.md) and [Cryptography](./docs/manual/cryptography.md) features and a PQC entrypoint (`c5dec.sh pqc`).
+1. Deployment using Docker and our shell scripts: `build-c5dec.sh` and `c5dec.sh`: our runner script (`c5dec.sh`) offers a command mode tailored to the use of the Common Criteria Toolbox (CCT) and the Project Management (PM) modules, as well as an interactive session mode (`c5dec.sh session`) for using the [Transformer](./docs/manual/ssdlc.md#transformer) and [Cryptography](./docs/manual/cryptography.md) features and a PQC entrypoint (`c5dec.sh pqc`).
 2. Deployment in a containerized development environment in VS Code (**recommended for advanced usage, development, data science**): this mode is the preferred option for effective use of the Quarto-based [DocEngine](./docs/manual/ssdlc.md#c5-dec-docengine-for-report-generation), Cryptography and Transformer modules. Note that all the features available via the CLI, TUI and GUI when using the deployment model (1) would also be available using this second approach.
 
 For more details on the installation options, please see the [installation](./docs/manual/installation.md) page of the user manual.
@@ -177,11 +180,13 @@ A summary of the `c5dec.sh` runner options are provided below:
 ./c5dec.sh <command> -h
 ```
 
-- To start an interactive C5-DEC session for using the [Transformer](./docs/manual/transformer.md) and [Cryptography](./docs/manual/cryptography.md) features:
+- To start an interactive C5-DEC session for using the [Transformer](./docs/manual/ssdlc.md#transformer) and [Cryptography](./docs/manual/cryptography.md) features:
 
 ```sh
-./c5dec.sh session
+./c5dec.sh session <workspace>
 ```
+
+The argument `<workspace>` can be optionally used to provide the path to a directory on the user's file system (outside the C5-DEC folder); see the [usage section of the start page](./docs/manual/start.md#usage) for more details.
 
 - To use the [OQS-OpenSSL](./docs/manual/cryptography.md#post-quantum-cryptography-pqc) provider for post-quantum cryptography:
 
@@ -234,13 +239,17 @@ This would launch the GUI, as shown below, starting a web server that listens on
 
 ### C5-DEC VS Code workbench and containerized development environment
 
-Finally, within VS Code, you can access the various user interfaces in the same workbench while also benefitting from dedicated VS Code extensions integrated into our containerized development environment (e.g., Code Spell Checker, Quarto, Jupyter, Data Wrangler, Docker) as well as the code editor's own built-in features.
+Finally, using VS Code, you can access the various user interfaces in the same workbench while also benefitting from dedicated VS Code extensions integrated into our containerized development environment (e.g., Code Spell Checker, Quarto, Jupyter, Data Wrangler, Docker) as well as the code editor's own built-in features. The screenshot below highlights an example of how the [C5-DEC method lends itself to AI-powered](./docs/manual/ssdlc.md#ai-enabled-design-and-specification) capabilities.
 
 ![C5-DEC CAD in VS Code](./docs/manual/_figures/c5dec-vscode-workbench.png)
 
 ## Roadmap
 
-For details on our roadmap and features planned for future releases, please see the [Wiki](https://github.com/AbstractionsLab/c5dec/wiki) section of this repository.
+We will continue to enhance C5-DEC CAD with new features and improvements. Some of the planned features include:
+- Integrating locally stored generative AI (GenAI) models and implementing a GenAI assistant for the C5-DEC method enhancing its [AI-enabled design and technical specification](./docs/manual/ssdlc.md#ai-enabled-design-and-specification) approach with privacy-aware features and retrieval-augmented generation (RAG) capabilities;
+- Enhancing our cryptographic dependencies (e.g., [OQS-OpenSSL](https://github.com/open-quantum-safe/oqs-provider), [OpenSSH](https://www.openssh.com/)) with verified implementations, e.g., [EverCrypt](https://www.microsoft.com/en-us/research/publication/evercrypt-a-fast-veri%EF%AC%81ed-cross-platform-cryptographic-provider/) and [HACL*](https://hacl-star.github.io/HaclValeEverCrypt.html).
+
+For further details on our roadmap and features planned for future releases, please see the [Wiki](https://github.com/AbstractionsLab/c5dec/wiki) section of this repository.
 
 ## License
 

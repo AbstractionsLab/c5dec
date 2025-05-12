@@ -12,6 +12,59 @@ We will be mostly making use of the following features:
 - [Import and export](https://doorstop.readthedocs.io/en/latest/cli/interchange.html): see also suggestions for [batch updates](#suggestions-for-batch-updates) below.
 - [Publishing](#publishing-technical-specifications)
 
+Our C5-DEC CAD suite of tools makes use of various tools to enforce the C5-DEC method, among other things supporting the following features:
+
+- Full traceability of all design and implementation artifacts in the same codebase repository, i.e., mission/system requirements, architecture, software design, source code, test case specifications and test reports;
+
+- Software artifact management ranging from repository creation, editing and deletion to documents providing linkable excerpts for storing mission/system requirements, technical specifications, source code, test case specifications, test report items and execution execution results;
+
+- Artifact item relation management allowing the creation and removal of links between arbitrary items (e.g., TC to requirement, TC to source code), as well as browsing linked items and their content;
+
+- Managing artifact repository structure such as suspect link resolution, and review status updates;
+
+- Publishing technical specifications in HTML powered by Doorstop, including a traceability matrix and keyword replacement for verdict processing in test reports and Common Criteria Evaluation Technical Reports (ETR);
+
+- Compiling technical specifications and exporting to various formats (e.g., PDF, docx, LaTeX, Markdown) using our DocEngine module based on Quarto;
+
+- [AI-enabled](#ai-enabled-design-and-specification) design and specification: our approach of leveraging text-based open formats such as Markdown, YAML, and Quarto for technical specifications and documentation enables the integration of AI-powered tools like VS Code and Copilot embedding large language models (LLMs). This approach provides several advantages, which include:
+    - Enhanced compatibility with AI tools
+    - Automated content generation
+    - Improved traceability and linking
+    - Natural language queries
+    - Batch updates and refinements
+    - Customizable AI workflows
+
+## Table of Contents
+
+- [Conventions](#conventions)
+- [General recommendations](#general-recommendations)
+    - [Doorstop item format](#doorstop-item-format)
+    - [YAML key-value character limit and Markdown specification](#yaml-key-value-character-limit-and-markdown-specification)
+    - [Use of templates](#use-of-templates)
+- [C5-DEC project creation](#c5-dec-project-creation)
+    - [Running the command: new](#running-the-command-new)
+    - [Produced outcome](#produced-outcome)
+    - [Use with existing projects](#use-with-existing-projects)
+- [Mission and system requirements](#mission-and-system-requirements)
+- [Architecture design](#architecture-design)
+    - [High-level and low-level architecture](#high-level-and-low-level-architecture)
+- [Software design](#software-design)
+    - [Tracing to two-level ARC breakdown](#tracing-to-two-level-arc-breakdown)
+    - [Advanced traceability](#advanced-traceability)
+- [Software validation test cases](#software-validation-test-cases)
+- [Software validation test report](#software-validation-test-report)
+- [Publishing technical specifications](#publishing-technical-specifications)
+    - [C5-DEC keyword replacement](#c5-dec-keyword-replacement)
+    - [Traceability matrix](#traceability-matrix)
+        - [Verifying requirement coverage](#verifying-requirement-coverage)
+    - [Suggestions for batch updates](#suggestions-for-batch-updates)
+- [C5-DEC DocEngine for report generation](#c5-dec-docengine-for-report-generation)
+- [AI-enabled design and specification](#ai-enabled-design-and-specification)
+- [Transformer](#transformer)
+    - [Design artifacts import and export](#design-artifacts-import-and-export)
+    - [Universal document converter](#universal-document-converter)
+    - [File/folder management automation](#filefolder-management-automation)
+
 ## Conventions
 
 We fix the following prefixes for naming the various artifact documents:
@@ -236,70 +289,73 @@ Assuming the command is run from within the `/home/alab/c5dec/` directory, this 
 
 For exporting to `docx`, we have also provided a reference template document that Quarto uses to adjust various aspects of the generated report such as heading and table styles, but the user can and is encouraged to update this reference template or replace it with their own version. Note that most features of the conversion to `docx` work rather well out of the box, but the user needs to manually copy their cover page into the automatically generated report.
 
-## Deprecated and disabled features
+## AI-enabled design and specification
 
-The SSDLC menu exposed via the TUI has been phased out as of the stable release of C5-DEC, i.e., starting from version 1.0. Instead, the recommended way to implement the C5-DEC method for development would be to directly use `doorstop`, already integrated in the C5-DEC dev container, together with our custom templates and helper scripts. The [guide above](#secure-software-development-life-cycle) details the various configurations and complementary tools.
+Our approach of leveraging text-based open formats such as Markdown, YAML, and Quarto for technical specifications and documentation enables the integration of AI-powered tools like VS Code and Copilot embedding large language models (LLMs). This approach provides several advantages, which include:
 
-Since the SSDLC mini app exposed via the C5-DEC CAD TUI makes use of the doorstop API, it is strongly recommended to consult the official [doorstop documentation](https://doorstop.readthedocs.io/en/latest/) to gain a better understanding of the underlying concepts that the SSDLC module builds on. 
+1. **Enhanced compatibility with AI tools**: Text-based formats are inherently compatible with AI tools, enabling seamless integration with LLMs like VS Code Copilot. For example, requirements encoded in Markdown files with YAML front matter can be processed by Copilot in Agent mode to automatically generate titles, summaries, or even traceability links for all requirements.
 
-The secure software development life cycle (SSDLC) module supports three main functions by building on top of the open-source doorstop API:
+2. **Automated content generation**: LLMs can assist in generating boilerplate content, such as requirement descriptions, test case outlines, or documentation templates, based on minimal input. This reduces manual effort and ensures consistency across artifacts.
 
-- Software artifact management such as repository creation, editing, deletion, e.g., separate and dedicated doorstop documents for storing mission requirements, technical specifications, source code, test case specifications, test report items (test execution result), etc.
+3. **Improved traceability and linking**: AI tools can analyze relationships between artifacts (e.g., requirements, test cases, and design elements) and suggest or validate traceability links. This ensures comprehensive coverage and adherence to the SSDLC process.
 
-- Artifact item management including artifact creation, editing and deletion, e.g., for individual requirements, test case (TC) specifications and source code files in their corresponding documents
+4. **Natural language queries**: Using LLMs, users can query the repository in natural language to retrieve specific information, such as "List all requirements linked to test cases with defects" or "Summarize the architecture design for subsystem X."
 
-- Artifact item relation management allowing the creation and removal of links between arbitrary items (e.g., TC to requirement, TC to source code), as well as browsing linked items and their content, for a selected artifact item
+5. **Batch updates and refinements**: LLMs can assist in performing batch updates, such as reformatting YAML key-value pairs, updating metadata, or restructuring Markdown content, based on user-defined rules or patterns.
 
-- Managing artifact repository structure such as suspect link resolution, and review status updates
+6. **Customizable AI workflows**: By combining open formats with tools like Quarto and Doorstop, users can define workflows where AI tools generate, validate, and refine content before publishing. For instance, Quarto-based reports can include AI-generated summaries or insights derived from the underlying technical specifications.
 
-### SSDLC TUI quick start guide
+By adopting these open formats and integrating AI tools, our approach not only enhances productivity but also ensures that technical specifications and documentation remain accessible, adaptable, and future-proof.
 
-Once you have installed C5-DEC, the SSDLC module can be accessed via the TUI, i.e., by simplifying entering `c5dec` via the terminal, without any additional parameters.
+## Transformer
 
-In order to access the SSDLC functionality, navigate to the corresponding menu item shown on the landing page of C5-DEC CAD, namely "2 - SSDLC: secure software development life cycle", as shown in the screenshot below.
+Since our adoption of [Quarto](https://quarto.org/) for scientific and technical publishing, we have phased out our previous make-based implementation for our universal conversion solution based on [pandoc](https://pandoc.org/). 
 
-![C5-DEC CAD SSDLC - menu.](./_figures/c5dec-cad-ssdlc.png)
+As Quarto achieves our original objective using precisely the same ideas and technological stack in a nicely packaged and stable software, we replaced our implementation by our custom enhancements of an integrated version of Quarto, shipped with our containerized development environment, i.e., via  the [development Dockerfile](https://github.com/AbstractionsLab/c5dec/blob/main/dev.Dockerfile) along with the VS Code [devcontainer.json](https://github.com/AbstractionsLab/c5dec/blob/main/.devcontainer/devcontainer.json) file.
 
-### Managing artifact collections
+Please see the corresponding user manual [installation instructions](https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/installation.md#installation-in-a-containerized-development-environment) for more details.
 
-Select the "Manage artifact repositories" submenu to access its artifact collection/repository creation and deletion features, shown below.
+Once the you are connected to a C5-DEC interactive session (`c5dec.sh session`) or the project is opened in VS Code using the dev container, ensure the poetry environment is activated (if not, simply run `poetry shell`) and then you can simply access Quarto by running the quarto command in the C5-DEC dev container shell, e.g.,
 
-![SSDLC - submenu view.](./_figures/ssdlc-manage-artifact-document.png)
+```sh
+quarto -h
+```
 
-Once the artifact management submenu is loaded, you can enter a prefix for the document/repository and also specify a parent prefix in case the document you are about to create should be considered a child node in the artifact document tree.
+To use the integrated transformation-related software, you can run an interactive C5-DEC session using the `c5dec.sh` runner script, optionally providing a workspace directory path, e.g.,:
 
-In the example shown below, we specify `srs` for system/software requirements specification, which is a child document of `mrs`, which is short for Mission Requirements Specifications. This means that the artifact items added to `srs` will be linked to parent `mrs` items.
+```sh
+./c5dec.sh session <workspace>
+```
 
-![SSDLC artifact document management - submenu view.](./_figures/ssdlc-create-delete-artifact-document.png)
+You will then be able to manipulate content stored in the `c5dec` folder by directly using `doorstop`, `quarto` and `pandoc`. Run `doorstop import -h`, `doorstop export -h`, `quarto render -h` and `quarto pandoc -h` for more information.
 
-The create and delete buttons depicted in the screenshot are self-explanatory; the reset fields button acts as a shortcut for quickly clearing the content of the text fields.
+Alternatively, open the the project repository in VS Code and select the "Reopen in Container" option in the notification that pops up in VS Code; or launch the command palette (Cmd/Ctrl+Shift+P) and select "Dev Containers: Reopen in Container" from the list of available commands. You will then be prompted to select a dev container configuration: select the `C5-DEC CAD dev container`.
 
-### Managing artifact items
+### Design artifacts import and export
 
-Once the artifact management submenu is loaded, the user can create new artifact items and edit existing ones. Artifact items can range from requirement specifications to test cases, test report items and design diagrams.
+Thanks to our use of [Doorstop](https://doorstop.readthedocs.io/en/latest/) and its direct integration into the `C5-DEC CAD dev container` (see [CAD dev container installation](./installation.md#installation-in-a-containerized-development-environment)), you can easily export any of your design artifacts using the built-in `doorstop export` command. Similarly, once exported, you can use the `doorstop import` command to bring back data that you may have updated in batch in another application, e.g., requirements exported to `.xlsx`, modified in batch using formulas and reintegrated into your repository.
 
-![SSDLC artifact management - submenu view.](./_figures/ssdlc-manage-artifact-items.png)
+Please see the official [Doorstop interchange page](https://doorstop.readthedocs.io/en/latest/cli/interchange.html) for further details or simply run the `doorstop import -h` and `doorstop export -h` in the C5-DEC CAD dev container terminal.
 
-By simply entering a document prefix, e.g., `mrs` referring to mission requirements specification, new `mrs` items can be created, with an ID being generated and assigned to the created item automatically. In the example shown here, the user can edit the content of `mrs1` by entering its ID and pressing the "Show item text" button. Once the content has been modified, the user must press the "Save item text" for the change to be saved to disk.
+### Universal document converter
 
-### Managing relations
+For universal document conversions, you can access the embedded `pandoc` tool through our already shipped copy of Quarto, i.e.,
 
-The "Manage item relations" submenu allows the user to create new relations between artifact items, e.g., linking an `mrs` item to an `srs` one, or linking a test case to its corresponding requirements. The same submenu also allows the user to remove or delete existing links. Moreover, the "Show child item links" button prints out the existing child items of a given parent artifact item.
+```sh
+quarto pandoc -h
+```
 
-#### Creating and removing links
+We recommend consulting the official [pandoc user manual](https://pandoc.org/MANUAL.html) and its [quick guide file conversion example](https://pandoc.org/getting-started.html#step-6-converting-a-file).
 
-To create a new link, simply enter the IDs of the child and parent item, respectively, and press the "create link" or "remove link" buttons to confirm the desired operation.
+### File/folder management automation
 
-![SSDLC artifact link management - submenu view.](./_figures/ssdlc-create-item-link.png)
+Our deployment solutions integrates the open-source solution called [organize](https://github.com/tfeldmann/organize), i.e., the `organize` program is preinstalled in the C5-DEC containerized environment and can be used out of the box, either when opening the `C5-DEC dev container` in VS Code or when running the `session` command to open an interactive session in the container, e.g.,
 
-#### Viewing existing child items
+```sh
+./c5dec.sh session
+organize -h
+```
 
-Pressing the "Show child item links" button results in retrieving items linked to an item specified via its ID, as shown below. Upon selecting a linked item, its content is displayed in the right-hand side text box.
+The `organize` program is a highly configurable command-line tool that helps you organize your files and folders based on rules you define. It can automatically move, copy, rename, or delete files and folders based on their names, extensions, or other criteria. This can be particularly useful for managing large collections of files or for automating repetitive tasks. The program can also create directories and move files into them based on the defined rules.
 
-![SSDLC artifact link management - submenu view.](./_figures/ssdlc-view-child-items.png)
-
-### Managing artifact document structure and item status
-
-This submenu, shown below, allows the user to trigger the doorstop operations for reordering, clearing and reviewing; see the official doorstop documentation for its [reordering](https://doorstop.readthedocs.io/en/latest/cli/reordering/) and [validation](https://doorstop.readthedocs.io/en/latest/cli/validation/) commands.
-
-![SSDLC document structure management - submenu view.](./_figures/ssdlc-manage-document-structure.png)
+See the [official documentation](https://organize.readthedocs.io/en/latest/) for more details on usage and examples. 

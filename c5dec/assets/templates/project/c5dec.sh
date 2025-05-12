@@ -26,8 +26,22 @@ elif [ "$1" == "session" ]
 then
     # Create the Docker container and open a session for interactive use
     echo Launching an interactive c5dec session...
+    # if the user volume is not specified, use the default
+    # Check if the user volume is specified
+    if [ -z "$2" ]
+    then
+        echo "No user directory specified. Using default: /home/$USER/c5dec/workspace"
+        echo "Host directory $(pwd)/workspace mapped to container directory /home/$USER/c5dec/workspace"
+        USER_VOLUME=$(pwd)/workspace:/home/$USER/workspace
+    else
+        echo "User directory specified: $2"
+        echo "Host directory $2 mapped to container directory /home/$USER/workspace"
+        USER_VOLUME=$2:/home/$USER/workspace
+    fi
+    # Check if the user volume is mounted
     docker run -it --rm --name $DEV_CONTAINER_NAME \
         -v $C5_VOLUME \
+        -v $USER_VOLUME \
         -p 5432:5432 \
         $DEV_IMAGE_NAME /bin/bash
 elif [ "$1" == "help" ]
@@ -35,7 +49,7 @@ then
     echo ---
     echo ./c5dec.sh
     echo ... to open the c5dec CLI help menu
-    echo ./c5dec.sh session
+    echo ./c5dec.sh session \<user_directory\>
     echo ... to start an interactive c5dec session
     echo ./c5dec.sh \<command\>
     echo ... to run a c5dec CLI command

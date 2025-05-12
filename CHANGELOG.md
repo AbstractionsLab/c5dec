@@ -1,3 +1,21 @@
+# 1.1 (2025-05-12)
+
+## Added
+
+- The open-source `organize-tool` to the `C5-DEC dev container` for automated file/folder management
+- Custom workspace management (e.g., a user-defined path to directory residing outside project folder) via the C5-DEC interactive session: `c5dec.sh session <workspace>`
+- Table of contents to the SSDLC manual page
+
+## Modified
+
+- User manual pages related to SSDLC to detail the new workspace management feature, AI-enabled design and specification for the C5-DEC method, the new `organize-tool`, and integrated the Transformer page
+- README to detail the roadmap items related to including privacy-aware local GenAI models and RAG capabilities and the inclusion of verified implementations of cryptographic algorithms
+
+## Removed
+
+- The manual pages for the deprecated ISMS feature
+- The Transformer manual page that has been moved to the SSDLC manual page
+
 # 1.0 (2025-05-07)
 
 Version 1.0 marks the stable release of C5-DEC.

@@ -201,9 +201,10 @@ def run_transform(args, cwd, _, catch=True, **kwargs):
     print("To export, try: doorstop export -h")
     print("To render, use: quarto render -h")
     print("To convert, use: quarto pandoc -h")
+    print("To automate file management, use: organize -h")
     print("---")
-    print("Also see Transformer page in user manual:")
-    print("c5dec/docs/manual/transformer.md OR https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/transformer.md")
+    print("Also see Transformer section of SSDLC page in user manual:")
+    print("c5dec/docs/manual/ssdlc.md OR https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/ssdlc.md")
 
 def run_cpssa(args, cwd, _, catch=True, **kwargs):
     print("---")
