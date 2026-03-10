@@ -1,0 +1,49 @@
+active: true
+header: RTU Sensor Gateway
+type: rtu
+zone: OT
+text: |
+  Moxa RTU gateway aggregating analogue and digital field sensors:
+  turbidity probes (nephelometric), pressure transmitters, level ultrasonic
+  sensors, and flow meters. Converts 4–20 mA / HART signals to Modbus TCP
+  for forwarding to both PLCs and SCADA. Spoofed sensor readings can mask
+  physical process anomalies or trigger false safety shutdowns.
+vendor: Moxa
+model: RTU-5814
+firmware: v3.2.1
+sensor_count: 24
+port: 502
+protocol: Modbus TCP
+encryption: none
+machine: physical
+size: component
+confidentiality: internal
+integrity: critical
+availability: critical
+justification_cia_rating: >-
+  Spoofed or dropped sensor readings can mask process anomalies or
+  trigger false safety shutdowns.
+has_access_control: false
+authenticates_source: false
+links:
+  - SRS-003
+flows:
+  - target: ARC-007
+    protocol: Modbus TCP
+    port: 502
+    encrypted: false
+    authentication: none
+    authorization: none
+  - target: ARC-008
+    protocol: Modbus TCP
+    port: 502
+    encrypted: false
+    authentication: none
+    authorization: none
+data_assets:
+  - sensor-readings
+  - process-telemetry
+data_assets_stored: []
+data_formats_accepted:
+  - serialization
+reviewed: false

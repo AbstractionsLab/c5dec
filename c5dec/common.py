@@ -86,6 +86,11 @@ def create_dirname(path):
         log.info("creating directory {}...".format(dirpath))
         os.makedirs(dirpath)
 
+def get_timestamp():
+    """Get current timestamp in ISO 8601 format."""
+    from datetime import datetime
+    return datetime.now().isoformat()
+
 # exception classes ##########################################################
 
 

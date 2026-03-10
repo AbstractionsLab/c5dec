@@ -1,0 +1,52 @@
+% Custom title page for C5-DEC presentations with logos
+\defbeamertemplate*{title page}{customized}[1][]
+{
+  \vspace{-1cm}
+  % Logos at the top
+  \begin{columns}[T]
+    \begin{column}{0.3\textwidth}
+      \centering
+      \includegraphics[width=0.7\textwidth]{figs/ITR-logo.jpg}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \centering
+      \includegraphics[width=0.8\textwidth]{figs/CyFORT-logo.png}
+    \end{column}
+    \begin{column}{0.3\textwidth}
+      \centering
+      \includegraphics[width=0.7\textwidth]{figs/Alab-logo.png}
+    \end{column}
+  \end{columns}
+  
+  \vspace{1.5cm}
+  
+  % Title
+  \centering
+  {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par}
+  
+  \vspace{0.5cm}
+  
+  % Subtitle
+  \ifx\insertsubtitle\@empty\else
+    {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}
+  \fi
+  
+  \vspace{1cm}
+  
+  % Author
+  \begin{beamercolorbox}[sep=8pt,center,#1]{author}
+    \usebeamerfont{author}\insertauthor
+  \end{beamercolorbox}
+  
+  % Institute
+  \begin{beamercolorbox}[sep=8pt,center,#1]{institute}
+    \usebeamerfont{institute}\insertinstitute
+  \end{beamercolorbox}
+  
+  % Date
+  \begin{beamercolorbox}[sep=8pt,center,#1]{date}
+    \usebeamerfont{date}\insertdate
+  \end{beamercolorbox}
+  
+  \vfill
+}

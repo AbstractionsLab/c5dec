@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.11-bookworm
 
 ARG MY_ENV
 
@@ -9,25 +9,28 @@ ENV MY_ENV=${MY_ENV} \
   PIP_NO_CACHE_DIR=off \
   PIP_DISABLE_PIP_VERSION_CHECK=on \
   PIP_DEFAULT_TIMEOUT=100 \
-  POETRY_VERSION=1.5.0
+  POETRY_VERSION=1.8.3
 
 ENV user=alab
 ENV c5folder=c5dec
 
-# Update and install dependencies
-RUN apt update --fix-missing
-RUN apt-get install -y git python3-pip graphviz
+# Update and install system dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends git python3-pip graphviz && \
+    rm -rf /var/lib/apt/lists/*
 
 # Install Doorstop
 RUN python3 -m pip install pipx
 RUN python3 -m pipx ensurepath
 
-RUN pipx install doorstop==3.0b10
+# Create a non-root runtime user (no password, no sudo — production image)
+RUN useradd -ms /bin/bash ${user}
 
 # Add location where pip is installed to the PATH variable
 ENV PATH="/home/${user}/.local/bin:${PATH}"
 
-# Copy the files and install the python environment as user alab 
+# Run remaining steps as the non-root user
+USER ${user}
 RUN pip3 install "poetry==$POETRY_VERSION"
 
 WORKDIR /home/${user}/${c5folder}
@@ -49,8 +52,8 @@ WORKDIR /home/${user}/${c5folder}/${c5folder}
 
 RUN poetry install
 
-# Clean up unnecessary packages
-RUN apt-get autoremove -y && apt-get autoclean -y
+# Install Doorstop
+RUN pipx install doorstop==3.0b10
 
 # Expose port for the GUI (web app)
 EXPOSE 5432

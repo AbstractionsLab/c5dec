@@ -3,6 +3,7 @@ settings:
   parent: MRS
   prefix: SRS
   sep: '-'
+  itemformat: markdown
 attributes:
   defaults:
     author: ''

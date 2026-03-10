@@ -1,0 +1,44 @@
+cover:
+  company: "PLACEHOLDER_MANUFACTURER"
+  project: "PLACEHOLDER_PRODUCT"
+  type: "CRA Technical Documentation"
+  version: "1.0"
+  logo: "figs/logo.png"  # Optional: path to company logo
+
+meta:
+  fullname: "PLACEHOLDER_PRODUCT_FULL_NAME"
+  title: "CRA Technical Documentation"
+  document_id: "CRA-TECH-DOC-001"
+  
+  # Product information
+  product:
+    name: "PLACEHOLDER_PRODUCT"
+    identifier: "PLACEHOLDER_PRODUCT_ID"  # Unique product identifier
+    version: "1.0.0"
+    category: "default"  # default, class_i, class_ii, critical
+    description: "PLACEHOLDER_PRODUCT_DESCRIPTION"
+  
+  # Manufacturer information
+  manufacturer:
+    name: "PLACEHOLDER_MANUFACTURER"
+    address: "PLACEHOLDER_ADDRESS"
+    country: "PLACEHOLDER_COUNTRY"
+    contact_email: "PLACEHOLDER_EMAIL"
+    contact_phone: "PLACEHOLDER_PHONE"
+    website: "PLACEHOLDER_WEBSITE"
+  
+  # Conformity assessment
+  conformity:
+    route: "self-assessment"  # self-assessment, module_b, module_h
+    declaration_date: "PLACEHOLDER-DATE"
+    applied_standards:
+      - "EN ISO/IEC 27001:2022"
+      - "IEC 62443-4-2:2019"
+    harmonised_standards: []  # To be updated when hENs are published
+
+
+  # CRA-specific
+  cra:
+    support_period_years: 5
+    vulnerability_contact: "security@example.com"
+    cvd_policy_url: "https://example.com/security/vulnerability-disclosure"

@@ -1,0 +1,59 @@
+# Quarto output
+_output/
+*.html
+*.pdf
+*.pptx
+!custom-pptx-template.pptx
+
+# Quarto cache
+.quarto/
+*_cache/
+*_files/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+
+# Backup files
+*~
+*.bak
+*.backup
+*-source.tex
+
+# OS files
+.DS_Store
+Thumbs.db
+.directory
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Temporary files
+tmp/
+temp/
+
+/.quarto/

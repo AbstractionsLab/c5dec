@@ -203,6 +203,7 @@ class TestAComponent(unittest.TestCase):
         self.acomponent = cct.AComponent(_id="test_id", _name="test_name")
         self.acomponent.children = [MagicMock(cct.AElement())]
 
+    # TST-021
     def test_valid_child_type(self):
         self.assertTrue(self.acomponent.is_valid())
 

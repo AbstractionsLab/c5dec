@@ -1,0 +1,410 @@
+# Threagile schema-to-ARC mappings for C5-DEC CPSSA.
+#
+# This file externalises the mapping tables that convert free-text values
+# found in Doorstop ARC/HARC/LARC architecture items into the enum values
+# expected by the Threagile data schema (threagile-schema.json).
+#
+# Each section corresponds to a Threagile enum field.  Keys are normalised
+# (lowercased) ARC field values; values are the valid Threagile enum strings.
+# When a key is not found the code falls back to a safe default (noted per
+# section).
+
+# ---------------------------------------------------------------------------
+# protocol  (communication_links → protocol)
+# Default fallback: "unknown-protocol"
+#
+# Schema enum:
+#   unknown-protocol, http, https, ws, wss,
+#   reverse-proxy-web-protocol, reverse-proxy-web-protocol-encrypted,
+#   mqtt, jdbc, jdbc-encrypted, odbc, odbc-encrypted,
+#   sql-access-protocol, sql-access-protocol-encrypted,
+#   nosql-access-protocol, nosql-access-protocol-encrypted,
+#   binary, binary-encrypted, text, text-encrypted,
+#   ssh, ssh-tunnel, smtp, smtp-encrypted,
+#   pop3, pop3-encrypted, imap, imap-encrypted,
+#   ftp, ftps, sftp, scp, ldap, ldaps, jms, nfs,
+#   smb, smb-encrypted, local-file-access, nrpe, xmpp,
+#   iiop, iiop-encrypted, jrmp, jrmp-encrypted,
+#   in-process-library-call, container-spawning
+# ---------------------------------------------------------------------------
+protocol:
+  # HTTP / web
+  http: http
+  https: https
+  ws: ws
+  wss: wss
+
+  # SSH / file transfer
+  ssh: ssh
+  ssh-tunnel: ssh-tunnel
+  sftp: sftp
+  scp: scp
+  ftp: ftp
+  ftps: ftps
+
+  # Mail
+  smtp: smtp
+  smtp-encrypted: smtp-encrypted
+  pop3: pop3
+  pop3-encrypted: pop3-encrypted
+  imap: imap
+  imap-encrypted: imap-encrypted
+
+  # Database
+  jdbc: jdbc
+  jdbc-encrypted: jdbc-encrypted
+  odbc: odbc
+  odbc-encrypted: odbc-encrypted
+  sql-access-protocol: sql-access-protocol
+  sql-access-protocol-encrypted: sql-access-protocol-encrypted
+  nosql-access-protocol: nosql-access-protocol
+  nosql-access-protocol-encrypted: nosql-access-protocol-encrypted
+
+  # Messaging / streaming
+  mqtt: mqtt
+  jms: jms
+
+  # Directory
+  ldap: ldap
+  ldaps: ldaps
+  ldap-encrypted: ldaps
+
+  # File sharing
+  nfs: nfs
+  smb: smb
+  smb-encrypted: smb-encrypted
+  local-file-access: local-file-access
+
+  # Monitoring / management
+  nrpe: nrpe
+  xmpp: xmpp
+
+  # CORBA / Java remoting
+  iiop: iiop
+  iiop-encrypted: iiop-encrypted
+  jrmp: jrmp
+  jrmp-encrypted: jrmp-encrypted
+
+  # Generic
+  binary: binary
+  binary-encrypted: binary-encrypted
+  text: text
+  text-encrypted: text-encrypted
+  in-process-library-call: in-process-library-call
+  container-spawning: container-spawning
+  reverse-proxy-web-protocol: reverse-proxy-web-protocol
+  reverse-proxy-web-protocol-encrypted: reverse-proxy-web-protocol-encrypted
+
+  # ---- ICS / OT field-bus protocols (mapped to generic binary) ----
+  opc-ua: binary
+  opcua: binary
+  opc ua: binary
+  opc-ua-encrypted: binary-encrypted
+  modbus tcp: binary
+  modbus-tcp: binary
+  modbus: binary
+  ethernet/ip: binary
+  ethernetip: binary
+  profibus: binary
+  profinet: binary
+  dnp3: binary
+  iec 61850: binary
+  bacnet: binary
+  hart: binary
+
+  # Remote management
+  rdp: binary-encrypted
+  vnc: binary
+  winrm: binary-encrypted
+
+  # Generic transport
+  tcp: binary
+  udp: binary
+
+# ---------------------------------------------------------------------------
+# authentication  (communication_links → authentication)
+# Default fallback: "none"
+#
+# Schema enum:
+#   none, credentials, session-id, token,
+#   client-certificate, two-factor, externalized
+# ---------------------------------------------------------------------------
+authentication:
+  none: none
+  credentials: credentials
+  password: credentials
+  session-id: session-id
+  session: session-id
+  token: token
+  jwt: token
+  api-key: token
+  certificate: client-certificate
+  client-certificate: client-certificate
+  cert: client-certificate
+  tls-mutual: client-certificate
+  mutual-tls: client-certificate
+  mtls: client-certificate
+  two-factor: two-factor
+  2fa: two-factor
+  mfa: two-factor
+  multi-factor: two-factor
+  externalized: externalized
+  oauth: externalized
+  oauth2: externalized
+  saml: externalized
+  oidc: externalized
+
+# ---------------------------------------------------------------------------
+# authorization  (communication_links → authorization)
+# Default fallback: "none"
+#
+# Schema enum:
+#   none, technical-user, enduser-identity-propagation
+# ---------------------------------------------------------------------------
+authorization:
+  none: none
+  technical-user: technical-user
+  service-account: technical-user
+  enduser-identity-propagation: enduser-identity-propagation
+  enduser: enduser-identity-propagation
+  user-identity: enduser-identity-propagation
+
+# ---------------------------------------------------------------------------
+# technology  (technical_assets → technology)
+# Default fallback: "unknown-technology"
+#
+# Maps the Doorstop ARC item "type" field to a valid Threagile technology.
+# ---------------------------------------------------------------------------
+technology:
+  # Servers
+  server: web-server
+  web-server: web-server
+  app-server: application-server
+  application-server: application-server
+  scada-server: application-server
+
+  # Processes / services
+  process: batch-processing
+  service: web-service-rest
+  api: web-service-rest
+  lambda: function
+
+  # ICS / OT devices
+  plc: iot-device
+  hmi: iot-device
+  rtu: iot-device
+
+  # Workstations / clients
+  workstation: desktop
+  jump-server: desktop
+  cli: cli
+
+  # Datastores
+  datastore: database
+  database: database
+  historian: database
+  repo: sourcecode-repository
+
+  # Actors (mapped as external-entity in Threagile type, technology N/A)
+  actor: unknown-technology
+  user: unknown-technology
+  operator: unknown-technology
+  external: unknown-technology
+
+  # Network appliances
+  firewall: waf
+  gateway: gateway
+  router: gateway
+  switch: gateway
+
+  # Other
+  module: library
+  library: library
+
+# ---------------------------------------------------------------------------
+# asset_type  (technical_assets → type)
+# Default fallback: "process"
+#
+# Schema enum:
+#   external-entity, process, datastore
+# ---------------------------------------------------------------------------
+asset_type:
+  # Datastores
+  datastore: datastore
+  database: datastore
+  historian: datastore
+  repo: datastore
+
+  # External entities
+  actor: external-entity
+  user: external-entity
+  operator: external-entity
+  external: external-entity
+  firewall: external-entity
+  gateway: external-entity
+  router: external-entity
+  switch: external-entity
+  rtu: external-entity
+
+  # Everything else → process
+  server: process
+  web-server: process
+  app-server: process
+  scada-server: process
+  process: process
+  service: process
+  api: process
+  lambda: process
+  plc: process
+  hmi: process
+  workstation: process
+  jump-server: process
+  module: process
+  library: process
+  cli: process
+
+# ---------------------------------------------------------------------------
+# encryption  (technical_assets → encryption)
+# Default fallback: "none"
+#
+# Schema enum:
+#   none, transparent,
+#   data-with-symmetric-shared-key,
+#   data-with-asymmetric-shared-key,
+#   data-with-enduser-individual-key
+# ---------------------------------------------------------------------------
+encryption:
+  none: none
+  "false": none
+  transparent: transparent
+  "true": transparent
+  symmetric: data-with-symmetric-shared-key
+  symmetric-shared-key: data-with-symmetric-shared-key
+  data-with-symmetric-shared-key: data-with-symmetric-shared-key
+  asymmetric: data-with-asymmetric-shared-key
+  asymmetric-shared-key: data-with-asymmetric-shared-key
+  data-with-asymmetric-shared-key: data-with-asymmetric-shared-key
+  enduser-individual-key: data-with-enduser-individual-key
+  data-with-enduser-individual-key: data-with-enduser-individual-key
+
+# ---------------------------------------------------------------------------
+# machine  (technical_assets → machine)
+# Default fallback: "physical"
+#
+# Schema enum:
+#   physical, virtual, container, serverless
+# ---------------------------------------------------------------------------
+machine:
+  physical: physical
+  virtual: virtual
+  vm: virtual
+  container: container
+  docker: container
+  serverless: serverless
+  lambda: serverless
+
+# ---------------------------------------------------------------------------
+# size  (technical_assets → size)
+# Default fallback: "component"
+#
+# Schema enum:
+#   system, service, application, component
+# ---------------------------------------------------------------------------
+size:
+  system: system
+  service: service
+  application: application
+  component: component
+
+# ---------------------------------------------------------------------------
+# confidentiality  (technical_assets / data_assets → confidentiality)
+# Default fallback: "internal"
+#
+# Schema enum:
+#   public, internal, restricted, confidential, strictly-confidential
+# ---------------------------------------------------------------------------
+confidentiality:
+  public: public
+  internal: internal
+  restricted: restricted
+  confidential: confidential
+  strictly-confidential: strictly-confidential
+
+# ---------------------------------------------------------------------------
+# integrity  (technical_assets / data_assets → integrity)
+# Default fallback: "operational"
+#
+# Schema enum:
+#   archive, operational, important, critical, mission-critical
+# ---------------------------------------------------------------------------
+integrity:
+  archive: archive
+  operational: operational
+  important: important
+  critical: critical
+  mission-critical: mission-critical
+
+# ---------------------------------------------------------------------------
+# availability  (technical_assets / data_assets → availability)
+# Default fallback: "operational"
+#
+# Schema enum:
+#   archive, operational, important, critical, mission-critical
+# ---------------------------------------------------------------------------
+availability:
+  archive: archive
+  operational: operational
+  important: important
+  critical: critical
+  mission-critical: mission-critical
+
+# ---------------------------------------------------------------------------
+# trust_boundary_type  (trust_boundaries → type)
+# Default fallback: "network-on-prem"
+#
+# Schema enum:
+#   network-on-prem, network-dedicated-hoster, network-virtual-lan,
+#   network-cloud-provider, network-cloud-security-group,
+#   network-policy-namespace-isolation, execution-environment
+# ---------------------------------------------------------------------------
+trust_boundary_type:
+  on-prem: network-on-prem
+  on-premise: network-on-prem
+  dedicated-hoster: network-dedicated-hoster
+  vlan: network-virtual-lan
+  virtual-lan: network-virtual-lan
+  cloud: network-cloud-provider
+  cloud-provider: network-cloud-provider
+  cloud-security-group: network-cloud-security-group
+  security-group: network-cloud-security-group
+  namespace-isolation: network-policy-namespace-isolation
+  execution-environment: execution-environment
+
+# ---------------------------------------------------------------------------
+# data_format  (technical_assets → data_formats_accepted)
+# Default fallback: "file"
+#
+# Schema enum:
+#   json, xml, serialization, file, csv
+# ---------------------------------------------------------------------------
+data_format:
+  json: json
+  xml: xml
+  serialization: serialization
+  binary: serialization
+  file: file
+  csv: csv
+
+# ---------------------------------------------------------------------------
+# business_criticality (top-level model field)
+# Default fallback: "important"
+#
+# Schema enum:
+#   archive, operational, important, critical, mission-critical
+# ---------------------------------------------------------------------------
+business_criticality:
+  archive: archive
+  operational: operational
+  important: important
+  critical: critical
+  mission-critical: mission-critical

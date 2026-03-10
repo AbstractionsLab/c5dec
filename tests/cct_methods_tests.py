@@ -27,6 +27,7 @@ class TestCheckHierarchical(unittest.TestCase):
         componentD.get_hierarchical_tree.return_value = []
         cct.Index.update("compD_id", componentD)
 
+    # TST-033
     def test_check_hierarchical(self):
         component_ids = set(['compa_id', 'compd_id'])
         is_valid = cct.check_hierarchical('compa_id', component_ids)
@@ -74,6 +75,7 @@ class TestCheckDependencies(unittest.TestCase):
         componentD.get_dependency_pool.return_value = []
         cct.Index.update("compD_id", componentD)
 
+    # TST-033
     def test_check_dependencies(self):
         # valid set
         component_ids = set(['compa_id', 'compb_id'])
@@ -102,9 +104,13 @@ class TestCheckDependencies(unittest.TestCase):
         is_valid = cct.check_dependencies('compa_id', component_ids)
         self.assertFalse(is_valid)
 
-    def test_check_hierarchical_or_dependecies(self):
-        # same logic as before no need for additional unit test
-        pass
+    @patch.object(cct, 'check_hierarchical')
+    def test_check_hierarchical_or_dependecies(self, mock_check_h):
+        # compC has OR dep (compa_id, compb_id); hierarchical check satisfies it
+        mock_check_h.return_value = True
+        component_ids = set(["compc_id"])
+        is_valid = cct.check_dependencies("compc_id", component_ids)
+        self.assertFalse(is_valid)
 
     def tearDown(self):
         cct.Index.clear()
@@ -129,6 +135,7 @@ class TestValidateDependencies(unittest.TestCase):
         componentD.get_hierarchical_tree.return_value = ["compb_id"]
         cct.Index.update("compD_id", componentD)
 
+    # TST-033
     def test_validate_dependencies_valid_set(self):
         component_ids = set(["compa_id", "compb_id"])
         is_valid, valid_set = cct.validate_dependencies(component_ids)

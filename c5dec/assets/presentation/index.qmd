@@ -1,0 +1,40 @@
+---
+title: "C5-DEC CAD Presentation"
+subtitle: "Secure System Design and Evaluation"
+author: "Abstractions Lab"
+date: "13/02/2026"
+institute: "itrust Abstractions Lab"
+
+# Custom metadata - edit c5dec_config.yml for easy updates
+presentation:
+  company: "itrust Abstractions Lab"
+  project: "CyFORT"
+  title: "C5-DEC CAD Presentation"
+  subtitle: "Secure System Design and Evaluation"
+  author: "Abstractions Lab"
+  date: "13/02/2026"
+  event: "Technical Presentation"
+
+# Acronyms and abbreviations
+cc:
+  cem: "Common Evaluation Methodology"
+  sfr: "Security Functional Requirement"
+  sar: "Security Assurance Requirement"
+  toe: "Target of Evaluation"
+  st: "Security Target"
+  pp: "Protection Profile"
+
+acr:
+  alab: "Abstractions Lab"
+  c5: "C5-DEC"
+  cad: "Computer-Aided Design"
+
+projectinfo:
+  name: "CyFORT - Cloud Cybersecurity Fortress"
+---
+
+{{< include slides/intro.qmd >}}
+
+{{< include slides/content.qmd >}}
+
+{{< include slides/conclusion.qmd >}}

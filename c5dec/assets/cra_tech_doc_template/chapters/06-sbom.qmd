@@ -1,0 +1,118 @@
+---
+title: "Software Bill of Materials (SBOM)"
+---
+
+# Software Bill of Materials (SBOM)
+
+## Overview
+
+This chapter provides the Software Bill of Materials (SBOM) as required by CRA Annex I Part II(1): "Manufacturers shall identify and document vulnerabilities and components contained in the product, including by drawing up a software bill of materials in a commonly used and machine-readable format covering at least the top-level dependencies of the product."
+
+**SBOM Format:** {{< meta sbom.format >}} (CycloneDX/SPDX)  
+**SBOM Version:** [Version]  
+**Generation Date:** [Date]  
+**Product:** {{< meta product.name >}} v{{< meta product.version >}}
+
+## Component Inventory
+
+[This section will be auto-populated by the pre-render script from the Doorstop SBOM document]
+
+### Summary Statistics
+
+- **Total Components:** [Number]
+- **Direct Dependencies:** [Number]
+- **Transitive Dependencies:** [Number]
+- **Unique Licenses:** [Number]
+- **Components with Known Vulnerabilities:** [Number]
+
+## Top-Level Dependencies
+
+[List of main/direct dependencies:]
+
+```{python}
+#| echo: false
+#| output: asis
+
+# This will be populated by scripts/generate_sbom_table.py
+# Generates markdown table from Doorstop SBOM document
+```
+
+## Component Details
+
+[For key components, provide additional detail:]
+
+### Component: [Name]
+
+- **Version:** [Version]
+- **License:** [License]
+- **Supplier:** [Supplier]
+- **Purpose:** [Why this component is used]
+- **Package URL (PURL):** [PURL]
+- **CPE:** [CPE if applicable]
+- **Known Vulnerabilities:** [CVE IDs if any]
+
+## License Compliance
+
+[Summary of licenses used and compliance status:]
+
+| License Type | Count | Compliance Status |
+|--------------|-------|-------------------|
+| MIT | [N] | Compliant |
+| Apache 2.0 | [N] | Compliant |
+| GPL-3.0 | [N] | Review required |
+
+## Vulnerability Status
+
+[Summary of known vulnerabilities in components:]
+
+| Component | Version | CVE ID | Severity | Status |
+|-----------|---------|--------|----------|--------|
+| [Name] | [Ver] | CVE-YYYY-NNNNN | High | Patched in v[X] |
+
+::: {.callout-warning}
+## Vulnerability Disclosure
+
+If you discover a vulnerability in this product or its components, please report it to: {{< meta cra.vulnerability_contact >}}
+
+Our coordinated vulnerability disclosure policy is available at: {{< meta cra.cvd_policy_url >}}
+:::
+
+## SBOM Maintenance
+
+### Update Frequency
+
+The SBOM is updated:
+- With each product release
+- When components are added, removed, or updated
+- When vulnerabilities are discovered in components
+
+### SBOM Availability
+
+The machine-readable SBOM is available:
+- Embedded in the product distribution
+- Via download from: [URL]
+- Upon request from: {{< meta manufacturer.contact_email >}}
+
+## Component Update Strategy
+
+[Describe the strategy for keeping components up-to-date:]
+
+- Regular dependency updates
+- Security patch application process
+- End-of-life component replacement
+
+## Third-Party Component Verification
+
+[Describe how third-party components are verified for authenticity and integrity before inclusion.]
+
+## SBOM Machine-Readable Format
+
+The complete SBOM in machine-readable CycloneDX/SPDX format is included as an appendix to this documentation and is available at:
+
+**File:** `sbom-{{< meta product.identifier >}}-{{< meta product.version >}}.json`
+
+::: {.callout-note}
+## CRA Compliance
+
+This SBOM fulfills the requirement of CRA Annex I Part II(1) for documenting components and dependencies in a commonly used and machine-readable format.
+:::

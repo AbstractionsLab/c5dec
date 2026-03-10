@@ -1,0 +1,78 @@
+# Welcome {.title-slide}
+
+::::: {.content-visible when-format="revealjs"}
+:::: {.columns}
+
+::: {.column width="30%"}
+![](figs/ITR-logo.jpg){width=80%}
+:::
+
+::: {.column width="40%"}
+![](figs/CyFORT-logo.png){width=90%}
+:::
+
+::: {.column width="30%"}
+![](figs/Alab-logo.png){width=80%}
+:::
+
+::::
+:::::
+
+::::: {.content-visible when-format="beamer"}
+% Title slide is customized via beamer-title.tex template
+:::::
+
+::::: {.content-visible when-format="pptx"}
+<!-- Title slide with logos -->
+<div style="text-align: center;">
+  <img src="figs/ITR-logo.jpg" width="25%" />
+  <img src="figs/CyFORT-logo.png" width="35%" />
+  <img src="figs/Alab-logo.png" width="25%" />
+</div>
+:::::
+
+---
+
+## Presentation Overview
+
+::: {.incremental}
+- **Introduction** to {{< meta acr.c5 >}} {{< meta acr.cad >}}
+- **Key Features** and capabilities
+- **Use Cases** for secure system design
+- **Demo** and examples
+- **Conclusion** and next steps
+:::
+
+::: {.notes}
+Speaker notes: This presentation covers the main features of C5-DEC CAD, a comprehensive toolset for Common Criteria-based secure system design and evaluation.
+:::
+
+---
+
+## About C5-DEC
+
+**C**ommon **C**riteria for **C**ybersecurity, **C**ryptography, **C**louds
+\
+**D**esign, **E**valuation and **C**ertification
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### Purpose
+- Secure system design
+- Common Criteria compliance
+- Evaluation support
+- Documentation generation
+:::
+
+::: {.column width="50%"}
+### Benefits
+- Streamlined workflows
+- Traceability
+- Automation
+- Best practices
+:::
+
+::::
+
+---

@@ -325,8 +325,9 @@ class TestFCoAuditBuilder(unittest.TestCase):
         self.assertEqual(self.fco_audit.isequal, "test_equal")
         
     def test_build_children_noop(self):
-        # Since _build_children is a no-op, this is just to ensure it doesn't break existing functionality.
+        original_level = self.fco_audit.level
         self.builder._build_children(None)
+        self.assertEqual(self.fco_audit.level, original_level)
 
     def test_build_with_isequal(self):
         xml_string = '''

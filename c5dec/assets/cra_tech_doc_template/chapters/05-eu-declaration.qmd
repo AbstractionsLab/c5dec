@@ -1,0 +1,104 @@
+---
+title: "EU Declaration of Conformity"
+---
+
+# EU Declaration of Conformity
+
+::: {.callout-important}
+## Legal Declaration
+
+This chapter contains the EU Declaration of Conformity as required by CRA Article 28 and Annex V.
+:::
+
+## Declaration
+
+**EU DECLARATION OF CONFORMITY**
+
+**Regulation (EU) 2024/2847 - Cyber Resilience Act**
+
+---
+
+**Manufacturer:**
+
+{{< meta manufacturer.name >}}  
+{{< meta manufacturer.address >}}  
+{{< meta manufacturer.country >}}
+
+**Authorised Representative:** (if applicable)
+
+[Name and address of authorized representative, if established outside the EU]
+
+---
+
+This declaration of conformity is issued under the sole responsibility of the manufacturer.
+
+**Product Identification:**
+
+- **Product Name:** {{< meta product.name >}}
+- **Product Identifier:** {{< meta product.identifier >}}
+- **Product Version:** {{< meta product.version >}}
+- **Product Category:** {{< meta product.category >}}
+
+**The object of the declaration described above is in conformity with Regulation (EU) 2024/2847 (Cyber Resilience Act).**
+
+## Applicable Requirements
+
+The product complies with the essential cybersecurity requirements set out in:
+
+- Annex I Part I - Security properties of products with digital elements
+- Annex I Part II - Vulnerability handling requirements
+
+## Conformity Assessment Procedure
+
+Conformity has been assessed using the following procedure:
+
+**{{< meta conformity.route >}}** in accordance with CRA Article 47.
+
+[If applicable: Notified Body details]
+
+- Notified Body Name: [Name]
+- Notified Body Number: [Number]
+- Certificate Number: [Number]
+- Certificate Date: [Date]
+
+## Applied Standards
+
+References to harmonised standards and/or common specifications applied:
+
+{{#each conformity.applied_standards}}
+- {{this}}
+{{/each}}
+
+## Additional Information
+
+**Support Period:** Security updates will be provided for {{< meta cra.support_period_years >}} years from the date of placing on the market.
+
+**Vulnerability Disclosure:** {{< meta cra.vulnerability_contact >}}
+
+**CVD Policy:** {{< meta cra.cvd_policy_url >}}
+
+## Signatory
+
+**Place of issue:** [City, Country]  
+**Date of issue:** {{< meta conformity.declaration_date >}}
+
+**Name:** [Authorized signatory name]  
+**Position:** [Title/Position]  
+**Signature:** _______________________
+
+---
+
+::: {.callout-note}
+## Document Retention
+
+This EU Declaration of Conformity and the technical documentation shall be kept for a period of 10 years after the product with digital elements has been placed on the market (CRA Article 31).
+:::
+
+## Supporting Documentation
+
+This declaration is supported by the following technical documentation:
+
+- Technical documentation per Annex VII (this document)
+- Software Bill of Materials (SBOM) - See Chapter 6
+- Cybersecurity risk assessment - See Chapter 3
+- Test reports and evidence

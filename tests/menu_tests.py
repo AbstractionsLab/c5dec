@@ -4,9 +4,9 @@ import unittest
 
 class MenuTest(unittest.TestCase):
     def test_add_function(self):
-        a.add_function("f1", test_function)
+        a.add_function("f1", _menu_callback)
         self.assertTrue("f1" in a.functions.keys())
-        self.assertTrue(test_function in a.functions.values())
+        self.assertTrue(_menu_callback in a.functions.values())
 
     def test_add_menu(self):
         a.add_menu("A")
@@ -47,7 +47,7 @@ class MenuTest(unittest.TestCase):
             )
 
 
-def test_function():
+def _menu_callback():
     pass
 
 a = Menu("main")

@@ -1,5 +1,119 @@
 # Cryptography
 
+## Native Python cryptographic functions
+
+C5-DEC CAD includes a native Python cryptography module (`c5dec/core/cryptography.py`)
+that provides four categories of cryptographic operations accessible directly
+via the `c5dec crypto` CLI command, without requiring any external containers:
+
+| Category | CLI prefix | Key operations |
+|----------|------------|----------------|
+| SHA-256 integrity | `c5dec crypto hash` / `verify-hash` | File hashing and verification |
+| GnuPG signing/encryption | `c5dec crypto sign` / `verify-sig` / `encrypt` / `decrypt` | Asymmetric signing and file encryption |
+| Shamir's Secret Sharing | `c5dec crypto shamir-split` / `shamir-recover` | (k,n)-threshold secret splitting |
+| NaCl Ed25519 signing | `c5dec crypto nacl-keygen` / `nacl-sign` / `nacl-verify` | Fast elliptic-curve digital signatures |
+
+### SHA-256 file integrity
+
+Compute or verify the SHA-256 hash of any file. Useful for integrity checking
+of SSDLC artefacts before publication or transmission.
+
+```sh
+# Compute hash
+c5dec crypto hash path/to/file.pdf
+# Output: 85fe13fb3d1135ee0bd0a4a02e1322df11804edcefd545f7c361e53a074d73de
+
+# Verify hash
+c5dec crypto verify-hash path/to/file.pdf 85fe13fb3d...
+# Output: OK  (or MISMATCH on failure)
+```
+
+### GnuPG signing and encryption
+
+Requires GnuPG (`gpg`) to be available on the system PATH. GnuPG is
+pre-installed in the C5-DEC dev container.
+
+```sh
+# Create detached signature (default key)
+c5dec crypto sign report.pdf -o report.pdf.sig
+
+# Sign with a specific key
+c5dec crypto sign report.pdf --key alice@example.com
+
+# Verify detached signature
+c5dec crypto verify-sig report.pdf report.pdf.sig
+
+# Encrypt for one or more recipients
+c5dec crypto encrypt sensitive.docx -r alice@example.com bob@example.com
+
+# Decrypt (asymmetric — uses the default private key in the GPG keyring)
+c5dec crypto decrypt sensitive.docx.gpg -o sensitive.docx
+
+# Decrypt with passphrase (symmetric GPG encryption)
+c5dec crypto decrypt symmetric-file.gpg -o output.txt --passphrase "my-passphrase"
+```
+
+To manage GPG keys, use the `gpg` command directly in the dev container:
+
+```sh
+gpg --list-keys          # list public keys
+gpg --gen-key            # interactive key generation
+gpg --import public.asc  # import a public key
+```
+
+### Shamir's Secret Sharing
+
+Splits a hex-encoded secret into `n` shares, of which any `k` are sufficient
+for reconstruction. Uses a Mersenne prime field GF(2^127 − 1) for cryptographic
+security.
+
+```sh
+# Split a 32-bit secret into 5 shares (3 needed to reconstruct)
+c5dec crypto shamir-split deadbeef -n 5 -k 3
+# Output (one share per line):
+# 1:749d9615e82fb71f6f92008c...
+# 2:693b2c2bd05f6e3edf24011...
+# ...
+
+# Reconstruct from any 3 shares
+c5dec crypto shamir-recover \
+  "1:749d9615..." \
+  "3:5dd8c241..." \
+  "5:46af6557..."
+# Output: deadbeef
+```
+
+**Security note**: the `secret_hex` value must represent an integer smaller than
+2^127 − 1 (at most 126 bits, i.e., at most 32 hex characters). For larger
+secrets, split them into 126-bit chunks or use GPG-based key wrapping.
+
+### NaCl Ed25519 signing
+
+Fast and secure digital signatures using the [PyNaCl](https://pynacl.readthedocs.io/)
+Ed25519 implementation. Suitable for signing Doorstop review tokens, SBOM
+attestations, or any small message.
+
+```sh
+# Generate a keypair
+c5dec crypto nacl-keygen
+# Output:
+# verify_key:  <64-char hex>
+# signing_key: <64-char hex>
+
+# Sign a message
+c5dec crypto nacl-sign "approved by alice" <signing_key_hex>
+# Output: <hex-encoded signed message>
+
+# Verify and recover the message
+c5dec crypto nacl-verify <signed_hex> <verify_key_hex>
+# Output: approved by alice
+```
+
+**Key management**: store `verify_key` (public) freely; keep `signing_key`
+(private) secret, e.g., in an encrypted file or a GPG-encrypted store.
+
+---
+
 ## Classical cryptography
 
 Cryptography-related features of C5-DEC CAD are implemented via the integration of cryptographic software into the C5-DEC containerized development environment, i.e., via  the [development Dockerfile](https://github.com/AbstractionsLab/c5dec/blob/main/dev.Dockerfile) along with the VS Code [devcontainer.json](https://github.com/AbstractionsLab/c5dec/blob/main/.devcontainer/devcontainer.json) file. Please see the corresponding user manual [installation instructions](https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/installation.md#installation-in-a-containerized-development-environment) for more details.

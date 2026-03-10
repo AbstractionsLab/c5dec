@@ -86,3 +86,73 @@ Finally, while the user can easily create tables from the automatically produced
 The cost+VAT column is already added to the CostReport sheet such that the user can easily copy-paste the automatically generated cost report table into this template table and obtain an overview upon refreshing the pivot table.
 
 ![C5-DEC CAD RMT analysis overview](./_figures/c5dec-rmt-analysis-overview.png)
+
+---
+
+## CLI commands
+
+In addition to the TUI-based assistants, all project resource management operations are available directly from the command line.
+
+### Time report conversion
+
+Convert an OpenProject `.xls` time report export to the C5-DEC time sheet format:
+
+```sh
+c5dec timerep <name>
+```
+
+| Argument | Description |
+|----------|-------------|
+| `name` | Full filename (including `.xls`) of the OpenProject time report stored in `c5dec/input/` |
+
+The converted output is written to the current working directory using the same naming conventions as the TUI assistant.
+
+### Time report consolidation
+
+Consolidate and optionally filter a folder of C5-DEC time sheets:
+
+```sh
+c5dec consolidate <name> [-l] [-f FROMDATE] [-t TO] [-d FIELD] [-v VALUE]
+```
+
+| Argument | Description |
+|----------|-------------|
+| `name` | Name of the sub-directory under `c5dec/input/` that contains the time sheet files |
+| `-l`, `--filter` | Apply the filter options specified by `-f`, `-t`, `-d`, `-v` |
+| `-f`, `--fromdate` | Start of date range (only the month is considered in the current version) |
+| `-t`, `--to` | End of date range (only the month is considered in the current version) |
+| `-d`, `--field` | Column/field name to filter on, e.g., `Domain` |
+| `-v`, `--value` | Value the selected field must match, e.g., `RD` |
+
+Without `-l` the algorithm consolidates all time sheets in the folder without filtering. The output file is written to the project root and named `consolidated-TSH-<date>-<timestamp>.xlsx`.
+
+### Cost report computation
+
+Compute a cost report from a C5-DEC time sheet:
+
+```sh
+c5dec costrep <name>
+```
+
+| Argument | Description |
+|----------|-------------|
+| `name` | Full filename (including `.xlsx`) of the C5-DEC time sheet stored in `c5dec/input/` |
+
+This is equivalent to the Docker runner form `./c5dec.sh costrep <name>`. Both invoke the same cost report generation function and produce the same output.
+
+### Configuration via `c5dec_params.yml`
+
+The PM module reads its schema and column mappings from the `pm:` section of `c5dec/assets/c5dec_params.yml`. Key fields are shown below; adjust these to match your organisation's time sheet layout.
+
+```yaml
+pm:
+  tsh:
+    sheet-name: "IAL-TSH"         # Name of the Excel worksheet
+    id: "ID"                      # Column containing entry IDs
+    day: "Day"                    # Column containing the day value
+    # ... additional column mappings
+  cost:
+    daily-rate-col-name: "DailyRate"   # Column used by the cost computation
+```
+
+For a full reference of all available keys, open `c5dec/assets/c5dec_params.yml` in the project repository.

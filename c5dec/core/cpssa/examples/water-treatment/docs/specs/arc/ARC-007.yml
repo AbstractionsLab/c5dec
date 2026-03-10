@@ -1,0 +1,52 @@
+active: true
+header: PLC Chemical Dosing
+type: plc
+zone: OT
+text: |
+  Siemens S7-1500 PLC managing chlorine and coagulant dosing pumps.
+  Receives setpoints from SCADA via OPC-UA; independently executes safety
+  interlocks if communication is lost.  Controls six 4–20 mA analogue outputs
+  driving chemical metering pumps.  Compromise can lead to over/under-dosing
+  with direct public health consequences.
+vendor: Siemens
+model: S7-1515-2 PN
+firmware: V3.1
+safety_rated: true
+port: 4840
+protocol: OPC-UA
+encryption: none
+machine: physical
+size: component
+confidentiality: restricted
+integrity: mission-critical
+availability: mission-critical
+justification_cia_rating: >-
+  Controls chemical dosing with direct public health impact; integrity
+  and availability are mission-critical.
+has_access_control: true
+authenticates_source: false
+links:
+  - SRS-003
+  - SRS-004
+flows:
+  - target: ARC-005
+    protocol: OPC-UA
+    port: 4840
+    encrypted: false
+    authentication: none
+    authorization: none
+  - target: ARC-006
+    protocol: OPC-UA
+    port: 4840
+    encrypted: false
+    authentication: none
+    authorization: none
+data_assets:
+  - setpoints
+  - control-outputs
+  - interlocks
+data_assets_stored:
+  - interlocks
+data_formats_accepted:
+  - serialization
+reviewed: false

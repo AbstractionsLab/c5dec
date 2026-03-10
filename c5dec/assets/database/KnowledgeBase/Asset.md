@@ -7,7 +7,7 @@ Relevant CC Version: 3.1 Revision 5
 
 **Acronym:** A
 
-An **Asset** in cybersecurity refers to an item or information considered of value and thus necessitates protection. Assets, often in the form of information, are stored, processed, and transmitted by IT products and are vital to the functioning and continuity of an organization. The compromise of an asset, whether through loss of confidentiality, integrity, or availability, can result in a devaluation or potential operational disruptions. Protecting assets from [threats](./Threat.md) via security controls, usually referred to as [security objectives](./SecurityObjectives.md) in the context of CC, implemented in the [operational environment (OE)](./TOEOperationalEnvironment.md) is paramount.
+An **Asset** in cybersecurity refers to an item or information considered of value and thus necessitates protection. Assets, often in the form of information, are stored, processed, and transmitted by IT products and are vital to the functioning and continuity of an organization. The compromise of an asset, whether through loss of confidentiality, integrity, or availability, can result in a devaluation or potential operational disruptions. Protecting assets from [threats](./Threat.md) via security controls, usually referred to as [security objectives](./SecurityObjective.md) in the context of CC, implemented in the [operational environment (OE)](./TOEOperationalEnvironment.md) is paramount.
 
 Assets, particularly within the realm of Common Criteria, serve as focal points around which threats and security objectives are defined and evaluated. Ensuring the protection of assets translates to preserving organizational value and maintaining operational integrity.
 
@@ -83,6 +83,6 @@ It is important not to identify too many assets or types of assets. If two asset
 
 - [Deriving the Security Problem Definition](./SecurityProblemdefinition.md)
 - [Identifying Threats](./Threat.md)
-- [Deriving Security Objectives](./SecurityObjectives.md)
+- [Deriving Security Objectives](./SecurityObjective.md)
 - [Understanding the Operational Environment (OE)](./TOEOperationalEnvironment.md)
 

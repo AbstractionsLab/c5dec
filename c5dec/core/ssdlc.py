@@ -1,8 +1,10 @@
 import doorstop
 import os
+import shutil
 import c5dec.settings as c5settings
 import c5dec.common as common
 import warnings
+from datetime import datetime
 
 log = common.logger(__name__)
 warnings.filterwarnings('ignore', category=UserWarning, module='openpyxl')
@@ -144,6 +146,137 @@ def create_new_c5dec_project(project="myproject", user="user"):
     # Return the path to the ZIP archive
     zip_path = os.path.abspath(os.path.join(os.getcwd(), '..', f'{project}.zip'))
     log.info(f"Created ZIP archive at {zip_path}")
+
+def create_docengine_template(template_type, name, destination=None):
+    """
+    Create a new DocEngine report or presentation from templates.
+
+    This function performs the following steps:
+    1. Validates the template type (report or presentation).
+    2. Copies the template folder to a new destination in ./docengine/{name}/.
+    3. Updates configuration files with the specified project name and current date.
+    4. Generates a ZIP archive of the created template.
+    5. Keeps both the working folder and ZIP archive.
+
+    Args:
+        template_type (str): Type of template to create ("report" or "presentation").
+        name (str): The name of the new template instance.
+        destination (str, optional): Override default destination path. Defaults to ./docengine/{name}/.
+
+    Returns:
+        None: The function logs the progress and creates both folder and ZIP archive.
+    """
+    # Validate template type
+    valid_types = ["report", "presentation", "cra-tech-doc"]
+    if template_type not in valid_types:
+        log.error(f"Invalid template type '{template_type}'. Must be one of: {valid_types}")
+        return False
+
+    # Determine source path based on template type
+    if template_type == "report":
+        source_path = c5settings.REPORT_TEMPLATE_PATH
+    elif template_type == "presentation":
+        source_path = c5settings.PRESENTATION_TEMPLATE_PATH
+    else:  # cra-tech-doc
+        source_path = c5settings.CRA_TECH_DOC_TEMPLATE_PATH
+
+    # Calculate destination path
+    if destination is None:
+        docengine_folder = os.path.abspath(os.path.join(os.getcwd(), 'docengine'))
+        destination_path = os.path.abspath(os.path.join(docengine_folder, name))
+        
+        # Create docengine folder if it doesn't exist
+        if not os.path.exists(docengine_folder):
+            os.makedirs(docengine_folder)
+            log.info(f"Created docengine folder at {docengine_folder}")
+    else:
+        destination_path = os.path.abspath(destination)
+
+    # Check if destination exists
+    if os.path.exists(destination_path):
+        log.error(f"Destination folder {destination_path} already exists.")
+        return False
+
+    # Check if Quarto is installed (warning only, not blocking)
+    if shutil.which("quarto") is None:
+        log.warning("Quarto not detected. Install from https://quarto.org to render templates.")
+
+    # Copy the template folder
+    try:
+        shutil.copytree(source_path, destination_path)
+        log.info(f"Copied {template_type} template to {destination_path}")
+    except Exception as e:
+        log.error(f"Failed to copy template: {e}")
+        return False
+
+    # Get current date
+    current_date = datetime.now().strftime("%d/%m/%Y")
+
+    # Define files to update and their replacements
+    files_to_update = {
+        'c5dec_config.yml': [
+            ('CyFORT', name),
+            ('C5-DEC CAD', name),
+        ],
+        '_quarto.yml': [
+            ('C5-DEC CAD DocEngine', f'{name}'),
+            ('C5-DEC CAD', name),
+        ],
+        'index.qmd': [
+            ('C5-DEC CAD', name),
+        ],
+        'README.md': [
+            ('c5dec/assets/report', f'docengine/{name}'),
+            ('c5dec/assets/presentation', f'docengine/{name}'),
+            ('C5-DEC CAD', name),
+        ],
+    }
+
+    # Perform variable substitutions
+    for filename, replacements in files_to_update.items():
+        file_path = os.path.join(destination_path, filename)
+        if os.path.exists(file_path):
+            try:
+                with open(file_path, 'r', encoding='utf-8') as file:
+                    content = file.read()
+
+                # Apply all replacements
+                for old_text, new_text in replacements:
+                    content = content.replace(old_text, new_text)
+
+                with open(file_path, 'w', encoding='utf-8') as file:
+                    file.write(content)
+
+                log.info(f"Updated {file_path} with project name '{name}'")
+            except Exception as e:
+                log.warning(f"Could not update {file_path}: {e}")
+        else:
+            log.warning(f"{filename} not found in {destination_path}")
+
+    # Create ZIP archive (keep both folder and archive)
+    zip_base_path = os.path.join(os.path.dirname(destination_path), name)
+    try:
+        shutil.make_archive(zip_base_path, 'zip', destination_path)
+        zip_path = f"{zip_base_path}.zip"
+        log.info(f"Created ZIP archive at {zip_path}")
+    except Exception as e:
+        log.error(f"Failed to create ZIP archive: {e}")
+        return False
+
+    # Log success with next steps
+    log.info(f"\nDocEngine {template_type} template created successfully!")
+    log.info(f"Location: {destination_path}")
+    log.info(f"Archive: {zip_path}")
+    log.info("\nNext steps:")
+    log.info(f"  1. cd {destination_path}")
+    log.info(f"  2. Edit c5dec_config.yml with your project details")
+    if template_type == "report":
+        log.info("  3. Customize chapters/ with your content")
+    else:
+        log.info("  3. Customize slides/ with your content")
+    log.info("  4. quarto render")
+    
+    return True
 
 def get_artifact_tree():
     path = c5settings.PROJECT_ROOT

@@ -3,7 +3,7 @@ project:
   output-dir: _output
   pre-render:
     - scripts/restore_tex_files.py
-    - scripts/custom_vars.py
+    - scripts/custom_vars_v2.py
     - scripts/tables.py # when not using the c5dec containerized dev environment in VS Code, see README or first create and activate a virtual environment (using venv), activate and install requirements.txt, and set QUARTO_PATH env variable to venv/bin/python
   post-render: 
     - scripts/restore_tex_files.py
@@ -69,4 +69,4 @@ format:
     subtitle: DocEngine report template
     subject: C5-DEC document generation
     category: Report (REP)
-    description: Restricted
+    description: Confidential

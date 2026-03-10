@@ -1,3 +1,9 @@
+---
+Last Updated: October 4, 2023
+Relevant CC Version: CC 2022
+Tags: assumption, SPD, operational-environment
+---
+
 # Assumption
 
 **Acronym:** None
@@ -28,5 +34,5 @@ Navigating through the landscape of crafting and implementing assumptions within
 
 - [Deriving the Security Problem Definition](./SecurityProblemdefinition.md)
 - [Identifying Threats](./Threat.md)
-- [Deriving Security Objectives](./SecurityObjectives.md)
+- [Deriving Security Objectives](./SecurityObjective.md)
 - [Understanding the Operational Environment (OE)](./TOEOperationalEnvironment.md)

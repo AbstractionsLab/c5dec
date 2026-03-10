@@ -139,6 +139,65 @@ Similarly, to get a list of the available quantum-safe KEM algorithms, you can r
 openssl list -kem-algorithms -provider oqsprovider
 ```
 
+#### C5-DEC DocEngine dev container
+
+A dedicated `docEngine.Dockerfile` is provided for workflows focused on document generation and publication (Quarto, SpecEngine, `publish.sh`). It is lighter than the full dev container and is suited for CI/CD pipelines or machines where only the DocEngine toolchain is needed.
+
+**When to use `docEngine.Dockerfile` instead of `dev.Dockerfile`:**
+
+| Scenario | Recommended container |
+|----------|-----------------------|
+| DocEngine reports (PDF, HTML, DOCX) | `docEngine.Dockerfile` |
+| Full C5-DEC CAD development | `dev.Dockerfile` (main dev container) |
+| Post-quantum cryptography | `C5-DEC CAD cryptography dev container` |
+
+**Build and run:**
+
+```sh
+# Build the DocEngine image
+docker build -f docEngine.Dockerfile -t c5dec-docengine .
+
+# Run an interactive session (mounts current directory)
+docker run --rm -it -v "$(pwd)":/workspace c5dec-docengine bash
+```
+
+Inside the container, the full Quarto and SpecEngine toolchain is available. Navigate to your project folder and run `publish.sh` or individual SpecEngine scripts as described in the [SSDLC SpecEngine section](./ssdlc.md#specengine-utilities).
+
+---
+
+## Workspace setup
+
+Before running C5-DEC CAD for the first time, a few one-time workspace preparations are needed regardless of the deployment method used.
+
+### Unpack and rename
+
+Unpack the C5-DEC distribution folder and rename it as you see fit. The folder name has no effect on the correct execution of C5-DEC CAD; this guide assumes the folder is named `c5dec`.
+
+### Initialize a git repository
+
+C5-DEC CAD expects a git repository at the root of the project folder. If one does not already exist, initialize it:
+
+```sh
+git init .
+```
+
+### Activate the Poetry environment
+
+The Poetry environment is activated automatically when:
+
+- You connect to an interactive session via `./c5dec.sh session`; or
+- You open the project via the `C5-DEC CAD dev container` in VS Code.
+
+To activate it manually in a terminal inside the container:
+
+```sh
+poetry shell
+```
+
+Once activated, all `c5dec` commands are available directly without the `poetry run` prefix.
+
+---
+
 ## **Deprecated** installation and deployment method
 
 ### Installing via pipx and C5-DEC distribution package

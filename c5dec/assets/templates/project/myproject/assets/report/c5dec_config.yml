@@ -8,7 +8,7 @@ cover:
   owner: "Shafi"
   authors: "Dijkstra"
   application-date: "03/07/2024"
-  classification: "Restricted"
+  classification: "Confidential"
   bottom-text: "This document can be found in the ALab repository."
 
 meta:
@@ -23,7 +23,7 @@ meta:
     ]
   approval:
     [
-      ["Grace", "CTO", "Content agreement", "A"],
-      ["Knuth", "RD Scientist", "Content agreement", "I"],
-      ["Babbage", "RD Specialist", "Content agreement", "I"]
+      ["Grace", "CTO", "Content agreement", "---"],
+      ["Knuth", "RD Scientist", "Content agreement", "---"],
+      ["Babbage", "RD Specialist", "Content agreement", "---"]
     ]

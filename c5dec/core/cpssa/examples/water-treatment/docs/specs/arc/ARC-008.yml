@@ -1,0 +1,45 @@
+active: true
+header: PLC Pump Station
+type: plc
+zone: OT
+text: |
+  Allen-Bradley ControlLogix PLC controlling raw water intake pumps,
+  distribution pumps, and sluice gate actuators. Reads pressure and flow
+  sensors directly via HART and PROFIBUS; sends status to SCADA over EtherNet/IP.
+  Loss of availability or integrity can cause flooding or water supply outage.
+vendor: Rockwell Automation
+model: 1756-L85E ControlLogix
+firmware: v35.011
+safety_rated: true
+port: 44818
+protocol: EtherNet/IP
+encryption: none
+machine: physical
+size: component
+confidentiality: restricted
+integrity: mission-critical
+availability: mission-critical
+justification_cia_rating: >-
+  Controls water intake and distribution pumps; loss of integrity or
+  availability can cause flooding or water supply outage.
+has_access_control: false
+authenticates_source: false
+links:
+  - SRS-003
+  - SRS-004
+flows:
+  - target: ARC-006
+    protocol: EtherNet/IP
+    port: 44818
+    encrypted: false
+    authentication: none
+    authorization: none
+data_assets:
+  - setpoints
+  - control-outputs
+  - sensor-readings
+data_assets_stored:
+  - sensor-readings
+data_formats_accepted:
+  - serialization
+reviewed: false

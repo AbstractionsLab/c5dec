@@ -1,0 +1,63 @@
+threat_actors:
+  - id: supply-chain-attacker
+    name: Supply-chain / malicious dependency attacker
+    motivation: espionage, sabotage, financial-gain
+    capability: high
+    access: external
+    description: >
+      A nation-state actor or sophisticated criminal group that targets the
+      C5-DEC CAD supply chain. Attack vectors include: injecting malicious
+      code into a PyPI dependency (transitive or direct), compromising the
+      oqs-ossl3 or Syft binary distribution, or poisoning the CC XML
+      database bundled into the package. A successful supply-chain attack
+      could silently corrupt CC evaluations, compromise PQC key material,
+      or exfiltrate configuration data without any visible user action.
+      High capability is assumed because supply-chain attacks require
+      significant resources but do not require direct access to the target
+      deployment.
+
+  - id: malicious-insider
+    name: Malicious insider (developer or evaluator)
+    motivation: sabotage, data-exfiltration, competitive-advantage
+    capability: medium
+    access: internal
+    description: >
+      A developer, security engineer, or evaluator with legitimate access
+      to the C5-DEC CAD environment, source code repository, or generated
+      artefacts. Internal access means this actor can read configuration
+      files (including API tokens), modify source code before commit,
+      tamper with CC evaluation checklists or ETRs, or exfiltrate
+      pre-publication evaluation documents. The actor may also modify
+      threat-model ARC items to hide risks from the CPSSA output. Medium
+      capability reflects the elevated access level but typical absence
+      of nation-state tradecraft.
+
+  - id: opportunistic-attacker
+    name: Opportunistic attacker (automated scanner / script kiddie)
+    motivation: financial-gain, opportunism
+    capability: low
+    access: external
+    description: >
+      A low-sophistication attacker running automated scanners or
+      off-the-shelf exploit toolkits. Relevant attack surface is limited
+      to the OpenProject REST endpoint (the only internet-facing interface)
+      and any exposed Docker daemon ports. This actor would attempt
+      credential stuffing against the OpenProject instance, scan for
+      exposed Docker APIs, or exploit known CVEs in publicly visible
+      container images.  Low capability reflects reliance on automated
+      tools and publicly known exploits without custom development.
+
+  - id: config-tamperer
+    name: Unauthorised workstation / config tamperer
+    motivation: sabotage, privilege-escalation
+    capability: medium
+    access: physical
+    description: >
+      An attacker with physical or OS-level access to the developer
+      workstation (e.g., through an unlocked workstation, a shared
+      build server, or a compromised CI/CD runner). This actor can
+      read or modify configuration files (c5dec_params.yml, config.json)
+      to steal the OpenProject API token, alter GnuPG key identifiers
+      to redirect signing to an attacker-controlled key, or replace
+      output artefacts in the bind-mounted workspace with forged documents.
+      Physical/OS access bypasses all container-level controls.

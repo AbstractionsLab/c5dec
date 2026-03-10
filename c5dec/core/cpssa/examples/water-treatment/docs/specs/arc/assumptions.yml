@@ -1,0 +1,68 @@
+# Documented assumptions for the water-treatment CPSSA example.
+#
+# List assumptions about the environment that must be verified before
+# concluding the threat model is accurate.  Each unverified assumption
+# is a potential blind spot in the security assessment.
+#
+# Fields:
+#   id       - unique identifier (e.g. ASSUM-001)
+#   text     - concise statement of the assumption
+#   verified - true | false (false = requires verification / open item)
+
+assumptions:
+  - id: ASSUM-001
+    text: >
+      All remote access from the IT zone to the DMZ and SCADA zones is
+      exclusively routed through the jump server (ARC-002). No direct
+      IT-to-SCADA paths exist outside this bastion host.
+    verified: false
+
+  - id: ASSUM-002
+    text: >
+      OPC-UA certificate-based authentication is enabled and enforced on all
+      SCADA-to-PLC channels (ARC-006 → ARC-007, ARC-006 → ARC-008). Unauthenticated
+      OPC-UA connections are rejected.
+    verified: false
+
+  - id: ASSUM-003
+    text: >
+      The process data historian (ARC-004) has no direct network route to the
+      internet. Replication to the corporate data lake is mediated through
+      the IT corporate firewall (ARC-001).
+    verified: false
+
+  - id: ASSUM-004
+    text: >
+      Firmware updates to PLCs (ARC-007, ARC-008) and the RTU (ARC-009)
+      require physical access or a dedicated, air-gapped maintenance laptop.
+      Remote firmware deployment over OPC-UA or Modbus TCP is disabled.
+    verified: false
+
+  - id: ASSUM-005
+    text: >
+      The HMI console (ARC-005) cannot initiate connections outside the SCADA
+      zone. Outbound traffic from ARC-005 is restricted to OPC-UA on port 4840
+      toward ARC-006 only.
+    verified: false
+
+  - id: ASSUM-006
+    text: >
+      All traffic between the SCADA zone and the OT field-bus zone traverses
+      the SCADA application server (ARC-006). There are no unmanaged lateral
+      paths between the two zones.
+    verified: false
+
+  - id: ASSUM-007
+    text: >
+      Session recording and multi-factor authentication (MFA) are active and
+      enforced on all sessions traversing the jump server (ARC-002).
+      Recording data is stored in a tamper-evident log repository inaccessible
+      to jump-server operators.
+    verified: false
+
+  - id: ASSUM-008
+    text: >
+      The corporate firewall (ARC-001) blocks all unsolicited inbound traffic
+      from the internet. Only explicitly whitelisted source IPs and ports are
+      permitted for remote maintenance access.
+    verified: false

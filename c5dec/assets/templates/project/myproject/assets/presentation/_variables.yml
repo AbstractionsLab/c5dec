@@ -1,0 +1,19 @@
+cc:
+  cem: "Common Evaluation Methodology"
+  sfr: "Security Functional Requirement"
+  sar: "Security Assurance Requirement"
+  toe: "Target of Evaluation"
+  st: "Security Target"
+  pp: "Protection Profile"
+
+acr:
+  alab: "Abstractions Lab"
+  c5: "C5-DEC"
+  cad: "Computer-Aided Design"
+  cyfort: "CyFORT"
+  ssdlc: "Secure Software Development Life Cycle"
+  eucc: "European Common Criteria"
+
+project:
+  name: "CyFORT - Cloud Cybersecurity Fortress"
+  acronym: "CyFORT"

@@ -15,6 +15,7 @@ class TestUniqueIDManager(unittest.TestCase):
         """Set up test environment with a custom separator and count width."""
         self.uid_manager = UniqueIDManager(separator='-', count_width=3)
 
+    # TST-016
     def test_get_next_id(self):
         """Test generating unique IDs with the specified separator and count width."""
         id1 = self.uid_manager.next("prefix")

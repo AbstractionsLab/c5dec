@@ -1,0 +1,21 @@
+{
+  "incidents": [
+    {"id": "R1", "type": "technique"},
+    {"id": "R2", "type": "technique"},
+    {"id": "A", "type": "incident", "asset": "comp_a", "aspect": "I"},
+    {"id": "B", "type": "incident", "asset": "comp_b", "aspect": "A"},
+    {"id": "C", "type": "incident", "asset": "comp_c", "aspect": "C"}
+  ],
+  "edges": [
+    {"from": "R1", "to": "A", "p": 0.5},
+    {"from": "R2", "to": "B", "p": 0.4},
+    {"from": "A", "to": "C", "p": 0.6},
+    {"from": "B", "to": "C", "p": 0.3}
+  ],
+  "root_causes": ["R1", "R2"],
+  "impacts": [
+    {"incident": "A", "impact": 10000},
+    {"incident": "B", "impact": 20000},
+    {"incident": "C", "impact": 30000}
+  ]
+}

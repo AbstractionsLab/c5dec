@@ -41,7 +41,7 @@ Descriptions goes here...
 
 ## User manual
 
-Please see the [CAD user manual](./docs/manual/overview.md) to learn more about the installation, setup requirements, overall usage and specific modules. A concise guide for getting quickly started is given below.
+Please see the [CAD user manual](./docs/manual/README.md) to learn more about the installation, setup requirements, overall usage and specific modules. A concise guide for getting quickly started is given below.
 
 ## Documentation and technical specifications
 

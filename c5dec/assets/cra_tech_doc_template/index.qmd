@@ -1,0 +1,50 @@
+---
+title: "CRA Technical Documentation"
+subtitle: "EU Cyber Resilience Act Compliance"
+format:
+  pdf:
+    toc: true
+    number-sections: true
+  html:
+    toc: true
+    number-sections: true
+---
+
+# Introduction {.unnumbered}
+
+This document provides the technical documentation required by Article 31 and Annex VII of Regulation (EU) 2024/2847 (the Cyber Resilience Act) for products with digital elements placed on the EU market.
+
+**Product:** {{< meta product.name >}}  
+**Manufacturer:** {{< meta manufacturer.name >}}  
+**Document Version:** {{< meta version >}}  
+**Product Category:** {{< meta product.category >}}
+
+## Purpose and Scope
+
+This technical documentation demonstrates compliance with the essential cybersecurity requirements set out in Annex I of the CRA. It accompanies the EU Declaration of Conformity and provides evidence that the product meets the applicable requirements for its category.
+
+## Document Structure
+
+This document follows the structure specified in CRA Annex VII:
+
+1. **Product Description** - General description and intended use
+2. **Design and Development** - Architecture, components, and security design
+3. **Cybersecurity Risk Assessment** - Identified risks and mitigation measures
+4. **Applied Standards** - Harmonised standards and common specifications
+5. **EU Declaration of Conformity** - Formal declaration per Annex V
+6. **Software Bill of Materials (SBOM)** - Component inventory per Annex I Part II(1)
+
+## Conformity Assessment Route
+
+**Route:** {{< meta conformity.route >}}
+
+::: {.callout-note}
+This product has been assessed using the conformity assessment route specified in CRA Article 47.
+:::
+
+## Regulatory References
+
+- Regulation (EU) 2024/2847 - Cyber Resilience Act
+- Annex I - Essential Cybersecurity Requirements
+- Annex V - EU Declaration of Conformity
+- Annex VII - Technical Documentation

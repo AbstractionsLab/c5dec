@@ -111,4 +111,4 @@ Each subsection should be rigorously developed to ensure the TSS provides not on
 ## Related Articles
 
 - [Security Target (ST)](./SecurityTarget.md)
-- [Security Functional Requirements (SFR)](./SecurityFunctionalRequirements.md)
+- [Security Functional Requirements (SFR)](./SecurityFunctionalRequirement.md)

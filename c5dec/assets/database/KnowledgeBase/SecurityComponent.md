@@ -38,7 +38,7 @@ In contrast to SFCs, at the terminus of SACs hierarchical structure, three disti
 - **Content and Presentation Elements** dictate the manner and substance of how the developers should present the evaluation evidence, ensuring coherence, and relevancy to the evaluator. 
 - **Evaluator Action Elements** provide a methodological baseline for the evaluators, guiding them on how to verify the evidence presented against the TOE’s claimed security functionality.
 
-Moreover, SACs intrinsically intertwine with [Evaluation Methods and Activities](./EvaluationMethod.md), thereby establishing a symbiotic relationship that streamlines the TOE evaluation process. Particularly, Evaluator Action Elements serve as a nexus, directly linking SACs with Evaluation Methods through the specification of [Evaluation Actions](./EvaluationMethod.md) and corresponding [Work Units](./EvaluationMethod.md). These Work Units, which are either explicitly defined for Content and Presentation Elements or implicitly for Developer Action Elements, are paramount as they concretely delineate the evaluator's task.
+Moreover, SACs intrinsically intertwine with [Evaluation Methods and Activities](./EvaluationMethods.md), thereby establishing a symbiotic relationship that streamlines the TOE evaluation process. Particularly, Evaluator Action Elements serve as a nexus, directly linking SACs with Evaluation Methods through the specification of [Evaluation Actions](./EvaluationMethods.md) and corresponding [Work Units](./EvaluationMethods.md). These Work Units, which are either explicitly defined for Content and Presentation Elements or implicitly for Developer Action Elements, are paramount as they concretely delineate the evaluator's task.
 
 In a manner akin to SFCs, SACs also facilitate the provision for Extended Components, enabling adaptability and relevance across multifaceted security landscapes and diverse TOEs.
 
@@ -58,6 +58,6 @@ For Security Objectives that cannot be translated or only with great difficulty 
 - [Security Functional Requirements](./SecurityFunctionalRequirement.md)
 - [Security Assurance Requirements](./SecurityAssuranceRequirement.md)
 - [Extended Component Definition](./ExtendedComponentDefinition.md)
-- [Evaluation Methods and Activities](./EvaluationMethod.md)
+- [Evaluation Methods and Activities](./EvaluationMethods.md)
 - [Security Target (ST)](./SecurityTarget.md)
 - [Protection Profile (PP)](./ProtectionProfile.md)

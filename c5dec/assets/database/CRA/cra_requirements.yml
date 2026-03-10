@@ -1,0 +1,178 @@
+# CRA Essential Requirements Database
+# Based on EU Regulation 2024/2847 - Cyber Resilience Act
+# Annex I: Essential Cybersecurity Requirements
+
+version: "1.0"
+regulation: "EU 2024/2847"
+last_updated: "2026-02-13"
+
+categories:
+  part_i:
+    id: "part_i"
+    name: "Part I - Security Properties of Products with Digital Elements"
+    description: "Essential requirements concerning properties of products with digital elements"
+    
+    sections:
+      - id: "part_i_sec_1"
+        name: "Section 1 - Security by Design and Default"
+        requirements:
+          - id: "cra_i_1_1"
+            name: "Appropriate level of cybersecurity"
+            text: "Products with digital elements shall be designed, developed and produced in such a way that they ensure an appropriate level of cybersecurity based on the risks."
+            applies_to: ["default", "class_i", "class_ii", "critical"]
+            
+          - id: "cra_i_1_2"
+            name: "Security by default"
+            text: "Products with digital elements shall be delivered without any known exploitable vulnerabilities and with a secure by default configuration, including the possibility to reset the product to its original state."
+            applies_to: ["default", "class_i", "class_ii", "critical"]
+            
+          - id: "cra_i_1_3"
+            name: "Minimize attack surface"
+            text: "Products with digital elements shall be designed to ensure the least possible impact of an incident and to minimize the attack surface."
+            applies_to: ["default", "class_i", "class_ii", "critical"]
+
+      - id: "part_i_sec_2"
+        name: "Section 2 - Vulnerability Handling and Security Updates"
+        requirements:
+          - id: "cra_i_2_1"
+            name: "Continuous security updates"
+            text: "Products with digital elements shall be designed, developed and produced to ensure security updates can be automatically applied within an appropriate time period."
+            applies_to: ["default", "class_i", "class_ii", "critical"]
+            
+          - id: "cra_i_2_2"
+            name: "Update mechanism security"
+            text: "Security updates shall not impact the intended use and shall be designed to ensure that the security update is verified and authenticated before being installed."
+            applies_to: ["default", "class_i", "class_ii", "critical"]
+
+      - id: "part_i_sec_3"
+        name: "Section 3 - Protection of Data"
+        requirements:
+          - id: "cra_i_3_1"
+            name: "Confidentiality of stored data"
+            text: "Products with digital elements shall protect the confidentiality of stored, transmitted or otherwise processed data, personal or other."
+            applies_to: ["default", "class_i", "class_ii", "critical"]
+            
+          - id: "cra_i_3_2"
+            name: "Integrity of stored data"
+            text: "Products with digital elements shall protect the integrity of stored, transmitted or otherwise processed data, personal or other, command and control data and configuration data."
+            applies_to: ["default", "class_i", "class_ii", "critical"]
+            
+          - id: "cra_i_3_3"
+            name: "Minimize data collection"
+            text: "Processing of personal data shall be minimised to what is necessary for the functioning of the product. Consent mechanisms shall be provided where applicable."
+            applies_to: ["default", "class_i", "class_ii", "critical"]
+
+      - id: "part_i_sec_4"
+        name: "Section 4 - Protection Against Unauthorised Access"
+        requirements:
+          - id: "cra_i_4_1"
+            name: "Protection mechanisms"
+            text: "Products with digital elements shall be protected against unauthorized access by appropriate control mechanisms, including authentication and authorization mechanisms."
+            applies_to: ["default", "class_i", "class_ii", "critical"]
+            
+          - id: "cra_i_4_2"
+            name: "Access logging"
+            text: "Where applicable, mechanisms shall be in place to log security-relevant events and identify abnormal behavior."
+            applies_to: ["class_i", "class_ii", "critical"]
+
+      - id: "part_i_sec_5"
+        name: "Section 5 - Availability and Resilience"
+        requirements:
+          - id: "cra_i_5_1"
+            name: "Resilience to attacks"
+            text: "Products with digital elements shall be resilient against attacks targeting availability, including distributed denial of service attacks."
+            applies_to: ["class_i", "class_ii", "critical"]
+            
+          - id: "cra_i_5_2"
+            name: "Recovery mechanisms"
+            text: "Products shall implement mechanisms to recover to a secure state after an incident."
+            applies_to: ["class_i", "class_ii", "critical"]
+
+      - id: "part_i_sec_6"
+        name: "Section 6 - Security Policies"
+        requirements:
+          - id: "cra_i_6_1"
+            name: "Security policy enforcement"
+            text: "Where applicable, products shall enforce security policies and allow administrators to configure security parameters."
+            applies_to: ["class_i", "class_ii", "critical"]
+
+  part_ii:
+    id: "part_ii"
+    name: "Part II - Vulnerability Handling Requirements"
+    description: "Essential requirements concerning the vulnerability handling processes of manufacturers"
+    
+    sections:
+      - id: "part_ii_sec_1"
+        name: "Section 1 - Identification and Documentation"
+        requirements:
+          - id: "cra_ii_1_1"
+            name: "SBOM maintenance"
+            text: "Manufacturers shall identify and document vulnerabilities and components contained in the product, including by drawing up a software bill of materials (SBOM) in a commonly used and machine-readable format covering at least the top-level dependencies of the product."
+            applies_to: ["default", "class_i", "class_ii", "critical"]
+            
+          - id: "cra_ii_1_2"
+            name: "Component identification"
+            text: "The SBOM shall enable the identification of the product and its dependencies and, where applicable, their respective versions."
+            applies_to: ["default", "class_i", "class_ii", "critical"]
+
+      - id: "part_ii_sec_2"
+        name: "Section 2 - Vulnerability Handling Process"
+        requirements:
+          - id: "cra_ii_2_1"
+            name: "Remediation without delay"
+            text: "Manufacturers shall address and remediate vulnerabilities without delay and shall apply effective and regular tests and reviews of the security of the product."
+            applies_to: ["default", "class_i", "class_ii", "critical"]
+            
+          - id: "cra_ii_2_2"
+            name: "Coordinated vulnerability disclosure"
+            text: "Manufacturers shall establish and maintain a policy for coordinated vulnerability disclosure where reporting parties can report discovered vulnerabilities."
+            applies_to: ["default", "class_i", "class_ii", "critical"]
+            
+          - id: "cra_ii_2_3"
+            name: "Public disclosure of vulnerabilities"
+            text: "Manufacturers shall publicly disclose, free of charge, information about fixed vulnerabilities, including a description of the vulnerability and remedial steps."
+            applies_to: ["default", "class_i", "class_ii", "critical"]
+
+      - id: "part_ii_sec_3"
+        name: "Section 3 - Security Updates"
+        requirements:
+          - id: "cra_ii_3_1"
+            name: "Security update provision"
+            text: "Manufacturers shall provide security updates for products for a period of at least 5 years from when the product is placed on the market, or for the expected lifetime of the product, whichever is shorter."
+            applies_to: ["default", "class_i", "class_ii", "critical"]
+            
+          - id: "cra_ii_3_2"
+            name: "Update communication"
+            text: "Users shall be informed in a timely manner about available security updates, including information about the vulnerabilities addressed and the importance of the update."
+            applies_to: ["default", "class_i", "class_ii", "critical"]
+
+      - id: "part_ii_sec_4"
+        name: "Section 4 - Incident Reporting"
+        requirements:
+          - id: "cra_ii_4_1"
+            name: "Early warning reporting"
+            text: "Manufacturers shall report actively exploited vulnerabilities and severe incidents to ENISA within 24 hours of becoming aware of them."
+            applies_to: ["class_i", "class_ii", "critical"]
+            
+          - id: "cra_ii_4_2"
+            name: "Detailed incident report"
+            text: "Manufacturers shall provide a detailed incident report, including assessment of severity, within 72 hours of the initial notification."
+            applies_to: ["class_i", "class_ii", "critical"]
+            
+          - id: "cra_ii_4_3"
+            name: "Final incident report"
+            text: "Manufacturers shall provide a final report including mitigation measures within 14 days of the initial notification or when the mitigation measure is available, whichever is earlier."
+            applies_to: ["class_i", "class_ii", "critical"]
+
+      - id: "part_ii_sec_5"
+        name: "Section 5 - Documentation and Support"
+        requirements:
+          - id: "cra_ii_5_1"
+            name: "Security documentation"
+            text: "Manufacturers shall provide documentation describing the cybersecurity properties of the product in a clear and understandable format."
+            applies_to: ["default", "class_i", "class_ii", "critical"]
+            
+          - id: "cra_ii_5_2"
+            name: "Contact point"
+            text: "Manufacturers shall provide a contact point for reporting vulnerabilities and shall respond to vulnerability reports in a timely manner."
+            applies_to: ["default", "class_i", "class_ii", "critical"]

@@ -23,7 +23,7 @@ meta:
     ]
   approval:
     [
-      ["Grace", "CTO", "Content agreement", "A"],
-      ["Knuth", "RD Scientist", "Content agreement", "I"],
-      ["Babbage", "RD Specialist", "Content agreement", "I"]
+      ["Grace", "CTO", "Content agreement", "---"],
+      ["Knuth", "RD Scientist", "Content agreement", "---"],
+      ["Babbage", "RD Specialist", "Content agreement", "---"]
     ]

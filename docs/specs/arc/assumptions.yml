@@ -1,0 +1,63 @@
+assumptions:
+  - id: ASSUM-001
+    text: >
+      Container isolation (Docker namespace and cgroup separation) is the
+      primary trust boundary between the c5dec core modules and the host
+      workstation. The bind-mount of the working directory is the only
+      intended data pathway out of the container. Any data the attacker
+      can write to the output workspace (ARC-035) is accessible on the
+      host. Container escape vulnerabilities are out of scope unless the
+      Docker daemon is exposed on an accessible socket.
+    verified: false
+
+  - id: ASSUM-002
+    text: >
+      GnuPG (ARC-039) and the PQC sidecar (ARC-036) are trusted
+      cryptographic enclaves. Their binaries are assumed to originate from
+      the Debian official package archive (gpg) and from the project-
+      controlled oqs-ossl3 Dockerfile build respectively. Package integrity
+      is verified at image build time via apt/pip lock files. Runtime
+      tampering of the GnuPG binary or the OpenSSL OQS provider library
+      inside the container is assumed not to occur after the image is built.
+    verified: false
+
+  - id: ASSUM-003
+    text: >
+      The OpenProject personal access token stored in the config store
+      (ARC-034) is scoped to read-only access on the relevant OpenProject
+      projects only. The token does not grant administrative access,
+      write access to work items, or access to projects outside the
+      team's scope. Token rotation is performed at least annually.
+    verified: false
+
+  - id: ASSUM-004
+    text: >
+      The CC XML database (ARC-033) is a read-only artefact bundled into
+      the c5dec package at build time. No runtime process modifies these
+      files. The database content is verified against the upstream CC XML
+      release (BSI / Common Criteria Portal) during the package release
+      process. Runtime file-integrity monitoring of the database files
+      is out of scope.
+    verified: false
+
+  - id: ASSUM-005
+    text: >
+      Configuration files (c5dec_params.yml, config.json) are protected
+      by operating-system-level file permissions on the host workstation
+      such that only the authenticated user running c5dec can read them.
+      The workstation is assumed to be single-user or to use per-user
+      home directories. Shared multi-user workstations or CI/CD runners
+      require additional access control measures not provided by
+      C5-DEC CAD itself.
+    verified: false
+
+  - id: ASSUM-006
+    text: >
+      Subprocess invocations of Doorstop (via Python import, ARC-038),
+      Syft (ARC-040), and GnuPG (ARC-039) do not escalate beyond the
+      container's filesystem namespace unless the Docker socket
+      (/var/run/docker.sock) is explicitly bind-mounted for Syft image
+      scanning. If Docker-socket access is granted, Syft can access any
+      locally available container image; callers must not pass attacker-
+      controlled image references to the SBOM module in this configuration.
+    verified: false

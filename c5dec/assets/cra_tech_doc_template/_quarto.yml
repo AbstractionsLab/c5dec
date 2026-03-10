@@ -1,0 +1,67 @@
+project:
+  type: book
+  output-dir: _output
+  pre-render:
+    - scripts/populate_from_checklist.py
+    - scripts/generate_sbom_table.py
+    - scripts/generate_doc.py
+    - scripts/restore_tex_files.py
+    - scripts/custom_vars_v2.py
+    - scripts/tables.py
+  post-render: 
+    - scripts/restore_tex_files.py
+
+book:
+  title: "CRA Technical Documentation"
+  subtitle: "EU Cyber Resilience Act (Regulation 2024/2847) - Annex VII"
+  author: "PLACEHOLDER_MANUFACTURER"
+  abstract: "This document provides the technical documentation required by Article 31 and Annex VII of the EU Cyber Resilience Act for products with digital elements placed on the EU market."
+  date: "PLACEHOLDER-DATE"
+  chapters:
+    - index.qmd
+    - chapters/01-product-description.qmd
+    - chapters/02-design-development.qmd
+    - chapters/03-risk-assessment.qmd
+    - chapters/04-applied-standards.qmd
+    - chapters/05-eu-declaration.qmd
+    - chapters/06-sbom.qmd
+    - chapters/references.qmd
+
+tbl-cap-location: bottom
+
+bibliography: references.bib
+csl: ieee.csl
+toc: true
+lof: true
+lot: true
+number-sections: true 
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    pdf-engine: lualatex
+    # pdf-engine: xelatex
+    number-sections: true
+    colorlinks: true
+    fontsize: 11 pt
+    papersize: A4
+    fig-pos: 'H'
+    # geometry: "left=2.54cm,right=2.54cm,top=2.54cm,bottom=2.54cm"
+    geometry: "left=2cm,right=2cm,top=2cm,bottom=2cm"
+    # mainfont: "Ubuntu"
+    # mainfont: "Gill Sans"
+    # sansfont: "Futura"
+    # monofont: "Courier New"
+    documentclass: report
+    classoption: table
+    include-in-header: tex/include-in-header.tex
+    template-partials:
+      - tex/before-body.tex
+      - tex/pandoc.tex
+      - tex/tables.tex
+      - tex/toc.tex
+    keep-tex: true
+  docx:
+    reference-doc: custom-docx-format-ref.docx
+    number-sections: true

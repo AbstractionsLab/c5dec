@@ -151,6 +151,7 @@ class TestPackage(unittest.TestCase):
         self.package.children = [pkg_comp]
 
 
+    # TST-031
     def test_is_valid_success(self):
         self.assertTrue(self.package.is_valid())
 

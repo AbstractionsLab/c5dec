@@ -1,8 +1,3 @@
 #!/bin/bash
 echo Running C5-DEC CAD unit test suite...
-
-echo Running C5-DEC CAD RMT unit test suite...
-python -m unittest discover -p pm_test.py
-
-echo Running C5-DEC CAD CCT unit test suite...
-python -m unittest discover -p cct*_test.py
+python -m pytest tests/

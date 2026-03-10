@@ -171,5 +171,11 @@ cython_debug/
 # WSL stuff
 *:Zone.Identifier
 
+# Quarto/DocEngine output folders
+c5dec/assets/report/_output/
+c5dec/assets/etr/etr_template/_output/
+
 /.quarto/
 .Rhistory
+
+.cpssa_cache/docs/specs/docs/

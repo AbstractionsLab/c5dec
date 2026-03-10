@@ -1,0 +1,38 @@
+# Version control
+.git/
+.gitignore
+
+# Python cache and build artefacts
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+
+# Environment / secrets
+.env
+.env.*
+
+# Test artefacts
+.pytest_cache/
+tests/content/
+
+# Input data (not needed in the image)
+input/
+
+# Node
+node_modules/
+
+# IDE / editor
+.vscode/
+.idea/
+
+# Dev-container metadata (not needed inside the image)
+.devcontainer/

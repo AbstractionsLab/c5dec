@@ -164,7 +164,7 @@ $ c5dec view <ID> > <filename>.md
 ```
 This command prints the selected CC item's content and hierarchical tree to the console in Markdown format. Output redirection can be used to save the output as a Markdown file. 
 
-The '--version' flag allows to specify the CC version. Currently supported versions are 3R1, 3R2, 3R3, 3R4, 3R5 with 3R5 being the default version.
+The `--version` flag allows to specify the CC version. Currently supported versions are 3R1, 3R2, 3R3, 3R4, 3R5, and 2022R1, with 3R5 being the default version.
 
 **validate**
 
@@ -187,7 +187,7 @@ $ c5dec checklist -c <prefix> --id <IDs> --info <info>
 ```
 This will automatically validate the provided set of components and create the checklist if and only if it is a valid selection. 
 
-The 'prefix' corresponds to the Evaluation Identifier mentioned earlier, and the 'info' is the general information that uniquely identifies the project/TOE for which the Evaluation Checklist is created. The 'info' can be a json file.
+The 'prefix' corresponds to the Evaluation Identifier mentioned earlier, and the 'info' is the general information that uniquely identifies the project/TOE for which the Evaluation Checklist is created. The `--info` option accepts one or more space-separated `key=value` pairs, e.g., `--info project=MyTOE date=2026-03-01`.
 
 Once an Evaluation Checklist is created you can run the following to list all created checklists, you can list all evaluation items of an Evaluation Checklist with
 
@@ -210,24 +210,38 @@ to update the index that keeps track of the current evaluation progress. Retriev
 $ c5dec checklist <prefix> -s/--status
 ```
 
+To validate an existing checklist (checks structural integrity and dependency consistency), run:
+
+```sh
+$ c5dec checklist <prefix> --validate
+```
+
+To publish an evaluation checklist artefacts to a target path:
+
+```sh
+$ c5dec checklist <prefix> --publish <path>
+```
+
+The options `--create`, `--list`, `--edit`, `--update`, `--status`, `--validate`, and `--publish` are mutually exclusive; provide exactly one per invocation.
+
 #### Exporting evaluation checklists to spreadsheet format
 
 The user can create and export an evaluation checklist as a spreadsheet using the `export` subcommand of the `c5dec` CLI:
 
 ![Common Criteria Toolbox - CLI evaluation checklist spreadsheet export.](./_figures/c5dec-cad-cli-export.png)
 
-For instance, 
+For instance,
 
 ```sh
-c5dec export checklist 3R5 -p ALC_CMC.1
+c5dec export myChecklist 3R5 -p ALC_CMC.1
 ```
 
-creates a spreadsheet including work units from the `ALC_CMC.1` component, named following the format `checklist-<yyyymmdd>-<hhmmss>`, where the last two placeholders encode the date and timestamp at the time of command execution.
+creates a spreadsheet including work units from the `ALC_CMC.1` component, named following the format `<name>-<yyyymmdd>-<hhmmss>`, where the last two placeholders encode the date and timestamp at the time of command execution.
 
 Here is another example using the `-c` flag used for selecting CC classes.
 
 ```sh
-c5dec export checklist 3R5 -c ALC AVA
+c5dec export myChecklist 3R5 -c ALC AVA
 ```
 
 This will create an evaluation checklist spreadsheet including work units from both the `ALC` and the `AVA` classes.
@@ -262,6 +276,7 @@ The steps are as follows:
   ```sh
   c5dec export etrInput 3R5 -c ALC ADV
   ```
+  The first positional argument (`etrInput`) is the unique prefix/name for the output checklist file; the second (`3R5`) is the CC version (`3R5` or `2022R1`).
   2. Copy the output spreadsheet from `c5dec/export` to the `c5dec/assets/etr/` folder.
   3. Run the `etr` command with your choices using the flag `-n` to give the name of your checklist. E.g.,
   ```sh

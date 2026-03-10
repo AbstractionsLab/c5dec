@@ -1,0 +1,43 @@
+---
+title: "References"
+---
+
+# References
+
+## Regulatory References
+
+- **Regulation (EU) 2024/2847** - Cyber Resilience Act. Official Journal of the European Union, December 2024.
+- **CRA Annex I** - Essential Cybersecurity Requirements
+- **CRA Annex V** - EU Declaration of Conformity
+- **CRA Annex VII** - Technical Documentation
+
+## Standards References
+
+[List all standards referenced in this document]
+
+## External Documentation
+
+[List any external documentation referenced]
+
+## Internal Documentation
+
+[List related internal documentation]
+
+- Security Architecture Document
+- Vulnerability Management Process
+- Incident Response Plan
+- Secure Development Guidelines
+
+## Useful Links
+
+- **ENISA CRA Guidance:** https://www.enisa.europa.eu/
+- **European Commission Digital Single Market:** https://digital-strategy.ec.europa.eu/
+- **CRA Official Text:** [Link to EUR-Lex]
+
+## Document History
+
+| Version | Date | Author | Changes |
+|---------|------|--------|---------|
+{{#each meta.changelog}}
+| {{this[0]}} | {{this[1]}} | {{this[3]}} | {{this[2]}} |
+{{/each}}

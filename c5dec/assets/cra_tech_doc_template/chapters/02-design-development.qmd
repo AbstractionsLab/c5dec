@@ -1,0 +1,101 @@
+---
+title: "Design and Development Information"
+---
+
+# Design and Development Information
+
+## Development Process
+
+### Secure Development Lifecycle
+
+[Describe the secure software development lifecycle (SSDLC) followed during product development.]
+
+### Development Tools and Environment
+
+[List the development tools, programming languages, frameworks, and development environment used.]
+
+### Version Control and Configuration Management
+
+[Describe version control practices and configuration management procedures.]
+
+## System Architecture
+
+### High-Level Architecture
+
+[Provide a high-level architectural diagram and description of the system components and their interactions.]
+
+### Security Architecture
+
+[Describe the security architecture, including security boundaries, trust zones, and security-critical components.]
+
+### Data Flow
+
+[Describe how data flows through the system, with particular attention to sensitive data handling.]
+
+## Security Design Principles
+
+[Describe how security-by-design and security-by-default principles have been implemented:]
+
+- **Least Privilege:** [How implemented]
+- **Defense in Depth:** [How implemented]
+- **Secure Defaults:** [How implemented]
+- **Fail Securely:** [How implemented]
+- **Separation of Concerns:** [How implemented]
+
+## Cryptographic Implementation
+
+### Cryptographic Algorithms
+
+[List cryptographic algorithms used and their purpose:]
+
+- Encryption: [Algorithms]
+- Hashing: [Algorithms]
+- Digital Signatures: [Algorithms]
+- Key Exchange: [Algorithms]
+
+### Key Management
+
+[Describe how cryptographic keys are generated, stored, and managed.]
+
+## Authentication and Authorization
+
+[Describe authentication mechanisms, user roles, and authorization models implemented.]
+
+## Update Mechanism
+
+### Secure Update Process
+
+[Describe the secure update mechanism as required by CRA Annex I Part I(7):]
+
+- Update delivery channel
+- Update package signing and verification
+- Integrity and authenticity checks
+- Rollback capability
+- User notification process
+
+### Automatic Updates
+
+[Describe how automatic security updates are implemented per CRA Article 13(9).]
+
+## Testing and Quality Assurance
+
+### Security Testing
+
+[Describe security testing performed during development:]
+
+- Static Application Security Testing (SAST)
+- Dynamic Application Security Testing (DAST)
+- Penetration testing
+- Vulnerability scanning
+
+### Code Review
+
+[Describe code review practices and security code review procedures.]
+
+### Quality Metrics
+
+[Provide relevant quality metrics such as code coverage, defect density, etc.]
+
+## Build and Release Process
+
+[Describe the build, packaging, and release process, including any security checks performed.]

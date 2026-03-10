@@ -1,8 +1,10 @@
+import os
+import secrets
 from flask import Flask, render_template, jsonify, request, Response, make_response, session, redirect, url_for, flash
 import c5dec.core.cct as cct
 import c5dec.settings as c5settings
 app = Flask(__name__)
-app.secret_key = 'TEST_SECRET_KEY'
+app.secret_key = os.environ.get("SECRET_KEY", secrets.token_hex(32))
 
 project_root = c5settings.PROJECT_ROOT
 cc_version = c5settings.SELECTED_CC_VERSION
@@ -161,7 +163,7 @@ def submit():
 def main(args=None, cwd=None):
     c5settings.EXECUTION_MODE = "GUI"
     cct.load_cc_xml(version=cc_version)
-    app.run(debug=True, host='0.0.0.0', port=5432)
+    app.run(debug=False, host='127.0.0.1', port=5432)
 
 if __name__ == '__main__':
     main()    

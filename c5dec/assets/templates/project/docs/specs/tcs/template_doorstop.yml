@@ -1,0 +1,44 @@
+settings:
+  digits: 3
+  itemformat: markdown
+  parent: SRS
+  prefix: TCS
+  sep: '-'
+attributes:
+  defaults:
+    release: stable
+    platform: GNU/Linux (Dockerized C5-DEC deployment environment)
+    authors: AAT
+    precondition: ''
+    verification_method: Test (T)/Review of design (R)/Inspection (I)/Analysis (A)
+    success_criteria: SRS acceptance criteria fulfilled and expected outcome observed.
+    text: "## Preconditions and setup actions\n- \n\n## Test steps\n1. follow steps\
+      \ in SRS.\n\n## Expected outcome\n1.  \n"
+    expected_outcome: ''
+    header: 'Add a short description here
+
+      '
+    execution_type: Manual
+    complexity: 1-5
+    test_data: see referenced files
+    version: 1.0
+  publish:
+  - platform
+  - precondition
+  - expected_outcome
+  - verification_method
+  - release
+  - execution_type
+  - complexity
+  - test_data
+  - version
+  - source_prefix
+  - source_uid
+  reviewed:
+  - authors
+  - precondition
+  - expected_outcome
+  - verification_method
+  - execution_type
+  - text
+  - release

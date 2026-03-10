@@ -1,0 +1,60 @@
+project:
+  type: default
+  output-dir: _output
+  # Pre/post-render scripts for advanced customization
+  # Uncomment and ensure Python dependencies are installed (see scripts/requirements.txt)
+  # pre-render:
+  #   - scripts/restore_tex_files.py
+  #   - scripts/custom_vars_v2.py
+  # post-render: 
+  #   - scripts/restore_tex_files.py
+
+format:
+  revealjs:
+    theme: [default, custom-revealjs.scss]
+    transition: slide
+    background-transition: fade
+    slide-number: true
+    show-slide-number: all
+    controls: true
+    progress: true
+    history: true
+    center: true
+    hash: true
+    navigation-mode: linear
+    pdf-separate-fragments: false
+    chalkboard: true
+    multiplex: false
+    smaller: false
+    scrollable: false
+    logo: figs/Alab-logo.png
+    footer: "C5-DEC CAD | Abstractions Lab"
+    preview-links: auto
+    link-external-newwindow: true
+    fig-cap-location: bottom
+    tbl-cap-location: bottom
+    
+  pptx:
+    # reference-doc: custom-pptx-template.pptx  # Uncomment and create custom template for branded PowerPoint
+    slide-level: 2
+    incremental: false
+    
+  beamer:
+    pdf-engine: lualatex
+    theme: default
+    colortheme: default
+    fonttheme: default
+    navigation: horizontal
+    section-titles: true
+    toc: false
+    slide-level: 2
+    incremental: false
+    fig-pos: 'H'
+    fontsize: 11pt
+    aspectratio: 169
+    mainfont: "Ubuntu"
+    include-in-header: tex/beamer-header.tex
+
+bibliography: references.bib
+csl: ieee.csl
+cite-method: citeproc

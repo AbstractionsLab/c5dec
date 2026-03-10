@@ -46,5 +46,5 @@ Following the high-level framework proposed in ISO/IEC TR 15446, here's a step-b
 - [In-depth Exploration of Security Targets](./SecurityTarget.md)
 - [Identifying Threats](./Threat.md)
 - [Organizational Security Policies](./OrganizationalSecurityPolicy.md)
-- [Assumptions](./Assumptions.md)
-- [Threat Modeling](./ThreatModeling.md)
+- [Assumptions](./Assumption.md)
+- [Threat Modeling](./ThreatModeling-TR15446.md)

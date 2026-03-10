@@ -1,0 +1,86 @@
+---
+title: "Cybersecurity Risk Assessment"
+---
+
+# Cybersecurity Risk Assessment
+
+## Risk Assessment Methodology
+
+[Describe the risk assessment methodology used, e.g., ISO 27005, NIST Cybersecurity Framework, IEC 62443, etc.]
+
+## Identified Assets
+
+[List the assets that require protection:]
+
+| Asset ID | Asset Name | Asset Type | Criticality |
+|----------|------------|------------|-------------|
+| A1 | [Name] | [Type] | [High/Medium/Low] |
+| A2 | [Name] | [Type] | [High/Medium/Low] |
+
+## Threat Modeling
+
+### Threat Actors
+
+[Identify relevant threat actors and their capabilities:]
+
+- Opportunistic attackers
+- Organized crime
+- Nation-state actors (if applicable)
+- Insiders
+
+### Attack Vectors
+
+[Describe potential attack vectors identified during threat modeling.]
+
+## Risk Analysis
+
+[For each identified risk, provide:]
+
+### Risk R1: [Risk Title]
+
+- **Description:** [Detailed description of the risk]
+- **Affected Assets:** [List of affected assets]
+- **Threat:** [Threat that could exploit the vulnerability]
+- **Vulnerability:** [Vulnerability that enables the threat]
+- **Impact:** [Confidentiality/Integrity/Availability impact]
+- **Likelihood:** [High/Medium/Low]
+- **Risk Level:** [Critical/High/Medium/Low]
+- **Mitigation Measures:** [How the risk is mitigated]
+- **Residual Risk:** [Remaining risk after mitigation]
+- **CRA Requirements Addressed:** [Reference to Annex I requirements]
+
+### Risk R2: [Risk Title]
+
+[Repeat for each identified risk...]
+
+## Risk Summary Matrix
+
+[Provide a risk matrix showing all identified risks before and after mitigation:]
+
+```{python}
+#| echo: false
+#| output: asis
+
+# This will be populated by the pre-render script
+# Example risk matrix visualization
+```
+
+## Compliance with CRA Annex I
+
+### Part I: Security Properties
+
+[Demonstrate how the risk assessment addresses CRA Annex I Part I requirements:]
+
+| CRA Requirement ID | Risk Assessment Coverage |
+|--------------------|-------------------------|
+| cra_i_1_1 | [How addressed] |
+| cra_i_1_2 | [How addressed] |
+| ... | ... |
+
+### Part II: Vulnerability Handling
+
+[Demonstrate how the risk assessment addresses CRA Annex I Part II requirements.]
+
+## Continuous Risk Assessment
+
+[Describe the process for ongoing risk assessment and adaptation to new threats throughout the product lifecycle.]

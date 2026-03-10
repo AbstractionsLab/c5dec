@@ -7,7 +7,7 @@ Relevant CC Version: 3.1 Revision 5
 
 **Acronym:** T
 
-In the domain of cybersecurity and within the context of [Security Problem Definition (SPD)](./SecurityProblemdefinition.md), threats are potential occurrences that could exploit [vulnerabilities](./Vulnerability.md) to adversely impact [assets](./Asset.md). Threats may intentionally or unintentionally compromise the confidentiality, integrity, or availability of assets, thus posing a risk to the [Target of Evaluation (TOE)](./TargetofEvaluation.md) and its [operational environment](./TOEOperationalEnvironment.md).
+In the domain of cybersecurity and within the context of [Security Problem Definition (SPD)](./SecurityProblemdefinition.md), threats are potential occurrences that could exploit [vulnerabilities](./AttackPotential.md) to adversely impact [assets](./Asset.md). Threats may intentionally or unintentionally compromise the confidentiality, integrity, or availability of assets, thus posing a risk to the [Target of Evaluation (TOE)](./TargetofEvaluation.md) and its [operational environment](./TOEOperationalEnvironment.md).
 Threats are indispensable in formulating the [Security Problem Definition](./SecurityProblemDefinition.md) (SPD).
 
 ## Practical Guidance
@@ -27,7 +27,7 @@ Threat identification is a fundamental aspect of risk and threat analysis, actin
 
 ### Documentation of Threats
 
-In the context of CC, threats must be described as adverse actions executed by [threat agents](./ThreatAgent.md) to compromise an asset, as shown in the example below.
+In the context of CC, threats must be described as adverse actions executed by [threat agents](./Threat.md) to compromise an asset, as shown in the example below.
 
 **T.COMPROMISEDCOMMUNICATION**
 
@@ -61,6 +61,6 @@ disclose or modify data exchanged between parts of the TOE and remote external e
 
 - [Defining Security Problem (SPD)](./SecurityProblemDefinition.md)
 - [Identifying Assets](./Asset.md)
-- [Understanding Vulnerabilities](./Vulnerability.md)
+- [Understanding Vulnerabilities](./AttackPotential.md)
 - [Details about the Target of Evaluation (TOE)](./TargetofEvaluation.md)
 

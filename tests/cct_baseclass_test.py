@@ -24,12 +24,14 @@ class TestBaseClass(unittest.TestCase):
         self.child_instance = MockBaseClass(_id="child_id", _name="child_name")
         self.sibling_instance = MockBaseClass(_id="sibling_id", _name="sibling_name")
 
+    # TST-001
     def test_init_and_attributes(self):
         self.assertEqual(self.base_instance._id, "test_id")
         self.assertEqual(self.base_instance._name, "test_name")
         self.assertIn("_id", self.base_instance.attrib)
         self.assertIn("_name", self.base_instance.attrib)
 
+    # TST-011
     def test_repr(self):
         self.assertEqual(repr(self.base_instance), "<class: MockBaseClass id=test_id>")
 

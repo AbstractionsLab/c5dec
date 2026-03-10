@@ -1,0 +1,185 @@
+# Key Features
+
+---
+
+## Common Criteria Toolbox (CCT)
+
+::: {.incremental}
+- **Parse** CC catalogs ({{< meta cc.sfr >}}, {{< meta cc.sar >}})
+- **Search** security requirements
+- **Generate** evaluation checklists
+- **Create** {{< meta cc.st >}} documents
+- **Export** to various formats
+:::
+
+. . .
+
+::: {.callout-tip}
+## Did you know?
+CCT supports CC versions 3.1 R1-R5 and CC 2022
+:::
+
+---
+
+## SSDLC Support
+
+Secure Software Development Life Cycle integration:
+
+1. **Requirements Management** (Doorstop-based)
+2. **Architecture Design** (PSI module)
+3. **Implementation** tracking
+4. **Testing** and verification
+5. **Documentation** generation
+
+---
+
+## DocEngine for Reports
+
+Professional document generation using **Quarto**:
+
+::::: {.content-visible when-format="revealjs"}
+:::: {.columns}
+
+::: {.column width="50%"}
+### Input
+- Markdown content
+- YAML configuration
+- Templates
+:::
+
+::: {.column width="50%"}
+### Output
+- PDF reports
+- HTML documentation
+- DOCX files
+- **Presentations** ✨
+:::
+
+::::
+:::::
+
+::::: {.content-visible when-format="beamer"}
+**Input**: Markdown, YAML, Templates
+
+**Output**: PDF, HTML, DOCX, Presentations
+:::::
+
+::::: {.content-visible when-format="pptx"}
+**Input**: Markdown content, YAML configuration, Templates
+
+**Output**: PDF reports, HTML documentation, DOCX files, Presentations
+:::::
+
+---
+
+## Example: Security Requirements
+
+```python
+from c5dec.core.cct import CCT
+
+# Initialize CCT with CC version 3.1 R5
+cct = CCT(cc_version="3R5")
+
+# Search for authentication requirements
+sfrs = cct.search_sfr(keyword="authentication")
+
+# Generate evaluation checklist
+cct.generate_checklist(sfrs, output="checklist.xlsx")
+```
+
+::: {.fragment}
+✅ Quick and efficient requirement selection
+:::
+
+---
+
+## Traceability Matrix
+
+| Requirement | Design | Implementation | Test |
+|-------------|--------|----------------|------|
+| MRS-001     | ARC-010| SWD-042       | TST-101 |
+| MRS-002     | ARC-011| SWD-043       | TST-102 |
+| MRS-003     | ARC-012| SWD-044       | TST-103 |
+
+: Requirements traceability through SDLC phases {tbl-colwidths="[25,25,25,25]"}
+
+---
+
+## Project Management
+
+:::: {.columns}
+
+::: {.column width="60%"}
+- **Time tracking** and reporting
+- **Cost analysis** from OpenProject
+- **Resource allocation**
+- **Progress monitoring**
+- Automated report generation
+:::
+
+::: {.column width="40%"}
+![Example time report visualization](figs/Alab-logo.png){width=70%}
+:::
+
+::::
+
+---
+
+## Use Case: Evaluation Lab
+
+::: {.incremental}
+1. **Receive** {{< meta cc.toe >}} documentation
+2. **Extract** security requirements using CCT
+3. **Create** evaluation checklist ({{< meta cc.sar >}} work units)
+4. **Perform** evaluation activities
+5. **Generate** Evaluation Technical Report
+6. **Publish** results in multiple formats
+:::
+
+. . .
+
+**Result**: Streamlined evaluation process with full traceability
+
+---
+
+# Demo
+
+---
+
+## Live Demonstration
+
+:::: {.content-visible when-format="revealjs"}
+::: {.r-stack}
+![](figs/CyFORT-logo.png){.fragment width="400"}
+
+![](figs/Alab-logo.png){.fragment width="400"}
+:::
+::::
+
+:::: {.content-visible when-format="beamer"}
+![Demo placeholder](figs/CyFORT-logo.png){width=50%}
+::::
+
+:::: {.content-visible when-format="pptx"}
+[Demo section - insert screenshots or live demo]
+::::
+
+---
+
+## Command Line Interface
+
+```bash
+# Create new project
+c5dec new -n my-secure-system
+
+# Generate CC checklist for EAL4
+c5dec checklist -l 4 -o eval-checklist.xlsx
+
+# Transform requirements to test specifications
+c5dec transform req-to-test -p MRS TST
+
+# Publish documentation
+c5dec publish MRS --format html
+```
+
+---

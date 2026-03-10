@@ -9,6 +9,17 @@ cc:
   # release: "2022R1"
   release: "3R5"
 
+# CRA (Cyber Resilience Act) configuration
+cra:
+  # Product category: default, class_i, class_ii, critical
+  category: "default"
+  checklist_enabled: true
+
+# SBOM (Software Bill of Materials) configuration
+sbom:
+  format: "cyclonedx"  # cyclonedx or spdx
+  include_dev_dependencies: false
+
 # Project resource management field mappings (timesheet, cost report, reference parameter files, etc.)
 pm:
   tsh: # all timesheet schema mappings

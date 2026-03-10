@@ -1,0 +1,48 @@
+active: true
+header: Process Data Historian
+type: historian
+zone: DMZ
+text: |
+  OSIsoft PI-based historian collecting real-time process data (flow, pressure,
+  chemical dosing rates, turbidity) from SCADA at 1-second resolution.
+  Provides long-term trending and compliance reporting. Bidirectional data
+  replication to the corporate data lake is configured.
+vendor: AVEVA
+model: PI Server 2023
+os: Windows Server 2019
+data_retention_years: 10
+port: 5450
+protocol: TCP
+encryption: none
+machine: virtual
+size: application
+confidentiality: restricted
+integrity: mission-critical
+availability: critical
+justification_cia_rating: >-
+  Stores 10 years of process telemetry used for compliance; integrity is
+  mission-critical for regulatory reporting.
+has_access_control: true
+authenticates_source: false
+stores_pii: false
+is_sql: false
+links:
+  - SRS-003
+  - SRS-005
+flows:
+  - target: ARC-002
+    protocol: TCP
+    port: 5450
+    encrypted: false
+    authentication: none
+    authorization: none
+data_assets:
+  - process-telemetry
+  - compliance-reports
+data_assets_stored:
+  - process-telemetry
+  - compliance-reports
+data_formats_accepted:
+  - serialization
+  - csv
+reviewed: false

@@ -4,9 +4,11 @@ C5-DEC, short for "Common Criteria for Cybersecurity, Cryptography, Clouds – D
 
 <img src="./docs/manual/_figures/CyFORT-C5CEC-logo.png" alt="cyfort_logo" width="500"/>
 
-C5-DEC CAD, the software component of C5-DEC, is a suite of [AI-enabled](./docs/manual/ssdlc.md#ai-enabled-design-and-specification) tools for computer-aided design and development (CAD) enforcing the C5-DEC method. The method mainly deals with the creation and evaluation of secure IT systems following a structured and systematic approach, based on the [Common Criteria](https://www.commoncriteriaportal.org) standards, a secure software development life cycle (SSDLC) method, a software verification and validation model (SVVM), and our cyber-physical system security assessment (CPSSA) method.
+[![Version](https://img.shields.io/badge/version-1.2-blue)](CHANGELOG.md) [![License: AGPL v3](https://img.shields.io/badge/license-AGPL--v3-brightgreen)](LICENSE) [![Python](https://img.shields.io/badge/python-3.8--3.11-blue)](pyproject.toml)
 
-This repository contains the source code and full documentation (requirements, technical specifications, schematics, [user manual](./docs/manual/overview.md), test case specifications and test reports) of C5-DEC CAD, exemplifying the C5-DEC method, which relies on storing, interlinking and processing all software development life cycle (SDLC) artifacts in a unified manner; see our [traceability web page](https://abstractionslab.github.io/c5dec/docs/traceability/index.html) for a concrete example reflecting the technical specifications of C5-DEC CAD itself.
+C5-DEC CAD is the software component of C5-DEC — an [AI-enabled](./docs/manual/ssdlc.md#ai-enabled-design-specification-development-and-testing) toolkit for computer-aided secure system design, development and evaluation, accessible through a CLI, a Flask-powered GUI, and an asciimatics-powered TUI, with VS Code devcontainer support and preloaded extensions. Its modules cover: a [Common Criteria Toolbox (CCT)](./docs/manual/cct.md) (SFR/SAR database, CEM checklists, ETR generation); an [SSDLC](./docs/manual/ssdlc.md) pipeline (project scaffolding, [DocEngine](./docs/manual/ssdlc.md#c5-dec-docengine-for-report-generation), [SpecEngine](./docs/specs/SpecEngine/README.md), [certification-oriented](./docs/README.md) documentation tooling); [CRA compliance](./docs/manual/cra.md) (Annex I checklist, Annex VII tech doc, Annex V declaration); [SBOM management](./docs/manual/sbom.md) via [Syft](https://github.com/anchore/syft); a [CPSSA module](./docs/manual/cpssa.md) for STRIDE threat modelling and FAIR risk analysis; a [cryptography module](./docs/manual/cryptography.md) (classical and post-quantum crypto); and [project management](./docs/manual/pm.md) utilities. All artifacts are stored in open formats (Markdown, YAML), complemented by a [CC concept wiki](./c5dec/assets/database/KnowledgeBase/0_MapofContent.md) and an SSDLC/SVV/CPSSA knowledge base, making the full specification tree directly accessible to LLMs.
+
+This repository contains the source code and full documentation (requirements, technical specifications, schematics, [user manual](./docs/manual/README.md), test case specifications and test reports) of C5-DEC CAD; see our [traceability web page](https://abstractionslab.github.io/c5dec/docs/traceability/index.html) for a live view of the full specification tree and traceability coverage.
 
 ## Table of contents
 
@@ -14,187 +16,160 @@ This repository contains the source code and full documentation (requirements, t
 - [Features](#features)
 - [User manual](#user-manual)
 - [Technical specifications](#documentation-and-technical-specifications)
+- [Prerequisites](#prerequisites)
 - [Getting started](#getting-started)
 - [Usage](#usage)
-- [Roadmap](#roadmap)
+- [Changelog](#changelog)
+- [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 
 ## Overview
 
-The overall goal of the C5-DEC method is to bring together and contextualize SSDLC, SVV and CPSSA within the Common Criteria framework while enabling the use of rigorous digital engineering (RDE) tools. This means tackling the problem of building secure systems, while ensuring full traceability between system artifacts spanning the entire DLC and incorporating cryptographic checks as well as threat modelling and system security risk assessment into the design process, all in the context of the Common Criteria framework. 
-
-To this end, C5-DEC CAD is aimed at assisting both system/software designers/developers as well as system security analysts with creating and evaluating secure software systems. For instance, it can be used by evaluation laboratories for the execution of impartial assessments of the security of computer systems and software according to the Common Criteria (CC), a set of internationally recognized standards (ISO/IEC 15408), and the complementary ISO/IEC 18045, dealing with a common methodology for computer security evaluation (CEM). CC certification gives users the assurance that a product satisfies the security guarantees and properties it claims to possess.
-
-C5-DEC consists of two key elements that complement each other to form a coherent ensemble: a software component (C5-DEC CAD) and a knowledge base (KB) consisting of SSDLC, SVV and CPSSA methodologies as well as a [wiki of key CC concepts](./c5dec/assets/database/KnowledgeBase/0_MapofContent.md).
+C5-DEC CAD assists system/software designers, developers, and security analysts with building and evaluating secure software systems. It integrates SSDLC, SVV, and CPSSA within the Common Criteria framework, providing full artifact traceability across the entire development life cycle, along with cryptographic checks, threat modelling, Cyber Resilience Act (CRA) compliance support, and SBOM lifecycle management.
 
 ### Knowledge base
 
-As certain parts of our KB reports rely on ISO standards (ISO/IEC/IEEE 12207, ISO 29119:2022 and ISO 29148:2018), if you wish to access them, please contact us at info@abstractionslab.lu. Simply provide evidence that you are eligible for accessing the standard(s), and upon successful verification, we will share the reports.
+C5-DEC ships two complementary knowledge bases:
+
+- **[CC concept wiki](./c5dec/assets/database/KnowledgeBase/0_MapofContent.md)**: A structured reference of 50+ articles organized across four areas:
+  - *CC Concepts* — Target of Evaluation (TOE and its components: TSF, domain separation, self-protection, non-bypassability, composed TOE), Conformance Claims, Security Problem Definition (assets, threats, OSPs, assumptions), Security Objectives, Security Components (SFRs, SARs, the four operations, extended component definitions), Rationale, and Evaluation (methods, EALs, attack potential, evaluation evidence, single/multi/composite assurance);
+  - *Core Constructs* — Security Target, Protection Profile, PP-Module, PP-Configuration, Package, Observation Report, and Evaluation Technical Report;
+  - *Certification Schemes* — EUCC (EU Common Criteria scheme);
+  - *Terms & Definitions* — a consolidated CC terminology register.
+- **SSDLC, SVV, and CPSSA methodology reports**: Structured guidance covering the full software development life cycle, software verification and validation, and cyber-physical system security assessment. Parts rely on ISO standards (ISO/IEC/IEEE 12207, ISO 29119:2022, ISO 29148:2018); contact us at info@abstractionslab.lu with proof of eligibility to receive access.
 
 ## Features
 
-### Design
-
-- Free/libre and open source;
-- Cross platform: works on GNU/Linux, MacOS and Windows
-- Easily and highly extensible due to a modular design and architecture;
-- Based on open data formats such as Markdown, (La)TeX, YAML, XML, JSON, CSV and HTML;
-- Straightforward integration into well-known Dev(Sec)Ops platforms such as GitHub and GitLab;
-- Import/export from and to open data formats;
-- Containerized development and deployment.
-
 ### Interfaces
 
-- A command-line interface ([**CLI**](#c5-dec-cad-command-line-interface-cli)) for efficient user interactions and automation via scripting integration;
-- A user-friendly and efficient graphical user interface ([**GUI**](#c5-dec-cad-graphical-user-interface-gui)), powered by [Flask](https://flask.palletsprojects.com/en/3.0.x/) and [Bootstrap](https://getbootstrap.com/);
-- A rich and extensible textual user interface ([**TUI**](#c5-dec-cad-textual-user-interface-tui)), powered by [asciimatics](https://github.com/peterbrittain/asciimatics);
-- [VS Code](https://github.com/microsoft/vscode) with extensions and `devcontainer` configurations preinstalled in the `C5-DEC CAD dev container`.
-
-### Common Criteria
-
-- A comprehensive [Common Criteria](https://www.commoncriteriaportal.org) Toolbox ([CCT](./docs/manual/cct.md)), with a focus on efficient browsing of the CC database, creating and processing evaluation checklists, including
-   - all baseline CC Security Functional Requirements (SFR) and Security Assurance Requirements (SAR);
-   - [CEM evaluation](./docs/manual/cct.md#create-an-evaluation-checklist) checklist creation in [spreadsheet](./docs/manual/cct.md#exporting-evaluation-checklists-to-spreadsheet-format) format;
-   - built-in capabilities for assisting the process of generating evaluation technical reports (ETR);
-   - ETR [document part generation](./docs/manual/cct.md#make-etr-document-parts-from-an-evaluation-checklist-spreadsheet) from C5-DEC checklist spreadsheets;
-   - an [ETR generation](./docs/manual/cct.md#c5-dec-docengine-for-etr-generation) solution based on customized Quarto project templates tailored to our ETR part generation function, and
-   - a [CC wiki](./c5dec/assets/database/KnowledgeBase/0_MapofContent.md) capturing the key concepts of Common Criteria (work in progress).
-- An object-oriented model and implementation of CC concepts, with the CC database serialized and stored in Markdown and YAML files, with traceability features built on top of Doorstop.
+- A command-line interface ([**CLI**](./docs/manual/start.md)) for efficient user interactions and scripting automation;
+- A user-friendly graphical user interface ([**GUI**](./docs/manual/start.md)), powered by [Flask](https://flask.palletsprojects.com/en/3.0.x/) and [Bootstrap](https://getbootstrap.com/);
+- A rich textual user interface ([**TUI**](./docs/manual/start.md)), powered by [asciimatics](https://github.com/peterbrittain/asciimatics);
+- A [VS Code](https://github.com/microsoft/vscode)-optimized workbench with preloaded extensions and `devcontainer` configurations preinstalled in the C5-DEC dev containers (CAD, DocEngine, PQC-OpenSSL);
+- Straightforward integration with Dev(Sec)Ops platforms (GitHub, GitLab);
+- Containerized development and deployment.
 
 ### Secure software development life cycle (SSDLC)
 
-- The SSDLC report, part of the [C5-DEC KB](#knowledge-base), is inspired by and builds on ISO/IEC/IEEE 12207 - Software life cycle processes, the European Cooperation for Space Standardization (ECSS) standard ECSS-E-ST-40C, ISO/IEC/IEEE 29119:2022 Software testing, ISO/IEC/IEEE 29148:2018 Requirements engineering, the DevSecOps Platform Independent Model (PIM) by the Software Engineering Institute (SEI) of Carnegie Mellon University (CMU), SAFECode, OWASP, as well as McGraw’s publications on software security;
-- Create [new project repositories based on C5-DEC (batteries included)](./docs/manual/ssdlc.md#c5-dec-project-creation): a fresh development repository with containerized development artifacts, all dependencies installed, templates, DocEngine, source code and technical specification processing software for enhancing [SSDLC](./docs/manual/ssdlc.md) and enforcing the C5-DEC method, powered by [Doorstop](https://github.com/doorstop-dev/doorstop), and [**AI-enabled**](./docs/manual/ssdlc.md#ai-enabled-design-and-specification) approach facilitating the generation and [processing of technical specifications](#c5-dec-vs-code-workbench-and-containerized-development-environment), documentation, and design artifacts, including requirements, test cases, and technical reports;
-- C5-DEC [DocEngine](./docs/manual/ssdlc.md#c5-dec-docengine-for-report-generation): a flexible, easily extensible, and complete publishing solution based on [Quarto](https://quarto.org/) (an open-source scientific and technical publishing system), enhanced by our Quarto configurations, dedicated LaTeX customizations and pre-render and post-render Python scripts providing a baseline automated publishing pipeline (see [SSDLC](./docs/manual/ssdlc.md) and [CCT](./docs/manual/cct.md));
-- [Transformer](./docs/manual/ssdlc.md#transformer): a suite of integrated tools dedicated to universal document transformation, format conversion, content import/export, publishing, and file management automation based on our customized use of [Doorstop](https://github.com/doorstop-dev/doorstop), [Quarto](https://github.com/quarto-dev/quarto), [pandoc](https://pandoc.org/) and [organize](https://github.com/tfeldmann/organize);
-- Another [KB](#knowledge-base) element dedicated to software verification and validation (SVV) complementing the SSDLC.
+- [New C5-DEC project scaffolding](./docs/manual/ssdlc.md#c5-dec-project-creation) (`c5dec new`): containerized repository with dependencies, templates, DocEngine, SpecEngine, and Doorstop-based traceability, with an [AI-enabled](./docs/manual/ssdlc.md#ai-enabled-design-and-specification) approach for generating requirements, test cases, and technical reports;
+- [DocEngine](./docs/manual/ssdlc.md#c5-dec-docengine-for-report-generation) (`c5dec docengine`): Quarto-based publishing pipeline with LaTeX customizations and pre/post-render scripts; scaffolds three template types — `report`, `presentation` (Reveal.js and PowerPoint with ALab branding), and `cra-tech-doc` (CRA Annex VII technical documentation);
+- [Transformer](./docs/manual/ssdlc.md#transformer): document transformation and format conversion using [Doorstop](https://github.com/doorstop-dev/doorstop), [Quarto](https://github.com/quarto-dev/quarto), [pandoc](https://pandoc.org/), and [organize](https://github.com/tfeldmann/organize);
+- [SpecEngine](./docs/specs/SpecEngine/) toolkit for specification management following the [C5-DEC method](./docs/specs/README.md): `c5graph.py` (interactive Cytoscape.js traceability graph with dagre layout, expand/collapse, color-coded coverage), `c5mermaid.py` (Mermaid-to-SVG/PNG pre-processor with undo and dry-run, integrated into `publish.sh`), `c5browser.py` (standalone Bootstrap + DataTables HTML browser for Doorstop items with sortable/filterable per-document-type tables), `c5traceability.py` (configurable traceability matrix statistics with console and HTML report output, auto-discovery of document trees from `.doorstop.yml` files), `prune_bad_links.py` (Doorstop link pruning), and `doorstop_yml_to_md.py` (YAML-to-Markdown item migration);
+- A [KB element](#knowledge-base) dedicated to software verification and validation (SVV).
 
+### Common Criteria
 
-### Project (resource) management
+A comprehensive [Common Criteria Toolbox (CCT)](./docs/manual/cct.md) covering:
 
-- Chapters in the SSDLC report describing the C5-DEC software project management approach based on the [HERMES](https://www.hermes.admin.ch/en/project-management/method-overview.html) method, complemented by our interpretation and implementation of templates in open-source software such as OpenProject, GitLab and Nextcloud;
-- [Processing of OpenProject time reports](./docs/manual/pm.md#openproject-time-report-assistant) and conversion to custom formats;
-- [Consolidation](./docs/manual/pm.md#time-report-consolidation-assistant) of C5-DEC time sheets;
-- Dedicated software for detailed resource and [cost computations](./docs/manual/pm.md#cost-report-computation).
+- Full CC database of Security Functional Requirements (SFRs) and Security Assurance Requirements (SARs), with an OOP model serialized in Markdown and YAML with Doorstop traceability;
+- [CEM evaluation checklist](./docs/manual/cct.md#create-an-evaluation-checklist) creation and export to [spreadsheet format](./docs/manual/cct.md#exporting-evaluation-checklists-to-spreadsheet-format);
+- [ETR document part generation](./docs/manual/cct.md#make-etr-document-parts-from-an-evaluation-checklist-spreadsheet) from C5-DEC checklist spreadsheets and a [DocEngine-backed ETR generation](./docs/manual/cct.md#c5-dec-docengine-for-etr-generation) pipeline;
+- A structured [CC concept wiki](./c5dec/assets/database/KnowledgeBase/0_MapofContent.md) with 50+ articles covering CC Concepts (TOE and its components, Security Problem Definition, Security Objectives, SFRs/SARs and their four operations, Evaluation Assurance Levels, attack potential, evaluation evidence), Core Constructs (Security Target, Protection Profile, PP-Module, PP-Configuration, ETR, Observation Report), the EUCC certification scheme, and a Terms & Definitions register.
+
+### CRA (Cyber Resilience Act) compliance
+
+A comprehensive [CRA compliance module](./docs/manual/cra.md) supporting EU Regulation (EU) 2024/2847:
+
+- [Essential requirements checklist](./docs/manual/cra.md#1-cra-essential-requirements-checklist) (Annex I, Parts I & II) with Doorstop integration, pass/fail/na verdict tracking, and Excel export with per-category compliance percentages;
+- [CRA Technical Documentation generator](./docs/manual/cra.md#2-cra-technical-documentation-generator) (Annex VII, seven chapters) and [EU Declaration of Conformity](./docs/manual/cra.md#step-9-generate-eu-declaration-of-conformity) generator (Annex V); also available as `c5dec docengine cra-tech-doc`;
+- [SBOM lifecycle management](./docs/manual/sbom.md) (`c5dec sbom`) with [Syft](https://github.com/anchore/syft) integration (CycloneDX and SPDX), generation, parsing, validation, version diff, Doorstop traceability, and automated CRA requirement cross-verification;
+- Support for Default, Class I, Class II, and Critical CRA product risk classes.
 
 ### Cyber-Physical System Security Assessment
 
-- Our CPSSA report, a third [KB element](#knowledge-base), describing the C5-DEC method for Cyber-Physical System Security Assessment (CPSSA);
-- A [guide](./docs/manual/cpssa.md) on the use of existing open-source software to enforce the CPSSA method.
+A fully integrated [CPSSA module](./docs/manual/cpssa.md) (`c5dec cpssa`) with five subcommands:
+
+- `create-threat-model` — generates Threagile-compatible YAML threat models from Doorstop SRS/ARC artifacts with auto-discovery and sidecar YAML support (`threat-actors.yml`, `assumptions.yml`);
+- `generate-report` — produces STRIDE-based CPSSA Markdown reports from a threat model;
+- `generate-dfd` — generates PlantUML Data Flow Diagrams from Doorstop ARC items;
+- `fair-input` — creates a FAIR parameters template YAML from a threat model;
+- `risk-analysis` — runs FAIR-based Monte Carlo quantitative risk analysis using [pyfair](https://github.com/theonaunheim/pyfair) with PERT distribution support and `--fair-params` YAML override.
+
+A water-treatment worked example is included in `c5dec/core/cpssa/examples/water-treatment/`. The CPSSA methodology is described in the [C5-DEC KB](#knowledge-base).
 
 ### Cryptography
 
-- A containerized and pre-configured deployment of open-source cryptographic software in the development environment for classical cryptography: [GnuPG](https://gnupg.org/), [Kryptor](https://www.kryptor.co.uk/), [Cryptomator CLI](https://github.com/cryptomator/cli);
-- A VS Code dev container packaging of [OQS-OpenSSL provider](https://github.com/open-quantum-safe/oqs-provider) for post-quantum cryptography.
-- A [guide](./docs/manual/cryptography.md) on the use of the integrated cryptographic software.
+- A native Python [cryptography module](./docs/manual/cryptography.md) exposed via `c5dec crypto` with 11 subcommands: `hash`, `verify-hash`, `sign`, `verify-sig`, `encrypt`, `decrypt`, `shamir-split`, `shamir-recover`, `nacl-keygen`, `nacl-sign`, `nacl-verify`;
+- Covers SHA-256 file integrity, [GnuPG](https://gnupg.org/) signing and encryption, Shamir's Secret Sharing over GF(2¹²⁷−1), and NaCl Ed25519 digital signatures;
+- Containerized deployment of [GnuPG](https://gnupg.org/), [Kryptor](https://www.kryptor.co.uk/), and [Cryptomator CLI](https://github.com/cryptomator/cli);
+- A dedicated dev container with the [OQS-OpenSSL provider](https://github.com/open-quantum-safe/oqs-provider) for post-quantum cryptography.
+
+### AI-enabled design, specification and development
+
+C5-DEC CAD is designed from the ground up to be AI-friendly (more precisely, LLM-assisted). All artifacts — requirements, design elements, test cases, architecture items, and technical reports — use open text formats (Markdown, YAML, Quarto), making them machine-parseable without conversion. LLMs can work across the full specification tree in both conversational and agent mode:
+
+- **Open-format artifact corpus**: Every requirement, design item, test case, traceability link, and knowledge base article is stored as plain Markdown or YAML. There is no proprietary binary format to decode and no export step needed — an LLM has direct read and write access to the complete artifact set.
+- **Structured, domain-organized knowledge base**: The CC concept wiki, SSDLC methodology, SVV model, and CPSSA guidance are written as structured Markdown documents organized by module. This gives LLMs authoritative, project-specific context for each functional area (CCT, CRA, CPSSA, DocEngine, SpecEngine, cryptography, project management) without relying on generic training data.
+- **Doorstop-backed traceability**: The specification tree (MRS → SRS → SWD → TST → TRA) provides explicit, navigable links between requirements, design decisions, and test cases. An LLM can follow the traceability graph forward or backward to perform gap analysis, consistency checking, or coverage assessment with precision.
+- **Modular, task-aligned architecture**: Each C5-DEC module (CCT, SSDLC, CRA, CPSSA, SBOM, cryptography, PM) is independently documented and implemented, making it straightforward to scope AI assistance to a specific domain — Common Criteria component selection, threat modelling, CRA compliance, test authoring, or report generation — without requiring broad context.
+- **Workflow-oriented structure**: C5-DEC workflows follow well-defined, repeatable procedures (new project bootstrapping, release cycle management, CRA compliance, CPSSA engagement, DocEngine publishing). The procedural nature of these workflows makes them well-suited to step-by-step AI-guided execution.
+
+See the [AI-enabled design and specification](./docs/manual/ssdlc.md#ai-enabled-design-specification-development-and-testing) section of the user manual for a detailed description of the approach.
+
+### Project (resource) management
+
+- [OpenProject time report processing](./docs/manual/pm.md#openproject-time-report-assistant) and conversion to custom formats;
+- [Time sheet consolidation](./docs/manual/pm.md#time-report-consolidation-assistant) and detailed resource and [cost computation](./docs/manual/pm.md#cost-report-computation);
+- Project management approach based on the [HERMES](https://www.hermes.admin.ch/en/project-management/method-overview.html) method documented in the [C5-DEC KB](#knowledge-base).
 
 ## User manual
 
-Please see the [CAD user manual](./docs/manual/overview.md) to learn more about the installation, setup requirements, overall usage and specific modules of C5-DEC CAD. A concise guide for getting quickly started is given below.
+See the [C5-DEC CAD user manual](./docs/manual/README.md) for installation, setup, and module-by-module usage guidance.
 
 ## Documentation and technical specifications
 
-You can visit our [traceability page](https://abstractionslab.github.io/c5dec/docs/traceability/index.html) to view the technical specifications of C5-DEC CAD, which have been published to HTML from the source specification files via the `publish` CLI command of C5-DEC CAD, which in turn acts as a wrapper for the underlying Doorstop publish feature, offering some enhancements.
+The technical specifications of C5-DEC CAD are published to HTML via the `publish.sh` script in `docs/specs/`, backed by the SpecEngine toolchain. View them on our [traceability page](https://abstractionslab.github.io/c5dec/docs/traceability/index.html).
 
-## Getting Started
+## Prerequisites
 
-C5-DEC CAD can be deployed using any of the following methods:
+| Requirement | Docker + shell scripts | VS Code dev container |
+|-------------|------------------------|----------------------|
+| [Docker Engine](https://docs.docker.com/engine/install/) | Required | — |
+| [Docker Desktop](https://www.docker.com/products/docker-desktop/) | — | Required |
+| [Visual Studio Code](https://code.visualstudio.com/) | — | Required |
+| [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) | — | Required |
+| Git | Recommended | Required (for cloning) |
 
-1. Deployment using Docker and our shell scripts: `build-c5dec.sh` and `c5dec.sh`: our runner script (`c5dec.sh`) offers a command mode tailored to the use of the Common Criteria Toolbox (CCT) and the Project Management (PM) modules, as well as an interactive session mode (`c5dec.sh session`) for using the [Transformer](./docs/manual/ssdlc.md#transformer) and [Cryptography](./docs/manual/cryptography.md) features and a PQC entrypoint (`c5dec.sh pqc`).
-2. Deployment in a containerized development environment in VS Code (**recommended for advanced usage, development, data science**): this mode is the preferred option for effective use of the Quarto-based [DocEngine](./docs/manual/ssdlc.md#c5-dec-docengine-for-report-generation), Cryptography and Transformer modules. Note that all the features available via the CLI, TUI and GUI when using the deployment model (1) would also be available using this second approach.
+No local Python installation is needed — all Python dependencies are managed inside the Docker container.
 
-For more details on the installation options, please see the [installation](./docs/manual/installation.md) page of the user manual.
+> **Note on pre-release dependencies**: two runtime dependencies are pre-release upstream: `doorstop 3.0b10` (beta) and `pyfair 0.1a13` (alpha). No stable releases exist for these packages at the time of this release.
 
-### Installing C5-DEC CAD via Docker and our scripts
+## Getting started
 
-The fastest and most reliable way to deploy and run C5-DEC CAD is to use our already existing Docker definition file, with the build and execution scripts found in the repository. The instructions below work on GNU/Linux, MacOS and WSL.
+C5-DEC CAD supports two deployment models; see the [installation page](./docs/manual/installation.md) for full details.
 
-Simply clone the repository or download a ZIP archive of the project, and then proceed as follows:
+### Docker and shell scripts
 
-1. Install [Docker engine](https://docs.docker.com/engine/install/) and make sure it is running;
-1. Unzip the archive, switch to the extracted directory (`cd foldername`) via a terminal running a shell (e.g., bash, zsh) and make the two shell scripts executable: `chmod +x script-name.sh`;
-1. Build the images by running our build script: `./build-c5dec.sh`;
-1. Launch C5-DEC CAD runner script by running `./c5dec.sh`, which by default starts the CLI with no arguments and shows the help menu. Run `./c5dec.sh help` for usage instructions.
+Install [Docker engine](https://docs.docker.com/engine/install/), clone or unzip the repository, make the scripts executable (`chmod +x *.sh`), build the image with `./build-c5dec.sh`, and run `./c5dec.sh`. This model covers all CLI commands and is best suited for CCT, PM, CRA, and CPSSA workflows.
 
-### Installing C5-DEC CAD in a containerized development environment
+### VS Code dev container (recommended for advanced usage)
 
-1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/) (or [Docker engine](https://docs.docker.com/engine/install/)), [Visual Studio Code](https://code.visualstudio.com/) (VS Code), and the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension for VS Code by Microsoft.
-2. Clone the C5-DEC repository:
+Install [Docker Desktop](https://www.docker.com/products/docker-desktop/), [VS Code](https://code.visualstudio.com/), and the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension. Clone the repository, open it in VS Code, and select "Reopen in Container". Three container configurations are available:
 
-```sh
-git clone https://github.com/AbstractionsLab/c5dec.git 
-```
+| Container | Contents | Best for |
+|-----------|----------|----------|
+| `C5-DEC CAD dev container` | CLI, TUI, GUI, CCT, CRA, SBOM, CPSSA, cryptography | General use and development |
+| `C5-DEC DocEngine dev container` | Quarto, TeX Live, Kryptor, Cryptomator CLI | Report and document publishing |
+| `C5-DEC CAD cryptography dev container` | OpenSSL, OQS-OpenSSL provider | Post-quantum cryptography |
 
-3. Start Docker Desktop if not already running and open the project folder in VS Code;
-4. Select the "Reopen in Container" option in the notification that pops up in VS Code; or launch the command palette (Cmd/Ctrl+Shift+P) and select "Dev Containers: Reopen in Container" from the list of available commands. You will then be prompted to select a dev container configuration: the `C5-DEC CAD dev container` provides the bulk of the functionality, while the `C5-DEC CAD cryptography dev container` provides an environment with [OpenSSL](https://docs.openssl.org/master/man7/ossl-guide-libcrypto-introduction/) and the [OQS-OpenSSL provider](https://github.com/open-quantum-safe/oqs-provider) installed.
-
-![Selecting between C5-DEC dev containers](./docs/manual/_figures/c5dec-devcontainer-options.png)
-
-5. For the following sections, we assume having selected the `C5-DEC CAD dev container`. Once selected, wait for the container to build and start. This may take a few minutes, depending on your internet connection and the performance of your machine.
-6. Once the container is up and running, you will see a terminal window open in VS Code, and you can start using C5-DEC CAD. If a terminal window does not open automatically, you can open a new terminal by selecting "Terminal" from the top menu and then "New Terminal". This will open a terminal window inside the container.
-
-Note that the local file system is automatically mapped to that of the GNU/Linux container.
-
-Once installed, the C5-DEC CAD tool can be launched from the VS Code terminal in any of the three modes of operation (CLI, TUI, GUI). Upon opening a VS Code terminal, the currently selected directory will be the project root folder, i.e., `/home/alab/c5dec`. Change to the `c5dec` folder inside the former:
-
-```sh
-cd /home/alab/c5dec/c5dec
-```
-
-To avoid having to precede the commands with `poetry run` each time, e.g., `poetry run c5dec <command>`, we recommend running `poetry shell` to activate the virtual environment; you can then run the commands directly by invoking `c5dec`:
-
-```sh
-c5dec -h
-```
+Once inside the container, activate the poetry environment with `poetry shell` and run `c5dec -h`.
 
 ## Usage
 
-To [start](./docs/manual/start.md) C5-DEC CAD through your GNU/Linux/MacOS/WSL terminal, first change your current working directory to the one containing an unpacked copy of the [c5dec-main.zip](https://github.com/AbstractionsLab/c5dec/archive/refs/heads/main.zip) archive. For the sake of this example, we assume that the zip archive is unpacked at the following path `/home/user/c5dec`:
+C5-DEC CAD exposes two entry points depending on the deployment model:
 
-```sh
-cd /home/user/c5dec
-```
+- **`./c5dec.sh <command>`** — used with the Docker + shell scripts model. The runner script wraps the container invocation so no Poetry or Python setup is needed on the host.
+- **`c5dec <command>`** — used inside the VS Code dev container after activating the Poetry environment (`poetry shell`). Provides the full feature set including DocEngine, Transformer, and advanced SSDLC workflows.
 
-To access the command line interface (CLI), simply run `./c5dec.sh`, which by default shows the help menu if no arguments are provided, i.e., similar to the behavior resulting from the use of the `-h` flag. You can access the TUI and the GUI by using the `-t` and `-g` flags, respectively. The following subsections cover the three interfaces; see the [user manual](./docs/manual/overview.md) for a more detailed breakdown of features.
+The TUI and GUI are launched with the `-t` and `-g` flags respectively. An interactive session mode (`c5dec.sh session <workspace>`) is available for Transformer and cryptography workflows; a PQC entrypoint (`c5dec.sh pqc`) opens the OQS-OpenSSL container.
 
-Note that for the TUI and the GUI, you can change the CC database prior to launching the software by modifying the selected DB in the `c5dec_params.yml` YAML file found in the `c5dec/assets` folder within the project folder.
-
-A summary of the `c5dec.sh` runner options are provided below:
-
-- To open the C5-DEC CLI help menu:
-
-```sh
-./c5dec.sh
-```
-
-- To run a C5-DEC CLI command:
-
-```sh
-./c5dec.sh <command>
-```
-
-- To get help for a C5-DEC CLI command:
-
-```sh
-./c5dec.sh <command> -h
-```
-
-- To start an interactive C5-DEC session for using the [Transformer](./docs/manual/ssdlc.md#transformer) and [Cryptography](./docs/manual/cryptography.md) features:
-
-```sh
-./c5dec.sh session <workspace>
-```
-
-The argument `<workspace>` can be optionally used to provide the path to a directory on the user's file system (outside the C5-DEC folder); see the [usage section of the start page](./docs/manual/start.md#usage) for more details.
-
-- To use the [OQS-OpenSSL](./docs/manual/cryptography.md#post-quantum-cryptography-pqc) provider for post-quantum cryptography:
-
-```sh
-./c5dec.sh pqc
-```
-
-### C5-DEC CAD command line interface (CLI)
+| Interface | Launch command | Description |
+|-----------|---------------|-------------|
+| CLI | `./c5dec.sh` or `c5dec -h` | Primary interface; full command set |
+| TUI | `./c5dec.sh -t` | Interactive terminal UI |
+| GUI | `./c5dec.sh -g` | Web UI at `127.0.0.1:5432` |
+| VS Code dev container | Reopen in container | ete |
 
 ```sh
 ./c5dec.sh
@@ -202,22 +177,6 @@ The argument `<workspace>` can be optionally used to provide the path to a direc
 This would display the help menu of the CLI, as shown below. You can then choose one of the available subcommands to execute the desired operation.
 
 ![C5-DEC CAD CLI](./docs/manual/_figures/c5dec-cli.png)
-
-You can for instance invoke the [work unit evaluation checklist export to spreadsheet](./docs/manual/cct.md#exporting-evaluation-checklists-to-spreadsheet-format) command, e.g., for the ALC class, as follows:
-
-```sh
-./c5dec.sh export alc-checklist 3R5 -c ALC
-```
-
-or create a new [C5-DEC project (batteries included)](./docs/manual/ssdlc.md#c5-dec-project-creation):
-
-```sh
-./c5dec.sh new
-```
-
-You can define a project name and GNU/Linux username for Dockerized development environment using the `-p` and `-u` parameters, e.g., `./c5dec.sh new -p "someproject" -u "someuser"`
-
-### C5-DEC CAD textual user interface (TUI)
 
 You can launch the TUI using the `-t` flag.
 
@@ -228,8 +187,6 @@ This would launch the TUI and start with the module selection menu, as shown bel
 
 ![C5-DEC CAD TUI](./docs/manual/_figures/c5dec-cad-tui.png)
 
-### C5-DEC CAD graphical user interface (GUI)
-
 ```sh
 ./c5dec.sh -g
 ```
@@ -237,19 +194,23 @@ This would launch the GUI, as shown below, starting a web server that listens on
 
 ![C5-DEC CAD GUI](./docs/manual/_figures/c5dec-cad-gui-cct-browser.png)
 
-### C5-DEC VS Code workbench and containerized development environment
+Finally, you can access the [optimized VS Code dev containers](./docs/manual/installation.md#installation-in-a-containerized-development-environment) via the "Reopen in container" feature
 
-Finally, using VS Code, you can access the various user interfaces in the same workbench while also benefitting from dedicated VS Code extensions integrated into our containerized development environment (e.g., Code Spell Checker, Quarto, Jupyter, Data Wrangler, Docker) as well as the code editor's own built-in features. The screenshot below highlights an example of how the [C5-DEC method lends itself to AI-powered](./docs/manual/ssdlc.md#ai-enabled-design-and-specification) capabilities.
+![Selecting between C5-DEC dev containers](./docs/manual/_figures/c5dec-devcontainer-options.png)
+
+and use the customized workbench for development:
 
 ![C5-DEC CAD in VS Code](./docs/manual/_figures/c5dec-vscode-workbench.png)
 
-## Roadmap
+See the [quick start page](./docs/manual/start.md) for the full list of runner options and first-run examples, and the [user manual](./docs/manual/README.md) for per-module command references.
 
-We will continue to enhance C5-DEC CAD with new features and improvements. Some of the planned features include:
-- Integrating locally stored generative AI (GenAI) models and implementing a GenAI assistant for the C5-DEC method enhancing its [AI-enabled design and technical specification](./docs/manual/ssdlc.md#ai-enabled-design-and-specification) approach with privacy-aware features and retrieval-augmented generation (RAG) capabilities;
-- Enhancing our cryptographic dependencies (e.g., [OQS-OpenSSL](https://github.com/open-quantum-safe/oqs-provider), [OpenSSH](https://www.openssh.com/)) with verified implementations, e.g., [EverCrypt](https://www.microsoft.com/en-us/research/publication/evercrypt-a-fast-veri%EF%AC%81ed-cross-platform-cryptographic-provider/) and [HACL*](https://hacl-star.github.io/HaclValeEverCrypt.html).
+## Changelog
 
-For further details on our roadmap and features planned for future releases, please see the [Wiki](https://github.com/AbstractionsLab/c5dec/wiki) section of this repository.
+See [CHANGELOG.md](CHANGELOG.md) for a full history of releases and changes.
+
+## Contributing
+
+Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for branching conventions, commit message guidelines, how to run the test suite, and documentation standards before opening a pull request. To report a security vulnerability, follow the process described in [SECURITY.md](SECURITY.md).
 
 ## License
 

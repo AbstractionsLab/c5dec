@@ -1,0 +1,75 @@
+---
+title: "Applied Standards and Specifications"
+---
+
+# Applied Standards and Specifications
+
+## Harmonised European Standards
+
+[List harmonised European standards (hENs) applied, if available. As of 2026, CRA-specific hENs are being developed by CEN/CENELEC.]
+
+{{< meta conformity.applied_standards >}}
+
+::: {.callout-note}
+## Presumption of Conformity
+
+Products manufactured in conformity with harmonised standards benefit from a presumption of conformity with the essential requirements covered by those standards (CRA Article 21).
+:::
+
+## Common Specifications
+
+[If harmonised standards are not yet available or not applied, list common specifications adopted by the European Commission.]
+
+## Other Technical Standards Applied
+
+[List other relevant technical standards applied during product development:]
+
+| Standard | Title | Relevance |
+|----------|-------|-----------|
+| ISO/IEC 27001:2022 | Information security management | ISMS framework |
+| ISO/IEC 27002:2022 | Information security controls | Security controls |
+| IEC 62443-4-2:2019 | Security for industrial automation | Secure development |
+| NIST SP 800-53 | Security and privacy controls | Security controls |
+
+## Cybersecurity Frameworks
+
+[Describe any cybersecurity frameworks referenced:]
+
+- NIST Cybersecurity Framework
+- ENISA Cybersecurity Certification Scheme (EUCC)
+- Others
+
+## Secure Coding Standards
+
+[List secure coding standards followed:]
+
+- CERT Secure Coding Standards
+- OWASP Secure Coding Practices
+- CWE/SANS Top 25 Most Dangerous Software Errors
+
+## Mapping to CRA Essential Requirements
+
+[Provide a mapping showing which standards/specifications address which CRA Annex I requirements:]
+
+| CRA Requirement | Standard/Specification | Coverage |
+|-----------------|------------------------|----------|
+| cra_i_1_1 | ISO/IEC 27001:2022 | Full |
+| cra_i_1_2 | IEC 62443-4-2:2019 | Partial |
+| ... | ... | ... |
+
+## Gap Analysis
+
+[If any CRA requirements are not fully covered by applied standards, describe how those gaps are addressed through additional measures.]
+
+## Compliance Verification
+
+[Describe how compliance with applied standards has been verified:]
+
+- Internal audits
+- External assessments
+- Certification (if applicable)
+- Test reports
+
+## References to Test Reports
+
+[List relevant test reports and where they can be found in the documentation.]

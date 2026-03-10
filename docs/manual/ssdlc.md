@@ -26,13 +26,14 @@ Our C5-DEC CAD suite of tools makes use of various tools to enforce the C5-DEC m
 
 - Compiling technical specifications and exporting to various formats (e.g., PDF, docx, LaTeX, Markdown) using our DocEngine module based on Quarto;
 
-- [AI-enabled](#ai-enabled-design-and-specification) design and specification: our approach of leveraging text-based open formats such as Markdown, YAML, and Quarto for technical specifications and documentation enables the integration of AI-powered tools like VS Code and Copilot embedding large language models (LLMs). This approach provides several advantages, which include:
-    - Enhanced compatibility with AI tools
-    - Automated content generation
-    - Improved traceability and linking
-    - Natural language queries
-    - Batch updates and refinements
-    - Customizable AI workflows
+- [AI-enabled](#ai-enabled-design-and-specification) design and specification: C5-DEC's use of text-based open formats — Markdown, YAML, and Quarto — for all technical specifications and documentation enables LLMs to work directly with the full artifact corpus without any conversion step. This approach provides several concrete advantages:
+    - Open-format artifact corpus accessible to LLMs without conversion
+    - Domain-organized knowledge base and specialized AI roles per module
+    - Workflow-oriented, step-by-step procedural structure suited to agent-mode execution
+    - Machine-readable Doorstop items with stable UIDs and explicit traceability fields
+    - Natural language queries across the full specification tree
+    - Batch updates and automated specification refinements
+    - Requirements gap analysis as a reproducible, auditable operation
 
 ## Table of Contents
 
@@ -59,7 +60,7 @@ Our C5-DEC CAD suite of tools makes use of various tools to enforce the C5-DEC m
         - [Verifying requirement coverage](#verifying-requirement-coverage)
     - [Suggestions for batch updates](#suggestions-for-batch-updates)
 - [C5-DEC DocEngine for report generation](#c5-dec-docengine-for-report-generation)
-- [AI-enabled design and specification](#ai-enabled-design-and-specification)
+- [AI-enabled design and specification](#ai-enabled-design-specification-development-and-testing)
 - [Transformer](#transformer)
     - [Design artifacts import and export](#design-artifacts-import-and-export)
     - [Universal document converter](#universal-document-converter)
@@ -150,7 +151,7 @@ Running the `new` command will produce a ZIP bundle, by default called `myprojec
 - `docs`: a folder aimed at technical specifications and documentation containing 4 subfolders:
     - `assets`: Doorstop-related files needed for publishing specifications to HTML
     - `manual`: basic templates for writing up a user manual
-    - `specs`: prepared Doorstop templates for technical specifications following the C5-CEC design artifact breakdown (explained below), together with a shell script for enhanced publishing (`publish.sh`) making use of a keyword replacement (`c5-keyword.py`) feature for verdict processing in test reports and customized doorstop publish `c5publish.py`
+    - `specs`: prepared Doorstop templates for technical specifications following the C5-CEC design artifact breakdown (explained below), together with a shell script for enhanced publishing (`publish.sh`) that orchestrates the full SpecEngine toolchain: keyword replacement (`c5-keyword.py`), Mermaid diagram rendering (`c5mermaid.py`), customised Doorstop publish with ID linkification (`c5publish.py`), traceability statistics (`c5traceability.py`), interactive browser (`c5browser.py`), and dependency graph (`c5graph.py`)
     - `traceability`: an empty folder aimed at storing the outcome of the published technical specification in HTML
 - `<projectname>`: a folder containing an `assets` folder providing a copy of the [DocEngine](#c5-dec-docengine-for-report-generation) report and an empty Jupyter notebook that can be used out of the box thanks to all dependencies coming preinstalled with the containerized deployment
 - `tests`: an empty Python package for storing unit tests (by default as a Python package, but can be tailored)
@@ -265,47 +266,213 @@ The same export-to-spreadsheet feature described in the previous discussion can 
 
 Quick value combinations can also be performed in a similar fashion, e.g., merging the values of multiple columns into a single one when performing layout/template restructuring at the level of Doorstop document and item format specifications.
 
+## SpecEngine utilities
+
+The `docs/specs/SpecEngine/` directory contains a collection of Python utilities that extend the Doorstop publishing pipeline. They are invoked automatically by `publish.sh`, but can also be run individually.
+
+### `c5publish.py` — enhanced Doorstop publisher
+
+Publishes the full Doorstop specification tree to HTML and post-processes the output:
+
+- Excludes CC database items from the published output by default.
+- Applies Bootstrap styling and adds a navigation bar linking to the SpecEngine reports.
+- **Linkifies bare Doorstop item IDs** — every occurrence of an item ID (e.g., `SRS-001`) in a published HTML file is automatically converted to an anchor link.
+
+```bash
+# Publish without CC database (default)
+python docs/specs/SpecEngine/c5publish.py
+
+# Re-run only the linkification pass on an already published folder
+python docs/specs/SpecEngine/c5publish.py --linkify-only
+
+# Include CC database items in the published output
+python docs/specs/SpecEngine/c5publish.py --include-cc-db
+```
+
+### `c5browser.py` — interactive specification browser
+
+Generates a standalone Bootstrap/DataTables HTML page (`items_browser.html`) with one sortable, filterable table per Doorstop document type. Supports **per-column filter inputs**, sortable numeric fields, and defect badge rendering for `?c5-defect-X` keywords.
+
+```bash
+poetry run python docs/specs/SpecEngine/c5browser.py
+poetry run python docs/specs/SpecEngine/c5browser.py --output path/to/out.html
+```
+
+### `c5traceability.py` — traceability statistics and HTML report
+
+Computes coverage statistics from the `traceability.csv` file produced by Doorstop and renders results to the console and/or to a self-contained Bootstrap HTML report.
+
+```bash
+# Console output with default config
+python docs/specs/SpecEngine/c5traceability.py
+
+# Console + HTML report
+python docs/specs/SpecEngine/c5traceability.py --html
+
+# Custom config file
+python docs/specs/SpecEngine/c5traceability.py --config my_config.yaml
+
+# Print auto-discovered document tree without running analysis
+python docs/specs/SpecEngine/c5traceability.py --discover
+
+# Write auto-discovered config to file, then run analysis
+python docs/specs/SpecEngine/c5traceability.py --discover --discover-write
+```
+
+Configuration is read from `c5traceability_config.yaml` (or a file specified with `--config`). See `c5traceability_config_example.yaml` in the same directory for a fully commented reference.
+
+### `c5graph.py` — interactive dependency graph
+
+Generates a self-contained interactive HTML graph (`specs-graph.html`) that visualises the Doorstop item dependency tree using Cytoscape.js. Nodes are colour-coded by coverage (green = linked, yellow = unlinked root). Clicking a node expands/collapses its subtree.
+
+```bash
+poetry run python docs/specs/SpecEngine/c5graph.py
+poetry run python docs/specs/SpecEngine/c5graph.py --output path/to/out.html
+```
+
+### `c5mermaid.py` — Mermaid diagram rendering
+
+Renders Mermaid diagram fences in Doorstop Markdown items to inline SVG before publishing, and reverts them afterwards. Called automatically by `publish.sh` so that architecture diagrams embedded in items appear as rendered images in the published HTML.
+
+```bash
+# Render all Mermaid fences in specs directory
+python docs/specs/SpecEngine/c5mermaid.py render
+
+# Undo rendered SVG and restore original Mermaid fences
+python docs/specs/SpecEngine/c5mermaid.py undo
+```
+
+### `prune_bad_links.py` — Doorstop link hygiene
+
+Removes `links:` entries that violate the Doorstop constraint that items may only link to items in their direct parent document.
+
+```bash
+# Preview what would be removed (dry run)
+python docs/specs/SpecEngine/prune_bad_links.py --dry-run
+
+# Apply removals
+python docs/specs/SpecEngine/prune_bad_links.py
+```
+
+### `doorstop_yml_to_md.py` — item format migration
+
+One-time migration script that converts legacy pure-YAML Doorstop item files (`.yml`) to the Markdown-with-YAML-frontmatter (`.md`) format and updates each document's `.doorstop.yml` to set `itemformat: markdown`.
+
+```bash
+# Preview without writing
+python docs/specs/SpecEngine/doorstop_yml_to_md.py --dry-run
+
+# Convert all default folders
+python docs/specs/SpecEngine/doorstop_yml_to_md.py
+
+# Convert specific folders
+python docs/specs/SpecEngine/doorstop_yml_to_md.py docs/specs/srs docs/specs/mrs
+```
+
+> **Note on item naming**: architecture document items use a hyphenated naming convention, e.g., `ARC-001.md` (not `ARC001.yml`). Ensure any cross-document links use the hyphenated form.
+
+### Typical workflow
+
+```bash
+# 1. Publish the specification tree to HTML
+python docs/specs/SpecEngine/c5publish.py
+
+# 2. Generate the interactive browser
+poetry run python docs/specs/SpecEngine/c5browser.py
+
+# 3. Generate traceability statistics
+python docs/specs/SpecEngine/c5traceability.py --html
+
+# 4. Generate the dependency graph
+poetry run python docs/specs/SpecEngine/c5graph.py
+
+# 5. Re-linkify all HTML files (now SpecEngine reports are available)
+python docs/specs/SpecEngine/c5publish.py --linkify-only
+```
+
+All HTML outputs are written to `docs/publish/` and linked from the sidebar injected by `c5publish.py`. The complete workflow above is orchestrated by `publish.sh`.
+
+---
+
 ## C5-DEC DocEngine for report generation
 
-A new feature made available as part of the beta release deals with the creation of reports, based on a robust publishing solution, namely Quarto. To this end, we have provided a complete Quarto template (found at `assets/report`).
+DocEngine provides Quarto-based templates for generating technical documents. Three template types are supported:
 
-This baseline report template can be used out of the box without any adjustments other than including your content. Our template provides a series of LaTeX customizations enhancing the fully Markdown-based experience, hiding away all such technical changes in a dedicated `tex` subfolder, which includes all the `.tex` files we use to customize our report template. We also group raw document content in a dedicated `chapters` folder, which in turn can and in our case does include sub-folders for a better separation of specifics subparts.
+- `report` — full technical report with LaTeX customizations, cover page, and chapters structure
+- `presentation` — slide deck template
+- `cra-tech-doc` — CRA compliance technical documentation template
+
+### Creating a DocEngine template
+
+Use the `docengine` CLI command to instantiate a template:
+
+```sh
+c5dec docengine report -n <name>
+c5dec docengine presentation -n <name>
+c5dec docengine cra-tech-doc -n <name>
+```
+
+### DocEngine configuration format
+
+DocEngine templates use a `c5dec_config.yml` file at their root for document metadata (cover page, headers, footers, changelog). Starting with v1.2 a revised format `c5dec_config_v2.yml` is supported alongside the original.
+
+**Format differences:**
+
+| Feature | `c5dec_config.yml` (v1) | `c5dec_config_v2.yml` (v2) |
+|---------|------------------------|----------------------------|
+| Changelog entries | Strings only | Strings, lists, or dicts |
+| LaTeX escaping | Manual | Automatic for special chars |
+| Pre-render Python script | `custom_vars.py` | `custom_vars_v2.py` |
+
+New projects created with `c5dec docengine` will include both files. The v2 format is recommended for new work. Existing templates using `c5dec_config.yml` + `custom_vars.py` continue to work without changes.
+
+By default, the template is created under `./docengine/<name>/` and a ZIP archive of the same content is placed alongside it. To override the destination, use the `-d` flag:
+
+```sh
+c5dec docengine report -n <name> -d /path/to/destination
+```
+
+After creation, edit `c5dec_config.yml` at the root of the template folder to set project metadata (title, authors, date, headers/footers), then add your content to the `chapters/` (report) or `slides/` (presentation) folder.
+
+### Rendering
+
+This baseline report template can be used out of the box without any adjustments other than including your content. Our template provides a series of LaTeX customizations enhancing the fully Markdown-based experience, hiding away all such technical changes in a dedicated `tex` subfolder. We also group raw document content in a dedicated `chapters` folder, which can include sub-folders for better separation of specific subparts.
 
 ![C5-DEC CAD SSDLC - DocEngine baseline report based on Quarto.](./_figures/c5dec-cad-DocEngine-report.png)
 
-Moreover, we provide pre-rendering and post-rendering code (`etr_template/scripts`) that provides various types of automation in the form of an easy-to-understand pipeline. In particular, our pre-render scripts allow the user to define all the meta data used in the cover page, as well as the headers and footers of the output report, via a dedicated YAML configuration file `c5dec_config.yml` found at the root of the `report` folder.
+Pre-rendering and post-rendering scripts (`etr_template/scripts`) provide automation for cover page metadata and headers/footers, all configurable via `c5dec_config.yml`.
 
-Using the same input format, the user can easily compile the report to several well-known and widely-used formats such as PDF, docx, and HTML, available at `assets/report/_output`. Our main enhancements focus on the PDF version as some of the specific features of Quarto itself are also better supported in this format, e.g., text call-outs.
-
-To use the built-in and enhanced Quarto-based technical writing system, first ensure you have run `poetry shell` to activate the environment, you can then either invoke the Quarto compiler/renderer via the dedicated VS Code extension for Quarto, accessible using the VS Code Command Palette (Cmd/Ctr+Shift+P) and selecting the `Quarto: Render Document` option or simply via the command line, e.g.,
+The template compiles to PDF, docx, and HTML; output is placed under `_output/` inside the template folder. To render, first ensure you have run `poetry shell` to activate the environment, then either use the Quarto VS Code extension (Command Palette → `Quarto: Render Document`) or the command line:
 
 ```sh
-$ quarto render ./c5dec/assets/report/index.qmd --to pdf
+quarto render ./docengine/<name>/index.qmd --to pdf
 ```
 
-Assuming the command is run from within the `/home/alab/c5dec/` directory, this would then generate a PDF document stored under the `_output` folder, with an example shown below:
+This generates a PDF document stored under `./docengine/<name>/_output/`, with an example shown below:
 
 ![C5-DEC CAD SSDLC - DocEngine compiled report example.](./_figures/c5dec-cad-DocEngine-compiled-report.png)
 
-For exporting to `docx`, we have also provided a reference template document that Quarto uses to adjust various aspects of the generated report such as heading and table styles, but the user can and is encouraged to update this reference template or replace it with their own version. Note that most features of the conversion to `docx` work rather well out of the box, but the user needs to manually copy their cover page into the automatically generated report.
+For `docx` export, a reference template document is provided to control heading and table styles; you can replace it with your own. Most `docx` features work out of the box, but the cover page must be copied in manually.
 
-## AI-enabled design and specification
+## AI-enabled design, specification, development and testing
 
-Our approach of leveraging text-based open formats such as Markdown, YAML, and Quarto for technical specifications and documentation enables the integration of AI-powered tools like VS Code and Copilot embedding large language models (LLMs). This approach provides several advantages, which include:
+C5-DEC is designed to enable AI-assisted design, development, and evaluation as a first-class concern. Large language models (LLMs) — whether proprietary (e.g., Anthropic Claude, OpenAI GPT, Google Gemini) or open-weight (e.g., Meta Llama, Mistral, DeepSeek, Qwen) — can work with the full specification tree in both conversational and agent mode. Our deliberate use of text-based open formats — Markdown, YAML, and Quarto — for all technical specifications and documentation is a prerequisite for this integration: every artifact in the repository is human-readable and machine-parseable without any conversion step. This approach provides several concrete advantages, all of which are active in the current codebase:
 
-1. **Enhanced compatibility with AI tools**: Text-based formats are inherently compatible with AI tools, enabling seamless integration with LLMs like VS Code Copilot. For example, requirements encoded in Markdown files with YAML front matter can be processed by Copilot in Agent mode to automatically generate titles, summaries, or even traceability links for all requirements.
+1. **Open-format artifact corpus**: Every requirement, architecture element, software design entry, test case specification, test report item, and knowledge base article is stored as plain Markdown or YAML. There is no proprietary binary format to decode and no export step needed — an LLM has direct read and write access to the complete artifact set. 
 
-2. **Automated content generation**: LLMs can assist in generating boilerplate content, such as requirement descriptions, test case outlines, or documentation templates, based on minimal input. This reduces manual effort and ensures consistency across artifacts.
+2. **Domain-organized knowledge base and specialized roles**: The CC concept wiki, SSDLC methodology, SVV model, and CPSSA guidance are written as structured Markdown documents organized by module. This organization naturally supports scoping AI assistance to a specific domain — Common Criteria component selection, threat modelling, CRA compliance, DocEngine template configuration, SpecEngine pipeline operation, Doorstop item linting, test coverage auditing, or traceability auditing — enabling LLMs to take on focused, constrained roles appropriate to the task at hand.
 
-3. **Improved traceability and linking**: AI tools can analyze relationships between artifacts (e.g., requirements, test cases, and design elements) and suggest or validate traceability links. This ensures comprehensive coverage and adherence to the SSDLC process.
+3. **Workflow-oriented, step-by-step procedures**: C5-DEC workflows follow well-defined, repeatable procedures: new project bootstrapping, SSDLC release cycle management, CRA compliance workflows, CPSSA engagements, DocEngine template configuration, and test authoring. The procedural nature of these workflows — each decomposed into discrete, verifiable steps — makes them well-suited to multi-step AI-guided execution and allows complex operations to be carried out autonomously and reproducibly.
 
-4. **Natural language queries**: Using LLMs, users can query the repository in natural language to retrieve specific information, such as "List all requirements linked to test cases with defects" or "Summarize the architecture design for subsystem X."
+4. **Machine-readable specification artifacts**: Doorstop items stored as Markdown files with YAML front matter give LLMs a consistent, structured format for every requirement, architecture element, software design entry, and test case in the repository. Stable UIDs, explicit `links:` traceability fields, `status:` and `reviewed:` metadata, and the per-document `.doorstop.yml` templates ensure that an AI assistant editing or generating items can do so safely. Understanding Doorstop's child→parent link directionality, UID auto-generation commands, and the `reviewed:` hash invalidation semantics is essential to preventing the class of silent traceability errors that can arise when an LLM edits linked items without understanding the constraint model.
 
-5. **Batch updates and refinements**: LLMs can assist in performing batch updates, such as reformatting YAML key-value pairs, updating metadata, or restructuring Markdown content, based on user-defined rules or patterns.
+5. **Natural language queries over the specification tree**: Because every artifact is plain text in the repository, LLMs can be asked in natural language to retrieve or summarize information across the full specification tree — for example, "List all SRS items with status `In Progress` that are not yet linked to a TST item" or "Summarize the architecture design elements tracing to MRS-012." The `c5browser.py` interactive browser and `c5traceability.py` statistics reports provide complementary human-readable views of the same data.
 
-6. **Customizable AI workflows**: By combining open formats with tools like Quarto and Doorstop, users can define workflows where AI tools generate, validate, and refine content before publishing. For instance, Quarto-based reports can include AI-generated summaries or insights derived from the underlying technical specifications.
+6. **Batch updates and automated refinements**: The uniform Doorstop item format supports batch specification operations — creating multiple new items, correcting parent links across documents, resetting review status, reformatting YAML front matter, updating metadata fields across a document, or restructuring Markdown bodies — all expressible as agent instructions operating over a consistent item schema. The Doorstop export-to-spreadsheet pipeline provides an additional path for bulk editing outside the repository when spreadsheet tooling is preferred.
 
-By adopting these open formats and integrating AI tools, our approach not only enhances productivity but also ensures that technical specifications and documentation remain accessible, adaptable, and future-proof.
+7. **Requirements gap analysis**: LLMs can perform a complete requirements maintenance cycle over the specification tree — inventorying all specification items, surveying the implementation, identifying obsolete requirements and untraced features, proposing batch updates (rewrites, new items, parent-link corrections, status fields), and validating the result with `doorstop`. This pattern makes requirements gap analysis and specification evolution reproducible and auditable operations rather than one-off manual reviews.
+
+By combining open artifact formats with a structured, domain-organized knowledge base and well-defined procedural workflows, C5-DEC makes LLM-assisted SSDLC work reproducible, auditable, and safe with respect to the traceability constraints that underpin the Common Criteria and CPSSA methods.
 
 ## Transformer
 

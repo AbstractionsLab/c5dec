@@ -1,3 +1,9 @@
+---
+Last Updated: October 4, 2023
+Relevant CC Version: CC 2022
+Tags: exact-conformance, conformance, PP, FAQ
+---
+
 # Exact conformance - FAQ
 
 The table below gives a summary of frequently asked questions about the exact confromance case.

@@ -1,0 +1,47 @@
+active: true
+header: Engineering Workstation
+type: workstation
+zone: IT
+text: |
+  Windows workstation used by automation engineers to program PLCs, configure
+  HMI displays, and perform SCADA application maintenance. Runs vendor-supplied
+  ICS programming suites (e.g., Siemens TIA Portal, Wonderware).
+  Direct USB access to PLC programming cable is possible when on-site.
+vendor: Dell
+model: Precision 5680
+os: Windows 11 Pro
+ics_software: [TIA Portal 18, FactoryTalk View 13]
+port: 3389
+protocol: RDP
+encryption: transparent
+machine: physical
+size: component
+confidentiality: confidential
+integrity: critical
+availability: important
+justification_cia_rating: >-
+  Contains PLC programs and SCADA configurations; integrity compromise
+  can directly affect physical process safety.
+has_access_control: true
+authenticates_source: false
+custom_developed_parts: true
+links:
+  - SRS-002
+  - SRS-003
+flows:
+  - target: ARC-001
+    protocol: RDP
+    port: 3389
+    encrypted: true
+    authentication: credentials
+    authorization: enduser-identity-propagation
+data_assets:
+  - plc-programs
+  - scada-configs
+data_assets_stored:
+  - plc-programs
+  - scada-configs
+data_formats_accepted:
+  - file
+  - serialization
+reviewed: false

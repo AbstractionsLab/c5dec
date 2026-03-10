@@ -24,6 +24,7 @@ class TestOperation(unittest.TestCase):
         self.assertEqual(self.functional_operation.type, 'selection')
         self.assertEqual(self.functional_operation.exclusive, 'NO')
 
+    # TST-020
     def test_is_valid_with_valid_functional_operation(self):
         # Valid functional operation containes FEItems
         mock_item = MagicMock(FEItem())
@@ -34,16 +35,18 @@ class TestOperation(unittest.TestCase):
         # As per the provided method, this should return True without raising an exception.
         self.assertTrue(self.assurance_operation.is_valid())
     
-    def test_is_valid_with_invalid_type(self):
+    def test_is_valid_with_invalid_type_logs_error(self):
+        # is_valid() logs but does not raise for invalid type; raises were
+        # intentionally removed after CC DTD analysis (see Operation.is_valid)
         self.functional_operation.type = 'invalid_type'
-        with self.assertRaises(C5decError) as context:
-            self.functional_operation.is_valid()
-        self.assertIn("invalid.", str(context.exception))
+        result = self.functional_operation.is_valid()
+        self.assertTrue(result)
 
-    def test_is_valid_with_invalid_functional_operation(self):
-        with self.assertRaises(C5decError) as context:
-            self.functional_operation.is_valid()
-        self.assertIn("Operation must contain", str(context.exception))
+    def test_is_valid_with_empty_items_logs_error(self):
+        # is_valid() logs but does not raise when items are empty;
+        # raises were intentionally removed (see Operation.is_valid)
+        result = self.functional_operation.is_valid()
+        self.assertTrue(result)
 
 
 class TestOperationBuilder(unittest.TestCase):

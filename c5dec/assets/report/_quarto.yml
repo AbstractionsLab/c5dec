@@ -3,7 +3,7 @@ project:
   output-dir: _output
   pre-render:
     - scripts/restore_tex_files.py
-    - scripts/custom_vars.py
+    - scripts/custom_vars_v2.py
     - scripts/tables.py # when not using the c5dec containerized dev environment in VS Code, see README or first create and activate a virtual environment (using venv), activate and install requirements.txt, and set QUARTO_PATH env variable to venv/bin/python
   post-render: 
     - scripts/restore_tex_files.py
@@ -49,7 +49,7 @@ format:
     fig-pos: 'H'
     # geometry: "left=2.54cm,right=2.54cm,top=2.54cm,bottom=2.54cm"
     geometry: "left=2cm,right=2cm,top=2cm,bottom=2cm"
-    mainfont: "Ubuntu"
+    # mainfont: "Ubuntu"
     # mainfont: "Gill Sans"
     # sansfont: "Futura"
     # monofont: "Courier New"

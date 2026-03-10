@@ -1,0 +1,43 @@
+active: true
+header: HMI Console
+type: hmi
+zone: SCADA
+text: |
+  Operator HMI running Wonderware InTouch for process visualisation, alarm
+  management, and manual override of pump speeds and chemical dosing rates.
+  Located in the control room; access requires badge + PIN.
+  Communicates with field PLCs over OPC-UA.
+vendor: Schneider Electric
+model: Magelis XBTGT7340
+os: Windows Embedded Standard 7
+scada_client: Wonderware InTouch 2023
+port: 4840
+protocol: OPC-UA
+encryption: none
+machine: physical
+size: component
+confidentiality: restricted
+integrity: critical
+availability: critical
+justification_cia_rating: >-
+  Operators issue safety-relevant commands through this console; integrity
+  and availability are critical for process safety.
+has_access_control: true
+authenticates_source: false
+links:
+  - SRS-002
+  - SRS-004
+flows:
+  - target: ARC-006
+    protocol: OPC-UA
+    port: 4840
+    encrypted: false
+    authentication: none
+    authorization: none
+data_assets:
+  - operator-commands
+  - process-displays
+data_assets_stored: []
+data_formats_accepted:
+  - serialization
+reviewed: false

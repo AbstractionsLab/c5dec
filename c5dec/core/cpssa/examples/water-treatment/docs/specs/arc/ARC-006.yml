@@ -1,0 +1,47 @@
+active: true
+header: SCADA Application Server
+type: scada-server
+zone: SCADA
+text: |
+  Central SCADA server orchestrating process control logic, setpoint distribution,
+  alarm aggregation, and PI data feed.  Runs iFIX SCADA with redundant hot-standby.
+  Authenticated OPC-UA connections to all PLCs and RTUs; read-only DCOM feed
+  to the historian.  This server is the primary lateral movement pivot between
+  the SCADA zone and the OT field bus network.
+vendor: GE Vernova
+model: iFIX 6.5
+os: Windows Server 2016
+redundancy: hot-standby
+port: 4840
+protocol: OPC-UA
+encryption: none
+machine: virtual
+size: application
+confidentiality: confidential
+integrity: mission-critical
+availability: mission-critical
+justification_cia_rating: >-
+  Central control node; integrity and availability are mission-critical.
+  Compromise enables lateral movement into the OT field-bus network.
+has_access_control: true
+authenticates_source: true
+links:
+  - SRS-002
+  - SRS-004
+  - SRS-005
+flows:
+  - target: ARC-004
+    protocol: OPC-UA
+    port: 4840
+    encrypted: false
+    authentication: client-certificate
+    authorization: technical-user
+data_assets:
+  - process-telemetry
+  - operator-commands
+  - setpoints
+data_assets_stored:
+  - setpoints
+data_formats_accepted:
+  - serialization
+reviewed: false

@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
 {
-	"name": "C5-DEC CAD dev container",
+	"name": "C5-DEC CAD DocEngine",
 	// Use 'dockerFile' if you want to build an image from a Dockerfile.
 	// Use 'image' if you want to use an existing image from Docker Hub or a local image, e.g., the commented line for OpenSSL with oqs provider for PQC.
 	// Use 'dockerComposeFile' and 'service' if you want to use a service from a docker-compose.yml file.
@@ -9,7 +9,7 @@
 		// Sets the run context to one level up instead of the .devcontainer folder.
 		"context": "..",
 		// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
-		"dockerfile": "../dev.Dockerfile"
+		"dockerfile": "../docEngine.Dockerfile"
 	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.

@@ -17,6 +17,7 @@ class TimesheetConsolidationTest(unittest.TestCase):
         date_format = '%d-%m-%Y'
         timerep_assistant.set_timerep_parameters(source_folder=folder_name,apply_filters=False)
         timerep_assistant.consolidate_timesheets()
+        self.assertEqual(timerep_assistant.tsh_folder_name, folder_name)
     
     def tearDown(self):
         os.chdir('..')
@@ -30,6 +31,7 @@ class TimeReportProcessingTest(unittest.TestCase):
         input_file_name = "export-29-06-2023-T-11-55-49.xls"
         timerep_assistant.input_file_name = input_file_name
         timerep_assistant.convert_openproject_time_report_to_IAL_format()
+        self.assertEqual(timerep_assistant.input_file_name, input_file_name)
 
     def tearDown(self):
         os.chdir('..')
@@ -42,6 +44,7 @@ class CostReportProcessingTest(unittest.TestCase):
         timerep_assistant = pm.TimeReportAssistant()
         timerep_assistant.input_file_name = "tsh.xlsx"
         timerep_assistant.compute_cost_report()
+        self.assertEqual(timerep_assistant.input_file_name, "tsh.xlsx")
 
     def tearDown(self):
         os.chdir('..')

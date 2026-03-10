@@ -35,7 +35,7 @@ poetry shell
 and compile your report as follows
 
 ```sh
-quarto render ./c5dec/assets/etr/etr_template/index.qmd --to pdf
+quarto render ./c5dec/assets/report/index.qmd --to pdf
 ```
 
 ### Local non-containerized setup

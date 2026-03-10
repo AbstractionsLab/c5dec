@@ -20,6 +20,8 @@ PUBLISH_FOLDER_NAME = "publish"
 SEC_CONTROLS_FOLDER_NAME = "SecurityControls"
 ACRONYMS_FOLDER_NAME = "acronyms"
 TRANSLATIONS_FOLDER_NAME = "translations"
+REPORT_TEMPLATE_FOLDER_NAME = "report"
+PRESENTATION_TEMPLATE_FOLDER_NAME = "presentation"
 STARTUP_CONFIG_FILE_NAME = "config.json"
 PERSONS_FILE_NAME = "persons.json"
 TSH_FORMAT_FILE_NAME = "tshformat.json"
@@ -93,6 +95,9 @@ ACRONYMS_FOLDER_PATH = os.path.join(ASSETS_FOLDER_NAME, ACRONYMS_FOLDER_NAME)
 OPENPROJECT_PARAMS_CSV_FILE_PATH = os.path.join(ASSETS_FOLDER_NAME, TSH_PARAMS_FOLDER_NAME, OPENPROJECT_PARAMS_FILE_NAME )
 TSHFORMAT_JSON_FILE_PATH = os.path.join(dirname, ASSETS_FOLDER_NAME, TSH_PARAMS_FOLDER_NAME, TSH_FORMAT_FILE_NAME)
 RMT_PARAMS_FILE_PATH = os.path.join(dirname, ASSETS_FOLDER_NAME, TSH_PARAMS_FOLDER_NAME, RMT_PARAMS_FILE_NAME) 
+REPORT_TEMPLATE_PATH = os.path.join(dirname, ASSETS_FOLDER_NAME, REPORT_TEMPLATE_FOLDER_NAME)
+PRESENTATION_TEMPLATE_PATH = os.path.join(dirname, ASSETS_FOLDER_NAME, PRESENTATION_TEMPLATE_FOLDER_NAME)
+CRA_TECH_DOC_TEMPLATE_PATH = os.path.join(dirname, ASSETS_FOLDER_NAME, "cra_tech_doc_template") 
 
 SPECS_FOLDER_PATH = os.path.join(PROJECT_ROOT_PATH, DOCS_FOLDER_NAME, SPECS_FOLDER_NAME)
 PUBLISH_FOLDER_PATH = os.path.join(os.getcwd(), DOCS_FOLDER_NAME, PUBLISH_FOLDER_NAME)
@@ -101,7 +106,7 @@ HTML_INDEX_FILENAME = "index.html"
 DOORSTOP_FOLDER_NAME = "doorstop"
 DOORSTOP_CSS_FILENAME = "sidebar.css"
 
-feature_flags = {"ssdlc": True, "cct": True, "cryptography": True, "cpssec": True, "isms": True, "pm": True, "transformer": True, "settings": False}
+feature_flags = {"ssdlc": True, "cct": True, "cryptography": True, "cpssec": True, "isms": True, "pm": True, "transformer": True, "settings": False, "cra": True, "sbom": True}
 
 CC_VERSION_TO_PATH = {
     "3R1": os.path.join(ASSETS_FOLDER_NAME, DB_FOLDER_NAME, SEC_CONTROLS_FOLDER_NAME, "cc3R1.xml"),
@@ -112,7 +117,13 @@ CC_VERSION_TO_PATH = {
     "2022R1": os.path.join(ASSETS_FOLDER_NAME, DB_FOLDER_NAME, SEC_CONTROLS_FOLDER_NAME, "cc2022.xml")
 }
 
-SELECTED_CC_VERSION = c5params_dictionary.get('cc').get('release') 
+SELECTED_CC_VERSION = c5params_dictionary.get('cc').get('release')
+
+# CRA (Cyber Resilience Act) paths and constants
+CRA_FOLDER_NAME = "CRA"
+CRA_DATABASE_PATH = os.path.join(dirname, ASSETS_FOLDER_NAME, DB_FOLDER_NAME, CRA_FOLDER_NAME, "cra_requirements.yml")
+CRA_CHECKLIST_PREFIX = "CRAC"  # CRA Checklist
+CRA_SBOM_PREFIX = "SBOM"  # Software Bill of Materials 
 
 
 CCDTD_FILE_PATH = os.path.join(ASSETS_FOLDER_NAME, DB_FOLDER_NAME, SEC_CONTROLS_FOLDER_NAME, "cc3r5.dtd")
@@ -128,6 +139,8 @@ CCT_LOG_FILE = "cct.log"
 CCTAPP_LOG_FILE = "cctapp.log"
 PM_LOG_FILE = "pm.log"
 CMD_LOG_FILE = "cmd.log"
+CRA_LOG_FILE = "cra.log"
+SBOM_LOG_FILE = "sbom.log"
 
 # Doorstop defaults
 DOORSTOP_ROOT = "MRS"

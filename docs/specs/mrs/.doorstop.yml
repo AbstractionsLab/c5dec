@@ -2,6 +2,7 @@ settings:
   digits: 3
   prefix: MRS
   sep: '-'
+  itemformat: markdown
 attributes:
   defaults:
     type: 'F'

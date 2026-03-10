@@ -1,23 +1,53 @@
 ---
-Last Updated: October 9, 2023
-Relevant CC Version: 3.1 Revision 5, CC2022
+Last Updated: March 10, 2026
+Relevant CC Version: CC 2022 (with CC 3.1 R5 notes)
+Tags: TOE-reference, identification, security-target, PP, versioning
 ---
 
 # TOE Reference
 
-**Acronym:** None
+The **TOE Reference** uniquely identifies the [Target of Evaluation](./TargetofEvaluation.md) within a [Security Target](./SecurityTarget.md). It provides the information necessary for consumers, evaluators, and certification bodies to unambiguously determine which product (and which version/configuration of that product) was evaluated.
 
-The TOE Reference, a vital component of the [Security Target (ST)](./SecurityTarget.md) introduction, serves to distinctly identify a [TOE](./TargetofEvaluation.md) and typically comprises the developer name, TOE name, and TOE version number.
+## Definition
 
-## Practical Guidance
+The TOE Reference is a mandatory section of the ST Introduction (ASE_INT). It must contain enough information to distinguish the evaluated TOE from any other product or version. The CC does not prescribe a rigid format but requires that the identification be unambiguous.
 
-For a robust and clear TOE identification, the TOE Reference should not only be concise but also adequately detailed. Although the basic identification involves the developer's name, TOE name, and version, embedding additional identifiers enhances clarity and specificity:
+The TOE Reference typically includes the following elements:
 
-- **Build Number & Release Date:** For detailed versioning and time-stamping the TOE status.
-- **Patch Level:** Indicates the application of specific patches.
-- **Configuration Details:** Offers insight into the TOE’s deployment and operational settings.
-- **Hardware/Software Dependencies:** Specifies any dependent hardware or software.
-- **Serial or Batch Number:** Particularly relevant for hardware TOEs, offering additional tracing capabilities.
-- **Hash Values:** For software TOEs, providing a cryptographic hash of the evaluated binary can be curcial to ensure the authenticity and integrity.
+| Element | Description | Example |
+|---------|-------------|---------|
+| **Developer / Vendor** | The organisation responsible for the TOE. | Acme Security Inc. |
+| **Product name** | The commercial or technical name of the product. | SecureGate Firewall |
+| **Version identifier** | The specific version, build number, or firmware revision evaluated. | v3.2.1 Build 4587 |
+| **Hardware identifier** (if applicable) | Model number or hardware revision for physical TOEs. | Model SG-4000 Rev C |
+| **Configuration identifier** (if applicable) | The specific configuration or SKU evaluated, when the product supports multiple configurations. | Enterprise Edition with FIPS module enabled |
 
-These identifiers help safeguard against ambiguities and misidentifications, particularly crucial given that developers might circumvent misleading TOE reference prohibitions stipulated in subclause A.4.1 (CCv3R5 Part 1), and D.3.2.2 (CC2022 Part 1) by utilizing a product name. Thus, a thorough examination of the [TOE Overview](./TOEOverview.md) and/or [TOE Description](./TOEDescription.md) becomes imperative, ensuring that the TOE's deployment and use are not only consistent with its evaluated status but also transparently communicated to all relevant stakeholders.
+## Practical guidance
+
+### Writing a TOE reference
+
+1. **Be precise on versioning.** Certificates apply to the exact version evaluated. If the product uses semantic versioning, include the full version string (major.minor.patch). For firmware, include build or revision identifiers. Any ambiguity risks the certificate being questioned during procurement.
+2. **Include all identifiable components.** If the TOE comprises hardware and software (e.g., an HSM appliance), list both the hardware model/revision and the software/firmware version.
+3. **Align with the certificate.** The TOE Reference in the ST must match the identification on the CC certificate exactly. Discrepancies cause administrative delays and may require re-certification.
+4. **Consider future maintenance.** Use an identification scheme that supports the developer's planned [assurance continuity](./EvaluationAssuranceLevel.md) strategy. If minor version updates are expected to be covered under assurance maintenance, document the versioning policy.
+5. **Reference the PP's TOE type.** If the ST claims conformance to a [PP](./ProtectionProfile.md), verify that the TOE Reference clearly places the product within the PP's defined TOE type.
+
+### Common mistakes
+
+- **Vague version strings.** "SecureGate Firewall v3" is insufficient if multiple v3.x releases exist with different security properties.
+- **Missing component identifiers.** A composed product listing only the software version but omitting the hardware platform leaves the evaluated configuration ambiguous.
+- **Mismatch with marketing names.** If the vendor uses different names internally versus commercially, ensure the ST uses the identifier that appears on the product and its certificate.
+
+## Additional resources
+
+- CC 2022 Part 1, Section 7.2 -- ST Introduction (ASE_INT) requirements.
+- CC Part 3, ASE_INT family -- evaluator actions for ST identification.
+- CEM, ASE_INT evaluation activities.
+
+## Related articles
+
+- [Security Target](./SecurityTarget.md)
+- [TOE Overview](./TOEOverview.md)
+- [TOE Description](./TOEDescription.md)
+- [Target of Evaluation](./TargetofEvaluation.md)
+- [Protection Profile](./ProtectionProfile.md)

@@ -1,0 +1,38 @@
+active: true
+header: Corporate Firewall
+type: firewall
+zone: IT
+text: |
+  Perimeter firewall separating the corporate IT network from the internet.
+  Enforces ingress/egress ACLs, stateful packet inspection, and IPS signatures.
+  Acts as the outermost trust boundary for all inbound and outbound traffic.
+vendor: FortiGate
+model: FG-600E
+os_version: FortiOS 7.4
+network_interfaces: [wan0, lan0, dmz0]
+port: 443
+protocol: HTTPS
+encryption: transparent
+machine: physical
+size: component
+confidentiality: confidential
+integrity: critical
+availability: critical
+justification_cia_rating: >-
+  As the perimeter boundary device, compromise of CIA has cascading impact
+  on all internal zones.
+has_access_control: true
+authenticates_source: true
+internet: true
+links:
+  - SRS-001
+  - SRS-005
+flows: []
+data_assets:
+  - network-traffic-logs
+  - security-events
+data_assets_stored:
+  - network-traffic-logs
+data_formats_accepted:
+  - json
+reviewed: false

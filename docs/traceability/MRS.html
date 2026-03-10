@@ -21,73 +21,116 @@
           <nav id="TOC" class="nav nav-stacked fixed sidebar">
               <h3>Table of Contents</h3>
 <ul>
-<li><a href="#MRS-001">1 Diagram generation tool</a></li>
-<li><a href="#MRS-002">2 Unified repository storage</a></li>
-<li><a href="#MRS-003">3 Open file format</a></li>
-<li><a href="#MRS-004">4 Unique artifact IDs</a></li>
-<li><a href="#MRS-005">5 Requirements management tool</a></li>
-<li><a href="#MRS-006">6 Artifact linking feature</a></li>
-<li><a href="#MRS-007">7 Version control system</a></li>
-<li><a href="#MRS-008">8 Use Git software</a></li>
-<li><a href="#MRS-009">9 Requirement hierarchies</a></li>
-<li><a href="#MRS-010">10 Requirements traceability</a></li>
-<li><a href="#MRS-011">11 V&amp;V test features</a></li>
-<li><a href="#MRS-012">12 Testing framework integration</a></li>
-<li><a href="#MRS-013">13 Artifact tagging</a></li>
-<li><a href="#MRS-014">14 Project management feature</a></li>
-<li><a href="#MRS-015">15 Time report consolidation</a></li>
-<li><a href="#MRS-016">16 ISMS folder verification</a></li>
-<li><a href="#MRS-017">17 Import/export artifacts</a></li>
-<li><a href="#MRS-018">18 Collaboration feature</a></li>
-<li><a href="#MRS-019">19 User management</a></li>
-<li><a href="#MRS-020">20 User authentication</a></li>
-<li><a href="#MRS-021">21 User authorization</a></li>
-<li><a href="#MRS-022">22 Access control levels</a></li>
-<li><a href="#MRS-023">23 Web-based asset sharing</a></li>
-<li><a href="#MRS-024">24 Secret sharing feature</a></li>
-<li><a href="#MRS-025">25 File integrity check</a></li>
-<li><a href="#MRS-026">26 Baseline module implementation</a></li>
-<li><a href="#MRS-027">27 Link requirements to code</a></li>
-<li><a href="#MRS-028">28 Search and filter</a></li>
-<li><a href="#MRS-029">29 Filter by tags</a></li>
-<li><a href="#MRS-030">30 Store SFRs/SARs</a></li>
-<li><a href="#MRS-031">31 Threat modelling solution</a></li>
-<li><a href="#MRS-032">32 Provide CCT implementation</a></li>
-<li><a href="#MRS-033">33 Threat modelling tool</a></li>
-<li><a href="#MRS-034">34 Export design assets</a></li>
-<li><a href="#MRS-035">35 Risk management tool</a></li>
-<li><a href="#MRS-036">36 Store CC classes</a></li>
-<li><a href="#MRS-037">37 Adopt CC storage format</a></li>
-<li><a href="#MRS-038">38 Transform CC content</a></li>
-<li><a href="#MRS-039">39 Maintain CC knowledge base</a></li>
-<li><a href="#MRS-040">40 CC forum and FAQ</a></li>
-<li><a href="#MRS-041">41 Threats and risks DB</a></li>
-<li><a href="#MRS-042">42 Threat DB sources</a></li>
-<li><a href="#MRS-043">43 Automate OR/ETR generation</a></li>
-<li><a href="#MRS-044">44 EUCC evaluation support</a></li>
-<li><a href="#MRS-045">45 Store CSA objectives</a></li>
-<li><a href="#MRS-046">46 File signing feature</a></li>
-<li><a href="#MRS-047">47 PQC encryption feature</a></li>
-<li><a href="#MRS-048">48 Include SDPM model</a></li>
-<li><a href="#MRS-049">49 Include VVPM model</a></li>
-<li><a href="#MRS-050">50 Include SPMM model</a></li>
-<li><a href="#MRS-051">51 Include SSDLC publication</a></li>
-<li><a href="#MRS-052">52 Include CC model</a></li>
-<li><a href="#MRS-053">53 Include CC-TMM</a></li>
-<li><a href="#MRS-054">54 Include SRA model</a></li>
-<li><a href="#MRS-055">55 Define CC activities</a></li>
-<li><a href="#MRS-056">56 Use NoSQL datastore</a></li>
-<li><a href="#MRS-057">57 Use web dev platform</a></li>
-<li><a href="#MRS-058">58 Follow modular design</a></li>
-<li><a href="#MRS-059">59 Enforce user management</a></li>
-<li><a href="#MRS-060">60 Store assets for TRICK</a></li>
+<li><a href="#MRS-ARM">1.0 Artifact management</a><ul>
+<li><a href="#MRS-001">1.1 Diagram generation tool</a></li>
+<li><a href="#MRS-002">1.2 Unified repository storage</a></li>
+<li><a href="#MRS-003">1.3 Open file format</a></li>
+<li><a href="#MRS-004">1.4 Unique artifact IDs</a></li>
+<li><a href="#MRS-005">1.5 Requirements management tool</a></li>
+<li><a href="#MRS-006">1.6 Artifact linking feature</a></li>
+<li><a href="#MRS-007">1.7 Version control system</a></li>
+<li><a href="#MRS-008">1.8 Use Git software</a></li>
+<li><a href="#MRS-009">1.9 Requirement hierarchies</a></li>
+<li><a href="#MRS-010">1.10 Requirements traceability</a></li>
+</ul>
+</li>
+<li><a href="#MRS-TVF">2.0 Testing &amp; verification features</a><ul>
+<li><a href="#MRS-011">2.1 V&amp;V test features</a></li>
+<li><a href="#MRS-012">2.2 Testing framework integration</a></li>
+<li><a href="#MRS-013">2.3 Artifact tagging</a></li>
+</ul>
+</li>
+<li><a href="#MRS-PMG">3.0 Project management</a><ul>
+<li><a href="#MRS-014">3.1 Project management feature</a></li>
+<li><a href="#MRS-015">3.2 Time report consolidation</a></li>
+</ul>
+</li>
+<li><a href="#MRS-UAC">4.0 User access control, collaboration &amp; ISMS</a><ul>
+<li><a href="#MRS-016">4.1 ISMS folder verification</a></li>
+<li><a href="#MRS-017">4.2 Import/export artifacts</a></li>
+<li><a href="#MRS-018">4.3 Collaboration feature</a></li>
+<li><a href="#MRS-019">4.4 User management</a></li>
+<li><a href="#MRS-020">4.5 User authentication</a></li>
+<li><a href="#MRS-021">4.6 User authorization</a></li>
+<li><a href="#MRS-022">4.7 Access control levels</a></li>
+<li><a href="#MRS-023">4.8 Web-based asset sharing</a></li>
+<li><a href="#MRS-057">4.9 Use web dev platform</a></li>
+<li><a href="#MRS-059">4.10 Enforce user management</a></li>
+</ul>
+</li>
+<li><a href="#MRS-CRY">5.0 Cryptography</a><ul>
+<li><a href="#MRS-024">5.1 Secret sharing feature</a></li>
+<li><a href="#MRS-025">5.2 File integrity check</a></li>
+<li><a href="#MRS-046">5.3 File signing feature</a></li>
+<li><a href="#MRS-047">5.4 PQC encryption feature</a></li>
+</ul>
+</li>
+<li><a href="#MRS-SFT">6.0 Search, filter &amp; code traceability</a><ul>
+<li><a href="#MRS-027">6.1 Link requirements to code</a></li>
+<li><a href="#MRS-028">6.2 Search and filter</a></li>
+<li><a href="#MRS-029">6.3 Filter by tags</a></li>
+</ul>
+</li>
+<li><a href="#MRS-CCT">7.0 Common Criteria Toolbox</a><ul>
+<li><a href="#MRS-030">7.1 Store SFRs/SARs</a></li>
+<li><a href="#MRS-032">7.2 Provide CCT implementation</a></li>
+<li><a href="#MRS-036">7.3 Store CC classes</a></li>
+<li><a href="#MRS-037">7.4 Adopt CC storage format</a></li>
+<li><a href="#MRS-038">7.5 Transform CC content</a></li>
+<li><a href="#MRS-039">7.6 Maintain CC knowledge base</a></li>
+<li><a href="#MRS-040">7.7 CC forum and FAQ</a></li>
+<li><a href="#MRS-041">7.8 Threats and risks DB</a></li>
+<li><a href="#MRS-042">7.9 Threat DB sources</a></li>
+<li><a href="#MRS-043">7.10 Automate OR/ETR generation</a></li>
+<li><a href="#MRS-044">7.11 EUCC evaluation support</a></li>
+<li><a href="#MRS-045">7.12 Store CSA objectives</a></li>
+</ul>
+</li>
+<li><a href="#MRS-TRM">8.0 Threat modelling &amp; risk management (CPSSA)</a><ul>
+<li><a href="#MRS-031">8.1 Threat modelling solution</a></li>
+<li><a href="#MRS-033">8.2 Threat modelling tool</a></li>
+<li><a href="#MRS-034">8.3 Export design assets</a></li>
+<li><a href="#MRS-035">8.4 Risk management tool</a></li>
+<li><a href="#MRS-054">8.5 Include SRA model</a></li>
+<li><a href="#MRS-060">8.6 Store assets for TRICK</a></li>
+</ul>
+</li>
+<li><a href="#MRS-KNB">9.0 Knowledge base &amp; methodology</a><ul>
+<li><a href="#MRS-048">9.1 Include SDPM model</a></li>
+<li><a href="#MRS-049">9.2 Include VVPM model</a></li>
+<li><a href="#MRS-050">9.3 Include SPMM model</a></li>
+<li><a href="#MRS-051">9.4 Include SSDLC publication</a></li>
+<li><a href="#MRS-052">9.5 Include CC model</a></li>
+<li><a href="#MRS-053">9.6 Include CC-TMM</a></li>
+<li><a href="#MRS-055">9.7 Define CC activities</a></li>
+</ul>
+</li>
+<li><a href="#MRS-NFR">10 Non-functional requirements &amp; architecture</a><ul>
+<li><a href="#MRS-026">10.1 Baseline module implementation</a></li>
+<li><a href="#MRS-056">10.2 Use NoSQL datastore</a></li>
+<li><a href="#MRS-058">10.3 Follow modular design</a></li>
+</ul>
+</li>
+<li><a href="#MRS-CRA">11 Cyber Resilience Act (CRA) compliance module</a><ul>
+<li><a href="#MRS-061">11.1 Integrate CRA requirements database</a></li>
+<li><a href="#MRS-062">11.2 Generate CRA compliance checklist</a></li>
+<li><a href="#MRS-063">11.3 Generate CRA technical documentation template</a></li>
+</ul>
+</li>
+<li><a href="#MRS-SBOM">12 Software Bill of Materials (SBOM)</a><ul>
+<li><a href="#MRS-064">12.1 Generate SBOM using Syft</a></li>
+<li><a href="#MRS-065">12.2 Import SBOM into Doorstop traceability</a></li>
+</ul>
+</li>
 </ul>
           </nav>
       </div>
       <div class="col-lg-8" id="main">
-        <h1 id="MRS-001">1 Diagram generation tool <small>MRS-001</small></h1>
+        <h1 id="MRS-ARM">1.0 Artifact management</h1>
+<p>Mission-level requirements for artifact management (e.g. software requirements, architecture design, software design, test cases, test report items), i.e. storing, identifying, linking, and version-controlling SDLC artifacts and diagrams.</p>
+<h2 id="MRS-001">1.1 Diagram generation tool <small><a href="MRS.html#MRS-001">MRS-001</a></small></h2>
 <p>The C5-DEC software SHALL integrate at least one open-source tool allowing users to create diagrams from a plain text language, e.g., PlantUML, Mermaid.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a>, <a href="ARC.html#ARC004">ARC004 C5-DEC CAD system architecture</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-049">SRS-049 Generate PlantUML Data Flow Diagram from architecture items</a>, <a href="SRS.html#SRS-053">SRS-053 Generate interactive HTML graph for Doorstop specifications navigation</a></p>
 <table>
 <thead>
 <tr>
@@ -126,9 +169,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-002">2 Unified repository storage <small>MRS-002</small></h1>
+<h2 id="MRS-002">1.2 Unified repository storage <small><a href="MRS.html#MRS-002">MRS-002</a></small></h2>
 <p>The C5-DEC software SHALL store textual requirements, test case definitions and design diagrams alongside source code in the same repository.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a>, <a href="ARC.html#ARC004">ARC004 C5-DEC CAD system architecture</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-005">SRS-005 Containerized Deployment via Docker DevContainer</a>, <a href="SRS.html#SRS-006">SRS-006 SSDLC New Project Scaffolding</a></p>
 <table>
 <thead>
 <tr>
@@ -167,9 +210,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-003">3 Open file format <small>MRS-003</small></h1>
+<h2 id="MRS-003">1.3 Open file format <small><a href="MRS.html#MRS-003">MRS-003</a></small></h2>
 <p>The C5-DEC software SHALL store system artifact specifications (e.g., requirements, test cases, design diagram), created using its own suite of tools, in an open file format.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a>, <a href="ARC.html#ARC004">ARC004 C5-DEC CAD system architecture</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-005">SRS-005 Containerized Deployment via Docker DevContainer</a>, <a href="SRS.html#SRS-006">SRS-006 SSDLC New Project Scaffolding</a>, <a href="SRS.html#SRS-007">SRS-007 DocEngine Report and Presentation Template Creation</a>, <a href="SRS.html#SRS-057">SRS-057 Doorstop artifact publish and export pipeline</a></p>
 <table>
 <thead>
 <tr>
@@ -208,9 +251,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-004">4 Unique artifact IDs <small>MRS-004</small></h1>
+<h2 id="MRS-004">1.4 Unique artifact IDs <small><a href="MRS.html#MRS-004">MRS-004</a></small></h2>
 <p>The C5-DEC software SHALL identify all its stored artifacts using a unique identifier.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="SRS.html#SRS-058">SRS-058 Doorstop and Git as artifact management infrastructure</a></p>
 <table>
 <thead>
 <tr>
@@ -249,9 +292,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-005">5 Requirements management tool <small>MRS-005</small></h1>
+<h2 id="MRS-005">1.5 Requirements management tool <small><a href="MRS.html#MRS-005">MRS-005</a></small></h2>
 <p>The C5-DEC software SHALL integrate an open-source solution for requirements engineering and requirements management.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a>, <a href="ARC.html#ARC004">ARC004 C5-DEC CAD system architecture</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-058">SRS-058 Doorstop and Git as artifact management infrastructure</a></p>
 <table>
 <thead>
 <tr>
@@ -290,9 +333,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-006">6 Artifact linking feature <small>MRS-006</small></h1>
+<h2 id="MRS-006">1.6 Artifact linking feature <small><a href="MRS.html#MRS-006">MRS-006</a></small></h2>
 <p>The C5-DEC software SHALL provide a feature for linking system artifacts with one another based on the artifacts’ respective IDs.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="SRS.html#SRS-058">SRS-058 Doorstop and Git as artifact management infrastructure</a></p>
 <table>
 <thead>
 <tr>
@@ -331,9 +374,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-007">7 Version control system <small>MRS-007</small></h1>
+<h2 id="MRS-007">1.7 Version control system <small><a href="MRS.html#MRS-007">MRS-007</a></small></h2>
 <p>The C5-DEC software SHALL use a distributed version control system for the storage of its artifacts to track changes in its files/artifacts.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC004">ARC004 C5-DEC CAD system architecture</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-058">SRS-058 Doorstop and Git as artifact management infrastructure</a></p>
 <table>
 <thead>
 <tr>
@@ -372,9 +415,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-008">8 Use Git software <small>MRS-008</small></h1>
+<h2 id="MRS-008">1.8 Use Git software <small><a href="MRS.html#MRS-008">MRS-008</a></small></h2>
 <p>The C5-DEC software SHOULD use the git version control software.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC004">ARC004 C5-DEC CAD system architecture</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-058">SRS-058 Doorstop and Git as artifact management infrastructure</a></p>
 <table>
 <thead>
 <tr>
@@ -413,9 +456,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-009">9 Requirement hierarchies <small>MRS-009</small></h1>
+<h2 id="MRS-009">1.9 Requirement hierarchies <small><a href="MRS.html#MRS-009">MRS-009</a></small></h2>
 <p>The C5-DEC software SHALL provide a requirements management functionality that can create requirement hierarchies.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="SRS.html#SRS-058">SRS-058 Doorstop and Git as artifact management infrastructure</a></p>
 <table>
 <thead>
 <tr>
@@ -454,9 +497,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-010">10 Requirements traceability <small>MRS-010</small></h1>
+<h2 id="MRS-010">1.10 Requirements traceability <small><a href="MRS.html#MRS-010">MRS-010</a></small></h2>
 <p>The C5-DEC software SHALL provide requirements traceability.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="SRS.html#SRS-057">SRS-057 Doorstop artifact publish and export pipeline</a></p>
 <table>
 <thead>
 <tr>
@@ -495,9 +538,11 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-011">11 V&amp;V test features <small>MRS-011</small></h1>
+<h1 id="MRS-TVF">2.0 Testing &amp; verification features</h1>
+<p>Requirements for V&amp;V test case management, testing framework integration, and artifact tagging.</p>
+<h2 id="MRS-011">2.1 V&amp;V test features <small><a href="MRS.html#MRS-011">MRS-011</a></small></h2>
 <p>The C5-DEC software SHALL provide a V&amp;V feature for creating test cases/procedures and generating test reports.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a>, <a href="ARC.html#ARC004">ARC004 C5-DEC CAD system architecture</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-058">SRS-058 Doorstop and Git as artifact management infrastructure</a></p>
 <table>
 <thead>
 <tr>
@@ -536,9 +581,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-012">12 Testing framework integration <small>MRS-012</small></h1>
+<h2 id="MRS-012">2.2 Testing framework integration <small><a href="MRS.html#MRS-012">MRS-012</a></small></h2>
 <p>The C5-DEC software MAY integrate an open-source testing framework/solution.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC002">ARC002 C5-DEC CAD functional tree</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-002">ARC-002 C5-DEC CAD functional tree</a>, <a href="SRS.html#SRS-058">SRS-058 Doorstop and Git as artifact management infrastructure</a></p>
 <table>
 <thead>
 <tr>
@@ -577,9 +622,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-013">13 Artifact tagging <small>MRS-013</small></h1>
+<h2 id="MRS-013">2.3 Artifact tagging <small><a href="MRS.html#MRS-013">MRS-013</a></small></h2>
 <p>The C5-DEC software SHOULD allow the user to add/attach labels or tags to its artifacts, e.g., TC, REQ, DIA, etc.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC004">ARC004 C5-DEC CAD system architecture</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-058">SRS-058 Doorstop and Git as artifact management infrastructure</a></p>
 <table>
 <thead>
 <tr>
@@ -618,9 +663,11 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-014">14 Project management feature <small>MRS-014</small></h1>
+<h1 id="MRS-PMG">3.0 Project management</h1>
+<p>Requirements for time report processing and consolidation.</p>
+<h2 id="MRS-014">3.1 Project management feature <small><a href="MRS.html#MRS-014">MRS-014</a></small></h2>
 <p>The C5-DEC software SHALL provide a project management feature for converting time reports generated by OpenProject to a tabular format defined by the user.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC002">ARC002 C5-DEC CAD functional tree</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-002">ARC-002 C5-DEC CAD functional tree</a>, <a href="SRS.html#SRS-009">SRS-009 Project Management Time Report Conversion</a></p>
 <table>
 <thead>
 <tr>
@@ -659,9 +706,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-015">15 Time report consolidation <small>MRS-015</small></h1>
+<h2 id="MRS-015">3.2 Time report consolidation <small><a href="MRS.html#MRS-015">MRS-015</a></small></h2>
 <p>The C5-DEC software SHALL provide a PM feature for consolidating and merging individual time reports/sheets into a single time report.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC002">ARC002 C5-DEC CAD functional tree</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-002">ARC-002 C5-DEC CAD functional tree</a>, <a href="SRS.html#SRS-009">SRS-009 Project Management Time Report Conversion</a>, <a href="SRS.html#SRS-010">SRS-010 Project Management Timesheet Consolidation and Cost Reporting</a></p>
 <table>
 <thead>
 <tr>
@@ -700,9 +747,11 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-016">16 ISMS folder verification <small>MRS-016</small></h1>
+<h1 id="MRS-UAC">4.0 User access control, collaboration &amp; ISMS</h1>
+<p>Requirements for import/export, collaboration, user management, authentication, authorization, access control, web-based sharing, and ISMS folder verification.</p>
+<h2 id="MRS-016">4.1 ISMS folder verification <small><a href="MRS.html#MRS-016">MRS-016</a></small></h2>
 <p>The C5-DEC software SHALL provide an ISMS feature for verifying the presence of the content of a folder in a document list tracking the said content.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC002">ARC002 C5-DEC CAD functional tree</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-002">ARC-002 C5-DEC CAD functional tree</a>, <a href="SRS.html#SRS-011">SRS-011 ISMS Folder Content Verification</a></p>
 <table>
 <thead>
 <tr>
@@ -741,9 +790,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-017">17 Import/export artifacts <small>MRS-017</small></h1>
+<h2 id="MRS-017">4.2 Import/export artifacts <small><a href="MRS.html#MRS-017">MRS-017</a></small></h2>
 <p>The C5-DEC software SHALL provide import and export functions that can import and export all its artifacts from and to using at least one open file format, e.g., CSV, JSON, Markdown, etc.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="SRS.html#SRS-059">SRS-059 Platform-delegated features (out of scope for custom implementation)</a></p>
 <table>
 <thead>
 <tr>
@@ -782,9 +831,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-018">18 Collaboration feature <small>MRS-018</small></h1>
+<h2 id="MRS-018">4.3 Collaboration feature <small><a href="MRS.html#MRS-018">MRS-018</a></small></h2>
 <p>The C5-DEC software SHALL provide a collaboration feature or an option for integrating with an existing platform that allows the users of the C5-DEC software to access and share artifacts managed by the C5-DEC software.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC004">ARC004 C5-DEC CAD system architecture</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-059">SRS-059 Platform-delegated features (out of scope for custom implementation)</a></p>
 <table>
 <thead>
 <tr>
@@ -823,9 +872,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-019">19 User management <small>MRS-019</small></h1>
+<h2 id="MRS-019">4.4 User management <small><a href="MRS.html#MRS-019">MRS-019</a></small></h2>
 <p>The C5-DEC software SHALL provide user management, including user creation, editing and deletion.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC004">ARC004 C5-DEC CAD system architecture</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-059">SRS-059 Platform-delegated features (out of scope for custom implementation)</a></p>
 <table>
 <thead>
 <tr>
@@ -864,9 +913,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-020">20 User authentication <small>MRS-020</small></h1>
+<h2 id="MRS-020">4.5 User authentication <small><a href="MRS.html#MRS-020">MRS-020</a></small></h2>
 <p>The C5-DEC software SHALL provide user authentication.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC004">ARC004 C5-DEC CAD system architecture</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-059">SRS-059 Platform-delegated features (out of scope for custom implementation)</a></p>
 <table>
 <thead>
 <tr>
@@ -905,9 +954,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-021">21 User authorization <small>MRS-021</small></h1>
+<h2 id="MRS-021">4.6 User authorization <small><a href="MRS.html#MRS-021">MRS-021</a></small></h2>
 <p>The C5-DEC software SHALL provide user authorization.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC004">ARC004 C5-DEC CAD system architecture</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-059">SRS-059 Platform-delegated features (out of scope for custom implementation)</a></p>
 <table>
 <thead>
 <tr>
@@ -946,9 +995,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-022">22 Access control levels <small>MRS-022</small></h1>
+<h2 id="MRS-022">4.7 Access control levels <small><a href="MRS.html#MRS-022">MRS-022</a></small></h2>
 <p>The C5-DEC software SHALL provide access control that can provide at least two types of asset access restriction: admin and standard user.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC004">ARC004 C5-DEC CAD system architecture</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-059">SRS-059 Platform-delegated features (out of scope for custom implementation)</a></p>
 <table>
 <thead>
 <tr>
@@ -987,9 +1036,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-023">23 Web-based asset sharing <small>MRS-023</small></h1>
+<h2 id="MRS-023">4.8 Web-based asset sharing <small><a href="MRS.html#MRS-023">MRS-023</a></small></h2>
 <p>The C5-DEC software SHALL provide web-based sharing of assets.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC004">ARC004 C5-DEC CAD system architecture</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-059">SRS-059 Platform-delegated features (out of scope for custom implementation)</a></p>
 <table>
 <thead>
 <tr>
@@ -1028,1362 +1077,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-024">24 Secret sharing feature <small>MRS-024</small></h1>
-<p>The C5-DEC software SHOULD provide a feature for performing cryptographic secret sharing, based on Shamir's secret sharing algorithm.</p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>F</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>T</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>3</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>2</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-025">25 File integrity check <small>MRS-025</small></h1>
-<p>The C5-DEC software SHOULD provide a feature for computing a hash function, using SHA256, over a given a file to verify the integrity of this file by comparing the resulting hash digest value with a reference value.</p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>F</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>T</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>3</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>3</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-026">26 Baseline module implementation <small>MRS-026</small></h1>
-<p>The C5-DEC software SHALL implement the modules specified in the project constraints and assumptions and the system overview, with the baseline features specified in the project constraints description.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC002">ARC002 C5-DEC CAD functional tree</a>, <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a>, <a href="ARC.html#ARC004">ARC004 C5-DEC CAD system architecture</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>F</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>R</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>Project constraints and assumptions, system overview</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>5</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>3</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-027">27 Link requirements to code <small>MRS-027</small></h1>
-<p>The C5-DEC software SHALL provide a feature for linking requirements and test cases to specific lines or definitions (e.g., function, class) in source code by using annotations that encode the corresponding requirement or test case ID.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>F</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>T</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>1</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>1</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-028">28 Search and filter <small>MRS-028</small></h1>
-<p>The C5-DEC software SHOULD allow the user to search and filter requirements using full-text search and all requirement attributes.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a>, <a href="SRS.html#SRS-002">SRS-002 Query the Database of Security Components.</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>F</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>T</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>Ease of use and efficiency</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>5</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>1</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-029">29 Filter by tags <small>MRS-029</small></h1>
-<p>The C5-DEC software SHOULD allow the user to search and filter artifacts using labels or tags.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC004">ARC004 C5-DEC CAD system architecture</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>F</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>T</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>Ease of use and efficiency</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>5</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>3</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-030">30 Store SFRs/SARs <small>MRS-030</small></h1>
-<p>The C5-DEC software SHALL include a feature in its Common Criteria Toolbox (CC) that can store SFRs/SARs in the same open file format used for storing all other artifacts.</p>
-<p><em>Child links:</em> <a href="SRS.html#SRS-001">SRS-001 Access and Browse Database for CC Security Components</a>, <a href="SRS.html#SRS-027">SRS-027 Unified Storage Mechanism for CC Artifacts and Security Elements</a>, <a href="SRS.html#SRS-002">SRS-002 Query the Database of Security Components.</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>F</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>T</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>5</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>3</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-031">31 Threat modelling solution <small>MRS-031</small></h1>
-<p>The C5-DEC software MAY integrate an open-source threat modelling solution.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>F</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>R</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>4</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>3</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-032">32 Provide CCT implementation <small>MRS-032</small></h1>
-<p>The C5-DEC software SHALL provide a Common Criteria Toolbox (CCT) implementation satisfying the requirements stated in the C5-DEC CCM.</p>
-<p><em>Child links:</em> <a href="SRS.html#SRS-014">SRS-014 Access and Navigation Through Knowledge Base</a>, <a href="SRS.html#SRS-015">SRS-015 Comprehensive and User-Friendly Explanations</a>, <a href="SRS.html#SRS-016">SRS-016 Interconnected Framework and Seamless Navigation</a>, <a href="SRS.html#SRS-017">SRS-017 Availability of Pragmatic Guidance and Best Practices</a>, <a href="SRS.html#SRS-018">SRS-018 Continuous Updates and Assurance of Current Information</a>, <a href="SRS.html#SRS-019">SRS-019 Integration of Multimedia Elements in Knowledge Articles</a>, <a href="SRS.html#SRS-020">SRS-020 Integrating Links to FAQ Section</a>, <a href="SRS.html#SRS-021">SRS-021 Provision of General Link to a CC-Specific Forum</a>, <a href="SRS.html#SRS-022">SRS-022 Data Storage and Format Mapping</a>, <a href="SRS.html#SRS-023">SRS-023 Bidirectional Transformation and Consistency</a>, <a href="SRS.html#SRS-028">SRS-028 Automated Rationale and Traceability Matrix Generation</a>, <a href="SRS.html#SRS-029">SRS-029 Verification of Rationales and Traceability Matrices</a>, <a href="SRS.html#SRS-030">SRS-030 Detailed Consistency and Completeness Checks</a>, <a href="SRS.html#SRS-004">SRS-004 Tailor Security Requirements.</a>, <a href="SRS.html#SRS-040">SRS-040 Flagging and Addressing Failed Work Units with Cascading Flags</a>, <a href="SRS.html#SRS-031">SRS-031 Automated Validation of Relationships, Attributes, and Dependencies</a>, <a href="SRS.html#SRS-032">SRS-032 Seamless Aggregation and Presentation of SARs and Work Units</a>, <a href="SRS.html#SRS-033">SRS-033 API Provision for Threat Importation</a>, <a href="SRS.html#SRS-034">SRS-034 Transformation of Imported Threats to CC-conformant Format</a>, <a href="SRS.html#SRS-035">SRS-035 Automated Evaluation Checklist Creation</a>, <a href="SRS.html#SRS-036">SRS-036 Evaluation Progress Tracking</a>, <a href="SRS.html#SRS-037">SRS-037 Work Unit Artifact Linking</a>, <a href="SRS.html#SRS-038">SRS-038 Automated OR Generation</a>, <a href="SRS.html#SRS-039">SRS-039 Automated ETR Generation</a>, <a href="SRS.html#SRS-041">SRS-041 Logging evaluated Work Units</a>, <a href="SRS.html#SRS-042">SRS-042 Extend Data Model Across Entire CC Ecosystem</a>, <a href="SRS.html#SRS-043">SRS-043 Provide CC Document Templates</a>, <a href="SRS.html#SRS-044">SRS-044 Validate Hierarchies and Dependencies in Security Components</a>, <a href="SRS.html#SRS-045">SRS-045 Generate Impact Analysis Reports for Certification Maintenance.</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>F</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>T</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>4</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>3</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-033">33 Threat modelling tool <small>MRS-033</small></h1>
-<p>The C5-DEC software SHOULD either provide a threat modelling and analysis tool as part of the CPSSA module, based on the TM method described in the C5-DEC SSDLC and the C5-DEC CPSSA reports/guides or alternatively use data formats that do not prevent the use of already existing open-source solutions mentioned in the CPSSA report.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a>, <a href="ARC.html#ARC004">ARC004 C5-DEC CAD system architecture</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>F</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>R</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>4</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>3</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-034">34 Export design assets <small>MRS-034</small></h1>
-<p>The C5-DEC software SHOULD provide a feature for extracting user specified design assets (specified in design artifacts such as diagrams or a plain text Markup language) and exporting these to an open file format.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a>, <a href="ARC.html#ARC004">ARC004 C5-DEC CAD system architecture</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>F</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>T</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>5</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>2</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-035">35 Risk management tool <small>MRS-035</small></h1>
-<p>The C5-DEC software SHOULD either provide a risk management tool supporting the features described in the C5-DEC CCM or integrate an existing open-source solution.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a>, <a href="ARC.html#ARC004">ARC004 C5-DEC CAD system architecture</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>F</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>T</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>4</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>3</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-036">36 Store CC classes <small>MRS-036</small></h1>
-<p>The CC toolbox SHOULD store all Security Functional Classes, Security Assurance Classes, Evaluation Activities, and Packages, in a structured human and machine-readable format in the C5-DEC document-based data store.</p>
-<p><em>Child links:</em> <a href="SRS.html#SRS-001">SRS-001 Access and Browse Database for CC Security Components</a>, <a href="SRS.html#SRS-027">SRS-027 Unified Storage Mechanism for CC Artifacts and Security Elements</a>, <a href="SRS.html#SRS-002">SRS-002 Query the Database of Security Components.</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>F</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>T</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis; risk related to availability</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>3</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>2</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>3</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>3</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-037">37 Adopt CC storage format <small>MRS-037</small></h1>
-<p>The CC toolbox SHOULD adopt a storage format that maintains a mapping to the available CC XML-file and that can be validated against the corresponding DTD file, either directly via  a 1-to-1 mapping between CCT DB of CC and the official CC XML or through a reference file providing the mapping.</p>
-<p><em>Child links:</em> <a href="SRS.html#SRS-022">SRS-022 Data Storage and Format Mapping</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>F</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>T</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis; risk related to change in XML DTD</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>4</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>1</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>3</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-038">38 Transform CC content <small>MRS-038</small></h1>
-<p>The CC toolbox SHOULD be able to automatically transform content from and to the CC defined XML format, relative to the C5-DEC custom data storage format.</p>
-<p><em>Child links:</em> <a href="SRS.html#SRS-023">SRS-023 Bidirectional Transformation and Consistency</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>F</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>T</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>3</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>1</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>3</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-039">39 Maintain CC knowledge base <small>MRS-039</small></h1>
-<p>The CC toolbox SHALL maintain a Common Criteria Knowledge Base consisting of explanatory definitions and user guidance for CC Terms and Definitions, Concepts, and Core Constructs.</p>
-<p><em>Child links:</em> <a href="SRS.html#SRS-014">SRS-014 Access and Navigation Through Knowledge Base</a>, <a href="SRS.html#SRS-015">SRS-015 Comprehensive and User-Friendly Explanations</a>, <a href="SRS.html#SRS-016">SRS-016 Interconnected Framework and Seamless Navigation</a>, <a href="SRS.html#SRS-017">SRS-017 Availability of Pragmatic Guidance and Best Practices</a>, <a href="SRS.html#SRS-018">SRS-018 Continuous Updates and Assurance of Current Information</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>F</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>T</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>4</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>3</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-040">40 CC forum and FAQ <small>MRS-040</small></h1>
-<p>The CC toolbox MAY include a CC forum and FAQ, complementing its Knowledge Base.</p>
-<p><em>Child links:</em> <a href="SRS.html#SRS-020">SRS-020 Integrating Links to FAQ Section</a>, <a href="SRS.html#SRS-021">SRS-021 Provision of General Link to a CC-Specific Forum</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>F</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>T</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>2</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>2</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-041">41 Threats and risks DB <small>MRS-041</small></h1>
-<p>The CC toolbox SHOULD provide a database of generic threats, risks, and countermeasures.</p>
-<p><em>Child links:</em> <a href="SRS.html#SRS-024">SRS-024 Threats, Risks, and Countermeasures Database</a>, <a href="SRS.html#SRS-033">SRS-033 API Provision for Threat Importation</a>, <a href="SRS.html#SRS-034">SRS-034 Transformation of Imported Threats to CC-conformant Format</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>F</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>T</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>4</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>2</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-042">42 Threat DB sources <small>MRS-042</small></h1>
-<p>The CC toolbox DB of threats, risks and countermeasures MAY include content from the BSI Grundschutz, ISO 27005, NIST SPs and the CC.</p>
-<p><em>Child links:</em> <a href="SRS.html#SRS-024">SRS-024 Threats, Risks, and Countermeasures Database</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>F</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>T</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>3</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>2</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-043">43 Automate OR/ETR generation <small>MRS-043</small></h1>
-<p>The CC toolbox SHOULD provide means of automation for the generation of ORs and ETRs used during and as a result of CC CEM-based security evaluation.</p>
-<p><em>Child links:</em> <a href="SRS.html#SRS-040">SRS-040 Flagging and Addressing Failed Work Units with Cascading Flags</a>, <a href="SRS.html#SRS-035">SRS-035 Automated Evaluation Checklist Creation</a>, <a href="SRS.html#SRS-036">SRS-036 Evaluation Progress Tracking</a>, <a href="SRS.html#SRS-037">SRS-037 Work Unit Artifact Linking</a>, <a href="SRS.html#SRS-038">SRS-038 Automated OR Generation</a>, <a href="SRS.html#SRS-039">SRS-039 Automated ETR Generation</a>, <a href="SRS.html#SRS-041">SRS-041 Logging evaluated Work Units</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>F</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>T</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>3</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>1</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-044">44 EUCC evaluation support <small>MRS-044</small></h1>
-<p>Based on the C5-DEC CPSSA report of the C5-DEC knowledge base, the CC toolbox SHOULD provide a support mechanism for generating additional evaluation evidence required by the EUCC and provide guides for tailoring existing evaluation evidence to be conformant with EUCC requirements.</p>
-<p><em>Child links:</em> <a href="SRS.html#SRS-025">SRS-025 Support Mechanism for EUCC Additional Evaluation Evidence</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>F</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>T</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>3</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>1</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-045">45 Store CSA objectives <small>MRS-045</small></h1>
-<p>The CC toolbox SHOULD store the generic Security Objectives defined by Article 51 of the CSA.</p>
-<p><em>Child links:</em> <a href="SRS.html#SRS-026">SRS-026 Storing Generic Security Objectives of CSA Article 51</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>F</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>T</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>3</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>1</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-046">46 File signing feature <small>MRS-046</small></h1>
-<p>The C5-DEC software MAY provide a feature for cryptographically signing individual files and verifying digital signatures using GPG to verify the authenticity of a file, with an additional option to sign using a digital signature algorithm either from NIST PQC 2022 selected algorithms or the ENISA post-quantum cryptography integration study October 2022.</p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>F</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>T</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>4</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>3</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-047">47 PQC encryption feature <small>MRS-047</small></h1>
-<p>The C5-DEC software MAY provide a feature for public-key encryption using a PQC algorithm, selected either from the NIST PQC 2022 selected algorithms or the ENISA post-quantum cryptography integration study October 2022.</p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>F</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>T</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis.</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>3</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>2</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>4</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-048">48 Include SDPM model <small>MRS-048</small></h1>
-<p>The C5-DEC knowledge base SHALL include a dedicated Software Development Plan Model (SDPM).</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>C</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>R</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>5</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>5</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-049">49 Include VVPM model <small>MRS-049</small></h1>
-<p>The C5-DEC knowledge base SHALL include a Verification &amp; Validation Plan Model (VVPM).</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>C</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>R</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>5</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>5</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-050">50 Include SPMM model <small>MRS-050</small></h1>
-<p>The C5-DEC knowledge base SHALL include a Software Project Management Model (SPMM).</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>C</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>R</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>5</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>5</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-051">51 Include SSDLC publication <small>MRS-051</small></h1>
-<p>The C5-DEC knowledge base SHALL include a secure SDLC (SSDLC) publication addressing secure software/system development.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>C</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>R</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>5</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>5</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-052">52 Include CC model <small>MRS-052</small></h1>
-<p>The CPSSA component of the C5-DEC knowledge base SHALL include a Common Criteria model (CCM) describing how the C5-DEC software approaches tool support for CC.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>C</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>R</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>5</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>4</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-053">53 Include CC-TMM <small>MRS-053</small></h1>
-<p>The C5-DEC knowledge base SHALL include a CC-inspired Threat Modelling Model (CC-TMM).</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a>, <a href="SRS.html#SRS-003">SRS-003 Export Security Components</a>, <a href="SRS.html#SRS-004">SRS-004 Tailor Security Requirements.</a>, <a href="SRS.html#SRS-044">SRS-044 Validate Hierarchies and Dependencies in Security Components</a>, <a href="SRS.html#SRS-045">SRS-045 Generate Impact Analysis Reports for Certification Maintenance.</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>C</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>R</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>5</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>4</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-054">54 Include SRA model <small>MRS-054</small></h1>
-<p>The CPSSA report of the C5-DEC knowledge base SHALL include a system/product-oriented (Cyber)Security Risk Management method and a Security Risk Assessment (SRA) Model.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>C</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>R</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>4</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>3</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-055">55 Define CC activities <small>MRS-055</small></h1>
-<p>The CCM SHALL define CC-related activities complementing the C5-DEC SSDLC.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a>, <a href="SRS.html#SRS-003">SRS-003 Export Security Components</a>, <a href="SRS.html#SRS-004">SRS-004 Tailor Security Requirements.</a>, <a href="SRS.html#SRS-044">SRS-044 Validate Hierarchies and Dependencies in Security Components</a>, <a href="SRS.html#SRS-045">SRS-045 Generate Impact Analysis Reports for Certification Maintenance.</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>C</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>R</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>4</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>3</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-056">56 Use NoSQL datastore <small>MRS-056</small></h1>
-<p>The C5-DEC software SHALL use a persistent NoSQL, document-oriented data store for storing all artifacts created or imported using the C5-DEC software.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a>, <a href="ARC.html#ARC004">ARC004 C5-DEC CAD system architecture</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>A</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>T</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>Portability, interoperability, easy &amp; effective integration in version control</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>importance</td>
-<td>5</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>5</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-057">57 Use web dev platform <small>MRS-057</small></h1>
+<h2 id="MRS-057">4.9 Use web dev platform <small><a href="MRS.html#MRS-057">MRS-057</a></small></h2>
 <p>The C5-DEC software SHALL make use of a web-based software development platform (e.g., GitLab, GitHub) to enforce user management, access control, authentication, and authorization.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC004">ARC004 C5-DEC CAD system architecture</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-059">SRS-059 Platform-delegated features (out of scope for custom implementation)</a></p>
 <table>
 <thead>
 <tr>
@@ -2426,59 +1122,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-058">58 Follow modular design <small>MRS-058</small></h1>
-<p>The C5-DEC software SHOULD follow a modular design.</p>
-<blockquote>
-<p><code>docs/specs/arc/assets/cad_context_diagram.drawio.png</code>
-<code>docs/specs/arc/assets/functional_tree.png</code>
-<code>docs/specs/arc/assets/subsystems.png</code>
-<code>docs/specs/arc/assets/system_architecture.png</code>
-<code>docs/specs/swd/assets/packages.png</code>
-<code>docs/specs/swd/assets/classes.png</code>
-<code>docs/specs/swd/assets/cct_class_diagram.png</code></p>
-</blockquote>
-<p><em>Child links:</em> <a href="ARC.html#ARC001">ARC001 C5-DEC CAD context diagram</a>, <a href="ARC.html#ARC002">ARC002 C5-DEC CAD functional tree</a>, <a href="ARC.html#ARC003">ARC003 C5-DEC CAD subsystems architecture</a>, <a href="ARC.html#ARC004">ARC004 C5-DEC CAD system architecture</a></p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>A</td>
-</tr>
-<tr>
-<td>vm</td>
-<td>R</td>
-</tr>
-<tr>
-<td>rationale</td>
-<td>See Mission Analysis</td>
-</tr>
-<tr>
-<td>importance</td>
-<td>5</td>
-</tr>
-<tr>
-<td>urgency</td>
-<td>4</td>
-</tr>
-<tr>
-<td>risk</td>
-<td>1</td>
-</tr>
-<tr>
-<td>difficulty</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h1 id="MRS-059">59 Enforce user management <small>MRS-059</small></h1>
+<h2 id="MRS-059">4.10 Enforce user management <small><a href="MRS.html#MRS-059">MRS-059</a></small></h2>
 <p>The C5-DEC software SHALL enforce user management, access control, authentication, and authorization.</p>
-<p><em>Child links:</em> <a href="ARC.html#ARC004">ARC004 C5-DEC CAD system architecture</a></p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-059">SRS-059 Platform-delegated features (out of scope for custom implementation)</a></p>
 <table>
 <thead>
 <tr>
@@ -2517,8 +1163,1001 @@
 </tr>
 </tbody>
 </table>
-<h1 id="MRS-060">60 Store assets for TRICK <small>MRS-060</small></h1>
+<h1 id="MRS-CRY">5.0 Cryptography</h1>
+<p>Requirements for cryptographic features including secret sharing, file integrity checking, file signing, and post-quantum encryption.</p>
+<h2 id="MRS-024">5.1 Secret sharing feature <small><a href="MRS.html#MRS-024">MRS-024</a></small></h2>
+<p>The C5-DEC software SHOULD provide a feature for performing cryptographic secret sharing, based on Shamir's secret sharing algorithm.</p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="SRS.html#SRS-054">SRS-054 Shamir's secret sharing split and recovery</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>2</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-025">5.2 File integrity check <small><a href="MRS.html#MRS-025">MRS-025</a></small></h2>
+<p>The C5-DEC software SHOULD provide a feature for computing a hash function, using SHA256, over a given a file to verify the integrity of this file by comparing the resulting hash digest value with a reference value.</p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="SRS.html#SRS-012">SRS-012 SBOM Generation, Import, Diff, and Validation</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-046">5.3 File signing feature <small><a href="MRS.html#MRS-046">MRS-046</a></small></h2>
+<p>The C5-DEC software MAY provide a feature for cryptographically signing individual files and verifying digital signatures using GPG to verify the authenticity of a file, with an additional option to sign using a digital signature algorithm either from NIST PQC 2022 selected algorithms or the ENISA post-quantum cryptography integration study October 2022.</p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="SRS.html#SRS-008">SRS-008 Post-Quantum Cryptography Container Deployment</a>, <a href="SRS.html#SRS-055">SRS-055 GPG-based file signing, verification, and encryption</a>, <a href="SRS.html#SRS-056">SRS-056 NaCl/Ed25519 key generation, signing, and verification</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-047">5.4 PQC encryption feature <small><a href="MRS.html#MRS-047">MRS-047</a></small></h2>
+<p>The C5-DEC software MAY provide a feature for public-key encryption using a PQC algorithm, selected either from the NIST PQC 2022 selected algorithms or the ENISA post-quantum cryptography integration study October 2022.</p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="SRS.html#SRS-008">SRS-008 Post-Quantum Cryptography Container Deployment</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis.</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>2</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>4</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h1 id="MRS-SFT">6.0 Search, filter &amp; code traceability</h1>
+<p>Requirements for linking requirements to source code, full-text search, and tag-based filtering of artifacts.</p>
+<h2 id="MRS-027">6.1 Link requirements to code <small><a href="MRS.html#MRS-027">MRS-027</a></small></h2>
+<p>The C5-DEC software SHALL provide a feature for linking requirements and test cases to specific lines or definitions (e.g., function, class) in source code by using annotations that encode the corresponding requirement or test case ID.</p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="SRS.html#SRS-061">SRS-061 Code-level traceability, tag-based filtering, and modular architecture</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>1</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>1</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-028">6.2 Search and filter <small><a href="MRS.html#MRS-028">MRS-028</a></small></h2>
+<p>The C5-DEC software SHOULD allow the user to search and filter requirements using full-text search and all requirement attributes.</p>
+<p><em>Child links:</em> <a href="SRS.html#SRS-002">SRS-002 Query the Database of Security Components.</a>, <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Ease of use and efficiency</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>5</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>1</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-029">6.3 Filter by tags <small><a href="MRS.html#MRS-029">MRS-029</a></small></h2>
+<p>The C5-DEC software SHOULD allow the user to search and filter artifacts using labels or tags.</p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-061">SRS-061 Code-level traceability, tag-based filtering, and modular architecture</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Ease of use and efficiency</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>5</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h1 id="MRS-CCT">7.0 Common Criteria Toolbox</h1>
+<p>Requirements for the CC Toolbox (CCT) module, including storage of SFRs/SARs, CC classes, knowledge base, OR/ETR automation, and EUCC/CSA support.</p>
+<h2 id="MRS-030">7.1 Store SFRs/SARs <small><a href="MRS.html#MRS-030">MRS-030</a></small></h2>
+<p>The C5-DEC software SHALL include a feature in its Common Criteria Toolbox (CC) that can store SFRs/SARs in the same open file format used for storing all other artifacts.</p>
+<p><em>Child links:</em> <a href="SRS.html#SRS-001">SRS-001 Access and Browse Database for CC Security Components</a>, <a href="SRS.html#SRS-002">SRS-002 Query the Database of Security Components.</a>, <a href="SRS.html#SRS-027">SRS-027 Unified Storage Mechanism for CC Artifacts and Security Elements</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>5</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-032">7.2 Provide CCT implementation <small><a href="MRS.html#MRS-032">MRS-032</a></small></h2>
+<p>The C5-DEC software SHALL provide a Common Criteria Toolbox (CCT) implementation satisfying the requirements stated in the C5-DEC CCM.</p>
+<p><em>Child links:</em> <a href="SRS.html#SRS-004">SRS-004 Tailor Security Requirements</a>, <a href="SRS.html#SRS-044">SRS-044 Validate Hierarchies and Dependencies in Security Components</a>, <a href="SRS.html#SRS-045">SRS-045 Generate Impact Analysis Reports for Certification Maintenance.</a>, <a href="SRS.html#SRS-014">SRS-014 Access and Navigation Through Knowledge Base</a>, <a href="SRS.html#SRS-015">SRS-015 Comprehensive and User-Friendly Explanations</a>, <a href="SRS.html#SRS-016">SRS-016 Interconnected Framework and Seamless Navigation</a>, <a href="SRS.html#SRS-017">SRS-017 Availability of Pragmatic Guidance and Best Practices</a>, <a href="SRS.html#SRS-018">SRS-018 Continuous Updates and Assurance of Current Information</a>, <a href="SRS.html#SRS-019">SRS-019 Integration of Multimedia Elements in Knowledge Articles</a>, <a href="SRS.html#SRS-020">SRS-020 Integrating Links to FAQ Section</a>, <a href="SRS.html#SRS-021">SRS-021 Provision of General Link to a CC-Specific Forum</a>, <a href="SRS.html#SRS-022">SRS-022 Data Storage and Format Mapping</a>, <a href="SRS.html#SRS-023">SRS-023 Bidirectional Transformation and Consistency</a>, <a href="SRS.html#SRS-028">SRS-028 Automated Rationale and Traceability Matrix Generation</a>, <a href="SRS.html#SRS-029">SRS-029 Verification of Rationales and Traceability Matrices</a>, <a href="SRS.html#SRS-030">SRS-030 Detailed Consistency and Completeness Checks</a>, <a href="SRS.html#SRS-031">SRS-031 Automated Validation of Relationships, Attributes, and Dependencies</a>, <a href="SRS.html#SRS-033">SRS-033 API Provision for Threat Importation</a>, <a href="SRS.html#SRS-034">SRS-034 Transformation of Imported Threats to CC-conformant Format</a>, <a href="SRS.html#SRS-032">SRS-032 Seamless Aggregation and Presentation of SARs and Work Units</a>, <a href="SRS.html#SRS-035">SRS-035 Automated Evaluation Checklist Creation</a>, <a href="SRS.html#SRS-036">SRS-036 Evaluation Progress Tracking</a>, <a href="SRS.html#SRS-037">SRS-037 Work Unit Artifact Linking</a>, <a href="SRS.html#SRS-038">SRS-038 Automated OR Generation</a>, <a href="SRS.html#SRS-039">SRS-039 Automated ETR Generation</a>, <a href="SRS.html#SRS-040">SRS-040 Flagging and Addressing Failed Work Units with Cascading Flags</a>, <a href="SRS.html#SRS-041">SRS-041 Logging evaluated Work Units</a>, <a href="SRS.html#SRS-042">SRS-042 Extend Data Model Across Entire CC Ecosystem</a>, <a href="SRS.html#SRS-043">SRS-043 Provide CC Document Templates</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-036">7.3 Store CC classes <small><a href="MRS.html#MRS-036">MRS-036</a></small></h2>
+<p>The CC toolbox SHOULD store all Security Functional Classes, Security Assurance Classes, Evaluation Activities, and Packages, in a structured human and machine-readable format in the C5-DEC document-based data store.</p>
+<p><em>Child links:</em> <a href="SRS.html#SRS-001">SRS-001 Access and Browse Database for CC Security Components</a>, <a href="SRS.html#SRS-002">SRS-002 Query the Database of Security Components.</a>, <a href="SRS.html#SRS-027">SRS-027 Unified Storage Mechanism for CC Artifacts and Security Elements</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis; risk related to availability</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>2</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>3</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-037">7.4 Adopt CC storage format <small><a href="MRS.html#MRS-037">MRS-037</a></small></h2>
+<p>The CC toolbox SHOULD adopt a storage format that maintains a mapping to the available CC XML-file and that can be validated against the corresponding DTD file, either directly via  a 1-to-1 mapping between CCT DB of CC and the official CC XML or through a reference file providing the mapping.</p>
+<p><em>Child links:</em> <a href="SRS.html#SRS-022">SRS-022 Data Storage and Format Mapping</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis; risk related to change in XML DTD</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>1</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>3</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-038">7.5 Transform CC content <small><a href="MRS.html#MRS-038">MRS-038</a></small></h2>
+<p>The CC toolbox SHOULD be able to automatically transform content from and to the CC defined XML format, relative to the C5-DEC custom data storage format.</p>
+<p><em>Child links:</em> <a href="SRS.html#SRS-023">SRS-023 Bidirectional Transformation and Consistency</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>1</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>3</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-039">7.6 Maintain CC knowledge base <small><a href="MRS.html#MRS-039">MRS-039</a></small></h2>
+<p>The CC toolbox SHALL maintain a Common Criteria Knowledge Base consisting of explanatory definitions and user guidance for CC Terms and Definitions, Concepts, and Core Constructs.</p>
+<p><em>Child links:</em> <a href="SRS.html#SRS-014">SRS-014 Access and Navigation Through Knowledge Base</a>, <a href="SRS.html#SRS-015">SRS-015 Comprehensive and User-Friendly Explanations</a>, <a href="SRS.html#SRS-016">SRS-016 Interconnected Framework and Seamless Navigation</a>, <a href="SRS.html#SRS-017">SRS-017 Availability of Pragmatic Guidance and Best Practices</a>, <a href="SRS.html#SRS-018">SRS-018 Continuous Updates and Assurance of Current Information</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-040">7.7 CC forum and FAQ <small><a href="MRS.html#MRS-040">MRS-040</a></small></h2>
+<p>The CC toolbox MAY include a CC forum and FAQ, complementing its Knowledge Base.</p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-020">SRS-020 Integrating Links to FAQ Section</a>, <a href="SRS.html#SRS-021">SRS-021 Provision of General Link to a CC-Specific Forum</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>2</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>2</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-041">7.8 Threats and risks DB <small><a href="MRS.html#MRS-041">MRS-041</a></small></h2>
+<p>The CC toolbox SHOULD provide a database of generic threats, risks, and countermeasures.</p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-024">SRS-024 Threats, Risks, and Countermeasures Database</a>, <a href="SRS.html#SRS-033">SRS-033 API Provision for Threat Importation</a>, <a href="SRS.html#SRS-034">SRS-034 Transformation of Imported Threats to CC-conformant Format</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>2</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-042">7.9 Threat DB sources <small><a href="MRS.html#MRS-042">MRS-042</a></small></h2>
+<p>The CC toolbox DB of threats, risks and countermeasures MAY include content from the BSI Grundschutz, ISO 27005, NIST SPs and the CC.</p>
+<p><em>Child links:</em> <a href="SRS.html#SRS-024">SRS-024 Threats, Risks, and Countermeasures Database</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>2</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-043">7.10 Automate OR/ETR generation <small><a href="MRS.html#MRS-043">MRS-043</a></small></h2>
+<p>The CC toolbox SHOULD provide means of automation for the generation of ORs and ETRs used during and as a result of CC CEM-based security evaluation.</p>
+<p><em>Child links:</em> <a href="SRS.html#SRS-035">SRS-035 Automated Evaluation Checklist Creation</a>, <a href="SRS.html#SRS-036">SRS-036 Evaluation Progress Tracking</a>, <a href="SRS.html#SRS-037">SRS-037 Work Unit Artifact Linking</a>, <a href="SRS.html#SRS-038">SRS-038 Automated OR Generation</a>, <a href="SRS.html#SRS-039">SRS-039 Automated ETR Generation</a>, <a href="SRS.html#SRS-040">SRS-040 Flagging and Addressing Failed Work Units with Cascading Flags</a>, <a href="SRS.html#SRS-041">SRS-041 Logging evaluated Work Units</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>1</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-044">7.11 EUCC evaluation support <small><a href="MRS.html#MRS-044">MRS-044</a></small></h2>
+<p>Based on the C5-DEC CPSSA report of the C5-DEC knowledge base, the CC toolbox SHOULD provide a support mechanism for generating additional evaluation evidence required by the EUCC and provide guides for tailoring existing evaluation evidence to be conformant with EUCC requirements.</p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-025">SRS-025 Support Mechanism for EUCC Additional Evaluation Evidence</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>1</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-045">7.12 Store CSA objectives <small><a href="MRS.html#MRS-045">MRS-045</a></small></h2>
+<p>The CC toolbox SHOULD store the generic Security Objectives defined by Article 51 of the CSA.</p>
+<p><em>Child links:</em> <a href="SRS.html#SRS-026">SRS-026 Storing Generic Security Objectives of CSA Article 51</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>1</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h1 id="MRS-TRM">8.0 Threat modelling &amp; risk management (CPSSA)</h1>
+<p>Requirements for the CPSSA module, including threat modelling solution integration, risk management tooling, design asset export, and TRICK interoperability.</p>
+<h2 id="MRS-031">8.1 Threat modelling solution <small><a href="MRS.html#MRS-031">MRS-031</a></small></h2>
+<p>The C5-DEC software MAY integrate an open-source threat modelling solution.</p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="SRS.html#SRS-046">SRS-046 Create threat model from Doorstop architecture artifacts</a>, <a href="SRS.html#SRS-047">SRS-047 Doorstop architecture item format for threat model input</a>, <a href="SRS.html#SRS-048">SRS-048 Generate CPSSA Markdown report from threat model</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>R</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-033">8.2 Threat modelling tool <small><a href="MRS.html#MRS-033">MRS-033</a></small></h2>
+<p>The C5-DEC software SHOULD either provide a threat modelling and analysis tool as part of the CPSSA module, based on the TM method described in the C5-DEC SSDLC and the C5-DEC CPSSA reports/guides or alternatively use data formats that do not prevent the use of already existing open-source solutions mentioned in the CPSSA report.</p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-046">SRS-046 Create threat model from Doorstop architecture artifacts</a>, <a href="SRS.html#SRS-047">SRS-047 Doorstop architecture item format for threat model input</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>R</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-034">8.3 Export design assets <small><a href="MRS.html#MRS-034">MRS-034</a></small></h2>
+<p>The C5-DEC software SHOULD provide a feature for extracting user specified design assets (specified in design artifacts such as diagrams or a plain text Markup language) and exporting these to an open file format.</p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-049">SRS-049 Generate PlantUML Data Flow Diagram from architecture items</a>, <a href="SRS.html#SRS-053">SRS-053 Generate interactive HTML graph for Doorstop specifications navigation</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>5</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>2</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-035">8.4 Risk management tool <small><a href="MRS.html#MRS-035">MRS-035</a></small></h2>
+<p>The C5-DEC software SHOULD either provide a risk management tool supporting the features described in the C5-DEC CCM or integrate an existing open-source solution.</p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-013">SRS-013 CRA Annex I and V Compliance Checklist Generation and Export</a>, <a href="SRS.html#SRS-048">SRS-048 Generate CPSSA Markdown report from threat model</a>, <a href="SRS.html#SRS-050">SRS-050 Generate FAIR risk analysis input template</a>, <a href="SRS.html#SRS-051">SRS-051 Run FAIR-based quantitative risk analysis</a>, <a href="SRS.html#SRS-052">SRS-052 Risk analysis output artifacts: CSV results and Markdown summary</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-054">8.5 Include SRA model <small><a href="MRS.html#MRS-054">MRS-054</a></small></h2>
+<p>The CPSSA report of the C5-DEC knowledge base SHALL include a system/product-oriented (Cyber)Security Risk Management method and a Security Risk Assessment (SRA) Model.</p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="SRS.html#SRS-050">SRS-050 Generate FAIR risk analysis input template</a>, <a href="SRS.html#SRS-051">SRS-051 Run FAIR-based quantitative risk analysis</a>, <a href="SRS.html#SRS-052">SRS-052 Risk analysis output artifacts: CSV results and Markdown summary</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>C</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>R</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-060">8.6 Store assets for TRICK <small><a href="MRS.html#MRS-060">MRS-060</a></small></h2>
 <p>The C5-DEC software SHOULD store assets selected for security risk assessment in a format that can be imported by the TRICK Service risk management web application.</p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-059">SRS-059 Platform-delegated features (out of scope for custom implementation)</a></p>
 <table>
 <thead>
 <tr>
@@ -2554,6 +2193,679 @@
 <tr>
 <td>difficulty</td>
 <td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h1 id="MRS-KNB">9.0 Knowledge base &amp; methodology</h1>
+<p>Requirements for the C5-DEC knowledge base content, including SDPM, VVPM, SPMM, SSDLC publication, CCM, CC-TMM, SRA model, and CC-related activities.</p>
+<h2 id="MRS-048">9.1 Include SDPM model <small><a href="MRS.html#MRS-048">MRS-048</a></small></h2>
+<p>The C5-DEC knowledge base SHALL include a dedicated Software Development Plan Model (SDPM).</p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="SRS.html#SRS-060">SRS-060 SSDLC methodology models and secure development lifecycle content</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>C</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>R</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>5</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>5</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-049">9.2 Include VVPM model <small><a href="MRS.html#MRS-049">MRS-049</a></small></h2>
+<p>The C5-DEC knowledge base SHALL include a Verification &amp; Validation Plan Model (VVPM).</p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="SRS.html#SRS-060">SRS-060 SSDLC methodology models and secure development lifecycle content</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>C</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>R</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>5</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>5</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-050">9.3 Include SPMM model <small><a href="MRS.html#MRS-050">MRS-050</a></small></h2>
+<p>The C5-DEC knowledge base SHALL include a Software Project Management Model (SPMM).</p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="SRS.html#SRS-060">SRS-060 SSDLC methodology models and secure development lifecycle content</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>C</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>R</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>5</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>5</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-051">9.4 Include SSDLC publication <small><a href="MRS.html#MRS-051">MRS-051</a></small></h2>
+<p>The C5-DEC knowledge base SHALL include a secure SDLC (SSDLC) publication addressing secure software/system development.</p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="SRS.html#SRS-060">SRS-060 SSDLC methodology models and secure development lifecycle content</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>C</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>R</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>5</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>5</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-052">9.5 Include CC model <small><a href="MRS.html#MRS-052">MRS-052</a></small></h2>
+<p>The CPSSA component of the C5-DEC knowledge base SHALL include a Common Criteria model (CCM) describing how the C5-DEC software approaches tool support for CC.</p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="SRS.html#SRS-060">SRS-060 SSDLC methodology models and secure development lifecycle content</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>C</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>R</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>5</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>4</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-053">9.6 Include CC-TMM <small><a href="MRS.html#MRS-053">MRS-053</a></small></h2>
+<p>The C5-DEC knowledge base SHALL include a CC-inspired Threat Modelling Model (CC-TMM).</p>
+<p><em>Child links:</em> <a href="SRS.html#SRS-003">SRS-003 Export Security Components</a>, <a href="SRS.html#SRS-004">SRS-004 Tailor Security Requirements</a>, <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="SRS.html#SRS-044">SRS-044 Validate Hierarchies and Dependencies in Security Components</a>, <a href="SRS.html#SRS-045">SRS-045 Generate Impact Analysis Reports for Certification Maintenance.</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>C</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>R</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>5</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>4</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-055">9.7 Define CC activities <small><a href="MRS.html#MRS-055">MRS-055</a></small></h2>
+<p>The CCM SHALL define CC-related activities complementing the C5-DEC SSDLC.</p>
+<p><em>Child links:</em> <a href="SRS.html#SRS-003">SRS-003 Export Security Components</a>, <a href="SRS.html#SRS-004">SRS-004 Tailor Security Requirements</a>, <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="SRS.html#SRS-044">SRS-044 Validate Hierarchies and Dependencies in Security Components</a>, <a href="SRS.html#SRS-045">SRS-045 Generate Impact Analysis Reports for Certification Maintenance.</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>C</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>R</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h1 id="MRS-NFR">10 Non-functional requirements &amp; architecture</h1>
+<p>Requirements for datastore technology, web platform selection, modular design, and overall baseline module scope.</p>
+<h2 id="MRS-026">10.1 Baseline module implementation <small><a href="MRS.html#MRS-026">MRS-026</a></small></h2>
+<p>The C5-DEC software SHALL implement the modules specified in the project constraints and assumptions and the system overview, with the baseline features specified in the project constraints description.</p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-002">ARC-002 C5-DEC CAD functional tree</a>, <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-005">SRS-005 Containerized Deployment via Docker DevContainer</a>, <a href="SRS.html#SRS-006">SRS-006 SSDLC New Project Scaffolding</a>, <a href="SRS.html#SRS-007">SRS-007 DocEngine Report and Presentation Template Creation</a>, <a href="SRS.html#SRS-012">SRS-012 SBOM Generation, Import, Diff, and Validation</a>, <a href="SRS.html#SRS-013">SRS-013 CRA Annex I and V Compliance Checklist Generation and Export</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>R</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Project constraints and assumptions, system overview</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>5</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-056">10.2 Use NoSQL datastore <small><a href="MRS.html#MRS-056">MRS-056</a></small></h2>
+<p>The C5-DEC software SHALL use a persistent NoSQL, document-oriented data store for storing all artifacts created or imported using the C5-DEC software.</p>
+<p><em>Child links:</em> <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="SRS.html#SRS-059">SRS-059 Platform-delegated features (out of scope for custom implementation)</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>A</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Portability, interoperability, easy &amp; effective integration in version control</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>importance</td>
+<td>5</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>5</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-058">10.3 Follow modular design <small><a href="MRS.html#MRS-058">MRS-058</a></small></h2>
+<p>The C5-DEC software SHOULD follow a modular design.</p>
+<blockquote>
+<p><code>docs/specs/arc/assets/cad_context_diagram.drawio.png</code>
+<code>docs/specs/arc/assets/functional_tree.png</code>
+<code>docs/specs/arc/assets/subsystems.png</code>
+<code>docs/specs/arc/assets/system_architecture.png</code>
+<code>docs/specs/swd/assets/packages.png</code>
+<code>docs/specs/swd/assets/classes.png</code>
+<code>docs/specs/swd/assets/cct_class_diagram.png</code></p>
+</blockquote>
+<p><em>Child links:</em> <a href="ARC.html#ARC-001">ARC-001 C5-DEC CAD context diagram</a>, <a href="ARC.html#ARC-002">ARC-002 C5-DEC CAD functional tree</a>, <a href="ARC.html#ARC-003">ARC-003 C5-DEC CAD subsystems architecture</a>, <a href="ARC.html#ARC-004">ARC-004 C5-DEC CAD system architecture</a>, <a href="ARC.html#ARC-006">ARC-006 System context diagram (C4 level 1)</a>, <a href="ARC.html#ARC-007">ARC-007 Container diagram (C4 level 2)</a>, <a href="ARC.html#ARC-008">ARC-008 CCT module – class hierarchy</a>, <a href="ARC.html#ARC-009">ARC-009 CPSSA subsystem – component diagram</a>, <a href="ARC.html#ARC-010">ARC-010 Frontend layer – component diagram</a>, <a href="ARC.html#ARC-011">ARC-011 CC checklist creation – sequence diagram</a>, <a href="ARC.html#ARC-012">ARC-012 Deployment diagram</a>, <a href="ARC.html#ARC-020">ARC-020 Developer and operator workstation</a>, <a href="ARC.html#ARC-021">ARC-021 C5-DEC CLI</a>, <a href="ARC.html#ARC-022">ARC-022 C5-DEC TUI</a>, <a href="ARC.html#ARC-023">ARC-023 C5-DEC GUI</a>, <a href="ARC.html#ARC-024">ARC-024 CCT — Common Criteria Toolbox module</a>, <a href="ARC.html#ARC-025">ARC-025 SSDLC module</a>, <a href="ARC.html#ARC-026">ARC-026 Transformer module</a>, <a href="ARC.html#ARC-027">ARC-027 PM — Project management module</a>, <a href="ARC.html#ARC-028">ARC-028 CPSSA module</a>, <a href="ARC.html#ARC-029">ARC-029 Crypto module</a>, <a href="ARC.html#ARC-030">ARC-030 CRA module</a>, <a href="ARC.html#ARC-031">ARC-031 SBOM module</a>, <a href="ARC.html#ARC-032">ARC-032 ISMS module</a>, <a href="ARC.html#ARC-033">ARC-033 CC XML database</a>, <a href="ARC.html#ARC-034">ARC-034 Config and parameters store</a>, <a href="ARC.html#ARC-035">ARC-035 Output artifact workspace</a>, <a href="ARC.html#ARC-036">ARC-036 PQC cryptographic sidecar</a>, <a href="ARC.html#ARC-037">ARC-037 DocEngine container</a>, <a href="ARC.html#ARC-038">ARC-038 Doorstop requirements manager</a>, <a href="ARC.html#ARC-039">ARC-039 GnuPG cryptographic engine</a>, <a href="ARC.html#ARC-040">ARC-040 Syft SBOM generator</a>, <a href="ARC.html#ARC-041">ARC-041 OpenProject server</a>, <a href="SRS.html#SRS-061">SRS-061 Code-level traceability, tag-based filtering, and modular architecture</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>A</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>R</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>See Mission Analysis</td>
+</tr>
+<tr>
+<td>importance</td>
+<td>5</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>4</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h1 id="MRS-CRA">11 Cyber Resilience Act (CRA) compliance module</h1>
+<p>Requirements for the CRA (EU Regulation 2024/2847) compliance module, including
+storage of CRA requirements, compliance checklist generation, SBOM linkage, and
+CRA technical documentation support.</p>
+<h2 id="MRS-061">11.1 Integrate CRA requirements database <small><a href="MRS.html#MRS-061">MRS-061</a></small></h2>
+<p>The C5-DEC software SHALL integrate a structured, machine-readable database of
+CRA Annex I, Annex V, and Annex VII essential security requirements, enabling
+offline querying of requirement IDs, categories, applicability, and descriptions.</p>
+<p><em>Child links:</em> <a href="SRS.html#SRS-013">SRS-013 CRA Annex I and V Compliance Checklist Generation and Export</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>EU Regulation 2024/2847 imposes structured security requirements on products with digital elements; a machine-readable local database enables offline compliance analysis.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>4</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-062">11.2 Generate CRA compliance checklist <small><a href="MRS.html#MRS-062">MRS-062</a></small></h2>
+<p>The C5-DEC software SHALL provide a command to automatically generate a CRA
+compliance checklist covering all Annex I essential requirements with columns
+for requirement ID, description, category, applicability, compliance status,
+and evidence reference, exportable to Excel format.</p>
+<p><em>Child links:</em> <a href="SRS.html#SRS-013">SRS-013 CRA Annex I and V Compliance Checklist Generation and Export</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>CRA Article 13 requires manufacturers to demonstrate compliance; automated checklist generation with export capability reduces manual effort and enables traceability evidence.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>importance</td>
+<td>5</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>4</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-063">11.3 Generate CRA technical documentation template <small><a href="MRS.html#MRS-063">MRS-063</a></small></h2>
+<p>The C5-DEC software SHALL provide a command to scaffold a CRA technical
+documentation template (DocEngine <code>cra-tech-doc</code> type) composed of structured
+Quarto/Markdown chapters aligned with CRA Annex V technical documentation
+obligations, and render the document to PDF via the DocEngine pipeline.</p>
+<p><em>Child links:</em> <a href="SRS.html#SRS-013">SRS-013 CRA Annex I and V Compliance Checklist Generation and Export</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>CRA Annex V requires manufacturers to supply structured technical documentation; a Quarto-based template pre-loaded with required sections reduces authoring overhead.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>2</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h1 id="MRS-SBOM">12 Software Bill of Materials (SBOM)</h1>
+<p>Requirements for generating, importing, comparing, and validating SBOMs in
+CycloneDX and SPDX formats, and integrating them with the Doorstop traceability
+system for CRA compliance evidence.</p>
+<h2 id="MRS-064">12.1 Generate SBOM using Syft <small><a href="MRS.html#MRS-064">MRS-064</a></small></h2>
+<p>The C5-DEC software SHALL provide a command to generate a Software Bill of
+Materials (SBOM) for a target directory or project using Syft, supporting
+CycloneDX JSON and SPDX JSON output formats, and perform schema validation on
+the generated artifact.</p>
+<p><em>Child links:</em> <a href="SRS.html#SRS-012">SRS-012 SBOM Generation, Import, Diff, and Validation</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>CRA and supply-chain security best practices require a verified, up-to-date inventory of software components; Syft provides industry-standard SBOM generation in CycloneDX and SPDX formats.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>importance</td>
+<td>4</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>4</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MRS-065">12.2 Import SBOM into Doorstop traceability <small><a href="MRS.html#MRS-065">MRS-065</a></small></h2>
+<p>The C5-DEC software SHALL provide a command to parse a CycloneDX SBOM file and
+import its components as individually traceable Doorstop items in a designated
+document, preserving component name, version, type, and supplier metadata.</p>
+<p><em>Child links:</em> <a href="SRS.html#SRS-012">SRS-012 SBOM Generation, Import, Diff, and Validation</a></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>F</td>
+</tr>
+<tr>
+<td>vm</td>
+<td>T</td>
+</tr>
+<tr>
+<td>rationale</td>
+<td>Importing SBOM components into the Doorstop traceability system enables bidirectional linking between SBOM artifacts and SSDLC requirements, supporting the CRA evidence trail.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>importance</td>
+<td>3</td>
+</tr>
+<tr>
+<td>urgency</td>
+<td>3</td>
+</tr>
+<tr>
+<td>risk</td>
+<td>1</td>
+</tr>
+<tr>
+<td>difficulty</td>
+<td>2</td>
 </tr>
 </tbody>
 </table>

@@ -9,7 +9,7 @@ There is nothing to be done if you are using the C5-DEC containerized developmen
 If you wish to use any other fonts, in the C5-DEC container accessed via the VS Code terminal, simply download the font and add a copy of the `.ttf` files to the `.fonts` folder, stored under the home repository, e.g.,
 
 ```sh
-cp ./ubuntu-font-family-0.83/*.ttf /home/username/.fonts/ubuntu/
+cp ./ubuntu-font-family-0.83/*.ttf /home/alab/.fonts/ubuntu/
 ```
 
 and then run
@@ -35,7 +35,7 @@ poetry shell
 and compile your report as follows
 
 ```sh
-quarto render ./projectname/assets/etr/etr_template/index.qmd --to pdf
+quarto render ./c5dec/assets/report/index.qmd --to pdf
 ```
 
 ### Local non-containerized setup
@@ -53,7 +53,7 @@ source myenv/bin/activate
 Once in the environment, install the requirements stored under `c5dec/assets/etr/etr_template/scripts`:
 
 ```sh
-pip install -r ./projectname/assets/report/scripts/requirements.txt 
+pip install -r ./c5dec/assets/report/scripts/requirements.txt 
 ```
 
 ## Usage
@@ -61,5 +61,5 @@ pip install -r ./projectname/assets/report/scripts/requirements.txt
 Run the quarto render command:
 
 ```sh
-quarto render ./projectname/assets/report/index.qmd --to pdf
+quarto render ./c5dec/assets/report/index.qmd --to pdf
 ```

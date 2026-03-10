@@ -1,8 +1,14 @@
+---
+Last Updated: October 4, 2023
+Relevant CC Version: CC 2022
+Tags: organizational-security-policy, OSP, SPD
+---
+
 # Organizational Security Policy
 
 **Acronym:** OSP
 
-Organizational Security Policy (OSP) within the Common Criteria framework is a fundamental construct, defined as a set of security rules, procedures, or guidelines for an organization. Embedded within the [Security Problem Definition (SPD)](./SecurityProblemdefinition.md) of both [Protection Profiles (PP)](./ProtectionProfiles.md) and [Security Targets (ST)](./SecurityTarget.md) to enforce compliance, mitigate potential threats, and ensure the protection of assets within a specified operational environment. Within the CC paradigm, OSPs are not merely declarative; they are enforced through defined [security objectives](./SecurityObjective.md) that are shouldered by the [Target of Evaluation (TOE)](./TargetofEvaluation.md), its [operational environment](./TOEOperationalEnvironment.md), or synergistically by both.
+Organizational Security Policy (OSP) within the Common Criteria framework is a fundamental construct, defined as a set of security rules, procedures, or guidelines for an organization. Embedded within the [Security Problem Definition (SPD)](./SecurityProblemdefinition.md) of both [Protection Profiles (PP)](./ProtectionProfile.md) and [Security Targets (ST)](./SecurityTarget.md) to enforce compliance, mitigate potential threats, and ensure the protection of assets within a specified operational environment. Within the CC paradigm, OSPs are not merely declarative; they are enforced through defined [security objectives](./SecurityObjective.md) that are shouldered by the [Target of Evaluation (TOE)](./TargetofEvaluation.md), its [operational environment](./TOEOperationalEnvironment.md), or synergistically by both.
 
 ## Practical Guidance
 

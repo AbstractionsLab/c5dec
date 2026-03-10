@@ -1,0 +1,90 @@
+# Conclusion
+
+---
+
+## Summary
+
+::: {.incremental}
+✅ **Comprehensive** toolset for secure system design
+
+✅ **Common Criteria** compliant workflows
+
+✅ **Automated** documentation generation
+
+✅ **Traceability** throughout SDLC
+
+✅ **Multiple** output formats
+:::
+
+---
+
+## Next Steps
+
+1. **Install** C5-DEC CAD
+   - Docker container (recommended)
+   - Local installation with Poetry
+
+2. **Explore** the user manual
+   - `/docs/manual/` directory
+   - Interactive documentation
+
+3. **Try** example projects
+   - Sample CC evaluations
+   - Template projects
+
+---
+
+## Resources
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### Documentation
+- User Manual
+- API Reference
+- Tutorial Videos
+- Knowledge Base
+:::
+
+::: {.column width="50%"}
+### Support
+- GitHub Issues
+- Email: info@abstractionslab.lu
+- Community Forum
+- Professional Services
+:::
+
+::::
+
+---
+
+## Thank You! {.center}
+
+:::: {.columns}
+
+::: {.column width="33%"}
+![](figs/ITR-logo.jpg){width=70%}
+:::
+
+::: {.column width="34%"}
+![](figs/CyFORT-logo.png){width=80%}
+:::
+
+::: {.column width="33%"}
+![](figs/Alab-logo.png){width=70%}
+:::
+
+::::
+
+### Questions?
+
+**Contact**: info@abstractionslab.lu
+
+**Project**: {{< meta projectinfo.name >}}
+
+---
+
+## References {.smaller}
+
+::: {#refs}
+:::

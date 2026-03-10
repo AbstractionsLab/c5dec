@@ -1,0 +1,57 @@
+# Threat actors for the water-treatment CPSSA example.
+#
+# Each entry is a threat actor / persona relevant to this system.
+# Fields:
+#   id          - unique identifier (used as reference in threat model)
+#   name        - human-readable name
+#   motivation  - comma-separated motivations (e.g. sabotage, financial gain)
+#   capability  - low | medium | high
+#   access      - external | internal | physical
+#   description - free-text description of actor profile and threat relevance
+
+threat_actors:
+  - id: nation-state-apt
+    name: Nation-State APT
+    motivation: sabotage, espionage, disruption of critical infrastructure
+    capability: high
+    access: external
+    description: >
+      State-sponsored advanced persistent threat actor targeting critical water
+      infrastructure. Capable of spear-phishing, supply-chain compromise, and
+      living-off-the-land techniques. Primary objective is long-term covert
+      access leading to process disruption or intelligence collection.
+
+  - id: malicious-insider
+    name: Malicious Insider
+    motivation: financial gain, grievance, coercion
+    capability: medium
+    access: internal
+    description: >
+      Disgruntled employee or contractor with legitimate access to the SCADA
+      environment (ARC-002, ARC-003, ARC-006). Can abuse privileged credentials
+      or programming interfaces to tamper with PLC setpoints or historian data.
+      Session recording on the jump server (ARC-002) is the primary detective
+      control.
+
+  - id: opportunistic-attacker
+    name: Opportunistic Attacker
+    motivation: ransomware, notoriety, financial gain
+    capability: low
+    access: external
+    description: >
+      Script kiddie or ransomware affiliate scanning for exposed OT services
+      and known CVEs in SCADA software. Unlikely to have ICS-specific knowledge
+      but may cause availability impacts through ransomware deployment on IT
+      assets that bridge into the OT network.
+
+  - id: physical-intruder
+    name: Physical Intruder
+    motivation: sabotage, theft
+    capability: medium
+    access: physical
+    description: >
+      Actor who gains physical access to the control room or field sites.
+      Can directly interact with the HMI console (ARC-005), PLCs (ARC-007,
+      ARC-008), or RTU (ARC-009) without traversing network controls.
+      Badge-and-PIN access to the control room is the primary preventive
+      control.

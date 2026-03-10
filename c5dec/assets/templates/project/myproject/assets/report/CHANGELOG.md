@@ -29,7 +29,7 @@
 
 ### Added
 
-- A first template of C5-DEC DocEngine document tempate, based on a Quarto book
+- A first template of C5-DEC DocEngine document template, based on a Quarto book
 - A reference docx reference document to be used as template for docx publishing
 
 ### Modified

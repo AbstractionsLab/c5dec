@@ -54,7 +54,7 @@ In the context of the Common Criteria (CC), the Target of Evaluation (TOE) is ou
 
 - [Understanding TOE Boundaries](./TOEBoundary.md)
 - [Understandning TOE Operational Environement](./TOEOperationalEnvironment.md)
-- [Common Pitfalls while defining TOE](./404.md)
+- [Common Pitfalls while defining TOE](./TargetofEvaluation.md)
 
 ## Related Articles
 

@@ -11,9 +11,9 @@ sys.path.append(parent_dir)
 # Average cyclomatic complexity is A (3.0366). Calculated with Radon.
 
 
-class TestBaseClass(BaseClass):
+class _ConcreteBase(BaseClass):
     def is_valid(self):
-        pass  # Implement the abstract method is_valid for testing
+        pass  # Concrete stand-in for abstract BaseClass used by TestIndex fixtures
 
 
 class TestIndex(unittest.TestCase):
@@ -22,10 +22,11 @@ class TestIndex(unittest.TestCase):
         # Create an instance of the Index class
         self.index = Index()
 
+    # TST-002
     def test_update_and_get(self):
         # Create objects for testing
-        obj1 = TestBaseClass(_id="obj1")
-        obj2 = TestBaseClass(_id="obj2")
+        obj1 = _ConcreteBase(_id="obj1")
+        obj2 = _ConcreteBase(_id="obj2")
 
         # Update the index with objects
         self.index.update("obj1", obj1)
@@ -38,9 +39,10 @@ class TestIndex(unittest.TestCase):
         self.assertEqual(retrieved_obj1, obj1)
         self.assertEqual(retrieved_obj2, obj2)
 
+    # TST-016
     def test_update_and_get_keys(self):
-        obj1 = TestBaseClass(_id="obj1")
-        obj2 = TestBaseClass(_id="obj2")
+        obj1 = _ConcreteBase(_id="obj1")
+        obj2 = _ConcreteBase(_id="obj2")
 
         # Update the index with objects
         self.index.update("obj1", obj1)
@@ -51,8 +53,8 @@ class TestIndex(unittest.TestCase):
 
     def test_update_non_unique(self):
         # Create objects with non-unique IDs
-        obj1 = TestBaseClass(_id="duplicate_id")
-        obj2 = TestBaseClass(_id="duplicate_id")
+        obj1 = _ConcreteBase(_id="duplicate_id")
+        obj2 = _ConcreteBase(_id="duplicate_id")
 
         # Update the index with the first object (should not raise an error)
         self.index.update("duplicate_id", obj1)

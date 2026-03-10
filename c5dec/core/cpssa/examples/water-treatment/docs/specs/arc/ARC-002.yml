@@ -1,0 +1,43 @@
+active: true
+header: Jump Server
+type: jump-server
+zone: DMZ
+text: |
+  Bastion host providing controlled remote access from IT to the DMZ and SCADA zones.
+  All privileged sessions (SSH, RDP, VNC) must traverse this host.
+  Session recording and multi-factor authentication are enforced.
+vendor: Cyberark
+model: PSM for SSH
+os: Windows Server 2022
+port: 22
+protocol: SSH
+encryption: transparent
+machine: virtual
+size: component
+confidentiality: strictly-confidential
+integrity: critical
+availability: critical
+justification_cia_rating: >-
+  All remote privileged access flows through this bastion host; compromise
+  enables lateral movement into SCADA and OT zones.
+has_access_control: true
+authenticates_source: true
+links:
+  - SRS-001
+  - SRS-002
+flows:
+  - target: ARC-001
+    protocol: SSH
+    port: 22
+    encrypted: true
+    authentication: client-certificate
+    authorization: technical-user
+data_assets:
+  - session-recordings
+  - access-logs
+data_assets_stored:
+  - session-recordings
+  - access-logs
+data_formats_accepted:
+  - file
+reviewed: false

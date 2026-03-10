@@ -1,0 +1,56 @@
+---
+title: "Product Description"
+---
+
+# Product Description
+
+## General Description
+
+**Product Name:** {{< meta product.name >}}  
+**Product Identifier:** {{< meta product.identifier >}}  
+**Product Version:** {{< meta product.version >}}  
+**CRA Category:** {{< meta product.category >}}
+
+{{< meta product.description >}}
+
+## Intended Use
+
+[Describe the intended use and purpose of the product, including the target users and typical deployment scenarios.]
+
+## Key Features
+
+[List the main features and capabilities of the product with digital elements.]
+
+- Feature 1: [Description]
+- Feature 2: [Description]
+- Feature 3: [Description]
+
+## Hardware and Software Components
+
+### Hardware Components (if applicable)
+
+[Describe any hardware components of the product.]
+
+### Software Components
+
+[Describe the software architecture and main components. Reference the SBOM in Chapter 6 for detailed component inventory.]
+
+## Network Connectivity
+
+[Describe any network connectivity features, protocols used, and external interfaces.]
+
+## Data Processing
+
+[Describe what types of data the product processes, stores, or transmits, with particular attention to personal data if applicable.]
+
+## User Interaction
+
+[Describe how users interact with the product and any authentication or authorization mechanisms.]
+
+## Dependencies
+
+[List any external dependencies, services, or third-party components the product relies on.]
+
+## Support and Maintenance Period
+
+The manufacturer commits to providing security updates for **{{< meta cra.support_period_years >}} years** from the date the product is placed on the market, in accordance with CRA Article 13(9).

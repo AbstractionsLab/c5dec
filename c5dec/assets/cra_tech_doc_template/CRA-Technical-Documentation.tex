@@ -1,0 +1,1366 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  11 pt,
+  a4paper,
+  table]{report}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\renewcommand{\arraystretch}{1.0} % table spacing
+\usepackage{longtable}
+% \rowcolors{1}{AlabTableColLightBlue}{}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{fancyhdr}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{colortbl}
+\usepackage{sectsty}
+\usepackage{adjustbox}
+\usepackage{pdfpages}
+\usepackage[open,openlevel=2,atend]{bookmark}
+\usepackage{ragged2e}
+% \usepackage{showframe}
+\setlength{\headheight}{30pt} 
+
+\chapterfont{\color{blue}}
+\sectionfont{\color{cyan}} 
+
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+
+\definecolor{AlabRed}{RGB}{230, 31, 61}
+\definecolor{AlabLightBlue}{RGB}{0, 163, 204}
+\definecolor{AlabTableColLightBlue}{RGB}{140, 223, 255}
+
+\newcommand{\fail}[1]{\colorbox{Red}{\textcolor{white}{#1}}}
+\newcommand{\pass}[1]{\colorbox{Green}{\textcolor{White}{#1}}}
+\newcommand{\inclsv}[1]{\colorbox{Yellow}{\textcolor{Black}{#1}}}
+
+\newcolumntype{a}{>{\columncolor{AlabTableColLightBlue}}l}
+\newcolumntype{b}{>{\columncolor{white}}l}
+
+\pagestyle{fancy}
+\fancyhf{} % Clear header and footer
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[L]{\raisebox{-.4\height}{\includegraphics[height=1.2cm]{figs/ITR-logo.jpg}\includegraphics[height=1.2cm]{figs/Alab-logo.png}}}
+\fancyhead[R]{\setlength\extrarowheight{-5pt}
+\rowcolors{1}{white}{white} % override global table customization specified in tables.tex
+\begin{tabular}{@{}l} 
+  \scriptsize\textbf{\textcolor{AlabLightBlue}{Type}}: REP \\ 
+  \scriptsize\textbf{\textcolor{AlabLightBlue}{Activity}}: EU Cyber Resilience Act (Regulation 2024/2847) - Annex VII \\ 
+  \scriptsize\textbf{\textcolor{AlabLightBlue}{Title}}: CRA Technical Documentation \\ 
+  \scriptsize\textbf{\textcolor{AlabLightBlue}{Classification}}: Restricted \\
+\end{tabular}}
+\fancyfoot[L]{Ref: 3C0A0\_REP\_C5DEC-DocEngineReportTemplate\_v1.0 } 
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt} % Optional: header line
+\renewcommand{\footrulewidth}{0.4pt} % Optional: footer line
+
+% Redefine the plain page style
+\fancypagestyle{plain}{%
+\fancyhf{}%
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[L]{\raisebox{-.4\height}{\includegraphics[height=1.2cm]{figs/ITR-logo.jpg}\includegraphics[height=1.2cm]{figs/Alab-logo.png}}}
+\fancyhead[R]{\setlength\extrarowheight{-5pt}
+\rowcolors{1}{white}{white} % override global table customization specified in tables.tex
+\begin{tabular}{@{}l} 
+  \scriptsize\textbf{\textcolor{AlabLightBlue}{Type}}: REP \\ 
+  \scriptsize\textbf{\textcolor{AlabLightBlue}{Activity}}: EU Cyber Resilience Act (Regulation 2024/2847) - Annex VII \\ 
+  \scriptsize\textbf{\textcolor{AlabLightBlue}{Title}}: CRA Technical Documentation \\ 
+  \scriptsize\textbf{\textcolor{AlabLightBlue}{Classification}}: Restricted \\
+\end{tabular}}
+\fancyfoot[L]{Ref: 3C0A0\_REP\_C5DEC-DocEngineReportTemplate\_v1.0 } 
+\fancyfoot[R]{\thepage} 
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={CRA Technical Documentation},
+  pdfauthor={PLACEHOLDER\_MANUFACTURER},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{CRA Technical Documentation}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{EU Cyber Resilience Act (Regulation 2024/2847) - Annex VII}
+\author{PLACEHOLDER\_MANUFACTURER}
+\date{Invalid Date}
+
+\begin{document}
+\cleardoublepage
+\thispagestyle{empty}
+
+{\centering
+
+\vspace{-3cm}
+    \includegraphics[width=0.3\textwidth]{figs/ITR-logo.jpg}
+    \hfill
+    \includegraphics[width=0.3\textwidth]{figs/Alab-logo.png}\\
+    [1cm]
+    \includegraphics[width=0.4\textwidth]{figs/CyFORT-logo.png}\\
+    [2cm]
+    \centering
+    \Huge \textbf{\textcolor{AlabRed}{CRA Technical Documentation}} \\
+    [0.5cm]
+\Large \textcolor{AlabLightBlue}{EU Cyber Resilience Act (Regulation
+2024/2847) - Annex VII}
+
+
+\vspace{4ex}
+% \hbox{}\vskip 0cm plus 1fill
+
+\begin{justify}
+{\normalsize {This document provides the technical documentation
+required by Article 31 and Annex VII of the EU Cyber Resilience Act for
+products with digital elements placed on the EU market.}}
+\end{justify}
+
+
+\vspace{10ex}
+% \hbox{}\vskip 0cm plus 1fill
+
+\begin{flushleft}
+\textcolor{AlabRed}{\textbf{General information}}\\
+\end{flushleft}
+\vspace{1ex}
+
+\rowcolors{1}{white}{white} % override global table customization specified in tables.tex
+{\large
+\begin{tabular}{| >{\bfseries} a p{0.5\textwidth} | b p{0.5\textwidth} |} % Table start
+    \hline
+    \cellcolor{AlabTableColLightBlue}Name of the company & itrust Abstractions Lab \\
+    \hline
+    \cellcolor{AlabTableColLightBlue}Project title & CyFORT \\
+    \hline
+    \cellcolor{AlabTableColLightBlue}Type & Report (REP) \\
+    \hline
+    \cellcolor{AlabTableColLightBlue}Reference & 3C0A0 \\
+    \hline
+    \cellcolor{AlabTableColLightBlue}Version & 1.0 \\
+    \hline
+    \cellcolor{AlabTableColLightBlue}State & Draft \\
+    \hline
+    \cellcolor{AlabTableColLightBlue}Owner & Shafi \\
+    \hline
+    \cellcolor{AlabTableColLightBlue}Authors & Dijkstra \\
+    \hline
+    \cellcolor{AlabTableColLightBlue}Application date & PLACEHOLDER-DATE \\
+    \hline
+    \cellcolor{AlabTableColLightBlue}Classification & Restricted \\
+    \hline
+\end{tabular} % Table end
+}
+\vspace{1ex}
+\hbox{}\vskip 0cm plus 1fill
+
+\vspace{1ex}
+{\small Generated by C5-DEC CAD DocEngine; sources in ALab GitLab. \par}
+}
+\pagebreak
+
+\begin{flushleft}
+    \textcolor{AlabRed}{\textbf{Document history}}\\
+\end{flushleft}
+\vspace{1ex}
+
+\rowcolors{1}{white}{white} % override global table customization specified in tables.tex
+\begin{tabular}{ | p{0.08\textwidth}| p{0.12\textwidth}| p{0.2\textwidth}| p{0.48\textwidth}| } % Table start
+    \hline
+    \rowcolor{AlabTableColLightBlue}
+    \textbf{Version} & \textbf{Date} & \textbf{Author} & \textbf{Modifications} \\
+    \hline
+    1.2 & 14/05/2025 & Arash Atashpendar & \begin{itemize}
+      \item Some more change 1
+      \item Some more change 2
+      \end{itemize} \\ \hline
+    1.0 & 04/07/2024 & Ada & \begin{itemize}
+      \item Change 1
+      \item Change 2
+      \item Change 3
+      \item Change 4
+      \item Change 5
+      \item Change 6
+      \item Change 7
+      \item Change 8
+      \item Replaced inline hyperlinks with footnotes
+      \item Further minor revisions throughout
+      \end{itemize} \\ \hline
+    0.1 & 03/07/2024 & Alan & First draft \\
+    \hline
+\end{tabular} % Table end
+\vspace{1ex}
+
+% \begin{table}[ht]
+%     \centering
+%     \caption{Your caption}
+%     \label{your-label}
+%     \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}|l|l|l|l|}
+    %     \hline
+    %     \rowcolor{AlabTableColLightBlue}
+    %     Version & Date & Author & Modifications \\ 
+    %     \hline
+    %     1.0 & 29/06/2024 & Ada & First release \\ 
+    %     \hline
+%     \end{tabular*}
+% \end{table}
+        
+
+\begin{flushleft}
+    \textcolor{AlabRed}{\textbf{Approval}}\\
+\end{flushleft}
+\vspace{1ex}
+
+% \begin{tabular}{ | p{0.22\textwidth}| p{0.22\textwidth}| p{0.22\textwidth}| p{0.22\textwidth}| } % Table start
+\begin{tabular}{ | p{0.27\textwidth}| p{0.2\textwidth}| p{0.22\textwidth}| p{0.19\textwidth}| } % Table start
+    \hline
+    \rowcolor{AlabTableColLightBlue}
+    \textbf{Name} & \textbf{Role} & \textbf{Responsibility} & \textbf{Signature} \\
+    \hline
+    Grace & CTO & Content agreement & --- \\ \hline Knuth & RD Scientist & Content agreement & --- \\ \hline Babbage & RD Specialist & Content agreement & --- \\  
+    \hline
+\end{tabular} % Table end
+\vspace{1ex}
+\hbox{}\vskip 0cm plus 1fill
+\pagebreak
+% Resume default table color coding scheme
+% \rowcolors{1}{AlabTableColLightBlue}{}
+\arrayrulecolor{AlabLightBlue}
+% % % \renewcommand*\contentsname{Table of contents}
+% % % \hypersetup{linkcolor=}
+% % \setcounter{tocdepth}{2}
+% % \renewcommand*\listfigurename{List of figures}
+% \renewcommand*\listtablename{List of tables}
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\listoffigures
+\listoftables
+
+\bookmarksetup{startatroot}
+
+\chapter{CRA Technical Documentation}\label{cra-technical-documentation}
+
+EU Cyber Resilience Act Compliance
+
+\hfill\break
+
+\bookmarksetup{startatroot}
+
+\chapter*{Introduction}\label{introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+
+\markboth{Introduction}{Introduction}
+
+This document provides the technical documentation required by Article
+31 and Annex VII of Regulation (EU) 2024/2847 (the Cyber Resilience Act)
+for products with digital elements placed on the EU market.
+
+\textbf{Product:} \textbf{?meta:product.name}\\
+\textbf{Manufacturer:} \textbf{?meta:manufacturer.name}\\
+\textbf{Document Version:} \textbf{?meta:version}\\
+\textbf{Product Category:} \textbf{?meta:product.category}
+
+\section{Purpose and Scope}\label{purpose-and-scope}
+
+This technical documentation demonstrates compliance with the essential
+cybersecurity requirements set out in Annex I of the CRA. It accompanies
+the EU Declaration of Conformity and provides evidence that the product
+meets the applicable requirements for its category.
+
+\section{Document Structure}\label{document-structure}
+
+This document follows the structure specified in CRA Annex VII:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Product Description} - General description and intended use
+\item
+  \textbf{Design and Development} - Architecture, components, and
+  security design
+\item
+  \textbf{Cybersecurity Risk Assessment} - Identified risks and
+  mitigation measures
+\item
+  \textbf{Applied Standards} - Harmonised standards and common
+  specifications
+\item
+  \textbf{EU Declaration of Conformity} - Formal declaration per Annex V
+\item
+  \textbf{Software Bill of Materials (SBOM)} - Component inventory per
+  Annex I Part II(1)
+\end{enumerate}
+
+\section{Conformity Assessment Route}\label{conformity-assessment-route}
+
+\textbf{Route:} \textbf{?meta:conformity.route}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, bottomrule=.15mm, colback=white, leftrule=.75mm, opacitybacktitle=0.6, rightrule=.15mm, opacityback=0, arc=.35mm, toprule=.15mm, colframe=quarto-callout-note-color-frame, breakable, left=2mm, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, bottomtitle=1mm, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}]
+
+This product has been assessed using the conformity assessment route
+specified in CRA Article 47.
+
+\end{tcolorbox}
+
+\section{Regulatory References}\label{regulatory-references}
+
+\begin{itemize}
+\tightlist
+\item
+  Regulation (EU) 2024/2847 - Cyber Resilience Act
+\item
+  Annex I - Essential Cybersecurity Requirements
+\item
+  Annex V - EU Declaration of Conformity
+\item
+  Annex VII - Technical Documentation
+\end{itemize}
+
+\bookmarksetup{startatroot}
+
+\chapter{Product Description}\label{product-description}
+
+\bookmarksetup{startatroot}
+
+\chapter{Product Description}\label{product-description-1}
+
+\section{General Description}\label{general-description}
+
+\textbf{Product Name:} \textbf{?meta:product.name}\\
+\textbf{Product Identifier:} \textbf{?meta:product.identifier}\\
+\textbf{Product Version:} \textbf{?meta:product.version}\\
+\textbf{CRA Category:} \textbf{?meta:product.category}
+
+\textbf{?meta:product.description}
+
+\section{Intended Use}\label{intended-use}
+
+{[}Describe the intended use and purpose of the product, including the
+target users and typical deployment scenarios.{]}
+
+\section{Key Features}\label{key-features}
+
+{[}List the main features and capabilities of the product with digital
+elements.{]}
+
+\begin{itemize}
+\tightlist
+\item
+  Feature 1: {[}Description{]}
+\item
+  Feature 2: {[}Description{]}
+\item
+  Feature 3: {[}Description{]}
+\end{itemize}
+
+\section{Hardware and Software
+Components}\label{hardware-and-software-components}
+
+\subsection{Hardware Components (if
+applicable)}\label{hardware-components-if-applicable}
+
+{[}Describe any hardware components of the product.{]}
+
+\subsection{Software Components}\label{software-components}
+
+{[}Describe the software architecture and main components. Reference the
+SBOM in Chapter 6 for detailed component inventory.{]}
+
+\section{Network Connectivity}\label{network-connectivity}
+
+{[}Describe any network connectivity features, protocols used, and
+external interfaces.{]}
+
+\section{Data Processing}\label{data-processing}
+
+{[}Describe what types of data the product processes, stores, or
+transmits, with particular attention to personal data if applicable.{]}
+
+\section{User Interaction}\label{user-interaction}
+
+{[}Describe how users interact with the product and any authentication
+or authorization mechanisms.{]}
+
+\section{Dependencies}\label{dependencies}
+
+{[}List any external dependencies, services, or third-party components
+the product relies on.{]}
+
+\section{Support and Maintenance
+Period}\label{support-and-maintenance-period}
+
+The manufacturer commits to providing security updates for
+\textbf{\textbf{?meta:cra.support\_period\_years} years} from the date
+the product is placed on the market, in accordance with CRA Article
+13(9).
+
+\bookmarksetup{startatroot}
+
+\chapter{Design and Development
+Information}\label{design-and-development-information}
+
+\bookmarksetup{startatroot}
+
+\chapter{Design and Development
+Information}\label{design-and-development-information-1}
+
+\section{Development Process}\label{development-process}
+
+\subsection{Secure Development
+Lifecycle}\label{secure-development-lifecycle}
+
+{[}Describe the secure software development lifecycle (SSDLC) followed
+during product development.{]}
+
+\subsection{Development Tools and
+Environment}\label{development-tools-and-environment}
+
+{[}List the development tools, programming languages, frameworks, and
+development environment used.{]}
+
+\subsection{Version Control and Configuration
+Management}\label{version-control-and-configuration-management}
+
+{[}Describe version control practices and configuration management
+procedures.{]}
+
+\section{System Architecture}\label{system-architecture}
+
+\subsection{High-Level Architecture}\label{high-level-architecture}
+
+{[}Provide a high-level architectural diagram and description of the
+system components and their interactions.{]}
+
+\subsection{Security Architecture}\label{security-architecture}
+
+{[}Describe the security architecture, including security boundaries,
+trust zones, and security-critical components.{]}
+
+\subsection{Data Flow}\label{data-flow}
+
+{[}Describe how data flows through the system, with particular attention
+to sensitive data handling.{]}
+
+\section{Security Design Principles}\label{security-design-principles}
+
+{[}Describe how security-by-design and security-by-default principles
+have been implemented:{]}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Least Privilege:} {[}How implemented{]}
+\item
+  \textbf{Defense in Depth:} {[}How implemented{]}
+\item
+  \textbf{Secure Defaults:} {[}How implemented{]}
+\item
+  \textbf{Fail Securely:} {[}How implemented{]}
+\item
+  \textbf{Separation of Concerns:} {[}How implemented{]}
+\end{itemize}
+
+\section{Cryptographic
+Implementation}\label{cryptographic-implementation}
+
+\subsection{Cryptographic Algorithms}\label{cryptographic-algorithms}
+
+{[}List cryptographic algorithms used and their purpose:{]}
+
+\begin{itemize}
+\tightlist
+\item
+  Encryption: {[}Algorithms{]}
+\item
+  Hashing: {[}Algorithms{]}
+\item
+  Digital Signatures: {[}Algorithms{]}
+\item
+  Key Exchange: {[}Algorithms{]}
+\end{itemize}
+
+\subsection{Key Management}\label{key-management}
+
+{[}Describe how cryptographic keys are generated, stored, and
+managed.{]}
+
+\section{Authentication and
+Authorization}\label{authentication-and-authorization}
+
+{[}Describe authentication mechanisms, user roles, and authorization
+models implemented.{]}
+
+\section{Update Mechanism}\label{update-mechanism}
+
+\subsection{Secure Update Process}\label{secure-update-process}
+
+{[}Describe the secure update mechanism as required by CRA Annex I Part
+I(7):{]}
+
+\begin{itemize}
+\tightlist
+\item
+  Update delivery channel
+\item
+  Update package signing and verification
+\item
+  Integrity and authenticity checks
+\item
+  Rollback capability
+\item
+  User notification process
+\end{itemize}
+
+\subsection{Automatic Updates}\label{automatic-updates}
+
+{[}Describe how automatic security updates are implemented per CRA
+Article 13(9).{]}
+
+\section{Testing and Quality
+Assurance}\label{testing-and-quality-assurance}
+
+\subsection{Security Testing}\label{security-testing}
+
+{[}Describe security testing performed during development:{]}
+
+\begin{itemize}
+\tightlist
+\item
+  Static Application Security Testing (SAST)
+\item
+  Dynamic Application Security Testing (DAST)
+\item
+  Penetration testing
+\item
+  Vulnerability scanning
+\end{itemize}
+
+\subsection{Code Review}\label{code-review}
+
+{[}Describe code review practices and security code review
+procedures.{]}
+
+\subsection{Quality Metrics}\label{quality-metrics}
+
+{[}Provide relevant quality metrics such as code coverage, defect
+density, etc.{]}
+
+\section{Build and Release Process}\label{build-and-release-process}
+
+{[}Describe the build, packaging, and release process, including any
+security checks performed.{]}
+
+\bookmarksetup{startatroot}
+
+\chapter{Cybersecurity Risk
+Assessment}\label{cybersecurity-risk-assessment}
+
+\bookmarksetup{startatroot}
+
+\chapter{Cybersecurity Risk
+Assessment}\label{cybersecurity-risk-assessment-1}
+
+\section{Risk Assessment Methodology}\label{risk-assessment-methodology}
+
+{[}Describe the risk assessment methodology used, e.g., ISO 27005, NIST
+Cybersecurity Framework, IEC 62443, etc.{]}
+
+\section{Identified Assets}\label{identified-assets}
+
+{[}List the assets that require protection:{]}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+Asset ID & Asset Name & Asset Type & Criticality \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+A1 & {[}Name{]} & {[}Type{]} & {[}High/Medium/Low{]} \\
+A2 & {[}Name{]} & {[}Type{]} & {[}High/Medium/Low{]} \\
+\end{longtable}
+
+\section{Threat Modeling}\label{threat-modeling}
+
+\subsection{Threat Actors}\label{threat-actors}
+
+{[}Identify relevant threat actors and their capabilities:{]}
+
+\begin{itemize}
+\tightlist
+\item
+  Opportunistic attackers
+\item
+  Organized crime
+\item
+  Nation-state actors (if applicable)
+\item
+  Insiders
+\end{itemize}
+
+\subsection{Attack Vectors}\label{attack-vectors}
+
+{[}Describe potential attack vectors identified during threat
+modeling.{]}
+
+\section{Risk Analysis}\label{risk-analysis}
+
+{[}For each identified risk, provide:{]}
+
+\subsection{Risk R1: {[}Risk Title{]}}\label{risk-r1-risk-title}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Description:} {[}Detailed description of the risk{]}
+\item
+  \textbf{Affected Assets:} {[}List of affected assets{]}
+\item
+  \textbf{Threat:} {[}Threat that could exploit the vulnerability{]}
+\item
+  \textbf{Vulnerability:} {[}Vulnerability that enables the threat{]}
+\item
+  \textbf{Impact:} {[}Confidentiality/Integrity/Availability impact{]}
+\item
+  \textbf{Likelihood:} {[}High/Medium/Low{]}
+\item
+  \textbf{Risk Level:} {[}Critical/High/Medium/Low{]}
+\item
+  \textbf{Mitigation Measures:} {[}How the risk is mitigated{]}
+\item
+  \textbf{Residual Risk:} {[}Remaining risk after mitigation{]}
+\item
+  \textbf{CRA Requirements Addressed:} {[}Reference to Annex I
+  requirements{]}
+\end{itemize}
+
+\subsection{Risk R2: {[}Risk Title{]}}\label{risk-r2-risk-title}
+
+{[}Repeat for each identified risk\ldots{]}
+
+\section{Risk Summary Matrix}\label{risk-summary-matrix}
+
+{[}Provide a risk matrix showing all identified risks before and after
+mitigation:{]}
+
+\section{Compliance with CRA Annex I}\label{compliance-with-cra-annex-i}
+
+\subsection{Part I: Security
+Properties}\label{part-i-security-properties}
+
+{[}Demonstrate how the risk assessment addresses CRA Annex I Part I
+requirements:{]}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+CRA Requirement ID & Risk Assessment Coverage \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+cra\_i\_1\_1 & {[}How addressed{]} \\
+cra\_i\_1\_2 & {[}How addressed{]} \\
+\ldots{} & \ldots{} \\
+\end{longtable}
+
+\subsection{Part II: Vulnerability
+Handling}\label{part-ii-vulnerability-handling}
+
+{[}Demonstrate how the risk assessment addresses CRA Annex I Part II
+requirements.{]}
+
+\section{Continuous Risk Assessment}\label{continuous-risk-assessment}
+
+{[}Describe the process for ongoing risk assessment and adaptation to
+new threats throughout the product lifecycle.{]}
+
+\bookmarksetup{startatroot}
+
+\chapter{Applied Standards and
+Specifications}\label{applied-standards-and-specifications}
+
+\bookmarksetup{startatroot}
+
+\chapter{Applied Standards and
+Specifications}\label{applied-standards-and-specifications-1}
+
+\section{Harmonised European
+Standards}\label{harmonised-european-standards}
+
+{[}List harmonised European standards (hENs) applied, if available. As
+of 2026, CRA-specific hENs are being developed by CEN/CENELEC.{]}
+
+\textbf{?meta:conformity.applied\_standards}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, bottomrule=.15mm, colback=white, leftrule=.75mm, opacitybacktitle=0.6, rightrule=.15mm, opacityback=0, arc=.35mm, toprule=.15mm, colframe=quarto-callout-note-color-frame, breakable, left=2mm, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, bottomtitle=1mm, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Presumption of Conformity}]
+
+Products manufactured in conformity with harmonised standards benefit
+from a presumption of conformity with the essential requirements covered
+by those standards (CRA Article 21).
+
+\end{tcolorbox}
+
+\section{Common Specifications}\label{common-specifications}
+
+{[}If harmonised standards are not yet available or not applied, list
+common specifications adopted by the European Commission.{]}
+
+\section{Other Technical Standards
+Applied}\label{other-technical-standards-applied}
+
+{[}List other relevant technical standards applied during product
+development:{]}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3571}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3929}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Standard
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Title
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Relevance
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+ISO/IEC 27001:2022 & Information security management & ISMS framework \\
+ISO/IEC 27002:2022 & Information security controls & Security
+controls \\
+IEC 62443-4-2:2019 & Security for industrial automation & Secure
+development \\
+NIST SP 800-53 & Security and privacy controls & Security controls \\
+\end{longtable}
+
+\section{Cybersecurity Frameworks}\label{cybersecurity-frameworks}
+
+{[}Describe any cybersecurity frameworks referenced:{]}
+
+\begin{itemize}
+\tightlist
+\item
+  NIST Cybersecurity Framework
+\item
+  ENISA Cybersecurity Certification Scheme (EUCC)
+\item
+  Others
+\end{itemize}
+
+\section{Secure Coding Standards}\label{secure-coding-standards}
+
+{[}List secure coding standards followed:{]}
+
+\begin{itemize}
+\tightlist
+\item
+  CERT Secure Coding Standards
+\item
+  OWASP Secure Coding Practices
+\item
+  CWE/SANS Top 25 Most Dangerous Software Errors
+\end{itemize}
+
+\section{Mapping to CRA Essential
+Requirements}\label{mapping-to-cra-essential-requirements}
+
+{[}Provide a mapping showing which standards/specifications address
+which CRA Annex I requirements:{]}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+CRA Requirement & Standard/Specification & Coverage \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+cra\_i\_1\_1 & ISO/IEC 27001:2022 & Full \\
+cra\_i\_1\_2 & IEC 62443-4-2:2019 & Partial \\
+\ldots{} & \ldots{} & \ldots{} \\
+\end{longtable}
+
+\section{Gap Analysis}\label{gap-analysis}
+
+{[}If any CRA requirements are not fully covered by applied standards,
+describe how those gaps are addressed through additional measures.{]}
+
+\section{Compliance Verification}\label{compliance-verification}
+
+{[}Describe how compliance with applied standards has been verified:{]}
+
+\begin{itemize}
+\tightlist
+\item
+  Internal audits
+\item
+  External assessments
+\item
+  Certification (if applicable)
+\item
+  Test reports
+\end{itemize}
+
+\section{References to Test Reports}\label{references-to-test-reports}
+
+{[}List relevant test reports and where they can be found in the
+documentation.{]}
+
+\bookmarksetup{startatroot}
+
+\chapter{EU Declaration of
+Conformity}\label{eu-declaration-of-conformity}
+
+\bookmarksetup{startatroot}
+
+\chapter{EU Declaration of
+Conformity}\label{eu-declaration-of-conformity-1}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, bottomrule=.15mm, colback=white, leftrule=.75mm, opacitybacktitle=0.6, rightrule=.15mm, opacityback=0, arc=.35mm, toprule=.15mm, colframe=quarto-callout-important-color-frame, breakable, left=2mm, colbacktitle=quarto-callout-important-color!10!white, titlerule=0mm, bottomtitle=1mm, toptitle=1mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Legal Declaration}]
+
+This chapter contains the EU Declaration of Conformity as required by
+CRA Article 28 and Annex V.
+
+\end{tcolorbox}
+
+\section{Declaration}\label{declaration}
+
+\textbf{EU DECLARATION OF CONFORMITY}
+
+\textbf{Regulation (EU) 2024/2847 - Cyber Resilience Act}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Manufacturer:}
+
+\textbf{?meta:manufacturer.name}
+
+\textbf{?meta:manufacturer.address}
+
+\textbf{?meta:manufacturer.country}
+
+\textbf{Authorised Representative:} (if applicable)
+
+{[}Name and address of authorized representative, if established outside
+the EU{]}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+This declaration of conformity is issued under the sole responsibility
+of the manufacturer.
+
+\textbf{Product Identification:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Product Name:} \textbf{?meta:product.name}
+\item
+  \textbf{Product Identifier:} \textbf{?meta:product.identifier}
+\item
+  \textbf{Product Version:} \textbf{?meta:product.version}
+\item
+  \textbf{Product Category:} \textbf{?meta:product.category}
+\end{itemize}
+
+\textbf{The object of the declaration described above is in conformity
+with Regulation (EU) 2024/2847 (Cyber Resilience Act).}
+
+\section{Applicable Requirements}\label{applicable-requirements}
+
+The product complies with the essential cybersecurity requirements set
+out in:
+
+\begin{itemize}
+\tightlist
+\item
+  Annex I Part I - Security properties of products with digital elements
+\item
+  Annex I Part II - Vulnerability handling requirements
+\end{itemize}
+
+\section{Conformity Assessment
+Procedure}\label{conformity-assessment-procedure}
+
+Conformity has been assessed using the following procedure:
+
+\textbf{\textbf{?meta:conformity.route}} in accordance with CRA Article
+47.
+
+{[}If applicable: Notified Body details{]}
+
+\begin{itemize}
+\tightlist
+\item
+  Notified Body Name: {[}Name{]}
+\item
+  Notified Body Number: {[}Number{]}
+\item
+  Certificate Number: {[}Number{]}
+\item
+  Certificate Date: {[}Date{]}
+\end{itemize}
+
+\section{Applied Standards}\label{applied-standards}
+
+References to harmonised standards and/or common specifications applied:
+
+\{\{\#each conformity.applied\_standards\}\} - \{\{this\}\}
+\{\{/each\}\}
+
+\section{Additional Information}\label{additional-information}
+
+\textbf{Support Period:} Security updates will be provided for
+\textbf{?meta:cra.support\_period\_years} years from the date of placing
+on the market.
+
+\textbf{Vulnerability Disclosure:}
+\textbf{?meta:cra.vulnerability\_contact}
+
+\textbf{CVD Policy:} \textbf{?meta:cra.cvd\_policy\_url}
+
+\section{Signatory}\label{signatory}
+
+\textbf{Place of issue:} {[}City, Country{]}\\
+\textbf{Date of issue:} \textbf{?meta:conformity.declaration\_date}
+
+\textbf{Name:} {[}Authorized signatory name{]}\\
+\textbf{Position:} {[}Title/Position{]}\\
+\textbf{Signature:} \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, bottomrule=.15mm, colback=white, leftrule=.75mm, opacitybacktitle=0.6, rightrule=.15mm, opacityback=0, arc=.35mm, toprule=.15mm, colframe=quarto-callout-note-color-frame, breakable, left=2mm, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, bottomtitle=1mm, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Document Retention}]
+
+This EU Declaration of Conformity and the technical documentation shall
+be kept for a period of 10 years after the product with digital elements
+has been placed on the market (CRA Article 31).
+
+\end{tcolorbox}
+
+\section{Supporting Documentation}\label{supporting-documentation}
+
+This declaration is supported by the following technical documentation:
+
+\begin{itemize}
+\tightlist
+\item
+  Technical documentation per Annex VII (this document)
+\item
+  Software Bill of Materials (SBOM) - See Chapter 6
+\item
+  Cybersecurity risk assessment - See Chapter 3
+\item
+  Test reports and evidence
+\end{itemize}
+
+\bookmarksetup{startatroot}
+
+\chapter{Software Bill of Materials
+(SBOM)}\label{software-bill-of-materials-sbom}
+
+\bookmarksetup{startatroot}
+
+\chapter{Software Bill of Materials
+(SBOM)}\label{software-bill-of-materials-sbom-1}
+
+\section{Overview}\label{overview}
+
+This chapter provides the Software Bill of Materials (SBOM) as required
+by CRA Annex I Part II(1): ``Manufacturers shall identify and document
+vulnerabilities and components contained in the product, including by
+drawing up a software bill of materials in a commonly used and
+machine-readable format covering at least the top-level dependencies of
+the product.''
+
+\textbf{SBOM Format:} \textbf{?meta:sbom.format} (CycloneDX/SPDX)\\
+\textbf{SBOM Version:} {[}Version{]}\\
+\textbf{Generation Date:} {[}Date{]}\\
+\textbf{Product:} \textbf{?meta:product.name}
+v\textbf{?meta:product.version}
+
+\section{Component Inventory}\label{component-inventory}
+
+{[}This section will be auto-populated by the pre-render script from the
+Doorstop SBOM document{]}
+
+\subsection{Summary Statistics}\label{summary-statistics}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Total Components:} {[}Number{]}
+\item
+  \textbf{Direct Dependencies:} {[}Number{]}
+\item
+  \textbf{Transitive Dependencies:} {[}Number{]}
+\item
+  \textbf{Unique Licenses:} {[}Number{]}
+\item
+  \textbf{Components with Known Vulnerabilities:} {[}Number{]}
+\end{itemize}
+
+\section{Top-Level Dependencies}\label{top-level-dependencies}
+
+{[}List of main/direct dependencies:{]}
+
+\section{Component Details}\label{component-details}
+
+{[}For key components, provide additional detail:{]}
+
+\subsection{Component: {[}Name{]}}\label{component-name}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Version:} {[}Version{]}
+\item
+  \textbf{License:} {[}License{]}
+\item
+  \textbf{Supplier:} {[}Supplier{]}
+\item
+  \textbf{Purpose:} {[}Why this component is used{]}
+\item
+  \textbf{Package URL (PURL):} {[}PURL{]}
+\item
+  \textbf{CPE:} {[}CPE if applicable{]}
+\item
+  \textbf{Known Vulnerabilities:} {[}CVE IDs if any{]}
+\end{itemize}
+
+\section{License Compliance}\label{license-compliance}
+
+{[}Summary of licenses used and compliance status:{]}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+License Type & Count & Compliance Status \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+MIT & {[}N{]} & Compliant \\
+Apache 2.0 & {[}N{]} & Compliant \\
+GPL-3.0 & {[}N{]} & Review required \\
+\end{longtable}
+
+\section{Vulnerability Status}\label{vulnerability-status}
+
+{[}Summary of known vulnerabilities in components:{]}
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule\noalign{}
+Component & Version & CVE ID & Severity & Status \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+{[}Name{]} & {[}Ver{]} & CVE-YYYY-NNNNN & High & Patched in v{[}X{]} \\
+\end{longtable}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, bottomrule=.15mm, colback=white, leftrule=.75mm, opacitybacktitle=0.6, rightrule=.15mm, opacityback=0, arc=.35mm, toprule=.15mm, colframe=quarto-callout-warning-color-frame, breakable, left=2mm, colbacktitle=quarto-callout-warning-color!10!white, titlerule=0mm, bottomtitle=1mm, toptitle=1mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Vulnerability Disclosure}]
+
+If you discover a vulnerability in this product or its components,
+please report it to: \textbf{?meta:cra.vulnerability\_contact}
+
+Our coordinated vulnerability disclosure policy is available at:
+\textbf{?meta:cra.cvd\_policy\_url}
+
+\end{tcolorbox}
+
+\section{SBOM Maintenance}\label{sbom-maintenance}
+
+\subsection{Update Frequency}\label{update-frequency}
+
+The SBOM is updated: - With each product release - When components are
+added, removed, or updated - When vulnerabilities are discovered in
+components
+
+\subsection{SBOM Availability}\label{sbom-availability}
+
+The machine-readable SBOM is available: - Embedded in the product
+distribution - Via download from: {[}URL{]} - Upon request from:
+\textbf{?meta:manufacturer.contact\_email}
+
+\section{Component Update Strategy}\label{component-update-strategy}
+
+{[}Describe the strategy for keeping components up-to-date:{]}
+
+\begin{itemize}
+\tightlist
+\item
+  Regular dependency updates
+\item
+  Security patch application process
+\item
+  End-of-life component replacement
+\end{itemize}
+
+\section{Third-Party Component
+Verification}\label{third-party-component-verification}
+
+{[}Describe how third-party components are verified for authenticity and
+integrity before inclusion.{]}
+
+\section{SBOM Machine-Readable
+Format}\label{sbom-machine-readable-format}
+
+The complete SBOM in machine-readable CycloneDX/SPDX format is included
+as an appendix to this documentation and is available at:
+
+\textbf{File:}
+\texttt{sbom-?meta:product.identifier-?meta:product.version.json}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, bottomrule=.15mm, colback=white, leftrule=.75mm, opacitybacktitle=0.6, rightrule=.15mm, opacityback=0, arc=.35mm, toprule=.15mm, colframe=quarto-callout-note-color-frame, breakable, left=2mm, colbacktitle=quarto-callout-note-color!10!white, titlerule=0mm, bottomtitle=1mm, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{CRA Compliance}]
+
+This SBOM fulfills the requirement of CRA Annex I Part II(1) for
+documenting components and dependencies in a commonly used and
+machine-readable format.
+
+\end{tcolorbox}
+
+\bookmarksetup{startatroot}
+
+\chapter{References}\label{references}
+
+\bookmarksetup{startatroot}
+
+\chapter{References}\label{references-1}
+
+\section{Regulatory References}\label{regulatory-references-1}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Regulation (EU) 2024/2847} - Cyber Resilience Act. Official
+  Journal of the European Union, December 2024.
+\item
+  \textbf{CRA Annex I} - Essential Cybersecurity Requirements
+\item
+  \textbf{CRA Annex V} - EU Declaration of Conformity
+\item
+  \textbf{CRA Annex VII} - Technical Documentation
+\end{itemize}
+
+\section{Standards References}\label{standards-references}
+
+{[}List all standards referenced in this document{]}
+
+\section{External Documentation}\label{external-documentation}
+
+{[}List any external documentation referenced{]}
+
+\section{Internal Documentation}\label{internal-documentation}
+
+{[}List related internal documentation{]}
+
+\begin{itemize}
+\tightlist
+\item
+  Security Architecture Document
+\item
+  Vulnerability Management Process
+\item
+  Incident Response Plan
+\item
+  Secure Development Guidelines
+\end{itemize}
+
+\section{Useful Links}\label{useful-links}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{ENISA CRA Guidance:} https://www.enisa.europa.eu/
+\item
+  \textbf{European Commission Digital Single Market:}
+  https://digital-strategy.ec.europa.eu/
+\item
+  \textbf{CRA Official Text:} {[}Link to EUR-Lex{]}
+\end{itemize}
+
+\section{Document History}\label{document-history}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+Version & Date & Author & Changes \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\end{longtable}
+
+\{\{\#each meta.changelog\}\} \textbar{} \{\{this{[}0{]}\}\} \textbar{}
+\{\{this{[}1{]}\}\} \textbar{} \{\{this{[}3{]}\}\} \textbar{}
+\{\{this{[}2{]}\}\} \textbar{} \{\{/each\}\}
+
+
+
+
+\end{document}

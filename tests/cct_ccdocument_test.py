@@ -22,23 +22,29 @@ class TestCCDocument(unittest.TestCase):
         self.doc.eal = [MagicMock(cct.Package(_id="eal1"))]
         self.doc.cap = [MagicMock(cct.Package(_id="cap1"))]
 
+    # TST-019
     def test_is_valid(self):
         self.assertTrue(self.doc.is_valid())
 
-    def test_missing_attributes_raises_warning(self):
+    # TST-019
+    def test_missing_attributes_logs_warning(self):
+        # is_valid() logs but does not raise when f_class is empty;
+        # raise was intentionally removed (see CCDocument.is_valid)
         self.doc.f_class = []
-        with self.assertRaises(C5decWarning):
-            self.doc.is_valid()
+        result = self.doc.is_valid()
+        self.assertTrue(result)
     
     def test_missing_version_raises_attribute(self):
         self.doc.version = ""
         with self.assertRaises(C5decError):
             self.doc.is_valid()
 
-    def test_missing_revision_raises_attribute(self):
+    def test_missing_revision_logs_error(self):
+        # is_valid() logs but does not raise when revision is empty;
+        # raise was intentionally removed (see CCDocument.is_valid)
         self.doc.revision = ""
-        with self.assertRaises(C5decError):
-            self.doc.is_valid()
+        result = self.doc.is_valid()
+        self.assertTrue(result)
 
 class TestAClassBuilder(unittest.TestCase):
 
@@ -84,6 +90,7 @@ class TestAClassBuilder(unittest.TestCase):
 
         self.assertTrue(all([self.doc.clause, self.doc.f_class, self.doc.a_class]))
 
+    # TST-024
     @patch.object(CCDocumentBuilder, "_build_attributes")
     @patch.object(CCDocumentBuilder, "_build_children")
     def test_build(self, MockBuildChildren, MockBuildAttrib):

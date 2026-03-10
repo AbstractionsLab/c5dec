@@ -3,7 +3,7 @@
 ## Table of contents
 
 - [Installation](./installation.md)
-- [Setup](./setup.md)
+- [Workspace setup](./installation.md#workspace-setup)
 - [Quick start](./start.md)
 
 ## Overview

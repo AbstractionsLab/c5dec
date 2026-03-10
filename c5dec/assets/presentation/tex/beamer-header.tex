@@ -1,0 +1,46 @@
+% ALab brand color definitions
+\definecolor{AlabRed}{RGB}{227,6,19}
+\definecolor{AlabLightBlue}{RGB}{0,168,225}
+\definecolor{AlabDarkBlue}{RGB}{0,61,124}
+\definecolor{AlabTableColLightBlue}{RGB}{217,237,247}
+
+% Set Beamer colors using ALab brand
+\setbeamercolor{structure}{fg=AlabLightBlue}
+\setbeamercolor{frametitle}{fg=AlabRed,bg=white}
+\setbeamercolor{title}{fg=AlabRed}
+\setbeamercolor{subtitle}{fg=AlabLightBlue}
+\setbeamercolor{author}{fg=AlabDarkBlue}
+\setbeamercolor{date}{fg=AlabDarkBlue}
+\setbeamercolor{section in toc}{fg=AlabRed}
+\setbeamercolor{subsection in toc}{fg=AlabLightBlue}
+
+% Itemize/enumerate colors
+\setbeamercolor{item}{fg=AlabLightBlue}
+\setbeamercolor{subitem}{fg=AlabDarkBlue}
+\setbeamercolor{itemize/enumerate body}{fg=black}
+\setbeamercolor{itemize/enumerate subbody}{fg=black}
+
+% Block colors
+\setbeamercolor{block title}{fg=white,bg=AlabLightBlue}
+\setbeamercolor{block body}{fg=black,bg=AlabTableColLightBlue}
+\setbeamercolor{block title alerted}{fg=white,bg=AlabRed}
+\setbeamercolor{block body alerted}{fg=black,bg=AlabTableColLightBlue}
+
+% Hyperlink color
+\hypersetup{
+    colorlinks=true,
+    linkcolor=AlabLightBlue,
+    urlcolor=AlabLightBlue,
+    citecolor=AlabDarkBlue
+}
+
+% Footer configuration
+\setbeamertemplate{footline}[frame number]
+\setbeamercolor{footline}{fg=AlabDarkBlue}
+
+% Remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% Table of contents styling
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
