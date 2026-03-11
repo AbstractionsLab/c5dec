@@ -136,8 +136,6 @@ Test fixtures live in `tests/content/`. Mock all external services (OpenProject,
 - Follow NumPy/Google docstring style for all public functions and classes.
 - Run `poetry check` after any `pyproject.toml` modification.
 
-See `.github/instructions/python.instructions.md` for the full style guide.
-
 ---
 
 ## Documentation conventions
@@ -146,8 +144,6 @@ See `.github/instructions/python.instructions.md` for the full style guide.
 - File names: lowercase with hyphens (`debug-mode.md`). Exception: `README.md`.
 - Section headings: sentence case only (`## Getting started`, not `## Getting Started`).
 - Formats: Markdown, YAML, JSON, CSV, or LaTeX only.
-
-See `.github/instructions/docs.instructions.md` for the full guide.
 
 ---
 

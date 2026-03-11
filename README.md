@@ -6,9 +6,13 @@ C5-DEC, short for "Common Criteria for Cybersecurity, Cryptography, Clouds – D
 
 [![Version](https://img.shields.io/badge/version-1.2-blue)](CHANGELOG.md) [![License: AGPL v3](https://img.shields.io/badge/license-AGPL--v3-brightgreen)](LICENSE) [![Python](https://img.shields.io/badge/python-3.8--3.11-blue)](pyproject.toml)
 
-C5-DEC CAD is the software component of C5-DEC — an [AI-enabled](./docs/manual/ssdlc.md#ai-enabled-design-specification-development-and-testing) toolkit for computer-aided secure system design, development and evaluation, accessible through native command-line and graphical [interfaces](#usage) (CLI, TUI, GUI), as well as a VS Code workbench with dedicated devcontainer support and preloaded extensions. Its modules cover: a [Common Criteria Toolbox (CCT)](./docs/manual/cct.md) (SFR/SAR database, CEM checklists, ETR generation); an [SSDLC](./docs/manual/ssdlc.md) pipeline (project scaffolding, [SpecEngine](./docs/specs/SpecEngine/README.md) for structured, fully traceable specification management aligned with [certification workflows](./docs/README.md), [DocEngine](./docs/manual/ssdlc.md#c5-dec-docengine-for-report-generation) for smart document authoring and technical/scientific publishing); [CRA compliance](./docs/manual/cra.md) (Annex I checklist, Annex VII tech doc, Annex V declaration); [SBOM management](./docs/manual/sbom.md) via [Syft](https://github.com/anchore/syft); a [CPSSA module](./docs/manual/cpssa.md) for STRIDE threat modelling and FAIR risk analysis; a [cryptography module](./docs/manual/cryptography.md) (classical and post-quantum crypto); and [project management](./docs/manual/pm.md) utilities. All artifacts are stored in open formats (Markdown, YAML), complemented by a [CC concept wiki](./c5dec/assets/database/KnowledgeBase/0_MapofContent.md) and an SSDLC/SVV/CPSSA knowledge base, making the full specification tree directly accessible to LLMs.
+C5-DEC CAD is the software component of C5-DEC: an [AI-enabled](./docs/manual/ssdlc.md#ai-enabled-design-specification-development-and-testing) toolkit for secure system design, development, and evaluation across [CLI/TUI/GUI and VS Code](#usage). It combines [CCT](./docs/manual/cct.md), [SSDLC](./docs/manual/ssdlc.md) with [SpecEngine](./docs/specs/SpecEngine/README.md) and [DocEngine](./docs/manual/ssdlc.md#c5-dec-docengine-for-report-generation), [CRA](./docs/manual/cra.md), [SBOM](./docs/manual/sbom.md), [CPSSA](./docs/manual/cpssa.md), [cryptography](./docs/manual/cryptography.md), and [project management](./docs/manual/pm.md) in one traceable, open-format (Markdown/YAML) workflow.
 
-This repository contains the source code and full documentation (requirements, design artifacts, [user manual](./docs/manual/README.md), test case specifications and test reports) of C5-DEC CAD; see our [technical specification traceability web site](https://abstractionslab.github.io/c5dec/traceability/index.html) for a live view of the full specification tree and traceability coverage, produced by the C5-DEC [SpecEngine](./docs/specs/SpecEngine/README.md).
+This repository contains the C5-DEC CAD source code plus full documentation, including requirements, design artifacts, the [user manual](./docs/manual/README.md), and test specifications/reports; live traceability is published on the [technical specification web site](https://abstractionslab.github.io/c5dec/traceability/index.html).
+
+For a visual stakeholder-oriented tour of C5-DEC CAD, visit the **[product presentation page](https://abstractionslab.github.io/c5dec/website/product-presentation.html)**.
+
+<img src="./docs/manual/_figures/C5DEC-CAD-product-website.png" alt="c5dec-cad-website" width="500"/>
 
 ## Table of contents
 
@@ -32,11 +36,7 @@ C5-DEC CAD assists system/software designers, developers, testers and security a
 
 C5-DEC ships two complementary knowledge bases:
 
-- **[CC concept wiki](./c5dec/assets/database/KnowledgeBase/0_MapofContent.md)**: A structured reference of 50+ articles organized across four areas:
-  - *CC Concepts* — Target of Evaluation (TOE and its components: TSF, domain separation, self-protection, non-bypassability, composed TOE), Conformance Claims, Security Problem Definition (assets, threats, OSPs, assumptions), Security Objectives, Security Components (SFRs, SARs, the four operations, extended component definitions), Rationale, and Evaluation (methods, EALs, attack potential, evaluation evidence, single/multi/composite assurance);
-  - *Core Constructs* — Security Target, Protection Profile, PP-Module, PP-Configuration, Package, Observation Report, and Evaluation Technical Report;
-  - *Certification Schemes* — EUCC (EU Common Criteria scheme);
-  - *Terms & Definitions* — a consolidated CC terminology register.
+- **[CC concept wiki](./c5dec/assets/database/KnowledgeBase/0_MapofContent.md)**: A structured reference of 50+ articles organized across four areas: *CC Concepts*, *Core Constructs*, *Certification Schemes*, *Terms & Definitions*;
 - **SSDLC, SVV, and CPSSA methodology reports**: Structured guidance covering the full software development life cycle, software verification and validation, and cyber-physical system security assessment. Parts rely on ISO standards (ISO/IEC/IEEE 12207, ISO 29119:2022, ISO 29148:2018); contact us at info@abstractionslab.lu with proof of eligibility to receive access.
 
 ## Features
@@ -57,6 +57,18 @@ C5-DEC ships two complementary knowledge bases:
 - [Transformer](./docs/manual/ssdlc.md#transformer): document transformation and format conversion using [Doorstop](https://github.com/doorstop-dev/doorstop), [Quarto](https://github.com/quarto-dev/quarto), [pandoc](https://pandoc.org/), and [organize](https://github.com/tfeldmann/organize);
 - [SpecEngine](./docs/specs/SpecEngine/) toolkit for specification management following the [C5-DEC method](./docs/specs/README.md): `c5graph.py` (interactive Cytoscape.js traceability graph with dagre layout, expand/collapse, color-coded coverage), `c5mermaid.py` (Mermaid-to-SVG/PNG pre-processor with undo and dry-run, integrated into `publish.sh`), `c5browser.py` (standalone Bootstrap + DataTables HTML browser for Doorstop items with sortable/filterable per-document-type tables), `c5traceability.py` (configurable traceability matrix statistics with console and HTML report output, auto-discovery of document trees from `.doorstop.yml` files), `prune_bad_links.py` (Doorstop link pruning), and `doorstop_yml_to_md.py` (YAML-to-Markdown item migration);
 - A [KB element](#knowledge-base) dedicated to software verification and validation (SVV).
+
+A view of the C5-DEC CAD specification browser:
+
+![C5-DEC CAD - specification browser](./docs/manual/_figures/c5dec-cad-spec-browser.png)
+
+A view of the C5-DEC CAD specification graph:
+
+![C5-DEC CAD - specification graph](./docs/manual/_figures/c5dec-cad-specs-graph.png)
+
+A view of the C5-DEC CAD traceability statistics:
+
+![C5-DEC CAD - traceability statistics](./docs/manual/_figures/c5dec-cad-traceability-stats.png)
 
 ### Common Criteria
 
@@ -101,7 +113,7 @@ C5-DEC CAD is designed from the ground up to be AI-friendly (more precisely, LLM
 
 - **Open-format artifact corpus**: Every requirement, design item, test case, traceability link, and knowledge base article is stored as plain Markdown or YAML. There is no proprietary binary format to decode and no export step needed — an LLM has direct read and write access to the complete artifact set.
 - **Structured, domain-organized knowledge base**: The CC concept wiki, SSDLC methodology, SVV model, and CPSSA guidance are written as structured Markdown documents organized by module. This gives LLMs authoritative, project-specific context for each functional area (CCT, CRA, CPSSA, DocEngine, SpecEngine, cryptography, project management) without relying on generic training data.
-- **Doorstop-backed traceability**: The specification tree (MRS → SRS → SWD → TST → TRA) provides explicit, navigable links between requirements, design decisions, and test cases. An LLM can follow the traceability graph forward or backward to perform gap analysis, consistency checking, or coverage assessment with precision.
+- **Doorstop-backed traceability**: The specification tree (MRS → SRS → SWD → TCS → TRP) provides explicit, navigable links between requirements, design decisions, and test cases. An LLM can follow the traceability graph forward or backward to perform gap analysis, consistency checking, or coverage assessment with precision.
 - **Modular, task-aligned architecture**: Each C5-DEC module (CCT, SSDLC, CRA, CPSSA, SBOM, cryptography, PM) is independently documented and implemented, making it straightforward to scope AI assistance to a specific domain — Common Criteria component selection, threat modelling, CRA compliance, test authoring, or report generation — without requiring broad context.
 - **Workflow-oriented structure**: C5-DEC workflows follow well-defined, repeatable procedures (new project bootstrapping, release cycle management, CRA compliance, CPSSA engagement, DocEngine publishing). The procedural nature of these workflows makes them well-suited to step-by-step AI-guided execution.
 
@@ -169,7 +181,7 @@ The TUI and GUI are launched with the `-t` and `-g` flags respectively. An inter
 | CLI | `./c5dec.sh` or `c5dec -h` | Primary interface; full command set |
 | TUI | `./c5dec.sh -t` | Interactive terminal UI |
 | GUI | `./c5dec.sh -g` | Web UI at `127.0.0.1:5432` |
-| VS Code dev container | Reopen in container | ete |
+| VS Code dev container | Reopen in container | Full workbench with preloaded extensions; choose CAD, DocEngine, or PQC-OpenSSL container |
 
 ```sh
 ./c5dec.sh

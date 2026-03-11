@@ -2,6 +2,8 @@
 
 Welcome to the C5-DEC CAD (Computer-Aided Design) user manual. This guide covers the full feature set of C5-DEC CAD, a comprehensive suite of AI-enabled tools for secure system design and development following the Common Criteria standards, SSDLC methodologies, and cyber-physical system security assessment.
 
+For a visual stakeholder-oriented tour, open the [Product presentation page](https://abstractionslab.github.io/c5dec/website/product-presentation.html).
+
 ## What is C5-DEC CAD?
 
 C5-DEC, short for **Common Criteria for Cybersecurity, Cryptography, Clouds – Design, Evaluation and Certification**, is a sub-project of the [CyFORT](https://abstractionslab.com/index.php/research-and-development/cyfort/) project ("Cloud Cybersecurity Fortress of Open Resources and Tools for Resilience"). It combines a software component with a structured knowledge base to provide a coherent set of tools supporting:

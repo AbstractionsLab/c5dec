@@ -1,5 +1,11 @@
 # Map of Content
 
+A structured reference of 50+ articles organized across four areas:
+  - *CC Concepts* — Target of Evaluation (TOE and its components: TSF, domain separation, self-protection, non-bypassability, composed TOE), Conformance Claims, Security Problem Definition (assets, threats, OSPs, assumptions), Security Objectives, Security Components (SFRs, SARs, the four operations, extended component definitions), Rationale, and Evaluation (methods, EALs, attack potential, evaluation evidence, single/multi/composite assurance);
+  - *Core Constructs* — Security Target, Protection Profile, PP-Module, PP-Configuration, Package, Observation Report, and Evaluation Technical Report;
+  - *Certification Schemes* — EUCC (EU Common Criteria scheme);
+  - *Terms & Definitions* — a consolidated CC terminology register.
+
 ## CC Concepts
 
 1.  [Target of Evaluation](./TargetofEvaluation.md)

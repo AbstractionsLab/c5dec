@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>C5-DEC CAD | Product presentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #eef1f5;
+      --surface: #ffffff;
+      --surface-alt: #f5f8fc;
+      --ink: #17212f;
+      --muted: #4e6076;
+      --line: #d5dfec;
+      --brand: #0f5db8;
+      --brand-strong: #093f7f;
+      --accent: #e12f56;
+      --ok: #13874f;
+      --shadow: 0 12px 40px rgba(10, 32, 65, 0.15);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at 10% -10%, #d6e8ff 0, transparent 40%),
+        radial-gradient(circle at 90% 0, #f9d9e3 0, transparent 35%),
+        var(--bg);
+      color: var(--ink);
+      font-family: Manrope, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      width: min(1200px, calc(100vw - 2.4rem));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(8px);
+      background: rgba(238, 241, 245, 0.82);
+      border-bottom: 1px solid rgba(213, 223, 236, 0.8);
+      z-index: 20;
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.62rem;
+      font-family: "Space Grotesk", sans-serif;
+      letter-spacing: 0.02em;
+      font-weight: 700;
+      color: var(--brand-strong);
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 14px rgba(9, 63, 127, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      background: #fff;
+    }
+
+    .brand-text {
+      display: inline-block;
+      line-height: 1;
+    }
+
+    .topnav {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .topnav a {
+      text-decoration: none;
+      color: var(--brand-strong);
+      border: 1px solid transparent;
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .topnav a:hover {
+      border-color: var(--line);
+      background: var(--surface);
+    }
+
+    .hero {
+      padding: 4.2rem 0 2.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.85rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.35rem 0.75rem;
+      background: var(--surface);
+      color: var(--brand-strong);
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      margin-bottom: 1.1rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      margin-top: 1rem;
+      color: var(--muted);
+      max-width: 62ch;
+      font-size: 1.02rem;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.4rem;
+    }
+
+    .btn {
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border-radius: 10px;
+      font-weight: 700;
+      padding: 0.7rem 1rem;
+      border: 1px solid transparent;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(115deg, var(--brand), var(--brand-strong));
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(12, 69, 135, 0.28);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--brand-strong);
+      border-color: var(--line);
+    }
+
+    .hero-visual {
+      background: linear-gradient(145deg, #0a2f63, #164f98);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -70px;
+      top: -70px;
+      background: radial-gradient(circle, rgba(225, 47, 86, 0.5), rgba(225, 47, 86, 0));
+      z-index: -1;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      display: block;
+    }
+
+    .metrics {
+      display: grid;
+      gap: 0.8rem;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 1.2rem;
+    }
+
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem;
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--brand-strong);
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    section {
+      padding: 2.1rem 0;
+    }
+
+    .section-head {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    h2 {
+      margin: 0;
+      letter-spacing: -0.01em;
+      font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+    }
+
+    .section-kicker {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .feature {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      box-shadow: 0 6px 24px rgba(18, 43, 77, 0.08);
+    }
+
+    .feature h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--brand-strong);
+    }
+
+    .feature p {
+      margin: 0.5rem 0 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .stack {
+      margin-top: 0.65rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .chip {
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--surface-alt);
+      color: var(--brand-strong);
+      padding: 0.17rem 0.55rem;
+      font-size: 0.77rem;
+      font-weight: 700;
+    }
+
+    .showcase {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .shot {
+      display: flex;
+      flex-direction: column;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      box-shadow: 0 8px 26px rgba(20, 41, 72, 0.08);
+      overflow: hidden;
+      transform: translateY(10px);
+      opacity: 0;
+      animation: fade-up 0.55s ease forwards;
+    }
+
+    .shot:nth-child(2) { animation-delay: 0.06s; }
+    .shot:nth-child(3) { animation-delay: 0.12s; }
+    .shot:nth-child(4) { animation-delay: 0.18s; }
+    .shot:nth-child(5) { animation-delay: 0.24s; }
+    .shot:nth-child(6) { animation-delay: 0.3s; }
+
+    @keyframes fade-up {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .shot button {
+      border: 0;
+      background: transparent;
+      padding: 0;
+      margin: 0;
+      cursor: zoom-in;
+    }
+
+    .shot img {
+      width: 100%;
+      display: block;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .shot figcaption {
+      padding: 0.85rem 0.95rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      min-height: 4.4rem;
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .step {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 0.9rem;
+      position: relative;
+      min-height: 140px;
+    }
+
+    .step::after {
+      content: "";
+      position: absolute;
+      right: -0.45rem;
+      top: calc(50% - 0.45rem);
+      width: 0.9rem;
+      height: 0.9rem;
+      background: var(--brand);
+      border-radius: 999px;
+      border: 2px solid var(--bg);
+    }
+
+    .step:last-child::after {
+      display: none;
+    }
+
+    .step strong {
+      color: var(--brand-strong);
+      font-size: 0.85rem;
+      font-family: "Space Grotesk", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .step p {
+      margin: 0.45rem 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .footer {
+      margin-top: 2rem;
+      padding: 1.6rem 0 2.2rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .footer a {
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 18, 34, 0.86);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      z-index: 40;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox figure {
+      max-width: min(1280px, 96vw);
+      margin: 0;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.45);
+    }
+
+    .lightbox img {
+      display: block;
+      width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .lightbox figcaption {
+      padding: 0.7rem 0.85rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      background: #fff;
+    }
+
+    .lightbox .close {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #fff;
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 999px;
+      width: 42px;
+      height: 42px;
+      font-size: 1.4rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .showcase {
+        grid-template-columns: 1fr;
+      }
+
+      .workflow {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .workflow {
+        grid-template-columns: 1fr;
+      }
+
+      .step::after {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 2.7rem;
+      }
+
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .brand-logo {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="https://github.com/AbstractionsLab/c5dec/tree/main">
+        <img class="brand-logo" src="../manual/_figures/3D3B2C_LOG_C5DEC-CAD_v1.2.png" alt="C5-DEC CAD logo">
+        <span class="brand-text">C5-DEC CAD</span>
+      </a>
+      <nav class="topnav" aria-label="Page sections">
+        <a href="#value">Value</a>
+        <a href="#features">Features</a>
+        <a href="#gallery">Screens</a>
+        <a href="#workflow">Workflow</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="value">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Product presentation</div>
+          <h1>C5-DEC CAD for secure-by-design engineering and certification workflows</h1>
+          <p class="lead">
+            C5-DEC CAD unifies Common Criteria tooling, SSDLC traceability, compliance workflows,
+            cyber-physical system security assessment, cryptography, and resource management in one repository-centric platform.
+            This page gives stakeholders a fast visual tour of the product capabilities.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/start.md">Open quick start</a>
+            <a class="btn btn-secondary" href="https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/README.md">Browse user manual</a>
+          </div>
+          <div class="metrics" aria-label="Product metrics">
+            <div class="metric">
+              <strong>3 interfaces</strong>
+              <span>CLI, TUI, and GUI</span>
+            </div>
+            <div class="metric">
+              <strong>8+ modules</strong>
+              <span>CCT, SSDLC, CRA, SBOM, CPSSA, PM, ISMS, Crypto</span>
+            </div>
+            <div class="metric">
+              <strong>Open formats</strong>
+              <span>Markdown, YAML, JSON, CSV, LaTeX</span>
+            </div>
+            <div class="metric">
+              <strong>Traceability-first</strong>
+              <span>Doorstop-backed specification lifecycle</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="../manual/_figures/c5dec-cli.png" alt="C5-DEC command-line help screen">
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container">
+        <div class="section-head">
+          <h2>Core capabilities</h2>
+          <div class="section-kicker">From requirements to reports</div>
+        </div>
+        <div class="features">
+          <article class="feature">
+            <h3><a href="https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/cct.md">Common Criteria Toolbox</a></h3>
+            <p>Browse SFR/SAR content, generate evaluation checklists, and work with component-level evidence.</p>
+            <div class="stack">
+              <span class="chip">CCT Browser</span>
+              <span class="chip">Eval checklist</span>
+              <span class="chip">SFR/SAR navigation</span>
+            </div>
+          </article>
+          <article class="feature">
+            <h3><a href="https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/ssdlc.md">SSDLC</a> + transformer</h3>
+            <p>Manage artifact repositories and item relations, then import/export/convert/publish technical data.</p>
+            <div class="stack">
+              <span class="chip">Doorstop</span>
+              <span class="chip">Import/export</span>
+              <span class="chip">Publishing</span>
+            </div>
+          </article>
+          <article class="feature">
+            <h3>Traceability analytics</h3>
+            <p>Visualize coverage, gaps, and link structures through browser dashboards and interactive graph reports.</p>
+            <div class="stack">
+              <span class="chip">Coverage stats</span>
+              <span class="chip">Spec browser</span>
+              <span class="chip">Graph view</span>
+            </div>
+          </article>
+          <article class="feature">
+            <h3>DocEngine and ETR</h3>
+            <p>Generate styled technical reports and presentations using Quarto templates and ETR pipelines.</p>
+            <div class="stack">
+              <span class="chip">Quarto</span>
+              <span class="chip">PDF/HTML</span>
+              <span class="chip">Template-driven</span>
+            </div>
+          </article>
+          <article class="feature">
+            <h3>CRA, SBOM, and CPSSA</h3>
+            <p>Support modern cybersecurity compliance and threat analysis with dedicated integrated workflows.</p>
+            <div class="stack">
+              <span class="chip">CRA checklists</span>
+              <span class="chip">SBOM flows</span>
+              <span class="chip">Threat modelling</span>
+            </div>
+          </article>
+          <article class="feature">
+            <h3>Project and ISMS operations</h3>
+            <p>Process time/cost reports, tag documentation, and monitor activity traces for operational readiness.</p>
+            <div class="stack">
+              <span class="chip">OpenProject conversion</span>
+              <span class="chip">Cost analysis</span>
+              <span class="chip">ISMS assistants</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="container">
+        <div class="section-head">
+          <h2>Product screenshot gallery</h2>
+          <div class="section-kicker">Click any screenshot to zoom</div>
+        </div>
+        <div class="showcase">
+          <figure class="shot">
+            <button data-full="../manual/_figures/c5dec-cad-gui-cct-browser.png" data-caption="GUI Common Criteria browser">
+              <img src="../manual/_figures/c5dec-cad-gui-cct-browser.png" alt="C5-DEC CAD GUI Common Criteria browser">
+            </button>
+            <figcaption>GUI module for browsing CC classes, families, components, and elements.</figcaption>
+          </figure>
+
+          <figure class="shot">
+            <button data-full="../manual/_figures/c5dec-cad-gui-eval-lab.png" data-caption="GUI evaluation lab">
+              <img src="../manual/_figures/c5dec-cad-gui-eval-lab.png" alt="C5-DEC CAD GUI evaluation laboratory">
+            </button>
+            <figcaption>Evaluation laboratory workflow for component selection and checklist generation.</figcaption>
+          </figure>
+
+          <figure class="shot">
+            <button data-full="../manual/_figures/c5dec-cad-tui.png" data-caption="Main TUI dashboard">
+              <img src="../manual/_figures/c5dec-cad-tui.png" alt="Main C5-DEC CAD textual user interface">
+            </button>
+            <figcaption>Main TUI entrypoint exposing CCT, SSDLC, cryptography, PM, and more.</figcaption>
+          </figure>
+
+          <figure class="shot">
+            <button data-full="../manual/_figures/checklist.png" data-caption="Checklist creation view in TUI">
+              <img src="../manual/_figures/checklist.png" alt="Evaluation checklist creation in TUI">
+            </button>
+            <figcaption>Interactive checklist generation with package and component-level selection support.</figcaption>
+          </figure>
+
+          <figure class="shot">
+            <button data-full="../manual/_figures/c5dec-cad-ssdlc.png" data-caption="SSDLC module menu">
+              <img src="../manual/_figures/c5dec-cad-ssdlc.png" alt="SSDLC module options in TUI">
+            </button>
+            <figcaption>SSDLC module with repository management, item linking, and structure operations.</figcaption>
+          </figure>
+
+          <figure class="shot">
+            <button data-full="../manual/_figures/ssdlc-transformer-publish.png" data-caption="Transformer publish page">
+              <img src="../manual/_figures/ssdlc-transformer-publish.png" alt="Transformer publish action in TUI">
+            </button>
+            <figcaption>Transformer publishing support for generating HTML and other output formats.</figcaption>
+          </figure>
+
+          <figure class="shot">
+            <button data-full="../manual/_figures/c5dec-cad-spec-browser.png" data-caption="Specification browser report">
+              <img src="../manual/_figures/c5dec-cad-spec-browser.png" alt="Specification browser HTML report">
+            </button>
+            <figcaption>Specification browser report view for linked artifacts and traceability context.</figcaption>
+          </figure>
+
+          <figure class="shot">
+            <button data-full="../manual/_figures/c5dec-cad-traceability-stats.png" data-caption="Traceability statistics report">
+              <img src="../manual/_figures/c5dec-cad-traceability-stats.png" alt="Traceability statistics page">
+            </button>
+            <figcaption>Coverage and health indicators across document types and requirement chains.</figcaption>
+          </figure>
+
+          <figure class="shot">
+            <button data-full="../manual/_figures/c5dec-cad-specs-graph.png" data-caption="Interactive specification graph">
+              <img src="../manual/_figures/c5dec-cad-specs-graph.png" alt="Interactive graph of specification links">
+            </button>
+            <figcaption>Interactive graph for quickly locating covered and uncovered nodes.</figcaption>
+          </figure>
+
+          <figure class="shot">
+            <button data-full="../manual/_figures/c5dec-cad-DocEngine-report.png" data-caption="DocEngine report output">
+              <img src="../manual/_figures/c5dec-cad-DocEngine-report.png" alt="DocEngine rendered report output">
+            </button>
+            <figcaption>DocEngine-generated technical reports with polished styling and structured chapters.</figcaption>
+          </figure>
+
+          <figure class="shot">
+            <button data-full="../manual/_figures/c5dec-rmt-analysis-overview.png" data-caption="Resource management report">
+              <img src="../manual/_figures/c5dec-rmt-analysis-overview.png" alt="Cost and resource analysis spreadsheet report">
+            </button>
+            <figcaption>Project resource and cost overview outputs for PM reporting workflows.</figcaption>
+          </figure>
+
+          <figure class="shot">
+            <button data-full="../manual/_figures/c5dec-isms-document-list-assistant.png" data-caption="ISMS document list assistant">
+              <img src="../manual/_figures/c5dec-isms-document-list-assistant.png" alt="ISMS document list assistant in TUI">
+            </button>
+            <figcaption>ISMS assistants for document completeness checks and audit support tasks.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflow">
+      <div class="container">
+        <div class="section-head">
+          <h2>Typical value flow</h2>
+          <div class="section-kicker">One toolchain, continuous evidence</div>
+        </div>
+        <div class="workflow" aria-label="Typical workflow steps">
+          <article class="step">
+            <strong>1. Define</strong>
+            <p>Establish requirements and architecture artifacts with structured item repositories.</p>
+          </article>
+          <article class="step">
+            <strong>2. Analyze</strong>
+            <p>Inspect CC content, threat models, and compliance obligations through dedicated modules.</p>
+          </article>
+          <article class="step">
+            <strong>3. Link</strong>
+            <p>Create and validate traceability links across SRS, ARC, SWD, TCS, and TRP items.</p>
+          </article>
+          <article class="step">
+            <strong>4. Verify</strong>
+            <p>Execute test and evaluation workflows and consolidate evidence from outputs.</p>
+          </article>
+          <article class="step">
+            <strong>5. Publish</strong>
+            <p>Generate reports, traceability dashboards, and final deliverables for stakeholders.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      C5-DEC CAD product presentation page. Continue with the
+      <a href="https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/README.md">manual home</a> or start at the
+      <a href="https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/start.md">quick start guide</a>.
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Screenshot preview" aria-modal="true">
+    <button class="close" aria-label="Close preview">&times;</button>
+    <figure>
+      <img src="" alt="">
+      <figcaption></figcaption>
+    </figure>
+  </div>
+
+  <script>
+    (function () {
+      var lightbox = document.getElementById("lightbox");
+      var lightboxImage = lightbox.querySelector("img");
+      var lightboxCaption = lightbox.querySelector("figcaption");
+      var closeButton = lightbox.querySelector(".close");
+      var triggers = document.querySelectorAll(".shot button");
+
+      function closeLightbox() {
+        lightbox.classList.remove("open");
+        lightboxImage.src = "";
+        lightboxImage.alt = "";
+      }
+
+      triggers.forEach(function (button) {
+        button.addEventListener("click", function () {
+          var full = button.getAttribute("data-full");
+          var caption = button.getAttribute("data-caption") || "Screenshot";
+          lightboxImage.src = full;
+          lightboxImage.alt = caption;
+          lightboxCaption.textContent = caption;
+          lightbox.classList.add("open");
+        });
+      });
+
+      closeButton.addEventListener("click", closeLightbox);
+      lightbox.addEventListener("click", function (event) {
+        if (event.target === lightbox) {
+          closeLightbox();
+        }
+      });
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && lightbox.classList.contains("open")) {
+          closeLightbox();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

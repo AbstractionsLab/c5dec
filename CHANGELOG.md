@@ -1,3 +1,10 @@
+# 1.2.3 (2026-03-11)
+
+## Added
+
+- Product presentation [website](https://abstractionslab.github.io/c5dec/website/product-presentation.html)
+- Links in README and manual pointing to product website
+
 # 1.2.2 (2026-03-11)
 
 ## Modified

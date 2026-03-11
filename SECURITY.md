@@ -28,8 +28,8 @@ Include the following information in your report:
 
 | Stage | Target |
 |-------|--------|
-| Initial acknowledgement | Within 5 business days |
-| Vulnerability confirmed or rejected | Within 15 business days |
+| Initial acknowledgement | Within 10 business days |
+| Vulnerability confirmed or rejected | Within 25 business days |
 | Patch released (if confirmed) | Dependent on severity and complexity |
 
 We will keep you informed throughout the process. If a fix requires a coordinated disclosure with third-party maintainers, we will agree on a timeline with you before any public disclosure.

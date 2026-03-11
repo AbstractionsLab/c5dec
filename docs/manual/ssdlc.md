@@ -76,16 +76,18 @@ We fix the following prefixes for naming the various artifact documents:
 - `HARC`: High-level Architecture
 - `LARC`: Low-level architecture
 - `SWD`: Software Design
-- `TST`: software validation Test Case specification
-- `TRA`, `TRB`, `TRS`, etc.: Test Report (Alpha, Beta, Stable, etc.)
+- `TCS`: Software validation Test Case Specification
+- `TRP`: Test Report
 
-For existing projects, it may be easier to simply use the specific templates of each `Doorstop` document, e.g., `MRS`, `SRS`, `SWD`, `TST`, and `TRA` under the [specs folder](https://github.com/AbstractionsLab/c5dec/tree/main/docs/specs).
+For existing projects, it may be easier to simply use the specific templates of each `Doorstop` document, e.g., `MRS`, `SRS`, `SWD`, `TCS`, and `TRP` under the [specs folder](https://github.com/AbstractionsLab/c5dec/tree/main/docs/specs).
+
+
 
 ## General recommendations
 
 ### Doorstop item format
 
-We recommend the use of the Markdown with YAML front matter format as the default `Doorstop` item encoding format for the test case specification (`TST`) and test report (e.g., `TRA`) documents, i.e., setting the key value pair `itemformat: markdown` in the document `.doorstop.yml` configuration file, e.g., the [TST template](https://github.com/AbstractionsLab/satrap-dl/blob/main/docs/specs/TST/.doorstop.yml) for SATRAP.
+We recommend the use of the Markdown with YAML front matter format as the default `Doorstop` item encoding format for the test case specification (`TCS`) and test report (e.g., `TRP`) documents, i.e., setting the key value pair `itemformat: markdown` in the document `.doorstop.yml` configuration file, e.g., the [TCS template](https://github.com/AbstractionsLab/satrap-dl/blob/main/docs/specs/TST/.doorstop.yml) for SATRAP.
 
 ### YAML key-value character limit and Markdown specification
 
@@ -226,6 +228,10 @@ The figure below gives an example of the published version of technical specific
 
 ![C5-DEC CAD SSDLC - technical specifications](./_figures/c5dec-cad-technical-specs-publish.png)
 
+A view of the C5-DEC CAD specification traceability home page:
+
+![C5-DEC CAD - traceability home](./_figures/c5dec-cad-traceability-home.png)
+
 Note that in order to benefit from the enhancements made to the Doorstop-based publishing solution, run the `publish.sh` shell script stored in the `docs/specs` folder.
 
 Change directory to the `docs/spec` folder:
@@ -245,6 +251,10 @@ This will first run the keyword replacement routine to replace verdicts expresse
 ![C5-DEC CAD SSDLC - keyword replacement and enhanced tech specs publishing](./_figures/c5dec-ssdlc-enhanced-publish-1.png)
 
 ![C5-DEC CAD SSDLC - tech specs attribute table](./_figures/c5dec-ssdlc-enhanced-publish-2.png)
+
+A view of the C5-DEC CAD test case specification:
+
+![C5-DEC CAD - test case specification](./_figures/c5dec-cad-tcs.png)
 
 ### C5-DEC keyword replacement
 
@@ -289,6 +299,10 @@ python docs/specs/SpecEngine/c5publish.py --linkify-only
 python docs/specs/SpecEngine/c5publish.py --include-cc-db
 ```
 
+A view of the C5-DEC CAD specification traceability home page:
+
+![C5-DEC CAD - traceability home](./_figures/c5dec-cad-traceability-home.png)
+
 ### `c5browser.py` — interactive specification browser
 
 Generates a standalone Bootstrap/DataTables HTML page (`items_browser.html`) with one sortable, filterable table per Doorstop document type. Supports **per-column filter inputs**, sortable numeric fields, and defect badge rendering for `?c5-defect-X` keywords.
@@ -297,6 +311,10 @@ Generates a standalone Bootstrap/DataTables HTML page (`items_browser.html`) wit
 poetry run python docs/specs/SpecEngine/c5browser.py
 poetry run python docs/specs/SpecEngine/c5browser.py --output path/to/out.html
 ```
+
+A view of the architecture design artifacts in the specification browser:
+
+![C5-DEC CAD - specification browser](./_figures/c5dec-cad-spec-browser.png)
 
 ### `c5traceability.py` — traceability statistics and HTML report
 
@@ -321,6 +339,10 @@ python docs/specs/SpecEngine/c5traceability.py --discover --discover-write
 
 Configuration is read from `c5traceability_config.yaml` (or a file specified with `--config`). See `c5traceability_config_example.yaml` in the same directory for a fully commented reference.
 
+A view of the traceability statistics page:
+
+![C5-DEC CAD - traceability statistics](./_figures/c5dec-cad-traceability-stats.png)
+
 ### `c5graph.py` — interactive dependency graph
 
 Generates a self-contained interactive HTML graph (`specs-graph.html`) that visualises the Doorstop item dependency tree using Cytoscape.js. Nodes are colour-coded by coverage (green = linked, yellow = unlinked root). Clicking a node expands/collapses its subtree.
@@ -329,6 +351,10 @@ Generates a self-contained interactive HTML graph (`specs-graph.html`) that visu
 poetry run python docs/specs/SpecEngine/c5graph.py
 poetry run python docs/specs/SpecEngine/c5graph.py --output path/to/out.html
 ```
+
+A view of the specifications graph:
+
+![C5-DEC CAD - specification graph](./_figures/c5dec-cad-specs-graph.png)
 
 ### `c5mermaid.py` — Mermaid diagram rendering
 
