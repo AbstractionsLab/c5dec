@@ -1,3 +1,14 @@
+# 1.2.1 (2026-03-11)
+
+## Modified
+
+- Main README to improve overview
+- Technical specifications (`docs/specs`) and traceability web site to tidy up TCS and TRP
+
+## Fixed
+
+- SRS items (removed dates)
+
 # 1.2 (2026-03-10)
 
 ## Added

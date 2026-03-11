@@ -4,26 +4,6 @@ This directory contains all documentation for the C5-DEC CAD (Common Criteria fo
 
 ## Documentation structure
 
-### `dev/` - Developer context guides
-
-**Audience**: AI assistants and developers working on the codebase
-
-**Purpose**: Domain-specific context files that provide focused technical knowledge for specific subsystems or workflows.
-
-**Contents**:
-- `copilot-context-architecture.md` - System architecture and design patterns
-- `copilot-context-cct.md` - Common Criteria Toolbox (CCT)
-- `copilot-context-docengine.md` - DocEngine and publishing system
-- `copilot-context-docker.md` - Docker containers and devcontainer
-- `copilot-context-frontend.md` - CLI, GUI, and TUI interfaces
-- `copilot-context-pm.md` - Project/resource management
-- `copilot-context-ssdlc.md` - SSDLC methodology and Transformer
-- `copilot-context-testing.md` - Test suite and conventions
-- `copilot-doorstop-context.md` - Requirements management with Doorstop
-- `cra.md` - Cyber Resilience Act guidance
-
-**Usage**: AI assistants automatically load relevant context files based on the task. 
-
 ### `manual/` - User and developer manuals
 
 **Audience**: End users, system administrators, and developers

@@ -2,6 +2,8 @@
 
 This folder holds the authoritative, traceable specifications for IDPS-ESCAPE managed with Doorstop following the [C5-DEC](https://github.com/AbstractionsLab/c5dec) methodology and its enhancements to Doorstop via extra custom code and templates. Use it for defining what the system must do and why, not how to operate it.
 
+> **Note:** `c5traceability_config.yaml` is project-specific. Before running the publish pipeline or traceability analysis on a new project, update this file to reflect your document hierarchy, coverage checks, and defect sources. If the file is missing or outdated, regenerate it automatically with `poetry run python SpecEngine/c5traceability.py --discover --discover-write` from the `docs/specs/` directory.
+
 ## What lives here
 
 | Path | Document type | Role in hierarchy |
@@ -10,8 +12,8 @@ This folder holds the authoritative, traceable specifications for IDPS-ESCAPE ma
 | `srs/` | Software/System Requirements Specifications | Child of MRS |
 | `arc/` | Architecture | Child of MRS |
 | `swd/` | Software design | Child of ARC |
-| `tcs/` | Test case specifications (merged) | Child of SRS |
-| `trp/` | Test reports (merged) | Child of TCS |
+| `tcs/` | Test case specifications | Child of SRS |
+| `trp/` | Test reports | Child of TCS |
 | `docs/publish/` | Generated HTML output | Produced by `publish.sh` |
 
 ### Custom tooling scripts

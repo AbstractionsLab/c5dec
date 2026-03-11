@@ -6,11 +6,9 @@ settings:
   sep: '-'
 attributes:
   defaults:
-    test_date: dd-mm-yyyy
+    test-date: yyyy-mm-dd
     tester: ACR
-    defect_category: '[0-4]'
-    defect_description: ''
-    comments: ''
+    defect-category: ?c5-defect-0
     text: '## Relevant test environment and configuration details
 
 
@@ -60,9 +58,6 @@ attributes:
       Analysis (A)
 
       '
-    test-date: yyyy-mm-dd
-    defect-category: 0 = flawless; 1 = insignificant defect; 2 = minor defect; 3 =
-      major defect; 4 = critical defect
     passed-steps: '0'
     failed-steps: '0'
     not-executed-steps: '0'
@@ -76,12 +71,8 @@ attributes:
       '
     release: stable
   publish:
-  - test_date
-  - tester
-  - defect_category
-  - defect_description
-  - comments
   - test-date
+  - tester
   - defect-category
   - passed-steps
   - failed-steps
@@ -92,9 +83,6 @@ attributes:
   - source_prefix
   - source_uid
   reviewed:
-  - test_date
-  - defect_category
-  - defect_description
   - test-date
   - tester
   - defect-category
