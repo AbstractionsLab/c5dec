@@ -2,6 +2,8 @@
 
 This directory contains all documentation for the C5-DEC CAD (Common Criteria for Cybersecurity, Cryptography, Clouds – Design, Evaluation and Certification, Computer-Aided Design) project, organized into distinct categories to support different audiences and purposes.
 
+See our [technical specification traceability web site](https://abstractionslab.github.io/c5dec/traceability/index.html) for a live view of the [full specification](./specs/README.md) tree and traceability coverage, produced by the C5-DEC [SpecEngine](./specs/SpecEngine/README.md).
+
 ## Documentation structure
 
 ### `manual/` - User and developer manuals

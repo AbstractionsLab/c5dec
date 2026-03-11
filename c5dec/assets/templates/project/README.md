@@ -45,7 +45,7 @@ Please see the [CAD user manual](./docs/manual/README.md) to learn more about th
 
 ## Documentation and technical specifications
 
-You can visit our [traceability page](https://abstractionslab.github.io/c5dec/docs/traceability/index.html) to view the technical specifications, which have been published to HTML from the source specification files via the `publish` CLI command of C5-DEC CAD, which in turn acts as a wrapper for the underlying Doorstop publish feature, offering some enhancements.
+You can visit our [traceability page](https://abstractionslab.github.io/c5dec/traceability/index.html) to view the technical specifications, which have been published to HTML from the source specification files via the `publish` CLI command of C5-DEC CAD, which in turn acts as a wrapper for the underlying Doorstop publish feature, offering some enhancements.
 
 ## Getting Started
 

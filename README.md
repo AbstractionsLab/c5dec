@@ -8,7 +8,7 @@ C5-DEC, short for "Common Criteria for Cybersecurity, Cryptography, Clouds – D
 
 C5-DEC CAD is the software component of C5-DEC — an [AI-enabled](./docs/manual/ssdlc.md#ai-enabled-design-specification-development-and-testing) toolkit for computer-aided secure system design, development and evaluation, accessible through native command-line and graphical [interfaces](#usage) (CLI, TUI, GUI), as well as a VS Code workbench with dedicated devcontainer support and preloaded extensions. Its modules cover: a [Common Criteria Toolbox (CCT)](./docs/manual/cct.md) (SFR/SAR database, CEM checklists, ETR generation); an [SSDLC](./docs/manual/ssdlc.md) pipeline (project scaffolding, [SpecEngine](./docs/specs/SpecEngine/README.md) for structured, fully traceable specification management aligned with [certification workflows](./docs/README.md), [DocEngine](./docs/manual/ssdlc.md#c5-dec-docengine-for-report-generation) for smart document authoring and technical/scientific publishing); [CRA compliance](./docs/manual/cra.md) (Annex I checklist, Annex VII tech doc, Annex V declaration); [SBOM management](./docs/manual/sbom.md) via [Syft](https://github.com/anchore/syft); a [CPSSA module](./docs/manual/cpssa.md) for STRIDE threat modelling and FAIR risk analysis; a [cryptography module](./docs/manual/cryptography.md) (classical and post-quantum crypto); and [project management](./docs/manual/pm.md) utilities. All artifacts are stored in open formats (Markdown, YAML), complemented by a [CC concept wiki](./c5dec/assets/database/KnowledgeBase/0_MapofContent.md) and an SSDLC/SVV/CPSSA knowledge base, making the full specification tree directly accessible to LLMs.
 
-This repository contains the source code and full documentation (requirements, design artifacts, [user manual](./docs/manual/README.md), test case specifications and test reports) of C5-DEC CAD; see our [technical specification traceability web site](https://abstractionslab.github.io/c5dec/docs/traceability/index.html) for a live view of the full specification tree and traceability coverage, produced by the C5-DEC [SpecEngine](./docs/specs/SpecEngine/README.md).
+This repository contains the source code and full documentation (requirements, design artifacts, [user manual](./docs/manual/README.md), test case specifications and test reports) of C5-DEC CAD; see our [technical specification traceability web site](https://abstractionslab.github.io/c5dec/traceability/index.html) for a live view of the full specification tree and traceability coverage, produced by the C5-DEC [SpecEngine](./docs/specs/SpecEngine/README.md).
 
 ## Table of contents
 
@@ -119,7 +119,7 @@ See the [C5-DEC CAD user manual](./docs/manual/README.md) for installation, setu
 
 ## Documentation and technical specifications
 
-The technical specifications of C5-DEC CAD are published to HTML via the `publish.sh` script in `docs/specs/`, backed by the SpecEngine toolchain. View them on our [traceability page](https://abstractionslab.github.io/c5dec/docs/traceability/index.html).
+The technical specifications of C5-DEC CAD are published to HTML via the `publish.sh` script in `docs/specs/`, backed by the SpecEngine toolchain. View them on our [traceability page](https://abstractionslab.github.io/c5dec/traceability/index.html).
 
 ## Prerequisites
 

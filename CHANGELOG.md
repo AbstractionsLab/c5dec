@@ -1,3 +1,13 @@
+# 1.2.2 (2026-03-11)
+
+## Modified
+
+- Added link to live technical specifications in the specs folder README
+
+## Fixed
+
+- Links in main README to live technical specifications on GitHub Pages
+
 # 1.2.1 (2026-03-11)
 
 ## Modified
