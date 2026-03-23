@@ -49,7 +49,7 @@ format:
     fig-pos: 'H'
     # geometry: "left=2.54cm,right=2.54cm,top=2.54cm,bottom=2.54cm"
     geometry: "left=2cm,right=2cm,top=2cm,bottom=2cm"
-    # mainfont: "Ubuntu"
+    mainfont: "Ubuntu"
     # mainfont: "Gill Sans"
     # sansfont: "Futura"
     # monofont: "Courier New"

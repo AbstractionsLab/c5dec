@@ -90,7 +90,8 @@ def run_docengine(args, cwd, _, catch=True):
         success = ssdlc.create_docengine_template(
             template_type=args.template_type,
             name=args.name,
-            destination=args.destination
+            destination=args.destination,
+            standalone=getattr(args, 'standalone', False)
         )
         return success if success is not None else True
     except Exception as e:

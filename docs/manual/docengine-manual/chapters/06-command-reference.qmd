@@ -1,0 +1,83 @@
+# Command reference {#sec-command-reference}
+
+This quick reference aggregates frequently used commands from the manual pages.
+
+## Global launcher
+
+```bash
+c5dec -h
+c5dec -t
+c5dec -g
+```
+
+## CCT
+
+```bash
+c5dec view <ID>
+c5dec validate -d <IDs>
+c5dec checklist -c <prefix> --id <IDs> --info <info>
+c5dec checklist <prefix> --validate
+c5dec export <name> <version> -p <components>
+c5dec etr -f <families> -t <tables>
+```
+
+## SSDLC and publishing
+
+```bash
+c5dec new -p <project_name> -u <user_directory>
+poetry run doorstop
+cd docs/specs && ./publish.sh
+```
+
+## PM
+
+```bash
+c5dec timerep <openproject-export.xlsx>
+c5dec consolidate <input-folder>
+c5dec costrep <timesheet.xlsx>
+```
+
+## CPSSA
+
+```bash
+c5dec cpssa create-threat-model --project <project>
+c5dec cpssa generate-report --model <model>
+c5dec cpssa generate-dfd --project <project>
+c5dec cpssa fair-input --model <model>
+c5dec cpssa risk-analysis --model <model> --fair-params <params>
+```
+
+## Cryptography
+
+```bash
+c5dec crypto hash <file>
+c5dec crypto verify-hash <file> <hash>
+c5dec crypto sign <file> -o <signature>
+c5dec crypto verify-sig <file> <signature>
+c5dec crypto encrypt <file> -r <recipient>
+c5dec crypto decrypt <file.gpg> -o <file>
+c5dec crypto shamir-split <secret_hex> -n <n> -k <k>
+c5dec crypto shamir-recover <share1> <share2> <share3>
+c5dec crypto nacl-keygen
+c5dec crypto nacl-sign <message> <signing_key_hex>
+c5dec crypto nacl-verify <signed_hex> <verify_key_hex>
+```
+
+## CRA and SBOM
+
+```bash
+c5dec cra --create --prefix <prefix> [--category default|class_i|class_ii|critical]
+c5dec cra --verify [--prefix <prefix>]
+c5dec cra --export <report.xlsx>
+c5dec sbom generate <target> -o <sbom.json> -f cyclonedx|spdx
+c5dec sbom import <sbom.json> --prefix <prefix> --version <version>
+c5dec sbom diff <sbom1> <sbom2> -o <diff.md>
+c5dec sbom validate <prefix>
+c5dec docengine cra-tech-doc -n <output_name>
+```
+
+## Notes
+
+- Some commands assume a Poetry-activated environment.
+- Some rendering and publishing paths assume Quarto and LaTeX dependencies are installed.
+- The manual notes that `c5dec publish` is currently feature-flagged off.

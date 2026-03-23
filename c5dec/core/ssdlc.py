@@ -147,7 +147,7 @@ def create_new_c5dec_project(project="myproject", user="user"):
     zip_path = os.path.abspath(os.path.join(os.getcwd(), '..', f'{project}.zip'))
     log.info(f"Created ZIP archive at {zip_path}")
 
-def create_docengine_template(template_type, name, destination=None):
+def create_docengine_template(template_type, name, destination=None, standalone=False):
     """
     Create a new DocEngine report or presentation from templates.
 
@@ -157,11 +157,15 @@ def create_docengine_template(template_type, name, destination=None):
     3. Updates configuration files with the specified project name and current date.
     4. Generates a ZIP archive of the created template.
     5. Keeps both the working folder and ZIP archive.
+    6. If standalone=True, also copies the .devcontainer folder, docEngine.Dockerfile,
+       poetry.lock, and pyproject.toml so the template can be used independently in VS Code.
 
     Args:
         template_type (str): Type of template to create ("report" or "presentation").
         name (str): The name of the new template instance.
         destination (str, optional): Override default destination path. Defaults to ./docengine/{name}/.
+        standalone (bool): If True, copies DevContainer, Dockerfile, and Poetry artifacts
+            to the destination so DocEngine can be used without the full C5-DEC environment.
 
     Returns:
         None: The function logs the progress and creates both folder and ZIP archive.
@@ -252,6 +256,28 @@ def create_docengine_template(template_type, name, destination=None):
                 log.warning(f"Could not update {file_path}: {e}")
         else:
             log.warning(f"{filename} not found in {destination_path}")
+
+    # Copy standalone artifacts if requested
+    if standalone:
+        root_path = str(c5settings.PROJECT_ROOT_PATH)
+        standalone_items = [
+            (os.path.join(root_path, '.devcontainer'), os.path.join(destination_path, '.devcontainer')),
+            (os.path.join(root_path, 'docEngine.Dockerfile'), os.path.join(destination_path, 'docEngine.Dockerfile')),
+            (os.path.join(root_path, 'poetry.lock'), os.path.join(destination_path, 'poetry.lock')),
+            (os.path.join(root_path, 'pyproject.toml'), os.path.join(destination_path, 'pyproject.toml')),
+        ]
+        for src, dst in standalone_items:
+            if os.path.exists(src):
+                try:
+                    if os.path.isdir(src):
+                        shutil.copytree(src, dst)
+                    else:
+                        shutil.copy2(src, dst)
+                    log.info(f"Copied standalone artifact: {src} -> {dst}")
+                except Exception as e:
+                    log.warning(f"Could not copy standalone artifact {src}: {e}")
+            else:
+                log.warning(f"Standalone artifact not found: {src}")
 
     # Create ZIP archive (keep both folder and archive)
     zip_base_path = os.path.join(os.path.dirname(destination_path), name)

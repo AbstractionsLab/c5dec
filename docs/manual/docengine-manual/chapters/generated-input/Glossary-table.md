@@ -1,0 +1,4 @@
+| Term              | Meaning                                                                                                                                                                                  |
+|:------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| CM access control | Set of mechanisms and procedures guaranteeing that only authorised access is granted to configuration items.                                                                             |
+| CM documentation  | Set of documents describing how the CM system is defined and used. This encloses handbooks, regulations, documentation of tools used for CM, relation of used tools (if any), and so on. |

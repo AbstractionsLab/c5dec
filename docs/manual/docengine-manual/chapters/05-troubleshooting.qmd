@@ -1,0 +1,55 @@
+# Troubleshooting {#sec-troubleshooting}
+
+This chapter reorganizes the troubleshooting page into a quick triage sequence.
+
+## Fast triage order
+
+1. Check container and Docker status.
+2. Verify Poetry environment and command availability.
+3. Validate Doorstop consistency when specs-related commands fail.
+4. Check GUI port allocation and browser reachability.
+
+## Container build failures
+
+Typical issues from the manual:
+
+- Docker daemon unavailable.
+- Visual Studio Code cannot reopen in container.
+- Network failures during container build.
+- Package installation failures in dev.Dockerfile stages.
+
+## Poetry environment issues
+
+Typical issues from the manual:
+
+- `c5dec: command not found` inside container.
+- `poetry install` dependency conflict.
+- Editor import warnings caused by interpreter mismatch.
+
+## Doorstop validation errors
+
+Typical issues from the manual:
+
+- unknown parent document,
+- broken links,
+- YAML parse failures.
+
+When this happens, validate structure first, then inspect item links and YAML formatting before re-running publish steps.
+
+## GUI port conflicts
+
+Typical issues from the manual:
+
+- address already in use,
+- browser cannot reach local GUI endpoint.
+
+Use an available local port and verify the selected launch mode in your shell session.
+
+## General recovery guidance
+
+When in doubt:
+
+1. return to a clean shell in the project root,
+2. reactivate Poetry,
+3. re-run the smallest command that reproduces the issue,
+4. only then escalate to full publish or render workflows.

@@ -529,6 +529,7 @@
         <a href="#features">Features</a>
         <a href="#gallery">Screens</a>
         <a href="#workflow">Workflow</a>
+        <a href="release-notes.html">What&#8217;s new</a>
       </nav>
     </div>
   </header>
@@ -568,7 +569,7 @@
           </div>
         </div>
         <div class="hero-visual">
-          <img src="assets/c5dec-cli.png" alt="C5-DEC command-line help screen">
+          <img src="assets/3D3B2B_LOG_C5DEC-DarkLogo-Cropped_v1.2.png" alt="C5-DEC command-line help screen">
         </div>
       </div>
     </section>
@@ -591,20 +592,22 @@
           </article>
           <article class="feature">
             <h3><a href="https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/ssdlc.md">SSDLC</a> + transformer</h3>
-            <p>Manage artifact repositories and item relations, then import/export/convert/publish technical data.</p>
+            <p>Manage artifact repositories and item relations, then import/export/convert/publish technical data. The SpecEngine pipeline now includes <a href="release-notes.html#v1.3">dependency content fingerprinting</a> — SHA-256 hashes over referenced files so any source change is instantly surfaced in impacted spec items.</p>
             <div class="stack">
               <span class="chip">Doorstop</span>
               <span class="chip">Import/export</span>
               <span class="chip">Publishing</span>
+              <span class="chip">Dependency fingerprinting</span>
             </div>
           </article>
           <article class="feature">
             <h3>Traceability analytics</h3>
-            <p>Visualize coverage, gaps, and link structures through browser dashboards and interactive graph reports.</p>
+            <p>Visualize coverage, gaps, and link structures through browser dashboards and interactive graph reports. Dependency fingerprints extend this with automatic change detection across all referenced artifacts.</p>
             <div class="stack">
               <span class="chip">Coverage stats</span>
               <span class="chip">Spec browser</span>
               <span class="chip">Graph view</span>
+              <span class="chip">Fingerprint impact analysis</span>
             </div>
           </article>
           <article class="feature">
@@ -645,47 +648,6 @@
           <div class="section-kicker">Click any screenshot to zoom</div>
         </div>
         <div class="showcase">
-          <figure class="shot">
-            <button data-full="assets/c5dec-cad-gui-cct-browser.png" data-caption="GUI Common Criteria browser">
-              <img src="assets/c5dec-cad-gui-cct-browser.png" alt="C5-DEC CAD GUI Common Criteria browser">
-            </button>
-            <figcaption>GUI module for browsing CC classes, families, components, and elements.</figcaption>
-          </figure>
-
-          <figure class="shot">
-            <button data-full="assets/c5dec-cad-gui-eval-lab.png" data-caption="GUI evaluation lab">
-              <img src="assets/c5dec-cad-gui-eval-lab.png" alt="C5-DEC CAD GUI evaluation laboratory">
-            </button>
-            <figcaption>Evaluation laboratory workflow for component selection and checklist generation.</figcaption>
-          </figure>
-
-          <figure class="shot">
-            <button data-full="assets/c5dec-cad-tui.png" data-caption="Main TUI dashboard">
-              <img src="assets/c5dec-cad-tui.png" alt="Main C5-DEC CAD textual user interface">
-            </button>
-            <figcaption>Main TUI entrypoint exposing CCT, SSDLC, cryptography, PM, and more.</figcaption>
-          </figure>
-
-          <figure class="shot">
-            <button data-full="assets/checklist.png" data-caption="Checklist creation view in TUI">
-              <img src="assets/checklist.png" alt="Evaluation checklist creation in TUI">
-            </button>
-            <figcaption>Interactive checklist generation with package and component-level selection support.</figcaption>
-          </figure>
-
-          <figure class="shot">
-            <button data-full="assets/c5dec-cad-ssdlc.png" data-caption="SSDLC module menu">
-              <img src="assets/c5dec-cad-ssdlc.png" alt="SSDLC module options in TUI">
-            </button>
-            <figcaption>SSDLC module with repository management, item linking, and structure operations.</figcaption>
-          </figure>
-
-          <figure class="shot">
-            <button data-full="assets/ssdlc-transformer-publish.png" data-caption="Transformer publish page">
-              <img src="assets/ssdlc-transformer-publish.png" alt="Transformer publish action in TUI">
-            </button>
-            <figcaption>Transformer publishing support for generating HTML and other output formats.</figcaption>
-          </figure>
 
           <figure class="shot">
             <button data-full="assets/c5dec-cad-spec-browser.png" data-caption="Specification browser report">
@@ -709,6 +671,13 @@
           </figure>
 
           <figure class="shot">
+            <button data-full="assets/c5dec-cad-dep-content-fingerprinting.png" data-caption="SpecEngine dependency content fingerprinting">
+              <img src="assets/c5dec-cad-dep-content-fingerprinting.png" alt="SpecEngine dependency content fingerprint output">
+            </button>
+            <figcaption>SpecEngine dependency content fingerprinting: SHA-256 hashes over every referenced file, stored per spec item. When a dependency source file or artifact changes, impacted items are flagged <strong>[STALE]</strong> — a direct signal to rerun affected tests and reviews. Supports <code>--check</code> as a CI gate.</figcaption>
+          </figure>
+
+          <figure class="shot">
             <button data-full="assets/c5dec-cad-DocEngine-report.png" data-caption="DocEngine report output">
               <img src="assets/c5dec-cad-DocEngine-report.png" alt="DocEngine rendered report output">
             </button>
@@ -716,18 +685,68 @@
           </figure>
 
           <figure class="shot">
+            <button data-full="assets/c5dec-cad-DocEngine-compiled-report.png" data-caption="DocEngine compiled report examples">
+              <img src="assets/c5dec-cad-DocEngine-compiled-report.png" alt="DocEngine compiled report examples">
+            </button>
+            <figcaption>Compiled DocEngine report examples showing cover page, table of contents, diagrams, code snippets, and reference sections rendered to PDF.</figcaption>
+          </figure>
+
+          <figure class="shot">
+            <button data-full="assets/c5dec-cad-eval-checklist-Excel.png" data-caption="CAD evaluation checklist in Excel">
+              <img src="assets/c5dec-cad-eval-checklist-Excel.png" alt="C5-DEC CAD evaluation checklist exported to Excel">
+            </button>
+            <figcaption>CC evaluation checklist exported to Excel, with work-unit text, level, links, active flags, and component metadata across dedicated sheets.</figcaption>
+          </figure>
+
+          <figure class="shot">
+            <button data-full="assets/c5dec-cad-tcs.png" data-caption="Test case specification example">
+              <img src="assets/c5dec-cad-tcs.png" alt="C5-DEC CAD test case specification item">
+            </button>
+            <figcaption>Published test case specification (TCS) item view, showing preconditions, test steps, expected outcome, and traceability links to SRS requirements.</figcaption>
+          </figure>
+
+          <figure class="shot">
+            <button data-full="assets/c5dec-cad-trp.png" data-caption="Test report item specification example">
+              <img src="assets/c5dec-cad-trp.png" alt="C5-DEC CAD test report item specification">
+            </button>
+            <figcaption>Published test report (TRP) item view, displaying execution results, defect category, evidence, and parent TCS links for end-to-end verification traceability.</figcaption>
+          </figure>
+
+          <figure class="shot">
+            <button data-full="assets/c5dec-cad-gui-cct-browser-selection.png" data-caption="GUI Common Criteria browser">
+              <img src="assets/c5dec-cad-gui-cct-browser-selection.png" alt="C5-DEC CAD GUI Common Criteria browser">
+            </button>
+            <figcaption>GUI module for browsing CC classes, families, components, and elements.</figcaption>
+          </figure>
+
+          <figure class="shot">
+            <button data-full="assets/c5dec-cad-gui-eval-lab.png" data-caption="GUI evaluation lab">
+              <img src="assets/c5dec-cad-gui-eval-lab.png" alt="C5-DEC CAD GUI evaluation laboratory">
+            </button>
+            <figcaption>Evaluation laboratory workflow for component selection and checklist generation.</figcaption>
+          </figure>
+
+          <figure class="shot">
+            <button data-full="assets/c5dec-cad-tui.png" data-caption="Main TUI dashboard">
+              <img src="assets/c5dec-cad-tui.png" alt="Main C5-DEC CAD textual user interface">
+            </button>
+            <figcaption>Main TUI entrypoint exposing CCT and PM.</figcaption>
+          </figure>
+
+          <figure class="shot">
+            <button data-full="assets/checklist.png" data-caption="Checklist creation view in TUI">
+              <img src="assets/checklist.png" alt="Evaluation checklist creation in TUI">
+            </button>
+            <figcaption>Interactive checklist generation with package and component-level selection support.</figcaption>
+          </figure>
+ 
+          <figure class="shot">
             <button data-full="assets/c5dec-rmt-analysis-overview.png" data-caption="Resource management report">
               <img src="assets/c5dec-rmt-analysis-overview.png" alt="Cost and resource analysis spreadsheet report">
             </button>
             <figcaption>Project resource and cost overview outputs for PM reporting workflows.</figcaption>
           </figure>
 
-          <figure class="shot">
-            <button data-full="assets/c5dec-isms-document-list-assistant.png" data-caption="ISMS document list assistant">
-              <img src="assets/c5dec-isms-document-list-assistant.png" alt="ISMS document list assistant in TUI">
-            </button>
-            <figcaption>ISMS assistants for document completeness checks and audit support tasks.</figcaption>
-          </figure>
         </div>
       </div>
     </section>
@@ -753,7 +772,7 @@
           </article>
           <article class="step">
             <strong>4. Verify</strong>
-            <p>Execute test and evaluation workflows and consolidate evidence from outputs.</p>
+            <p>Execute test and evaluation workflows. Dependency fingerprints flag all impacted spec items the moment a referenced source file or artifact changes.</p>
           </article>
           <article class="step">
             <strong>5. Publish</strong>

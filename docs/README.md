@@ -50,6 +50,7 @@ See our [technical specification traceability web site](https://abstractionslab.
 - `SpecEngine/c5traceability.py` - Configurable coverage statistics analyser
 - `SpecEngine/c5traceability_config.yaml` - YAML configuration for coverage checks and document order
 - `SpecEngine/c5browser.py` - Interactive HTML browser generator
+- `SpecEngine/c5fingerprint.py` - Dependency content fingerprinting for items with `references:` file paths; flags stale items when source files change
 - `publish.sh` - Publishing orchestration script
 
 **Characteristics**:

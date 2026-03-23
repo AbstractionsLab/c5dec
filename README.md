@@ -4,9 +4,9 @@ C5-DEC, short for "Common Criteria for Cybersecurity, Cryptography, Clouds – D
 
 <img src="./docs/manual/_figures/CyFORT-C5CEC-logo.png" alt="cyfort_logo" width="500"/>
 
-[![Version](https://img.shields.io/badge/version-1.2-blue)](CHANGELOG.md) [![License: AGPL v3](https://img.shields.io/badge/license-AGPL--v3-brightgreen)](LICENSE) [![Python](https://img.shields.io/badge/python-3.8--3.11-blue)](pyproject.toml)
+[![Version](https://img.shields.io/badge/version-1.3-blue)](CHANGELOG.md) [![License: AGPL v3](https://img.shields.io/badge/license-AGPL--v3-brightgreen)](LICENSE) [![Python](https://img.shields.io/badge/python-3.8--3.11-blue)](pyproject.toml)
 
-C5-DEC CAD is the software component of C5-DEC: an [AI-enabled](./docs/manual/ssdlc.md#ai-enabled-design-specification-development-and-testing) toolkit for secure system design, development, and evaluation across [CLI/TUI/GUI and VS Code](#usage). It combines [CCT](./docs/manual/cct.md), [SSDLC](./docs/manual/ssdlc.md) with [SpecEngine](./docs/specs/SpecEngine/README.md) and [DocEngine](./docs/manual/ssdlc.md#c5-dec-docengine-for-report-generation), [CRA](./docs/manual/cra.md), [SBOM](./docs/manual/sbom.md), [CPSSA](./docs/manual/cpssa.md), [cryptography](./docs/manual/cryptography.md), and [project management](./docs/manual/pm.md) in one traceable, open-format (Markdown/YAML) workflow.
+C5-DEC CAD is the software component of C5-DEC: an [AI-enabled](./docs/manual/ssdlc.md#ai-enabled-design-specification-development-and-testing) toolkit for secure system design, development, and evaluation across [CLI/TUI/GUI and VS Code](#usage). It combines [CCT](./docs/manual/cct.md), [SSDLC](./docs/manual/ssdlc.md) with [SpecEngine](./docs/specs/SpecEngine/README.md), [DocEngine](./docs/manual/docengine.md), [CRA](./docs/manual/cra.md), [SBOM](./docs/manual/sbom.md), [CPSSA](./docs/manual/cpssa.md), [cryptography](./docs/manual/cryptography.md), and [project management](./docs/manual/pm.md) in one traceable, open-format (Markdown/YAML) workflow.
 
 This repository contains the C5-DEC CAD source code plus full documentation, including requirements, design artifacts, the [user manual](./docs/manual/README.md), and test specifications/reports; live traceability is published on the [technical specification web site](https://abstractionslab.github.io/c5dec/traceability/index.html).
 
@@ -30,7 +30,7 @@ For a visual stakeholder-oriented tour of C5-DEC CAD, visit the **[product prese
 
 ## Overview
 
-C5-DEC CAD assists system/software designers, developers, testers and security analysts with building and evaluating secure software systems. It integrates SSDLC, SVV, and CPSSA within the Common Criteria framework, providing full artifact traceability across the entire development life cycle, along with cryptographic checks, threat modelling, quantitative risk analysis, Cyber Resilience Act (CRA) compliance support, and SBOM lifecycle management. Its DocEngine, built on Quarto with custom LaTeX enhancements and pre/post-render scripting, enables smart document authoring, scientific and technical publishing across report, presentation, and CRA technical documentation templates.
+C5-DEC CAD assists system/software designers, developers, testers and security analysts with building and evaluating secure software systems. It integrates SSDLC, SVV, and CPSSA within the Common Criteria framework, providing full artifact traceability across the entire development life cycle, along with cryptographic checks, threat modelling, quantitative risk analysis, Cyber Resilience Act (CRA) compliance support, and SBOM lifecycle management. Its [DocEngine](./docs/manual/docengine.md), built on Quarto with custom LaTeX enhancements and pre/post-render scripting, enables smart document authoring and scientific and technical publishing across report, presentation, and CRA technical documentation templates.
 
 ### Knowledge base
 
@@ -53,9 +53,8 @@ C5-DEC ships two complementary knowledge bases:
 ### Secure software development life cycle (SSDLC)
 
 - [New C5-DEC project scaffolding](./docs/manual/ssdlc.md#c5-dec-project-creation) (`c5dec new`): containerized repository with dependencies, templates, DocEngine, SpecEngine, and Doorstop-based traceability, with an [AI-enabled](./docs/manual/ssdlc.md#ai-enabled-design-and-specification) approach for generating requirements, test cases, and technical reports;
-- [DocEngine](./docs/manual/ssdlc.md#c5-dec-docengine-for-report-generation) (`c5dec docengine`): Quarto-based publishing pipeline with LaTeX customizations and pre/post-render scripts; scaffolds three template types — `report`, `presentation` (Reveal.js and PowerPoint with ALab branding), and `cra-tech-doc` (CRA Annex VII technical documentation);
+- [SpecEngine](./docs/specs/SpecEngine/) toolkit for specification management following the [C5-DEC method](./docs/specs/README.md): `c5graph.py` (interactive Cytoscape.js traceability graph with dagre layout, expand/collapse, color-coded coverage), `c5mermaid.py` (Mermaid-to-SVG/PNG pre-processor with undo and dry-run, integrated into `publish.sh`), `c5browser.py` (standalone Bootstrap + DataTables HTML browser for Doorstop items with sortable/filterable per-document-type tables), `c5traceability.py` (configurable traceability matrix statistics with console and HTML report output, auto-discovery of document trees from `.doorstop.yml` files), `c5fingerprint.py` (dependency content fingerprinting — computes per-file SHA-256 hashes for files referenced in item `references:` lists and stores a combined digest in each item's YAML frontmatter; flags stale items when source files change, enabling dependency-aware impact analysis across the full specification tree; supports `--dry-run`, `--check` CI gate, and `--verbose` modes), `prune_bad_links.py` (Doorstop link pruning), and `doorstop_yml_to_md.py` (YAML-to-Markdown item migration);
 - [Transformer](./docs/manual/ssdlc.md#transformer): document transformation and format conversion using [Doorstop](https://github.com/doorstop-dev/doorstop), [Quarto](https://github.com/quarto-dev/quarto), [pandoc](https://pandoc.org/), and [organize](https://github.com/tfeldmann/organize);
-- [SpecEngine](./docs/specs/SpecEngine/) toolkit for specification management following the [C5-DEC method](./docs/specs/README.md): `c5graph.py` (interactive Cytoscape.js traceability graph with dagre layout, expand/collapse, color-coded coverage), `c5mermaid.py` (Mermaid-to-SVG/PNG pre-processor with undo and dry-run, integrated into `publish.sh`), `c5browser.py` (standalone Bootstrap + DataTables HTML browser for Doorstop items with sortable/filterable per-document-type tables), `c5traceability.py` (configurable traceability matrix statistics with console and HTML report output, auto-discovery of document trees from `.doorstop.yml` files), `prune_bad_links.py` (Doorstop link pruning), and `doorstop_yml_to_md.py` (YAML-to-Markdown item migration);
 - A [KB element](#knowledge-base) dedicated to software verification and validation (SVV).
 
 A view of the C5-DEC CAD specification browser:
@@ -69,6 +68,24 @@ A view of the C5-DEC CAD specification graph:
 A view of the C5-DEC CAD traceability statistics:
 
 ![C5-DEC CAD - traceability statistics](./docs/manual/_figures/c5dec-cad-traceability-stats.png)
+
+### DocEngine
+
+A Quarto-based document publishing engine ([full reference](./docs/manual/docengine.md)) for generating professional technical documents from Markdown source files:
+
+- Three ready-to-use template types scaffolded by `c5dec docengine <type> -n <name>`:
+    - `report` — full technical report with LaTeX cover page, chapter structure, custom headers/footers, bibliography, and DOCX reference template;
+    - `presentation` — Reveal.js (HTML) and PowerPoint slide deck with ALab branding;
+    - `cra-tech-doc` — CRA Annex VII seven-chapter compliance technical documentation, also available via `c5dec cra tech-doc`;
+- Supports PDF, HTML, and DOCX outputs from the same Markdown source;
+- Two configuration formats: `c5dec_config.yml` (v1, plain strings) and `c5dec_config_v2.yml` (v2, structured changelog entries, automatic LaTeX escaping);
+- Python pre/post-render scripts for cover page metadata injection, Doorstop-based table generation, and LaTeX file lifecycle management;
+- `--standalone` flag produces a self-contained template with its own devcontainer, enabling DocEngine use outside the main C5-DEC repository;
+- Integrated with the [CCT ETR generation pipeline](./docs/manual/cct.md#c5-dec-docengine-for-etr-generation) and the [CRA technical documentation workflow](./docs/manual/cra.md#2-cra-technical-documentation-generator).
+
+A view of a compiled DocEngine report:
+
+![C5-DEC CAD - DocEngine compiled report](./docs/manual/_figures/c5dec-cad-DocEngine-compiled-report.png)
 
 ### Common Criteria
 

@@ -118,12 +118,16 @@ RUN ARCH=$(dpkg --print-architecture) && \
 ENV PATH="/usr/local/texlive/active-bin:$PATH"
 
 # Install the required fonts for Quarto and TeX Live
+# fc-cache updates the system font cache; luaotfload-tool rebuilds LuaTeX's own
+# font DB so that fontspec/luaotfload can resolve "Ubuntu" at render time.
 RUN cd /tmp && \
     wget https://assets.ubuntu.com/v1/0cef8205-ubuntu-font-family-0.83.zip && \
     unzip 0cef8205-ubuntu-font-family-0.83.zip -d ubuntu-fonts && \
     mkdir -p /usr/local/share/fonts/ubuntu && \
     cp ./ubuntu-fonts/ubuntu-font-family-0.83/*.ttf /usr/local/share/fonts/ubuntu/ && \
+    chmod 644 /usr/local/share/fonts/ubuntu/*.ttf && \
     fc-cache -fv && \
+    luaotfload-tool --update --force && \
     rm -rf /tmp/ubuntu-fonts /tmp/0cef8205-ubuntu-font-family-0.83.zip
 
 # Install Doorstop

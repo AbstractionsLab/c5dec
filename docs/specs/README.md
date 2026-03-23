@@ -28,6 +28,7 @@ All scripts below live in `SpecEngine/`.
 | `c5traceability.py` | Configurable traceability analyser; reads `docs/traceability/traceability.csv` and produces coverage statistics and an optional HTML report; supports YAML-configurable checks, auto-discovery of the document hierarchy from `.doorstop.yml` files, and a `rich`-coloured terminal output (see [below](#traceability-statistics)) |
 | `c5traceability_config.yaml` | Configuration file for `c5traceability.py` defining document order, coverage checks, and defect sources |
 | `c5browser.py` | Generates an interactive HTML browser (`items_browser.html`) with sortable/filterable DataTables for every document type (see [below](#specification-browser)) |
+| `c5fingerprint.py` | Computes and stores SHA-256 content fingerprints for files referenced in item `references:` lists; flags stale items when source files change (see [below](#dependency-fingerprinting)) |
 
 ## Doorstop hierarchy
 
@@ -143,6 +144,42 @@ poetry run python SpecEngine/c5browser.py --output docs/publish/browser.html
 # Custom specs directory
 poetry run python SpecEngine/c5browser.py --specs-dir /path/to/specs
 ```
+
+## Dependency fingerprinting
+
+`c5fingerprint.py` closes the traceability loop between specification items and their dependent source files. Any Doorstop item (typically TCS items) whose `references:` list contains file paths gets a `references_content_fingerprint` field written into its YAML frontmatter. The field stores a per-file SHA-256 digest (16-hex-char prefix) and a combined digest over all referenced files.
+
+When a referenced source file changes, the stored fingerprint no longer matches the computed one — the item is flagged as `[STALE]`, signalling that the corresponding requirement or test specification may need to be revisited.
+
+**Stored fingerprint format** (written into each item's YAML frontmatter):
+
+```yaml
+references_content_fingerprint:
+  combined: 4a7b9c1d2e3f4a5b
+  files:
+    c5dec/core/cpssa/__init__.py: 9c0d1e2f3a4b5c6d
+    c5dec/core/cpssa/cpssa.py: 1a2b3c4d5e6f7a8b
+```
+
+Files that are missing at the time of the run are recorded as `"missing"` and excluded from the combined digest.
+
+```bash
+cd docs/specs
+
+# Update stale fingerprints in-place
+poetry run python SpecEngine/c5fingerprint.py
+
+# Dry-run: compute and report, no writes (exit 0)
+poetry run python SpecEngine/c5fingerprint.py --dry-run
+
+# CI gate: exit 1 if any stale items found, no writes
+poetry run python SpecEngine/c5fingerprint.py --check
+
+# Verbose: show per-item and per-file detail
+poetry run python SpecEngine/c5fingerprint.py --verbose
+```
+
+**Note:** `references_content_fingerprint` is a computed annotation — it is intentionally kept out of `attributes.reviewed` in `.doorstop.yml`, so updating it does not require re-reviewing the item itself.
 
 ## When to use which document
 

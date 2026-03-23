@@ -59,7 +59,16 @@ Our C5-DEC CAD suite of tools makes use of various tools to enforce the C5-DEC m
     - [Traceability matrix](#traceability-matrix)
         - [Verifying requirement coverage](#verifying-requirement-coverage)
     - [Suggestions for batch updates](#suggestions-for-batch-updates)
-- [C5-DEC DocEngine for report generation](#c5-dec-docengine-for-report-generation)
+- [SpecEngine utilities](#specengine-utilities)
+    - [`c5publish.py` — enhanced Doorstop publisher](#c5publishpy--enhanced-doorstop-publisher)
+    - [`c5browser.py` — interactive specification browser](#c5browserpy--interactive-specification-browser)
+    - [`c5traceability.py` — traceability statistics and HTML report](#c5traceabilitypy--traceability-statistics-and-html-report)
+    - [`c5graph.py` — interactive dependency graph](#c5graphpy--interactive-dependency-graph)
+    - [`c5mermaid.py` — Mermaid diagram rendering](#c5mermaidpy--mermaid-diagram-rendering)
+    - [`c5fingerprint.py` — dependency content fingerprinting](#c5fingerprintpy--dependency-content-fingerprinting)
+    - [`prune_bad_links.py` — Doorstop link hygiene](#prune_bad_linkspy--doorstop-link-hygiene)
+    - [`doorstop_yml_to_md.py` — item format migration](#doorstop_yml_to_mdpy--item-format-migration)
+- [DocEngine](./docengine.md)
 - [AI-enabled design and specification](#ai-enabled-design-specification-development-and-testing)
 - [Transformer](#transformer)
     - [Design artifacts import and export](#design-artifacts-import-and-export)
@@ -153,9 +162,9 @@ Running the `new` command will produce a ZIP bundle, by default called `myprojec
 - `docs`: a folder aimed at technical specifications and documentation containing 4 subfolders:
     - `assets`: Doorstop-related files needed for publishing specifications to HTML
     - `manual`: basic templates for writing up a user manual
-    - `specs`: prepared Doorstop templates for technical specifications following the C5-CEC design artifact breakdown (explained below), together with a shell script for enhanced publishing (`publish.sh`) that orchestrates the full SpecEngine toolchain: keyword replacement (`c5-keyword.py`), Mermaid diagram rendering (`c5mermaid.py`), customised Doorstop publish with ID linkification (`c5publish.py`), traceability statistics (`c5traceability.py`), interactive browser (`c5browser.py`), and dependency graph (`c5graph.py`)
+    - `specs`: prepared Doorstop templates for technical specifications following the C5-CEC design artifact breakdown (explained below), together with a shell script for enhanced publishing (`publish.sh`) that orchestrates the full SpecEngine toolchain: keyword replacement (`c5-keyword.py`), Mermaid diagram rendering (`c5mermaid.py`), customised Doorstop publish with ID linkification (`c5publish.py`), traceability statistics (`c5traceability.py`), interactive browser (`c5browser.py`), dependency graph (`c5graph.py`), and dependency content fingerprinting (`c5fingerprint.py`)
     - `traceability`: an empty folder aimed at storing the outcome of the published technical specification in HTML
-- `<projectname>`: a folder containing an `assets` folder providing a copy of the [DocEngine](#c5-dec-docengine-for-report-generation) report and an empty Jupyter notebook that can be used out of the box thanks to all dependencies coming preinstalled with the containerized deployment
+- `<projectname>`: a folder containing an `assets` folder providing a copy of the [DocEngine](./docengine.md) report and an empty Jupyter notebook that can be used out of the box thanks to all dependencies coming preinstalled with the containerized deployment
 - `tests`: an empty Python package for storing unit tests (by default as a Python package, but can be tailored)
 - `build-<projectname>.sh`: a shell script for building the new project containers
 - `<projectname>.sh`: a runner shell script for launching the built containers
@@ -368,6 +377,46 @@ python docs/specs/SpecEngine/c5mermaid.py render
 python docs/specs/SpecEngine/c5mermaid.py undo
 ```
 
+### `c5fingerprint.py` — dependency content fingerprinting
+
+Computes and stores SHA-256 content fingerprints for source files referenced by Doorstop items, enabling dependency-aware impact analysis across the full specification tree.
+
+Any item whose `references:` list contains file paths gets a `references_content_fingerprint` block written into its YAML frontmatter. The block contains a per-file digest and a combined digest over all referenced files. When a referenced source file changes, the stored fingerprint no longer matches — the item is flagged as `[STALE]`, signalling that the corresponding requirement or test specification may need to be revisited.
+
+This is particularly useful for TCS items that reference implementation files: a change to the implementation automatically surfaces the affected spec items without any manual tracking.
+
+**Stored fingerprint format** (YAML frontmatter):
+
+```yaml
+references_content_fingerprint:
+  combined: 4a7b9c1d2e3f4a5b
+  files:
+    c5dec/core/cpssa/__init__.py: 9c0d1e2f3a4b5c6d
+    c5dec/core/cpssa/cpssa.py: 1a2b3c4d5e6f7a8b
+```
+
+Files that are missing at the time of the run are recorded as `"missing"` and excluded from the combined digest.
+
+```bash
+cd docs/specs
+
+# Update stale fingerprints in-place (standard use)
+poetry run python SpecEngine/c5fingerprint.py
+
+# Dry-run: compute and report, no writes
+poetry run python SpecEngine/c5fingerprint.py --dry-run
+
+# CI gate: exit 1 if any stale items found, no writes
+poetry run python SpecEngine/c5fingerprint.py --check
+
+# Verbose: show per-item and per-file hash detail
+poetry run python SpecEngine/c5fingerprint.py --verbose
+```
+
+> **Note:** `references_content_fingerprint` is a computed annotation, intentionally excluded from `attributes.reviewed` in `.doorstop.yml`. Updating it does not require re-reviewing the item itself.
+
+`c5fingerprint.py` is called automatically as the final step of `publish.sh` (after all keyword undo/restore steps).
+
 ### `prune_bad_links.py` — Doorstop link hygiene
 
 Removes `links:` entries that violate the Doorstop constraint that items may only link to items in their direct parent document.
@@ -420,65 +469,18 @@ All HTML outputs are written to `docs/publish/` and linked from the sidebar inje
 
 ---
 
-## C5-DEC DocEngine for report generation
+## DocEngine
 
-DocEngine provides Quarto-based templates for generating technical documents. Three template types are supported:
+DocEngine is C5-DEC CAD's Quarto-based document publishing module. It scaffolds production-ready templates for PDF reports, slide decks, and CRA Annex VII technical documentation from Markdown source files. See the dedicated **[DocEngine manual page](./docengine.md)** for the full reference, including template structure, configuration format, rendering options, ETR generation, and troubleshooting.
 
-- `report` — full technical report with LaTeX customizations, cover page, and chapters structure
-- `presentation` — slide deck template
-- `cra-tech-doc` — CRA compliance technical documentation template
-
-### Creating a DocEngine template
-
-Use the `docengine` CLI command to instantiate a template:
+Quick reference:
 
 ```sh
 c5dec docengine report -n <name>
 c5dec docengine presentation -n <name>
 c5dec docengine cra-tech-doc -n <name>
+c5dec docengine <type> -n <name> --standalone  # portable, self-contained template
 ```
-
-### DocEngine configuration format
-
-DocEngine templates use a `c5dec_config.yml` file at their root for document metadata (cover page, headers, footers, changelog). Starting with v1.2 a revised format `c5dec_config_v2.yml` is supported alongside the original.
-
-**Format differences:**
-
-| Feature | `c5dec_config.yml` (v1) | `c5dec_config_v2.yml` (v2) |
-|---------|------------------------|----------------------------|
-| Changelog entries | Strings only | Strings, lists, or dicts |
-| LaTeX escaping | Manual | Automatic for special chars |
-| Pre-render Python script | `custom_vars.py` | `custom_vars_v2.py` |
-
-New projects created with `c5dec docengine` will include both files. The v2 format is recommended for new work. Existing templates using `c5dec_config.yml` + `custom_vars.py` continue to work without changes.
-
-By default, the template is created under `./docengine/<name>/` and a ZIP archive of the same content is placed alongside it. To override the destination, use the `-d` flag:
-
-```sh
-c5dec docengine report -n <name> -d /path/to/destination
-```
-
-After creation, edit `c5dec_config.yml` at the root of the template folder to set project metadata (title, authors, date, headers/footers), then add your content to the `chapters/` (report) or `slides/` (presentation) folder.
-
-### Rendering
-
-This baseline report template can be used out of the box without any adjustments other than including your content. Our template provides a series of LaTeX customizations enhancing the fully Markdown-based experience, hiding away all such technical changes in a dedicated `tex` subfolder. We also group raw document content in a dedicated `chapters` folder, which can include sub-folders for better separation of specific subparts.
-
-![C5-DEC CAD SSDLC - DocEngine baseline report based on Quarto.](./_figures/c5dec-cad-DocEngine-report.png)
-
-Pre-rendering and post-rendering scripts (`etr_template/scripts`) provide automation for cover page metadata and headers/footers, all configurable via `c5dec_config.yml`.
-
-The template compiles to PDF, docx, and HTML; output is placed under `_output/` inside the template folder. To render, first ensure you have run `poetry shell` to activate the environment, then either use the Quarto VS Code extension (Command Palette → `Quarto: Render Document`) or the command line:
-
-```sh
-quarto render ./docengine/<name>/index.qmd --to pdf
-```
-
-This generates a PDF document stored under `./docengine/<name>/_output/`, with an example shown below:
-
-![C5-DEC CAD SSDLC - DocEngine compiled report example.](./_figures/c5dec-cad-DocEngine-compiled-report.png)
-
-For `docx` export, a reference template document is provided to control heading and table styles; you can replace it with your own. Most `docx` features work out of the box, but the cover page must be copied in manually.
 
 ## AI-enabled design, specification, development and testing
 

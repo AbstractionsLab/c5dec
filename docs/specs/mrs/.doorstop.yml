@@ -5,13 +5,14 @@ settings:
   itemformat: markdown
 attributes:
   defaults:
-    type: 'F'
-    vm: 'T'
-    rationale: "See mission analysis"
-    importance: "3"
-    urgency: "3"
-    risk: "1"
-    difficulty: "1"
+    type: F
+    vm: T
+    rationale: See mission analysis
+    importance: '3'
+    urgency: '3'
+    risk: '1'
+    difficulty: '1'
+    references_content_fingerprint: {}
   reviewed:
   - type
   - vm
@@ -21,10 +22,10 @@ attributes:
   - risk
   - difficulty
   publish:
-    - type
-    - vm
-    - rationale
-    - importance
-    - urgency
-    - risk
-    - difficulty
+  - type
+  - vm
+  - rationale
+  - importance
+  - urgency
+  - risk
+  - difficulty

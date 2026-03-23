@@ -1,3 +1,28 @@
+# 1.3 (2026-03-23)
+
+## Added
+
+- **SpecEngine dependency content fingerprint** (`docs/specs/SpecEngine/c5fingerprint.py`): new SpecEngine module that computes per-file SHA-256 hashes over the contents of every file listed in a Doorstop item's `references:` field and stores a `references_content_fingerprint` block (combined hash + per-file breakdown) in each item's YAML frontmatter, enabling dependency-aware impact analysis across all Doorstop documents (MRS, SRS, ARC, SWD, TCS, TRP); items whose referenced files have changed since the last run are flagged as `[STALE]` and have their stored fingerprint updated in-place; supports `--dry-run` (compute only, no writes), `--check` (exit code 1 on stale, for use as a CI gate), and `--verbose` (per-file hash detail) flags; automatically registers the `references_content_fingerprint: {}` attribute default in the `.doorstop.yml` of every document that contains references-bearing items; integrated into `publish.sh` as the final step (after all undo/restore steps)
+
+- **DocEngine standalone mode** (`c5dec docengine <type> -n <name> --standalone`): `create_docengine_template()` accepts a new `standalone` boolean argument; when set, the command additionally copies the `.devcontainer` folder, `docEngine.Dockerfile`, `poetry.lock`, and `pyproject.toml` from the repository root into the generated template destination, enabling users to open and use DocEngine directly in VS Code without the rest of the C5-DEC environment; `--standalone` flag added to the `docengine` CLI argument parser
+
+- **End-user DocEngine manual package** (`docs/manual/docengine-manual/`): added a user-oriented manual authored as a DocEngine report template, including chapters, figures, Quarto configuration, and helper scripts, together with a compiled PDF output artifact for immediate consumption by end users
+
+## Modified
+
+- Migrated the DocEngine user manual from the SSDLC page to a dedicated and more detailed `docengine.md` page under `docs/manual`
+- Updated manual entry README and other relevant docs to reflect the DocEngine documentation update
+
+## Fixed
+
+- Bug preventing the Ubuntu font from being used by DocEngine
+
+# 1.2.4 (2026-03-11)
+
+## Fixed
+
+- Image path bug in product webpage
+
 # 1.2.3 (2026-03-11)
 
 ## Added

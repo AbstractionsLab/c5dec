@@ -1,0 +1,12 @@
+cc:
+  cem: "Common Evaluation Methodology"
+
+acr:
+  alab: "ALab"
+  c5: "C5-DEC"
+
+chapter:
+  chp1: "Introduction"
+  chp2: "Analysis"
+  chp3: "Summary"
+  chp4: "Bibliography"

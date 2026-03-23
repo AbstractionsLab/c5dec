@@ -1,0 +1,20 @@
+# References {#sec-biblio}
+
+## Source manual pages
+
+- docs/manual/README.md
+- docs/manual/installation.md
+- docs/manual/start.md
+- docs/manual/cct.md
+- docs/manual/ssdlc.md
+- docs/manual/pm.md
+- docs/manual/cpssa.md
+- docs/manual/cryptography.md
+- docs/manual/isms.md
+- docs/manual/sbom.md
+- docs/manual/cra.md
+- docs/manual/troubleshooting.md
+
+## Figure source
+
+All screenshots in this report are sourced from docs/manual/_figures.

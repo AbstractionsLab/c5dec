@@ -1,0 +1,43 @@
+# Reader guide {#sec-reader-guide}
+
+This manual is a consolidated, end-user oriented guide built from the content in the C5-DEC manual pages.
+
+## Who this manual is for
+
+This version is optimized for users who already know the platform and need quick access to module workflows, commands, and troubleshooting paths.
+
+## How to navigate this document
+
+Use this flow for fast task completion:
+
+1. Read _Installation and workspace setup_ in @sec-installation only when you need to set up or repair an environment.
+2. Use _quick start and interfaces_ in @sec-quick-start for CLI, TUI, and GUI launch paths.
+3. Jump to _Module guides_ in @sec-modules for feature-specific workflows.
+4. Use _Troubleshooting_ in @sec-troubleshooting when commands or environments fail.
+5. Keep _Command reference_ in @sec-command-reference open for copy/paste operations.
+
+## Source coverage
+
+The chapters in this report are reorganized from the following source pages:
+
+- [docs/manual/installation.md](https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/installation.md)
+- [docs/manual/start.md](https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/start.md)
+- [docs/manual/cct.md](https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/cct.md)
+- [docs/manual/ssdlc.md](https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/ssdlc.md)
+- [docs/manual/pm.md](https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/pm.md)
+- [docs/manual/cpssa.md](https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/cpssa.md)
+- [docs/manual/cryptography.md](https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/cryptography.md)
+- [docs/manual/isms.md](https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/isms.md)
+- [docs/manual/sbom.md](https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/sbom.md)
+- [docs/manual/cra.md](https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/cra.md)
+- [docs/manual/troubleshooting.md](https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/troubleshooting.md)
+
+## Interfaces at a glance
+
+C5-DEC provides three primary interfaces:
+
+- CLI for scriptable and automatable workflows.
+- TUI for keyboard-driven interactive operation in a terminal.
+- GUI for browser-based exploration and checklist workflows.
+
+The manual content also documents third-party GUI usage patterns through Visual Studio Code, Zettlr, and Firefox integration paths.

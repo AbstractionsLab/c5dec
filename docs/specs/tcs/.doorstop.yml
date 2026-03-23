@@ -4,6 +4,8 @@ settings:
   parent: SRS
   prefix: TCS
   sep: '-'
+extensions:
+  item_sha_required: true
 attributes:
   defaults:
     release: stable
@@ -22,6 +24,7 @@ attributes:
     complexity: 1-5
     test_data: see referenced files
     version: 1.0
+    references_content_fingerprint: {}
   publish:
   - platform
   - precondition

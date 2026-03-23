@@ -70,6 +70,7 @@ attributes:
 
       '
     release: stable
+    references_content_fingerprint: {}
   publish:
   - test-date
   - tester

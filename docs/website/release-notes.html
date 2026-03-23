@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>C5-DEC CAD | Release notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #eef1f5;
+      --surface: #ffffff;
+      --surface-alt: #f5f8fc;
+      --ink: #17212f;
+      --muted: #4e6076;
+      --line: #d5dfec;
+      --brand: #0f5db8;
+      --brand-strong: #093f7f;
+      --accent: #e12f56;
+      --ok: #13874f;
+      --shadow: 0 12px 40px rgba(10, 32, 65, 0.15);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at 10% -10%, #d6e8ff 0, transparent 40%),
+        radial-gradient(circle at 90% 0, #f9d9e3 0, transparent 35%),
+        var(--bg);
+      color: var(--ink);
+      font-family: Manrope, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      width: min(900px, calc(100vw - 2.4rem));
+      margin: 0 auto;
+    }
+
+    /* ── topbar ── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(8px);
+      background: rgba(238, 241, 245, 0.82);
+      border-bottom: 1px solid rgba(213, 223, 236, 0.8);
+      z-index: 20;
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.62rem;
+      font-family: "Space Grotesk", sans-serif;
+      letter-spacing: 0.02em;
+      font-weight: 700;
+      color: var(--brand-strong);
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 14px rgba(9, 63, 127, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      background: #fff;
+    }
+
+    .topnav {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .topnav a {
+      text-decoration: none;
+      color: var(--brand-strong);
+      border: 1px solid transparent;
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .topnav a:hover {
+      border-color: var(--line);
+      background: var(--surface);
+    }
+
+    /* ── page header ── */
+    .page-header {
+      padding: 3.5rem 0 1.5rem;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 2.5rem;
+    }
+
+    .page-header .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.85rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.35rem 0.75rem;
+      background: var(--surface);
+      color: var(--brand-strong);
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      margin-bottom: 0.9rem;
+    }
+
+    .page-header h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .page-header .lead {
+      margin-top: 0.8rem;
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 66ch;
+    }
+
+    /* ── release block ── */
+    .release {
+      margin-bottom: 3.5rem;
+    }
+
+    .release-heading {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .release-title {
+      margin: 0;
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      letter-spacing: -0.01em;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--brand-strong);
+    }
+
+    .release-date {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* ── feature card ── */
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 1.4rem 1.5rem;
+      box-shadow: 0 6px 24px rgba(18, 43, 77, 0.07);
+      margin-bottom: 1rem;
+    }
+
+    .feature-card.highlight {
+      background: linear-gradient(115deg, #eef5ff 0%, #f9fbff 100%);
+      border-color: var(--brand);
+      border-width: 2px;
+    }
+
+    .new-badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      border-radius: 999px;
+      padding: 0.2rem 0.65rem;
+      background: var(--brand);
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+    }
+
+    .feature-card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.07rem;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--brand-strong);
+    }
+
+    .feature-card p {
+      margin: 0 0 0.8rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .feature-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ── detail table inside a card ── */
+    .detail-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-top: 0.9rem;
+    }
+
+    .detail-table th {
+      text-align: left;
+      font-weight: 700;
+      color: var(--brand-strong);
+      padding: 0.35rem 0.6rem;
+      background: rgba(15, 93, 184, 0.07);
+      border-bottom: 1px solid var(--line);
+      white-space: nowrap;
+    }
+
+    .detail-table td {
+      padding: 0.35rem 0.6rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    .detail-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.88em;
+      background: rgba(15, 93, 184, 0.08);
+      border: 1px solid rgba(15, 93, 184, 0.15);
+      border-radius: 4px;
+      padding: 0.1em 0.38em;
+      color: var(--brand-strong);
+    }
+
+    /* ── chip row ── */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.8rem;
+    }
+
+    .chip {
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--surface-alt);
+      color: var(--brand-strong);
+      padding: 0.17rem 0.55rem;
+      font-size: 0.77rem;
+      font-weight: 700;
+    }
+
+    /* ── divider ── */
+    .release-divider {
+      border: none;
+      border-top: 1px solid var(--line);
+      margin: 2.5rem 0;
+    }
+
+    /* ── footer ── */
+    .footer {
+      margin-top: 2rem;
+      padding: 1.6rem 0 2.2rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .footer a {
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    @media (max-width: 760px) {
+      .page-header {
+        padding-top: 2.2rem;
+      }
+
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .brand-logo {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="https://github.com/AbstractionsLab/c5dec/tree/main">
+        <img class="brand-logo" src="assets/3D3B2C_LOG_C5DEC-CAD_v1.2.png" alt="C5-DEC CAD logo">
+        <span>C5-DEC CAD</span>
+      </a>
+      <nav class="topnav" aria-label="Site navigation">
+        <a href="product-presentation.html">Product</a>
+        <a href="https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/README.md">Manual</a>
+        <a href="https://github.com/AbstractionsLab/c5dec/blob/main/CHANGELOG.md">Changelog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <div class="page-header">
+        <div class="eyebrow">What&#8217;s new</div>
+        <h1>Release notes</h1>
+        <p class="lead">
+          Detailed notes on the features, improvements, and fixes shipped in each C5-DEC CAD release.
+          For the full list of all changes see the
+          <a href="https://github.com/AbstractionsLab/c5dec/blob/main/CHANGELOG.md">changelog</a>.
+        </p>
+      </div>
+
+      <!-- ═══════════════════════════════════════════
+           v1.3
+           ═══════════════════════════════════════════ -->
+      <div class="release" id="v1.3">
+        <div class="release-heading">
+          <h2 class="release-title">v1.3</h2>
+          <span class="release-date">March 2026</span>
+        </div>
+
+        <!-- ── main feature ── -->
+        <div class="feature-card highlight">
+          <div class="new-badge">New feature</div>
+          <h3>Dependency content fingerprinting &amp; impact analysis</h3>
+          <p>
+            Every Doorstop specification item that references one or more source files or artifacts
+            (via the <code>references:</code> field) now carries a
+            <strong>SHA&#8209;256 content fingerprint</strong> stored directly in its YAML frontmatter.
+            The fingerprint is computed over the actual bytes of each referenced file, giving an
+            objective, tamper-evident snapshot of the dependency state at the time of the last
+            spec publish run.
+          </p>
+          <p>
+            When any of those files changes — a Python module is patched, an XML rules file is
+            updated, an architecture diagram is revised — the next run of the
+            <code>c5fingerprint.py</code> SpecEngine script detects the divergence and flags
+            the owning spec item as <em>stale</em>.  This gives engineers an immediate, traceable
+            impact signal without manual cross-referencing: you know exactly which TCS test cases,
+            TRP test reports, MRS market requirements, SRS requirements, or ARC/SWD design items
+            are affected by a given change.
+          </p>
+          <p>
+            The feature is document-type agnostic — it works across MRS, SRS, ARC, SWD, TCS, TRP,
+            and any other Doorstop document in the spec tree that uses <code>references:</code>.
+          </p>
+
+          <table class="detail-table" aria-label="Fingerprint storage format">
+            <thead>
+              <tr>
+                <th>Frontmatter field</th>
+                <th>Content</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>references_content_fingerprint.combined</code></td>
+                <td>16-char hex SHA-256 over all referenced file hashes (sorted). Changes when <em>any</em> file changes.</td>
+              </tr>
+              <tr>
+                <td><code>references_content_fingerprint.files</code></td>
+                <td>Dict of <code>path → 16-char hash</code>. Pinpoints <em>which</em> specific file changed.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p style="margin-top:1rem;">
+            Files that cannot be resolved at the time of the run are recorded as
+            <code>"missing"</code> in the per-file dict and excluded from the combined hash, so a
+            missing dependency is surfaced without masking changes in the files that <em>are</em> present.
+          </p>
+
+          <table class="detail-table" aria-label="CLI flags">
+            <thead>
+              <tr>
+                <th>Flag</th>
+                <th>Behaviour</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>--dry-run</code></td>
+                <td>Compute and report fingerprints; write nothing. Exit 0.</td>
+              </tr>
+              <tr>
+                <td><code>--check</code></td>
+                <td>Compute and report fingerprints; write nothing. Exit&nbsp;1 if any stale items are found — suitable as a CI gate that blocks merges when unreviewed dependencies have changed.</td>
+              </tr>
+              <tr>
+                <td><code>--verbose</code></td>
+                <td>Print per-file hash details for each item alongside the stale/ok status.</td>
+              </tr>
+              <tr>
+                <td><code>--specs-dir</code></td>
+                <td>Override the root of the Doorstop specs tree (default: the <code>docs/specs/</code> folder).</td>
+              </tr>
+              <tr>
+                <td><code>--repo-root</code></td>
+                <td>Override the repository root used to resolve reference paths (default: three levels above the script).</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p style="margin-top:1rem;">
+            On first run the script also automatically registers
+            <code>references_content_fingerprint: {}</code> as an attribute default in the
+            <code>.doorstop.yml</code> of every document whose items carry
+            <code>references:</code> fields, so no manual configuration is needed.
+          </p>
+
+          <p>
+            The script is integrated as the final step of <code>publish.sh</code>, running after all
+            keyword-substitution and Mermaid undo steps so that fingerprints are always computed
+            against the canonical source state.
+          </p>
+
+          <div class="chips">
+            <span class="chip">SHA-256 per-file hashes</span>
+            <span class="chip">Combined fingerprint</span>
+            <span class="chip">Stale detection</span>
+            <span class="chip">--check CI gate</span>
+            <span class="chip">--dry-run</span>
+            <span class="chip">Auto .doorstop.yml registration</span>
+            <span class="chip">Cross-document (MRS · SRS · ARC · SWD · TCS · TRP)</span>
+            <span class="chip">publish.sh integrated</span>
+          </div>
+        </div>
+
+      </div>
+      <!-- /v1.3 -->
+
+      <hr class="release-divider">
+
+      <!-- ═══════════════════════════════════════════
+           Earlier releases — brief summaries
+           ═══════════════════════════════════════════ -->
+      <div class="release" id="v1.2">
+        <div class="release-heading">
+          <h2 class="release-title">v1.2</h2>
+          <span class="release-date">March 2026</span>
+        </div>
+        <div class="feature-card">
+          <h3>DocEngine CLI, CRA, SBOM, native cryptography, CPSSA package, and SpecEngine expansion</h3>
+          <p>
+            Major release adding the DocEngine CLI (<code>c5dec docengine report|presentation</code>),
+            the EU CRA compliance module (Annex I/V/VII), SBOM lifecycle management (Syft, CycloneDX,
+            SPDX), a native Python cryptography module (SHA-256, GnuPG, Shamir, NaCl Ed25519),
+            the CPSSA multi-subsystem package with Threagile / pytm / FAIR support, and five new
+            SpecEngine tools including <code>c5graph.py</code>, <code>prune_bad_links.py</code>,
+            <code>c5mermaid.py</code>, and <code>doorstop_yml_to_md.py</code>.
+          </p>
+          <div class="chips">
+            <span class="chip">DocEngine</span>
+            <span class="chip">CRA</span>
+            <span class="chip">SBOM</span>
+            <span class="chip">Cryptography</span>
+            <span class="chip">CPSSA</span>
+            <span class="chip">SpecEngine tools</span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="release-divider">
+
+      <div class="release" id="v1.1">
+        <div class="release-heading">
+          <h2 class="release-title">v1.1</h2>
+          <span class="release-date">May 2025</span>
+        </div>
+        <div class="feature-card">
+          <h3>Organize tool, custom workspace management, SSDLC enhancements</h3>
+          <p>
+            Added the <code>organize-tool</code> to the dev container, custom workspace management
+            via <code>c5dec.sh session &lt;workspace&gt;</code>, and an updated user manual covering
+            the new SSDLC workspace and AI-enabled design features.
+          </p>
+          <div class="chips">
+            <span class="chip">organize-tool</span>
+            <span class="chip">session workspace</span>
+            <span class="chip">SSDLC manual</span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="release-divider">
+
+      <div class="release" id="v1.0">
+        <div class="release-heading">
+          <h2 class="release-title">v1.0</h2>
+          <span class="release-date">May 2025</span>
+        </div>
+        <div class="feature-card">
+          <h3>Stable release of C5-DEC CAD</h3>
+          <p>
+            First stable release including project creation (<code>c5dec.sh new</code>), DocEngine
+            templates, ETR evaluation spreadsheets, interactive session mode, OQS-OpenSSL PQC
+            container, and the C5-DEC project template with full Doorstop-backed specifications.
+          </p>
+          <div class="chips">
+            <span class="chip">c5dec new</span>
+            <span class="chip">DocEngine</span>
+            <span class="chip">ETR</span>
+            <span class="chip">OQS-OpenSSL</span>
+            <span class="chip">Project template</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /container -->
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      C5-DEC CAD release notes.
+      See the <a href="product-presentation.html">product overview</a>,
+      the <a href="https://github.com/AbstractionsLab/c5dec/blob/main/docs/manual/README.md">user manual</a>,
+      or the full <a href="https://github.com/AbstractionsLab/c5dec/blob/main/CHANGELOG.md">changelog</a>.
+    </div>
+  </footer>
+
+</body>
+</html>

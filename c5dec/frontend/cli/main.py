@@ -126,6 +126,8 @@ def _docengine(subs):
                      help="Name of the template instance")
     sub.add_argument("-d", "--destination", 
                      help="Override default destination path (default: ./docengine/<name>/)")
+    sub.add_argument("--standalone", action="store_true", default=False,
+                     help="Also copy .devcontainer, docEngine.Dockerfile, and Poetry artifacts (poetry.lock, pyproject.toml) for standalone VS Code usage")
 
 @common.feature_flag("ON")
 def _timerep(subs):

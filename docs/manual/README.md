@@ -17,7 +17,7 @@ C5-DEC, short for **Common Criteria for Cybersecurity, Cryptography, Clouds – 
 
 C5-DEC CAD is designed around open data formats (Markdown, YAML, JSON, CSV, LaTeX) and integrates with widely used open-source tools such as Doorstop, Quarto, OpenProject, GitLab, OWASP pytm, threagile, and OpenSSL.
 
-The **CCT** makes CC certification and evaluation (ISO/IEC 15408 / ISO/IEC 18045) more accessible by providing a comprehensive CC database, a browser for navigating SFRs and SARs, and tools for creating and tracking evaluation checklists. The **SSDLC** module supports the full development life cycle — requirements, architecture, design, test specifications, and reports — in a single repository with complete traceability. Both modules are backed by the CPSSA methodology and tools module. For cryptographic operations, C5-DEC provides a few commands for commonly used operations (hashing and comparison, payload signature and verification) and also integrates `Kryptor`, `GnuPG`, and `Cryptomator` for classical cryptography into its deployment container, and an `OQS-OpenSSL provider` container for post-quantum cryptography; see the [Cryptography](./cryptography.md) page for details.
+The **CCT** makes CC certification and evaluation (ISO/IEC 15408 / ISO/IEC 18045) more accessible by providing a comprehensive CC database, a browser for navigating SFRs and SARs, and tools for creating and tracking evaluation checklists. The **SSDLC** module supports the full development life cycle — requirements, architecture, design, test specifications, and reports — in a single repository with complete traceability. **DocEngine** is C5-DEC's Quarto-based document publishing system; it scaffolds production-ready PDF, HTML, and DOCX templates for technical reports, presentations, and CRA Annex VII technical documentation. Both the SSDLC and DocEngine modules are backed by the CPSSA methodology and tools module. For cryptographic operations, C5-DEC provides a few commands for commonly used operations (hashing and comparison, payload signature and verification) and also integrates `Kryptor`, `GnuPG`, and `Cryptomator` for classical cryptography into its deployment container, and an `OQS-OpenSSL provider` container for post-quantum cryptography; see the [Cryptography](./cryptography.md) page for details.
 
 ## How to use this manual
 
@@ -38,7 +38,9 @@ Once installed and running, consult the relevant module page for detailed usage 
 | Module | Page | Summary |
 |--------|------|---------|
 | **CCT** | [Common Criteria Toolbox](./cct.md) | Browse the CC database, create evaluation checklists, navigate SFRs and SARs |
-| **SSDLC** | [Secure software development life cycle](./ssdlc.md) | Manage requirements, architecture, design and test artifacts with full traceability; use the Transformer and DocEngine |
+| **SSDLC** | [Secure software development life cycle](./ssdlc.md) | Manage requirements, architecture, design and test artifacts with full traceability; use the Transformer |
+| **DocEngine** | [DocEngine](./docengine.md) | Quarto-based document publishing: scaffold report, presentation, and CRA Annex VII templates; render to PDF, HTML, and DOCX |
+| **DocEngine template manual** | [DocEngine manual folder](./docengine-manual/README.md) | User-oriented manual authored as a DocEngine report template, with source assets and a compiled PDF artifact for immediate end-user consumption |
 | **PM** | [Project resource management](./pm.md) | Convert and process OpenProject time report exports |
 | **CPSSA** | [Cyber-physical system security assessment](./cpssa.md) | Threat modelling (Threagile), STRIDE reporting, PlantUML DFD generation, and FAIR-based quantitative risk analysis |
 | **Cryptography** | [Cryptography](./cryptography.md) | Classical and post-quantum cryptographic operations via CLI or OQS-OpenSSL container |
@@ -46,6 +48,18 @@ Once installed and running, consult the relevant module page for detailed usage 
 | **SBOM** | [Software Bill of Materials](./sbom.md) | Generate, import, diff and validate SBOMs in CycloneDX and SPDX formats |
 | **CRA** | [CRA compliance module](./cra.md) | Cyber Resilience Act compliance checklists, technical documentation and SBOM integration |
 | **Troubleshooting** | [Troubleshooting](./troubleshooting.md) | Common issues and solutions for installation, containers, Doorstop, and the GUI |
+
+## DocEngine manual folder
+
+The [docengine-manual](./docengine-manual/README.md) directory provides a user-oriented manual authored as a DocEngine report template.
+
+It contains the full authoring workspace and a ready-to-use compiled output for end users, including:
+
+- Manual chapters and figures
+- Quarto project configuration
+- Helper scripts for rendering and customization
+- Supporting template assets (for example, LaTeX customization files)
+- A compiled PDF output artifact for immediate consumption
 
 ## Interfaces
 

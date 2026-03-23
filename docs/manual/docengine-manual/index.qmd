@@ -1,0 +1,20 @@
+# Preface {.unnumbered}
+
+This manual provides an end-user oriented path through C5-DEC workflows.
+
+The content is reorganized from docs/manual to improve discoverability while keeping the same functional scope.
+
+## Start here
+
+1. Use [Reader guide](chapters/01-reader-guide.qmd) for navigation strategy.
+2. Use [Installation and workspace setup](chapters/02-installation.qmd) when preparing or repairing an environment.
+3. Use [Quick start and interfaces](chapters/03-quick-start.qmd) for launch paths.
+4. Use [Module guides](chapters/04-module-guides.qmd) for feature workflows.
+5. Use [Troubleshooting](chapters/05-troubleshooting.qmd) to resolve common failures.
+6. Use [Command reference](chapters/06-command-reference.qmd) for copy/paste command lookup.
+
+## Scope
+
+This report covers user-facing operation of C5-DEC modules and publishing workflows documented in the manual set.
+
+It does not change product behavior or introduce new normative requirements.
